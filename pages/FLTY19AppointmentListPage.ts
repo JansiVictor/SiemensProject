@@ -36,16 +36,19 @@ export class FLTY19AppointmentListPageObject {
     public doorStepText: ElementFinder;
     public arrivalTime: ElementFinder;
     public callfrwdpageContent: ElementFinder;
+    public doorStepPROText: ElementFinder;
+    public beAware: ElementFinder; 
+    public continueLink: ElementFinder; 
     
 
     constructor() {
         
-        this.appointmentListLabel = element(by.xpath('//*[@id="btn_top"]/div[2]/div'));
+        this.appointmentListLabel = element(by.xpath('//[@id="btn_top"]/div[2]/div'));
         this.usrname = element(by.id("input1"));
         this.password = element(by.id("input2"));
         this.loginbtn = element(by.id("submitbutton"));
-        this.elem = element(by.xpath('//*[@id="app"]/siemensheader'));
-        this.AppointmentText = element(by.xpath('//*[@id="btn_top"]/div[2]/div'));
+        this.elem = element(by.xpath('//[@id="app"]/siemensheader'));
+        this.AppointmentText = element(by.xpath('//[@id="btn_top"]/div[2]/div'));
         this.callForwardText = element(by.xpath('(//button[@id = "btnCall1"])[1]'));
         this.contactMadeText = element(by.xpath('//div[text()="Contact made?"]'));
         this.contactMadeYes = element(by.xpath('//label[@id="rb_contact_y"]'));
@@ -59,25 +62,26 @@ export class FLTY19AppointmentListPageObject {
         this.MPRNdiplayed = element(by.xpath('//div[text()="MPRN:"]'));
         this.mprnOK =  element(by.id('btnCall2'));
         this.expandAll = element(by.xpath('//*[text()="Expand All"]'));
-        this.customerContactNumberText = element(by.xpath('//*[@id="app"]/div/div/div[3]/div/ng-switch/div/callforwardform/div/div/div[1]/div[2]/b'));
+      //  this.customerContactNumberText = element(by.xpath('//*[@id="app"]/div/div/div[3]/div/ng-switch/div/callforwardform/div/div/div[1]/div[2]/b'));
         this.mpan = element(by.xpath('(//div[@class="depart-text alignCenter"]/div[@class="content-row"])[1]'));
         this.customerDetails = element(by.xpath('(//div[@class="depart-text alignCenter"]/div[@class="content-row"])[2]'));
         this.postCode = element(by.xpath('(//div[@class="depart-text alignCenter"]/div[@class="content-row"])[3]'));
         this.arriveBtn = element(by.id('btn_arrive'));
-        this.doorStepText = element(by.xpath('//div[text() ="DOORSTEP PROTOCOL"]'));
+        this.doorStepText = element(by.xpath('(//div[text() ="Doorstep"])[1]'));
+        this.doorStepPROText = element(by.xpath('//div[text() ="DOORSTEP PROTOCOL"]'));
         this.arrivalTime = element(by.xpath('//div[@class="content-row bold"]'));
         this.callfrwdpageContent = element(by.xpath('//div[@class="description"]'));
-    }
+        this.beAware = element(by.xpath('//div/h4[text() =" Be aware of any danger!"]'));
+        this.continueLink = element(by.xpath('//span[text()="continue >"]'));
 
-   
+
+    }
 
     public verifyDoorstepWorkOrderWindow() {
          if (this.doorStepText.isDisplayed){
             this.verifydoorStepWindow();
         }
     }
-
-    
 
     public verifyWorkOrderWindowText() {
         if(this.AppointmentText.isDisplayed){
@@ -92,7 +96,7 @@ export class FLTY19AppointmentListPageObject {
     }
     
 	public async validateThePageTextDisplay(xpathVariable, text) {
-		xpathVariable.getText().then(async function(xpathVar) {
+		await xpathVariable.getText().then(async function(xpathVar) {
 			console.log("find Page Text  " + xpathVar);
 			await expect(xpathVariable.getText()).toEqual(text);
 		});
@@ -102,13 +106,15 @@ export class FLTY19AppointmentListPageObject {
 		this.callfrwdpageContent.getText().then(async function(callforwdcontent) {
 			console.log("find callforwdcontent Text  " + callforwdcontent);
 		});
-	};
+    };
+    
+
     
     public async verifydoorStepWindow() {
         try{
 		
-			await expect(this.doorStepText.isPresent()).toBe(true);
-			await expect(this.arriveBtn.isPresent()).toBe(true);
+			await expect(this.doorStepText.isPresent());
+			await expect(this.arriveBtn.isPresent());
             this.arriveBtn.click();
             await utility.wait(5000);
             this.arrivalTime.getText().then(function(arrivalTimeText) {
@@ -122,46 +128,51 @@ export class FLTY19AppointmentListPageObject {
 		}
     }
     public async clickOnCallForwardBtn(){
-        await expect(this.callForwardText.isPresent()).toBe(true);
+        await expect(this.callForwardText.isPresent());
 		this.callForwardText.click();
-		//customerContactNumberText
-		this.validateThePageTextDisplay(this.customerContactNumberText, 'CUSTOMER CONTACT NUMBER:');
+        //customerContactNumberText
+        await expect(await this.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
+	
     }
   //ContactMadeText
     public async clickOnContactMadeOtion(){
-		this.validateThePageTextDisplay(this.contactMadeText, 'Contact made?');
-		await expect(this.contactMadeYes.isPresent()).toBe(true);
+        await expect(await this.contactMadeText.getText()).equal("Contact made?");
+		await expect(this.contactMadeYes.isPresent());
 		this.contactMadeYes.click();
     }
     public async verifyDepartForAppointmentWindow(){
        // this.departBtn.click();
-        this.validateThePageTextDisplay(this.departAppointment, 'Depart for Appointment?');
-		expect(this.departAppointment).toBeTruthy();
+       await utility.wait(5000);
+       await expect(await this.departAppointment.getText()).equal("Depart for Appointment?");
+		expect(this.departAppointment.isPresent());
     }
     public async clickDepartBtn(){
+        await expect(this.departBtn.isPresent());
         this.departBtn.click();
+        await utility.wait(10000);
     }
 
     
     public async appointmentConfirmationYes(){
-    this.validateThePageTextDisplay(this.appointmentConfirmation, 'Appointment Confirm?');
+    await utility.wait(2000);
+    await expect(await this.appointmentConfirmation.getText()).equal("Appointment Confirm?");
     this.appointmentconfirmationYes.click();
     }
     public async mpanDetails(){
-        await expect(this.mpan.isPresent()).toBeTruthy(true);
+        await expect(this.mpan.isPresent());
 		this.mpan.getText().then(function(mpanText) {
 		console.log("find Mpan Text  " + mpanText);
 		});
     }
 
     public async customerNameDetails(){
-        await expect(this.customerDetails.isPresent()).toBeTruthy();
+        await expect(this.customerDetails.isPresent());
         this.customerDetails.getText().then(function(customerDetailsText) {
         console.log("find Customer Details Text  " + customerDetailsText);
         });
     }
     public async postCodeDetails(){
-        await expect(this.postCode.isPresent()).toBeTruthy();
+        await expect(this.postCode.isPresent());
         this.postCode.getText().then(function(postCodeText) {
         console.log("find PostCode Text  " + postCodeText);
         });
@@ -176,15 +187,23 @@ export class FLTY19AppointmentListPageObject {
     public async additionalDetails(){
         this.additionalAccessDetailsTextBox.sendKeys('Additional access details comment 123');
         this.departBtn.click();
-        await expect(this.departAppointment).toBeTruthy();
+        await expect(this.departAppointment.isPresent());
     }
 
     public async mprnOKbtn(){
-			await expect(this.mprnOK.isPresent()).toBeTruthy();
-			this.mprnOK.click();
-			await expect(this.arriveBtn.isPresent()).toBeTruthy();
-
+			await expect(this.mprnOK.isPresent());
+            this.mprnOK.click();
+            await utility.wait(10000);
+			await expect(this.arriveBtn.isPresent());
     }
+
+    public async clickArriveBtn(){
+        await expect(this.arriveBtn.isPresent());
+        this.arriveBtn.click();
+        await utility.wait(10000);
+        await expect(this.arrivalTime.isPresent());
+
+}
 
     
 }

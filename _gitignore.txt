@@ -1,5 +1,0 @@
-node_modules/
-reports/
-.vscode
-.DS_Store
-package-lock.json
