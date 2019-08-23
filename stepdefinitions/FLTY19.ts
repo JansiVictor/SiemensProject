@@ -351,8 +351,7 @@
 
 
   When('I fill the New Meter details fields with values', function () {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending';
+    
   });
 
 
