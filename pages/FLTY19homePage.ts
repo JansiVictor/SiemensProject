@@ -12,7 +12,7 @@ export class FLTY19homePageObject {
 
     
     constructor() {
-        this.selectLink = element.all(by.xpath('//span[text()="select >"]'));
+        this.selectLink = element.all(by.xpath('//div[(@id="SelectJobTest1 EXCH21 DF SMETS2")]'));
 
         
         this.appointmentListLabel = element(by.xpath('//*[@id="btn_top"]/div[2]/div'));
@@ -33,29 +33,29 @@ export class FLTY19homePageObject {
 
     public clickOnTheSelectLink() {
         var list = this.selectLink;
-	  list.count().then(function(promiseResult) {
-        console.log("size is: " + promiseResult);
-        var size = promiseResult; //4
-        //Remove when there is one
-		//var actualSize = size -1;
-		console.log("size is: " + size);
-        var selectlatest = element(
-	  by.xpath('(//span[text()="select >"])'+'['+[size]+']')
-        );
-        selectlatest.getText().then(function(selectText) {
-          console.log("find select link text  " + selectText);
-		});
-		console.log("link " + ('(//span[text()="select >"])'+'['+[size]+']'));
-		var selectMe = element(
-            by.xpath('(//span[text()="select >"])'+'['+[size]+']')
+        list.count().then(function(promiseResult) {
+          console.log("size is: " + promiseResult);
+          var size = promiseResult; //4
+          //Remove when there is one
+          //var actualSize = size -1;
+          console.log("size is: " + size);
+          var selectlatest = element(
+        by.xpath('((//div[(@id="SelectJobTest1 EXCH21 DF SMETS2")]))'+'['+[size]+']')
           );
- 		selectMe.getText().then(function(selectMeText) {
-          console.log("find select Me link text  " + selectMeText);
-		});
-        if (
-          selectMe.isDisplayed()
-        ) {
-          selectMe.click();
+          selectlatest.getText().then(function(selectText) {
+            console.log("find select link text  " + selectText);
+          });
+          console.log("link " + ('((//div[(@id="SelectJobTest1 EXCH21 DF SMETS2")]))'+'['+[size]+']'));
+          var selectMe = element(
+              by.xpath('((//div[(@id="SelectJobTest1 EXCH21 DF SMETS2")]))'+'['+[size]+']')
+            );
+           selectMe.getText().then(function(selectMeText) {
+            console.log("find select Me link text  " + selectMeText);
+          });
+          if (
+            selectMe.isDisplayed()
+          ) {
+            selectMe.click();
           };
             
         });

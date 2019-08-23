@@ -1,4 +1,4 @@
-	Feature: Login into Siemen Application
+Feature: Login into Siemen Application
 
 Scenario Outline: Logging in to job's "Work Order" window
 	Given the Login Page
@@ -8,14 +8,14 @@ Scenario Outline: Logging in to job's "Work Order" window
 
 	Examples:
 	| Username 		| Password      |
-	|  E0000022 |  000Password  |
+	|  Automation2 |  Aut0m4t1on2  |
 
 Scenario: Select the Latest workOrder
 	Given the Appointment List window
 	When I click on select button
 	Then I should see Work Order window
 
-Scenario: Going through Call Forward
+  Scenario: Going through Call Forward
 	Given the "Work Order" window
 	When i see Call Forward or Arrive Button
 	Then I click on CALL FORWARD button
@@ -44,9 +44,9 @@ Scenario: Set job to Arrived status
 	Then I should see Arrival Time details
 	And I should see BE AWARE OF ANY DANGER! section
 
-Scenario: Going through "BE AWARE OF ANY DANGER!" section
-	Given the BE AWARE OF ANY DANGER! section 
-	When I fill the DoorStep Protocol fields with the value
+ Scenario: Going through "BE AWARE OF ANY DANGER!" section
+ 	Given the BE AWARE OF ANY DANGER! section 
+ 	When I fill the DoorStep Protocol fields with the value
 	And I click on ON SITE button 	
 	Then I should see RISK ASSESSMENT tab activated
 	And I should see INITIAL RISK ASSESSMENT section
@@ -56,14 +56,65 @@ Scenario: Going through "INITIAL RISK ASSESSMENT"
 	When I fill the initialRisk field with the values
 	Then I should see INFO window
 
-Scenario: Going through "INFO" window   
-	Given the INFO window with the text
-	#When I click on OK button 
-	Then I should see RISK ASSESSMENT ELEC section 
+# Scenario: Going through "INFO" window   
+# 	Given the INFO window with the text
+# 	#When I click on OK button 
+# 	Then I should see RISK ASSESSMENT ELEC section 
 
 Scenario: Going through "RISK ASSESSMENT - ELEC" section	
 	Given the RISK ASSESSMENT - ELEC section
 	When I fill the RISK ASSESSMENT - ELEC fields with the values
 	And I click on CAPTURE PHOTO OF HAZARD IDENTIFIED button
 	And I click on NEXT SECTION button
-	#Then I should see CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section 
+	Then I should see CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section 
+
+	
+Scenario: Going through "Suitable for Smart Installation"
+ 	Given the Suitable for Smart Installation section
+ 	When I click on Is Site Suitable for Smart Installation? button
+	And I click on Equipment Reposition Required?
+	And I enter Additional Notes for Smart installation Check
+	And I click on smart installation NEXT SECTION button
+ 	#Then I should see INITIAL POLARITY CHECK - MARTINDALE TEST section 
+
+Scenario: Going through "CAPTURE INITIAL PHOTO OF ELEC INSTALLATION"
+	Given the CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section
+	When I click on CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button
+	Then I should see INITIAL POLARITY CHECK - MARTINDALE TEST section  
+
+ Scenario: Going through "INITIAL POLARITY CHECK MARTINDALE TEST" section   	
+	  Given the INITIAL POLARITY CHECK MARTINDALE TEST section  
+	  When I fill the INITIAL POLARITY CHECK field with the values
+	  And I click on CAPTURE PHOTO OF PRE INSTALLATION MARTINDALE TEST button
+	  And I fill the Socket Found field with the values
+	  Then I should see INITIAL POLARITY CHECK AT METER AND CUT OUT section   
+	
+Scenario: Going through "INITIAL POLARITY CHECK - AT METER AND CUT OUT" section     	
+	   Given the INITIAL POLARITY CHECK - AT METER AND CUT OUT section  
+	   When I fill the METER AND CUT OUT fields with the values
+	   #for new WO this is not req, for existing one required
+	   	And I click on SUBMIT button
+	   Then I should see CURRENT METER DETAILS section
+	   And I should see the REMOVE tab activated
+
+Scenario: Going through "REMOVE METER" section 
+     Given the REMOVE METER section   
+   	 When I fill the REMOVE METER fields with the values
+     Then I should see REMOVE ASSET section  
+
+Scenario: Going through "REMOVE ASSET" section 
+     Given the REMOVE ASSET section   
+   	 When I fill the REMOVE ASSET field with the values
+     And I click on OK button in updated Popup notification
+     Then I should see INSTALL COMMS HUB section 
+
+Scenario: Going through " Comms Hub details " section 
+     Given the  Comms Hub details section 
+   	 When I fill the Comms Hub fields with values
+     Then I should see NEW METER section 
+
+Scenario: Going through " New Meter details " section 
+     Given the  New Meter details section 
+   	 When I fill the New Meter details fields with values
+     Then I should see ADDITIONAL ELECTRICITY CHECKS section
+	 When I fill the ADDITIONAL ELECTRICITY CHECKS details fields with values

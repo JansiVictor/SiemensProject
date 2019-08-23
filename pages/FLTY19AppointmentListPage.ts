@@ -39,7 +39,9 @@ export class FLTY19AppointmentListPageObject {
     public doorStepPROText: ElementFinder;
     public beAware: ElementFinder; 
     public continueLink: ElementFinder; 
-    
+    public continueLinkforEx21: ElementFinder;
+    public contactMadeNo: ElementFinder;
+    public appointmentconfirmationNo: ElementFinder;
 
     constructor() {
         
@@ -52,8 +54,10 @@ export class FLTY19AppointmentListPageObject {
         this.callForwardText = element(by.xpath('(//button[@id = "btnCall1"])[1]'));
         this.contactMadeText = element(by.xpath('//div[text()="Contact made?"]'));
         this.contactMadeYes = element(by.xpath('//label[@id="rb_contact_y"]'));
+        this.contactMadeNo = element(by.xpath('//label[@id="rb_contact_n"]'));
         this.appointmentConfirmation = element(by.xpath('//div[text()="Appointment Confirm?"]'));
         this.appointmentconfirmationYes = element(by.id('rb_app_conf_y'));
+        this.appointmentconfirmationNo = element(by.id('rb_app_conf_n'));
         this.additionalAccessDetails = element(by.xpath('//div[text()="Additional Access Details"]'));
         this.additionalAccessDetailsTextBox = element(by.id('call_fwd_notes'));
         this.departBtn =  element(by.id('btn_depart'));
@@ -73,6 +77,7 @@ export class FLTY19AppointmentListPageObject {
         this.callfrwdpageContent = element(by.xpath('//div[@class="description"]'));
         this.beAware = element(by.xpath('//div/h4[text() =" Be aware of any danger!"]'));
         this.continueLink = element(by.xpath('//span[text()="continue >"]'));
+        this.continueLinkforEx21 = element(by.xpath('(//div[(@id="SelectJobTest1 EXCH21 DF SMETS2")])'));
 
 
     }
@@ -135,7 +140,7 @@ export class FLTY19AppointmentListPageObject {
 	
     }
   //ContactMadeText
-    public async clickOnContactMadeOtion(){
+     public async clickOnContactMadeOtion(){
         await expect(await this.contactMadeText.getText()).equal("Contact made?");
 		await expect(this.contactMadeYes.isPresent());
 		this.contactMadeYes.click();
@@ -154,10 +159,11 @@ export class FLTY19AppointmentListPageObject {
 
     
     public async appointmentConfirmationYes(){
-    await utility.wait(2000);
-    await expect(await this.appointmentConfirmation.getText()).equal("Appointment Confirm?");
-    this.appointmentconfirmationYes.click();
-    }
+        await utility.wait(2000);
+        await expect(await this.appointmentConfirmation.getText()).equal("Appointment Confirm?");
+        this.appointmentconfirmationYes.click();
+        }
+
     public async mpanDetails(){
         await expect(this.mpan.isPresent());
 		this.mpan.getText().then(function(mpanText) {
@@ -190,6 +196,7 @@ export class FLTY19AppointmentListPageObject {
         await expect(this.departAppointment.isPresent());
     }
 
+
     public async mprnOKbtn(){
 			await expect(this.mprnOK.isPresent());
             this.mprnOK.click();
@@ -202,7 +209,6 @@ export class FLTY19AppointmentListPageObject {
         this.arriveBtn.click();
         await utility.wait(10000);
         await expect(this.arrivalTime.isPresent());
-
 }
 
     
