@@ -1,9 +1,10 @@
-    import { element, by, ElementFinder, ElementArrayFinder} from "protractor";
+    import { browser, element, by, ElementFinder, ElementArrayFinder} from "protractor";
     const { Given, When, Then } = require("cucumber");
     const chai = require("chai");
     const expect = chai.expect;
     import { Utility } from "../support/utility";
     const utility: Utility = new Utility();
+    import { Alert } from 'selenium-webdriver';
 
 
 
@@ -87,16 +88,54 @@
     public confirmAssetYes: ElementFinder;
     public newMeterDD: ElementFinder;
     public inputelecSerialNum: ElementFinder;
-    public newMeterDD: ElementFinder;
-    public newMeterDD: ElementFinder;
-    public newMeterDD: ElementFinder;
-    public newMeterDD: ElementFinder;
-    public newMeterDD: ElementFinder;
-    public newMeterDD: ElementFinder;
-    public newMeterDD: ElementFinder;
-    public newMeterDD: ElementFinder;
-
+    public manufactureLetterDD: ElementFinder;
+    public MeterTypeDD: ElementFinder;
+    public meterLocDD: ElementFinder;
+    public inputDate: ElementFinder;
+    public newMeterNxtBtn: ElementFinder;
+    public AddElecCheckTxt: ElementFinder;
+    public terminalNewTightness: ElementFinder;
+    public photoOfTerminalScrew: ElementFinder;
+    public sealsIntactYes: ElementFinder;
+    public portsSealedYes: ElementFinder;
+    public approveCableMakersYes: ElementFinder;
+    public visualInspectionYes: ElementFinder;
+    public cableMArkerDD: ElementFinder;
+    public earthTypeDD: ElementFinder;
+    public recentMeterBoardYes: ElementFinder;
+    public meterTailsChangedNo: ElementFinder;
+    public replacedMainFuseYes: ElementFinder;
+    public emerJobNo: ElementFinder;
+    public additionalElecNxtBtn: ElementFinder;
+    public ElecInitialMeterText: ElementFinder;
+    public captureMeterReadingInput: ElementFinder;
+    public meterReadingNxtBtn: ElementFinder;
+    public commissioningTxt: ElementFinder;
+    public nonserealizedAssetDD: ElementFinder;
+    public nonserealizedAssetInput: ElementFinder;
+    public commsHubConnectedYes: ElementFinder;
+    public commissioningNxtBtn: ElementFinder;
+    public postInstalationTxt: ElementFinder;
+    public carryOutPolarityChkYes: ElementFinder;
+    public postpolNotes: ElementFinder;
+    public polChkDD: ElementFinder;
+    public confirmSocketPass: ElementFinder;
+    public witnessName: ElementFinder;
+    public capturePostinstalation: ElementFinder;
+    public capturefinalmeterinstal: ElementFinder;
+    public captureCloseupMeter: ElementFinder;
+    public electricInstallTxt: ElementFinder;
+    public eicomSendMsg: ElementFinder;
+    public awaitingResponseTxt: ElementFinder;
+    public commSuccess: ElementFinder;
+    public submitBtn: ElementFinder;
+    public commshubPopup: ElementFinder;
+    public randomClick: ElementFinder;
+    public randomEUDevice: ElementFinder;
+    public DDnewMeteroption: ElementFinder;
     
+
+
 
 
 
@@ -177,23 +216,54 @@
     this.currentMeterNxtbtn = element(by.id('currentMeterDetails_nextButton'));
     this.removeassetDD = element(by.id('cbx_RAss_Status'));
     this.confirmAssetYes = element(by.id('rb_CAssRem_y'));
-    this.inputelecSerialNum = element(by.xpath('(//input[@id="txt_Serial_Num"])[1]'));
-    this.newMeterDD = element(by.id('newMeter_assetSelect'));
-    this.newMeterDD = element(by.id('newMeter_assetSelect'));
-    this.newMeterDD = element(by.id('newMeter_assetSelect'));
-    this.newMeterDD = element(by.id('newMeter_assetSelect'));
-    this.newMeterDD = element(by.id('newMeter_assetSelect'));
-    this.newMeterDD = element(by.id('newMeter_assetSelect'));
-    this.newMeterDD = element(by.id('newMeter_assetSelect'));
-    this.newMeterDD = element(by.id('newMeter_assetSelect'));
-    this.newMeterDD = element(by.id('newMeter_assetSelect'));
-    this.newMeterDD = element(by.id('newMeter_assetSelect'));
-    this.newMeterDD = element(by.id('newMeter_assetSelect'));
-    this.newMeterDD = element(by.id('newMeter_assetSelect'));
-   
-
+    this.inputelecSerialNum = element(by.xpath('(//div/input[@id="txt_Serial_Num"])[1]'));
+    this.newMeterDD = element(by.xpath('//select[@id="newMeter_assetSelect"]'));
+    this.manufactureLetterDD = element(by.id('select_man_letter'));
+    this.MeterTypeDD = element(by.id('select_meter_letter'));
+    this.meterLocDD = element(by.id('cbx_MetLocCode_sel'));
+    this.inputDate = element(by.id('txt_Cert_year'));
+    this.newMeterNxtBtn = element(by.id('btnNextPol'));
+    this.AddElecCheckTxt = element(by.id('Title_Add_ElecTC'));
+    this.terminalNewTightness = element(by.id('rb_TermSTi_y'));
+    this.photoOfTerminalScrew = element(by.xpath('//button[@id="btn2"]'));
+    this.sealsIntactYes = element(by.id('rb_SealsInt_y'));
+    this.portsSealedYes = element(by.id('rb_PortsSealed_y'));
+    this.approveCableMakersYes = element(by.id('rb_SieCMark_y'));
+    this.visualInspectionYes = element(by.id('rb_VisInsCom_y'));
+    this.cableMArkerDD = element(by.id('cbx_CabMark_Sel'));
+    this.earthTypeDD = element(by.id('cbx_EarType_Sel'));
+    this.recentMeterBoardYes = element(by.id('rb_ReMetBoard_y'));
+    this.meterTailsChangedNo = element(by.id('rb_MetTailChg_n'));
+    this.replacedMainFuseYes = element(by.id('rb_ReMainFuse_y'));
+    this.emerJobNo = element(by.id('rb_EmerJob_n'));
+    this.additionalElecNxtBtn = element(by.id('btn_Next_PostC'));
+    this.ElecInitialMeterText = element(by.id('Title_InitMet_Read'));
+    this.captureMeterReadingInput = element(by.id('reg0'));
+    this.meterReadingNxtBtn = element(by.id('btn_Next_read'));
+    this.commissioningTxt = element(by.id('Title_commissioning'));
+    this.nonserealizedAssetDD = element(by.id('Cselect4'));
+    this.nonserealizedAssetInput = element(by.id('Cbar3'));
+    this.commsHubConnectedYes = element(by.id('Cradionm1'));
+    this.commissioningNxtBtn = element(by.id('CbtnNextComm'));
+    this.postInstalationTxt = element(by.xpath('//div/h4[text()="Post Installation Checks"]'));
+    this.carryOutPolarityChkYes = element(by.id('rb_CarOutPolCk_y'));
+    this.postpolNotes = element(by.id('postpolnotes'));
+    this.polChkDD = element(by.id('cbx_PolChkplg_sel'));
+    this.confirmSocketPass = element(by.id('rb_SocSafChk_pass'));
+    this.witnessName = element(by.id('txt_TestWtn'));
+    this.capturePostinstalation = element(by.id('btn_CapPhoMart_test'));
+    this.capturefinalmeterinstal = element(by.id('btn_CapPhoFinMet_inst'));
+    this.captureCloseupMeter = element(by.id('btn_CapPhoCloUp_met'));
+    this.electricInstallTxt = element(by.xpath('//div/h4[text()="Electric Install & Commissioning"]'));
+    this.eicomSendMsg = element(by.id('eicom_sendMessageButton'));
+    this.awaitingResponseTxt = element(by.id('//div/h4[text()="Awaiting Response"]'));
+    this.commSuccess = element(by.id('eicom_nextButton'));
+    this.submitBtn = element(by.id('btn_Submit_elec'));
+    this.commshubPopup = element(by.xpath('//div/button[text()="OK"]'));
+    this.randomClick= element(by.xpath('//div[text()="CHF ID:"]'));
+    this.randomEUDevice = element(by.xpath('//div[text()="EUI Device ID:"]'));
+    this.DDnewMeteroption = element(by.xpath('//select/option[@value="E9E00000000021"]'));
     }
-
     public async verifyRiskAssessmentPage() {
     this.riskAssesmentHEader.getText().then(function(riskAssesmentHEaderText) {
     console.log("find RiskAssesment Header Text  " + riskAssesmentHEaderText);
@@ -247,7 +317,7 @@
 
     if(this.riskelecText.isDisplayed()){
     await this.riskelecText.getText().then(function(riskelec) {
-        console.log("find riskelec Text  " + riskelec);
+    console.log("find riskelec Text  " + riskelec);
     });
     }
     }
@@ -284,8 +354,8 @@
     public async electInstallationSection(){
     if(await this.captureInitialPhotoElec.isDisplayed()){
     await this.captureInitialPhotoElec.getText().then(function(captureInitialPhotoElecText) {
-        console.log("find initialElecCapure Text  " + captureInitialPhotoElecText);
-        });
+    console.log("find initialElecCapure Text  " + captureInitialPhotoElecText);
+    });
     await utility.wait(1000);
     }
     }
@@ -293,9 +363,9 @@
     public async verifyInitialPolarityCheck(){
     if(await this.initialpolarityCheck.isDisplayed()){
     await this.initialpolarityCheck.getText().then(function(initialpolarityCheckText) {
-        console.log("find initialpolarityCheck Text  " + initialpolarityCheckText);
-        });
-await utility.wait(1000);
+    console.log("find initialpolarityCheck Text  " + initialpolarityCheckText);
+    });
+    await utility.wait(1000);
     }
     }
 
@@ -307,8 +377,8 @@ await utility.wait(1000);
     await utility.wait(1000);
 
     await expect(await this.socketSafetyBtnYES.isPresent());
-   await this.socketSafetyBtnYES.click();
-   await utility.wait(1000);
+    await this.socketSafetyBtnYES.click();
+    await utility.wait(1000);
 
     if(await this.socketSetLocDD.isDisplayed()){
     var select = this.socketSetLocDD;
@@ -316,7 +386,7 @@ await utility.wait(1000);
     await utility.wait(1000);
     } 
 
-}
+    }
     public async verifyCapturepreInstallation(){
     if(await this.capturePreinsatllation.isDisplayed()){
     await this.capturePreinsatllation.click();
@@ -338,8 +408,8 @@ await utility.wait(1000);
     public async verifysuitableforSmartMeterInstallation(){
     if(await this.suitableSmartInstalationText.isDisplayed()){
     this.suitableSmartInstalationText.getText().then(function(suitableSmartInstalation) {
-        console.log("find suitableSmartInstalation Text  " + suitableSmartInstalation);
-        }); 
+    console.log("find suitableSmartInstalation Text  " + suitableSmartInstalation);
+    }); 
     } 
     }
 
@@ -367,151 +437,345 @@ await utility.wait(1000);
     }
 
     public async fillthePolarityCheckMeterOut(){
-        await expect(this.polarityCheckCutOutYES.isPresent());
-        await this.polarityCheckCutOutYES.click();
-        await utility.wait(1000);
-        await expect(this.polarityCheckAtMeter.isPresent());
-       await this.polarityCheckAtMeter.click(); 
-       await utility.wait(1000);
+    await expect(this.polarityCheckCutOutYES.isPresent());
+    await this.polarityCheckCutOutYES.click();
+    await utility.wait(1000);
+    await expect(this.polarityCheckAtMeter.isPresent());
+    await this.polarityCheckAtMeter.click(); 
+    await utility.wait(1000);
     }
 
     public async meterCutOutnextSection() {
-        await expect(this.meterCutOutNxtBtn.isPresent());
-        await this.meterCutOutNxtBtn.click();
-        await utility.wait(1000);
+    await expect(this.meterCutOutNxtBtn.isPresent());
+    await this.meterCutOutNxtBtn.click();
+    await utility.wait(1000);
     }
 
     public async verifyCurrentMeterDetails() {
-        await expect(this.currentMeterDetailsText.isPresent());
-        await this.currentMeterDetailsText.getText().then(function(currentMeterDetails) {
-            console.log("find currentMeterDetails Text  " + currentMeterDetails);
-        });
-        await utility.wait(1000);
-        await expect(this.existingElecMeterYes.isPresent());
-        await this.existingElecMeterYes.click();
-        await utility.wait(1000);
-        //not req, if new WO required
-        await this.currentMeterNxtbtn.click();
+    await expect(this.currentMeterDetailsText.isPresent());
+    await this.currentMeterDetailsText.getText().then(function(currentMeterDetails) {
+    console.log("find currentMeterDetails Text  " + currentMeterDetails);
+    });
+    await utility.wait(1000);
+    await expect(this.existingElecMeterYes.isPresent());
+    await this.existingElecMeterYes.click();
+    await utility.wait(1000);
+    //not req, if new WO required
+    await this.currentMeterNxtbtn.click();
     } 
 
     public async removeTabdisplayed() {
-        await expect(this.removeMeterText.isPresent());
-        //await this.removeMeterText.click();
-        await utility.wait(1000);
+    await expect(this.removeMeterText.isPresent());
+    //await this.removeMeterText.click();
+    await utility.wait(1000);
     }
 
     public async fillRemoveMeterDetails(){
-        await utility.wait(1000);
-        if(this.statusOfAssetDD.isDisplayed()){
-        var select = this.statusOfAssetDD;
-        select.$('[value="2"]').click();
-        await utility.wait(1000);
-        }
-        // await expect(await this.rmOptionalText.isPresent());
-        // await this.rmOptionalText.sendKeys('optional text');
-        // await utility.wait(1000);
-    
-       await expect(await this.removeMeterReadingText.isPresent());
-       await this.removeMeterReadingText.sendKeys('12345');
-       await utility.wait(1000);
-    
-        if(await this.unableToReadMeterYes.isDisplayed()){
-            await this.unableToReadMeterYes.click();
-            await utility.wait(1000);
-        } 
-        await expect(await this.removeMeterAddText.isPresent());
-        await this.removeMeterAddText.sendKeys('Additional Test Message');
-        await utility.wait(1000);
+    await utility.wait(2000);
+    if(this.statusOfAssetDD.isDisplayed()){
+    var select = this.statusOfAssetDD;
+    select.$('[value="2"]').click();
+    await utility.wait(1000);
+    }
+    // await expect(await this.rmOptionalText.isPresent());
+    // await this.rmOptionalText.sendKeys('optional text');
+    // await utility.wait(1000);
 
-        //If page is continued then this function required for new WO not req
-        // if(await this.rmvNextBtn.isDisplayed()){
-        //     await this.rmvNextBtn.click();
-        //     await utility.wait(1000)
+    await expect(await this.removeMeterReadingText.isPresent());
+    await this.removeMeterReadingText.sendKeys('12345');
+    await utility.wait(1000);
+
+    if(await this.unableToReadMeterYes.isDisplayed()){
+    await this.unableToReadMeterYes.click();
+    await utility.wait(1000);
+    } 
+    await expect(await this.removeMeterAddText.isPresent());
+    await this.removeMeterAddText.sendKeys('Additional Test Message');
+    await utility.wait(1000);
+
+    //If page is continued then this function required for new WO not req
+    // if(await this.rmvNextBtn.isDisplayed()){
+    //     await this.rmvNextBtn.click();
+    //     await utility.wait(1000)
 
     }
     public async OKButton() {
     if(await this.assetSuccessfullyaddedOKbtn.isDisplayed()){
-        await this.assetSuccessfullyaddedOKbtn.click();
-        await utility.wait(1000);
+    await this.assetSuccessfullyaddedOKbtn.click();
+    await utility.wait(1000);
     }
-}
+    }
     public async removeAssetTextDisplayed() {
-        await expect(this.removeAssetTabText.isPresent());
-        await utility.wait(1000);
+    await expect(this.removeAssetTabText.isPresent());
+    await utility.wait(1000);
     }
     public async CommHubDisplayed() {
-        await expect(this.CommHubText.isPresent());
-        await this.CommHubText.getText().then(function(CumHub) {
-            console.log("find CuMHubText Text  " + CumHub);
-        });
-        await utility.wait(1000);
+    await expect(this.CommHubText.isPresent());
+    await this.CommHubText.getText().then(function(CumHub) {
+    console.log("find CuMHubText Text  " + CumHub);
+    });
+    await utility.wait(1000);
     }
     public async fillremoveAssetDetails(){
-        if(await this.removeassetDD.isDisplayed()){
-            var select = this.removeassetDD;
-            select.$('[value="1"]').click();
-            }
+    if(await this.removeassetDD.isDisplayed()){
+    var select = this.removeassetDD;
+    select.$('[value="1"]').click();
+    }
 
-        await utility.wait(1000);
-            if(await this.confirmAssetYes.isDisplayed()){
-                await this.confirmAssetYes.click();
-                await utility.wait(1000);
-            }
+    await utility.wait(1000);
+    if(await this.confirmAssetYes.isDisplayed()){
+    await this.confirmAssetYes.click();
+    await utility.wait(1000);
+    }
 
     }
 
-    
+
     public async fillCommsHubDetails(){
 
-        if(await this.commHubDD.isDisplayed()){
-        var select = this.commHubDD;
-        select.$('[value="1C0000AA00110003"]').click();
-        await this.assetSuccessfullyaddedOKbtn.click();
-       await utility.wait(1000);
-        }
-        await this.OKButton();
-       await expect(await this.chfIDInput.isPresent());
-       await this.chfIDInput.sendKeys('1C0000AA00110003');
-       await this.chfIDInput.click();
-       await this.assetSuccessfullyaddedOKbtn.click();
-       await utility.wait(1000);
+    if(await this.commHubDD.isDisplayed()){
+    var select = this.commHubDD;
+    select.$('[value="1C0000AA00110003"]').click();
+    await utility.wait(3000);
+    await this.commshubPopup.click();
+    }
+    //  await this.commshubPopup.click();
+    // await utility.wait(2000);
 
-       if(await this.commHubLocDD.isDisplayed()){
-        var select = this.commHubLocDD;
-        select.$('[value="A"]').click();
-        }
-        await utility.wait(1000);
+    //await this.OKButton();
+    await expect(await this.chfIDInput.isPresent());
+    await this.chfIDInput.sendKeys('1C0000AA00110003');
+    await this.randomClick.click();
+    await this.commshubPopup.click();
+    await utility.wait(2000);
 
-        if(await this.arealInstalledYes.isDisplayed()){
-            await this.arealInstalledYes.click();
-            await utility.wait(1000);
-        } 
-        if(await this.commHubConnectionDD.isDisplayed()){
-            var select = this.commHubConnectionDD;
-            select.$('[value="2"]').click();
-            }
-            await utility.wait(1000);
-    
+    if(await this.commHubLocDD.isDisplayed()){
+    var select = this.commHubLocDD;
+    select.$('[value="A"]').click();
+    }
+    await utility.wait(3000);
+
+    if(await this.arealInstalledYes.isDisplayed()){
+    await this.arealInstalledYes.click();
+    await utility.wait(1000);
+    } 
+    if(await this.commHubConnectionDD.isDisplayed()){
+    var select = this.commHubConnectionDD;
+    select.$('[value="2"]').click();
+    }
+    await utility.wait(3000);
+
     if(await this.captureCommsHub.isDisplayed()){
-        await this.captureCommsHub.click();
-        await utility.wait(1000);
+    await this.captureCommsHub.click();
+    await utility.wait(1000);
     } 
     if(await this.commHubLocNxtBtn.isDisplayed()){
-        await this.commHubLocNxtBtn.click();
-        await utility.wait(1000);
+    await this.commHubLocNxtBtn.click();
+    await utility.wait(1000);
     } 
-}
+    }
 
-public async newMeterDetailsDisplayed(){
+    public async newMeterDetailsDisplayed(){
     await expect(this.NewMeterDetailsText.isPresent());
     await this.NewMeterDetailsText.getText().then(function(NewMeterDetails) {
-        console.log("find NewMeterDetails Text  " + NewMeterDetails);
+    console.log("find NewMeterDetails Text  " + NewMeterDetails);
     });
+    await utility.wait(1000);
+    }
+
+    public async fillCurrentMeterDetails(){
+    if(await this.existingElecMeterYes.isDisplayed()){
+    await this.existingElecMeterYes.click();
+    await utility.wait(1000);
+    }  
+    }
+
+    public async fillNewMeterDetails(){
+   // await utility.wait(2000);
+    
+    if(await this.newMeterDD.isDisplayed()){
+    var select = await this.newMeterDD;
+    select.$('[value="E9E00000000009"]').click();
+    }
+    await utility.wait(2000);
+
+    await expect(await this.inputelecSerialNum.isPresent());
+    await this.inputelecSerialNum.clear();
+    await this.inputelecSerialNum.sendKeys('E9E00000000009');  
+    await this.randomEUDevice.click();
+    let ale:Alert = browser.switchTo().alert();
+    // clicks 'OK' button
+    ale.accept();
+    await utility.wait(2000); 
+    
+    await this.commshubPopup.click();
+    await utility.wait(2000);
+
+    // if(await this.newMeterDD.isDisplayed()){
+    //     var select = await this.newMeterDD;
+    //     // var element = await this.newMeterDD;;
+    //     // browser.executeScript("arguments[0].click()",element);
+    //     select.$('[value="E9E00000000021"]').click();
+    //     }
+    //     await utility.wait(2000);
+    
+    //     await expect(await this.inputelecSerialNum.isPresent());
+    //     await this.inputelecSerialNum.sendKeys('E9E00000000021');  
+    //     await this.randomEUDevice.click();
+
+    if(await this.manufactureLetterDD.isDisplayed()){
+    var select1 = this.manufactureLetterDD;
+    select1.$('[value="2"]').click();
+    }
+    await utility.wait(2000);
+    if(await this.MeterTypeDD.isDisplayed()){
+    var select2 = this.MeterTypeDD;
+    select2.$('[value="0"]').click();
+    }
+    await utility.wait(2000);
+    if(await this.meterLocDD.isDisplayed()){
+        var select3 = this.meterLocDD;
+        select3.$('[value="D"]').click();
+        }
+        await utility.wait(2000);
+
+        await expect(await this.inputDate.isPresent());
+        await this.inputDate.sendKeys('90/01');  
+
+        await this.newMeterNxtBtn.click(); 
+        await utility.wait(2000);
+
+    }
+
+    public async additionalElecCheckDisplayed(){
+        if(this.AddElecCheckTxt.isDisplayed()){
+            await this.AddElecCheckTxt.getText().then(function(AddElec) {
+                console.log("find AddElecCheckTxt Text  " + AddElec);
+                });
+         }
+    }
+
+    public async fillAdditionalElecCheckDetails(){
+    await this.terminalNewTightness.click();
+    await utility.wait(1000);
+    await this.photoOfTerminalScrew.click(); 
+    await utility.wait(1000);
+    await this.sealsIntactYes.click(); 
+    await utility.wait(1000);
+    await this.portsSealedYes.click(); 
+    await utility.wait(1000);
+    await this.approveCableMakersYes.click(); 
+    await utility.wait(1000);
+    await this.visualInspectionYes.click(); 
+    await utility.wait(1000);
+    if(await this.cableMArkerDD.isDisplayed()){
+        var select = this.cableMArkerDD;
+        select.$('[value="2"]').click();
+        }
+        await utility.wait(1000);
+        if(await this.earthTypeDD.isDisplayed()){
+            var select = this.earthTypeDD;
+            select.$('[value="4"]').click();
+            }
+    await utility.wait(1000);
+    await this.recentMeterBoardYes.click(); 
+    await this.meterTailsChangedNo.click(); 
+    await this.replacedMainFuseYes.click(); 
+    await this.emerJobNo.click(); 
+    await this.additionalElecNxtBtn.click(); 
+    await utility.wait(1000);
+
+    }
+public  async initialMEterREadingTxtDisplayed(){
+    if(this.ElecInitialMeterText.isDisplayed()){
+        await this.ElecInitialMeterText.getText().then(function(InitialElec) {
+            console.log("find ElecInitialMeterText Text  " + InitialElec);
+            });
+     }
+}
+
+public async fillInitialElecMeterReading(){
+    await expect(await this.captureMeterReadingInput.isPresent());
+    await this.captureMeterReadingInput.sendKeys('12345');  
+//if new WO not req, if existing WO required nxtbtn
+    await this.meterReadingNxtBtn.click(); 
+    await utility.wait(1000);
+}
+public async commisioningTxtDisplayed(){
+
+    if(this.commissioningTxt.isDisplayed()){
+        await this.commissioningTxt.getText().then(function(commissioning) {
+            console.log("find commissioning Text  " + commissioning);
+            });
+ }
+    }
+public async fillCommissioningDetails(){
+    if(await this.nonserealizedAssetDD.isDisplayed()){
+        var select = this.nonserealizedAssetDD;
+        select.$('[value="1"]').click();
+        }
+        await expect(await this.nonserealizedAssetInput.isPresent());
+        await this.nonserealizedAssetInput.sendKeys('1');  
+        await this.commsHubConnectedYes.click(); 
+    await utility.wait(1000);
+
+    await this.commissioningNxtBtn.click(); 
     await utility.wait(1000);
 }
 
-public async fillNewMeterDetails(){
+public async postInstallationCheckDisplayed(){
+    if(this.postInstalationTxt.isDisplayed()){
+        await this.postInstalationTxt.getText().then(function(postInstalation) {
+            console.log("find postInstalationTxt Text  " + postInstalation);
+            });
+}
+}
+public async fillPostInstallationCheck(){
+    await this.carryOutPolarityChkYes.click(); 
+    await this.postpolNotes.click(); 
+    await utility.wait(1000);
+    if(await this.polarityCheckDD.isDisplayed()){
+        var select = this.polarityCheckDD;
+        select.$('[value="true"]').click();
+        }
+    await utility.wait(1000);
+    await this.confirmSocketPass.click(); 
+    await expect(await this.witnessName.isPresent());
+        await this.witnessName.sendKeys('John');  
+        await this.capturePostinstalation.click();   
+        await this.capturefinalmeterinstal.click();   
+        await this.captureCloseupMeter.click();  
 
+}
+public async electricInstalDisplayed(){
+
+    if(this.electricInstallTxt.isDisplayed()){
+        await this.electricInstallTxt.getText().then(function(electricInstall) {
+            console.log("find electricInstall Text  " + electricInstall);
+            });
 }
 
 }
+
+public async eicomMessage(){
+    if(this.eicomSendMsg.isDisplayed()){
+        await this.eicomSendMsg.getText().then(function(eicomSend) {
+            console.log("find eicomSendMsg Text  " + eicomSend);
+            });
+            await this.eicomSendMsg.click(); 
+            await utility.wait(10000); 
+            await this.awaitingResponseTxt.getText().then(function(awaitingResponseTxt) {
+                console.log("find awaitingResponseTxt Text  " + awaitingResponseTxt);
+                });  
+                await utility.wait(20000);
+                if(this.commSuccess.isDisplayed()){  
+                    await this.commSuccess.click();
+                    await utility.wait(3000);
+                }
+
+                await this.submitBtn.click();
+        await utility.wait(3000);
+}
+
+}
+    }

@@ -37,7 +37,7 @@ export class FLTY19homePageObject {
           console.log("size is: " + promiseResult);
           var size = promiseResult; //4
           //Remove when there is one
-          //var actualSize = size -1;
+         // var actualSize = size -1;
           console.log("size is: " + size);
           var selectlatest = element(
         by.xpath('((//div[(@id="SelectJobTest1 EXCH21 DF SMETS2")]))'+'['+[size]+']')

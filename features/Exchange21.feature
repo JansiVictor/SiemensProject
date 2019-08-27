@@ -56,10 +56,10 @@ Scenario: Going through "INITIAL RISK ASSESSMENT"
 	When I fill the initialRisk field with the values
 	Then I should see INFO window
 
-# Scenario: Going through "INFO" window   
-# 	Given the INFO window with the text
-# 	#When I click on OK button 
-# 	Then I should see RISK ASSESSMENT ELEC section 
+Scenario: Going through "INFO" window   
+	Given the INFO window with the text
+	#When I click on OK button 
+	Then I should see RISK ASSESSMENT ELEC section 
 
 Scenario: Going through "RISK ASSESSMENT - ELEC" section	
 	Given the RISK ASSESSMENT - ELEC section
@@ -95,7 +95,11 @@ Scenario: Going through "INITIAL POLARITY CHECK - AT METER AND CUT OUT" section
 	   #for new WO this is not req, for existing one required
 	   	And I click on SUBMIT button
 	   Then I should see CURRENT METER DETAILS section
-	   And I should see the REMOVE tab activated
+
+Scenario: Going through "Check the current meter details" section     	
+	   Given the Check the current meter detailssection  
+	   When I fill the current meter details fields with the values
+	   Then I should see the REMOVE tab activated  
 
 Scenario: Going through "REMOVE METER" section 
      Given the REMOVE METER section   
@@ -113,8 +117,52 @@ Scenario: Going through " Comms Hub details " section
    	 When I fill the Comms Hub fields with values
      Then I should see NEW METER section 
 
-Scenario: Going through " New Meter details " section 
+Scenario: Going through " SMETS2 New Meter details " section 
      Given the  New Meter details section 
    	 When I fill the New Meter details fields with values
      Then I should see ADDITIONAL ELECTRICITY CHECKS section
-	 When I fill the ADDITIONAL ELECTRICITY CHECKS details fields with values
+
+Scenario: Going through Additional Electricity Tests and Checks section 
+     Given the the ADDITIONAL ELECTRICITY CHECKS details section
+   	 When I fill the ADDITIONAL ELECTRICITY CHECKS details fields with values
+    
+Scenario: Going through Initial Meter Reading of new meter depending on the number of Registers and dials section 
+     Given Initial Meter Reading of new meter depending on the number of Registers and dials section
+   	 When I fill the Initial Meter Reading of new meter details fields with values
+	Then I should see Commission/Bind the Comms hub to the WAN section
+
+Scenario: Going through Commission/Bind the Comms hub to the WAN section 
+     Given Commission/Bind the Comms hub to the WAN section
+   	 When I fill the Commission/Bind the Comms hub to the WAN details fields with values
+	Then I should see Perform Post Installation Checks section
+
+Scenario: Going through Perform Post Installation Checks section 
+     Given Perform Post Installation Checks section
+   	 When I fill the Perform Post Installation Checks details fields with values
+	Then I should see Perform DCC Message Creation for EICOM section
+
+Scenario: Going through Perform DCC Message Creation for EICOM section 
+     Given Perform DCC Message Creation for EICOM section
+   	 When I fill the Perform DCC Message Creation for EICOM details fields with values
+	Then I should see Initial Risk Assessment for GAS section
+
+Scenario: Going through "INITIAL RISK ASSESSMENT"
+	Given the INITIAL RISK ASSESSMENT section
+	When I fill the initialRisk field with the values
+	Then I should see INFO window
+
+
+Scenario: Going through "RISK ASSESSMENT - GAS" section	
+	Given the RISK ASSESSMENT - GAS section
+	When I fill the RISK ASSESSMENT - GAS fields with the values
+	Then I should see Suitability for Smart Meter Installation section 
+
+Scenario: Going through Suitability for Smart Meter Installation section	
+	Given the Suitability for Smart Meter Installation section
+	When I fill the Suitability for Smart Meter Installation fields with the values
+	Then I should see Capture Photo of GAS Installation section 
+
+Scenario: Going through Pre Installation Gas Tightness section	
+	Given the Pre Installation Gas Tightness section
+	When I fill the Pre Installation Gas Tightness fields with the values
+	Then I should see Current Meter Details section 

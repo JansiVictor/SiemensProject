@@ -4,6 +4,7 @@
   import { FLTY19AppointmentListPageObject } from "../pages/FLTY19AppointmentListPage";
   import { DoorStepPageObject } from "../pages/DoorStepPage";
   import { RiskAssessmentPageObject } from "../pages/RiskAssessmentPage";
+  import { RiskAssessmentforGASPageObject } from "../pages/RiskAssessmentForGAS";
   import { config } from "../config/config";
   import { Utility } from "../support/utility";
   const { Given, When, Then } = require("cucumber");
@@ -17,6 +18,9 @@
   const applist: FLTY19AppointmentListPageObject = new FLTY19AppointmentListPageObject();
   const doorstep: DoorStepPageObject = new DoorStepPageObject();
   const riskassess: RiskAssessmentPageObject = new RiskAssessmentPageObject();
+  const riskassessGAS: RiskAssessmentforGASPageObject = new RiskAssessmentforGASPageObject();
+
+
 
   Given('the Login Page', async function () {
   await browser.get(config.baseUrl);
@@ -297,9 +301,20 @@
   Then('I should see CURRENT METER DETAILS section', async function () {
     await riskassess.verifyCurrentMeterDetails();
   });
+
+  Given('the Check the current meter detailssection', async function () {
+    await riskassess.verifyCurrentMeterDetails();
+  });
+
+
+  When('I fill the current meter details fields with the values', async function () {
+   await riskassess.fillCurrentMeterDetails();
+  });
+
   Then('I should see the REMOVE tab activated', async function () {
     await riskassess.removeTabdisplayed();
   });
+
   Given('the REMOVE METER section', async function () {
     await riskassess.removeTabdisplayed();
   });
@@ -350,22 +365,120 @@
   });
 
 
-  When('I fill the New Meter details fields with values', function () {
+  When('I fill the New Meter details fields with values', async function () {
+    await riskassess.fillNewMeterDetails();
+  });
+
+
+  Then('I should see ADDITIONAL ELECTRICITY CHECKS section', async function () {
+    await riskassess.additionalElecCheckDisplayed();
+  });
+
+  Given('the the ADDITIONAL ELECTRICITY CHECKS details section', async function () {
+  await riskassess.additionalElecCheckDisplayed();
+  });
+
+  When('I fill the ADDITIONAL ELECTRICITY CHECKS details fields with values', async function () {
+    await riskassess.fillAdditionalElecCheckDetails();
+  });
+
+  Given('Initial Meter Reading of new meter depending on the number of Registers and dials section', async function () {
+    await riskassess.initialMEterREadingTxtDisplayed();
+  });
+
+  When('I fill the Initial Meter Reading of new meter details fields with values', async function () {
+    await riskassess.fillInitialElecMeterReading();
+  });
+
+  Then('I should see Commission\/Bind the Comms hub to the WAN section', async function () {
+    await riskassess.commisioningTxtDisplayed();
+  });
+
+  Given('Commission\/Bind the Comms hub to the WAN section', async function () {
+    await riskassess.commisioningTxtDisplayed();
+  });
+
+
+  When('I fill the Commission\/Bind the Comms hub to the WAN details fields with values', async function () {
+    await riskassess.fillCommissioningDetails();
+  });
+
+
+  Then('I should see Perform Post Installation Checks section', async function () {
+    await riskassess.postInstallationCheckDisplayed();
+  });
+
+
+  Given('Perform Post Installation Checks section',async  function () {
+    await riskassess.postInstallationCheckDisplayed();
+  });
+
+
+  When('I fill the Perform Post Installation Checks details fields with values', async function () {
+    await riskassess.fillPostInstallationCheck();
+  });
+
+
+  Then('I should see Perform DCC Message Creation for EICOM section', async function () {
+    await riskassess.electricInstalDisplayed();
+  });
+
+  Given('Perform DCC Message Creation for EICOM section', async function () {
+    await riskassess.electricInstalDisplayed();
+  });
+
+
+  When('I fill the Perform DCC Message Creation for EICOM details fields with values', async function () {
+    await riskassess.eicomMessage();
+  });
+
+  
+  Then('I should see Initial Risk Assessment for GAS section', async function () {
+    await riskassessGAS.riskAssessmentGASDisplayed();
+  });
+
+  Given('the RISK ASSESSMENT - GAS section', async function () {
+    await riskassessGAS.riskAssessmentGASDisplayed();
+  });
+
+
+  When('I fill the RISK ASSESSMENT - GAS fields with the values', async function () {
+    await riskassessGAS.fillRiskAssessGas();
+  });
+
+
+  Then('I should see Suitability for Smart Meter Installation section', async function () {
+    await riskassessGAS.suitableForSmartInstallationTxt();
+  });
+
+  
+  Given('the Suitability for Smart Meter Installation section', async function () {
+    await riskassessGAS.suitableForSmartInstallationTxt();
+  });
+
+
+  When('I fill the Suitability for Smart Meter Installation fields with the values', async function () {
+    await riskassessGAS.fillSuitablityForSmartInstallation();
+  });
+
+
+  Then('I should see Capture Photo of GAS Installation section', async function () {
+    await riskassessGAS.captureInitialPhotoTxt();
+    await riskassessGAS.captureInitialPhotogasbtn.click();  
+     await utility.wait(1000);
+  });
+
+  Given('the Pre Installation Gas Tightness section', async function () {
+    await riskassessGAS.preInstallationGasTTxt();
     
   });
 
 
-  Then('I should see ADDITIONAL ELECTRICITY CHECKS section', function () {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending';
+  When('I fill the Pre Installation Gas Tightness fields with the values', async function () {
+    await riskassessGAS.preInstallationGasT();
   });
 
 
-  When('I fill the ADDITIONAL ELECTRICITY CHECKS details fields with values', function () {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending';
+  Then('I should see Current Meter Details section', async function () {
+    await riskassessGAS.currentMeterDetailsTxtDisplay();
   });
-
-
-
-  
