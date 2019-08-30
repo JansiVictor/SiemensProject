@@ -21,7 +21,7 @@ import {
 } from 'selenium-webdriver';
 
 
-export class RiskAssessmentPageObject {
+export class RiskAssessmentPageElecObject {
 
 	public riskAssesmentHEader: ElementFinder;
 	public initialRiskAssesment: ElementFinder;
@@ -146,7 +146,10 @@ export class RiskAssessmentPageObject {
 	public randomClick: ElementFinder;
 	public randomEUDevice: ElementFinder;
     public DDnewMeteroption: ElementFinder;
-    public initialElctext: ElementFinder;
+	public initialElctext: ElementFinder;
+	public selectinstallAssetOption: ElementFinder;
+	public selectinstallMeterOption: ElementFinder;
+	
     
 /***
  * @Author Aparna Das
@@ -277,8 +280,12 @@ export class RiskAssessmentPageObject {
 		this.randomClick = element(by.xpath('//div[text()="CHF ID:"]'));
 		this.randomEUDevice = element(by.xpath('//div[text()="EUI Device ID:"]'));
         this.DDnewMeteroption = element(by.xpath('//select/option[@value="E9E00000000021"]'));
-        this.initialElctext = element(by.xpath('//div[text()="Capture Meter Reading - Register (null):"]'));
-    }
+		this.initialElctext = element(by.xpath('//div[text()="Capture Meter Reading - Register (null):"]'));
+		this.selectinstallAssetOption = element(by.xpath('(//select[@id="chubInstall_selectAsset"]/option)[4]'));
+		this.selectinstallMeterOption=element(by.xpath('(//select[@id="newMeter_assetSelect"]/option)[4]'));
+	}
+	
+	
     
 /***
  * @Author Aparna Das
@@ -615,7 +622,7 @@ export class RiskAssessmentPageObject {
 		//await utility.wait(2000);
 		if (this.statusOfAssetDD.isDisplayed()) {
 			var select = this.statusOfAssetDD;
-			select.$('[value="2"]').click();
+			select.$('[label="No Fault Found"]').click();
 			await utility.wait(1000);
 		}
 		// await expect(await this.rmOptionalText.isPresent());
@@ -701,17 +708,25 @@ export class RiskAssessmentPageObject {
  * @description Fill Comms Hub Details
 ***/
 
-	public async fillCommsHubDetails() {
+	public async fillCommsHubDetails(index:number) {
 
-		if (await this.commHubDD.isDisplayed()) {
-            await utility.wait(2000);
-			var select = this.commHubDD;
-			select.$('[value="1C0000AA00110017"]').click();
-			await utility.wait(3000);
+	if (await this.commHubDD.isDisplayed()) {
+		await utility.wait(2000);
+		// click the dropdown
+		this.commHubDD.click()
+		browser.sleep(1000)
+	//index = index ;
+	console.log("Selecting element based index : "+index)
+	// select the option
+	await this.commHubDD.element(by.css("option:nth-child("+index+")")).click()
+	await utility.wait(3000);
 			await this.commshubPopup.click();
-		}
+		
 		await expect(await this.chfIDInput.isPresent());
-		await this.chfIDInput.sendKeys('1C0000AA00110017');
+		var options = this.selectinstallAssetOption.getAttribute('value');
+		await this.chfIDInput.clear();
+		await utility.wait(1000);
+		await this.chfIDInput.sendKeys(options);
 		await this.randomClick.click();
 		await this.commshubPopup.click();
 		await utility.wait(2000);
@@ -740,7 +755,8 @@ export class RiskAssessmentPageObject {
 			await this.commHubLocNxtBtn.click();
 			await utility.wait(1000);
 		}
-    }
+	}
+}
     
 /***
  * @Author Aparna Das
@@ -754,7 +770,7 @@ export class RiskAssessmentPageObject {
 		});
 		await utility.wait(1000);
     }
-    
+
 /***
  * @Author Aparna Das
  * @description Fill Current Meter Details
@@ -772,19 +788,25 @@ export class RiskAssessmentPageObject {
  * @description Fill new meter details
 ***/
 
-	public async fillNewMeterDetails() {
+	public async fillNewMeterDetails(index:number) {
 		// await utility.wait(2000);
 	try{
-
 		if (await this.newMeterDD.isDisplayed()) {
-			var select = await this.newMeterDD;
-			select.$('[value="E9E00000000015"]').click();
-		}
-		await utility.wait(2000);
-
-		await expect(await this.inputelecSerialNum.isPresent());
-		await this.inputelecSerialNum.clear();
-		await this.inputelecSerialNum.sendKeys('E9E00000000015');
+			await utility.wait(2000);
+			// click the dropdown
+			this.newMeterDD.click()
+			browser.sleep(1000)
+		//index = index ;
+		console.log("Selecting element based index : "+index)
+		// select the option
+		await this.newMeterDD.element(by.css("option:nth-child("+index+")")).click()
+		await utility.wait(3000);
+				//await this.commshubPopup.click();
+			
+			await expect(await this.inputelecSerialNum.isPresent());
+			var options = this.selectinstallMeterOption.getAttribute('value');
+			await this.inputelecSerialNum.sendKeys(options);
+		
 		await this.randomEUDevice.click();
 		let ale: Alert = browser.switchTo().alert();
 		// clicks 'OK' button
@@ -815,8 +837,10 @@ export class RiskAssessmentPageObject {
 
 		await this.newMeterNxtBtn.click();
 		await utility.wait(2000);
-		
-	} catch(err) {
+
+	} 
+}
+catch(err) {
 	console.log("fillNewMeterDetails Error " + err.getText());
 	}
 	}
@@ -991,6 +1015,7 @@ export class RiskAssessmentPageObject {
 			});
 			await this.eicomSendMsg.click();
 			await utility.wait(80000);
+			//commented below
 			// await this.awaitingResponseTxt.getText().then(function (awaitingResponseTxt) {
 			// 	console.log("find awaitingResponseTxt Text  " + awaitingResponseTxt);
 			// });

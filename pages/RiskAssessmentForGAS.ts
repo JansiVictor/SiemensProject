@@ -77,19 +77,46 @@ export class RiskAssessmentforGASPageObject {
     public assetInput: ElementFinder;
     public installKitNxtBtn: ElementFinder;
     public postInstallationGasTxt: ElementFinder;
-    // public newMeterDD: ElementFinder;
-    // public newMeterDD: ElementFinder;
-    // public newMeterDD: ElementFinder;
-    // public newMeterDD: ElementFinder;
-    // public newMeterDD: ElementFinder;
-    // public newMeterDD: ElementFinder;
-    // public newMeterDD: ElementFinder;
-    // public newMeterDD: ElementFinder;
-    // public newMeterDD: ElementFinder;
-    // public newMeterDD: ElementFinder;
-    // public newMeterDD: ElementFinder;
-    // public newMeterDD: ElementFinder;
-    // public newMeterDD: ElementFinder;
+    public additionalTxtPreInstallGas: ElementFinder;
+    public selectassettoInstallGas: ElementFinder;
+    public selectNewMeterGasOptn: ElementFinder;
+    public inputMeterSerialNum: ElementFinder;
+    public contactGTYEs: ElementFinder;
+    public GAStightnessTestYes: ElementFinder;
+    public GasTightnessTestPerformedYes: ElementFinder;
+    public nationalGTRefInput: ElementFinder;
+    public additionalWork1: ElementFinder;
+    public additionalWork2: ElementFinder;
+    public additionalWork3: ElementFinder;
+    public additionalWork4: ElementFinder;
+    public additionalWork5: ElementFinder;
+    public additionalWork6: ElementFinder;
+    public GasPostAddText: ElementFinder;
+    public replacedGasMeterYes: ElementFinder;
+    public replacedGasRegulatorYes: ElementFinder;
+    public GasTightnessYes: ElementFinder;
+    public capturePostInstallationGas: ElementFinder;
+    public DIPGASYes: ElementFinder;
+    public dipSelectDD: ElementFinder;
+    public meterTypeGASDD: ElementFinder;
+    public tightnessPassedYes: ElementFinder;
+    public witnessName: ElementFinder;
+    public standingPressure: ElementFinder;
+    public dipCaptureBtn: ElementFinder;
+    public workingpressure: ElementFinder;
+    public wpCapture: ElementFinder;
+    public finalMeterCapture: ElementFinder;
+    public polNxtBtn: ElementFinder;
+    public gicomSendMessage: ElementFinder;
+    public successfulBtn: ElementFinder;
+    public gasAppliencesSafetyTxt: ElementFinder;
+    public earthBondingYEs: ElementFinder;
+    public landLordPropertyYes: ElementFinder;
+    public gasAddressinput: ElementFinder;
+    public allAppliTestedBtn: ElementFinder;
+    public submitGas: ElementFinder;
+    public landLordPropertyNo: ElementFinder;
+    
 
 
 	constructor() {
@@ -127,7 +154,7 @@ export class RiskAssessmentforGASPageObject {
 		this.currentMeterDetailsTxt = element(by.id('Title_CurrMe_Det'));
 		this.newRegulatorTxt = element(by.id('TITLE_RegNew'));
 		this.regulatorReplacedYes = element(by.xpath('//input[@id="regulator_replacedtrue"]/following-sibling::span[@class="outer"]'));
-        this.selectValidAssetDD = element(by.className('ng-pristine ng-valid ng-touched'));
+        this.selectValidAssetDD = element(by.model('scp.selectedAsset'));
         this.regulatorSerialNoinput = element(by.id('btn_RegSNum1'));
 		this.OKpopupBtn = element(by.xpath('//div/button[text()="OK"]'));
 		this.regulatorTxt = element(by.xpath('//div[text()="Regulator Serial No(s):"]'));
@@ -141,7 +168,7 @@ export class RiskAssessmentforGASPageObject {
         this.commshubPopup = element(by.xpath('//div/button[text()="OK"]'));
 		this.capturemeterReadingInput = element(by.id('reg0'));
         this.randomEUDevice = element(by.xpath('//div[text()="EUI Device ID:"]'));
-        this.inputelecSerialNum = element(by.xpath('(//div/input[@id="txt_Serial_Num"])[1]'));
+        this.inputelecSerialNum = element(by.id('btn_RegSNum1'));
 		this.capturreMeterReadingTxt = element(by.xpath('//div[text()="Capture Meter Reading - Register (null):"]'));
         this.installKitTxt = element(by.xpath('//div/h4[text()="Install Kit"]'));
         this.installKitUsedYes = element(by.xpath('//input[@id="inp1"]/following-sibling::span[@class="outer"]'));
@@ -149,22 +176,45 @@ export class RiskAssessmentforGASPageObject {
         this.assetInput = element(by.id('assetinput0'));
         this.installKitNxtBtn = element(by.id('btnNextrmmip'));
         this.postInstallationGasTxt = element(by.xpath('//div/h4[text()="Post Installation Gas Tightness Test"]'));
-        // this.recentMeterBoardYes = element(by.id('rb_ReMetBoard_y'));
-        // this.recentMeterBoardYes = element(by.id('rb_ReMetBoard_y'));
-        // this.recentMeterBoardYes = element(by.id('rb_ReMetBoard_y'));
-        // this.recentMeterBoardYes = element(by.id('rb_ReMetBoard_y'));
-        // this.recentMeterBoardYes = element(by.id('rb_ReMetBoard_y'));
-        // this.recentMeterBoardYes = element(by.id('rb_ReMetBoard_y'));
-        // this.recentMeterBoardYes = element(by.id('rb_ReMetBoard_y'));
-        // this.recentMeterBoardYes = element(by.id('rb_ReMetBoard_y'));
-        // this.recentMeterBoardYes = element(by.id('rb_ReMetBoard_y'));
-        // this.recentMeterBoardYes = element(by.id('rb_ReMetBoard_y'));
-        // this.recentMeterBoardYes = element(by.id('rb_ReMetBoard_y'));
-        // this.recentMeterBoardYes = element(by.id('rb_ReMetBoard_y'));
-        // this.recentMeterBoardYes = element(by.id('rb_ReMetBoard_y'));
-        // this.recentMeterBoardYes = element(by.id('rb_ReMetBoard_y'));
-		// this.recentMeterBoardYes = element(by.id('rb_ReMetBoard_y'));
-
+        this.additionalTxtPreInstallGas = element(by.id('txt_AddNotGasTigT'));
+        this.selectassettoInstallGas = element(by.xpath('(//select[@ng-model="scp.selectedAsset"]/option)[1]'));
+        this.selectNewMeterGasOptn = element(by.xpath('(//select[@id="newMeter_assetSelect"]/option)[2]'));
+        this.inputMeterSerialNum = element(by.xpath('(//div/input[@id="txt_Serial_Num"])[1]'));
+        this.contactGTYEs = element(by.xpath('//input[@id="gtp1"]/following-sibling::span[@class="outer"]'));
+        this.GAStightnessTestYes = element(by.xpath('//input[@id="gtp11"]/following-sibling::span[@class="outer"]'));
+        this.GasTightnessTestPerformedYes = element(by.xpath('//input[@id="gtp17"]/following-sibling::span[@class="outer"]'));
+        this.nationalGTRefInput = element(by.id('input1'));
+        this.additionalWork1 = element(by.xpath('(//div/label[@class="chckbox ng-binding"])[1]'));
+        this.additionalWork2 = element(by.xpath('(//div/label[@class="chckbox ng-binding"])[2]'));
+        this.additionalWork3 = element(by.xpath('(//div/label[@class="chckbox ng-binding"])[3]'));
+        this.additionalWork4 = element(by.xpath('(//div/label[@class="chckbox ng-binding"])[4]'));
+        this.additionalWork5 = element(by.xpath('(//div/label[@class="chckbox ng-binding"])[5]'));
+        this.additionalWork6 = element(by.xpath('(//div/label[@class="chckbox ng-binding"])[6]'));
+        this.GasPostAddText = element(by.xpath('(//textarea[@id="text1"])[2]'));
+        this.replacedGasMeterYes = element(by.xpath('//input[@id="gtp13"]/following-sibling::span[@class="outer"]'));
+        this.replacedGasRegulatorYes = element(by.xpath('//input[@id="gtp15"]/following-sibling::span[@class="outer"]'));
+        this.GasTightnessYes = element(by.xpath('//input[@id="gtp17"]/following-sibling::span[@class="outer"]'));
+        this.capturePostInstallationGas = element(by.id('btn_CapPoTi_test'));
+        this.DIPGASYes = element(by.xpath('//input[@id="gtp19"]/following-sibling::span[@class="outer"]'));
+        this.dipSelectDD = element(by.id('select1'));
+        this.meterTypeGASDD = element(by.id('select2'));
+        this.tightnessPassedYes = element(by.xpath('//input[@id="gtp21"]/following-sibling::span[@class="outer"]'));
+        this.witnessName = element(by.xpath('//form/input[@id="input3"]'));
+        this.standingPressure = element(by.id('gaspoststandingpressure'));
+        this.dipCaptureBtn = element(by.id('btn_CapStPr'));
+        this.workingpressure = element(by.id('gaspostworkingpressure'));
+        this.wpCapture = element(by.xpath('(//div[@id="btn_CapStPr"])[2]'));
+        this.finalMeterCapture = element(by.xpath('//button[@id="btn2"]'));
+        this.polNxtBtn = element(by.xpath('(//div/button[@id="btnNextPol"])[2]'));
+        this.gicomSendMessage = element(by.id('gicom_sendMessageButton'));
+        this.successfulBtn = element(by.id('gicom_nextButton'));
+        this.gasAppliencesSafetyTxt = element(by.xpath('//div/h4[text()="Gas Appliance Safety Checks"]'));
+        this.earthBondingYEs = element(by.xpath('//input[@id="radioraa1a"]/following-sibling::span[@class="outer"]'));
+        this.landLordPropertyYes = element(by.xpath('//input[@name="5341"]/following-sibling::span[@class="outer"]'));
+        this.landLordPropertyNo = element(by.id('radioraa4'));
+        this.gasAddressinput = element(by.xpath('(//input[@id="input1"])[2]'));
+        this.allAppliTestedBtn = element(by.id('btn_AllApp_tested'));
+        this.submitGas = element(by.id('btn_Subm_gas'));
 
 	}
 
@@ -244,13 +294,20 @@ export class RiskAssessmentforGASPageObject {
 		}
 		await utility.wait(2000);
 		await this.CustSmellGasYes.click();
-		await this.reportToGTYes.click();
-		await expect(await this.inputGTRef.isPresent());
+		
+		
+		await expect(await this.additionalTxtPreInstallGas.isPresent());
+		await this.additionalTxtPreInstallGas.sendKeys('Reference Text');
+        await this.failureOutcomeGT.click();
+        await this.reportToGTYes.click();
+        await expect(await this.inputGTRef.isPresent());
 		await this.inputGTRef.sendKeys('1234');
-		await this.reportedToHSYEs.click();
-		await expect(await this.inputAirLineRef.isPresent());
-		await this.inputAirLineRef.sendKeys('123456');
-		await this.waitForGTYes.click();
+        await this.reportedToHSYEs.click();
+        if (this.inputAirLineRef.isDisplayed()) {
+			await utility.wait(2000);
+			await this.inputAirLineRef.sendKeys('5678910');
+        }
+        await this.waitForGTYes.click();
 		await this.GTResolveIssue.click();
 		await utility.wait(2000);
 	}
@@ -286,6 +343,23 @@ public async meterRegulatorDetailsTxtDisplay() {
 ***/
 public async fillMeterRegulatorDetailsGAS() {
     await this.regulatorReplacedYes.click();
+    
+// if (await this.selectValidAssetDD.isDisplayed()) {
+// await utility.wait(2000);
+// // click the dropdown
+// this.selectValidAssetDD.click()
+// browser.sleep(1000)
+// //index = index ;
+// console.log("Selecting element based index : "+index)
+// // select the option
+// await this.selectValidAssetDD.element(by.css("option:nth-child("+index+")")).click()
+// await utility.wait(3000);
+// //await this.commshubPopup.click();
+
+// await expect(await this.inputelecSerialNum.isPresent());
+// var options=this.selectassettoInstallGas.getAttribute('value');
+// await this.inputelecSerialNum.sendKeys(options);
+
     if (await this.selectValidAssetDD.isDisplayed()) {
         var select = await this.selectValidAssetDD;
         select.$('[value="MA6NC000000003"]').click();
@@ -299,6 +373,8 @@ public async fillMeterRegulatorDetailsGAS() {
     await this.commshubPopup.click();
     await utility.wait(2000);
     await this.newRegulatorNxtBtn.click();
+    await utility.wait(1000);
+    //}
 }
 
 /***
@@ -322,18 +398,22 @@ public async newMeterDetailsTxtDisplay() {
  * @description Fill new meter details GAS
 ***/
 
-public async fillNewMeterDetailsGAS() {
-    // await utility.wait(2000);
-
+public async fillNewMeterDetailsGAS(index:number) {
     if (await this.newMeterDD.isDisplayed()) {
-        var select = await this.newMeterDD;
-        select.$('[value="G4P00000000016"]').click();
-    }
-    await utility.wait(2000);
-
-    await expect(await this.inputelecSerialNum.isPresent());
-    await this.inputelecSerialNum.clear();
-    await this.inputelecSerialNum.sendKeys('G4P00000000016');
+        await utility.wait(2000);
+        // click the dropdown
+        this.newMeterDD.click()
+        browser.sleep(1000)
+        //index = index ;
+        console.log("Selecting element based index : "+index)
+        // select the option
+        await this.newMeterDD.element(by.css("option:nth-child("+index+")")).click()
+        await utility.wait(3000);
+        //await this.commshubPopup.click();
+        
+        await expect(await this.inputMeterSerialNum.isPresent());
+        var options=this.selectNewMeterGasOptn.getAttribute('value');
+        await this.inputMeterSerialNum.sendKeys(options);
     await this.randomEUDevice.click();
     let ale: Alert = browser.switchTo().alert();
     // clicks 'OK' button
@@ -351,6 +431,7 @@ public async fillNewMeterDetailsGAS() {
         select3.$('[value="02"]').click();
     }
     await utility.wait(2000);
+}
 }
 
 /***
@@ -388,6 +469,138 @@ public async gasInstallKitTxtDisplay() {
             console.log("find GasInstallKit Text  " + GasInstallKit);
         });
     }
+}
+
+/***
+ * @Author Aparna Das
+ * @description Fill Gas install Kit section 
+***/
+
+public async fillGasInstallKitDetails() {
+
+        await this.installKitUsedYes.click();
+        if (await this.nonSerialisedAsssetsDD.isDisplayed()) {
+            var select3 = this.nonSerialisedAsssetsDD;
+            select3.$('[value="1"]').click();
+        }
+        await utility.wait(2000);
+        await this.assetInput.sendKeys('1');
+        await this.installKitNxtBtn.click();
+    }
+    
+
+/***
+ * @Author Aparna Das
+ * @description Verify Gas Post Installation Gas Tightness Test section displayed
+***/
+
+public async GasPostInstallationTxt() {
+
+    if (this.postInstallationGasTxt.isDisplayed()) {
+        await this.postInstallationGasTxt.getText().then(function (postInstallationGas) {
+            console.log("find postInstallationGas Text  " + postInstallationGas);
+        });
+    }
+}
+/***
+ * @Author Aparna Das
+ * @description Fill Gas Post Installation Gas Tightness Test section
+***/
+public async fillPostInstallationGasDetails() {
+
+    await this.contactGTYEs.click();
+    await this.inputGTRef.sendKeys('12345');
+    await this.tightnessPassedYes.click();
+    await this.additionalWork1.click();
+    await this.additionalWork2.click();
+    await this.additionalWork3.click();
+    await this.additionalWork4.click();
+    await this.additionalWork5.click();
+    await this.additionalWork6.click();
+    await this.additionalSmartNote.click();
+    await this.replacedGasMeterYes.click();
+    await this.replacedGasRegulatorYes.click();
+    await this.GasTightnessTestPerformedYes.click();
+    await this.capturePostInstallationGas.click();
+    await this.DIPGASYes.click();
+    if (await this.dipSelectDD.isDisplayed()) {
+        var select3 = this.dipSelectDD;
+        select3.$('[value="1"]').click();
+    }
+    if (await this.meterTypeGASDD.isDisplayed()) {
+        var select3 = this.meterTypeGASDD;
+        select3.$('[value="1"]').click();
+    }
+    await this.tightnessPassedYes.click();
+    await this.witnessName.sendKeys('Denis');
+    await this.standingPressure.sendKeys('1');
+    await this.dipCaptureBtn.click();
+    await this.workingpressure.sendKeys('1');
+    await this.wpCapture.click();
+    await this.finalMeterCapture.click();
+    await this.polNxtBtn.click();
+}
+/***
+ * @Author Aparna Das
+ * @description GICOM Message display section
+***/
+    public async gicomSendMessageTxtDisplayed(){
+        if (this.gicomSendMessage.isDisplayed()) {
+            await this.gicomSendMessage.getText().then(function (gicomSendMsg) {
+                console.log("find gicomSendMsg Text  " + gicomSendMsg);
+            });
+        }
+        
+    }
+
+    /***
+ * @Author Aparna Das
+ * @description Fill Gas GICOM message section
+***/
+
+    public async filllGiComSection(){
+
+    await this.gicomSendMessage.click();
+    await utility.wait(80000);
+    if (this.successfulBtn.isDisplayed()) {
+        await this.successfulBtn.click();
+        await utility.wait(3000);
+    }
+}
+
+/***
+ * @Author Aparna Das
+ * @description Gas Safety check section displayed
+***/
+public async gasSafetyDisplay(){
+    if (this.gasAppliencesSafetyTxt.isDisplayed()) {
+        await this.gasAppliencesSafetyTxt.getText().then(function (gasAppliencesSafety) {
+            console.log("find gasAppliencesSafety Text  " + gasAppliencesSafety);
+        });
+    }
+}
+
+/***
+ * @Author Aparna Das
+ * @description Fill Gas Safety check section
+***/
+public async fillGasSafety(){
+    if (this.earthBondingYEs.isDisplayed()) {
+        await this.earthBondingYEs.click();
+    }
+    if (this.landLordPropertyNo.isDisplayed()) {
+        await this.landLordPropertyNo.click();
+    }
+    // if (this.gasAddressinput.isDisplayed()) {
+    //     await this.landLordPropertyYes.sendKeys('UB22GT');
+    // }
+    if (this.allAppliTestedBtn.isDisplayed()) {
+        await this.allAppliTestedBtn.click();
+    }
+    if (this.submitGas.isDisplayed()) {
+        await this.submitGas.click();
+    }
+
 }
 
 }

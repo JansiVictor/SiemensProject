@@ -15,11 +15,14 @@ import {
 	DoorStepPageObject
 } from "../pages/DoorStepPage";
 import {
-	RiskAssessmentPageObject
-} from "../pages/RiskAssessmentPage";
+	RiskAssessmentPageElecObject
+} from "../pages/RiskAssessmentPageElec";
 import {
 	RiskAssessmentforGASPageObject
 } from "../pages/RiskAssessmentForGAS";
+import {
+	Exchange21JobCompletionPageObject
+} from "../pages/Exchange21JobCompletion";
 import {
 	config
 } from "../config/config";
@@ -40,8 +43,10 @@ const login: loginPageObject = new loginPageObject();
 const home: FLTY19homePageObject = new FLTY19homePageObject();
 const applist: FLTY19AppointmentListPageObject = new FLTY19AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
-const riskassess: RiskAssessmentPageObject = new RiskAssessmentPageObject();
+const riskassess: RiskAssessmentPageElecObject = new RiskAssessmentPageElecObject();
 const riskassessGAS: RiskAssessmentforGASPageObject = new RiskAssessmentforGASPageObject();
+const exchnge21Complete: Exchange21JobCompletionPageObject = new Exchange21JobCompletionPageObject();
+
 
 
 Given('the Login Page', async function () {
@@ -374,7 +379,7 @@ Given('the  Comms Hub details section', async function () {
 
 
 When('I fill the Comms Hub fields with values', async function () {
-	await riskassess.fillCommsHubDetails();
+	await riskassess.fillCommsHubDetails(4);
 });
 
 
@@ -388,7 +393,7 @@ Given('the  New Meter details section', async function () {
 
 
 When('I fill the New Meter details fields with values', async function () {
-	await riskassess.fillNewMeterDetails();
+	await riskassess.fillNewMeterDetails(4);
 });
 
 
@@ -506,7 +511,7 @@ Then('I should see New Regulator section', async function () {
 });
 
 When('I fill the New Meter details fields with values Gas', async function () {
-	await riskassessGAS.fillNewMeterDetailsGAS();
+	await riskassessGAS.fillNewMeterDetailsGAS(2);
 });
 
 Given('the New Regulator section', async function () {
@@ -535,17 +540,165 @@ Then('I should see Gas Install Kit section', async function () {
   await riskassessGAS.gasInstallKitTxtDisplay();
 });
 
-// Given('the Gas Install Kit section', function () {
+ Given('the Gas Install Kit section', async function () {
+  await riskassessGAS.gasInstallKitTxtDisplay();
+ });
+
+
+When('I fill the Gas Install Kit section fields with values', async function () {
+  await riskassessGAS.fillGasInstallKitDetails();
+ });
+
+
+ Then('I should see Perform Post Installation GAS Checks section', async function () {
+  await riskassessGAS.GasPostInstallationTxt();
+ });
+
+ Given('the Post Installation GAS section', async function () {
+  await riskassessGAS.GasPostInstallationTxt();
+});
+
+When('I fill the Post Installation GAS section fields with values', async function () {
+  await riskassessGAS.fillPostInstallationGasDetails();
+});
+
+
+Then('I should see GICOM Message section', async function () {
+  await riskassessGAS.gicomSendMessageTxtDisplayed();
+});
+
+Given('the GICOM Message section', async function () {
+  await riskassessGAS.gicomSendMessageTxtDisplayed();
+});
+
+
+When('I fill the GICOM Message section fields with values', async function () {
+  await riskassessGAS.filllGiComSection();
+});
+
+
+Then('I should see Gas Appliance Safety Checks section', async function () {
+  await riskassessGAS.gasSafetyDisplay();
+});
+
+Given('the Gas Appliance Safety Checks section', async function () {
+  await riskassessGAS.gasSafetyDisplay();
+});
+
+
+When('I fill the Gas Appliance Safety Checks section fields with values and Submit', async function () {
+  await riskassessGAS.fillGasSafety();
+});
+
+
+Then('I should see SMETS PPMID section', async function () {
+  await exchnge21Complete.PPMIDSectiondispaly();
   
-// });
+});
+
+Given('the SMETS PPMID section', async function () {
+  await exchnge21Complete.PPMIDSectiondispaly();
+});
 
 
-// When('I fill the Gas Install Kit section fields with values', function () {
+When('I fill the SMETS PPMID section fields with values',async function () {
+  await exchnge21Complete.fillPPMIDSection(4);
+});
+
+
+Then('I should see SMETS XIPMD section', async function () {
+  await exchnge21Complete.XIPMDSectiondispaly();
+});
+
+Given('the SMETS XIPMD section', async function () {
+  await exchnge21Complete.XIPMDSectiondispaly();
+});
+
+
+When('I fill the SMETS XIPMD section fields with values',async function () {
+  await exchnge21Complete.fillXIPMDSection();
+});
+
+
+Then('I should see Check Binding and commissioning of PPMID section',async function () {
+  await exchnge21Complete.DeviceBindingSectiondispaly();
+
+});
+
+
+Given('the Binding and commissioning of PPMID section', async function () {
+  await exchnge21Complete.DeviceBindingSectiondispaly();
+});
+
+
+When('I fill the Binding and commissioning of PPMID fields with values', async function () {
+  await exchnge21Complete.fillDeviceBindingSection();
+});
+
+
+Then('I should see configuration of all meters installed section', async function () {
+  await exchnge21Complete.configAllmeterDisplay();
+});
+
+
+Given('the configuration of all meters installed  section',async function () {
+  await exchnge21Complete.configAllmeterDisplay();
+});
+
+
+
+When('I fill the configuration of all meters installed  fields with values',async function () {
+  await exchnge21Complete.fillConfigAllmeter();
+  
+});
+
+
+Then('I should see Energy Efficiency information section',async function () {
+  await exchnge21Complete.EEInfoDisplay();
+});
+
+Given('the Energy Efficiency information  section', async function () {
+  await exchnge21Complete.EEInfoDisplay();
+});
+
+
+When('I fill the Energy Efficiency information fields with values',async function () {
+  await exchnge21Complete.fillEEInfo();
+});
+
+
+Then('I should see Perform Smart Meter Education and Demonstration section', async function () {
+  await exchnge21Complete.smartEducationDisplay();
+  
+});
+
+
+Given('the Perform Smart Meter Education and Demonstration section', async function () {
+  await exchnge21Complete.smartEducationDisplay();
+});
+
+
+When('I fill the Perform Smart Meter Education and Demonstration  fields with values', async function () {
+  await exchnge21Complete.fillSmartEducationDetails();
+});
+
+
+Then('I should see Summary of Job and receive Customer Signature section',async function () {
+  await exchnge21Complete.summaryDisplay();
+});
+
+Given('the Summary of Job and receive Customer Signature section', async function () {
+  await exchnge21Complete.summaryDisplay();
+});
+
+
+When('I fill the Summary of Job and receive Customer Signaturefields with values', async function () {
+  await exchnge21Complete.fillAndPrintSummaryContent();
+});
+
+
+Then('I should see Submit button to complete the job section',async function () {
  
-// });
+});
 
-
-// Then('I should see Perform Post Installation GAS Checks section', function () {
-
-// });
 

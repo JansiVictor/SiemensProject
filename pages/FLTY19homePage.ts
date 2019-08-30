@@ -17,7 +17,7 @@ export class FLTY19homePageObject {
 
 
 	constructor() {
-    this.selectLink = element.all(by.xpath('//div[(@id="SelectJobTest3 EXCH21 DF SMETS2")]'));
+    this.selectLink = element.all(by.xpath('//div[(@id="SelectJobTest5 EXCH21 DF SMETS2")]'));
     this.selectLink2 = element.all(by.xpath('//div[contains(@id,"SelectJobTest3 EXCH21 DF SMETS2")]'));
 		this.appointmentListLabel = element(by.xpath('//*[@id="btn_top"]/div[2]/div'));
 		this.usrname = element(by.id("input1"));
@@ -52,14 +52,14 @@ export class FLTY19homePageObject {
 			//var actualSize = size -1;
 			console.log("size is: " + size);
 			var selectlatest = element(
-				by.xpath('((//div[(@id="SelectJobTest3 EXCH21 DF SMETS2")]))' + '[' + [size] + ']')
+				by.xpath('((//div[(@id="SelectJobTest5 EXCH21 DF SMETS2")]))' + '[' + [size] + ']')
 			);
 			selectlatest.getText().then(function (selectText) {
 				console.log("find select link text  " + selectText);
 			});
-			console.log("link " + ('((//div[(@id="SelectJobTest3 EXCH21 DF SMETS2")]))' + '[' + [size] + ']'));
+			console.log("link " + ('((//div[(@id="SelectJobTest5 EXCH21 DF SMETS2")]))' + '[' + [size] + ']'));
 			var selectMe = element(
-				by.xpath('((//div[(@id="SelectJobTest3 EXCH21 DF SMETS2")]))' + '[' + [size] + ']')
+				by.xpath('((//div[(@id="SelectJobTest5 EXCH21 DF SMETS2")]))' + '[' + [size] + ']')
 			);
 			selectMe.getText().then(function (selectMeText) {
 				console.log("find select Me link text  " + selectMeText);
