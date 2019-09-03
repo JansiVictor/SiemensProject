@@ -9,7 +9,7 @@ const utility: Utility = new Utility();
 
 export class FLTY19AppointmentListPageObject {
     
-    public appointmentListLabel: ElementFinder;
+    //public appointmentListLabel: ElementFinder;
     public usrname: ElementFinder;
     public password: ElementFinder;
     public loginbtn: ElementFinder;
@@ -39,17 +39,20 @@ export class FLTY19AppointmentListPageObject {
     public doorStepPROText: ElementFinder;
     public beAware: ElementFinder; 
     public continueLink: ElementFinder; 
+    public custcontnumberTxt: ElementFinder;
     
 
     constructor() {
         
-        this.appointmentListLabel = element(by.xpath('//[@id="btn_top"]/div[2]/div'));
+        //this.appointmentListLabel = element(by.xpath('//*[@id="btn_top"]/div[2]/div'));
         this.usrname = element(by.id("input1"));
         this.password = element(by.id("input2"));
         this.loginbtn = element(by.id("submitbutton"));
         this.elem = element(by.xpath('//[@id="app"]/siemensheader'));
-        this.AppointmentText = element(by.xpath('//[@id="btn_top"]/div[2]/div'));
-        this.callForwardText = element(by.xpath('(//button[@id = "btnCall1"])[1]'));
+        this.AppointmentText = element(by.xpath('(//*[@id="btn_top"]/div[2]/div)[1]'));
+        //this.AppointmentText = element(by.xpath('//[@id="btn_top"]/div[2]/div'));
+        this.callForwardText = element(by.xpath('(//button[@id="btnCall1"])[1]'));
+        this.custcontnumberTxt = element(by.xpath('//*[contains(text(),"CUSTOMER CONTACT NUMBER:")]'));
         this.contactMadeText = element(by.xpath('//div[text()="Contact made?"]'));
         this.contactMadeYes = element(by.xpath('//label[@id="rb_contact_y"]'));
         this.appointmentConfirmation = element(by.xpath('//div[text()="Appointment Confirm?"]'));
@@ -62,7 +65,6 @@ export class FLTY19AppointmentListPageObject {
         this.MPRNdiplayed = element(by.xpath('//div[text()="MPRN:"]'));
         this.mprnOK =  element(by.id('btnCall2'));
         this.expandAll = element(by.xpath('//*[text()="Expand All"]'));
-      //  this.customerContactNumberText = element(by.xpath('//*[@id="app"]/div/div/div[3]/div/ng-switch/div/callforwardform/div/div/div[1]/div[2]/b'));
         this.mpan = element(by.xpath('(//div[@class="depart-text alignCenter"]/div[@class="content-row"])[1]'));
         this.customerDetails = element(by.xpath('(//div[@class="depart-text alignCenter"]/div[@class="content-row"])[2]'));
         this.postCode = element(by.xpath('(//div[@class="depart-text alignCenter"]/div[@class="content-row"])[3]'));
@@ -72,7 +74,8 @@ export class FLTY19AppointmentListPageObject {
         this.arrivalTime = element(by.xpath('//div[@class="content-row bold"]'));
         this.callfrwdpageContent = element(by.xpath('//div[@class="description"]'));
         this.beAware = element(by.xpath('//div/h4[text() =" Be aware of any danger!"]'));
-        this.continueLink = element(by.xpath('//span[text()="continue >"]'));
+        //this.continueLink = element(by.xpath('(//span[text()="continue >"])[1]'));
+        this.continueLink = element(by.xpath('//*[starts-with(@id,"SelectJob3JFAULTY 18")]'));
 
 
     }
@@ -120,7 +123,6 @@ export class FLTY19AppointmentListPageObject {
             this.arrivalTime.getText().then(function(arrivalTimeText) {
             console.log("Arrival Time Text  " + arrivalTimeText);
             });
-            //continue
 
 
 		} catch(err) {
@@ -129,9 +131,10 @@ export class FLTY19AppointmentListPageObject {
     }
     public async clickOnCallForwardBtn(){
         await expect(this.callForwardText.isPresent());
-		this.callForwardText.click();
+        this.callForwardText.click();
         //customerContactNumberText
-        await expect(await this.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
+        await utility.wait(1000);
+        //await expect(await this.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
 	
     }
   //ContactMadeText
@@ -141,17 +144,21 @@ export class FLTY19AppointmentListPageObject {
 		this.contactMadeYes.click();
     }
     public async verifyDepartForAppointmentWindow(){
-       // this.departBtn.click();
        await utility.wait(5000);
        await expect(await this.departAppointment.getText()).equal("Depart for Appointment?");
 		expect(this.departAppointment.isPresent());
     }
     public async clickDepartBtn(){
-        await expect(this.departBtn.isPresent());
-        this.departBtn.click();
-        await utility.wait(10000);
+        await utility.wait(1000);
+        await expect(this.departBtn.isDisplayed());
+        await this.departBtn.click();
+        await utility.wait(1000);
     }
+    public async customercontactnumberavailable(){
 
+        await utility.wait(1000);
+        await expect(this.custcontnumberTxt.isPresent());
+    }
     
     public async appointmentConfirmationYes(){
     await utility.wait(2000);
@@ -185,14 +192,15 @@ export class FLTY19AppointmentListPageObject {
     }
 
     public async additionalDetails(){
-        this.additionalAccessDetailsTextBox.sendKeys('Additional access details comment 123');
-        this.departBtn.click();
-        await expect(this.departAppointment.isPresent());
+        await utility.wait(1000);
+        await this.additionalAccessDetailsTextBox.clear();
+        await this.additionalAccessDetailsTextBox.sendKeys('Additional access details comment 123');
     }
 
     public async mprnOKbtn(){
+            await utility.wait(1000);
 			await expect(this.mprnOK.isPresent());
-            this.mprnOK.click();
+            await this.mprnOK.click();
             await utility.wait(10000);
 			await expect(this.arriveBtn.isPresent());
     }
