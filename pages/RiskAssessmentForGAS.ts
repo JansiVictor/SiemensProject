@@ -116,6 +116,11 @@ export class RiskAssessmentforGASPageObject {
     public allAppliTestedBtn: ElementFinder;
     public submitGas: ElementFinder;
     public landLordPropertyNo: ElementFinder;
+    public reportedToHSYEsGas: ElementFinder;
+    public inputAirLineRefGAS: ElementFinder;
+    public gtAttendanceOnSiteYes: ElementFinder;
+    public gtResolveIssueGas: ElementFinder;
+    public AdditionalWorktoPassYesGAS: ElementFinder;
     
 
 
@@ -127,7 +132,7 @@ export class RiskAssessmentforGASPageObject {
 		this.ecvChksPAss = element(by.xpath('//input[@id="raga2"]/following-sibling::span[@class="outer"]'));
 		this.workAreaSafetyYes = element(by.xpath('//input[@id="raga3"]/following-sibling::span[@class="outer"]'));
 		this.captureEvidence = element(by.xpath('(//button[@id="btn1"])[1]'));
-		this.additionalGASNote = element(by.id('text1'));
+        this.additionalGASNote = element(by.id('text1'));
 		this.safeToContinueYEs = element(by.xpath('//input[@id="radiorag5"]/following-sibling::span[@class="outer"]'));
 		this.suitableforSmartInstallationTxt = element(by.id('Title_Smart_Elec'));
 		this.suitableforInstaYes = element(by.id('rb_SuitFS_y'));
@@ -146,7 +151,10 @@ export class RiskAssessmentforGASPageObject {
 		this.gasTightnessRemrk = element(by.id('txt_AddNotGasTigT'));
 		this.failureOutcomeGT = element(by.id('rb_TestFailOutCmGTIss_y'));
 		this.reportToGTYes = element(by.id('rb_RepGT_y'));
-		this.inputGTRef = element(by.id('gt_issue'));
+        this.inputGTRef = element(by.id('gt_issue'));
+        this.reportedToHSYEsGas =element(by.xpath('//input[@id="gtp3"]/following-sibling::span[@class="outer"]'));
+        this.inputAirLineRefGAS =element(by.xpath('//div/input[@id="input2"]'));
+this.gtResolveIssueGas= element(by.xpath('//input[@id="gtp9"]/following-sibling::span[@class="outer"]'));
 		this.reportedToHSYEs = element(by.id('rb_RepAirLine_y'));
 		this.inputAirLineRef = element(by.id('hsjobref'));
 		this.waitForGTYes = element(by.id('rb_GTAttSite_y'));
@@ -199,6 +207,7 @@ export class RiskAssessmentforGASPageObject {
         this.dipSelectDD = element(by.id('select1'));
         this.meterTypeGASDD = element(by.id('select2'));
         this.tightnessPassedYes = element(by.xpath('//input[@id="gtp21"]/following-sibling::span[@class="outer"]'));
+        this.AdditionalWorktoPassYesGAS = element(by.xpath('//input[@id="gtp11"]/following-sibling::span[@class="outer"]'));
         this.witnessName = element(by.xpath('//form/input[@id="input3"]'));
         this.standingPressure = element(by.id('gaspoststandingpressure'));
         this.dipCaptureBtn = element(by.id('btn_CapStPr'));
@@ -215,6 +224,7 @@ export class RiskAssessmentforGASPageObject {
         this.gasAddressinput = element(by.xpath('(//input[@id="input1"])[2]'));
         this.allAppliTestedBtn = element(by.id('btn_AllApp_tested'));
         this.submitGas = element(by.id('btn_Subm_gas'));
+        this.gtAttendanceOnSiteYes = element(by.xpath('//input[@id="gtp5"]/following-sibling::span[@class="outer"]'));
 
 	}
 
@@ -507,10 +517,14 @@ public async GasPostInstallationTxt() {
  * @description Fill Gas Post Installation Gas Tightness Test section
 ***/
 public async fillPostInstallationGasDetails() {
-
+    await utility.wait(1000);
     await this.contactGTYEs.click();
-    await this.inputGTRef.sendKeys('12345');
-    await this.tightnessPassedYes.click();
+    await this.nationalGTRefInput.sendKeys('12345');
+    await this.reportedToHSYEsGas.click();
+    await this.inputAirLineRefGAS.sendKeys('12345');
+    await this.gtAttendanceOnSiteYes.click();
+    await this.gtResolveIssueGas.click();
+    await this.AdditionalWorktoPassYesGAS.click();
     await this.additionalWork1.click();
     await this.additionalWork2.click();
     await this.additionalWork3.click();
