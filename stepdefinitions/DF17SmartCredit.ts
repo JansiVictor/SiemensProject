@@ -181,7 +181,7 @@ Then('I should see Arrival Time details For DF17SmartCredit', async function () 
 	});
 });
 
-Then('I should see DF17SmartCredit BE AWARE OF ANY DANGER! section For DF17SmartCredit', async function () {
+Then('I should see DF17SmartCredit BE AWARE OF ANY DANGER! section', async function () {
 	await doorstep.verifyBeAwareOfAnyDangerPage();
 });
 
