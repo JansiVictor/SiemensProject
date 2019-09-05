@@ -181,6 +181,7 @@ export class RiskAssessmentforGASPageObject {
         this.selectNewMeterGasOptn = element(by.xpath('(//select[@id="newMeter_assetSelect"]/option)[2]'));
         this.inputMeterSerialNum = element(by.xpath('(//div/input[@id="txt_Serial_Num"])[1]'));
         this.contactGTYEs = element(by.xpath('//input[@id="gtp1"]/following-sibling::span[@class="outer"]'));
+        //this.contactGTYEs = element(by.id('gtp11'));
         this.GAStightnessTestYes = element(by.xpath('//input[@id="gtp11"]/following-sibling::span[@class="outer"]'));
         this.GasTightnessTestPerformedYes = element(by.xpath('//input[@id="gtp17"]/following-sibling::span[@class="outer"]'));
         this.nationalGTRefInput = element(by.id('input1'));
@@ -421,6 +422,18 @@ public async fillNewMeterDetailsGAS(index:number) {
     await utility.wait(2000);
     await this.commshubPopup.click();
     await utility.wait(2000);
+
+    // cgp add remove later-------------------------
+
+    if (await this.manufactureLetterDD.isDisplayed()) {
+        var select1 = this.manufactureLetterDD;
+            select1.$('[value="34"]').click();
+        }
+        await utility.wait(2000);
+
+        //-------------------------------
+
+
     if (await this.MeterTypeDD.isDisplayed()) {
         var select2 = this.MeterTypeDD;
         select2.$('[value="0"]').click();
@@ -507,7 +520,8 @@ public async GasPostInstallationTxt() {
  * @description Fill Gas Post Installation Gas Tightness Test section
 ***/
 public async fillPostInstallationGasDetails() {
-
+    //cgp adding
+    await utility.wait(5000);
     await this.contactGTYEs.click();
     await this.inputGTRef.sendKeys('12345');
     await this.tightnessPassedYes.click();
