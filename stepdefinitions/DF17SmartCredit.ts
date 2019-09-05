@@ -181,45 +181,45 @@ Then('I should see Arrival Time details For DF17SmartCredit', async function () 
 	});
 });
 
-Then('I should see BE AWARE OF ANY DANGER! section For DF17SmartCredit', async function () {
+Then('I should see DF17SmartCredit BE AWARE OF ANY DANGER! section For DF17SmartCredit', async function () {
 	await doorstep.verifyBeAwareOfAnyDangerPage();
 });
 
-Given('the BE AWARE OF ANY DANGER! section', async function () {
+Given('the DF17SmartCredit BE AWARE OF ANY DANGER! section', async function () {
 	await doorstep.verifyBeAwareOfAnyDangerPage();
 });
 
-When('I fill the DoorStep Protocol fields with the value', async function () {
+When('I fill the DF17SmartCredit DoorStep Protocol fields with the value', async function () {
 	await doorstep.fillTheDoorStepDetails();
 });
 
-When('I click on ON SITE button', async function () {
+When('I click on DF17SmartCredit ON SITE button', async function () {
 	await doorstep.clickONSITEBtn();
 });
 
-Then('I should see RISK ASSESSMENT tab activated', async function () {
+Then('I should see DF17SmartCredit RISK ASSESSMENT tab activated', async function () {
 	await riskassess.verifyRiskAssessmentPage();
 });
 
-Then('I should see INITIAL RISK ASSESSMENT section', async function () {
+Then('I should see DF17SmartCredit INITIAL RISK ASSESSMENT section', async function () {
 	await riskassess.verifyInitialRiskAssessmentPage();
 });
 
 
-Given('the INITIAL RISK ASSESSMENT section', async function () {
+Given('the DF17SmartCredit INITIAL RISK ASSESSMENT section', async function () {
 	await riskassess.verifyInitialRiskAssessmentPage();
 });
 
-When('I fill the initialRisk field with the values', async function () {
+When('I fill the DF17SmartCredit initialRisk field with the values', async function () {
 	await riskassess.inputInitialRiskAssessmentDetails();
 });
 
-Then('I should see INFO window', async function () {
+Then('I should see DF17SmartCredit INFO window', async function () {
 	await riskassess.infoTextPopUp();
 });
 
 
-Given('the INFO window with the text', async function () {
+Given('the DF17SmartCredit INFO window with the text', async function () {
 	await riskassess.infoOKButton.isDisplayed();
 	await riskassess.infoOKButton.click();
 
@@ -235,73 +235,73 @@ Given('the INFO window with the text', async function () {
 });
 
 
-Then('I should see RISK ASSESSMENT ELEC section', async function () {
+Then('I should see DF17SmartCredit RISK ASSESSMENT ELEC section', async function () {
 	await riskassess.verifyriskElecText();
 });
 
-Given('the RISK ASSESSMENT - ELEC section', async function () {
+Given('the DF17SmartCredit RISK ASSESSMENT - ELEC section', async function () {
 	await riskassess.verifyriskElecText();
 });
 
-When('I fill the RISK ASSESSMENT - ELEC fields with the values', async function () {
+When('I fill the DF17SmartCredit RISK ASSESSMENT - ELEC fields with the values', async function () {
 	await riskassess.fillRiskAssesmentElecFields();
 });
 
-When('I click on CAPTURE PHOTO OF HAZARD IDENTIFIED button', async function () {
+When('I click on DF17SmartCredit CAPTURE PHOTO OF HAZARD IDENTIFIED button', async function () {
 	await riskassess.capturePhotoBtnDisplayed();
 });
 
-When('I click on NEXT SECTION button', async function () {
+When('I click on DF17SmartCredit NEXT SECTION button', async function () {
 	await riskassess.clickNextSectionBtn();
 });
 
-Then('I should see CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section', async function () {
+Then('I should see DF17SmartCredit CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section', async function () {
 	await riskassess.electInstallationSection();
 });
 
-Given('the CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section', async function () {
+Given('the DF17SmartCredit CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section', async function () {
 
 	await riskassess.electInstallationSection();
 
 });
 
-Then('I should see CAPTURE INITIAL PHOTO OF GAS INSTALLATION section', async function () {
+Then('I should see DF17SmartCredit CAPTURE INITIAL PHOTO OF GAS INSTALLATION section', async function () {
 	await riskassessGAS.captureInitialPhotoTxt();
 });
 
-Given('the CAPTURE INITIAL PHOTO OF GAS INSTALLATION section', async function () {
+Given('the DF17SmartCredit CAPTURE INITIAL PHOTO OF GAS INSTALLATION section', async function () {
 
 	await riskassessGAS.captureInitialPhotoTxt();
 
 });
 
-When('I click on CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {
+When('I click on DF17SmartCredit CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {
 	await riskassess.capturephotoMeterInstall.click();
 	await utility.wait(5000);
 });
 
-When('I click on CAPTURE PHOTO OF CURRENT FULL GAS METER INSTALLATION button', async function () {
+When('I click on DF17SmartCredit CAPTURE PHOTO OF CURRENT FULL GAS METER INSTALLATION button', async function () {
 	await riskassessGAS.capturephotoMeterInstall.click();
 });
 
-Then('I should see INITIAL POLARITY CHECK - MARTINDALE TEST section', async function () {
+Then('I should see DF17SmartCredit INITIAL POLARITY CHECK - MARTINDALE TEST section', async function () {
 	await riskassess.verifyInitialPolarityCheck();
 });
 
-Given('the INITIAL POLARITY CHECK MARTINDALE TEST section', async function () {
+Given('the DF17SmartCredit INITIAL POLARITY CHECK MARTINDALE TEST section', async function () {
 	await riskassess.verifyInitialPolarityCheck();
 });
 
-When('I fill the INITIAL POLARITY CHECK field with the values', async function () {
+When('I fill the DF17SmartCredit INITIAL POLARITY CHECK field with the values', async function () {
 
 	await riskassess.fillthePolarityCheckMartinDale();
 });
 
-When('I click on CAPTURE PHOTO OF PRE INSTALLATION MARTINDALE TEST button', async function () {
+When('I click on DF17SmartCredit CAPTURE PHOTO OF PRE INSTALLATION MARTINDALE TEST button', async function () {
 	await riskassess.verifyCapturepreInstallation();
 });
 
-When('I fill the Socket Found field with the values', async function () {
+When('I fill the DF17SmartCredit Socket Found field with the values', async function () {
 	await riskassess.verifyanySocketFoundNO();
 
 });
@@ -323,58 +323,58 @@ When('I enter Additional Notes for Smart installation Check', async function () 
 });
 
 
-When('I click on smart installation NEXT SECTION button', async function () {
+When('I click on DF17SmartCredit smart installation NEXT SECTION button', async function () {
 	await riskassess.clickSmartInstallationNextBtn();
 });
 
-Then('I should see INITIAL POLARITY CHECK AT METER AND CUT OUT section', async function () {
+Then('I should see DF17SmartCredit INITIAL POLARITY CHECK AT METER AND CUT OUT section', async function () {
 	await riskassess.verifyMeterAndCutOut();
 });
 
-Given('the INITIAL POLARITY CHECK - AT METER AND CUT OUT section', async function () {
+Given('the DF17SmartCredit INITIAL POLARITY CHECK - AT METER AND CUT OUT section', async function () {
 	await riskassess.verifyMeterAndCutOut();
 });
 
-When('I fill the METER AND CUT OUT fields with the values', async function () {
+When('I fill the DF17SmartCredit METER AND CUT OUT fields with the values', async function () {
 	await riskassess.fillthePolarityCheckMeterOut();
 });
 
-When('I click on SUBMIT button', async function () {
+When('I click on DF17SmartCredit SUBMIT button', async function () {
 	await riskassessGAS.meterCutOutnextSection();
 });
 
-Then('I should see CURRENT METER DETAILS section', async function () {
+Then('I should see DF17SmartCredit CURRENT METER DETAILS section', async function () {
 	await riskassess.currentMeterDetailsText.isDisplayed();
 });
 
-Given('the Check the current meter detailssection', async function () {
+Given('the Check the DF17SmartCredit current meter detailssection', async function () {
 	await riskassess.verifyDF17CurrentMeterDetails();
 	await utility.wait(10000);
 });
 
-When('I fill the current COMM meter details fields with the values', async function () {
+When('I fill the DF17SmartCredit current COMM meter details fields with the values', async function () {
 	await riskassessCommHub.fillCommsHubDetails();
 });
 
-Then('the current COMM HUB detailssection', async function () {
+Then('the DF17SmartCredit current COMM HUB detailssection', async function () {
 	await riskassessCommHub.CommHubDisplayed();
 });
 
-When('I fill the current meter details fields with the values', async function () {
+When('I fill the DF17SmartCredit current meter details fields with the values', async function () {
 	await riskassess.fillCurrentMeterDetails();
 });
 
-Then('I should see CURRENT COMMS HUB DETAILS section', async function () {
+Then('I should see DF17SmartCredit CURRENT COMMS HUB DETAILS section', async function () {
 	await riskassessCommHub.CommHubDisplayed();
 });
 
-Given('the Check the current GAS meter detailssection', async function () {
+Given('the Check the DF17SmartCredit current GAS meter detailssection', async function () {
 	await riskassessGAS.verifyDF17CurrentMeterDetails();
 	await utility.wait(10000);
 });
 
 
-When('I fill the current GAS meter details fields with the values', async function () {
+When('I fill the DF17SmartCredit current GAS meter details fields with the values', async function () {
 	await riskassessGAS.fillCurrentMeterDetails();
 });
 
@@ -410,10 +410,10 @@ When('I click on OK button in updated Popup notification', async function () {
 });
 
 
-Then('I should see INSTALL COMMS HUB section', async function () {
+Then('I should see DF17SmartCredit INSTALL COMMS HUB section', async function () {
 	await riskassess.CommHubDisplayed();
 });
-Given('the  Comms Hub details section', async function () {
+Given('the DF17SmartCredit Comms Hub details section', async function () {
 	await riskassessCommHub.CommHubDisplayed();
 });
 
@@ -432,15 +432,15 @@ When('I fill the New Meter details fields with values', async function () {
 });
 
 
-Then('I should see ADDITIONAL ELECTRICITY CHECKS section', async function () {
+Then('I should see DF17SmartCredit ADDITIONAL ELECTRICITY CHECKS section', async function () {
 	await riskassess.additionalElecCheckDisplayed();
 });
 
-Given('the the ADDITIONAL ELECTRICITY CHECKS details section', async function () {
+Given('the DF17SmartCredit ADDITIONAL ELECTRICITY CHECKS details section', async function () {
 	await riskassess.additionalElecCheckDisplayed();
 });
 
-When('I fill the ADDITIONAL ELECTRICITY CHECKS details fields with values', async function () {
+When('I fill the DF17SmartCredit ADDITIONAL ELECTRICITY CHECKS details fields with values', async function () {
 	await riskassess.fillAdditionalElecCheckDetails();
 });
 
@@ -452,58 +452,58 @@ When('I fill the Initial Meter Reading of new meter details fields with values',
 	await riskassess.fillInitialElecMeterReading();
 });
 
-Then('I should see Commission Bind the Comms hub to the WAN section', async function () {
+Then('I should see DF17SmartCredit Commission Bind the Comms hub to the WAN section', async function () {
   await riskassess.commisioningTxtDisplayed();
 });
 
-Given('Commission Bind the Comms hub to the WAN section', async function () {
+Given('Commission Bind the DF17SmartCredit Comms hub to the WAN section', async function () {
   await riskassess.commisioningTxtDisplayed();
 });
 
 
-When('I fill the Commission Bind the Comms hub to the WAN details fields with values', async function () {
+When('I fill the DF17SmartCredit Commission Bind the Comms hub to the WAN details fields with values', async function () {
   await riskassess.fillCommissioningDetails();
 });
 
-Then('I should see Perform Post Installation Checks section', async function () {
+Then('I should see DF17SmartCredit Perform Post Installation Checks section', async function () {
 	await riskassess.postInstallationCheckDisplayed();
 });
 
 
-Given('Perform Post Installation Checks section', async function () {
+Given('Perform DF17SmartCredit Post Installation Checks section', async function () {
 	await riskassess.postInstallationCheckDisplayed();
 });
 
 
-When('I fill the Perform Post Installation Checks details fields with values', async function () {
+When('I fill the DF17SmartCredit Perform Post Installation Checks details fields with values', async function () {
 	await riskassess.fillPostInstallationCheck();
 });
 
 
-Then('I should see Perform DCC Message Creation for EICOM section', async function () {
+Then('I should see DF17SmartCredit Perform DCC Message Creation for EICOM section', async function () {
 	await riskassess.electricInstalDisplayed();
 });
 
-Given('Perform DCC Message Creation for EICOM section', async function () {
+Given('Perform DF17SmartCredit DCC Message Creation for EICOM section', async function () {
 	await riskassess.electricInstalDisplayed();
 });
 
 
-When('I fill the Perform DCC Message Creation for EICOM details fields with values', async function () {
+When('I fill the DF17SmartCredit Perform DCC Message Creation for EICOM details fields with values', async function () {
 	await riskassess.eicomMessage();
 });
 
 
-Then('I should see Initial Risk Assessment for GAS section', async function () {
+Then('I should see DF17SmartCredit Initial Risk Assessment for GAS section', async function () {
 	await riskassessGAS.riskAssessmentGASDisplayed();
 });
 
-Given('the RISK ASSESSMENT - GAS section', async function () {
+Given('the DF17SmartCredit RISK ASSESSMENT - GAS section', async function () {
 	await riskassessGAS.riskAssessmentGASDisplayed();
 });
 
 
-When('I fill the RISK ASSESSMENT - GAS fields with the values', async function () {
+When('I fill the DF17SmartCredit RISK ASSESSMENT - GAS fields with the values', async function () {
 	await riskassessGAS.fillRiskAssessGas();
 });
 
@@ -523,7 +523,7 @@ When('I fill the Suitability for Smart Meter Installation fields with the values
 });
 
 
-Then('I should see Capture Photo of GAS Installation section', async function () {
+Then('I should see DF17SmartCredit Capture Photo of GAS Installation section', async function () {
 	await riskassessGAS.captureInitialPhotoTxt();
 	await riskassessGAS.captureInitialPhotogasbtn.click();
 	await utility.wait(1000);
@@ -537,11 +537,11 @@ When('I fill the Pre Installation Gas Tightness fields with the values', async f
 	await riskassessGAS.preInstallationGasT();
 });
 
-Then('I should see Current Meter Details section', async function () {
+Then('I should see DF17SmartCredit Current Meter Details section', async function () {
 	await riskassessGAS.currentMeterDetailsTxtDisplay();
 });
 
-Then('I should see CURRENT GAS METER DETAILS section', async function () {
+Then('I should see DF17SmartCredit CURRENT GAS METER DETAILS section', async function () {
 	await riskassessGAS.currentGASMeterDetailsTxtDisplay();
 });
 
@@ -602,16 +602,16 @@ When('I fill the Post Installation GAS section fields with values', async functi
 });
 
 
-Then('I should see GICOM Message section', async function () {
+Then('I should see DF17SmartCredit GICOM Message section', async function () {
   await riskassessGAS.gicomSendMessageTxtDisplayed();
 });
 
-Given('the GICOM Message section', async function () {
-  await riskassessGAS.gicomSendMessageTxtDisplayed();
-});
+Given('the DF17SmartCredit GICOM Message section', async function () {
+	await riskassessGAS.gicomSendMessageTxtDisplayed();
+  });
 
 
-When('I fill the GICOM Message section fields with values', async function () {
+When('I fill the DF17SmartCredit GICOM Message section fields with values', async function () {
   await riskassessGAS.filllGiComSection();
 });
 
@@ -630,48 +630,48 @@ When('I fill the Gas Appliance Safety Checks section fields with values and Subm
 });
 
 
-Then('I should see Install PPMID section', async function () {
+Then('I should see DF17SmartCredit Install PPMID section', async function () {
   await df17smartcreditComplete.PPMIDSectiondispaly();
   
 });
 
-Given('the Install PPMID section', async function () {
+Given('the DF17SmartCredit Install PPMID section', async function () {
   await df17smartcreditComplete.PPMIDSectiondispaly();
 });
 
 
-When('I fill the Install PPMID section fields with values',async function () {
+When('I fill the DF17SmartCredit Install PPMID section fields with values',async function () {
   await df17smartcreditComplete.fillPPMIDSection(2);
 
 });
 
 
-Then('I should see PPMID Comissioning section', async function () {
+Then('I should see DF17SmartCredit PPMID Comissioning section', async function () {
   await df17smartcreditComplete.PPMIDCommisioningText.isDisplayed();
 });
 
-Given('the PPMID Comissioning section', async function () {
+Given('the DF17SmartCredit PPMID Comissioning section', async function () {
   await df17smartcreditComplete.PPMIDCommisioningText.isDisplayed();
 });
 
 
-When('I fill the PPMID Comissioning section fields with values',async function () {
+When('I fill the DF17SmartCredit PPMID Comissioning section fields with values',async function () {
   await df17smartcreditComplete.sendPPMIDmessageSection();
 });
 
 
-Then('I should see Check Binding and commissioning of PPMID section',async function () {
+Then('I should see DF17SmartCredit Check Binding and commissioning of PPMID section',async function () {
   await df17smartcreditComplete.DeviceBindingSectiondispaly();
 
 });
 
 
-Given('the Binding and commissioning of PPMID section', async function () {
+Given('the DF17SmartCredit Binding and commissioning of PPMID section', async function () {
   await df17smartcreditComplete.DeviceBindingSectiondispaly();
 });
 
 
-When('I fill the Binding and commissioning of PPMID fields with values', async function () {
+When('I fill the DF17SmartCredit Binding and commissioning of PPMID fields with values', async function () {
   await df17smartcreditComplete.fillDeviceBindingSection();
 });
 
@@ -681,70 +681,70 @@ Then('I should see configuration of all meters installed section', async functio
 });
 
 
-Given('the Device Binding and Comissioning Section',async function () {
+Given('the DF17SmartCredit Device Binding and Comissioning Section',async function () {
   await df17smartcreditComplete.DeviceBindingSectiondispaly();
 });
 
 
 
-When('I fill the device binding section fields with values',async function () {
+When('I fill the DF17SmartCredit device binding section fields with values',async function () {
   await df17smartcreditComplete.fillDeviceBindingSection();
   
 });
 
 
-Then('I should see Energy Efficiency information section',async function () {
+Then('I should see DF17SmartCredit Energy Efficiency information section',async function () {
   await df17smartcreditComplete.EEInfoDisplay();
 });
 
-Given('the Energy Efficiency information  section', async function () {
+Given('the DF17SmartCredit Energy Efficiency information section', async function () {
   await df17smartcreditComplete.EEInfoDisplay();
 });
 
 
-When('I fill the Energy Efficiency information fields with values',async function () {
+When('I fill the DF17SmartCredit Energy Efficiency information fields with values',async function () {
   await df17smartcreditComplete.fillEEInfo();
 });
 
 
-Then('I should see Perform Smart Meter Education and Demonstration section', async function () {
+Then('I should see DF17SmartCredit Perform Smart Meter Education and Demonstration section', async function () {
   await df17smartcreditComplete.smartEducationDisplay();
   
 });
 
 
-Given('the Perform Smart Meter Education and Demonstration section', async function () {
+Given('the DF17SmartCredit Perform Smart Meter Education and Demonstration section', async function () {
   await df17smartcreditComplete.smartEducationDisplay();
 });
 
 
-When('I fill the Perform Smart Meter Education and Demonstration  fields with values', async function () {
+When('I fill the DF17SmartCredit Perform Smart Meter Education and Demonstration  fields with values', async function () {
   await df17smartcreditComplete.fillSmartEducationDetails();
 });
 
 
-Then('I should see Summary of Job and Smart literature left onsite section',async function () {
+Then('I should see DF17SmartCredit Summary of Job and Smart literature left onsite section',async function () {
   await df17smartcreditComplete.summaryDisplay();
   await df17smartcreditComplete.smartLitLeftOnsiteTxt.isDisplayed();
 });
 
-Given('the Smart literature left onsite section', async function () {
+Given('the DF17SmartCredit Smart literature left onsite section', async function () {
   await df17smartcreditComplete.smartLitLeftOnsiteTxt.isDisplayed();
 });
 
 
-When('I fill the smart literature fields with values', async function () {
+When('I fill the DF17SmartCredit smart literature fields with values', async function () {
   await df17smartcreditComplete.fillAndPrintSummaryContent();
 });
 
 
-Then('I should click Submit button to complete the job section',async function () {
+Then('I should click DF17SmartCredit Submit button to complete the job section',async function () {
 	await df17smartcreditComplete.installSubmit();
  
 });
 
 
-Then('I should finally submit job',async function () {
+Then('I should finally submit DF17SmartCredit job',async function () {
 	await df17smartcreditComplete.FinalSubmission();
  
 });
