@@ -19,7 +19,7 @@ export const config: Config = {
     frameworkPath: require.resolve("protractor-cucumber-framework"),
 
     specs: [
-        "../../features/*.feature",
+        "../../features/DF17SmartCredit.feature",
     ],
 
     jasmineNodeOpts: {
