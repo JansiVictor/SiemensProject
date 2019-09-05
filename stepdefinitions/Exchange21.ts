@@ -6,8 +6,8 @@ import {
 	loginPageObject
 } from "../pages/loginPage";
 import {
-	FLTY19homePageObject
-} from "../pages/FLTY19homePage";
+	ExchangehomePageObject
+} from "../pages/ExchangehomePage";
 import {
 	FLTY19AppointmentListPageObject
 } from "../pages/FLTY19AppointmentListPage";
@@ -40,7 +40,7 @@ const expect = chai.expect;
 const delay = ms => new Promise(res => setTimeout(res, ms));
 const utility: Utility = new Utility();
 const login: loginPageObject = new loginPageObject();
-const home: FLTY19homePageObject = new FLTY19homePageObject();
+const home: ExchangehomePageObject = new ExchangehomePageObject();
 const applist: FLTY19AppointmentListPageObject = new FLTY19AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: RiskAssessmentPageElecObject = new RiskAssessmentPageElecObject();
@@ -73,8 +73,8 @@ Given('the Appointment List window', async function () {
 });
 
 When('I click on select button', async function () {
-	//await applist.continueLinkforEx21.click();
-	await home.clickOnTheSelectLink();
+	await home.clickOnTheExchange21SelectLink();
+	//await home.clickOnTheContinueLink();
 	await utility.wait(5000);
 });
 
@@ -511,7 +511,7 @@ Then('I should see New Regulator section', async function () {
 });
 
 When('I fill the New Meter details fields with values Gas', async function () {
-	await riskassessGAS.fillNewMeterDetailsGAS(2);
+	await riskassessGAS.fillNewMeterDetailsGAS(3);
 });
 
 Given('the New Regulator section', async function () {

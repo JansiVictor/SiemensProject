@@ -1,30 +1,30 @@
-Feature: Login into Siemen Application And proceed with Exchange21 Work Order
+# Feature: Login into Siemen Application And proceed with Exchange21 Work Order
 
-Scenario Outline: Logging in to job's "Work Order" window
-Given the Login Page
-When I pass "<Username>" and "<Password>"
-Then I click Login button
-And I should see the Appointment List 
+# Scenario Outline: Logging in to job's "Work Order" window
+# Given the Login Page
+# When I pass "<Username>" and "<Password>"
+# Then I click Login button
+# And I should see the Appointment List 
 
-Examples:
-| Username 		| Password      |
-|  Automation2  |  Aut0m4t1on2  |
+# Examples:
+# | Username 		| Password      |
+# |  Automation2  |  Aut0m4t1on2  |
 
 
-Scenario: Select the Latest workOrder
-Given the Appointment List window
-When I click on select button
-Then I should see Work Order window
+# Scenario: Select the Latest workOrder
+# Given the Appointment List window
+# When I click on select button
+# Then I should see Work Order window
 
-Scenario: Going through Call Forward
-Given the "Work Order" window
-When i see Call Forward or Arrive Button
-Then I click on CALL FORWARD button
-Then I should see page contect display
-And I should see the CUSTOMER CONTACT NUMBER
-And I should see Contact made field
+# Scenario: Going through Call Forward
+# Given the "Work Order" window
+# When i see Call Forward or Arrive Button
+# Then I click on CALL FORWARD button
+# Then I should see page contect display
+# And I should see the CUSTOMER CONTACT NUMBER
+# And I should see Contact made field
 
-Scenario: Selecting job and setting to depart
+# Scenario: Selecting job and setting to depart
 # Given the "Work Order" page
 # When I fill the fields with the value
 # And I click on DEPART button 
@@ -177,78 +177,78 @@ Scenario: Selecting job and setting to depart
 # When I fill the REMOVE METER fields with the values
 # Then I should see REMOVE ASSET section  
 
-Scenario: Going through "REMOVE ASSET" GAS section 
-Given the REMOVE ASSET section   
-When I fill the REMOVE ASSET field with the values
-And I click on OK button in updated Popup notification
-Then I should see New Regulator section 
+# Scenario: Going through "REMOVE ASSET" GAS section 
+# Given the REMOVE ASSET section   
+# When I fill the REMOVE ASSET field with the values
+# And I click on OK button in updated Popup notification
+# Then I should see New Regulator section 
 
-Scenario: Input the new Regulator S/N which transferres the Regulator from the Van List GAS section 
-Given the New Regulator section 
-When I fill the New Regulator fields with values
-Then I should see NEW METER section 
+# Scenario: Input the new Regulator S/N which transferres the Regulator from the Van List GAS section 
+# Given the New Regulator section 
+# When I fill the New Regulator fields with values
+# Then I should see NEW METER section 
 
-Scenario: Going through " SMETS2 New Meter details " GAS section 
-Given the  New Meter details section 
-When I fill the New Meter details fields with values Gas
-Then I should see Gas Initial Meter Reading section
+# Scenario: Going through " SMETS2 New Meter details " GAS section 
+# Given the  New Meter details section 
+# When I fill the New Meter details fields with values Gas
+# Then I should see Gas Initial Meter Reading section
 
-Scenario: Going through " SMETS2 Initial New Meter details " GAS section 
-Given the Gas Initial Meter Reading section 
-When I fill the Gas Initial Meter Reading details fields with values
-Then I should see Gas Install Kit section
+# Scenario: Going through " SMETS2 Initial New Meter details " GAS section 
+# Given the Gas Initial Meter Reading section 
+# When I fill the Gas Initial Meter Reading details fields with values
+# Then I should see Gas Install Kit section
 
-Scenario: Going through "Install Kit " GAS section 
-Given the Gas Install Kit section 
-When I fill the Gas Install Kit section fields with values
-Then I should see Perform Post Installation GAS Checks section
+# Scenario: Going through "Install Kit " GAS section 
+# Given the Gas Install Kit section 
+# When I fill the Gas Install Kit section fields with values
+# Then I should see Perform Post Installation GAS Checks section
 
-Scenario: Going through "Post Installation GAS" GAS section 
-Given the Post Installation GAS section 
-When I fill the Post Installation GAS section fields with values
-Then I should see GICOM Message section
+# Scenario: Going through "Post Installation GAS" GAS section 
+# Given the Post Installation GAS section 
+# When I fill the Post Installation GAS section fields with values
+# Then I should see GICOM Message section
 
-Scenario: Going through "GICOM Message" GAS section 
-Given the GICOM Message section 
-When I fill the GICOM Message section fields with values
-Then I should see Gas Appliance Safety Checks section
+# Scenario: Going through "GICOM Message" GAS section 
+# Given the GICOM Message section 
+# When I fill the GICOM Message section fields with values
+# Then I should see Gas Appliance Safety Checks section
 
-Scenario: Going through "Gas Appliance Safety Checks" GAS section 
-Given the Gas Appliance Safety Checks section 
-When I fill the Gas Appliance Safety Checks section fields with values and Submit
-Then I should see SMETS PPMID section
+# Scenario: Going through "Gas Appliance Safety Checks" GAS section 
+# Given the Gas Appliance Safety Checks section 
+# When I fill the Gas Appliance Safety Checks section fields with values and Submit
+# Then I should see SMETS PPMID section
 
-Scenario: Going through "SMETS PPMID" GAS section 
-Given the SMETS PPMID section 
-When I fill the SMETS PPMID section fields with values
-Then I should see SMETS XIPMD section
+# Scenario: Going through "SMETS PPMID" GAS section 
+# Given the SMETS PPMID section 
+# When I fill the SMETS PPMID section fields with values
+# Then I should see SMETS XIPMD section
 
-Scenario: Going through "SMETS XIPMD" GAS section 
-Given the SMETS XIPMD section 
-When I fill the SMETS XIPMD section fields with values
-Then I should see Check Binding and commissioning of PPMID section
+# Scenario: Going through "SMETS XIPMD" GAS section 
+# Given the SMETS XIPMD section 
+# When I fill the SMETS XIPMD section fields with values
+# Then I should see Check Binding and commissioning of PPMID section
 
-Scenario: Going through "Check Binding and commissioning of PPMID" GAS section 
-Given the Binding and commissioning of PPMID section 
-When I fill the Binding and commissioning of PPMID fields with values
-Then I should see configuration of all meters installed section
+# Scenario: Going through "Check Binding and commissioning of PPMID" GAS section 
+# Given the Binding and commissioning of PPMID section 
+# When I fill the Binding and commissioning of PPMID fields with values
+# Then I should see configuration of all meters installed section
 
-Scenario: Going through "configuration of all meters installed " GAS section 
-Given the configuration of all meters installed  section 
-When I fill the configuration of all meters installed  fields with values
-Then I should see Energy Efficiency information section
+# Scenario: Going through "configuration of all meters installed " GAS section 
+# Given the configuration of all meters installed  section 
+# When I fill the configuration of all meters installed  fields with values
+# Then I should see Energy Efficiency information section
 
-Scenario: Going through "Energy Efficiency information" GAS section 
-Given the Energy Efficiency information  section 
-When I fill the Energy Efficiency information fields with values
-Then I should see Perform Smart Meter Education and Demonstration section
+# Scenario: Going through "Energy Efficiency information" GAS section 
+# Given the Energy Efficiency information  section 
+# When I fill the Energy Efficiency information fields with values
+# Then I should see Perform Smart Meter Education and Demonstration section
 
-Scenario: Going through "Perform Smart Meter Education and Demonstration " GAS section 
-Given the Perform Smart Meter Education and Demonstration section 
-When I fill the Perform Smart Meter Education and Demonstration  fields with values
-Then I should see Summary of Job and receive Customer Signature section
+# Scenario: Going through "Perform Smart Meter Education and Demonstration " GAS section 
+# Given the Perform Smart Meter Education and Demonstration section 
+# When I fill the Perform Smart Meter Education and Demonstration  fields with values
+# Then I should see Summary of Job and receive Customer Signature section
 
-Scenario: Going through "Summary of Job and receive Customer Signature" GAS section 
-Given the Summary of Job and receive Customer Signature section 
-When I fill the Summary of Job and receive Customer Signaturefields with values
-Then I should see Submit button to complete the job section
+# Scenario: Going through "Summary of Job and receive Customer Signature" GAS section 
+# Given the Summary of Job and receive Customer Signature section 
+# When I fill the Summary of Job and receive Customer Signaturefields with values
+# Then I should see Submit button to complete the job section

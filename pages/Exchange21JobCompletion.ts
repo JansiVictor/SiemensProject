@@ -64,6 +64,9 @@ export class Exchange21JobCompletionPageObject {
     public jobCompleteBtn: ElementFinder;
     public PPMIDinstallDDList: ElementFinder;
     public EEInfoDiplay: ElementFinder;
+    public EEUIDText:ElementFinder;
+    public DeviceNxtBtn: ElementFinder;
+    public fullEx20ConfigAppliedGasYes: ElementFinder;
 
     constructor() {
         this.installPPMIDText = element(by.id('Title_ihdscan'));
@@ -87,8 +90,9 @@ export class Exchange21JobCompletionPageObject {
         this.FullWANYes = element(by.id('rb_FulWANEst_y'));
         this.FullCOnfigAppliedElecYes = element(by.id('rb_FullCFigE_y'));
         this.fullConfigAppliedGasYes = element(by.xpath('(//input[@id="rcfg5"]/following-sibling::span[@class="cr"])[1]'));
+        this.fullEx20ConfigAppliedGasYes = element(by.xpath('(//input[@id="rcfg5"]/following-sibling::span[@class="cr"])[1]'));
         this.fullConfigAppliedPPMIDYes = element(by.xpath('(//input[@id="rcfg5"]/following-sibling::span[@class="cr"])[2]'));
-        this.capturePPMIDBtn = element(by.className('cameraBtn2line grey mandatoryWhite'));
+        this.capturePPMIDBtn = element(by.xpath('//div/button[@class="cameraBtn2line grey mandatoryWhite"]'));
         this.PPMIDNxtBtn = element(by.xpath('//div/button[@id="btnNextEff"]'));
         this.energyEffProvidedYes = element(by.id('rb_EngEffInfoP_y'));
         this.energyEffDocLeftYes = element(by.id('rb_EngEffDocleft_y'));
@@ -107,8 +111,10 @@ export class Exchange21JobCompletionPageObject {
         this.signedbyCustorRepDD = element(by.id('cbx_SigByCus_sel'));
         this.custRefusedToSignNo = element(by.xpath('//input[@id="rb_CusRefSig_n"]/following-sibling::span[@class="outer"]'));
         this.jobCompleteBtn = element(by.id('btn_Comp_submit'));
-        this.PPMIDinstallDDList = element(by.xpath('(//select[@id="ihdscan2_assetSelect"]/option)[4]'));
+        this.PPMIDinstallDDList = element(by.xpath('(//select[@id="ihdscan2_assetSelect"]/option)[3]'));
         this.EEInfoDiplay = element(by.id('lbl_EnEff_info'));
+        this.EEUIDText = element(by.xpath('//div[text()="EUI Device ID:"]'));
+        this.DeviceNxtBtn = element(by.xpath('//div/button[@id="dbc2_trad_btnNextEff"]'));
     }
 
     /***
@@ -152,6 +158,7 @@ public async fillPPMIDSection(index:number){
 		await expect(await this.inputPPMIDSerialNum.isPresent());
 		var options = this.PPMIDinstallDDList.getAttribute('value');
         await this.inputPPMIDSerialNum.sendKeys(options);
+        await this.EEUIDText.click();
         await this.infoOKButton.click();
     }
   
@@ -161,6 +168,12 @@ public async fillPPMIDSection(index:number){
     if (this.ppmidNXTBtn.isDisplayed()) {
         await this.ppmidNXTBtn.click();
     }
+    await utility.wait(1000);
+    if (this.sendMsgPPMID.isDisplayed()) {
+        await this.sendMsgPPMID.click();
+        await utility.wait(80000);
+    }
+    
 }
 
  /***
@@ -212,6 +225,27 @@ public async fillDeviceBindingSection(){
     if (this.FUlHANYes.isDisplayed()) {
         await this.FUlHANYes.click();
     }
+    if (this.DeviceNxtBtn.isDisplayed()) {
+        await this.DeviceNxtBtn.click();
+    }
+    await utility.wait(1000);
+}
+
+/***
+ * @Author Aparna Das
+ * @description Fill Device Binding Section display Ex20
+***/
+public async fillEx20DeviceBindingSection(){
+    if (this.IHDPairedYes.isDisplayed()) {
+        await this.IHDPairedYes.click();
+    }
+    if (this.FUlHANYes.isDisplayed()) {
+        await this.FUlHANYes.click();
+    }
+    if (this.DeviceNxtBtn.isDisplayed()) {
+        await this.DeviceNxtBtn.click();
+    }
+    await utility.wait(1000);
 }
 
 /***
@@ -236,17 +270,55 @@ public async fillConfigAllmeter(){
     if (this.FullCOnfigAppliedElecYes.isDisplayed()) {
         await this.FullCOnfigAppliedElecYes.click();
     }
+    if (this.infoOKButton.isDisplayed()) {
+        await this.infoOKButton.click();
+    }
     if (this.fullConfigAppliedGasYes.isDisplayed()) {
         await this.fullConfigAppliedGasYes.click();
     }
-    if (this.fullConfigAppliedPPMIDYes.isDisplayed()) {
-        await this.fullConfigAppliedPPMIDYes.click();
-    }
-    if (this.capturePPMIDBtn.isDisplayed()) {
-        await this.capturePPMIDBtn.click();
-    }
+    // if (this.fullConfigAppliedPPMIDYes.isDisplayed()) {
+    //     await this.fullConfigAppliedPPMIDYes.click();
+    // }
+    // await utility.wait(1000);
+    // if (this.capturePPMIDBtn.isDisplayed()) {
+    //     await this.capturePPMIDBtn.click();
+    // }
+    await utility.wait(1000);
     if (this.ppmidNXTBtn.isDisplayed()) {
-        await this.capturePPMIDBtn.click();
+        await this.ppmidNXTBtn.click();
+    }
+}
+
+/***
+ * @Author Aparna Das
+ * @description Fill config All meter Section Ex20
+***/
+public async fillEx20ConfigAllmeter(){
+    if (this.FullWANYes.isDisplayed()) {
+        await this.FullWANYes.click();
+    }
+    if (this.FullCOnfigAppliedElecYes.isDisplayed()) {
+        await this.FullCOnfigAppliedElecYes.click();
+    }
+    if (this.infoOKButton.isDisplayed()) {
+        await this.infoOKButton.click();
+        await utility.wait(1000);
+    }
+    
+    //  if (this.fullEx20ConfigAppliedGasYes.isDisplayed()) {
+    //      await this.fullEx20ConfigAppliedGasYes.click();
+    // }
+    //  await utility.wait(1000);
+    // if (this.capturePPMIDBtn.isDisplayed()) {
+    //     await this.capturePPMIDBtn.click();
+    //     await this.capturePPMIDBtn.click();
+
+    // }
+    await utility.wait(1000);
+    if (this.ppmidNXTBtn.isDisplayed()) {
+        var element = this.ppmidNXTBtn;
+        browser.executeScript("arguments[0].click()",element);
+       // await this.ppmidNXTBtn.click();
     }
 }
 

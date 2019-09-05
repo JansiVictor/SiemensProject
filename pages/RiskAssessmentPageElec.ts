@@ -790,7 +790,7 @@ export class RiskAssessmentPageElecObject {
 
 	public async fillNewMeterDetails(index:number) {
 		// await utility.wait(2000);
-	try{
+	//try{
 		if (await this.newMeterDD.isDisplayed()) {
 			await utility.wait(2000);
 			// click the dropdown
@@ -814,12 +814,12 @@ export class RiskAssessmentPageElecObject {
 		await utility.wait(2000);
 
 		await this.commshubPopup.click();
-		await utility.wait(2000);
+		await utility.wait(3000);
 
-		if (await this.manufactureLetterDD.isDisplayed()) {
-			var select1 = this.manufactureLetterDD;
-			select1.$('[value="2"]').click();
-		}
+		// if (await this.manufactureLetterDD.isDisplayed()) {
+		// 	var select1 = this.manufactureLetterDD;
+		// 	select1.$('[value="2"]').click();
+		// }
 		await utility.wait(2000);
 		if (await this.MeterTypeDD.isDisplayed()) {
 			var select2 = this.MeterTypeDD;
@@ -839,10 +839,10 @@ export class RiskAssessmentPageElecObject {
 		await utility.wait(2000);
 
 	} 
-}
-catch(err) {
-	console.log("fillNewMeterDetails Error " + err.getText());
-	}
+//}
+// catch(err) {
+// 	console.log("fillNewMeterDetails Error " + err.getText());
+// 	}
 	}
 /***
  * @Author Aparna Das

@@ -186,18 +186,18 @@ this.gtResolveIssueGas= element(by.xpath('//input[@id="gtp9"]/following-sibling:
         this.postInstallationGasTxt = element(by.xpath('//div/h4[text()="Post Installation Gas Tightness Test"]'));
         this.additionalTxtPreInstallGas = element(by.id('txt_AddNotGasTigT'));
         this.selectassettoInstallGas = element(by.xpath('(//select[@ng-model="scp.selectedAsset"]/option)[1]'));
-        this.selectNewMeterGasOptn = element(by.xpath('(//select[@id="newMeter_assetSelect"]/option)[2]'));
+        this.selectNewMeterGasOptn = element(by.xpath('(//select[@id="newMeter_assetSelect"]/option)[3]'));
         this.inputMeterSerialNum = element(by.xpath('(//div/input[@id="txt_Serial_Num"])[1]'));
         this.contactGTYEs = element(by.xpath('//input[@id="gtp1"]/following-sibling::span[@class="outer"]'));
         this.GAStightnessTestYes = element(by.xpath('//input[@id="gtp11"]/following-sibling::span[@class="outer"]'));
         this.GasTightnessTestPerformedYes = element(by.xpath('//input[@id="gtp17"]/following-sibling::span[@class="outer"]'));
         this.nationalGTRefInput = element(by.id('input1'));
-        this.additionalWork1 = element(by.xpath('(//div/label[@class="chckbox ng-binding"])[1]'));
-        this.additionalWork2 = element(by.xpath('(//div/label[@class="chckbox ng-binding"])[2]'));
-        this.additionalWork3 = element(by.xpath('(//div/label[@class="chckbox ng-binding"])[3]'));
-        this.additionalWork4 = element(by.xpath('(//div/label[@class="chckbox ng-binding"])[4]'));
-        this.additionalWork5 = element(by.xpath('(//div/label[@class="chckbox ng-binding"])[5]'));
-        this.additionalWork6 = element(by.xpath('(//div/label[@class="chckbox ng-binding"])[6]'));
+        this.additionalWork1 = element(by.xpath('(//input[@id="work[$index]"]/following-sibling::span[@class="outer"])[1]'));
+        this.additionalWork2 = element(by.xpath('(//input[@id="work[$index]"]/following-sibling::span[@class="outer"])[2]'));
+        this.additionalWork3 = element(by.xpath('(//input[@id="work[$index]"]/following-sibling::span[@class="outer"])[3]'));
+        this.additionalWork4 = element(by.xpath('(//input[@id="work[$index]"]/following-sibling::span[@class="outer"])[4]'));
+        this.additionalWork5 = element(by.xpath('(//input[@id="work[$index]"]/following-sibling::span[@class="outer"])[5]'));
+        this.additionalWork6 = element(by.xpath('(//input[@id="work[$index]"]/following-sibling::span[@class="outer"])[6]'));
         this.GasPostAddText = element(by.xpath('(//textarea[@id="text1"])[2]'));
         this.replacedGasMeterYes = element(by.xpath('//input[@id="gtp13"]/following-sibling::span[@class="outer"]'));
         this.replacedGasRegulatorYes = element(by.xpath('//input[@id="gtp15"]/following-sibling::span[@class="outer"]'));
@@ -531,7 +531,7 @@ public async fillPostInstallationGasDetails() {
     await this.additionalWork4.click();
     await this.additionalWork5.click();
     await this.additionalWork6.click();
-    await this.additionalSmartNote.click();
+    //await this.additionalSmartNote.click();
     await this.replacedGasMeterYes.click();
     await this.replacedGasRegulatorYes.click();
     await this.GasTightnessTestPerformedYes.click();
@@ -545,8 +545,9 @@ public async fillPostInstallationGasDetails() {
         var select3 = this.meterTypeGASDD;
         select3.$('[value="1"]').click();
     }
+    await utility.wait(2000);
     await this.tightnessPassedYes.click();
-    await this.witnessName.sendKeys('Denis');
+    await this.witnessName.sendKeys('Dennis');
     await this.standingPressure.sendKeys('1');
     await this.dipCaptureBtn.click();
     await this.workingpressure.sendKeys('1');
