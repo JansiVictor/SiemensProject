@@ -959,4 +959,58 @@ public DeviceBinding: ElementFinder;
             await this.DeviceBinding.click();
         }   
     }
+
+    //FLTY18-Electric Faulty Changes
+
+    public async fillfieldsElecInstallcommshub() {
+        await utility.wait(1000);
+        if (await this.commshubReqY.isDisplayed()) {
+            await this.commshubReqY.click();
+        }
+        await utility.wait(1000);
+        if (await this.selectValid.isDisplayed()) {
+            var select = this.selectValid;
+            select.$('[value="1C0000AA00110016"]').click();
+        }
+        await utility.wait(1000);
+        if (await this.commshubWarning.isDisplayed()) {
+            await this.commshubWarning.click();
+        }
+        await utility.wait(1000);
+        if (await this.CHFIDText.isDisplayed()) {
+            await this.CHFIDText.clear();
+            await this.CHFIDText.sendKeys("1C0000AA00110016");
+        }
+        await utility.wait(1000);
+        if (await this.chfIDokenable.isDisplayed()) {
+            await this.chfIDokenable.click();
+        }
+        await utility.wait(1000);
+        if (await this.assetSuccessAdded.isDisplayed()) {
+            await this.assetSuccessAdded.click();
+        }
+        await utility.wait(1000);
+        if (await this.commsHubLocation.isDisplayed()) {
+            var select = this.commsHubLocation;
+            select.$('[value="A"]').click();
+        }
+        await utility.wait(1000);
+        if (await this.aerialY.isDisplayed()) {
+            await this.aerialY.click();
+        }
+        await utility.wait(1000);
+        if (await this.commshubconnmethodselect.isDisplayed()) {
+            var select = this.commshubconnmethodselect;
+            select.$('[value="2"]').click();
+        }
+        await utility.wait(1000);
+        if (await this.commshubPhoto.isDisplayed()) {
+            await this.commshubPhoto.click();
+        }
+        await utility.wait(1000);
+        if (await this.instCommshubNext.isDisplayed()) {
+            await this.instCommshubNext.click();
+        }
+ 
+    }
 }

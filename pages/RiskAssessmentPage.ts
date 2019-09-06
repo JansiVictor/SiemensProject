@@ -112,6 +112,9 @@ export class RiskAssessmentPageObject {
 
     public performriskmodel: ElementArrayFinder;
     public performriskY: ElementFinder;
+    public nextbtntoRemfromElec: ElementFinder;
+    public infoOkbutn: ElementFinder;
+    public captureInitialPhotoE: ElementFinder;
 
 
     constructor() {
@@ -133,6 +136,7 @@ export class RiskAssessmentPageObject {
         this.OKtoProceedEGPOutcome = element(by.xpath('//label[@id="rb_OKProce_y"]'));
         this.infoText = element(by.xpath('//div/p[@style="display: block;"]'));
         this.infoOKButton = element(by.xpath('//div/button[@class="confirm"]'));
+        this.infoOkbutn = element(by.xpath('//*[text()="OK"]'));
         this.performRisk = element(by.xpath('//div[text()="Perform Risk Assessment?"]'));
         this.performRiskPassText = element(by.xpath('//div[text()="Risk Assessment Pass:"]'));
         this.selectRiskReasonDD = element(by.xpath('//select[@id="select1"]'));
@@ -208,7 +212,8 @@ export class RiskAssessmentPageObject {
         this.socketSafetyBtnYES = element(by.id('rb_SocSafTe_pass'));
         this.socketSetLocDD = element(by.id('cbx_SocTestLoc_sel'));
         this.capturePreinsatllation = element(by.id('btn_CapPhoPreInstM_test'));
-        this.anySocketFoundNO = element(by.id('rb_SocRevPol_n'));
+        //this.anySocketFoundNO = element(by.id('rb_SocRevPol_n'));
+        this.anySocketFoundNO = element(by.xpath('//*[@id="rb_SocRevPol_n"]/span[@class="outer"]'));
         this.polarityMarindaleNxt = element(by.id("btnNextPlug"));
         this.MeterAndCutOutText = element(by.xpath('//div/h4[text()="Initial Polarity Check - At Meter and Cut Out"]'));
         this.socketSafetyBtnNO = element(by.id('rb_SocSafTe_fail'));
@@ -224,9 +229,11 @@ export class RiskAssessmentPageObject {
         //this.currentMeterDetailsText = element(by.xpath('//div/h4[text()="Current Meter Details"]'));
         this.meterCutOutNxtBtn = element(by.id('btn_Next_Pol'));
         this.nextbtntoRemove = element(by.xpath('(//*[@id="btn1"])[3]'));
+        this.nextbtntoRemfromElec = element(by.xpath('(//*[@id="btn1"])[2]'));
 
         this.existingElecMeterYes = element(by.id('rb_ExMetDetCorrt_y'));
         this.removeMeterText = element(by.xpath('//div/h4[text()="Remove Meter"]'));
+        this.captureInitialPhotoE = element(by.xpath('//*[@id="Title_Init_Photo"]'));
 
     }
 
@@ -245,13 +252,14 @@ export class RiskAssessmentPageObject {
 
     public async inputInitialRiskAssessmentDetails() {
         await expect(this.initialRiskAssesment.isPresent());
-        // try {
-        //     if (this.initialRiskAssessmentTab.isPresent()) {
-        //         await this.initialRiskAssessmentTab.click();
-        //     }
-        // } catch (error) {
-        //     console.log("continue with next step");
-        // }
+        //uncomment for first run
+        try {
+            if (this.initialRiskAssessmentTab.isPresent()) {
+                await this.initialRiskAssessmentTab.click();
+            }
+        } catch (error) {
+            console.log("continue with next step");
+        }
         if (this.canYouSmellText.isDisplayed()) {
             await this.canYouSmellYES.click();
         }
@@ -317,7 +325,6 @@ export class RiskAssessmentPageObject {
             try {
                 await utility.wait(3000);
                 await this.performRiskYES.click();
-            //await this.performriskY.click();
             } catch (error) {
                 console.log("performrisk not clicked");
             }
@@ -325,17 +332,17 @@ export class RiskAssessmentPageObject {
         await utility.wait(1000);
         if (await this.selectRiskReasonDD.isDisplayed()) {
             var select = await this.selectRiskReasonDD;
-            await select.$('[value="23"]').click();
+            await select.$('[value="37"]').click();
         }
         await utility.wait(1000);
         if (await this.performRiskPassText.isDisplayed()) {
             await this.RiskAssessmentPassYES.click();
-            console.log("Risk assessment yes clicked now");
+            //console.log("Risk assessment yes clicked now");
         }
         await utility.wait(1000);
         if (await this.riskAssessmentinput.isDisplayed()) {
             await this.riskAssessmentinput.clear();
-            await this.riskAssessmentinput.sendKeys('Testing Input');
+            await this.riskAssessmentinput.sendKeys('Risk assessment notes');
         }
         await utility.wait(1000);
     }
@@ -355,7 +362,6 @@ export class RiskAssessmentPageObject {
         }
     }
 
-    /********************Changes */
     public async verifyriskGasText() {
 
         if (await this.riskgasText.isDisplayed()) {
@@ -551,4 +557,52 @@ export class RiskAssessmentPageObject {
         }
     }
 
+    //***************************************************************************************** *//
+    /*@Author Jansi Victor
+    /*@Description: UAT Testing 
+    /*ELectric Section Addition
+    //***************************************************************************************** */
+
+    public async fillelecfullmeterInst(){
+
+        if (await this.capturephotoMeterInstall.isDisplayed()) {
+            await this.capturephotoMeterInstall.click();
+            await utility.wait(1000);
+        }
+    }
+    public async meterCutOutnextSectionfrmElec() {
+
+        await utility.wait(1000);
+        if (await this.nextbtntoRemfromElec.isDisplayed()){
+            await this.nextbtntoRemfromElec.click();
+            console.log("Clicked on Submit from Elec");
+            await utility.wait(1000);
+        }
+    }
+    public async INFOOK(){
+
+        await expect(this.infoOkbutn.isPresent());
+    }
+
+    public async INFOOKClick(){
+
+        if (await this.infoOkbutn.isDisplayed()) {
+            await this.infoOkbutn.click();
+            await utility.wait(1000);
+        }
+    }
+    
+    public async ElecInstSec() {
+        if (await this.captureInitialPhotoE.isDisplayed()) {
+            await this.captureInitialPhotoE.getText().then(function (captureInitialPhotoETxt) {
+                console.log("Find capture initial photo of Elec installation  " + captureInitialPhotoETxt);
+            });
+        }
+        await utility.wait(1000);
+    }
+    
+
 }
+
+
+

@@ -8,7 +8,7 @@ Feature: Login into Siemen Application
 
 		Examples:
 			| Username    | Password    |
-			| Automation2 | Aut0m4t1on2 |
+			| E0000022 | 000Password |
 
 	Scenario: Select the Latest workOrder
 		Given the Appointment List window

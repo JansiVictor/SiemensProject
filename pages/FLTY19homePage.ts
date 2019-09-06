@@ -1,4 +1,8 @@
 import { element, by, ElementFinder, ElementArrayFinder} from "protractor";
+const chai = require("chai");
+const expect = chai.expect;
+import { Utility } from "../support/utility";
+const utility: Utility = new Utility();
 
 
 
@@ -14,13 +18,16 @@ export class FLTY19homePageObject {
     
     constructor() {
         //this.selectLink = element.all(by.xpath('//span[text()="select >"]'));
-        this.selectLink = element.all(by.xpath('(//*[starts-with(@id,"SelectJob10JFAULTY 18")])[1]'));
+        this.selectLink = element.all(by.xpath('(//*[starts-with(@id,"SelectJob1JFAULTY 18")])[1]'));
         //this.selectLink = element.all(by.xpath('(//span[text()="select >"])[6]'));
         //this.continueLink = element.all(by.xpath('(//span[text()="continue >"])[1]'));
-        this.continueLink = element(by.xpath('//*[starts-with(@id,"SelectJob10JFAULTY 18")]'));
+        //this.continueLink = element(by.xpath('//*[starts-with(@id,"ContinueJob2JFAULTY 19")]'));
+        this.continueLink = element(by.xpath('//div/span[starts-with(@id,"ContinueJob1JFAULTY 18")]/following-sibling::span/span[text()="continue >"]'));
+        
 
         
-        this.appointmentListLabel = element(by.xpath('//*[@id="btn_top"]/div[2]/div'));
+        //this.appointmentListLabel = element(by.xpath('//*[@id="btn_top"]/div[2]/div'));
+        this.appointmentListLabel = element(by.xpath('//*[text()="Appointments List"]'));
         this.usrname = element(by.id("input1"));
         this.password = element(by.id("input2"));
         this.loginbtn = element(by.id("submitbutton"));
@@ -35,6 +42,12 @@ export class FLTY19homePageObject {
             });
         }
     }
+
+    public async seeAppList(){
+        await utility.wait(1000);
+        await expect(this.appointmentListLabel.isDisplayed());
+    }
+
 
     public clickOnTheSelectLink() {
         var list = this.selectLink;
