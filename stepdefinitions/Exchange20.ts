@@ -221,12 +221,8 @@ Given('the ExchangeTwnty Appointment List window', async function () {
   });
 
   Given('the ExchangeTwnty INFO window with the text', async function () {
-    await riskassess.infoOKButton.isDisplayed();
 	await riskassess.infoOKButton.click();
-
 	//await riskassess.performanceRiskNextBtn.click();
-
-
 	await utility.wait(10000);
 	if (riskassess.NeedtoWorkYES.isDisplayed()) {
 		var element = riskassess.NeedtoWorkYES;
@@ -456,7 +452,7 @@ Given('the ExchangeTwnty Appointment List window', async function () {
 
 
   When('I fill the ExchangeTwnty SMETS PPMID section fields with values', async function () {
-    await exchnge21Complete.fillPPMIDSection(3);
+    await exchnge21Complete.fillPPMIDSection(2);
     await exchnge21Complete.fillXIPMDSection();
   });
 
@@ -524,8 +520,7 @@ Given('the ExchangeTwnty Appointment List window', async function () {
 
 
   Then('I should see ExchangeTwnty Submit button to complete the job section', async function () {
-    // Write code here that turns the phrase above into concrete actions
-    return 'pending';
+    home.verifyEx20CompletedTextAppointmentListPage();
   });
 
 

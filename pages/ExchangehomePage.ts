@@ -23,14 +23,22 @@ public arriveBtn: ElementFinder;
 public continueLink: ElementArrayFinder;
 public Ex20continueLink: ElementArrayFinder;
 public Ex20selectLink: ElementArrayFinder;
+public Ex20completedLink: ElementArrayFinder;
+public Ex21completedLink: ElementArrayFinder;
+public Ex19selectLink: ElementArrayFinder;
+public Ex19completedLink: ElementArrayFinder;
 
 
 	constructor() {
 	this.Ex20selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest1 EXCH20 SF SMETS2")]'));
-	this.Ex20continueLink = element.all(by.xpath('//span[@id="ContinueJobTest EXCH20 SF SMETS2"]'));
-	this.selectLink = element.all(by.xpath('//span[@id="SelectJobTest EXCH21 DF SMETS2"]'));
-	this.continueLink = element.all(by.xpath('//span[@id="ContinueJobTest EXCH21 DF SMETS2"]'));
-    this.selectLink2 = element.all(by.xpath('//div[contains(@id,"SelectJobTest3 EXCH21 DF SMETS2")]'));
+	this.Ex19selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJob1EXCHANGE 19 FLAT")]'));
+	this.Ex20continueLink = element.all(by.xpath('//span[starts-with(@id,"ContinueJobTest EXCH20 SF SMETS2"]'));
+	this.selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest EXCH21 DF SMETS2"]'));
+	this.continueLink = element.all(by.xpath('//span[starts-with(@id,"ContinueJobTest EXCH21 DF SMETS2"]'));
+	this.Ex20completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobTest1 EXCH20 DF SMETS2"]'));
+	this.Ex21completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobTest1 EXCH21 DF SMETS2"]'));
+	this.Ex19completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobEXCHANGE 19 FLAT"]'));
+	this.selectLink2 = element.all(by.xpath('//div[contains(@id,"SelectJobTest3 EXCH21 DF SMETS2")]'));
 		this.appointmentListLabel = element(by.xpath('//div[@id="btn_top"]/div[2]/div'));
 		this.usrname = element(by.id("input1"));
 		this.password = element(by.id("input2"));
@@ -52,15 +60,37 @@ public Ex20selectLink: ElementArrayFinder;
 
 //For Continue Link
 
-// public verifyAppointmentListPage() {
-// 		if (this.continueLink != null) {
-// 			this.continueLink.getText().then(function (select) {
-// 				console.log("find select link text  " + select);
-// 			});
-// 		}
-// }
+public verifyContinueLinkAppointmentListPage() {
+		if (this.continueLink != null) {
+			this.continueLink.getText().then(function (select) {
+				console.log("find select link text  " + select);
+			});
+		}
+}
 
+public verifyEx20CompletedTextAppointmentListPage() {
+	if (this.Ex20completedLink != null) {
+		this.Ex20completedLink.getText().then(function (Ex20completed) {
+			console.log("find Ex20completedtext  " + Ex20completed);
+		});
+	}
+}
 
+public verifyEx21CompletedTextAppointmentListPage() {
+	if (this.Ex21completedLink != null) {
+		this.Ex21completedLink.getText().then(function (Ex20completed) {
+			console.log("find Ex21completedtext  " + Ex20completed);
+		});
+	}
+}
+
+public verifyEx19CompletedTextAppointmentListPage() {
+	if (this.Ex19completedLink != null) {
+		this.Ex19completedLink.getText().then(function (Ex19completed) {
+			console.log("find Ex19completedtext  " + Ex19completed);
+		});
+	}
+}
   
 /***
  * @Author Aparna Das
@@ -112,41 +142,41 @@ public Ex20selectLink: ElementArrayFinder;
  * @description Click on the correct Conitinue Link
 ***/
 
-// public async clickOnTheExchange21ContinueLink() {
+public async clickOnTheExchange21ContinueLink() {
 	
-// 	var list = this.continueLink;
+	var list = this.continueLink;
 
-// 	await utility.wait(2000);
-// 	list.count().then(function (promiseResult) {
-// 		console.log("size is: " + promiseResult);
-// 		var size = promiseResult; //4
-// 		//Remove when there is one
-// 		//var actualSize = size -1;
-// 		console.log("size is: " + size);
+	await utility.wait(2000);
+	list.count().then(function (promiseResult) {
+		console.log("size is: " + promiseResult);
+		var size = promiseResult; //4
+		//Remove when there is one
+		//var actualSize = size -1;
+		console.log("size is: " + size);
 
-// 		var continueLatest = element(
-// 			by.xpath('((//span[@id="ContinueJobTest EXCH21 DF SMETS2"]))' + '[' + [size] + ']')
-// 		);
+		var continueLatest = element(
+			by.xpath('((//span[starts-with(@id,"ContinueJobTest EXCH21 DF SMETS2"]))' + '[' + [size] + ']')
+		);
 		
-// 		continueLatest.getText().then(function (selectText) {
-// 			console.log("find select link text  " + selectText);
-// 		});
+		continueLatest.getText().then(function (selectText) {
+			console.log("find select link text  " + selectText);
+		});
 
 
-// 		console.log("link " + ('((//span[@id="ContinueJobTest EXCH21 DF SMETS2"]))' + '[' + [size] + ']'));
-// 		var continueMe = element(
-// 			by.xpath('((//span[@id="ContinueJobTest EXCH21 DF SMETS2"]))' + '[' + [size] + ']')
-// 		);
+		console.log("link " + ('((//span[starts-with(@id,"ContinueJobTest EXCH21 DF SMETS2"]))' + '[' + [size] + ']'));
+		var continueMe = element(
+			by.xpath('((//span[starts-with(@id,"ContinueJobTest EXCH21 DF SMETS2"]))' + '[' + [size] + ']')
+		);
 		
-// 		if (
-// 			continueMe.isDisplayed()
-// 		) {
+		if (
+			continueMe.isDisplayed()
+		) {
 			
-// 			continueMe.click();
-// 		};
+			continueMe.click();
+		};
 
-// 	});
-// };
+	});
+};
 
 /***
  * @Author Aparna Das
@@ -198,40 +228,162 @@ public async clickOnTheExchange20SelectLink() {
 * @description Click on the correct Ex 20 Conitinue Link
 ***/
 
-// public async clickOnTheExchange20ContinueLink() {
+public async clickOnTheExchange20ContinueLink() {
 
-// 	var list = this.Ex20continueLink;
+	var list = this.Ex20continueLink;
 
-// 	await utility.wait(2000);
-// 	list.count().then(function (promiseResult) {
-// 		console.log("size is: " + promiseResult);
-// 		var size = promiseResult; //4
-// 		//Remove when there is one
-// 		//var actualSize = size -1;
-// 		console.log("size is: " + size);
+	await utility.wait(2000);
+	list.count().then(function (promiseResult) {
+		console.log("size is: " + promiseResult);
+		var size = promiseResult; //4
+		//Remove when there is one
+		//var actualSize = size -1;
+		console.log("size is: " + size);
 
-// 		var continueLatest = element(
-// 			by.xpath('((//span[@id="ContinueJobTest EXCH21 DF SMETS2"]))' + '[' + [size] + ']')
-// 		);
+		var continueLatest = element(
+			by.xpath('((//span[starts-with(@id,"ContinueJobTest EXCH21 DF SMETS2"]))' + '[' + [size] + ']')
+		);
 	
-// 		continueLatest.getText().then(function (selectText) {
-// 			console.log("find select link text  " + selectText);
-// 		});
+		continueLatest.getText().then(function (selectText) {
+			console.log("find select link text  " + selectText);
+		});
 
 
-// 		console.log("link " + ('((//span[@id="ContinueJobTest EXCH21 DF SMETS2"]))' + '[' + [size] + ']'));
-// 		var continueMe = element(
-// 			by.xpath('((//span[@id="ContinueJobTest EXCH21 DF SMETS2"]))' + '[' + [size] + ']')
-// 		);
+		console.log("link " + ('((//span[starts-with(@id,"ContinueJobTest EXCH21 DF SMETS2"]))' + '[' + [size] + ']'));
+		var continueMe = element(
+			by.xpath('((//span[starts-with(@id,"ContinueJobTest EXCH21 DF SMETS2"]))' + '[' + [size] + ']')
+		);
 	
-// 		if (
-// 			continueMe.isDisplayed()
-// 		) {
+		if (
+			continueMe.isDisplayed()
+		) {
 		
-// 			continueMe.click();
-// 		};
+			continueMe.click();
+		};
 
-// 	});
-// };
+	});
+};
 
+
+/***
+ * @Author Aparna Das
+ * @description Click on the correct Exchange 19 Select Link
+***/
+
+public async clickOnTheExchange19SelectLink() {
+	var list = this.Ex19selectLink;
+
+	await utility.wait(2000);
+	list.count().then(function (promiseResult) {
+		console.log("size is: " + promiseResult);
+		var size = promiseResult; //4
+		//Remove when there is one
+		//var actualSize = size -1;
+		console.log("size is: " + size);
+		
+
+		 var selectlatest = element(
+			by.xpath('(//span[starts-with(@id,"SelectJob1EXCHANGE 19 FLAT")])' + '[' + [size] + ']')
+		);
+		
+		selectlatest.getText().then(function (selectText) {
+			console.log("find select link text  " + selectText);
+		});
+		
+
+		console.log("link " + ('((//span[starts-with(@id,"SelectJob1EXCHANGE 19 FLAT")]))' + '[' + [size] + ']'));
+		var selectMe = element(
+			by.xpath('((//span[starts-with(@id,"SelectJob1EXCHANGE 19 FLAT")]))' + '[' + [size] + ']')
+		);
+		selectMe.getText().then(function (selectMeText) {
+			console.log("find select Me link text  " + selectMeText);
+		});
+		if (
+			selectMe.isDisplayed()
+			
+		) {
+			selectMe.click();
+			
+		};
+
+	});
+};
+
+/***
+* @Author Aparna Das
+* @description Click on the correct Ex 20 Conitinue Link
+***/
+
+public async VerifyTheExchange20CompletedLink() {
+
+	var list = this.Ex20completedLink;
+
+	await utility.wait(2000);
+	list.count().then(async function (promiseResult) {
+		console.log("size is: " + promiseResult);
+		var size = promiseResult; //4
+		//Remove when there is one
+		//var actualSize = size -1;
+		console.log("size is: " + size);
+
+		var completedLatest = element(
+			by.xpath('((//span[starts-with(@id,"CompletedJobTest1 EXCH20 DF SMETS2"]))' + '[' + [size] + ']')
+		);
+	
+		completedLatest.getText().then(function (completedText) {
+			console.log("find completedText text  " + completedText);
+		});
+
+
+		console.log("link " + ('((//span[starts-with(@id,"CompletedJobTest1 EXCH20 DF SMETS2"]))' + '[' + [size] + ']'));
+		var completed = element(
+			by.xpath('((//span[starts-with(@id,"CompletedJobTest1 EXCH20 DF SMETS2"]))' + '[' + [size] + ']')
+		);
+	
+		if (
+			completed.isDisplayed()
+		) {
+			await this.completed.getText().then(function (complete) {
+				console.log("Print complete Job Txt  " + complete);
+			});
+		};
+	});
+};
+
+/***
+* @Author Aparna Das
+* @description Click on the correct Ex 21 Completed Text
+***/
+
+public async VerifyTheExchange21CompletedLink() {
+
+	var list = this.Ex21completedLink;
+
+	await utility.wait(2000);
+	list.count().then(async function (promiseResult) {
+		console.log("size is: " + promiseResult);
+		var size = promiseResult; //4
+		//Remove when there is one
+		//var actualSize = size -1;
+		console.log("size is: " + size);
+
+		var completedLatest = element(
+			by.xpath('((//span[starts-with(@id,"CompletedJobTest1 EXCH21 DF SMETS2"]))' + '[' + [size] + ']')
+		);
+	
+		completedLatest.getText().then(function (completedText) {
+			console.log("find completedText text  " + completedText);
+		});
+
+
+		console.log("link " + ('((//span[starts-with(@id,"CompletedJobTest1 EXCH21 DF SMETS2"]))' + '[' + [size] + ']'));
+		var completed = element(
+			by.xpath('((//span[starts-with(@id,"CompletedJobTest1 EXCH21 DF SMETS2"]))' + '[' + [size] + ']')
+		);
+	
+			await this.completed.getText().then(function (complete) {
+				console.log("Print complete Job Txt  " + complete);
+			});
+		});
+	};
 };

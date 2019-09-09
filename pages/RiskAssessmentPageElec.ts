@@ -816,10 +816,7 @@ export class RiskAssessmentPageElecObject {
 		await this.commshubPopup.click();
 		await utility.wait(3000);
 
-		// if (await this.manufactureLetterDD.isDisplayed()) {
-		// 	var select1 = this.manufactureLetterDD;
-		// 	select1.$('[value="2"]').click();
-		// }
+		
 		await utility.wait(2000);
 		if (await this.MeterTypeDD.isDisplayed()) {
 			var select2 = this.MeterTypeDD;

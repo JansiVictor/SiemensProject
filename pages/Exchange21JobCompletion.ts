@@ -67,6 +67,8 @@ export class Exchange21JobCompletionPageObject {
     public EEUIDText:ElementFinder;
     public DeviceNxtBtn: ElementFinder;
     public fullEx20ConfigAppliedGasYes: ElementFinder;
+    public eSign: ElementFinder;
+    public custSignText:ElementFinder;
 
     constructor() {
         this.installPPMIDText = element(by.id('Title_ihdscan'));
@@ -111,10 +113,12 @@ export class Exchange21JobCompletionPageObject {
         this.signedbyCustorRepDD = element(by.id('cbx_SigByCus_sel'));
         this.custRefusedToSignNo = element(by.xpath('//input[@id="rb_CusRefSig_n"]/following-sibling::span[@class="outer"]'));
         this.jobCompleteBtn = element(by.id('btn_Comp_submit'));
-        this.PPMIDinstallDDList = element(by.xpath('(//select[@id="ihdscan2_assetSelect"]/option)[3]'));
+        this.PPMIDinstallDDList = element(by.xpath('(//select[@id="ihdscan2_assetSelect"]/option)[2]'));
         this.EEInfoDiplay = element(by.id('lbl_EnEff_info'));
         this.EEUIDText = element(by.xpath('//div[text()="EUI Device ID:"]'));
         this.DeviceNxtBtn = element(by.xpath('//div/button[@id="dbc2_trad_btnNextEff"]'));
+        this.eSign = element(by.id('signaturePad'));
+        this.custSignText = element(by.xpath('//div[text()="Customer Signature"]'));
     }
 
     /***
@@ -284,8 +288,8 @@ public async fillConfigAllmeter(){
     //     await this.capturePPMIDBtn.click();
     // }
     await utility.wait(1000);
-    if (this.ppmidNXTBtn.isDisplayed()) {
-        await this.ppmidNXTBtn.click();
+    if (this.PPMIDNxtBtn.isDisplayed()) {
+        await this.PPMIDNxtBtn.click();
     }
 }
 
@@ -315,10 +319,8 @@ public async fillEx20ConfigAllmeter(){
 
     // }
     await utility.wait(1000);
-    if (this.ppmidNXTBtn.isDisplayed()) {
-        var element = this.ppmidNXTBtn;
-        browser.executeScript("arguments[0].click()",element);
-       // await this.ppmidNXTBtn.click();
+    if (this.PPMIDNxtBtn.isDisplayed()) {
+        await this.PPMIDNxtBtn.click();
     }
 }
 
@@ -350,6 +352,10 @@ public async fillEEInfo(){
     }
     if (this.AdditionalEEInfoReqYes.isDisplayed()) {
         await this.AdditionalEEInfoReqYes.click();
+    }
+
+    if (this.EENxtBtn.isDisplayed()) {
+        await this.EENxtBtn.click();
     }
 
 }
@@ -404,12 +410,13 @@ public async fillAndPrintSummaryContent(){
             console.log("Print SummaryContent  " + SummaryContent);
         });
     }
-
+    
     if (this.PotentialCustIdenYes.isDisplayed()) {
         await this.PotentialCustIdenYes.click();
     }
     if (this.custAgreementInfoYes.isDisplayed()) {
         await this.custAgreementInfoYes.click();
+        
     }
 }
 /***
@@ -422,7 +429,9 @@ public async FinalSubmission(){
             console.log("Print captureCustSign Txt  " + captureCustSign);
         });
     }
-
+    if (this.eSign.isDisplayed()) {
+        await this.eSign.click();
+    }
     if (await this.signedbyCustorRepDD.isDisplayed()) {
         await utility.wait(1000);
         var select = this.signedbyCustorRepDD;
@@ -430,10 +439,12 @@ public async FinalSubmission(){
     }
     if (this.custRefusedToSignNo.isDisplayed()) {
         await this.custRefusedToSignNo.click();
+        await this.custSignText.click();
     }
     if (this.jobCompleteBtn.isDisplayed()) {
         await this.jobCompleteBtn.click();
         await this.infoOKButton.click();
+        await utility.wait(2000);
     }
 }
 

@@ -121,6 +121,21 @@ export class RiskAssessmentforGASPageObject {
     public gtAttendanceOnSiteYes: ElementFinder;
     public gtResolveIssueGas: ElementFinder;
     public AdditionalWorktoPassYesGAS: ElementFinder;
+    public currentCommsHubText: ElementFinder;
+    public smets2CommshubOnsiteYes: ElementFinder;
+    public commHubDD: ElementFinder;
+	public chfIDInput: ElementFinder;
+	public commHubLocDD: ElementFinder;
+	public arealInstalledYes: ElementFinder;
+	public commHubConnectionDD: ElementFinder;
+	public captureCommsHub: ElementFinder;
+    public commHubLocNxtBtn: ElementFinder;
+    public selectinstallAssetOption: ElementFinder;
+    public randomClick: ElementFinder;
+    public smets2CommshubOnsiteNo:ElementFinder;
+    public commshubNxtbtn:ElementFinder;
+    
+    
     
 
 
@@ -154,7 +169,7 @@ export class RiskAssessmentforGASPageObject {
         this.inputGTRef = element(by.id('gt_issue'));
         this.reportedToHSYEsGas =element(by.xpath('//input[@id="gtp3"]/following-sibling::span[@class="outer"]'));
         this.inputAirLineRefGAS =element(by.xpath('//div/input[@id="input2"]'));
-this.gtResolveIssueGas= element(by.xpath('//input[@id="gtp9"]/following-sibling::span[@class="outer"]'));
+        this.gtResolveIssueGas= element(by.xpath('//input[@id="gtp9"]/following-sibling::span[@class="outer"]'));
 		this.reportedToHSYEs = element(by.id('rb_RepAirLine_y'));
 		this.inputAirLineRef = element(by.id('hsjobref'));
 		this.waitForGTYes = element(by.id('rb_GTAttSite_y'));
@@ -225,6 +240,19 @@ this.gtResolveIssueGas= element(by.xpath('//input[@id="gtp9"]/following-sibling:
         this.allAppliTestedBtn = element(by.id('btn_AllApp_tested'));
         this.submitGas = element(by.id('btn_Subm_gas'));
         this.gtAttendanceOnSiteYes = element(by.xpath('//input[@id="gtp5"]/following-sibling::span[@class="outer"]'));
+        this.currentCommsHubText = element(by.id('Title_currentCommsHub'));
+        this.smets2CommshubOnsiteYes = element(by.xpath('//input[@id="gascchubOnSitetrue"]/following-sibling::span[@class="outer"]'));
+        this.smets2CommshubOnsiteNo =element(by.xpath('//input[@id="gascchubOnSitefalse"]/following-sibling::span[@class="outer"]'));
+        this.commHubDD = element(by.id('chubInstall_selectAsset'));
+		this.chfIDInput = element(by.id('currentCommsHub_chfId'));
+		this.commHubLocDD = element(by.id('currentCommsHub_locationSelect'));
+		this.arealInstalledYes = element(by.id('currentCommsHub_aerialInstalled_y'));
+		this.commHubConnectionDD = element(by.id('chubInstall_connectionMethodSelect'));
+		this.captureCommsHub = element(by.id('chubInstall_photoEvidence'));
+        this.commHubLocNxtBtn = element(by.id('chubInstall_nextSectionBtn'));
+        this.selectinstallAssetOption = element(by.xpath('(//select[@id="chubInstall_selectAsset"]/option)[4]'));
+        this.randomClick = element(by.xpath('//div[text()="CHF ID:"]'));
+        this.commshubNxtbtn = element(by.id('btnNextcch'));
 
 	}
 
@@ -378,7 +406,7 @@ public async fillMeterRegulatorDetailsGAS() {
     await expect(await this.regulatorSerialNoinput.isPresent());
     await this.regulatorSerialNoinput.clear();
     await this.regulatorSerialNoinput.sendKeys('MA6NC000000003');
-    await this.regulatorTxt.click();
+    await this.regulatorSerialNoinput.click();
     await utility.wait(2000);
     await this.commshubPopup.click();
     await utility.wait(2000);
@@ -431,6 +459,10 @@ public async fillNewMeterDetailsGAS(index:number) {
     await utility.wait(2000);
     await this.commshubPopup.click();
     await utility.wait(2000);
+    if (await this.manufactureLetterDD.isDisplayed()) {
+			var select1 = this.manufactureLetterDD;
+			select1.$('[value="2"]').click();
+		}
     if (await this.MeterTypeDD.isDisplayed()) {
         var select2 = this.MeterTypeDD;
         select2.$('[value="0"]').click();
@@ -618,4 +650,31 @@ public async fillGasSafety(){
 
 }
 
+/***
+ * @Author Aparna Das
+ * @description Fill Gas Safety check section
+***/
+public async currentCommsHubDetailsDisplay(){
+    if (this.currentCommsHubText.isDisplayed()) {
+        await this.currentCommsHubText.getText().then(function (currentCommsHub) {
+            console.log("find currentCommsHub Text  " + currentCommsHub);
+        });
+    }
+}
+
+/***
+ * @Author Aparna Das
+ * @description Fill Comms Hub Section
+***/
+public async fillCurrentCommsHubDetailsGAS(){
+
+    if (await this.smets2CommshubOnsiteNo.isDisplayed()) {
+        await this.smets2CommshubOnsiteNo.click();
+        await utility.wait(1000);
+    }
+            if (await this.commshubNxtbtn.isDisplayed()) {
+                await this.commshubNxtbtn.click();
+                await utility.wait(1000);
+        }
+    }
 }

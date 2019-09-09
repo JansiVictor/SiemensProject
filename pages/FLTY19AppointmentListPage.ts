@@ -133,11 +133,10 @@ export class FLTY19AppointmentListPageObject {
 		}
     }
     public async clickOnCallForwardBtn(){
+        //customerContactNumberText
+       // await expect(await this.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
         await expect(this.callForwardText.isPresent());
 		this.callForwardText.click();
-        //customerContactNumberText
-        await expect(await this.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
-	
     }
   //ContactMadeText
      public async clickOnContactMadeOtion(){
