@@ -194,7 +194,7 @@ export class RiskAssessmentPageElecObject {
 		this.NextSectiontoCaptureBtn = element(by.xpath('((//div[@class="btn-container green"])/button[@id="btnNextComm"])[2]'));
 		this.reportToHS = element(by.xpath('//label[@id="rb_RepIncHS_y"]'));
 		this.airLineRefInput = element(by.xpath('//input[@id="txt_AirL_ref"]'));
-		this.NeedtoWorkYES = element(by.xpath('//input[@id="radiorai11"]/following-sibling::span[@class="outer"]'));
+		this.NeedtoWorkYES = element(by.xpath('(//input[@id="radiorai11"]/following-sibling::span[@class="outer"])[1]'));
 		this.performanceRiskNextBtn = element(by.xpath('//button[@id="btnNextComm"]'));
 		this.captureInitialPhotoElec = element(by.xpath('//div/h4[text()="Capture Initial Photo of Elec Installation"]'));
 		this.capturephotoMeterInstall = element(by.id('btn_Init_Photo'));
@@ -348,6 +348,43 @@ export class RiskAssessmentPageElecObject {
 		if (this.OKtoProceedEGPOutcome.isDisplayed()) {
 			await utility.wait(2000);
 			await this.OKtoProceedEGPOutcome.click();
+			await utility.wait(5000);
+		}
+	}
+	
+	public async inputInitialRiskAssessmentDetails_SFENMEX15() {
+		await expect(this.initialRiskAssesment.isPresent());
+		if (this.canYouSmellText.isDisplayed()) {
+			await this.canYouSmellYES.click();
+		}
+		if (this.turnedOffGasYES.isDisplayed()) {
+			await this.turnedOffGasYES.click();
+		}
+		if (this.callEGPYES.isDisplayed()) {
+			await this.callEGPYES.click();
+		}
+		if (this.inputEGPRef.isDisplayed()) {
+			await utility.wait(2000);
+			await this.inputEGPRef.sendKeys('123456');
+		}
+		if (this.reportToHS.isDisplayed()) {
+			await utility.wait(2000);
+			await this.reportToHS.click();
+		}
+		if (this.airLineRefInput.isDisplayed()) {
+			await utility.wait(2000);
+			await this.airLineRefInput.sendKeys('5678910');
+		}
+		if (this.OKtoProceedEGPOutcome.isDisplayed()) {
+			await utility.wait(2000);
+			await this.OKtoProceedEGPOutcome.click();
+			await utility.wait(5000);
+		}
+		if (this.NeedtoWorkYES.isDisplayed()) {
+			await utility.wait(2000);
+			browser.executeScript('arguments[0].scrollIntoView()', this.NeedtoWorkYES.getWebElement());
+			await utility.wait(5000);
+			await this.NeedtoWorkYES.click();
 			await utility.wait(5000);
 		}
     }

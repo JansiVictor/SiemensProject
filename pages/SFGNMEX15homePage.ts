@@ -6,7 +6,7 @@ import {
 } from "protractor";
 
 
-export class DF17SmartCredithomePageObject {
+export class SFGNMEX15homePageObject {
 	public appointmentListLabel: ElementFinder;
 	public usrname: ElementFinder;
 	public password: ElementFinder;
@@ -17,8 +17,8 @@ export class DF17SmartCredithomePageObject {
 
 
 	constructor() {
-	this.selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobNMEX17")]'));
-    this.selectLink2 = element.all(by.xpath('//*[starts-with(@id,"SelectJobNMEX17")]'));
+	this.selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobNMEX15")]'));
+    this.selectLink2 = element.all(by.xpath('//*[starts-with(@id,"SelectJobNMEX15")]'));
 		this.appointmentListLabel = element(by.xpath('//*[@id="btn_top"]/div[2]/div'));
 		this.usrname = element(by.id("input1"));
 		this.password = element(by.id("input2"));
@@ -52,14 +52,14 @@ export class DF17SmartCredithomePageObject {
 			//var actualSize = size -1;
 			console.log("size is: " + size);
 			var selectlatest = element(
-				by.xpath('((//*[starts-with(@id,"SelectJobNMEX17")]))' + '[' + [size] + ']')
+				by.xpath('((//*[starts-with(@id,"SelectJobNMEX15")]))' + '[' + [size] + ']')
 			);
 			selectlatest.getText().then(function (selectText) {
 				console.log("find select link text  " + selectText);
 			});
-			console.log("link " + ('((//*[starts-with(@id,"SelectJobNMEX17")]))' + '[' + [size] + ']'));
+			console.log("link " + ('((//*[starts-with(@id,"SelectJobNMEX15")]))' + '[' + [size] + ']'));
 			var selectMe = element(
-				by.xpath('((//*[starts-with(@id,"SelectJobNMEX17")]))' + '[' + [size] + ']')
+				by.xpath('((//*[starts-with(@id,"SelectJobNMEX15")]))' + '[' + [size] + ']')
 			);
 			selectMe.getText().then(function (selectMeText) {
 				console.log("find select Me link text  " + selectMeText);
