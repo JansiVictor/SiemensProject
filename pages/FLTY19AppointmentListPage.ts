@@ -45,7 +45,8 @@ export class FLTY19AppointmentListPageObject {
     public appointmentconfirmationNo: ElementFinder;
 
     public custcontnumberTxt: ElementFinder;
-
+    public customercontactnumberdis: ElementFinder;
+    
 
     constructor() {
         
@@ -88,7 +89,9 @@ export class FLTY19AppointmentListPageObject {
         //this.continueLink = element(by.xpath('(//span[text()="continue >"])[1]'));
         this.continueLink = element(by.xpath('//*[starts-with(@id,"SelectJob3JFAULTY 18")]'));
 
-
+        this.customercontactnumberdis = element(by.xpath('//*[contains(text(),"CUSTOMER CONTACT NUMBER:")]'));
+        //this.continueLink = element(by.xpath('(//span[text()="continue >"])[1]'));
+        this.continueLink = element(by.xpath('//*[starts-with(@id,"ContinueJob3JFAULTY 19")]'));
 
     }
 
@@ -123,8 +126,13 @@ export class FLTY19AppointmentListPageObject {
 		});
     };
     
+    public async customercontactnoDisplayed(){
+        await utility.wait(3000);
+        if (await this.customercontactnumberdis.isDisplayed()) {
+            await this.customercontactnumberdis.click();
+        }
+    }
 
-    
     public async verifydoorStepWindow() {
         try{
 		

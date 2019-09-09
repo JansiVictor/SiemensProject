@@ -39,7 +39,8 @@ Then('I click Login button', async function () {
 });
 
 Then('I should see the Appointment List', async function () {
-  await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
+    await home.seeAppList();
+  //await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
 });
 
 Given('the Appointment List window', async function () {

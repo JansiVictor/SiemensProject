@@ -153,6 +153,33 @@ export class RemovePageObject {
     public ppmidremoval: ElementFinder;
     public btnnext: ElementFinder;
 
+    public existingelecmeterdtls: ElementFinder;
+    public meterReadingElec: ElementFinder;
+
+    public confirmElecmeterText: ElementFinder;
+    public confirmElecmeterOnsupply: ElementFinder;
+    public elecMeter: ElementFinder;
+    public elecMeterY: ElementFinder;
+		public ElecremovalNxtBtn: ElementFinder;
+		public SendElecRMPanel: ElementFinder;
+		public SendEMREMBtn: ElementFinder;
+        public AwaitingRespEMREM: ElementFinder;
+        public ElecRemoveMeter: ElementFinder;
+		public RemoveElecAssetrplacedorremoved: ElementFinder;
+        public statusofElecAssetSelect: ElementFinder;
+        
+		public reqSentSuccessEMREM: ElementFinder;
+		public RemovalSuccessElec: ElementFinder;
+        public OKtoremoveAssetElec: ElementFinder;
+        public confirmElecAssetRemoval: ElementFinder;
+		public ElecAssetRemoval: ElementFinder;
+		public ElecAssetRemovalY: ElementFinder;
+        public ElecAssetRemovalPopup: ElementFinder;
+        public ConfirmElecCommsHubNxtBtn: ElementFinder;
+        public currentMeterElecCap: ElementFinder;
+        public SendElMREMBtn: ElementFinder;
+        public SendElMREMBtnCap: ElementFinder;
+
 
     constructor() {
         //#region Panel Click
@@ -331,6 +358,51 @@ export class RemovePageObject {
         this.ConfirmCommsHubRemovalPopup = element(by.xpath('//*[text()="OK"]'));
         this.ConfirmCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])[2]'));
         //#endregion
+
+        //#region Elec fields
+        this.existingelecmeterdtls = element(by.xpath('//*[@id="rb_ExMetDetCorrt_y"]/span[@class="outer"]'));
+        this.meterReadingElec = element(by.xpath('//*[contains(text(),"Capture Meter Reading - Register (1):")]'));
+        this.currentMeterElecCap = element(by.xpath('//*[contains(text(),"Current Meter Details")]'));
+        
+
+        this.confirmElecmeterText = element(by.xpath('//*[contains(text(),"Confirm if Elec meter is On Supply or Off Supply")]'));
+        this.confirmElecmeterOnsupply = element(by.xpath('//input[@id="confirmelecsupplytrue"]/following-sibling::span[@class="outer"]'));
+		
+		this.elecMeter = element(by.xpath('//*[contains(text(),"Elec Meter?")]'));
+        this.elecMeterY = element(by.xpath('//input[@id="elecmexdfa"]/following-sibling::span[@class="cr"]'));
+        
+        
+		this.ElecremovalNxtBtn = element(by.xpath('//*[@id="btn_Next_rmv"]'));
+        this.SendElecRMPanel = element(by.xpath('//div[@id="Title_emrem"]'));
+		
+		this.SendEMREMBtn = element(by.xpath('//*[@id="gmrem_sendMessageButton"]'));
+        this.AwaitingRespEMREM = element(by.xpath('//*[text()="Awaiting Response"]'));
+
+        
+		this.ElecRemoveMeter = element(by.xpath('//div/h4[text()="Remove Meter"]'));
+		this.RemoveElecAssetrplacedorremoved = element(by.xpath('((//*[@id="CCHradio5"])[2])/following-sibling::span[@class="outer"]'));
+        this.statusofElecAssetSelect = element(by.xpath('//select[@id="cbx_StaAss_sel"]'));
+        
+        this.reqSentSuccessEMREM = element(by.xpath('(//*[text()="Request Sent Successfully"])[2]'));
+        this.RemovalSuccessElec = element(by.xpath('//*[@id="emrem_nextButton"]'));
+        this.OKtoremoveAssetElec = element(by.xpath('//*[text()="OK to Remove Asset"]'));
+
+        this.confirmElecAssetRemoval = element(by.xpath('//*[@id="Title_Remove_Ass"]'));
+
+        this.ElecAssetRemoval = element(by.xpath('//select[@id="cbx_RAss_Status"]'));
+        this.ElecAssetRemovalY = element(by.xpath('//*[@id="rb_CAssRem_y"]/span[@class="outer"]'));
+        this.ElecAssetRemovalPopup = element(by.xpath('//*[text()="OK"]'));
+
+        this.ConfirmElecCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])'));
+
+        this.SendElMREMBtnCap = element(by.xpath('//*[@id="Title_emrem"]'));
+        
+        this.SendElMREMBtn = element(by.xpath('//*[@id="emrem_sendMessageButton"]'));
+
+
+        
+
+        //#endregion
     }
 
     /**
@@ -405,14 +477,14 @@ export class RemovePageObject {
         }
     }
     public async currentcommsHubdtl() {
-        await utility.wait(8000);
+        await utility.wait(5000);
         browser.sleep(3000);
         await this.currentCommsHubTitle.getText().then(function (currentCommsHubTit) {
             console.log("Find current comms Hub Title  " + currentCommsHubTit);
         });
     }
     public async currentcommsHubdtlPgCont() {
-        await utility.wait(8000);
+        await utility.wait(5000);
         browser.sleep(6000);
         await this.currentHubDtlsPgCont.getText().then(function (currentCommsHubTitlePgCont) {
             console.log("Find current comms Hub Detail page content  " + currentCommsHubTitlePgCont);
@@ -913,7 +985,7 @@ export class RemovePageObject {
     public async RemoveCommsHubWindow() {
         await utility.wait(1000);
         await this.RemoveCommsHub.getText().then(function (RemoveCommsHubTxt) {
-            console.log("Gas Asset Removal" + RemoveCommsHubTxt);
+            console.log("Remove Comms Hub" + RemoveCommsHubTxt);
         });
     }
 
@@ -996,6 +1068,146 @@ export class RemovePageObject {
         }
     }
     //#endregion
+
+    //***************************************************************************************** *//
+    /*@Author Jansi Victor
+    /*@Description: UAT Testing 
+    /*ELectric Section Addition
+    //***************************************************************************************** */
+
+    //#region Current Meter Details
+    public async CurrentMeterElec() {
+        await utility.wait(1000);
+        await this.currentMeterElecCap.getText().then(function (currentMeterElecCapTxt) {
+            console.log("Current Meter" + currentMeterElecCapTxt);
+        });
+    }
+
+    
+    public async fillcurrentElecmeter(){
+    await utility.wait(1000);
+        if (await this.existingelecmeterdtls.isDisplayed()) {
+            await this.existingelecmeterdtls.click();
+        }
+        await utility.wait(1000);
+        if (await this.meterReadingElec.isDisplayed()) {
+            await this.meterReadingLabel.clear();
+            await this.meterReadingLabel.sendKeys("12345");
+
+            await this.meterReadingElec.click();
+        }
+    }
+    
+    //#endregion
+
+//#region Determine faulty for Elec
+
+    public async fillelecfaultysection() {
+        await utility.wait(4000);
+        if (await this.confirmElecmeterOnsupply.isDisplayed()) {
+            await this.confirmElecmeterOnsupply.click();
+        }
+    }
+    public async ElecmeterSelect() {
+        await utility.wait(3000);
+        if (await this.elecMeter.isDisplayed()) {
+            await this.elecMeterY.click();
+        }
+    }
+    public async RmvElecmeterSec() {
+        await utility.wait(1000);
+        if(this.ElecRemoveMeter.isDisplayed()){}
+            console.log("REMOVE ELECTRIC METER");
+    }
+    public async fillElecmeterrem() {
+        await utility.wait(3000);
+        if (await this.RemoveElecAssetrplacedorremoved.isDisplayed()) {
+            await this.RemoveElecAssetrplacedorremoved.click();
+        }
+        await utility.wait(3000);
+        if (await this.statusofElecAssetSelect.isDisplayed()) {
+            var select = this.statusofElecAssetSelect;
+            await select.$('[value="1"]').click();
+        }
+        await utility.wait(1000);
+        if (await this.removedmeterReading.isDisplayed()) {
+            await this.removedmeterReading.clear();
+            await this.removedmeterReading.sendKeys('12345');
+        }
+    }
+    public async clickonnxtBtnofElecmeterRemoval() {
+        await utility.wait(1000);
+        if (await this.ElecremovalNxtBtn.isDisplayed()) {
+            await this.ElecremovalNxtBtn.click();
+        }
+    }
+
+    public async sendmsgEMREM() {
+        await utility.wait(1000);
+        await this.SendElMREMBtnCap.getText().then(function (SendElMREMBtnCapTxt) {
+            console.log("Send EMRM" + SendElMREMBtnCapTxt);
+        });
+    }
+    public async clickOnsendmsgEMREM() {
+        await utility.wait(1000);
+        if (await this.SendElMREMBtn.isDisplayed()) {
+            await this.SendElMREMBtn.click();
+        }
+    }
+
+    public async AwaitingResponseEMREM() {
+        await utility.wait(60000);
+    }
+    public async Elecremovalsuccessfulbtn() {
+        await utility.wait(2000);
+        await expect(this.RemovalSuccessElec.isDisplayed());
+    }
+    public async ElecReqSentSuccess() {
+        await utility.wait(1000);
+        await expect(this.reqSentSuccessEMREM.isDisplayed());
+    }
+    public async ElecOktoRemoveAsset() {
+        await utility.wait(1000);
+        await expect(this.OKtoremoveAssetElec.isDisplayed());
+    }
+    public async clickonElecremovalsuccessfulbtn() {
+        await utility.wait(1000);
+        if (await this.RemovalSuccessElec.isDisplayed()) {
+            await this.RemovalSuccessElec.click();
+        }
+    }
+    public async confirmElecAssetRem() {
+        await utility.wait(1000);
+        await this.confirmElecAssetRemoval.getText().then(function (confirmElecAssetRemovalTxt) {
+            console.log("Confirm Elec Asset Removal" + confirmElecAssetRemovalTxt);
+        });
+    }
+    public async fill24ElecAssetRemoval() {
+        await utility.wait(1000);
+        if (await this.ElecAssetRemoval.isDisplayed()) {
+            var select = this.ElecAssetRemoval;
+            await select.$('[value="1"]').click();
+        }
+        await utility.wait(1000);
+        if (await this.ElecAssetRemovalY.isDisplayed()) {
+            await this.ElecAssetRemovalY.click();
+        }
+    }
+    public async clickonokElecAssetRemoval() {
+        await utility.wait(1000);
+        if (await this.ElecAssetRemovalPopup.isDisplayed()) {
+            await this.ElecAssetRemovalPopup.click();
+        }
+    }
+    public async clickonElecsubmitforRemoval() {
+        await utility.wait(1000);
+        if (await this.ConfirmElecCommsHubNxtBtn.isDisplayed()) {
+            await this.ConfirmElecCommsHubNxtBtn.click();
+        }
+    }
+    
+
+
 }
 
 
