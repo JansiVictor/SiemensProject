@@ -133,7 +133,10 @@ export class RiskAssessmentforGASPageObject {
     public selectinstallAssetOption: ElementFinder;
     public randomClick: ElementFinder;
     public smets2CommshubOnsiteNo:ElementFinder;
+    public installCommsHubNo:ElementFinder;
     public commshubNxtbtn:ElementFinder;
+    public installCommsHubText:ElementFinder;
+    public commshubconnectedtoWANYes:ElementFinder;
     
     
     
@@ -180,7 +183,7 @@ export class RiskAssessmentforGASPageObject {
         this.selectValidAssetDD = element(by.model('scp.selectedAsset'));
         this.regulatorSerialNoinput = element(by.id('btn_RegSNum1'));
 		this.OKpopupBtn = element(by.xpath('//div/button[text()="OK"]'));
-		this.regulatorTxt = element(by.xpath('//div[text()="Regulator Serial No(s):"]'));
+		this.regulatorTxt = element(by.xpath('//div[@id="lbl_SerNote"]'));
         this.newRegulatorNxtBtn = element(by.id('newRegulator_nextButton'));
         this.newMeterDD = element(by.xpath('//select[@id="newMeter_assetSelect"]'));
 		this.manufactureLetterDD = element(by.id('select_man_letter'));
@@ -253,7 +256,9 @@ export class RiskAssessmentforGASPageObject {
         this.selectinstallAssetOption = element(by.xpath('(//select[@id="chubInstall_selectAsset"]/option)[4]'));
         this.randomClick = element(by.xpath('//div[text()="CHF ID:"]'));
         this.commshubNxtbtn = element(by.id('btnNextcch'));
-
+        this.installCommsHubNo = element(by.id('chubInstall_newChubRequired_n'));
+        this.installCommsHubText = element(by.id('Title_chubInstall'));
+       this.commshubconnectedtoWANYes = element(by.xpath('//input[@id="Cradionm1"]/following-sibling::span[@class="outer"]'));
 	}
 
 	public async riskAssessmentGASDisplayed() {
@@ -406,7 +411,8 @@ public async fillMeterRegulatorDetailsGAS() {
     await expect(await this.regulatorSerialNoinput.isPresent());
     await this.regulatorSerialNoinput.clear();
     await this.regulatorSerialNoinput.sendKeys('MA6NC000000003');
-    await this.regulatorSerialNoinput.click();
+    await utility.wait(1000);
+    await this.regulatorTxt.click();
     await utility.wait(2000);
     await this.commshubPopup.click();
     await utility.wait(2000);
@@ -462,7 +468,8 @@ public async fillNewMeterDetailsGAS(index:number) {
     if (await this.manufactureLetterDD.isDisplayed()) {
 			var select1 = this.manufactureLetterDD;
 			select1.$('[value="2"]').click();
-		}
+        }
+        await utility.wait(2000);
     if (await this.MeterTypeDD.isDisplayed()) {
         var select2 = this.MeterTypeDD;
         select2.$('[value="0"]').click();
@@ -585,6 +592,7 @@ public async fillPostInstallationGasDetails() {
     await this.workingpressure.sendKeys('1');
     await this.wpCapture.click();
     await this.finalMeterCapture.click();
+    await this.commshubconnectedtoWANYes.click();
     await this.polNxtBtn.click();
 }
 /***
@@ -677,4 +685,32 @@ public async fillCurrentCommsHubDetailsGAS(){
                 await utility.wait(1000);
         }
     }
+
+    /***
+ * @Author Aparna Das
+ * @description Fill Comms Hub Section
+***/
+public async fillinstallCommsHubDetailsGAS(){
+
+    if (await this.installCommsHubNo.isDisplayed()) {
+        await this.installCommsHubNo.click();
+        await utility.wait(1000);
+    }
+            if (await this.commHubLocNxtBtn.isDisplayed()) {
+                await this.commHubLocNxtBtn.click();
+                await utility.wait(1000);
+        }
+    }
+
+    /***
+ * @Author Aparna Das
+ * @description Install Commshub Details section
+***/
+public async installCommsHubDetailsDisplay(){
+    if (this.installCommsHubText.isDisplayed()) {
+        await this.installCommsHubText.getText().then(function (currentCommsHub) {
+            console.log("find currentCommsHub Text  " + currentCommsHub);
+        });
+    }
+}
 }

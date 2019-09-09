@@ -346,6 +346,19 @@ Given('the ExchngNineteen Appointment List window', async function () {
     await riskassessGAS.fillMeterRegulatorDetailsGAS();
    });
 
+   Then('I should see ExchngNineteen install CommsHub section',async function () {
+    await riskassessGAS.installCommsHubDetailsDisplay();
+   });
+
+   Given('the ExchngNineteen install CommsHub section', async function () {
+    await riskassessGAS.installCommsHubDetailsDisplay();
+   });
+
+
+   When('I fill the ExchngNineteen install CommsHub fields with values',async function () {
+    await riskassessGAS.fillinstallCommsHubDetailsGAS();
+   });
+
 
    Then('I should see ExchngNineteen NEW METER section',async function () {
     await riskassess.newMeterDetailsDisplayed();

@@ -96,6 +96,11 @@ Then I should see ExchngNineteen New Regulator section
 Scenario: Input the ExchngNineteen new Regulator S/N which transferres the Regulator from the Van List GAS section 
 Given the ExchngNineteen New Regulator section 
 When I fill the ExchngNineteen New Regulator fields with values
+Then I should see ExchngNineteen install CommsHub section 
+
+Scenario: Input the ExchngNineteen new Regulator S/N which transferres the Regulator from the Van List GAS section 
+Given the ExchngNineteen install CommsHub section 
+When I fill the ExchngNineteen install CommsHub fields with values
 Then I should see ExchngNineteen NEW METER section 
 
 Scenario: Going through ExchngNineteen " SMETS2 New Meter details " GAS section 
