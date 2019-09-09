@@ -9,7 +9,7 @@ const login: loginPageObject = new loginPageObject();
 
 Given('I have accessed the login page', async function () {
     await browser.get(config.baseUrl);
-    await utility.wait(5000);
+    await utility.wait(3000);
 });
 
 When('I provide the {string} and {string}', async function (username, password) {
@@ -19,5 +19,5 @@ When('I provide the {string} and {string}', async function (username, password) 
 
 When('I click on the Login button', async function () {
     await login.clickLogin();
-    await utility.wait(10000);
+    await utility.wait(3000);
 });
