@@ -1,14 +1,15 @@
-import { element, by, ElementFinder, ElementArrayFinder} from "protractor";
-const { Given, When, Then } = require("cucumber");
+import {by, element, ElementFinder} from "protractor";
+import {Utility} from "../support/utility";
+
+const {Given, When, Then} = require("cucumber");
 const chai = require("chai");
 const expect = chai.expect;
-import { Utility } from "../support/utility";
+
 const utility: Utility = new Utility();
 
 
-
 export class DoorStepPageObject {
-    
+
     public beAware: ElementFinder;
     public selectInputField: ElementFinder;
     public accessToSiteY: ElementFinder;
@@ -16,22 +17,20 @@ export class DoorStepPageObject {
     public onSiteBtn: ElementFinder;
     public initialRiskAssesment: ElementFinder;
 
-    constructor() {
-        
+    constructor()
+    {
         this.beAware = element(by.xpath('//div/h4[text() =" Be aware of any danger!"]'));
         this.selectInputField = element(by.id('selectInput'));
         this.accessToSiteY = element(by.id('rb_Acc_y'));
-        //this.customerOnSiteY = element(by.xpath('(//label[@id="rb_cst_onsite_y"])'));
         this.customerOnSiteY = element(by.xpath('//*[@id="rb_cst_onsite_y"]/span[@class="outer"]'));
         this.onSiteBtn = element(by.xpath('(//button[@id="btn_onsite"])'));
         this.initialRiskAssesment = element(by.xpath('(//div/h4[text()="Initial Risk Assessment"])'));
-        
     }
 
-    public verifyBeAwareOfAnyDangerPage(){
-        this.beAware.getText().then(function(BeAwareText) {
+    public verifyBeAwareOfAnyDangerPage() {
+        this.beAware.getText().then(function (BeAwareText) {
             console.log("find Beaware Text  " + BeAwareText);
-            });
+        });
     }
 
     public async fillTheDoorStepDetails() {
@@ -39,18 +38,18 @@ export class DoorStepPageObject {
         var select = this.selectInputField;
         select.$('[value="C94"]').click();
 
-        if(this.accessToSiteY.isDisplayed()) {
+        if (this.accessToSiteY.isDisplayed()) {
             await utility.wait(5000);
             await this.accessToSiteY.click();
         }
 
-        if(this.customerOnSiteY.isDisplayed()) {
+        if (this.customerOnSiteY.isDisplayed()) {
             await utility.wait(5000);
             await this.customerOnSiteY.click();
         }
     }
 
-    public async clickONSITEBtn(){
+    public async clickOnSiteButton() {
         this.onSiteBtn.click();
         await utility.wait(5000);
         await expect(this.initialRiskAssesment.isPresent());

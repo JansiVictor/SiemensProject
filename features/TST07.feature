@@ -28,22 +28,11 @@ Feature: DF FLTY20 Trad No Exchange Workflow
       Then the Depart for Appointment Dialogue Box is displayed
       When I click on the Depart Ok button
 
- 	#Scenario: Selecting job and setting to depart
- 		#Given the fltynineteen Work Order page
- 		#When I fill the fltynineteen fields with the value
-
- 	#	And I click on fltynineteen DEPART button
- 	#	Then I should see fltynineteen Depart for Appointment window
- 	#	And I should see fltynineteen the correct MPAN details
- 	#	And I should see fltynineteen the correct Customer Name details
- 	#	And I should see fltynineteen the correct PostCode details
-
- 	#Scenario: Approving "Depart for Appointment" job
- 	#	Given fltynineteen Appointment details
- 	#	When I click on fltynineteen OK button
- 	#	Then I should see fltynineteen ARRIVE button
- 	#	And I should see fltynineteen DOORSTEP PROTOCOL tab activated
-
+ 	Scenario: Perform tasks related to arriving at the premises
+ 		Given I have accessed the DoorStep page
+ 		When I click on the Arrive button
+ 		And update the pre-check options for the Door Step Protocol
+        And click on the On-Site button
 
     # Scenario: Set job to Arrived status
     #     Given the fltynineteen Work Order page

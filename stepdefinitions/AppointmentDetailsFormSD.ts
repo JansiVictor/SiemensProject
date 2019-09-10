@@ -36,12 +36,12 @@ Then('the Additional Access Details Notes Textfield', async function () {
 
 When('I update the pre-check options for my selected appointment', async function () {
     appointmentDetailsForm.updatePreCheckOptionsForSelectedAppointment();
-    await utility.wait(2000);
+    await utility.wait(3000);
 });
 
 Then('click on the Depart button', async function () {
     appointmentDetailsForm.clickOnDepartBtn();
-    await utility.wait(5000);
+    await utility.wait(3000);
 });
 
 Then('the Depart for Appointment Dialogue Box is displayed', async function () {
@@ -50,6 +50,6 @@ Then('the Depart for Appointment Dialogue Box is displayed', async function () {
 
 When('I click on the Depart Ok button', async function () {
     departForApptDialogueBox.clickOnDepartOkBtn();
-    await utility.wait(10000);
+    await utility.wait(3000);
 });
 
