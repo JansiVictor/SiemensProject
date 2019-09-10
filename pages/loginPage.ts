@@ -6,12 +6,12 @@ export class loginPageObject {
     public loginButton: ElementFinder;
 
     constructor() {
-       this.usernameTextBox = element(by.model('username'));
-       this.passwordTextBox = element(by.model('password'));
-       this.loginButton = element(by.id('submitbutton'));
+       this.usernameTextBox = element(by.model("username"));
+       this.passwordTextBox = element(by.model("password"));
+       this.loginButton = element(by.id("submitbutton"));
     }
 
-    public setUsernamePassword(username: string, password: string){
+    public setUsernamePassword(username: string, password: string) {
       browser.sleep(5000);
       this.usernameTextBox.sendKeys(username);
       browser.sleep(5000);
