@@ -698,7 +698,7 @@ When('I fill the Summary of Job and receive Customer Signaturefields with values
 
 
 Then('I should see Submit button to complete the job section',async function () {
-	await home.verifyEx21CompletedTextAppointmentListPage();
+	await exchnge21Complete.FinalSubmission();
 });
 
 

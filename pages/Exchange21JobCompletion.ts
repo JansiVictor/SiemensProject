@@ -69,8 +69,10 @@ export class Exchange21JobCompletionPageObject {
     public fullEx20ConfigAppliedGasYes: ElementFinder;
     public eSign: ElementFinder;
     public custSignText:ElementFinder;
+    public AppointmentText:ElementFinder;
 
     constructor() {
+        this.AppointmentText = element(by.xpath('(//*[@id="btn_top"]/div[2]/div)[1]'));
         this.installPPMIDText = element(by.id('Title_ihdscan'));
         this.PPMIDOfferedYes = element(by.id('ihdscan2_ihdPpmidOfferedtrue'));
         this.PPMIDAccepted = element(by.id('ihdscan2_ihdOrPPMIDAccepted_a'));
@@ -152,10 +154,10 @@ public async fillPPMIDSection(index:number){
     if (await this.PPMIDToInstall.isDisplayed()) {
 		await utility.wait(2000);
 		// click the dropdown
-		this.PPMIDToInstall.click()
-		browser.sleep(1000)
+		this.PPMIDToInstall.click();
+		browser.sleep(1000);
 	//index = index ;
-	console.log("Selecting element based index : "+index)
+	console.log("Selecting element based index : "+index);
 	// select the option
 	await this.PPMIDToInstall.element(by.css("option:nth-child("+index+")")).click()
 	await utility.wait(3000);
@@ -237,6 +239,23 @@ public async fillDeviceBindingSection(){
 
 /***
  * @Author Aparna Das
+ * @description Fill Device Binding Section display
+***/
+public async fillDeviceBindingGasMeterSection(){
+    if (this.IHDPairedYes.isDisplayed()) {
+        await this.IHDPairedYes.click();
+    }
+    if (this.FUlHANYes.isDisplayed()) {
+        await this.FUlHANYes.click();
+    }
+    if (this.DeviceNxtBtn.isDisplayed()) {
+        await this.DeviceNxtBtn.click();
+    }
+    await utility.wait(1000);
+}
+
+/***
+ * @Author Aparna Das
  * @description Fill Device Binding Section display Ex20
 ***/
 public async fillEx20DeviceBindingSection(){
@@ -287,6 +306,32 @@ public async fillConfigAllmeter(){
     // if (this.capturePPMIDBtn.isDisplayed()) {
     //     await this.capturePPMIDBtn.click();
     // }
+    await utility.wait(1000);
+    if (this.PPMIDNxtBtn.isDisplayed()) {
+        await this.PPMIDNxtBtn.click();
+    }
+}
+
+/***
+ * @Author Aparna Das
+ * @description Fill config All meter Section
+***/
+public async fillConfigAllmeterGASElec(){
+    if (this.FullWANYes.isDisplayed()) {
+        await this.FullWANYes.click();
+    }
+
+    if (this.fullConfigAppliedGasYes.isDisplayed()) {
+        await this.fullConfigAppliedGasYes.click();
+    }
+
+    await utility.wait(1000);
+    if (this.fullConfigAppliedPPMIDYes.isDisplayed()) {
+        await this.fullConfigAppliedPPMIDYes.click();
+    }
+    if (this.capturePPMIDBtn.isDisplayed()) {
+             await this.capturePPMIDBtn.click();
+        }
     await utility.wait(1000);
     if (this.PPMIDNxtBtn.isDisplayed()) {
         await this.PPMIDNxtBtn.click();
@@ -429,6 +474,7 @@ public async FinalSubmission(){
             console.log("Print captureCustSign Txt  " + captureCustSign);
         });
     }
+    await utility.wait(1000);
     if (this.eSign.isDisplayed()) {
         await this.eSign.click();
     }
@@ -437,14 +483,21 @@ public async FinalSubmission(){
         var select = this.signedbyCustorRepDD;
         select.$('[value="Customer"]').click();
     }
+    await utility.wait(1000);
     if (this.custRefusedToSignNo.isDisplayed()) {
         await this.custRefusedToSignNo.click();
         await this.custSignText.click();
     }
-    if (this.jobCompleteBtn.isDisplayed()) {
-        await this.jobCompleteBtn.click();
-        await this.infoOKButton.click();
-        await utility.wait(2000);
+    await utility.wait(2000);
+    if(this.AppointmentText.isDisplayed){
+        this.AppointmentText.getText().then(async function(appointment) {
+            console.log("find Appointment Page Text  " + appointment);
+        });
+    // if (this.jobCompleteBtn.isDisplayed()) {
+    //     await this.jobCompleteBtn.click();
+    //     await this.infoOKButton.click();
+    //     await utility.wait(2000);
+    // }
     }
 }
 

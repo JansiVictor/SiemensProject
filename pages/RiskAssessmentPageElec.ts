@@ -149,6 +149,7 @@ export class RiskAssessmentPageElecObject {
 	public initialElctext: ElementFinder;
 	public selectinstallAssetOption: ElementFinder;
 	public selectinstallMeterOption: ElementFinder;
+	public meterCutOutSubmitButton:ElementFinder;
 	
     
 /***
@@ -283,6 +284,8 @@ export class RiskAssessmentPageElecObject {
 		this.initialElctext = element(by.xpath('//div[text()="Capture Meter Reading - Register (null):"]'));
 		this.selectinstallAssetOption = element(by.xpath('(//select[@id="chubInstall_selectAsset"]/option)[4]'));
 		this.selectinstallMeterOption=element(by.xpath('(//select[@id="newMeter_assetSelect"]/option)[4]'));
+		this.meterCutOutSubmitButton = element(by.xpath('//div/button[text()="SUBMIT"]'));
+	
 	}
 	
 	
@@ -582,7 +585,18 @@ export class RiskAssessmentPageElecObject {
 		await expect(this.meterCutOutNxtBtn.isPresent());
 		await this.meterCutOutNxtBtn.click();
 		await utility.wait(1000);
-    }
+	}
+	
+	/***
+ * @Author Aparna Das
+ * @description Click on Meter Cutout Next Button
+***/
+
+public async meterCutOutRemoveSubmitButton() {
+	await expect(this.meterCutOutSubmitButton.isPresent());
+	await this.meterCutOutSubmitButton.click();
+	await utility.wait(1000);
+}
 
 /***
  * @Author Aparna Das
@@ -1027,4 +1041,44 @@ export class RiskAssessmentPageElecObject {
 		}
 
 	}
+
+// 	/***
+//  * @Author Aparna Das
+//  * @description Input Initial Risk Assessment page in Remove Details
+// ***/
+
+// public async inputInitialRiskAssessmentRemoveDetails() {
+// 	await expect(this.initialRiskAssesment.isPresent());
+// 	if (this.canYouSmellText.isDisplayed()) {
+// 		await this.canYouSmellYES.click();
+// 	}
+// 	if (this.turnedOffGasYES.isDisplayed()) {
+// 		await this.turnedOffGasYES.click();
+// 	}
+// 	if (this.callEGPYES.isDisplayed()) {
+// 		await this.callEGPYES.click();
+// 	}
+// 	if (this.inputEGPRef.isDisplayed()) {
+// 		await utility.wait(2000);
+// 		await this.inputEGPRef.sendKeys('123456');
+// 	}
+// 	if (this.reportToHS.isDisplayed()) {
+// 		await utility.wait(2000);
+// 		await this.reportToHS.click();
+// 	}
+// 	if (this.airLineRefInput.isDisplayed()) {
+// 		await utility.wait(2000);
+// 		await this.airLineRefInput.sendKeys('5678910');
+// 	}
+
+// 	if (this.OKtoProceedEGPOutcome.isDisplayed()) {
+// 		await utility.wait(2000);
+// 		await this.OKtoProceedEGPOutcome.click();
+// 		await utility.wait(5000);
+// 	}
+// 	if (this.infoOKButton.isDisplayed()) {
+// 		await this.infoOKButton.click();
+// 		//await utility.wait(5000);
+// 	}
+// }
 }

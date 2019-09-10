@@ -137,6 +137,10 @@ export class RiskAssessmentforGASPageObject {
     public commshubNxtbtn:ElementFinder;
     public installCommsHubText:ElementFinder;
     public commshubconnectedtoWANYes:ElementFinder;
+    public inputinstallCommshub:ElementFinder;
+    public installCommsHubYes:ElementFinder;
+    public infoOKButton:ElementFinder;
+    public inputcradleSerialNo:ElementFinder;
     
     
     
@@ -204,6 +208,7 @@ export class RiskAssessmentforGASPageObject {
         this.postInstallationGasTxt = element(by.xpath('//div/h4[text()="Post Installation Gas Tightness Test"]'));
         this.additionalTxtPreInstallGas = element(by.id('txt_AddNotGasTigT'));
         this.selectassettoInstallGas = element(by.xpath('(//select[@ng-model="scp.selectedAsset"]/option)[1]'));
+        this.inputinstallCommshub = element(by.id('chubInstall_CHbarcode'));
         this.selectNewMeterGasOptn = element(by.xpath('(//select[@id="newMeter_assetSelect"]/option)[3]'));
         this.inputMeterSerialNum = element(by.xpath('(//div/input[@id="txt_Serial_Num"])[1]'));
         this.contactGTYEs = element(by.xpath('//input[@id="gtp1"]/following-sibling::span[@class="outer"]'));
@@ -248,8 +253,8 @@ export class RiskAssessmentforGASPageObject {
         this.smets2CommshubOnsiteNo =element(by.xpath('//input[@id="gascchubOnSitefalse"]/following-sibling::span[@class="outer"]'));
         this.commHubDD = element(by.id('chubInstall_selectAsset'));
 		this.chfIDInput = element(by.id('currentCommsHub_chfId'));
-		this.commHubLocDD = element(by.id('currentCommsHub_locationSelect'));
-		this.arealInstalledYes = element(by.id('currentCommsHub_aerialInstalled_y'));
+		this.commHubLocDD = element(by.id('chubInstall_chubLocationSelect'));
+		this.arealInstalledYes = element(by.id('chubInstall_aerialInstalled_y'));
 		this.commHubConnectionDD = element(by.id('chubInstall_connectionMethodSelect'));
 		this.captureCommsHub = element(by.id('chubInstall_photoEvidence'));
         this.commHubLocNxtBtn = element(by.id('chubInstall_nextSectionBtn'));
@@ -257,9 +262,13 @@ export class RiskAssessmentforGASPageObject {
         this.randomClick = element(by.xpath('//div[text()="CHF ID:"]'));
         this.commshubNxtbtn = element(by.id('btnNextcch'));
         this.installCommsHubNo = element(by.id('chubInstall_newChubRequired_n'));
+        this.installCommsHubYes = element(by.id('chubInstall_newChubRequired_y'));
         this.installCommsHubText = element(by.id('Title_chubInstall'));
        this.commshubconnectedtoWANYes = element(by.xpath('//input[@id="Cradionm1"]/following-sibling::span[@class="outer"]'));
-	}
+       this.infoOKButton = element(by.xpath('//div/button[@class="confirm"]'));
+       this.inputcradleSerialNo = element(by.id('chubInstall_cradleSerial'));
+    
+    }
 
 	public async riskAssessmentGASDisplayed() {
 		if (this.riskAssessGas.isDisplayed()) {
@@ -652,6 +661,7 @@ public async fillGasSafety(){
     if (this.allAppliTestedBtn.isDisplayed()) {
         await this.allAppliTestedBtn.click();
     }
+    await utility.wait(1000);
     if (this.submitGas.isDisplayed()) {
         await this.submitGas.click();
     }
@@ -690,17 +700,63 @@ public async fillCurrentCommsHubDetailsGAS(){
  * @Author Aparna Das
  * @description Fill Comms Hub Section
 ***/
-public async fillinstallCommsHubDetailsGAS(){
+public async fillinstallCommsHubDetailsGAS(index:number){
 
-    if (await this.installCommsHubNo.isDisplayed()) {
-        await this.installCommsHubNo.click();
+    if (await this.installCommsHubYes.isDisplayed()) {
+        await this.installCommsHubYes.click();
         await utility.wait(1000);
     }
-            if (await this.commHubLocNxtBtn.isDisplayed()) {
-                await this.commHubLocNxtBtn.click();
-                await utility.wait(1000);
-        }
+
+if (await this.commHubDD.isDisplayed()) {
+await utility.wait(2000);
+// click the dropdown
+this.commHubDD.click()
+browser.sleep(1000)
+//index = index ;
+console.log("Selecting element based index : "+index)
+// select the option
+await this.commHubDD.element(by.css("option:nth-child("+index+")")).click()
+await utility.wait(3000);
+await this.commshubPopup.click();
+await expect(await this.inputinstallCommshub.isPresent());
+var options=this.selectinstallAssetOption.getAttribute('value');
+await this.inputinstallCommshub.sendKeys(options);
+await this.randomClick.click();
+await this.infoOKButton.click();
+await utility.wait(2000);
+
+if (await this.commHubLocDD.isDisplayed()) {
+    var select = this.commHubLocDD;
+    select.$('[value="A"]').click();
+}
+await utility.wait(3000);
+
+if (await this.arealInstalledYes.isDisplayed()) {
+    await this.arealInstalledYes.click();
+    await utility.wait(1000);
+}
+if (await this.commHubConnectionDD.isDisplayed()) {
+    var select = this.commHubConnectionDD;
+    select.$('[value="2"]').click();
+}
+await utility.wait(3000);
+await expect(await this.inputcradleSerialNo.isPresent());
+var options=this.selectinstallAssetOption.getAttribute('value');
+await this.inputcradleSerialNo.sendKeys(options);
+await utility.wait(2000);
+
+if (await this.captureCommsHub.isDisplayed()) {
+    await this.captureCommsHub.click();
+    await utility.wait(1000);
+}
+
+
+if (await this.commHubLocNxtBtn.isDisplayed()) {
+    await this.commHubLocNxtBtn.click();
+    await utility.wait(1000);
+}
     }
+}
 
     /***
  * @Author Aparna Das

@@ -152,6 +152,8 @@ export class RemovePageObject {
     public SMawaitingResp: ElementFinder;
     public ppmidremoval: ElementFinder;
     public btnnext: ElementFinder;
+    public finalphotocommshubEvidence:ElementFinder;
+    public finalaseetcapturephoto:ElementFinder;
 
     public existingelecmeterdtls: ElementFinder;
     public meterReadingElec: ElementFinder;
@@ -179,6 +181,9 @@ export class RemovePageObject {
         public currentMeterElecCap: ElementFinder;
         public SendElMREMBtn: ElementFinder;
         public SendElMREMBtnCap: ElementFinder;
+        public captureassetPhoto:ElementFinder;
+        public removemeterText:ElementFinder;
+        public XCHUBBtn:ElementFinder;
 
 
     constructor() {
@@ -310,6 +315,7 @@ export class RemovePageObject {
         this.confirmAssetrmvYES = element(by.xpath('//*[@id="removeIhdPpmidAsset_confirmRemoved"]/following-sibling::span[@class="outer"]'));
         this.AssetPopup = element(by.xpath('//*[text()="OK"]'));
         this.RemoveGasMeterPanel = element(by.xpath('//div[@id="Title_removeGasMeter"]'));
+        this.captureassetPhoto = element(by.id('removeIhdPpmidAsset_photoButton'));
         //#endregion
 
         //#region Gas Meter Removal 
@@ -340,6 +346,7 @@ export class RemovePageObject {
         this.GasAssetRemovalY = element(by.xpath('//*[@id="removeGasAsset_confirmAssetRemoved"]/following-sibling::span[@class="outer"]'));
         this.GasAssetRemovalPopup = element(by.xpath('//*[text()="OK"]'));
         this.RemoveCommsHub = element(by.xpath('//div[@id="Title_chubRemove"]'));
+        this.finalaseetcapturephoto = element(by.id('btn_CapFin_Pho'));
         //#endregion
 
         //#region Removal Comms Hub
@@ -349,6 +356,7 @@ export class RemovePageObject {
         this.RemoveCommsHubAdditionalNotes = element(by.xpath('//*[@id="chubRemove_additionalNotes"]'));
         this.FaultidentifiedPostInst = element(by.xpath('//*[@id="chubRemove_faultIdentifiedPostInstall"]/following-sibling::span[@class="outer"]'));
         this.RemCommsHubNxtBtn = element(by.xpath('//*[@id="chubRemove_submitButton"]'));
+        this.XCHUBBtn = element(by.xpath('//*[@id="xchub_sendMessageButton"]'));
         this.ConfirmCommsHubRemoval = element(by.xpath('//div[@id="Title_removeChubAsset"]'));
         //#endregion
 
@@ -357,6 +365,7 @@ export class RemovePageObject {
         this.Confirmcommhubassetremove = element(by.xpath('//*[@id="removeChubAsset_confirmAssetRemoved"]/following-sibling::span[@class="outer"]'));
         this.ConfirmCommsHubRemovalPopup = element(by.xpath('//*[text()="OK"]'));
         this.ConfirmCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])[2]'));
+        this.finalphotocommshubEvidence = element(by.id('removeChubAsset_photoButton'));
         //#endregion
 
         //#region Elec fields
@@ -399,6 +408,8 @@ export class RemovePageObject {
         
         this.SendElMREMBtn = element(by.xpath('//*[@id="emrem_sendMessageButton"]'));
 
+        this.removemeterText = element(by.xpath('//div[text()="Removed Meter Reading(s):"]'));
+
 
         
 
@@ -421,7 +432,7 @@ export class RemovePageObject {
 
     public async fillcurrentIhdPPMIDdtls() {
         await utility.wait(3000);
-        if (await this.smet2ihdppidText.isDisplayed()) {
+        if (await this.smet2ihdppidY.isDisplayed()) {
             await this.smet2ihdppidY.click();
         }
         await utility.wait(3000);
@@ -430,7 +441,7 @@ export class RemovePageObject {
             await this.ihdppmidsSersk.sendKeys("00-0F-01-FF-FF-E4-85-D4");
         }
         await utility.wait(1000);
-        if (await this.existingihdPpmidText.isDisplayed()) {
+        if (await this.existingihdPpmidY.isDisplayed()) {
             await this.existingihdPpmidY.click();
         }
         await utility.wait(1000);
@@ -1028,6 +1039,14 @@ export class RemovePageObject {
             await this.RemCommsHubNxtBtn.click();
         }
     }
+    public async XCHUBSubmit() {
+        await utility.wait(1000);
+        if (await this.XCHUBBtn.isDisplayed()) {
+            await this.XCHUBBtn.click();
+            await utility.wait(80000);
+        }
+    }
+    
     public async ConfirmHubRmv() {
         await utility.wait(1000);
         await this.ConfirmCommsHubRemoval.getText().then(function (ConfirmCommsHubRemovalTxt) {
@@ -1060,13 +1079,37 @@ export class RemovePageObject {
         if (await this.ConfirmCommsHubRemovalPopup.isDisplayed()) {
             await this.ConfirmCommsHubRemovalPopup.click();
         }
+        await utility.wait(1000);
+        if (await this.finalphotocommshubEvidence.isDisplayed()) {
+            await this.finalphotocommshubEvidence.click();
     }
+}
+
+    public async clickonokcaptureFinalPhotoEvidence() {
+        await utility.wait(1000);
+        if (await this.finalaseetcapturephoto.isDisplayed()) {
+            await this.finalaseetcapturephoto.click();
+        }
+    }
+
+    public async clickonokcaptureAssetFinalPhotoEvidence() {
+        await utility.wait(1000);
+        if (await this.captureassetPhoto.isDisplayed()) {
+            await this.captureassetPhoto.click();
+        }
+    }
+
+    
+
     public async clickonsubmitforRemoval() {
         await utility.wait(1000);
         if (await this.ConfirmCommsHubNxtBtn.isDisplayed()) {
             await this.ConfirmCommsHubNxtBtn.click();
         }
     }
+
+
+    
     //#endregion
 
     //***************************************************************************************** *//
@@ -1133,6 +1176,7 @@ export class RemovePageObject {
         if (await this.removedmeterReading.isDisplayed()) {
             await this.removedmeterReading.clear();
             await this.removedmeterReading.sendKeys('12345');
+            await this.removemeterText.click();
         }
     }
     public async clickonnxtBtnofElecmeterRemoval() {
@@ -1203,11 +1247,10 @@ export class RemovePageObject {
         await utility.wait(1000);
         if (await this.ConfirmElecCommsHubNxtBtn.isDisplayed()) {
             await this.ConfirmElecCommsHubNxtBtn.click();
+            await utility.wait(80000);
         }
     }
     
-
-
 }
 
 

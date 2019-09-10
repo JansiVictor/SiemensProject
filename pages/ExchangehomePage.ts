@@ -27,6 +27,7 @@ public Ex20completedLink: ElementArrayFinder;
 public Ex21completedLink: ElementArrayFinder;
 public Ex19selectLink: ElementArrayFinder;
 public Ex19completedLink: ElementArrayFinder;
+public Remove6selectLink:ElementArrayFinder;
 
 
 	constructor() {
@@ -34,6 +35,7 @@ public Ex19completedLink: ElementArrayFinder;
 	this.Ex19selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJob1EXCHANGE 19 FLAT")]'));
 	this.Ex20continueLink = element.all(by.xpath('//span[starts-with(@id,"ContinueJobTest EXCH20 SF SMETS2"]'));
 	this.selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest EXCH21 DF SMETS2"]'));
+	this.Remove6selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobRMVE6 FLAT")]'));
 	this.continueLink = element.all(by.xpath('//span[starts-with(@id,"ContinueJobTest EXCH21 DF SMETS2"]'));
 	this.Ex20completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobTest1 EXCH20 DF SMETS2"]'));
 	this.Ex21completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobTest1 EXCH21 DF SMETS2"]'));
@@ -386,4 +388,48 @@ public async VerifyTheExchange21CompletedLink() {
 			});
 		});
 	};
+
+	/***
+ * @Author Aparna Das
+ * @description Click on the correct Remove6 Select Link
+***/
+
+public async clickOnTheRemove6SelectLink() {
+	var list = this.Remove6selectLink;
+
+	await utility.wait(2000);
+	list.count().then(function (promiseResult) {
+		console.log("size is: " + promiseResult);
+		var size = promiseResult; //4
+		//Remove when there is one
+		//var actualSize = size -1;
+		console.log("size is: " + size);
+		
+
+		 var selectlatest = element(
+			by.xpath('((//span[starts-with(@id,"SelectJobRMVE6 FLAT")]))' + '[' + [size] + ']')
+		);
+		
+		selectlatest.getText().then(function (selectText) {
+			console.log("find select link text  " + selectText);
+		});
+		
+
+		console.log("link " + ('((//span[starts-with(@id,"SelectJobRMVE6 FLAT")]))' + '[' + [size] + ']'));
+		var selectMe = element(
+			by.xpath('((//span[starts-with(@id,"SelectJobRMVE6 FLAT")]))' + '[' + [size] + ']')
+		);
+		selectMe.getText().then(function (selectMeText) {
+			console.log("find select Me link text  " + selectMeText);
+		});
+		if (
+			selectMe.isDisplayed()
+			
+		) {
+			selectMe.click();
+			
+		};
+
+	});
+};
 };

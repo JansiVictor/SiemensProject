@@ -520,7 +520,7 @@ Given('the ExchangeTwnty Appointment List window', async function () {
 
 
   Then('I should see ExchangeTwnty Submit button to complete the job section', async function () {
-    home.verifyEx20CompletedTextAppointmentListPage();
+    await exchnge21Complete.FinalSubmission();
   });
 
 

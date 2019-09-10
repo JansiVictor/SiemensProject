@@ -356,7 +356,7 @@ Given('the ExchngNineteen Appointment List window', async function () {
 
 
    When('I fill the ExchngNineteen install CommsHub fields with values',async function () {
-    await riskassessGAS.fillinstallCommsHubDetailsGAS();
+    await riskassessGAS.fillinstallCommsHubDetailsGAS(4);
    });
 
 
@@ -453,7 +453,7 @@ Given('the ExchngNineteen Appointment List window', async function () {
    });
 
    When('I fill the ExchngNineteen SMETS PPMID section fields with values',async function () {
-    await exchnge21Complete.fillPPMIDSection(4);
+    await exchnge21Complete.fillPPMIDSection(2);
    });
 
 
@@ -483,7 +483,7 @@ Given('the ExchngNineteen Appointment List window', async function () {
 
 
    When('I fill the ExchngNineteen Binding and commissioning of PPMID fields with values',async function () {
-    await exchnge21Complete.fillDeviceBindingSection();
+    await exchnge21Complete.fillDeviceBindingGasMeterSection();
    });
 
 
@@ -497,7 +497,7 @@ Given('the ExchngNineteen Appointment List window', async function () {
 
 
    When('I fill the ExchngNineteen configuration of all meters installed  fields with values', async function () {          
-    await exchnge21Complete.fillConfigAllmeter();
+    await exchnge21Complete.fillConfigAllmeterGASElec();
    });
 
 
@@ -546,5 +546,5 @@ Given('the ExchngNineteen Appointment List window', async function () {
 
 
    Then('I should see ExchngNineteen Submit button to complete the job section', async function () {
-    await home.verifyEx19CompletedTextAppointmentListPage();
+    await exchnge21Complete.FinalSubmission();
    });
