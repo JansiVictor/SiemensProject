@@ -184,6 +184,7 @@ export class RemovePageObject {
         public captureassetPhoto:ElementFinder;
         public removemeterText:ElementFinder;
         public XCHUBBtn:ElementFinder;
+        public XCHUBRemovalsuccessfulBtn:ElementFinder;
 
 
     constructor() {
@@ -366,6 +367,7 @@ export class RemovePageObject {
         this.ConfirmCommsHubRemovalPopup = element(by.xpath('//*[text()="OK"]'));
         this.ConfirmCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])[2]'));
         this.finalphotocommshubEvidence = element(by.id('removeChubAsset_photoButton'));
+        this.XCHUBRemovalsuccessfulBtn = element(by.id('xchub_nextButton'));
         //#endregion
 
         //#region Elec fields
@@ -1043,7 +1045,7 @@ export class RemovePageObject {
         await utility.wait(1000);
         if (await this.XCHUBBtn.isDisplayed()) {
             await this.XCHUBBtn.click();
-            await utility.wait(80000);
+            await utility.wait(60000);
         }
     }
     
@@ -1247,7 +1249,7 @@ export class RemovePageObject {
         await utility.wait(1000);
         if (await this.ConfirmElecCommsHubNxtBtn.isDisplayed()) {
             await this.ConfirmElecCommsHubNxtBtn.click();
-            await utility.wait(80000);
+            await utility.wait(40000);
         }
     }
     

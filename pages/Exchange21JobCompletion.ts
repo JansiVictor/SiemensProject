@@ -488,16 +488,24 @@ public async FinalSubmission(){
         await this.custRefusedToSignNo.click();
         await this.custSignText.click();
     }
+    await utility.wait(1000);
+    if (this.custRefusedToSignNo.isDisplayed()) {
+        await this.custRefusedToSignNo.click();
+        await this.custSignText.click();
+    }
+
+     if (this.jobCompleteBtn.isDisplayed()) {
+        await this.jobCompleteBtn.click();
+        await this.infoOKButton.click();
+        
+    }
+
     await utility.wait(2000);
     if(this.AppointmentText.isDisplayed){
         this.AppointmentText.getText().then(async function(appointment) {
             console.log("find Appointment Page Text  " + appointment);
         });
-    // if (this.jobCompleteBtn.isDisplayed()) {
-    //     await this.jobCompleteBtn.click();
-    //     await this.infoOKButton.click();
-    //     await utility.wait(2000);
-    // }
+   
     }
 }
 
