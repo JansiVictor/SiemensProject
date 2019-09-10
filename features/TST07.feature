@@ -1,10 +1,11 @@
 Feature: DF FLTY20 Trad No Exchange Workflow
 
+  @TypeScriptScenario
   Scenario Outline: Login into the system and land on the Appointment List Form
     Given I have accessed the login page
     When I provide the "<Username>" and "<Password>"
-    When I click on the Login button
-    Then the Appointment List Form is displayed
+    And I click on the Login button
+    Then I should see the Appointment List Form
 
     Examples:
       | Username | Password    |
@@ -12,15 +13,18 @@ Feature: DF FLTY20 Trad No Exchange Workflow
 
   Scenario: Select the first appointment from the Appointment List Form
     When I click on the Select link
- 		#Then I should see fltynineteen Work Order window
+    Then I should see the Appointment Details Form
 
- 	#Scenario: Going through Call Forward
- 	#	Given the fltynineteen Work Order window
- 	#	When I see fltynineteen Call Forward or Arrive Button
- 	#	Then I click on fltynineteen CALL FORWARD button
- 		#Then I should see fltynineteen page contect display
- 		#And I should see fltynineteen the CUSTOMER CONTACT NUMBER
- 		#And I should see fltynineteen Contact made field
+ 	Scenario: Perform pre-checks
+      When I click on the Call Forward Button
+      Then I should see the Customer Contact Number
+      And the Contact Made Radio? Radio Option
+      And the Appointment Confirm? Radio Option
+      And the Additional Access Details Notes Textfield
+
+    Scenario: Initiate the start of work for a selected appointment
+      When I update the Appointment pre-check options
+      And click on the Depart button
 
  	#Scenario: Selecting job and setting to depart
  		#Given the fltynineteen Work Order page
