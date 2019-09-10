@@ -14,10 +14,10 @@ export class FLTY19homePageObject {
     
     constructor() {
         //this.selectLink = element.all(by.xpath('//span[text()="select >"]'));
-        this.selectLink = element.all(by.xpath('(//*[starts-with(@id,"SelectJob10JFAULTY 18")])[1]'));
+        this.selectLink = element.all(by.xpath('(//*[starts-with(@id,"SelectJobARA1")])[1]'));
         //this.selectLink = element.all(by.xpath('(//span[text()="select >"])[6]'));
         //this.continueLink = element.all(by.xpath('(//span[text()="continue >"])[1]'));
-        this.continueLink = element(by.xpath('//*[starts-with(@id,"SelectJob10JFAULTY 18")]'));
+        this.continueLink = element(by.xpath('//*[starts-with(@id,"SelectJobARA1")]'));
 
         
         this.appointmentListLabel = element(by.xpath('//*[@id="btn_top"]/div[2]/div'));
