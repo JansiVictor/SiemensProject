@@ -18,13 +18,15 @@ Feature: DF FLTY20 Trad No Exchange Workflow
  	Scenario: Perform pre-checks
       When I click on the Call Forward Button
       Then I should see the Customer Contact Number
-      And the Contact Made Radio? Radio Option
+      And the Contact Made? Radio Option
       And the Appointment Confirm? Radio Option
       And the Additional Access Details Notes Textfield
 
     Scenario: Initiate the start of work for a selected appointment
-      When I update the Appointment pre-check options
+      When I update the pre-check options for my selected appointment
       And click on the Depart button
+      Then the Depart for Appointment Dialogue Box is displayed
+      When I click on the Depart Ok button
 
  	#Scenario: Selecting job and setting to depart
  		#Given the fltynineteen Work Order page

@@ -10,7 +10,6 @@ export class MarkAppointmentListPageObject {
 
     private pageHeaderText: ElementArrayFinder;
     private allRelevantSelectLinks: ElementArrayFinder;
-    private callForwardButton: ElementFinder;
 
     constructor() {
         this.pageHeaderText = element.all(by.xpath("//div[contains(@class,'header-text white tg ng-binding')]"));
