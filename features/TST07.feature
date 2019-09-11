@@ -15,30 +15,32 @@ Feature: DF FLTY20 Trad No Exchange Workflow
     When I click on the Select link
     Then I should see the Appointment Details Form
 
- 	Scenario: Perform pre-checks
-      When I click on the Call Forward Button
-      Then I should see the Customer Contact Number
-      And the Contact Made? Radio Option
-      And the Appointment Confirm? Radio Option
-      And the Additional Access Details Notes Textfield
+  Scenario: Perform appointment pre-checks
+    When I click on the Call Forward Button
+    Then I should see the Customer Contact Number
+    And the Contact Made? Radio Option
+    And the Appointment Confirm? Radio Option
+    And the Additional Access Details Notes Textfield
 
-    Scenario: Initiate the start of work for a selected appointment
-      When I update the pre-check options for my selected appointment
-      And click on the Depart button
-      Then the Depart for Appointment Dialogue Box is displayed
-      When I click on the Depart Ok button
+  Scenario: Initiate the start of work for a selected appointment
+    When I update the pre-check options for my selected appointment
+    And click on the Depart button
+    Then the Depart for Appointment Dialogue Box is displayed
+    When I click on the Depart Ok button
+    Then the DoorStep page is displayed
 
- 	Scenario: Perform tasks related to arriving at the premises
- 		Given I have accessed the DoorStep page
- 		When I click on the Arrive button
- 		And update the pre-check options for the Door Step Protocol
-        And click on the On-Site button
+  Scenario: Perform tasks related to arriving at the premises
+    Given I have accessed the DoorStep page
+    When I click on the Arrive button
+    And update the pre-check options for the Door Step Protocol
+    And click on the On-Site button
+    Then I am prompted to submit details for an initial risk assessment
 
-    # Scenario: Set job to Arrived status
-    #     Given the fltynineteen Work Order page
-    #     When I click on fltynineteen ARRIVE button
-    #     Then I should see fltynineteen Arrival Time details
-    #     And I should see fltynineteen BE AWARE OF ANY DANGER! section
+  Scenario: Perform initial risk assessment
+    Given I have accessed the initial risk assessment tab
+    When I input details for the initial risk assessment
+    And input the details for an Electric risk assessment
+    And input the details for a Gas risk assessment
 
     # Scenario: Going through "BE AWARE OF ANY DANGER!" section
     #     Given the fltynineteen BE AWARE OF ANY DANGER! section

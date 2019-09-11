@@ -158,7 +158,7 @@ When('I fill the DoorStep Protocol fields with the value', async function () {
 });
 
 When('I click on ON SITE button', async function () {
-  await doorstep.clickONSITEBtn();
+  await doorstep.clickOnSiteButton();
 });
 
 Then('I should see RISK ASSESSMENT tab activated', async function () {

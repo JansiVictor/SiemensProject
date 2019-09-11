@@ -13,6 +13,10 @@ Given('I have accessed the DoorStep page', async function () {
     doorStepForm.isDoorStepTextLabelDisplayed();
 });
 
+Then('the DoorStep page is displayed', async function () {
+    doorStepForm.isDoorStepTextLabelDisplayed();
+});
+
 When('I click on the Arrive button', async function () {
     doorStepForm.clickOnArriveButton();
     await utility.wait(5000);

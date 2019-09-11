@@ -26,9 +26,4 @@ export class MarkDoorStepFormPageObject {
         await expect(this.arriveButton.isPresent());
         this.arriveButton.click();
     }
-
-    /*public async updatePreCheckOptionsForDoorStepProtocol() {
-
-    }*/
-
 }
