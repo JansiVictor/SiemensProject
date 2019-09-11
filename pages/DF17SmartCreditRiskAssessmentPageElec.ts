@@ -387,6 +387,41 @@ export class RiskAssessmentPageElecObject {
 			await this.NeedtoWorkYES.click();
 			await utility.wait(5000);
 		}
+	}
+	
+	public async inputInitialRiskAssessmentDetails_SFEFLTY19() {
+		await expect(this.initialRiskAssesment.isPresent());
+		if (this.canYouSmellText.isDisplayed()) {
+			await this.canYouSmellYES.click();
+		}
+		if (this.turnedOffGasYES.isDisplayed()) {
+			await this.turnedOffGasYES.click();
+		}
+		if (this.callEGPYES.isDisplayed()) {
+			await this.callEGPYES.click();
+		}
+		if (this.inputEGPRef.isDisplayed()) {
+			await utility.wait(2000);
+			await this.inputEGPRef.sendKeys('123456');
+		}
+		if (this.reportToHS.isDisplayed()) {
+			await utility.wait(2000);
+			await this.reportToHS.click();
+		}
+		if (this.airLineRefInput.isDisplayed()) {
+			await utility.wait(2000);
+			await this.airLineRefInput.sendKeys('5678910');
+		}
+		if (this.OKtoProceedEGPOutcome.isDisplayed()) {
+			await utility.wait(2000);
+			await this.OKtoProceedEGPOutcome.click();
+			await utility.wait(5000);
+		}
+		if (this.infoOKButton.isDisplayed()) {
+			await utility.wait(2000);
+			await this.infoOKButton.click();
+			await utility.wait(5000);
+		}
     }
     
 /***
@@ -1022,6 +1057,20 @@ catch(err) {
 		await expect(await this.nonserealizedAssetInput.isPresent());
 		await this.nonserealizedAssetInput.sendKeys('1');
 		await this.commsHubConnectedYes.click();
+		await utility.wait(1000);
+
+		await this.commissioningNxtBtn.click();
+		await utility.wait(1000);
+	}
+
+	public async fillCommissioningDetails_SFEFLTY19() {
+		if (await this.nonserealizedAssetDD.isDisplayed()) {
+            await utility.wait(2000);
+			var select = this.nonserealizedAssetDD;
+			select.$('[value="1"]').click();
+		}
+		await expect(await this.nonserealizedAssetInput.isPresent());
+		await this.nonserealizedAssetInput.sendKeys('1');
 		await utility.wait(1000);
 
 		await this.commissioningNxtBtn.click();

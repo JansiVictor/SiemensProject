@@ -69,6 +69,7 @@ Then('I click Login button For DF17SmartCredit', async function () {
 });
 
 Then('I should see the Appointment List For DF17SmartCredit', async function () {
+	await utility.wait(1000);
 	await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
 });
 

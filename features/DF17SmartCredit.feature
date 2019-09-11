@@ -161,3 +161,4 @@ Scenario: Going through Smart literature left onsite section
 Given the DF17SmartCredit Smart literature left onsite section
 When I fill the DF17SmartCredit smart literature fields with values
 Then I should finally submit DF17SmartCredit job
+And I should see the Appointment List For DF17SmartCredit

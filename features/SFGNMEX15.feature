@@ -136,3 +136,4 @@ Scenario: Going through Smart literature left onsite section
 Given the SFENMEX15 Smart literature left onsite section
 When I fill the SFENMEX15 smart literature fields with values
 Then I should finally submit SFENMEX15 job
+And I should see the Appointment List For SFENMEX15
