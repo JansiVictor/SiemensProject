@@ -38,7 +38,7 @@ When('I capture photo of initial electric installation', async function () {
     await riskAssessmentForElecPage.captureInitialElectricalPhoto();
 });
 
-When('I capture photo of initial gas installation', async function () {
+Then('I capture photo of initial gas installation', async function () {
     await riskAssessmentForGasPage.captureInitialGasPhoto();
 
 });

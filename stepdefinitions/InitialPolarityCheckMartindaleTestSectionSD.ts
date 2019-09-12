@@ -16,7 +16,7 @@ Given('the Initial Polarity Check Martindale Test section', async function () {
 });
 
 When('I update Initial Polarity Check Martindale Test form controls with values', async function () {
-    await riskAssmentPage.fillthePolarityCheckMartinDaleWithCPAndRPF();
+    await riskAssmentPage.populatePolarityCheckMartinDaleWithCPAndRPF();
 });
 
 

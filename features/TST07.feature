@@ -45,7 +45,7 @@ Feature: DF FLTY20 Trad No Exchange Workflow
   Scenario: Capture Screenshots for both Gas and Electrical assessments
     Given I have accessed the Gas risk assessment tab section
     When I capture photo of initial electric installation
-    When I capture photo of initial gas installation
+    And I capture photo of initial gas installation
     Then I should see Initial Polarity Check - Martindale Test button
 
   Scenario: Complete 'Initial Polarity Check Martindale Test' section
@@ -56,9 +56,8 @@ Feature: DF FLTY20 Trad No Exchange Workflow
   Scenario: Complete 'Initial Polarity Check - At Meter And Cut Out' section
     Given I have accessed the Initial Polarity Check - At Meter And Cut Out section
     When I update Initial Polarity Check - At Meter And Cut Out controls with values
-
-    #And I fill the fltynineteen field08 with the Value08
-    #Then I should see fltynineteen INITIAL POLARITY CHECK AT METER AND CUT OUT section
+    And I click on the Submit button
+    Then I should be directed to the Remove page
 
 #     Scenario: Going through "INITIAL POLARITY CHECK - AT METER AND CUT OUT" section
 #         Given the fltynineteen INITIAL POLARITY CHECK-AT METER AND CUT OUT section

@@ -1,10 +1,9 @@
-import {$, element, by, ElementFinder, ElementArrayFinder, ExpectedConditions, browser} from "protractor";
+import {browser, by, element, ElementArrayFinder, ElementFinder, ExpectedConditions} from "protractor";
+import {Utility} from "../support/utility";
 
 const {Given, When, Then} = require("cucumber");
 const chai = require("chai");
 const expect = chai.expect;
-import {Utility} from "../support/utility";
-import {threadId} from "worker_threads";
 
 const utility: Utility = new Utility();
 
@@ -118,7 +117,7 @@ export class RiskAssessmentPageObject {
     public infoOkbutn: ElementFinder;
     public captureInitialPhotoE: ElementFinder;
     private initialPolarityCheckMartindaleTestBtn: ElementFinder;
-
+    private riskAssesmentSubmitButton: ElementFinder;
 
     constructor() {
         this.initialRiskAssesment = element(by.xpath('//div/h4[text()="Initial Risk Assessment"]'));
@@ -164,6 +163,7 @@ export class RiskAssessmentPageObject {
         this.workSafetyYES = element(by.xpath('//input[@id="raga3"]/following-sibling::span[@class="outer"]'));
         this.GASRiskTextInput = element(by.xpath('//textarea[@id="text1"]'));
         this.capgasBtn = element(by.xpath('(//button[@id="btn1"])[2]'));
+        this.riskAssesmentSubmitButton = element(by.xpath("//button[@ng-click='submitRiskTask(wo)']"));
         this.NextSectiontoCaptureBtn = element(by.xpath('((//div[@class="btn-container green"])/button[@id="btnNextComm"])[2]'));
         this.reportToHS = element(by.xpath('//label[@id="rb_RepIncHS_y"]'));
         this.airLineRefInput = element(by.xpath('//input[@id="txt_AirL_ref"]'));
@@ -325,7 +325,7 @@ export class RiskAssessmentPageObject {
 
 
     public async clickOnInitialPolarityCheckMartindaleTestBtn() {
-        if(this.initialPolarityCheckMartindaleTestBtn.isPresent()){
+        if (this.initialPolarityCheckMartindaleTestBtn.isPresent()) {
             await this.initialPolarityCheckMartindaleTestBtn.click();
         }
     }
@@ -505,7 +505,7 @@ export class RiskAssessmentPageObject {
     }
 
     // Includes capture photo and reverse polarity is specified as false
-    public async fillthePolarityCheckMartinDaleWithCPAndRPF() {
+    public async populatePolarityCheckMartinDaleWithCPAndRPF() {
         if (await this.InitPolCheckMartindaleTab.isPresent()) {
             await this.InitPolCheckMartindaleTab.click();
         }
@@ -537,9 +537,6 @@ export class RiskAssessmentPageObject {
             console.log("Polarity marindale next section is not available at this moment");
         }
     }
-
-
-
 
 
     public async fillthePolarityCheckMartinDale() {
@@ -628,11 +625,11 @@ export class RiskAssessmentPageObject {
         await this.polarityCheckAtMeter.click();
     }
 
-
-
-
-
-
+    public async clickOnRiskAssessmentPageSubmitButton() {
+        if (await this.riskAssesmentSubmitButton.isDisplayed()) {
+            this.riskAssesmentSubmitButton.click();
+        }
+    }
 
     public async meterCutOutnextSection() {
 
