@@ -1,10 +1,15 @@
-import { $, element, by, ElementFinder, ElementArrayFinder } from "protractor";
+import { $,browser, element, by, ElementFinder, ElementArrayFinder } from "protractor";
 const { Given, When, Then } = require("cucumber");
 const chai = require("chai");
 const expect = chai.expect;
 import { Utility } from "../support/utility";
 import { threadId } from "worker_threads";
 const utility: Utility = new Utility();
+import {
+
+	Alert
+
+} from 'selenium-webdriver';
 
 export class RiskAssessmentPageObject {
 
@@ -112,7 +117,19 @@ export class RiskAssessmentPageObject {
 
     public performriskmodel: ElementArrayFinder;
     public performriskY: ElementFinder;
+    //added by CGP for FLTY20 TRAD
+    public reportToMngr: ElementFinder;
+    public teamMgnrName: ElementFinder;
+    public teamMgnrAuth: ElementFinder;
+    public calledAirline: ElementFinder;
+    public reportedRiskDNO: ElementFinder;
+    public airLineRefName: ElementFinder;
+    public DNOrefNum: ElementFinder;
+    public meterCutOutSubmitBtn: ElementFinder;
+    public meterCutOutSubmit1: ElementFinder;
 
+    //cgp added
+    public CaptureInitialElecInstTab: ElementFinder;
 
     constructor() {
         this.initialRiskAssesment = element(by.xpath('//div/h4[text()="Initial Risk Assessment"]'));
@@ -228,6 +245,31 @@ export class RiskAssessmentPageObject {
         this.existingElecMeterYes = element(by.id('rb_ExMetDetCorrt_y'));
         this.removeMeterText = element(by.xpath('//div/h4[text()="Remove Meter"]'));
 
+        //added by CGP for FLTY20 TRAD
+        this.reportToMngr = element(by.id('rb_RepTM_y'));
+        this.teamMgnrName = element(by.id('Txt_TM_Name'));
+        this.teamMgnrAuth = element(by.id('rb_TMAuth_y'));
+        this.calledAirline = element(by.id('rb_CallAline_y'));
+        this.reportedRiskDNO = element(by.id('rb_RepRDNO_y'));
+        this.airLineRefName = element(by.id('txt_Aline_Ref'));
+        this.DNOrefNum = element(by.id('txt_DND_Ref'));
+        this.meterCutOutSubmitBtn = element(by.id('btn1'));
+
+        this.meterCutOutSubmit1 = element(by.xpath('(//button[@id = "btn1"])[2]'));
+
+        //---------------------------------------------------------
+
+        //added by cgp fhty20 trad
+
+        this.CaptureInitialElecInstTab = element(by.xpath('//div/h4[text()="Capture Initial Photo of Elec Installation"]'));
+
+
+
+
+
+
+
+
     }
 
     public async verifyRiskAssessmentPage() {
@@ -293,7 +335,15 @@ export class RiskAssessmentPageObject {
 
     public async infoTextPopUp() {
         if (this.infoText.isDisplayed()) {
-            //await this.infoOKButton.click();
+            //CGP added
+            let ale: Alert = browser.switchTo().alert();
+
+		// clicks 'OK' button
+
+		//ale.accept();
+
+		await utility.wait(2000);
+            await this.infoOKButton.click();
             await utility.wait(5000);
         }
     }
@@ -341,10 +391,11 @@ export class RiskAssessmentPageObject {
     }
 
     public async capturePhotoBtnDisplayed() {
+        await utility.wait(5000);
         if (await this.cameraElecBtn.isDisplayed()) {
             await utility.wait(1000);
             await this.cameraElecBtn.click();
-            await utility.wait(1000);
+            await utility.wait(5000);
         }
     }
 
@@ -430,20 +481,60 @@ export class RiskAssessmentPageObject {
         await utility.wait(1000);
 
     }
+
+    // CGP for FLTY20TRAD
+
+    public async elecInstSec() {
+        await utility.wait(5000);
+        if (await this.CaptureInitialElecInstTab.isDisplayed()) {
+            await this.CaptureInitialElecInstTab.getText().then(function (capinitialElecInst) {
+                console.log("Find capture initial photo of elec installation  " + capinitialElecInst);
+            });
+        }
+        await utility.wait(5000);
+    }
+
+    public async elecfullmeterInst() {
+        await utility.wait(3000);
+        if (await this.CaptureInitialElecInstTab.isPresent()) {
+       //     await this.CaptureInitialElecInstTab.click();
+        }
+        await utility.wait(3000);
+        if (await this.capturephotoMeterInstall.isDisplayed()) {
+            await this.capturephotoMeterInstall.click();
+        }
+        // await utility.wait(1000);
+        // try {
+        //     if (await this.CaptureInitialGasInstNext.isDisplayed()) {
+        //         await this.CaptureInitialGasInstNext.click();
+        //     }
+        // } catch (error) {
+        //     console.log("Gas full meter next section is not available at this moment");
+        // }
+        await utility.wait(1000);
+        
+    }
+
+
+
+
+
     public async gasInstSec() {
+        await utility.wait(5000);
         if (await this.captureInitialPhotoElec.isDisplayed()) {
             await this.captureInitialPhotoElec.getText().then(function (capinitialGasInst) {
                 console.log("Find capture initial photo of gas installation  " + capinitialGasInst);
             });
         }
-        await utility.wait(1000);
+        await utility.wait(5000);
     }
 
     public async gasfullmeterInst() {
+        await utility.wait(5000);
         if (await this.CaptureInitialGasInstTab.isPresent()) {
             await this.CaptureInitialGasInstTab.click();
         }
-        await utility.wait(1000);
+        await utility.wait(5000);
         if (await this.capfullmeterInst.isDisplayed()) {
             await this.capfullmeterInst.click();
         }
@@ -527,7 +618,10 @@ export class RiskAssessmentPageObject {
         await utility.wait(1000);
         await expect(this.polarityCheckAtMeter.isPresent());
         await this.polarityCheckAtMeter.click(); 
-        await utility.wait(1000);
+        await utility.wait(1000);       
+
+
+
         // await utility.wait(3000);
         // if (this.polchkCutOutText.isDisplayed()) {
         //     await this.polarityCheckCutOutYES.click();
@@ -535,6 +629,68 @@ export class RiskAssessmentPageObject {
         // if (this.polchkatmtrText.isDispalyed()) {
         //     await this.polarityCheckAtMeter.click();
         // }
+    }
+
+    public async fillthePolarityCheckMeterOutFLTY20() {
+        if (await this.InitPCMTab.isPresent()) {
+            await this.InitPCMTab.click();
+        }
+        await utility.wait(1000);
+        await expect(this.polarityCheckCutOutYES.isPresent());
+        await this.polarityCheckCutOutYES.click();
+        await utility.wait(1000);
+        await expect(this.polarityCheckAtMeter.isPresent());
+        await this.polarityCheckAtMeter.click(); 
+        await utility.wait(1000);
+
+        // added by cgp for FLTY20 TRAD
+        await expect(this.reportToMngr.isPresent());
+        await this.reportToMngr.click(); 
+        await utility.wait(1000);
+        await expect(this.teamMgnrName.isPresent());
+        await this.teamMgnrName.sendKeys("CGP");
+        await utility.wait(1000);
+        await expect(this.teamMgnrAuth.isPresent());
+        await this.teamMgnrAuth.click();
+        await utility.wait(1000);
+        await expect(this.calledAirline.isPresent());
+        await this.calledAirline.click();
+        await utility.wait(1000);
+        await expect(this.airLineRefName.isPresent());
+        await this.airLineRefName.sendKeys("Test 1");
+        await utility.wait(1000);
+        await expect(this.reportedRiskDNO.isPresent());
+        await this.reportedRiskDNO.click();
+        await utility.wait(1000);
+        await expect(this.DNOrefNum.isPresent());
+        await this.DNOrefNum.sendKeys("1111111");
+        await utility.wait(1000);
+    }
+
+    //Added By CGP for Faulty20 TRAD
+
+    public async polarityMeterCutoutSubmit()
+    {
+        await utility.wait(1000);
+        if (await this.meterCutOutSubmitBtn.isDisplayed()) {
+            await this.meterCutOutSubmitBtn.click();
+            await utility.wait(1000);
+        }
+        
+    
+
+    }
+
+    public async polarityMeterCutoutSubmitTRAD()
+    {
+        await utility.wait(3000);
+        if (await this.meterCutOutSubmit1.isDisplayed()) {
+            await this.meterCutOutSubmit1.click();
+            await utility.wait(3000);
+        }
+        
+    
+
     }
 
     public async meterCutOutnextSection() {

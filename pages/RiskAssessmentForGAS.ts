@@ -453,7 +453,7 @@ public async fillNewMeterDetailsGAS(index:number) {
 ***/
 
 public async gasInitialMeterTxtDisplay() {
-
+    await utility.wait(3000); // CGP added
     if (this.gasInitialMeterTxt.isDisplayed()) {
         await this.gasInitialMeterTxt.getText().then(function (GasInstall) {
             console.log("find GasInstall Text  " + GasInstall);
