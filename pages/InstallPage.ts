@@ -203,6 +203,9 @@ export class InstallPageObject {
     public CaptureMeterReadingenableok1: ElementFinder;
     public EUIenableOK1: ElementFinder;
 
+    public EUIenableOKTRAD: ElementFinder;
+
+
     constructor() {
 
         //#region Install Comms Hub
@@ -229,10 +232,12 @@ export class InstallPageObject {
         this.SendXCHUBbtn = element(by.xpath('//*[@id="xchub_sendMessageButton"]'));
 
         this.AwaitingRespXCHUB = element(by.xpath('//*[text()="Awaiting Response"]'));
-        this.AwaitingReqSent = element(by.xpath('//*[text()="Request Sent Successfully"]')); 
-        this.AwaitingWhiteList = element(by.xpath('//*[text()="Whitelist transfer completed check LED indication is correct"]')); 
-        
-        this.remvSuccessful = element(by.id('xchub_nextButton'));
+
+        this.AwaitingReqSent = element(by.xpath('//*[text()="Request Sent Successfully"]'));
+
+        this.AwaitingWhiteList = element(by.xpath('//*[text()="Whitelist transfer completed check LED indication is correct"]'));
+
+        this.remvSuccessful = element(by.xpath('//*[@id="xchub_nextButton"]'));
 
         this.NewGasMeterDtls = element(by.xpath('//div/h4[text()="New Gas Meter Details"]'));
 
@@ -443,6 +448,9 @@ export class InstallPageObject {
         this.CaptureMeterReadingenableok1 = element(by.xpath('(//*[contains(text(),"Capture Meter Reading - Register (null)")])[2]'));
         this.EUIenableOK1 = element(by.xpath('(//*[contains(text(),"EUI Device ID:")])[3]'));
 
+        this.EUIenableOKTRAD = element(by.xpath('//*[contains(text(),"EUI Device ID:")]'));
+
+
     }
     public async dummy() {
 
@@ -554,9 +562,11 @@ export class InstallPageObject {
             console.log("Removed Successfully " + remvSuccessfulTxt);
         });
     }
+
     public async clickonremsuccess()
     {
         await utility.wait(3000);
+
         if (await this.remvSuccessful.isDisplayed()) {
             await this.remvSuccessful.click();
         }
@@ -623,6 +633,8 @@ export class InstallPageObject {
             var options = this.selectValidnewgasList.getAttribute('value');
             await this.gasmeterserialSend.sendKeys(options);
         }
+
+        
         await utility.wait(1000);
         if (await this.Gas_Meter_Txt.isDisplayed()) {
             await this.Gas_Meter_Txt.click();
@@ -1072,11 +1084,13 @@ export class InstallPageObject {
         }
     }
     public async clickonSUBbtn() {
+
         await utility.wait(2000);
         if (await this.PPMIDcommsuccessfulbtn.isDisplayed()) {
             await this.PPMIDcommsuccessfulbtn.click();
         }
         await utility.wait(2000);
+
         if (await this.PPMIDSubmit.isDisplayed()) {
             await this.PPMIDSubmit.click();
         }
@@ -1185,6 +1199,7 @@ export class InstallPageObject {
             await this.certYearMonth.clear();
             await this.certYearMonth.sendKeys("16/12");
         }
+
     }
     public async NewMeterNextsection() {
         await utility.wait(1000);
@@ -1260,6 +1275,7 @@ export class InstallPageObject {
             await this.AdditionalTestChkNext.click();
         }
     }
+
     public async ElecInitialMeterReading() {
         await utility.wait(2000);
         await this.ElecInitMeterReadingCap.getText().then(function (ElecInitMeterReadingCapTxt) {
@@ -1612,6 +1628,7 @@ export class InstallPageObject {
             await this.InstallPPMIDNextSection.click();
         }
     }
+
     //Tst12 FLTY GAS
 
     public async Tst12fillthefieldsforperformpostinst(){
@@ -1727,4 +1744,48 @@ public async Tst12submittoJobcompletion(){
             await this.PPMIDSubmit.click();
         }
 }
+
+
+//CGP ADDED 11/09
+public async filltheduelforseePPMIDsectionTRAD(index: number) {
+    await utility.wait(2000);
+    if (await this.PPMIDoffered.isDisplayed()) {
+        await this.PPMIDoffered.click();
+    }
+    await utility.wait(2000);
+    if (await this.PPMIDaccepted.isDisplayed()) {
+        await this.PPMIDaccepted.click();
+    }
+    await utility.wait(1000);
+    if (await this.PPMIDLocsel.isDisplayed()) {
+        var select = this.PPMIDLocsel;
+        select.$('[value="A"]').click();
+    }
+    await utility.wait(2000);
+    if (await this.PPMIDtoInstallsel.isDisplayed()) {
+        await utility.wait(2000);
+        this.PPMIDtoInstallsel.click();
+        browser.sleep(1000);
+        console.log("Selecting element based index : " + index);
+        // select the option
+        await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
+        await utility.wait(3000);
+        await expect(await this.SerialNoText.isPresent());
+        var options = this.PPMIDtoInstallselList.getAttribute('value');
+        await this.SerialNoText.sendKeys(options);
+    }
+    await utility.wait(2000);
+    if (await this.EUIenableOKTRAD.isDisplayed()) {
+        await this.EUIenableOKTRAD.click();
+    }
+    await utility.wait(2000);
+    if (await this.AssetsuccessOKclk.isDisplayed()) {
+        await this.AssetsuccessOKclk.click();
+    }
+    await utility.wait(2000);
+    if (await this.InstallPPMIDNextSection.isDisplayed()) {
+        await this.InstallPPMIDNextSection.click();
+    }
+}
+
 }
