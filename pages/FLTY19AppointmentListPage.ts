@@ -91,6 +91,7 @@ export class FLTY19AppointmentListPageObject {
 
         this.customercontactnumberdis = element(by.xpath('//*[contains(text(),"CUSTOMER CONTACT NUMBER:")]'));
         //this.continueLink = element(by.xpath('(//span[text()="continue >"])[1]'));
+
         this.continueLink = element(by.xpath('//*[starts-with(@id,"ContinueJob3JFAULTY 19")]'));
 
     }

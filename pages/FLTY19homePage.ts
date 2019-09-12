@@ -14,8 +14,8 @@ export class FLTY19homePageObject {
     public continueLink: ElementFinder;
 
     constructor() {
-        this.selectLink = element.all(by.xpath('(//*[starts-with(@id,"SelectJob4JFAULTY 20")])[1]'));
-        this.continueLink = element(by.xpath('//div/span[starts-with(@id,"ContinueJob4JFAULTY 20")]/following-sibling::span/span[text()="continue >"]'));
+        this.selectLink = element.all(by.xpath('(//*[starts-with(@id,"SelectJob1JFAULTY 18")])[1]'));
+        this.continueLink = element(by.xpath('//div/span[starts-with(@id,"ContinueJob1JFAULTY 18")]/following-sibling::span/span[text()="continue >"]'));
         this.appointmentListLabel = element(by.xpath('//*[text()="Appointments List"]'));
         this.usrname = element(by.id("input1"));
         this.password = element(by.id("input2"));

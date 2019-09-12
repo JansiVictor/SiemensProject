@@ -116,7 +116,10 @@ export class JobCompletionPageObject {
     public signpad: ElementFinder;
     public jobcompletion: ElementFinder;
 
-    
+
+    public summaryCap: ElementFinder;
+    public TST12jobcompletion: ElementFinder;
+
 
     constructor() {
 
@@ -586,6 +589,11 @@ public async FinalSubmission(){
         
     }
 
+        this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob1JFAULTY 20")]'));
+
+        this.summaryCap = element(by.xpath('//div/h4[contains(text(),"SUMMARY")]'));
+        this.TST12jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob1JFAULTY 18")]'));
+
     await utility.wait(2000);
     if(this.AppointmentText.isDisplayed){
         this.AppointmentText.getText().then(async function(appointment) {
@@ -701,7 +709,7 @@ public async FinalSubmission(){
     }
     public async writingSign() {
         browser.sleep(1000);
-        this.signpad.click();
+        await this.signpad.click();
     }
     public async fillfield57Capturecust() {
         await utility.wait(1000);
@@ -725,6 +733,41 @@ public async FinalSubmission(){
     public async JobCompletedScreen() {
         await utility.wait(1000);
         if (await this.jobcompletion.isDisplayed()) {
+            console.log("Job completed successfully");
+        }
+    }
+
+    //TST12 FLTY GAS
+
+    public async Tst12fillfield53dueldevicebinding() {
+        await utility.wait(2000);
+        await utility.wait(2000);
+        if (await this.GSMEJoined.isDisplayed()) {
+            await this.GSMEJoined.click();
+        }
+        await utility.wait(2000);
+        if (await this.configIHDPPMID.isDisplayed()) {
+            await this.configIHDPPMID.click();
+        }
+        await utility.wait(1000);
+        if (await this.joinedcapture.isDisplayed()) {
+            await this.joinedcapture.click();
+        }
+        await utility.wait(2000);
+        if (await this.deviceNext.isDisplayed()) {
+            await this.deviceNext.click();
+        }
+    }
+
+    public async TST12summary() {
+        await utility.wait(1000);
+        await this.summaryCap.getText().then(function (summaryCapTxt) {
+            console.log("SUMMARY " + summaryCapTxt);
+        });
+    }
+    public async Tst12JobCompletedScreen() {
+        await utility.wait(1000);
+        if (await this.TST12jobcompletion.isDisplayed()) {
             console.log("Job completed successfully");
         }
     }
