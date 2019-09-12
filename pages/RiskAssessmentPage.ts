@@ -1,4 +1,4 @@
-import { $, element, by, ElementFinder, ElementArrayFinder } from "protractor";
+import { $, element, by, ElementFinder, ElementArrayFinder, browser } from "protractor";
 const { Given, When, Then } = require("cucumber");
 const chai = require("chai");
 const expect = chai.expect;
@@ -159,6 +159,7 @@ export class RiskAssessmentPageObject {
         this.EGPJobRefInput = element(by.xpath('//input[@id="input1"]'));
         this.ECVChecksBtnYES = element(by.xpath('//input[@id="raga2"]/following-sibling::span[@class="outer"]'));
         this.workSafetyYES = element(by.xpath('//input[@id="raga3"]/following-sibling::span[@class="outer"]'));
+        //this.workSafetyYES = element(by.xpath('//input[@id="raga3"]/following-sibling::span/span[@class="inner"]'));
         this.GASRiskTextInput = element(by.xpath('//textarea[@id="text1"]'));
         this.capgasBtn = element(by.xpath('(//button[@id="btn1"])[2]'));
         this.NextSectiontoCaptureBtn = element(by.xpath('((//div[@class="btn-container green"])/button[@id="btnNextComm"])[2]'));
@@ -252,7 +253,6 @@ export class RiskAssessmentPageObject {
 
     public async inputInitialRiskAssessmentDetails() {
         await expect(this.initialRiskAssesment.isPresent());
-        //uncomment for first run
         try {
             if (this.initialRiskAssessmentTab.isPresent()) {
                 await this.initialRiskAssessmentTab.click();
@@ -288,20 +288,10 @@ export class RiskAssessmentPageObject {
             await this.OKtoProceedEGPOutcome.click();
             await utility.wait(5000);
         }
-        // try {
-        //     if (this.initriskNextSection.isDisplayed()) {
-        //         await this.initriskNextSection.click();
-        //     }
-        // } catch (error) {
-        //     console.log("Initial Risk assessment next section is not displayed at this run");
-        // }
-        
-
     }
 
     public async infoTextPopUp() {
         if (this.infoText.isDisplayed()) {
-            //await this.infoOKButton.click();
             await utility.wait(5000);
         }
     }
@@ -316,11 +306,7 @@ export class RiskAssessmentPageObject {
     }
 
     public async fillRiskAssesmentElecFields() {
-        // if (await this.RiskAssessmentTab.isPresent()) {
-        //     await this.RiskAssessmentTab.click();
-        // }
         await utility.wait(1000);
-        
         if (await this.performRiskText.isDisplayed()) {
             try {
                 await utility.wait(3000);
@@ -337,7 +323,6 @@ export class RiskAssessmentPageObject {
         await utility.wait(1000);
         if (await this.performRiskPassText.isDisplayed()) {
             await this.RiskAssessmentPassYES.click();
-            //console.log("Risk assessment yes clicked now");
         }
         await utility.wait(1000);
         if (await this.riskAssessmentinput.isDisplayed()) {
@@ -372,19 +357,7 @@ export class RiskAssessmentPageObject {
     }
 
     public async fillthedtlsGas() {
-        // await utility.wait(1000);
-        // try {
-        //     if (await this.RiskAssessmentGasTab.isPresent()) {
-        //         await this.RiskAssessmentGasTab.click();
-        //     }
-        // } catch (error) {
-            
-        // }
-        
-        // else {
-        //     console.log("continue with next step from risk assessment");
-        // }
-        await utility.wait(1000);
+        await utility.wait(2000);
         if (await this.capmeterressureText.isDisplayed()) {
             await this.meterPressureLow.click();
         }
@@ -400,11 +373,12 @@ export class RiskAssessmentPageObject {
         if (await this.ecvCheckText.isDisplayed()) {
             await this.ECVChecksBtnYES.click();
         }
-        await utility.wait(1000);
-        if (await this.WorkAreaSafetyCheckText.isDisplayed()) {
+        await utility.wait(2000);
+        browser.sleep(1000);
+        if (await this.workSafetyYES.isDisplayed()) {
             await this.workSafetyYES.click();
         }
-        await utility.wait(1000);
+        await utility.wait(2000);
         if (await this.capmeterressureText.isDisplayed()) {
             await this.meterPressureLow.click();
         }
@@ -425,16 +399,7 @@ export class RiskAssessmentPageObject {
         if (await this.safetoContText.isDisplayed()) {
             await this.safetoContPass.click();
         }
-        // await utility.wait(1000);
-        // try {
-        //     if (await this.gasNextSection.isDisplayed()) {
-        //         await this.gasNextSection.click();
-        //     }
-        // } catch (error) {
-        //     console.log("Gas risk assessment next section is not available at this moment");
-        // }
         await utility.wait(1000);
-
     }
     public async gasInstSec() {
         if (await this.captureInitialPhotoElec.isDisplayed()) {
@@ -453,16 +418,7 @@ export class RiskAssessmentPageObject {
         if (await this.capfullmeterInst.isDisplayed()) {
             await this.capfullmeterInst.click();
         }
-        // await utility.wait(1000);
-        // try {
-        //     if (await this.CaptureInitialGasInstNext.isDisplayed()) {
-        //         await this.CaptureInitialGasInstNext.click();
-        //     }
-        // } catch (error) {
-        //     console.log("Gas full meter next section is not available at this moment");
-        // }
         await utility.wait(1000);
-        
     }
     public async verifyInitialPolarityCheck() {
         if (await this.initialpolarityCheck.isDisplayed()) {
@@ -511,7 +467,6 @@ export class RiskAssessmentPageObject {
         } catch (error) {
             console.log("Polarity marindale next section is not available at this moment");
         }
-        
     }
 
     public async verifyMeterAndCutOut() {
@@ -532,15 +487,8 @@ export class RiskAssessmentPageObject {
         await this.polarityCheckCutOutYES.click();
         await utility.wait(1000);
         await expect(this.polarityCheckAtMeter.isPresent());
-        await this.polarityCheckAtMeter.click(); 
+        await this.polarityCheckAtMeter.click();
         await utility.wait(1000);
-        // await utility.wait(3000);
-        // if (this.polchkCutOutText.isDisplayed()) {
-        //     await this.polarityCheckCutOutYES.click();
-        // }
-        // if (this.polchkatmtrText.isDispalyed()) {
-        //     await this.polarityCheckAtMeter.click();
-        // }
     }
 
     public async meterCutOutnextSection() {
@@ -550,7 +498,7 @@ export class RiskAssessmentPageObject {
             await utility.wait(1000);
         }
         await utility.wait(1000);
-        if (await this.nextbtntoRemove.isDisplayed()){
+        if (await this.nextbtntoRemove.isDisplayed()) {
             await this.nextbtntoRemove.click();
             console.log("Clicked on Submit");
             await utility.wait(1000);
@@ -563,7 +511,7 @@ export class RiskAssessmentPageObject {
     /*ELectric Section Addition
     //***************************************************************************************** */
 
-    public async fillelecfullmeterInst(){
+    public async fillelecfullmeterInst() {
 
         if (await this.capturephotoMeterInstall.isDisplayed()) {
             await this.capturephotoMeterInstall.click();
@@ -573,25 +521,24 @@ export class RiskAssessmentPageObject {
     public async meterCutOutnextSectionfrmElec() {
 
         await utility.wait(1000);
-        if (await this.nextbtntoRemfromElec.isDisplayed()){
+        if (await this.nextbtntoRemfromElec.isDisplayed()) {
             await this.nextbtntoRemfromElec.click();
             console.log("Clicked on Submit from Elec");
             await utility.wait(1000);
         }
     }
-    public async INFOOK(){
-
+    public async INFOOK() {
         await expect(this.infoOkbutn.isPresent());
     }
 
-    public async INFOOKClick(){
+    public async INFOOKClick() {
 
         if (await this.infoOkbutn.isDisplayed()) {
             await this.infoOkbutn.click();
             await utility.wait(1000);
         }
     }
-    
+
     public async ElecInstSec() {
         if (await this.captureInitialPhotoE.isDisplayed()) {
             await this.captureInitialPhotoE.getText().then(function (captureInitialPhotoETxt) {
@@ -600,7 +547,7 @@ export class RiskAssessmentPageObject {
         }
         await utility.wait(1000);
     }
-    
+
 
 }
 

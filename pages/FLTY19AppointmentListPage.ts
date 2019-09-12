@@ -135,7 +135,6 @@ export class FLTY19AppointmentListPageObject {
 
     public async verifydoorStepWindow() {
         try{
-		
 			await expect(this.doorStepText.isPresent());
 			await expect(this.arriveBtn.isPresent());
             this.arriveBtn.click();

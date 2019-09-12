@@ -184,16 +184,20 @@ export class RemovePageObject {
         public currentMeterElecCap: ElementFinder;
         public SendElMREMBtn: ElementFinder;
         public SendElMREMBtnCap: ElementFinder;
+
         public captureassetPhoto:ElementFinder;
         public removemeterText:ElementFinder;
         public XCHUBBtn:ElementFinder;
         public XCHUBRemovalsuccessfulBtn:ElementFinder;
 
+        public meterReadingduel: ElementFinder;
+        public meterReadingduelen: ElementFinder;
+        public duelgastightnessOutcomeGT: ElementFinder;
+
+
 
     constructor() {
         //#region Panel Click
-        //this.ctIhdPpmiddtls = element(by.css('.down'));
-        //.ng-scope:nth-child(1) > .task-section .down
         this.ctIhdPpmiddtls = element(by.css('.ng-scope:nth-child(1) > .task-section .down'));
         this.ctmeterdtlGasTab = element(by.css('.ng-scope:nth-child(2) > .task-section .down'));
         this.ctCommshubdtlTab = element(by.css('.ng-scope:nth-child(3) > .task-section .down'));
@@ -217,7 +221,7 @@ export class RemovePageObject {
         //#region CURRENT METER DETAILS - GAS
         this.existgasmeterDtlText = element(by.xpath('//*[contains(text(),"Existing Gas Meter Details Correct")]'));
         this.existgasmeterDtlY = element(by.xpath('//div/label[@id="gasCurrentMeter_detailsCorrect_y"]'));
-        this.meterReading = element(by.xpath('//*[contains(text(),"Capture Meter Reading - Register")]'));
+        this.meterReading = element(by.xpath('//*[contains(text(),"Capture Meter Reading - Register (1):")]'));
         this.meterReadingLabel = element(by.xpath('//input[@id="reg0"]'));
         this.currentCommsHubTitle = element(by.xpath('//*[@id="Title_currentCommsHub"]'));
         this.currentHubDtlsPgCont = element(by.xpath('//*[contains(text(),"CHF ID")]'));
@@ -227,7 +231,6 @@ export class RemovePageObject {
         this.commshubLoc = element(by.xpath('//select[@id="currentCommsHub_locationSelect"]'));
         this.aerialInstalled = element(by.xpath('//*[contains(text(),"Aerial Installed")]'));
         this.aerialInstalledY = element(by.id('currentCommsHub_aerialInstalled_y'));
-        //input[@id="currentCommsHub_aerialInstalled_y"]/following-sibling::span[@class="outer"]
         this.CommshubdtlCorrectText = element(by.xpath('//*[contains(text(),"Existing Comms Hub Details Correct?")]'));
         this.CommshubdtlCorrectY = element(by.id('currentCommsHub_existingDetailsCorrect_y'));
         this.capexistcommshubInstall = element(by.id('currentCommsHub_existingPhotoButton'));
@@ -382,46 +385,37 @@ export class RemovePageObject {
         this.existingelecmeterdtls = element(by.xpath('//*[@id="rb_ExMetDetCorrt_y"]/span[@class="outer"]'));
         this.meterReadingElec = element(by.xpath('//*[contains(text(),"Capture Meter Reading - Register (1):")]'));
         this.currentMeterElecCap = element(by.xpath('//*[contains(text(),"Current Meter Details")]'));
-        
-
         this.confirmElecmeterText = element(by.xpath('//*[contains(text(),"Confirm if Elec meter is On Supply or Off Supply")]'));
         this.confirmElecmeterOnsupply = element(by.xpath('//input[@id="confirmelecsupplytrue"]/following-sibling::span[@class="outer"]'));
-		
 		this.elecMeter = element(by.xpath('//*[contains(text(),"Elec Meter?")]'));
-        this.elecMeterY = element(by.xpath('//input[@id="elecmexdfa"]/following-sibling::span[@class="cr"]'));
-        
-        
+        this.elecMeterY = element(by.xpath('//input[@id="elecmexdfa"]/following-sibling::span[@class="cr"]')); 
 		this.ElecremovalNxtBtn = element(by.xpath('//*[@id="btn_Next_rmv"]'));
         this.SendElecRMPanel = element(by.xpath('//div[@id="Title_emrem"]'));
-		
 		this.SendEMREMBtn = element(by.xpath('//*[@id="gmrem_sendMessageButton"]'));
         this.AwaitingRespEMREM = element(by.xpath('//*[text()="Awaiting Response"]'));
-
-        
 		this.ElecRemoveMeter = element(by.xpath('//div/h4[text()="Remove Meter"]'));
 		this.RemoveElecAssetrplacedorremoved = element(by.xpath('((//*[@id="CCHradio5"])[2])/following-sibling::span[@class="outer"]'));
         this.statusofElecAssetSelect = element(by.xpath('//select[@id="cbx_StaAss_sel"]'));
-        
         this.reqSentSuccessEMREM = element(by.xpath('(//*[text()="Request Sent Successfully"])[2]'));
         this.RemovalSuccessElec = element(by.xpath('//*[@id="emrem_nextButton"]'));
         this.OKtoremoveAssetElec = element(by.xpath('//*[text()="OK to Remove Asset"]'));
-
         this.confirmElecAssetRemoval = element(by.xpath('//*[@id="Title_Remove_Ass"]'));
-
         this.ElecAssetRemoval = element(by.xpath('//select[@id="cbx_RAss_Status"]'));
         this.ElecAssetRemovalY = element(by.xpath('//*[@id="rb_CAssRem_y"]/span[@class="outer"]'));
         this.ElecAssetRemovalPopup = element(by.xpath('//*[text()="OK"]'));
-
         this.ConfirmElecCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])'));
+        this.SendElMREMBtnCap = element(by.xpath('//*[@id="Title_emrem"]'));       
+        this.SendElMREMBtn = element(by.xpath('//*[@id="emrem_sendMessageButton"]'));        
 
-        this.SendElMREMBtnCap = element(by.xpath('//*[@id="Title_emrem"]'));
-        
-        this.SendElMREMBtn = element(by.xpath('//*[@id="emrem_sendMessageButton"]'));
+        //#endregion
 
         this.removemeterText = element(by.xpath('//div[text()="Removed Meter Reading(s):"]'));
 
+        //#region Flty20 - Duel meter
 
-        
+        this.meterReadingduel = element(by.xpath('(//input[@id="reg0"])[2]'));
+        this.meterReadingduelen = element(by.xpath('(//*[contains(text(),"Capture Meter Reading - Register (1):")])[2]'));
+        this.duelgastightnessOutcomeGT = element(by.id('//*[@id="rb_TestFailOutCmGTIss_y"]/span[@class="outer"]'));
 
         //#endregion
     }
@@ -493,7 +487,7 @@ export class RemovePageObject {
         if (await this.meterReading.isDisplayed()) {
             await this.meterReadingLabel.clear();
             await this.meterReadingLabel.sendKeys("12345");
-
+            await utility.wait(1000);
             await this.meterReading.click();
         }
     }
@@ -526,7 +520,6 @@ export class RemovePageObject {
             await utility.wait(4000);
             var select = this.commshubLoc;
             await select.$('[value="A"]').click();
-            //await select.$('[label="A : Outside Premises"]').click();
         }
         await utility.wait(1000);
         if (await this.aerialInstalledY.isDisplayed()) {
@@ -1298,6 +1291,23 @@ export class RemovePageObject {
         }
     }
     
+
+//FLTY20 - Electric duel Meter
+
+public async fillcurrentElecduelmeter(){
+    await utility.wait(1000);
+        if (await this.existingelecmeterdtls.isDisplayed()) {
+            await this.existingelecmeterdtls.click();
+        }
+        await utility.wait(1000);
+        if (await this.meterReadingduel.isDisplayed()) {
+            await this.meterReadingduel.clear();
+            await this.meterReadingduel.sendKeys("12345");
+
+            await this.meterReadingduelen.click();
+        }
+    }
+
 }
 
 

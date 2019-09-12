@@ -602,7 +602,7 @@ Given('the INSTALL COMMS HUB sec', async function () {
   await inst.InstallCommsHubSection();
 });
 When('I fill the Ins comms hub fields and capture photo EVIDENCE', async function () {
-  await inst.fillfieldsInstallcommshub();
+  await inst.fillfieldsInstallcommshub(2);
 });
 Then('I should see SEND MSG XCHUB section', async function () {
   await inst.sendmsgXCHUB();
@@ -654,7 +654,7 @@ Then('I should see NEW GAS METER DETAILS section', async function () {
     await inst.gasMeterdetails();
   });
   When('I fill the fields and values for New gas meter details', async function () {
-    await inst.fillthefieldsfornewgasmeterdtls();
+    await inst.fillthefieldsfornewgasmeterdtls(2);
   });
   Then('I should see NEW REGULATOR section', async function () {
     await inst.newregulator();
@@ -666,7 +666,7 @@ Given('the NEW REGULATOR section', async function () {
     await inst.newregulator();
 });
 When('I fill the fields and values for new regulator section', async function () {
-  await inst.fillthefieldsfornewregulator();
+  await inst.fillthefieldsfornewregulator(2);
 });
 Then('I should see GAS INITIAL METER READING section', async function () {
     await inst.gasinitialmeterreading();
@@ -734,7 +734,7 @@ Then('I should see Pair Asset to Comms Hub text message', async function () {
   await inst.pairAsset();
 });
 Then('I should see DCC Handover Requested text message', async function () {
-  await inst.DCCHandover();
+  await inst.DCCHandoverText();
 });
 Then('I should see Device Clock Synchronised text message', async function () {
   await inst.DeviceClock();
@@ -776,7 +776,7 @@ Given('the "INSTALL PPMID" section', async function () {
   await inst.seePPMIDsection();
 });
 When('I fill the fields for Install PPMID', async function () {
-  await inst.fillthefieldsforseePPMIDsection();
+  await inst.fillthefieldsforseePPMIDsection(2);
 });
 Then('I should see PPMID COMMISSIONING section', async function () {
   await inst.SeePPMIDcommisioning();

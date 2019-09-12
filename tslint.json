@@ -4,10 +4,11 @@
         "tslint:recommended"
     ],
     "jsRules": {},
-    "rules": {
-        "no-var-requires": false,
-        "no-console": true,
-        "object-literal-sort-keys": false
-    },
-    "rulesDirectory": []
-}
+    "rules": { "no-var-keyword": false }
+ }
+        // "no-var-requires": false,
+        // "no-console": true,
+        // "object-literal-sort-keys": false
+//     },
+//     "rulesDirectory": []
+// }

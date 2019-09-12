@@ -557,7 +557,7 @@ Given('the fltynineteen INSTALL COMMS HUB section', async function () {
     await inst.InstallCommsHubSection();
 });
 When('I fill the fltynineteen field029 with the Valuek029', async function () {
-    await inst.fillfieldsElecInstallcommshub();
+    await inst.fillfieldsElecInstallcommshub(2);
 });
 Then('I should see fltynineteen send message xchub', async function () {
     await inst.sendmsgXCHUB();
