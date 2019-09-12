@@ -81,7 +81,7 @@ export class MarkAppointmentDetailsPageObject {
     }
 
     public async updatePreCheckOptionsForSelectedAppointment() {
-        this.contactMadeRadioOptionTrue.click();
-        this.appointmentConfRadioOptionTrue.click()
+        await this.contactMadeRadioOptionTrue.click();
+        await this.appointmentConfRadioOptionTrue.click()
     }
 }

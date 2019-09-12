@@ -1,4 +1,4 @@
-import {by, element, ElementFinder} from "protractor";
+import {browser, by, element, ElementFinder, ExpectedConditions} from "protractor";
 import {Utility} from "../support/utility";
 
 const {Given, When, Then} = require("cucumber");
@@ -22,7 +22,7 @@ export class DoorStepPageObject {
         this.beAware = element(by.xpath('//div/h4[text() =" Be aware of any danger!"]'));
         this.selectInputField = element(by.id('selectInput'));
         this.accessToSiteY = element(by.id('rb_Acc_y'));
-        this.customerOnSiteY = element(by.xpath("//*[@id='rb_cst_onsite_y']/span[@class='outer']"));
+        this.customerOnSiteY = element(by.xpath('//*[@id="rb_cst_onsite_y"]/span[@class="outer"]'));
         this.onSiteBtn = element(by.xpath('(//button[@id="btn_onsite"])'));
         this.initialRiskAssesment = element(by.xpath('(//div/h4[text()="Initial Risk Assessment"])'));
     }
@@ -45,6 +45,8 @@ export class DoorStepPageObject {
 
         if (this.customerOnSiteY.isDisplayed()) {
             await utility.wait(7000);
+            var expectedConditions = ExpectedConditions;
+            browser.wait(expectedConditions.elementToBeClickable(this.customerOnSiteY), 5000);
             await this.customerOnSiteY.click();
         }
     }

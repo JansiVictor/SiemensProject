@@ -45,6 +45,10 @@ export class RiskAssessmentForElecPageObject {
     public RiskAssessmentPassYES: ElementFinder;
     public riskAssessmentinput: ElementFinder;
     public cameraBtn: ElementFinder;
+
+    private initialElectricPhotoCameraButton: ElementFinder;
+    private currentElectricPhotoFullMeterButton: ElementFinder;
+
     public nextSectionBtn: ElementFinder;
     public riskAssessGASText: ElementFinder;
     public meterPressureLow: ElementFinder;
@@ -193,7 +197,11 @@ export class RiskAssessmentForElecPageObject {
         this.airLineRefInput = element(by.xpath('//input[@id="txt_AirL_ref"]'));
         this.NeedtoWorkYES = element(by.xpath('//input[@id="radiorai11"]/following-sibling::span[@class="outer"]'));
         this.performanceRiskNextBtn = element(by.xpath('//button[@id="btnNextComm"]'));
-        this.captureInitialPhotoElec = element(by.xpath('//div/h4[text()="Capture Initial Photo of Elec Installation"]'));
+
+        this.captureInitialPhotoElec = element(by.xpath("//h4[@class='ng-binding']"));
+        this.initialElectricPhotoCameraButton  = element(by.xpath("//h4[@class='ng-binding']"));
+        this.currentElectricPhotoFullMeterButton = element(by.xpath("//button[@id='btn_Init_Photo']"));
+
         this.capturephotoMeterInstall = element(by.id('btn_Init_Photo'));
         this.initialpolarityCheck = element(by.xpath('//div/h4[text()="Initial Polarity Check - Martindale Test"]'));
         this.smartInstallationNextBtn = element(by.xpath('//div/button[@id="btn_Next_Section"]'));
@@ -371,6 +379,17 @@ export class RiskAssessmentForElecPageObject {
         }
     }
 
+    public async clickOnRiskAssessmentElectricBtn() {
+        if (this.riskelecText.isDisplayed()) {
+            await this.riskelecText.getText().then(function (riskelec) {
+                console.log("find riskelec Text  " + riskelec);
+            });
+            await this.riskelecText.click();
+            utility.wait(2000);
+        }
+    }
+
+
     /***
      * @Author Aparna Das
      * @description Fill Risk Elec page details
@@ -404,6 +423,12 @@ export class RiskAssessmentForElecPageObject {
     public async capturePhotoBtnDisplayed() {
         if (this.cameraBtn.isDisplayed()) {
             await this.cameraBtn.click();
+        }
+    }
+
+    public async captureInitialElectricalPhoto() {
+        if (this.currentElectricPhotoFullMeterButton.isPresent()) {
+            await this.currentElectricPhotoFullMeterButton.click();
         }
     }
 

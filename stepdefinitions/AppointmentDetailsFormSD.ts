@@ -14,28 +14,30 @@ Then('I should see the Appointment Details Form', async function () {
 });
 
 When('I click on the Call Forward Button', async function () {
-    appointmentDetailsForm.clickOnCallForwardBtn();
+    await appointmentDetailsForm.clickOnCallForwardBtn();
     await utility.wait(1000);
 });
 
 Then('I should see the Customer Contact Number', async function () {
-    appointmentDetailsForm.isCustContactNoTextPresent();
+    await appointmentDetailsForm.isCustContactNoTextPresent();
+    await utility.wait(1000);
 });
 
 Then('the Contact Made? Radio Option', async function () {
-    appointmentDetailsForm.isContactMadeElementsPresent();
+    await appointmentDetailsForm.isContactMadeElementsPresent();
+    await utility.wait(1000);
 });
 
 Then('the Appointment Confirm? Radio Option', async function () {
-    appointmentDetailsForm.isAppointmentConfirmTextElementsPresent();
+    await appointmentDetailsForm.isAppointmentConfirmTextElementsPresent();
 });
 
 Then('the Additional Access Details Notes Textfield', async function () {
-    appointmentDetailsForm.isAdditionaAccessDetailElementsPresent();
+    await appointmentDetailsForm.isAdditionaAccessDetailElementsPresent();
 });
 
 When('I update the pre-check options for my selected appointment', async function () {
-    appointmentDetailsForm.updatePreCheckOptionsForSelectedAppointment();
+    await appointmentDetailsForm.updatePreCheckOptionsForSelectedAppointment();
     await utility.wait(3000);
 });
 
@@ -45,11 +47,11 @@ Then('click on the Depart button', async function () {
 });
 
 Then('the Depart for Appointment Dialogue Box is displayed', async function () {
-    departForApptDialogueBox.isdepartForApptDialogueBoxDisplayed();
+    await departForApptDialogueBox.isdepartForApptDialogueBoxDisplayed();
 });
 
 When('I click on the Depart Ok button', async function () {
-    departForApptDialogueBox.clickOnDepartOkBtn();
+    await departForApptDialogueBox.clickOnDepartOkBtn();
     await utility.wait(3000);
 });
 

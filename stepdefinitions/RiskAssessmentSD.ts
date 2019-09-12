@@ -3,6 +3,7 @@ import {Utility} from "../support/utility";
 import {RiskAssessmentPageObject} from "../pages/RiskAssessmentPage";
 import {RiskAssessmentForGasPageObject} from "../pages/RiskAssessmentForGasPage";
 import {RiskAssessmentForElecPageObject} from "../pages/RiskAssessmentForElecPage";
+import {utils} from "protractor";
 
 const chai = require("chai");
 const expect = chai.expect;
@@ -28,5 +29,21 @@ Then('input the details for an Electric risk assessment', async function () {
 });
 
 Then('input the details for a Gas risk assessment', async function () {
-    await riskAssessmentForGasPage.fillRiskAssessGas();
+    await riskAssessmentForGasPage.populateRiskAssessmentForGasWithoutPhotoEvidence();
+    await utility.wait(1000);
 });
+
+Given('I have accessed the Gas risk assessment tab section', async function () {
+    await riskAssessmentForGasPage.clickOnriskAssessGasBtn();
+});
+
+When('I capture photo of initial electric installation', async function () {
+    await riskAssessmentForElecPage.captureInitialElectricalPhoto();
+    await utility.wait(1000);
+});
+
+When('I capture photo of initial gas installation', async function () {
+    await riskAssessmentForGasPage.captureInitialGasPhoto();
+    await utility.wait(1000);
+});
+

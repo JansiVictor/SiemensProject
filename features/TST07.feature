@@ -36,11 +36,16 @@ Feature: DF FLTY20 Trad No Exchange Workflow
     And click on the On-Site button
     Then I am prompted to submit details for an initial risk assessment
 
-  Scenario: Perform initial risk assessment
+  Scenario: Complete initial risk assessment, electrical risk assessment, and Gas risk assessment sections
     Given I have accessed the initial risk assessment tab
     When I input details for the initial risk assessment
     And input the details for an Electric risk assessment
     And input the details for a Gas risk assessment
+
+  Scenario: Capture Screenshots for both Gas and Electrical assessments
+    Given I have accessed the Gas risk assessment tab section
+    When I capture photo of initial electric installation
+    When I capture photo of initial gas installation
 
     # Scenario: Going through "BE AWARE OF ANY DANGER!" section
     #     Given the fltynineteen BE AWARE OF ANY DANGER! section
