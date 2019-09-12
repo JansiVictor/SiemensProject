@@ -2,7 +2,7 @@
   * @@Author Jansi Victor
   * @Description @Description  Automation for FAULTY18 Workflow
 */
-import { element, by, ElementFinder, ElementArrayFinder, browser } from "protractor";
+import {element, by, ElementFinder, ElementArrayFinder, browser, ExpectedConditions} from "protractor";
 const { Given, When, Then } = require("cucumber");
 const chai = require("chai");
 const expect = chai.expect;
@@ -14,6 +14,7 @@ export class RemovePageObject {
     public ctihdppmidDtl: ElementFinder;
     public smet2ihdppidText: ElementFinder;
     public smet2ihdppidY: ElementFinder;
+    public smet2IHDPPIdFalse: ElementFinder;
     public ihdppmidsNoText: ElementFinder;
     public ihdppmidsSersk: ElementFinder;
     public ihdppmidsSerText: ElementFinder;
@@ -196,6 +197,7 @@ export class RemovePageObject {
         this.ctihdppmidDtl = element(by.id('Title_currentIhdPpmid'));
         this.smet2ihdppidText = element(by.xpath('//*[contains(text(),"SMETS2 IHD / PPMID")]'));
         this.smet2ihdppidY = element(by.xpath('//label[@id="currentIhdPpmid_assetOnSite_y"]'));
+        this.smet2IHDPPIdFalse = element(by.xpath("//label[@id='currentIhdPpmid_assetOnSite_n']"));
         this.ihdppmidsSerText = element(by.xpath('//div[contains(text(),"IHD / PPMID Serial")]'));
         this.ihdppmidsSersk = element(by.xpath('//input[@id="currentIhdPpmid_ihdPpmidSerial"]'));
         this.existingihdPpmidText = element(by.xpath('//*[contains(text(),"Existing IHD / PPMID")]'));
@@ -419,6 +421,27 @@ export class RemovePageObject {
         });
     }
 
+    public async populateIHDPPMIDDetailsOnSiteFalse() {
+        if (this.smet2ihdppidText.isDisplayed()) {
+            var until = ExpectedConditions;
+            browser.wait(until.elementToBeClickable(this.smet2IHDPPIdFalse), 5000);
+            await this.smet2IHDPPIdFalse.click();
+        }
+        await utility.wait(1000);
+        if (this.existgasmeterDtlText.isDisplayed()) {
+            browser.wait(until.elementToBeClickable(this.existgasmeterDtlY), 5000);
+            await this.existgasmeterDtlY.click();
+        }
+        await utility.wait(1000);
+        if (await this.meterReading.isDisplayed()) {
+            await this.meterReadingLabel.clear();
+            await this.meterReadingLabel.sendKeys("12345");
+
+            await this.meterReading.click();
+        }
+        await utility.wait(3000);
+    }
+
     public async fillcurrentIhdPPMIDdtls() {
         await utility.wait(3000);
         if (await this.smet2ihdppidText.isDisplayed()) {
@@ -442,6 +465,7 @@ export class RemovePageObject {
             console.log("Next section is not present at this moment");
         }  
     }
+
     public async currentmeterdetlGasSection() {
         await utility.wait(1000);
         await this.currentmeterdetlGasSec.getText().then(function (currentdtlGasSection) {
@@ -1205,9 +1229,6 @@ export class RemovePageObject {
             await this.ConfirmElecCommsHubNxtBtn.click();
         }
     }
-    
-
-
 }
 
 

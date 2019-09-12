@@ -59,17 +59,10 @@ Feature: DF FLTY20 Trad No Exchange Workflow
     And I click on the Submit button
     Then I should be directed to the Remove page
 
-#     Scenario: Going through "INITIAL POLARITY CHECK - AT METER AND CUT OUT" section
-#         Given the fltynineteen INITIAL POLARITY CHECK-AT METER AND CUT OUT section
-#         When I fill the fltynineteen field09 with the Value09
-#         Then I click on fltynineteen SUBMIT button
-#         And I should see fltynineteen CURRENT IHD-PPMID DETAILS section
-
-
-#     Scenario: Going through "CURRENT IHD/PPMID DETAILS" section
-#         Given the fltynineteen CURRENT IHD-PPMID DETAILS section
-#         When I fill the fltynineteen field010 with the Value010
-#         Then I should see fltynineteen CURRENT METER DETAILS section
+  Scenario: Complete Current IHD PPMId Details section
+    Given the Current IHD PPMId Details section
+    When I update the SMETS2 IHD PPMID on Site form control with the value false
+    Then I should see the Current Meter Details section
 
 
 #     Scenario: Going through "CURRENT METER DETAILS" section

@@ -618,11 +618,13 @@ export class RiskAssessmentPageObject {
         }
 
         var until = ExpectedConditions;
-        browser.wait(until.elementToBeClickable(this.polarityCheckCutOutYES), 5000, 'Element taking too long to appear in the DOM');
+        browser.wait(until.elementToBeClickable(this.polarityCheckCutOutYES), 5000);
         await this.polarityCheckCutOutYES.click();
 
-        browser.wait(until.elementToBeClickable(this.polarityCheckAtMeter), 5000, 'Element taking too long to appear in the DOM');
+        browser.wait(until.elementToBeClickable(this.polarityCheckAtMeter), 5000);
         await this.polarityCheckAtMeter.click();
+
+        await utility.wait(2000);
     }
 
     public async clickOnRiskAssessmentPageSubmitButton() {
