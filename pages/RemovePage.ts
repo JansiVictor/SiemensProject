@@ -114,6 +114,8 @@ export class RemovePageObject {
     public confirmAssetrmvYES: ElementFinder;
     public AssetPopup: ElementFinder;
     public RemoveGasMeterPanel: ElementFinder;
+    public unabletoReadGasMeterYES:ElementFinder;
+    public carryanyAdditionalWorkNo:ElementFinder;
 
     public GMassettoberemoved: ElementFinder;
     public statusofAssetSelect: ElementFinder;
@@ -129,6 +131,7 @@ export class RemovePageObject {
     public OKtoremoveAsset: ElementFinder;
 
     public confirmgasAssetRemoval: ElementFinder;
+    public captureassetremovalPhoto:ElementFinder;
 
     public gasAssetRemoval: ElementFinder;
     public GasAssetRemovalY: ElementFinder;
@@ -317,6 +320,8 @@ export class RemovePageObject {
         this.AssetPopup = element(by.xpath('//*[text()="OK"]'));
         this.RemoveGasMeterPanel = element(by.xpath('//div[@id="Title_removeGasMeter"]'));
         this.captureassetPhoto = element(by.id('removeIhdPpmidAsset_photoButton'));
+        this.captureassetremovalPhoto = element(by.id('removeGasAsset_photoButton'));
+
         //#endregion
 
         //#region Gas Meter Removal 
@@ -325,6 +330,9 @@ export class RemovePageObject {
         this.removedmeterReading = element(by.xpath('//input[@id="input0"]'));
         this.GMremovalNxtBtn = element(by.xpath('//*[@id="removeGasMeter_nextButton"]'));
         this.SendGMRMPanel = element(by.xpath('//div[@id="Title_gmrem"]'));
+        this.unabletoReadGasMeterYES = element(by.xpath('//*[@id="removeGasMeter_unableToRead"]/following-sibling::span[@class="outer"]'));
+       this.carryanyAdditionalWorkNo = element(by.xpath('//*[@id="gtp12"]/following-sibling::span[@class="outer"]'));
+       
         //#endregion
 
         //#region Send GMREM 
@@ -365,7 +373,7 @@ export class RemovePageObject {
         this.ConfirmCommsHubRemovalSelect = element(by.xpath('//select[@id="removeChubAsset_assetStatusSelect"]'));
         this.Confirmcommhubassetremove = element(by.xpath('//*[@id="removeChubAsset_confirmAssetRemoved"]/following-sibling::span[@class="outer"]'));
         this.ConfirmCommsHubRemovalPopup = element(by.xpath('//*[text()="OK"]'));
-        this.ConfirmCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])[2]'));
+        this.ConfirmCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])'));
         this.finalphotocommshubEvidence = element(by.id('removeChubAsset_photoButton'));
         this.XCHUBRemovalsuccessfulBtn = element(by.id('xchub_nextButton'));
         //#endregion
@@ -433,7 +441,7 @@ export class RemovePageObject {
     }
 
     public async fillcurrentIhdPPMIDdtls() {
-        await utility.wait(3000);
+        await utility.wait(2000);
         if (await this.smet2ihdppidY.isDisplayed()) {
             await this.smet2ihdppidY.click();
         }
@@ -892,7 +900,37 @@ export class RemovePageObject {
         if (await this.removedmeterReading.isDisplayed()) {
             await this.removedmeterReading.clear();
             await this.removedmeterReading.sendKeys('12345');
+            await this.removemeterText.click();
         }
+    }
+
+    //#region Gas Meter Removal for Remove Gas
+
+    public async GasmeterRemovalforRemoveGas() {
+        await utility.wait(3000);
+        if (await this.GMassettoberemoved.isDisplayed()) {
+            await this.GMassettoberemoved.click();
+        }
+        await utility.wait(3000);
+        if (await this.statusofAssetSelect.isDisplayed()) {
+            var select = this.statusofAssetSelect;
+            await select.$('[value="1"]').click();
+        }
+        await utility.wait(1000);
+        if (await this.removedmeterReading.isDisplayed()) {
+            await this.removedmeterReading.clear();
+            await this.removedmeterReading.sendKeys('12345');
+            //await this.removemeterText.click();
+        }
+        await utility.wait(1000);
+        if (await this.unabletoReadGasMeterYES.isDisplayed()) {
+            await this.unabletoReadGasMeterYES.click();
+        }
+        await utility.wait(1000);
+        if (await this.carryanyAdditionalWorkNo.isDisplayed()) {
+            await this.carryanyAdditionalWorkNo.click();
+        }
+      
     }
     public async clickonnxtBtnofgasmeterRemoval() {
         await utility.wait(1000);
@@ -989,6 +1027,13 @@ export class RemovePageObject {
             await this.GasAssetRemovalY.click();
         }
     }
+    public async clickonokGasAssetRemovalCapture() {
+        await utility.wait(1000);
+        if (await this.captureassetremovalPhoto.isDisplayed()) {
+            await this.captureassetremovalPhoto.click();
+        }
+    }
+
     public async clickonokGasAssetRemoval() {
         await utility.wait(1000);
         if (await this.GasAssetRemovalPopup.isDisplayed()) {

@@ -161,7 +161,7 @@ public DeviceBinding: ElementFinder;
         this.AwaitingReqSent = element(by.xpath('//*[text()="Request Sent Successfully"]')); 
         this.AwaitingWhiteList = element(by.xpath('//*[text()="Whitelist transfer completed check LED indication is correct"]')); 
         
-        this.remvSuccessful = element(by.xpath('//*[@id="xchub_nextButton"]'));
+        this.remvSuccessful = element(by.id('xchub_nextButton'));
         this.NewGasMeterDtls = element(by.xpath('//div/h4[text()="New Gas Meter Details"]'));
 
         this.selectValidnewgas = element(by.xpath('//select[@id="gasNewMeter_assetSelect"]'));
@@ -409,7 +409,7 @@ public DeviceBinding: ElementFinder;
     }
     public async clickonremsuccess()
     {
-        await utility.wait(1000);
+        await utility.wait(3000);
         if (await this.remvSuccessful.isDisplayed()) {
             await this.remvSuccessful.click();
         } 

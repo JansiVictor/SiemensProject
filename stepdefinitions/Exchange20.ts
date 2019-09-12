@@ -15,14 +15,14 @@ import {
 	DoorStepPageObject
 } from "../pages/DoorStepPage";
 import {
-	RiskAssessmentPageElecObject
-} from "../pages/RiskAssessmentPageElec";
+	ElectricPageObject
+} from "../pages/ElectricPage";
 import {
-	RiskAssessmentforGASPageObject
-} from "../pages/RiskAssessmentForGAS";
+	GASPageObject
+} from "../pages/GASPage";
 import {
-	Exchange21JobCompletionPageObject
-} from "../pages/Exchange21JobCompletion";
+	JobCompletionPageObject
+} from "../pages/JobCompletionPage";
 import {
 	config
 } from "../config/config";
@@ -43,9 +43,9 @@ const login: loginPageObject = new loginPageObject();
 const home: ExchangehomePageObject = new ExchangehomePageObject();
 const applist: FLTY19AppointmentListPageObject = new FLTY19AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
-const riskassess: RiskAssessmentPageElecObject = new RiskAssessmentPageElecObject();
-const riskassessGAS: RiskAssessmentforGASPageObject = new RiskAssessmentforGASPageObject();
-const exchnge21Complete: Exchange21JobCompletionPageObject = new Exchange21JobCompletionPageObject();
+const riskassess: ElectricPageObject = new ElectricPageObject();
+const riskassessGAS: GASPageObject = new GASPageObject();
+const exchnge21Complete: JobCompletionPageObject = new JobCompletionPageObject();
 
 Given('the ExTwnty Login Page', async function () {
 	await browser.get(config.baseUrl);

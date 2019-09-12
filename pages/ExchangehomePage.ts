@@ -28,7 +28,8 @@ public Ex21completedLink: ElementArrayFinder;
 public Ex19selectLink: ElementArrayFinder;
 public Ex19completedLink: ElementArrayFinder;
 public Remove6selectLink:ElementArrayFinder;
-
+public RemoveGasSelectLink:ElementArrayFinder;
+public FLTYnoexchangeselectLink:ElementArrayFinder;
 
 	constructor() {
 	this.Ex20selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest1 EXCH20 SF SMETS2")]'));
@@ -36,6 +37,9 @@ public Remove6selectLink:ElementArrayFinder;
 	this.Ex20continueLink = element.all(by.xpath('//span[starts-with(@id,"ContinueJobTest EXCH20 SF SMETS2"]'));
 	this.selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest EXCH21 DF SMETS2"]'));
 	this.Remove6selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobRMVE6 FLAT")]'));
+	this.RemoveGasSelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobRMVE5 FLAT")]'));
+	this.FLTYnoexchangeselectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobFAULTY 20 SMETS2 Site FLAT")]'));
+	
 	this.continueLink = element.all(by.xpath('//span[starts-with(@id,"ContinueJobTest EXCH21 DF SMETS2"]'));
 	this.Ex20completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobTest1 EXCH20 DF SMETS2"]'));
 	this.Ex21completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobTest1 EXCH21 DF SMETS2"]'));
@@ -418,6 +422,96 @@ public async clickOnTheRemove6SelectLink() {
 		console.log("link " + ('((//span[starts-with(@id,"SelectJobRMVE6 FLAT")]))' + '[' + [size] + ']'));
 		var selectMe = element(
 			by.xpath('((//span[starts-with(@id,"SelectJobRMVE6 FLAT")]))' + '[' + [size] + ']')
+		);
+		selectMe.getText().then(function (selectMeText) {
+			console.log("find select Me link text  " + selectMeText);
+		});
+		if (
+			selectMe.isDisplayed()
+			
+		) {
+			selectMe.click();
+			
+		};
+
+	});
+
+	
+};
+/***
+ * @Author Aparna Das
+ * @description Click on the correct FLTY20 No Exchange Select Link
+***/
+public async clickOnTheFLTY20NoExchangeSelectLink() {
+	var list = this.FLTYnoexchangeselectLink;
+
+	await utility.wait(2000);
+	list.count().then(function (promiseResult) {
+		console.log("size is: " + promiseResult);
+		var size = promiseResult; //4
+		//Remove when there is one
+		//var actualSize = size -1;
+		console.log("size is: " + size);
+		
+
+		 var selectlatest = element(
+			by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 20 SMETS2 Site FLAT")]))' + '[' + [size] + ']')
+		);
+		
+		selectlatest.getText().then(function (selectText) {
+			console.log("find select link text  " + selectText);
+		});
+		
+
+		console.log("link " + ('((//span[starts-with(@id,"SelectJobFAULTY 20 SMETS2 Site FLAT")]))' + '[' + [size] + ']'));
+		var selectMe = element(
+			by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 20 SMETS2 Site FLAT")]))' + '[' + [size] + ']')
+		);
+		selectMe.getText().then(function (selectMeText) {
+			console.log("find select Me link text  " + selectMeText);
+		});
+		if (
+			selectMe.isDisplayed()
+			
+		) {
+			selectMe.click();
+			
+		};
+
+	});
+
+	
+};
+
+/***
+ * @Author Aparna Das
+ * @description Click on the correct Remove5 Select Link
+***/
+
+public async clickOnTheRemoveGASSelectLink() {
+	var list = this.RemoveGasSelectLink;
+
+	await utility.wait(2000);
+	list.count().then(function (promiseResult) {
+		console.log("size is: " + promiseResult);
+		var size = promiseResult; //4
+		//Remove when there is one
+		//var actualSize = size -1;
+		console.log("size is: " + size);
+		
+
+		 var selectlatest = element(
+			by.xpath('((//span[starts-with(@id,"SelectJobRMVE5 FLAT")]))' + '[' + [size] + ']')
+		);
+		
+		selectlatest.getText().then(function (selectText) {
+			console.log("find select link text  " + selectText);
+		});
+		
+
+		console.log("link " + ('((//span[starts-with(@id,"SelectJobRMVE5 FLAT")]))' + '[' + [size] + ']'));
+		var selectMe = element(
+			by.xpath('((//span[starts-with(@id,"SelectJobRMVE5 FLAT")]))' + '[' + [size] + ']')
 		);
 		selectMe.getText().then(function (selectMeText) {
 			console.log("find select Me link text  " + selectMeText);
