@@ -183,6 +183,9 @@ export class RemovePageObject {
         public meterReadingduelen: ElementFinder;
         public duelgastightnessOutcomeGT: ElementFinder;
 
+        public commshubconnectedtoAssetN: ElementFinder;
+        public carryoutWorkontheMeterY: ElementFinder;
+
 
     constructor() {
         //#region Panel Click
@@ -392,6 +395,13 @@ export class RemovePageObject {
         this.meterReadingduel = element(by.xpath('(//input[@id="reg0"])[2]'));
         this.meterReadingduelen = element(by.xpath('(//*[contains(text(),"Capture Meter Reading - Register (1):")])[2]'));
         this.duelgastightnessOutcomeGT = element(by.id('//*[@id="rb_TestFailOutCmGTIss_y"]/span[@class="outer"]'));
+
+        //#endregion
+
+        //#region Flty Gas Tst12
+
+        this.commshubconnectedtoAssetN = element(by.xpath('//input[@id="exchangeassetfalse"]/following-sibling::span[@class="outer"]'));
+        this.carryoutWorkontheMeterY = element(by.xpath('//input[@id="additionalworktrue"]/following-sibling::span[@class="outer"]'));
 
         //#endregion
     }
@@ -1211,6 +1221,34 @@ public async fillcurrentElecduelmeter(){
             await this.meterReadingduelen.click();
         }
     }
+
+//TST12_FLTY GAS
+public async Tst12fill16commsdtls() {
+    await utility.wait(3000);
+    if (await this.commshubconnectedtoSupply.isDisplayed()) {
+        await this.commshubconnectedtoSupplyY.click();
+    }
+    await utility.wait(3000);
+    if (await this.commshubconnectedtoSWan.isDisplayed()) {
+        await this.commshubconnectedtoWanY.click();
+    }
+    await utility.wait(3000);
+    if (await this.commshubconnectedtoAssetN.isDisplayed()) {
+        await this.commshubconnectedtoAssetN.click();
+    }
+    await utility.wait(3000);
+    if (await this.carryoutWorkontheMeterY.isDisplayed()) {
+        await this.carryoutWorkontheMeterY.click();
+    }
+}
+    //Submit to continue with Install
+    public async NexttoInstall(){
+    await utility.wait(1000);
+        if (await this.ConfirmCommsHubNxtBtn.isDisplayed()) {
+            await this.ConfirmCommsHubNxtBtn.click();
+        }
+}
+
 }
 
 

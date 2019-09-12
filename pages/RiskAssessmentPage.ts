@@ -48,7 +48,7 @@ export class RiskAssessmentPageObject {
     public workSafetyYES: ElementFinder;
     public GASRiskTextInput: ElementFinder;
     public NextSectiontoCaptureBtn: ElementFinder;
-    public NeedtoWorkYES: ElementFinder;
+    public NeedtoWorkY: ElementFinder;
 
     public riskAssessElecText: ElementFinder;
     public riskgasText: ElementFinder;
@@ -115,6 +115,7 @@ export class RiskAssessmentPageObject {
     public nextbtntoRemfromElec: ElementFinder;
     public infoOkbutn: ElementFinder;
     public captureInitialPhotoE: ElementFinder;
+    public NeedtoWorkYES: ElementFinder;
 
 
     constructor() {
@@ -165,8 +166,9 @@ export class RiskAssessmentPageObject {
         this.NextSectiontoCaptureBtn = element(by.xpath('((//div[@class="btn-container green"])/button[@id="btnNextComm"])[2]'));
         this.reportToHS = element(by.xpath('//label[@id="rb_RepIncHS_y"]'));
         this.airLineRefInput = element(by.xpath('//input[@id="txt_AirL_ref"]'));
-        this.NeedtoWorkYES = element(by.xpath('//input[@id="radiorai11"]/following-sibling::span[@class="outer"]'));
-
+        this.NeedtoWorkY = element(by.xpath('//*[@id="radiorai11"]/following-sibling::span[@class="outer"]'));
+        this.NeedtoWorkYES = element(by.xpath('//*[@id="radiorai11"]/following-sibling::span[@class="outer"]'));
+        //this.NeedtoWorkY = element(by.xpath('//*[@id="radiorai11"]/following-sibling::span/span[@class="inner"]'));
         this.riskgasText = element(by.xpath('//div[@id="Title_RiskAss_gas"]'));
         this.capmeterressureText = element(by.xpath('//div[text()="Capture Meter Pressure? "]'));
         this.capmeterressureLow = element(by.id('radiorag1'));
@@ -540,12 +542,21 @@ export class RiskAssessmentPageObject {
     }
 
     public async ElecInstSec() {
+        await utility.wait(1000);
         if (await this.captureInitialPhotoE.isDisplayed()) {
             await this.captureInitialPhotoE.getText().then(function (captureInitialPhotoETxt) {
                 console.log("Find capture initial photo of Elec installation  " + captureInitialPhotoETxt);
             });
         }
-        await utility.wait(1000);
+    }
+    //TST_12 FLTY GAS
+
+    public async NeedtoWork() {
+        await utility.wait(5000);
+        if (await this.NeedtoWorkY.isDisplayed()) {
+            await this.NeedtoWorkY.click();
+            await utility.wait(1000);
+        }
     }
 
 
