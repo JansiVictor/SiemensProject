@@ -1,6 +1,6 @@
 import {Then, When} from "cucumber";
 import {Utility} from "../support/utility";
-import {MarkAppointmentDetailsPageObject} from "../pages/MarkAppointmentDetailsFormPage";
+import {MarkAppointmentDetailsPageObject} from "../pages/AppointmentDetailsFormPage";
 import {DepartForApptDialogueBoxPageObject} from "../pages/DepartForApptDialogueBoxPage";
 
 const chai = require("chai");

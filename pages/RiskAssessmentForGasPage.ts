@@ -1,10 +1,6 @@
-import {
-    browser,
-    element,
-    by,
-    ElementFinder,
-    ElementArrayFinder, ExpectedConditions
-} from "protractor";
+import {browser, by, element, ElementFinder} from "protractor";
+import {Utility} from "../support/utility";
+import {Alert} from 'selenium-webdriver';
 
 const {
     Given,
@@ -13,14 +9,8 @@ const {
 } = require("cucumber");
 const chai = require("chai");
 const expect = chai.expect;
-import {
-    Utility
-} from "../support/utility";
 
 const utility: Utility = new Utility();
-import {
-    Alert
-} from 'selenium-webdriver';
 
 export class RiskAssessmentForGasPageObject {
 
@@ -277,7 +267,6 @@ export class RiskAssessmentForGasPageObject {
             await this.currentGasPhotoFullMeterButton.click();
         }
     }
-
 
 
     public async fillRiskAssessGas() {

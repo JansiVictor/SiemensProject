@@ -1,6 +1,6 @@
 import {Then, When} from "cucumber";
 import {Utility} from "../support/utility";
-import {MarkAppointmentListPageObject} from "../pages/MarkAppointmentListFormPage";
+import {MarkAppointmentListPageObject} from "../pages/AppointmentListFormPage";
 
 const chai = require("chai");
 const expect = chai.expect;

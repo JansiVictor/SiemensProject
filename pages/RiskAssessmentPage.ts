@@ -1,4 +1,4 @@
-import {$, element, by, ElementFinder, ElementArrayFinder} from "protractor";
+import {$, element, by, ElementFinder, ElementArrayFinder, ExpectedConditions, browser} from "protractor";
 
 const {Given, When, Then} = require("cucumber");
 const chai = require("chai");
@@ -227,7 +227,7 @@ export class RiskAssessmentPageObject {
         this.instalationNotes = element(by.id('smartnotes'));
         this.polchkCutOutText = element(by.xpath('//*[text()="Polarity Check at Cut Out?"]'));
         this.polchkatmtrText = element(by.xpath('//*[text()="Polarity Check at Meter?"]'));
-        this.polarityCheckCutOutYES = element(by.id('rb_PolCOPass'));
+        this.polarityCheckCutOutYES = element(by.xpath("//label[@id='rb_PolCOPass']"));
         this.polarityCheckAtMeter = element(by.id('rb_PolCMPass'));
         //this.currentMeterDetailsText = element(by.xpath('//div/h4[text()="Current Meter Details"]'));
         this.meterCutOutNxtBtn = element(by.id('btn_Next_Pol'));
@@ -504,6 +504,44 @@ export class RiskAssessmentPageObject {
         await utility.wait(1000);
     }
 
+    // Includes capture photo and reverse polarity is specified as false
+    public async fillthePolarityCheckMartinDaleWithCPAndRPF() {
+        if (await this.InitPolCheckMartindaleTab.isPresent()) {
+            await this.InitPolCheckMartindaleTab.click();
+        }
+        if (await this.polarityCheckDD.isDisplayed()) {
+            var select = this.polarityCheckDD;
+            await select.$('[value="true"]').click();
+        }
+        await utility.wait(1000);
+        if (await this.socketSafetyBtnYES.isPresent()) {
+            await this.socketSafetyBtnYES.click();
+        }
+        await utility.wait(1000);
+        if (await this.socketSetLocDD.isDisplayed()) {
+            var select = this.socketSetLocDD;
+            await select.$('[value="9"]').click();
+        }
+        if (await this.capturePreinsatllation.isPresent()) {
+            await this.capturePreinsatllation.click();
+        }
+        await utility.wait(1000);
+        if (await this.anySocketFoundNO.isPresent()) {
+            await this.anySocketFoundNO.click();
+        }
+        try {
+            if (await this.polarityMarindaleNxt.isPresent()) {
+                await this.polarityMarindaleNxt.click();
+            }
+        } catch (error) {
+            console.log("Polarity marindale next section is not available at this moment");
+        }
+    }
+
+
+
+
+
     public async fillthePolarityCheckMartinDale() {
         if (await this.InitPolCheckMartindaleTab.isPresent()) {
             await this.InitPolCheckMartindaleTab.click();
@@ -555,6 +593,7 @@ export class RiskAssessmentPageObject {
         await utility.wait(1000);
     }
 
+
     public async fillthePolarityCheckMeterOut() {
         if (await this.InitPCMTab.isPresent()) {
             await this.InitPCMTab.click();
@@ -574,6 +613,26 @@ export class RiskAssessmentPageObject {
         //     await this.polarityCheckAtMeter.click();
         // }
     }
+
+
+    public async populateInitialPolarityCheckAtMeterAndCutOutSection() {
+        if (await this.InitPCMTab.isPresent()) {
+            await this.InitPCMTab.click();
+        }
+
+        var until = ExpectedConditions;
+        browser.wait(until.elementToBeClickable(this.polarityCheckCutOutYES), 5000, 'Element taking too long to appear in the DOM');
+        await this.polarityCheckCutOutYES.click();
+
+        browser.wait(until.elementToBeClickable(this.polarityCheckAtMeter), 5000, 'Element taking too long to appear in the DOM');
+        await this.polarityCheckAtMeter.click();
+    }
+
+
+
+
+
+
 
     public async meterCutOutnextSection() {
 

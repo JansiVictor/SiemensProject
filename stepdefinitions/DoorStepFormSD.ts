@@ -1,6 +1,6 @@
 import {Given, Then, When} from "cucumber";
 import {Utility} from "../support/utility";
-import {MarkDoorStepFormPageObject} from "../pages/MarkDoorStepFormPage";
+import {MarkDoorStepFormPageObject} from "../pages/DoorStepFormPage";
 import {DoorStepPageObject} from "../pages/DoorStepPage";
 
 const chai = require("chai");

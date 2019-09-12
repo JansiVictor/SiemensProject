@@ -1,10 +1,6 @@
-import {
-    browser,
-    element,
-    by,
-    ElementFinder,
-    ElementArrayFinder
-} from "protractor";
+import {browser, by, element, ElementFinder} from "protractor";
+import {Utility} from "../support/utility";
+import {Alert} from 'selenium-webdriver';
 
 const {
     Given,
@@ -13,14 +9,8 @@ const {
 } = require("cucumber");
 const chai = require("chai");
 const expect = chai.expect;
-import {
-    Utility
-} from "../support/utility";
 
 const utility: Utility = new Utility();
-import {
-    Alert
-} from 'selenium-webdriver';
 
 
 export class RiskAssessmentForElecPageObject {
@@ -199,7 +189,7 @@ export class RiskAssessmentForElecPageObject {
         this.performanceRiskNextBtn = element(by.xpath('//button[@id="btnNextComm"]'));
 
         this.captureInitialPhotoElec = element(by.xpath("//h4[@class='ng-binding']"));
-        this.initialElectricPhotoCameraButton  = element(by.xpath("//h4[@class='ng-binding']"));
+        this.initialElectricPhotoCameraButton = element(by.xpath("//h4[@class='ng-binding']"));
         this.currentElectricPhotoFullMeterButton = element(by.xpath("//button[@id='btn_Init_Photo']"));
 
         this.capturephotoMeterInstall = element(by.id('btn_Init_Photo'));
