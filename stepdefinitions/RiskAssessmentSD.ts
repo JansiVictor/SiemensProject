@@ -24,13 +24,12 @@ When('I input details for the initial risk assessment', async function () {
     await riskAssmentPage.inputInitialRiskAssessmentDetails();
 });
 
-Then('input the details for an Electric risk assessment', async function () {
+Then('input the details for a Electric risk assessment', async function () {
     await riskAssessmentForElecPage.fillRiskAssesmentElecFields();
 });
 
 Then('input the details for a Gas risk assessment', async function () {
     await riskAssessmentForGasPage.populateRiskAssessmentForGasWithoutPhotoEvidence();
-    await utility.wait(1000);
 });
 
 Given('I have accessed the Gas risk assessment tab section', async function () {
@@ -39,11 +38,13 @@ Given('I have accessed the Gas risk assessment tab section', async function () {
 
 When('I capture photo of initial electric installation', async function () {
     await riskAssessmentForElecPage.captureInitialElectricalPhoto();
-    await utility.wait(1000);
 });
 
 When('I capture photo of initial gas installation', async function () {
     await riskAssessmentForGasPage.captureInitialGasPhoto();
-    await utility.wait(1000);
+
 });
 
+Then('I should see Initial Polarity Check - Martindale Test button', async function () {
+    await riskAssmentPage.verifyInitialPolarityCheckMartindaleTestBtnIsPresent();
+});

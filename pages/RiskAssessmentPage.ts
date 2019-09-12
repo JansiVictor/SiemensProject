@@ -117,6 +117,7 @@ export class RiskAssessmentPageObject {
     public nextbtntoRemfromElec: ElementFinder;
     public infoOkbutn: ElementFinder;
     public captureInitialPhotoE: ElementFinder;
+    private initialPolarityCheckMartindaleTestBtn: ElementFinder;
 
 
     constructor() {
@@ -127,7 +128,7 @@ export class RiskAssessmentPageObject {
         this.CaptureInitialGasInstTab = element(by.css('.ng-scope:nth-child(4) > .task-section .down'));
         this.InitPolCheckMartindaleTab = element(by.css('#Title_InitPolMart_test > div.titleIcon.right.down'));
         this.InitPCMTab = element(by.css('#Title_InitPCM > div.titleIcon.right.down'));
-
+        this.initialPolarityCheckMartindaleTestBtn = element(by.xpath("//div[@id='Title_InitPolMart_test']"))
         this.riskAssesmentHEader = element(by.xpath('(//div[text()="Risk Assessment"])[1]'));
         this.canYouSmellText = element(by.xpath('//div[text()="Can you smell Gas?"]'));
         this.canYouSmellYES = element(by.xpath('//label[@id="rb_SmelGas_y"]'));
@@ -316,6 +317,19 @@ export class RiskAssessmentPageObject {
             });
         }
     }
+
+
+    public async verifyInitialPolarityCheckMartindaleTestBtnIsPresent() {
+        expect(this.initialPolarityCheckMartindaleTestBtn.isPresent());
+    }
+
+
+    public async clickOnInitialPolarityCheckMartindaleTestBtn() {
+        if(this.initialPolarityCheckMartindaleTestBtn.isPresent()){
+            await this.initialPolarityCheckMartindaleTestBtn.click();
+        }
+    }
+
 
     public async fillRiskAssesmentElecFields() {
         // if (await this.RiskAssessmentTab.isPresent()) {

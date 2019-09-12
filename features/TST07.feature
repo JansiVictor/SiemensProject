@@ -36,46 +36,17 @@ Feature: DF FLTY20 Trad No Exchange Workflow
     And click on the On-Site button
     Then I am prompted to submit details for an initial risk assessment
 
-  Scenario: Complete initial risk assessment, electrical risk assessment, and Gas risk assessment sections
+  Scenario: Complete initial risk assessment, Electrical risk assessment, and Gas risk assessment sections
     Given I have accessed the initial risk assessment tab
     When I input details for the initial risk assessment
-    And input the details for an Electric risk assessment
+    And input the details for a Electric risk assessment
     And input the details for a Gas risk assessment
 
   Scenario: Capture Screenshots for both Gas and Electrical assessments
-    Given I have accessed the Gas risk assessment tab section
+    #Given I have accessed the Gas risk assessment tab section
     When I capture photo of initial electric installation
     When I capture photo of initial gas installation
-
-    # Scenario: Going through "BE AWARE OF ANY DANGER!" section
-    #     Given the fltynineteen BE AWARE OF ANY DANGER! section
-    #     When I fill the fltynineteen DoorStep Protocol fields with the value
-    #     Then I click on ON fltynineteen SITE button
-    #     Then I should see fltynineteen RISK ASSESSMENT tab activated
-    #     And I should see fltynineteen INITIAL RISK ASSESSMENT section
-
-#     Scenario: Going through "INITIAL RISK ASSESSMENT"
-#         Given the fltynineteen INITIAL RISK ASSESSMENT section
-#         When I fill the fltynineteen initialRisk field with the values
-#         Then I should see fltynineteen INFO window
-
-#     Scenario: Going through "INFO" window
-#         Given the fltynineteen INFO window with the text
-#         When pop-up ok click in fltynineteen Risk
-#         Then I should see fltynineteen RISK ASSESSMENT ELEC section
-
-#     Scenario: Going through "RISK ASSESSMENT - ELEC" section
-#         Given the fltynineteen RISK ASSESSMENT-ELEC section
-#         When I fill the fltynineteen RISK ASSESSMENT - ELEC fields with the values
-#         And I click on fltynineteen CAPTURE PHOTO OF HAZARD IDENTIFIED button
-#         And I click on fltynineteen NEXT SECTION button
-#         Then I should see fltynineteen CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section
-
-#     Scenario: Going through "CAPTURE INITIAL PHOTO OF ELEC INSTALLATION"
-#         Given the fltynineteen CAPTURE INITIAL PHOTO OF ELEC INSTALLATION sec
-#         When I click on fltynineteen CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button
-#         Then I should see fltynineteen INITIAL POLARITY CHECK - MARTINDALE TEST section
-
+    Then I should see Initial Polarity Check - Martindale Test button
 
 #     Scenario: Going through "INITIAL POLARITY CHECK MARTINDALE TEST" section
 #         Given the fltynineteen INITIAL POLARITY CHECK MARTINDALE TEST section
