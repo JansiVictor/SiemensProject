@@ -6,8 +6,8 @@ import {
   loginPageObject
   } from "../pages/loginPage";
   import {
-  ExchangehomePageObject
-  } from "../pages/ExchangehomePage";
+    HomePageObject
+  } from "../pages/HomePage";
   import {
   FLTY19AppointmentListPageObject
   } from "../pages/FLTY19AppointmentListPage";
@@ -46,10 +46,9 @@ import {
   const delay = ms => new Promise(res => setTimeout(res, ms));
   const utility: Utility = new Utility();
   const login: loginPageObject = new loginPageObject();
-  const home: ExchangehomePageObject = new ExchangehomePageObject();
+  const home: HomePageObject = new HomePageObject();
   const applist: FLTY19AppointmentListPageObject = new FLTY19AppointmentListPageObject();
   const doorstep: DoorStepPageObject = new DoorStepPageObject();
-  const riskassessElec: ElectricPageObject = new ElectricPageObject();
   const riskassess: RiskAssessmentPageObject = new RiskAssessmentPageObject();
   const riskassessGAS: GASPageObject = new GASPageObject();
   const exchnge21Complete: JobCompletionPageObject = new JobCompletionPageObject();
@@ -555,7 +554,7 @@ import {
       await remove.clickonsubmitforRemoval();
     });
     When('I fill the RmveGas Ins comms hub fields and capture photo EVIDENCE', async function () {
-      await inst.fillfieldsInstallcommshub();
+      await inst.fillfieldsInstallcommshub(2);
     });
     Then('I should see RmveGas Submit button in remove section', async function () {
       await remove.clickonElecsubmitforRemoval();

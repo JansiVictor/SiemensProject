@@ -6,8 +6,8 @@ import {
 	loginPageObject
 } from "../pages/loginPage";
 import {
-	ExchangehomePageObject
-} from "../pages/ExchangehomePage";
+	HomePageObject
+} from "../pages/HomePage";
 import {
 	FLTY19AppointmentListPageObject
 } from "../pages/FLTY19AppointmentListPage";
@@ -40,7 +40,7 @@ const expect = chai.expect;
 const delay = ms => new Promise(res => setTimeout(res, ms));
 const utility: Utility = new Utility();
 const login: loginPageObject = new loginPageObject();
-const home: ExchangehomePageObject = new ExchangehomePageObject();
+const home: HomePageObject = new HomePageObject();
 const applist: FLTY19AppointmentListPageObject = new FLTY19AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: ElectricPageObject = new ElectricPageObject();
@@ -73,7 +73,8 @@ Given('the Appointment List window', async function () {
 });
 
 When('I click on select button', async function () {
-	await home.clickOnTheExchange21SelectLink();
+	await home.clickCorrectSelectLink('Exchange21');
+	//await home.clickOnTheExchange21SelectLink();
 	//await home.clickOnTheContinueLink();
 	await utility.wait(5000);
 });

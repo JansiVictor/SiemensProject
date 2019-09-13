@@ -11,13 +11,9 @@ import { when } from "q";
 import { InstallPageObject } from "../pages/InstallPage";
 import { RemoveTRADPageObject } from "../pages/RemoveTRAD";
 
-import { RiskAssessmentPageElecObject } from "../pages/RiskAssessmentPageElec";
-import {
+import { ElectricPageObject } from "../pages/ElectricPage";
 
-	Exchange21JobCompletionPageObject
-
-} from "../pages/Exchange21JobCompletion";
-import { RiskAssessmentforGASPageObject } from "../pages/RiskAssessmentForGAS";
+import { GASPageObject } from "../pages/GASPage";
 import { JobCompletionPageObject } from "../pages/JobCompletionPage";
 const { Given, When, Then } = require("cucumber");
 const chai = require("chai");
@@ -30,11 +26,9 @@ const home: FLTY19homePageObject = new FLTY19homePageObject();
 const applist: FLTY19AppointmentListPageObject = new FLTY19AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: RiskAssessmentPageObject = new RiskAssessmentPageObject();
-const riskassessTRAD: RiskAssessmentPageElecObject = new RiskAssessmentPageElecObject();
+const riskassessTRAD: ElectricPageObject = new ElectricPageObject();
 const remove: RemoveTRADPageObject = new RemoveTRADPageObject();
 const inst: InstallPageObject =new InstallPageObject();
-const riskassessGAS: RiskAssessmentforGASPageObject = new RiskAssessmentforGASPageObject();
-const exchnge21Complete: Exchange21JobCompletionPageObject = new Exchange21JobCompletionPageObject();
 const job: JobCompletionPageObject = new JobCompletionPageObject();
 
 Given('the Login Page for FLTY20TRAD', async function () {
