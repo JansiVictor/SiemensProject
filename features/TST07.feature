@@ -61,38 +61,19 @@ Feature: DF FLTY20 Trad No Exchange Workflow
 
   Scenario: Complete Current IHD PPMId Details section
     Given the Current IHD PPMId Details section
-    When I update the SMETS2 IHD PPMID on Site form control with the value false
+    When I update the SMETS2 IHD PPMID on Site form controls
     Then I should see the Current Meter Details section
 
-
-#     Scenario: Going through "CURRENT METER DETAILS" section
-#         Given the fltynineteen CURRENT METER DETAILS section
-#         When I fill the fltynineteen field011 with the value Value011
-#         Then I should see fltynineteen CURRENT COMMS HUB DETAILS section
-#         And I should see the fltynineteen page contect display
-
-
-#     Scenario: Going through "CURRENT COMMS HUB DETAILS" section
-#         Given the fltynineteen CURRENT COMMS HUB DETAILS section
-#         When I fill the fltynineteen field013 with the value Value013
-#         Then I click on fltynineteen CAPTURE PHOTO OF EXISTING COMMS HUB INSTALLATION button
-#         Then I should see fltynineteen DETERMINE FAULT ACTIVITY section
-
-
-#     Scenario: Going through "DETERMINE FAULT ACTIVITY" section
-
-#         Given the fltynineteen DETERMINE FAULT ACTIVITY section
-#         When I fill the fltynineteen field014 with the Value014
-#         Then I click on fltynineteen CAPTURE PHOTOGRAPHIC EVIDENCE SUSPECTED TAMPERING button
-#         And I fill the fltynineteen field015 with the Value015
-#         And I click on fltynineteen OK in Info window with the text Remove Comms Hub from Supply and wait 5 minutes before reconnecting
-#         And I fill the fltynineteen field016 with the Value016
-#         And I select fltynineteen Comms Hub field
-#         And I select fltynineteen Elec Meter field
-#         And I select fltynineteen IHD PPMID field
-#         Then I click on fltynineteen NEXT SECTION butn in determine faulty activity
-#         And I should see fltynineteen REMOVE IHDPPMID section
-
+  Scenario: Complete Determine Fault Activity section
+    Given I have accessed the Determine Fault Activity section
+    When I update the Confirm if Elec Meter is On Supply or Off Supply with the value Yes
+    And I update the Confirm if Gas Meter is On Supply or Off Supply with the value Yes
+    And I click on the Capture Photographic Evidence - Suspected Tampering button
+    And I select the value No for the Are SMETS2 assets installed? radio option
+    And I select the value No for the Do you need to Exchange an asset? radio option
+    And I select the value Yes for the Do you Need to carry out work on the meter installtion? radio option
+    And I click on the Next button
+    Then I should see the Pre Installation Gas Tightness Test section
 
 #     Scenario: Going through "REMOVE IHD/PPMID" section
 #         Given the fltynineteen REMOVE IHD-PPMID section

@@ -622,8 +622,12 @@ export class RiskAssessmentPageObject {
         await this.polarityCheckCutOutYES.click();
 
         browser.wait(until.elementToBeClickable(this.polarityCheckAtMeter), 5000);
-        await this.polarityCheckAtMeter.click();
-
+        try{
+            await this.polarityCheckAtMeter.click();
+        }
+        catch (e) {
+            await this.polarityCheckAtMeter.click();
+        }
         await utility.wait(2000);
     }
 

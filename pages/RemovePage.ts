@@ -1,15 +1,28 @@
 /**
-  * @@Author Jansi Victor
-  * @Description @Description  Automation for FAULTY18 Workflow
-*/
-import {element, by, ElementFinder, ElementArrayFinder, browser, ExpectedConditions} from "protractor";
-const { Given, When, Then } = require("cucumber");
+ * @@Author Jansi Victor
+ * @Description @Description  Automation for FAULTY18 Workflow
+ */
+import {browser, by, element, ElementFinder, ExpectedConditions} from "protractor";
+import {Utility} from "../support/utility";
+
+const {Given, When, Then} = require("cucumber");
 const chai = require("chai");
 const expect = chai.expect;
-import { Utility } from "../support/utility";
+
 const utility: Utility = new Utility();
 
 export class RemovePageObject {
+
+    private unableToReadMeterTrueRadioBtn: ElementFinder;
+    private unabeToReadMeterTrueRadioBtn2: ElementFinder;
+    private meterReadingElectricTextfield: ElementFinder;
+    private areSMETS2AssetInstalledFalseRadioOption: ElementFinder;
+    private doYouNeedToExchangeAnAssetFalseRadioOption: ElementFinder;
+    private doYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption: ElementFinder;
+    private captureMeterReadingText: ElementFinder;
+    private confirmgasmeterOnsupply1: ElementFinder;
+    private confirmgasmeterOnsupply2: ElementFinder;
+    private determineFaultActivityNextBtn: ElementFinder;
 
     public ctihdppmidDtl: ElementFinder;
     public smet2ihdppidText: ElementFinder;
@@ -95,7 +108,6 @@ export class RemovePageObject {
     public capctmeterReadingPanel: ElementFinder;
     public ctmeterdtlGasTab: ElementFinder;
     public ctCommshubdtlTab: ElementFinder;
-
     public rmvPPMIDPanel: ElementFinder;
     public AssettobeRemoved: ElementFinder;
     public rmvihdppmidpopupOK: ElementFinder;
@@ -103,39 +115,31 @@ export class RemovePageObject {
     public rmvihdppmidNxtBtn: ElementFinder;
     public sendmsgPanel: ElementFinder;
     public rmvPPMIDTab: ElementFinder;
-
     public sendmsgbtn: ElementFinder;
     public awaitingResp: ElementFinder;
     public reqSentSuccess: ElementFinder;
     public AssetUnJoined: ElementFinder;
     public RemoveIHDAsset: ElementFinder;
     public ppmidremovalSuccess: ElementFinder;
-
     public AssetRemovalSelect: ElementFinder;
     public confirmAssetrmvYES: ElementFinder;
     public AssetPopup: ElementFinder;
     public RemoveGasMeterPanel: ElementFinder;
-
     public GMassettoberemoved: ElementFinder;
     public statusofAssetSelect: ElementFinder;
     public removedmeterReading: ElementFinder;
     public GMremovalNxtBtn: ElementFinder;
     public SendGMRMPanel: ElementFinder;
-
     public SendGMREMBtn: ElementFinder;
     public AwaitingRespGMREM: ElementFinder;
-
     public reqSentSuccessGMREM: ElementFinder;
     public RemovalSuccess: ElementFinder;
     public OKtoremoveAsset: ElementFinder;
-
     public confirmgasAssetRemoval: ElementFinder;
-
     public gasAssetRemoval: ElementFinder;
     public GasAssetRemovalY: ElementFinder;
     public GasAssetRemovalPopup: ElementFinder;
     public RemoveCommsHub: ElementFinder;
-
     public IstheassettobeRemovedorReplaced: ElementFinder;
     public RemoveCommshubSelect: ElementFinder;
     public StatusofCommsHub: ElementFinder;
@@ -143,46 +147,47 @@ export class RemovePageObject {
     public FaultidentifiedPostInst: ElementFinder;
     public ConfirmCommsHubRemoval: ElementFinder;
     public RemCommsHubNxtBtn: ElementFinder;
-
     public ConfirmCommsHubRemovalSelect: ElementFinder;
     public Confirmcommhubassetremove: ElementFinder;
-
     public ConfirmCommsHubRemovalPopup: ElementFinder;
     public ConfirmCommsHubNxtBtn: ElementFinder;
     public removePPMID: ElementFinder;
     public SMawaitingResp: ElementFinder;
     public ppmidremoval: ElementFinder;
     public btnnext: ElementFinder;
-
     public existingelecmeterdtls: ElementFinder;
     public meterReadingElec: ElementFinder;
-
     public confirmElecmeterText: ElementFinder;
     public confirmElecmeterOnsupply: ElementFinder;
     public elecMeter: ElementFinder;
     public elecMeterY: ElementFinder;
-		public ElecremovalNxtBtn: ElementFinder;
-		public SendElecRMPanel: ElementFinder;
-		public SendEMREMBtn: ElementFinder;
-        public AwaitingRespEMREM: ElementFinder;
-        public ElecRemoveMeter: ElementFinder;
-		public RemoveElecAssetrplacedorremoved: ElementFinder;
-        public statusofElecAssetSelect: ElementFinder;
-        
-		public reqSentSuccessEMREM: ElementFinder;
-		public RemovalSuccessElec: ElementFinder;
-        public OKtoremoveAssetElec: ElementFinder;
-        public confirmElecAssetRemoval: ElementFinder;
-		public ElecAssetRemoval: ElementFinder;
-		public ElecAssetRemovalY: ElementFinder;
-        public ElecAssetRemovalPopup: ElementFinder;
-        public ConfirmElecCommsHubNxtBtn: ElementFinder;
-        public currentMeterElecCap: ElementFinder;
-        public SendElMREMBtn: ElementFinder;
-        public SendElMREMBtnCap: ElementFinder;
-
+    public ElecremovalNxtBtn: ElementFinder;
+    public SendElecRMPanel: ElementFinder;
+    public SendEMREMBtn: ElementFinder;
+    public AwaitingRespEMREM: ElementFinder;
+    public ElecRemoveMeter: ElementFinder;
+    public RemoveElecAssetrplacedorremoved: ElementFinder;
+    public statusofElecAssetSelect: ElementFinder;
+    public reqSentSuccessEMREM: ElementFinder;
+    public RemovalSuccessElec: ElementFinder;
+    public OKtoremoveAssetElec: ElementFinder;
+    public confirmElecAssetRemoval: ElementFinder;
+    public ElecAssetRemoval: ElementFinder;
+    public ElecAssetRemovalY: ElementFinder;
+    public ElecAssetRemovalPopup: ElementFinder;
+    public ConfirmElecCommsHubNxtBtn: ElementFinder;
+    public currentMeterElecCap: ElementFinder;
+    public SendElMREMBtn: ElementFinder;
+    public SendElMREMBtnCap: ElementFinder;
 
     constructor() {
+        this.unableToReadMeterTrueRadioBtn = element(by.xpath("//div[contains(@class,'radioInput ng-scope')]/div[2]"));
+        this.unabeToReadMeterTrueRadioBtn2 = element(by.xpath("//reading[@name='currentmeter']//label[text()='YES']"));
+        this.meterReadingElectricTextfield = element(by.xpath("//reading[@name='currentmeter']//input[@id='reg0']"));
+        this.doYouNeedToExchangeAnAssetFalseRadioOption = element(by.xpath("//radiobutton[@id='exchangeasset']//label[text()='NO']"));
+        this.doYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption = element(by.xpath("//radiobutton[@id='additionalwork']//label[text()='YES']"));
+        this.determineFaultActivityNextBtn = element(by.xpath("//button[@id='btnNextComm']"));
+
         //#region Panel Click
         //this.ctIhdPpmiddtls = element(by.css('.down'));
         //.ng-scope:nth-child(1) > .task-section .down
@@ -211,6 +216,7 @@ export class RemovePageObject {
         this.existgasmeterDtlText = element(by.xpath('//*[contains(text(),"Existing Gas Meter Details Correct")]'));
         this.existgasmeterDtlY = element(by.xpath('//div/label[@id="gasCurrentMeter_detailsCorrect_y"]'));
         this.meterReading = element(by.xpath('//*[contains(text(),"Capture Meter Reading - Register")]'));
+        this.captureMeterReadingText = element(by.xpath('//*[contains(text(),"Capture Meter Reading - Register")]'));
         this.meterReadingLabel = element(by.xpath('//input[@id="reg0"]'));
         this.currentCommsHubTitle = element(by.xpath('//*[@id="Title_currentCommsHub"]'));
         this.currentHubDtlsPgCont = element(by.xpath('//*[contains(text(),"CHF ID")]'));
@@ -229,10 +235,13 @@ export class RemovePageObject {
 
         //#region Determine Faulty Activity
         this.confirmgasmeterText = element(by.xpath('//*[contains(text(),"Confirm if Gas meter is On Supply or Off Supply")]'));
-        this.confirmgasmeterOnsupply = element(by.xpath('//input[@id="confirmgassupplytrue"]/following-sibling::span[@class="outer"]'));
+        this.confirmgasmeterOnsupply = element(by.xpath("//input[@id='confirmgassupplytrue']/following-sibling::span[@class='outer']"));
+        this.confirmgasmeterOnsupply1 = element(by.xpath("//radiobutton[@id='confirmelecsupply']//label[text()='On Supply']"));
+        this.confirmgasmeterOnsupply2 = element(by.xpath("//radiobutton[@id='confirmgassupply']//label[text()='On Supply']"));
         this.capturesuspectedTamp = element(by.id('determinefaultyassets_tamperingPhotoButton'));
         this.smets2assetInst = element(by.xpath('//*[contains(text(),"Are SMETS2 assets installed?")]'));
         this.smets2assetInstY = element(by.xpath('//input[@id="smets2Installedtrue"]/following-sibling::span[@class="outer"]'));
+        this.areSMETS2AssetInstalledFalseRadioOption = element(by.xpath("//radiobutton[@id='smets2Installed']//label[text()='NO']"));
         this.commshubResetting = element(by.xpath('//*[contains(text(),"Does Comms Hub need resetting?")]'));
         this.commshubResettingY = element(by.xpath('//input[@id="commshubresettrue"]/following-sibling::span[@class="outer"]'));
         this.removecommshub5mins = element(by.xpath('//button[text()="OK"]'));
@@ -294,7 +303,7 @@ export class RemovePageObject {
         this.rmvihdppmidstatusofAssetSel = element(by.xpath('//select[@id="removeIhdPpmid_assetStatusSelect"]'));
         this.rmvihdppmidNxtBtn = element(by.id('removeIhdPpmid_nextButton'));
         this.sendmsgPanel = element(by.xpath('//*[contains(text(),"SEND MESSAGE PPMID")]'));
-        this.RemoveIHDAsset=element(by.xpath('//*[@id="Title_removeIhdPpmidAsset"]'));
+        this.RemoveIHDAsset = element(by.xpath('//*[@id="Title_removeIhdPpmidAsset"]'));
         //#endregion
 
         //#region Send Mesg */
@@ -365,26 +374,26 @@ export class RemovePageObject {
         this.existingelecmeterdtls = element(by.xpath('//*[@id="rb_ExMetDetCorrt_y"]/span[@class="outer"]'));
         this.meterReadingElec = element(by.xpath('//*[contains(text(),"Capture Meter Reading - Register (1):")]'));
         this.currentMeterElecCap = element(by.xpath('//*[contains(text(),"Current Meter Details")]'));
-        
+
 
         this.confirmElecmeterText = element(by.xpath('//*[contains(text(),"Confirm if Elec meter is On Supply or Off Supply")]'));
         this.confirmElecmeterOnsupply = element(by.xpath('//input[@id="confirmelecsupplytrue"]/following-sibling::span[@class="outer"]'));
-		
-		this.elecMeter = element(by.xpath('//*[contains(text(),"Elec Meter?")]'));
+
+        this.elecMeter = element(by.xpath('//*[contains(text(),"Elec Meter?")]'));
         this.elecMeterY = element(by.xpath('//input[@id="elecmexdfa"]/following-sibling::span[@class="cr"]'));
-        
-        
-		this.ElecremovalNxtBtn = element(by.xpath('//*[@id="btn_Next_rmv"]'));
+
+
+        this.ElecremovalNxtBtn = element(by.xpath('//*[@id="btn_Next_rmv"]'));
         this.SendElecRMPanel = element(by.xpath('//div[@id="Title_emrem"]'));
-		
-		this.SendEMREMBtn = element(by.xpath('//*[@id="gmrem_sendMessageButton"]'));
+
+        this.SendEMREMBtn = element(by.xpath('//*[@id="gmrem_sendMessageButton"]'));
         this.AwaitingRespEMREM = element(by.xpath('//*[text()="Awaiting Response"]'));
 
-        
-		this.ElecRemoveMeter = element(by.xpath('//div/h4[text()="Remove Meter"]'));
-		this.RemoveElecAssetrplacedorremoved = element(by.xpath('((//*[@id="CCHradio5"])[2])/following-sibling::span[@class="outer"]'));
+
+        this.ElecRemoveMeter = element(by.xpath('//div/h4[text()="Remove Meter"]'));
+        this.RemoveElecAssetrplacedorremoved = element(by.xpath('((//*[@id="CCHradio5"])[2])/following-sibling::span[@class="outer"]'));
         this.statusofElecAssetSelect = element(by.xpath('//select[@id="cbx_StaAss_sel"]'));
-        
+
         this.reqSentSuccessEMREM = element(by.xpath('(//*[text()="Request Sent Successfully"])[2]'));
         this.RemovalSuccessElec = element(by.xpath('//*[@id="emrem_nextButton"]'));
         this.OKtoremoveAssetElec = element(by.xpath('//*[text()="OK to Remove Asset"]'));
@@ -398,19 +407,17 @@ export class RemovePageObject {
         this.ConfirmElecCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])'));
 
         this.SendElMREMBtnCap = element(by.xpath('//*[@id="Title_emrem"]'));
-        
+
         this.SendElMREMBtn = element(by.xpath('//*[@id="emrem_sendMessageButton"]'));
 
-
-        
 
         //#endregion
     }
 
     /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
+     * @Author Jansi Victor
+     * @Description  Automation for FAULTY18 Workflow
+     */
 
     //#region CURRENT IHD/PPMID DETAILS
 
@@ -429,18 +436,24 @@ export class RemovePageObject {
         }
         await utility.wait(1000);
         if (this.existgasmeterDtlText.isDisplayed()) {
-            browser.wait(until.elementToBeClickable(this.existgasmeterDtlY), 5000);
+            browser.wait(until.elementToBeClickable(this.smet2IHDPPIdFalse), 5000);
             await this.existgasmeterDtlY.click();
+            await this.meterReadingLabel.clear();
+            await this.meterReadingLabel.sendKeys("1234");
+            browser.wait(until.elementToBeClickable(this.unableToReadMeterTrueRadioBtn), 5000);
+            await this.unableToReadMeterTrueRadioBtn.click();
         }
         await utility.wait(1000);
-        if (await this.meterReading.isDisplayed()) {
-            await this.meterReadingLabel.clear();
-            await this.meterReadingLabel.sendKeys("12345");
-
-            await this.meterReading.click();
+        if (this.existingelecmeterdtls.isDisplayed()) {
+            await this.existingelecmeterdtls.click();
+            await utility.wait(2000);
+            await this.meterReadingElectricTextfield.clear();
+            await this.meterReadingElectricTextfield.sendKeys("12345");
+            browser.wait(until.elementToBeClickable(this.unabeToReadMeterTrueRadioBtn2), 5000);
+            await this.unabeToReadMeterTrueRadioBtn2.click();
         }
-        await utility.wait(3000);
     }
+
 
     public async fillcurrentIhdPPMIDdtls() {
         await utility.wait(3000);
@@ -463,7 +476,7 @@ export class RemovePageObject {
             }
         } catch (error) {
             console.log("Next section is not present at this moment");
-        }  
+        }
     }
 
     public async currentmeterdetlGasSection() {
@@ -472,6 +485,7 @@ export class RemovePageObject {
             console.log("Find current detail gas section  " + currentdtlGasSection);
         });
     }
+
     public async currentmeterGasPageContent() {
         await utility.wait(1000);
         await this.currentmeterdtlPgCont.getText().then(function (currentmeterdtlPgContent) {
@@ -482,10 +496,10 @@ export class RemovePageObject {
     //#endregion
 
     /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-   
+     * @Author Jansi Victor
+     * @Description  Automation for FAULTY18 Workflow
+     */
+
     //#region CURRENT METER DETAILS - GAS
     public async fillcurrentmeterdtlGassec() {
         await utility.wait(1000);
@@ -500,6 +514,7 @@ export class RemovePageObject {
             await this.meterReading.click();
         }
     }
+
     public async currentcommsHubdtl() {
         await utility.wait(5000);
         browser.sleep(3000);
@@ -507,6 +522,7 @@ export class RemovePageObject {
             console.log("Find current comms Hub Title  " + currentCommsHubTit);
         });
     }
+
     public async currentcommsHubdtlPgCont() {
         await utility.wait(5000);
         browser.sleep(6000);
@@ -518,13 +534,13 @@ export class RemovePageObject {
     //#endregion
 
     /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-   
+     * @Author Jansi Victor
+     * @Description  Automation for FAULTY18 Workflow
+     */
+
     //#region CURRENT COMMS HUB DETAILS
-    public async fillcurrenthubdtl(index:number) {
-       
+    public async fillcurrenthubdtl(index: number) {
+
         if (await this.commshubLoc.isDisplayed()) {
             await utility.wait(4000);
             var select = this.commshubLoc;
@@ -548,6 +564,7 @@ export class RemovePageObject {
             await this.capexistcommshubInstall.click();
         }
     }
+
     public async determintfaultActivity() {
         await utility.wait(1000);
         await this.determinefaultActivityTitle.getText().then(function (determinefaultActivityTit) {
@@ -555,13 +572,35 @@ export class RemovePageObject {
         });
         await utility.wait(4000);
     }
-    //#endregion
+
+    public async clickOnDeterminetFaultActivityNextBtn() {
+        if(this.determineFaultActivityNextBtn.isDisplayed()) {
+            this.determineFaultActivityNextBtn.click();
+        }
+        await utility.wait(4000);
+    }
+
+    public async setConfirmIfElecMeterIsOnSupplyOrOffSupplyTrueRadioOption() {
+        if (await this.confirmgasmeterOnsupply1.isDisplayed()) {
+            await this.confirmgasmeterOnsupply1.click();
+        }
+    }
+    public async setConfirmIfGasMeterIsOnSupplyOrOffSupplyTrueRadioOption() {
+        if (await this.confirmgasmeterOnsupply2.isDisplayed()) {
+            await this.confirmgasmeterOnsupply2.click();
+        }
+        await utility.wait(1000);
+    }
+
+
+
+    //////////////////////////
 
     /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-   
+     * @Author Jansi Victor
+     * @Description  Automation for FAULTY18 Workflow
+     */
+
     //#region Determine Faulty Activity
     public async fill14commsdtls() {
         await utility.wait(4000);
@@ -577,6 +616,31 @@ export class RemovePageObject {
         }
     }
 
+    public async setAreSMETS2AssetInstalledFalseRadioOption() {
+        await utility.wait(1000);
+        if (await this.areSMETS2AssetInstalledFalseRadioOption.isDisplayed()) {
+            await this.areSMETS2AssetInstalledFalseRadioOption.click();
+        }
+    }
+
+    public async setDoYouNeedToExchangeAnAssetFalseRadioOption() {
+        await utility.wait(1000);
+        if (await this.doYouNeedToExchangeAnAssetFalseRadioOption.isDisplayed()) {
+            await this.doYouNeedToExchangeAnAssetFalseRadioOption.click();
+        }
+    }
+
+    public async setDoYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption() {
+        await utility.wait(1000);
+        if (await this.doYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption.isDisplayed()) {
+            await this.doYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption.click();
+        }
+    }
+
+
+
+
+
     public async fill15commsdtls() {
         await utility.wait(3000);
         if (await this.smets2assetInst.isDisplayed()) {
@@ -587,12 +651,14 @@ export class RemovePageObject {
             await this.commshubResettingY.click();
         }
     }
+
     public async clickOk5mins() {
         await utility.wait(3000);
         if (await this.removecommshub5mins.isDisplayed()) {
             await this.removecommshub5mins.click();
         }
     }
+
     public async fill16commsdtls() {
         await utility.wait(3000);
         if (await this.commshubconnectedtoSupply.isDisplayed()) {
@@ -607,36 +673,42 @@ export class RemovePageObject {
             await this.commshubconnectedtoAssetY.click();
         }
     }
+
     public async commshubSelect() {
         await utility.wait(4000);
         if (await this.commsHub.isDisplayed()) {
             await this.commsHubY.click();
         }
     }
+
     public async gasmeterSelect() {
         await utility.wait(3000);
         if (await this.gasMeter.isDisplayed()) {
             await this.gasMeterY.click();
         }
     }
+
     public async regulatorSelect() {
         await utility.wait(3000);
         if (await this.Regulator.isDisplayed()) {
             await this.RegulatorY.click();
         }
     }
+
     public async ihdppmidSelect() {
         await utility.wait(3000);
         if (await this.ihdPpmid.isDisplayed()) {
             await this.ihdPpmidY.click();
         }
     }
+
     public async clickoncommsNextsection() {
         await utility.wait(1000);
         if (await this.commshubNextbtn.isDisplayed()) {
             await this.commshubNextbtn.click();
         }
     }
+
     public async preinstgasTighttest() {
         await utility.wait(1000);
         await this.preInstgastightnessTest.getText().then(function (preInstgastightnessTst) {
@@ -647,10 +719,10 @@ export class RemovePageObject {
     //#endregion
 
     /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-   
+     * @Author Jansi Victor
+     * @Description  Automation for FAULTY18 Workflow
+     */
+
     //#region Pre installation gas tightness
     public async fill17preInstdtls() {
         await utility.wait(1000);
@@ -686,12 +758,14 @@ export class RemovePageObject {
             await this.smellGasY.click();
         }
     }
+
     public async gastightnessfieldfailed() {
         await utility.wait(1000);
         if (await this.gastightnesstestCompleted.isDisplayed()) {
             await this.gastightnesstestCompletedFail.isDisplayed();
         }
     }
+
     public async fill19preInstdtls() {
         await utility.wait(1000);
         if (await this.gasTightness.isDisplayed()) {
@@ -732,19 +806,21 @@ export class RemovePageObject {
             await this.btnnext.click();
         }
     }
+
     public async removeihdPpmid() {
         await utility.wait(1000);
         await this.removePPMID.getText().then(function (removePPMIDTxt) {
             console.log("Remove PPMID " + removePPMIDTxt);
         });
     }
+
     //#endregion
 
     /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-   
+     * @Author Jansi Victor
+     * @Description  Automation for FAULTY18 Workflow
+     */
+
     //#region REMOVE IHD/PPMID
     public async fill20rmvihdppmidtls() {
         await utility.wait(1000);
@@ -752,12 +828,14 @@ export class RemovePageObject {
             await this.AssettobeRemoved.click();
         }
     }
+
     public async ihdpowerOnOK() {
         await utility.wait(1000);
         if (await this.rmvihdppmidpopupOK.isDisplayed()) {
             await this.rmvihdppmidpopupOK.click();
         }
     }
+
     public async fill21rmvihdppmidtls() {
         await utility.wait(2000);
         if (await this.rmvihdppmidstatusofAssetSel.isDisplayed()) {
@@ -765,25 +843,28 @@ export class RemovePageObject {
             await select.$('[value="1"]').click();
         }
     }
+
     public async rmvihdppmidnxtbtn() {
         await utility.wait(1000);
         if (await this.rmvihdppmidNxtBtn.isDisplayed()) {
             await this.rmvihdppmidNxtBtn.click();
         }
     }
+
     public async sendmsgihdppmid() {
         await utility.wait(1000);
         await this.sendmsgPanel.getText().then(function (sendmsgPanelTxt) {
             console.log("Send Msg Tab " + sendmsgPanelTxt);
         });
     }
+
     //#endregion
 
     /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-   
+     * @Author Jansi Victor
+     * @Description  Automation for FAULTY18 Workflow
+     */
+
     //#region Send Message
 
     public async clickonSendMessage() {
@@ -793,68 +874,77 @@ export class RemovePageObject {
         }
 
     }
+
     public async awaitingResponse() {
         await utility.wait(1000);
         await this.SMawaitingResp.getText().then(function (SMawaitingRespTxt) {
             console.log("Awaiting Response " + SMawaitingRespTxt);
         });
     }
+
     //#endregion
 
     /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-   
+     * @Author Jansi Victor
+     * @Description  Automation for FAULTY18 Workflow
+     */
+
     //#region AWAITING RESPONSE
 
     public async waitforthebuttontoDisappear() {
         await utility.wait(60000);
     }
+
     public async ppmidRemovalbtn() {
         await utility.wait(1000);
         await expect(this.ppmidremoval.isDisplayed());
     }
+
     public async sentmesgSuccess() {
         await utility.wait(1000);
         await expect(this.reqSentSuccess.isDisplayed());
     }
+
     public async assetUnjoinedText() {
         await utility.wait(1000);
         await expect(this.AssetUnJoined.isDisplayed());
     }
+
     //#endregion
 
     /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-   
+     * @Author Jansi Victor
+     * @Description  Automation for FAULTY18 Workflow
+     */
+
     //#region PPMID Removal Successful
 
     public async PPMIDRemovalbtndisplayed() {
         await utility.wait(1000);
         await expect(this.ppmidremovalSuccess.isDisplayed());
     }
+
     public async clickonPPMIDRmvl() {
         await utility.wait(1000);
         if (await this.ppmidremovalSuccess.isDisplayed()) {
             await this.ppmidremovalSuccess.click();
         }
     }
+
     public async confirmAssetRmvl() {
         await utility.wait(1000);
         await this.RemoveIHDAsset.getText().then(function (RemoveIHDAssetTxt) {
             console.log("Confirm Asset Removal " + RemoveIHDAssetTxt);
         });
     }
+
     //#endregion
 
     /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-   
+     * @Author Jansi Victor
+     * @Description  Automation for FAULTY18 Workflow
+     */
+
     //#region Asset Removal
     public async fill22AssetRemoval() {
         await utility.wait(1000);
@@ -867,12 +957,14 @@ export class RemovePageObject {
             await this.confirmAssetrmvYES.click();
         }
     }
+
     public async clickonOKBtn() {
         await utility.wait(1000);
         if (await this.AssetPopup.isDisplayed()) {
             await this.AssetPopup.click();
         }
     }
+
     public async RmvGasmeterSec() {
         await utility.wait(1000);
         await this.RemoveGasMeterPanel.getText().then(function (RemoveIRemoveGasMeterPanelTxt) {
@@ -883,10 +975,10 @@ export class RemovePageObject {
     //#endregion
 
     /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-   
+     * @Author Jansi Victor
+     * @Description  Automation for FAULTY18 Workflow
+     */
+
     //#region Gas Meter Removal 
 
     public async fill23GasmeterRemoval() {
@@ -905,12 +997,14 @@ export class RemovePageObject {
             await this.removedmeterReading.sendKeys('12345');
         }
     }
+
     public async clickonnxtBtnofgasmeterRemoval() {
         await utility.wait(1000);
         if (await this.GMremovalNxtBtn.isDisplayed()) {
             await this.GMremovalNxtBtn.click();
         }
     }
+
     public async sendmsgGMREM() {
         await utility.wait(1000);
         await this.SendGMRMPanel.getText().then(function (SendGMRMPanelTxt) {
@@ -921,10 +1015,10 @@ export class RemovePageObject {
     //#endregion
 
     /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-   
+     * @Author Jansi Victor
+     * @Description  Automation for FAULTY18 Workflow
+     */
+
     //#region Send GMREM 
 
     public async clickOnsendmsgGMREM() {
@@ -933,26 +1027,30 @@ export class RemovePageObject {
             await this.SendGMREMBtn.click();
         }
     }
+
     public async AwaitingResponseGMREM() {
         await utility.wait(20000);
     }
+
     //#endregion
 
     /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-   
+     * @Author Jansi Victor
+     * @Description  Automation for FAULTY18 Workflow
+     */
+
     //#region Awaiting Response After GMREM 
 
     public async removalsuccessfulbtn() {
         await utility.wait(2000);
         await expect(this.RemovalSuccess.isDisplayed());
     }
+
     public async ReqSentSuccess() {
         await utility.wait(1000);
         await expect(this.reqSentSuccessGMREM.isDisplayed());
     }
+
     public async OktoRemoveAsset() {
         await utility.wait(1000);
         await expect(this.OKtoremoveAsset.isDisplayed());
@@ -961,10 +1059,10 @@ export class RemovePageObject {
     //#endregion
 
     /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-   
+     * @Author Jansi Victor
+     * @Description  Automation for FAULTY18 Workflow
+     */
+
     //#region Removal Successful 
 
     public async clickonremovalsuccessfulbtn() {
@@ -973,6 +1071,7 @@ export class RemovePageObject {
             await this.RemovalSuccess.click();
         }
     }
+
     public async confirmGasAssetRemoval() {
         await utility.wait(1000);
         await this.confirmgasAssetRemoval.getText().then(function (confirmgasAssetRemovalTxt) {
@@ -983,10 +1082,10 @@ export class RemovePageObject {
     //#endregion
 
     /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-   
+     * @Author Jansi Victor
+     * @Description  Automation for FAULTY18 Workflow
+     */
+
     //#region Gas Asset Removal 
 
     public async fill24GasAssetRemoval() {
@@ -1000,12 +1099,14 @@ export class RemovePageObject {
             await this.GasAssetRemovalY.click();
         }
     }
+
     public async clickonokGasAssetRemoval() {
         await utility.wait(1000);
         if (await this.GasAssetRemovalPopup.isDisplayed()) {
             await this.GasAssetRemovalPopup.click();
         }
     }
+
     public async RemoveCommsHubWindow() {
         await utility.wait(1000);
         await this.RemoveCommsHub.getText().then(function (RemoveCommsHubTxt) {
@@ -1016,10 +1117,10 @@ export class RemovePageObject {
     //#endregion
 
     /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-   
+     * @Author Jansi Victor
+     * @Description  Automation for FAULTY18 Workflow
+     */
+
     //#region REMOVE COMMS HUB 
 
     public async fill27RmvCommsHub() {
@@ -1046,12 +1147,14 @@ export class RemovePageObject {
             await this.FaultidentifiedPostInst.click();
         }
     }
+
     public async clickonNxtBtnRmvCommsHub() {
         await utility.wait(1000);
         if (await this.RemCommsHubNxtBtn.isDisplayed()) {
             await this.RemCommsHubNxtBtn.click();
         }
     }
+
     public async ConfirmHubRmv() {
         await utility.wait(1000);
         await this.ConfirmCommsHubRemoval.getText().then(function (ConfirmCommsHubRemovalTxt) {
@@ -1062,10 +1165,10 @@ export class RemovePageObject {
     //#endregion
 
     /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-   
+     * @Author Jansi Victor
+     * @Description  Automation for FAULTY18 Workflow
+     */
+
     //#region Confirm Comm hub removal
 
     public async fill28ConfirmremovalCommsHub() {
@@ -1079,18 +1182,21 @@ export class RemovePageObject {
             await this.Confirmcommhubassetremove.click();
         }
     }
+
     public async clickonokconfrimremovalpopup() {
         await utility.wait(1000);
         if (await this.ConfirmCommsHubRemovalPopup.isDisplayed()) {
             await this.ConfirmCommsHubRemovalPopup.click();
         }
     }
+
     public async clickonsubmitforRemoval() {
         await utility.wait(1000);
         if (await this.ConfirmCommsHubNxtBtn.isDisplayed()) {
             await this.ConfirmCommsHubNxtBtn.click();
         }
     }
+
     //#endregion
 
     //***************************************************************************************** *//
@@ -1107,9 +1213,9 @@ export class RemovePageObject {
         });
     }
 
-    
-    public async fillcurrentElecmeter(){
-    await utility.wait(1000);
+
+    public async fillcurrentElecmeter() {
+        await utility.wait(1000);
         if (await this.existingelecmeterdtls.isDisplayed()) {
             await this.existingelecmeterdtls.click();
         }
@@ -1121,7 +1227,7 @@ export class RemovePageObject {
             await this.meterReadingElec.click();
         }
     }
-    
+
     //#endregion
 
 //#region Determine faulty for Elec
@@ -1132,17 +1238,21 @@ export class RemovePageObject {
             await this.confirmElecmeterOnsupply.click();
         }
     }
+
     public async ElecmeterSelect() {
         await utility.wait(3000);
         if (await this.elecMeter.isDisplayed()) {
             await this.elecMeterY.click();
         }
     }
+
     public async RmvElecmeterSec() {
         await utility.wait(1000);
-        if(this.ElecRemoveMeter.isDisplayed()){}
-            console.log("REMOVE ELECTRIC METER");
+        if (this.ElecRemoveMeter.isDisplayed()) {
+        }
+        console.log("REMOVE ELECTRIC METER");
     }
+
     public async fillElecmeterrem() {
         await utility.wait(3000);
         if (await this.RemoveElecAssetrplacedorremoved.isDisplayed()) {
@@ -1159,6 +1269,7 @@ export class RemovePageObject {
             await this.removedmeterReading.sendKeys('12345');
         }
     }
+
     public async clickonnxtBtnofElecmeterRemoval() {
         await utility.wait(1000);
         if (await this.ElecremovalNxtBtn.isDisplayed()) {
@@ -1172,6 +1283,7 @@ export class RemovePageObject {
             console.log("Send EMRM" + SendElMREMBtnCapTxt);
         });
     }
+
     public async clickOnsendmsgEMREM() {
         await utility.wait(1000);
         if (await this.SendElMREMBtn.isDisplayed()) {
@@ -1182,30 +1294,36 @@ export class RemovePageObject {
     public async AwaitingResponseEMREM() {
         await utility.wait(60000);
     }
+
     public async Elecremovalsuccessfulbtn() {
         await utility.wait(2000);
         await expect(this.RemovalSuccessElec.isDisplayed());
     }
+
     public async ElecReqSentSuccess() {
         await utility.wait(1000);
         await expect(this.reqSentSuccessEMREM.isDisplayed());
     }
+
     public async ElecOktoRemoveAsset() {
         await utility.wait(1000);
         await expect(this.OKtoremoveAssetElec.isDisplayed());
     }
+
     public async clickonElecremovalsuccessfulbtn() {
         await utility.wait(1000);
         if (await this.RemovalSuccessElec.isDisplayed()) {
             await this.RemovalSuccessElec.click();
         }
     }
+
     public async confirmElecAssetRem() {
         await utility.wait(1000);
         await this.confirmElecAssetRemoval.getText().then(function (confirmElecAssetRemovalTxt) {
             console.log("Confirm Elec Asset Removal" + confirmElecAssetRemovalTxt);
         });
     }
+
     public async fill24ElecAssetRemoval() {
         await utility.wait(1000);
         if (await this.ElecAssetRemoval.isDisplayed()) {
@@ -1217,18 +1335,22 @@ export class RemovePageObject {
             await this.ElecAssetRemovalY.click();
         }
     }
+
     public async clickonokElecAssetRemoval() {
         await utility.wait(1000);
         if (await this.ElecAssetRemovalPopup.isDisplayed()) {
             await this.ElecAssetRemovalPopup.click();
         }
     }
+
     public async clickonElecsubmitforRemoval() {
         await utility.wait(1000);
         if (await this.ConfirmElecCommsHubNxtBtn.isDisplayed()) {
             await this.ConfirmElecCommsHubNxtBtn.click();
         }
     }
+
+
 }
 
 
