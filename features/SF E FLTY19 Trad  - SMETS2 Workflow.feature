@@ -63,9 +63,8 @@ Feature: SF E FLTY19 Trad  - SMETS2 Workflow
 		When I fill the RISK ASSESSMENT - ELEC fields with the values for FLTY19 Trad
 		And I click on CAPTURE PHOTO OF HAZARD IDENTIFIED button for FLTY19 Trad
 		And I click on NEXT SECTION button for FLTY19 Trad
-		Then I should see CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section for FLTY19 Trad
-	
-	#---------------------------------------------------------------------------------------
+		Then I should see CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section for FLTY19 Trad	
+
 	Scenario: Going through "CAPTURE INITIAL PHOTO OF ELEC INSTALLATION" section for FLTY19 Trad
 		Given the CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section for FLTY19 Trad
 		When I click on CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button elec for FLTY19 Trad
@@ -91,7 +90,6 @@ Feature: SF E FLTY19 Trad  - SMETS2 Workflow
 		#And I should see CURRENT METER DETAILS section for FLTY19 Trad		
        Then I should see the page contect display of current meter details for FLTY19 Trad
 
-
     Scenario: Going through "CAPTURE CURRENT METER Elec" section for FLTY19 Trad
 		Given the CAPTURE CURRENT METER section for FLTY19 Trad
 		When I fill capture current meter elec for FLTY19 Trad
@@ -108,8 +106,6 @@ Feature: SF E FLTY19 Trad  - SMETS2 Workflow
 		And I click on NEXT SECT button for FLTY19 Trad
 		And I should see REMOVE ELEC ASSET REMOVAL section for FLTY19 Trad
 
-	# Elect meter removal
-
 	Scenario: Going through "REMOVE ELEC METER" section for FLTY19 Trad
 		Given the REMOVE ELEC ASSET REMOVAL section for FLTY19 Trad
 		When I fill the values for elec removal FLTY19 Trad
@@ -122,9 +118,7 @@ Feature: SF E FLTY19 Trad  - SMETS2 Workflow
 		Then I click on OK btn in Updated window with the text Elec Asset successfully added to Returns list for FLTY19 Trad
 		And I should click on next section for FLTY19 Trad
 		And I should click on submit button for FLTY19 Trad
-
 		And I should see INSTALL COMMS HUB section for FLTY19 Trad
-
 
 	Scenario: Going through "INSTALL COMMS HUB" section for FLTY19 Trad
 		Given the INSTALL COMMS HUB sec for FLTY19 Trad
@@ -160,23 +154,22 @@ Feature: SF E FLTY19 Trad  - SMETS2 Workflow
 		When I fill the Perform DCC Message Creation for EICOM details fields with values for FLTY19 Trad
 		Then I should see Commissioning Successful button for FLTY19 Trad
 
-	Scenario: Confirming "Commissioning Successful"
+	Scenario: Confirming "Commissioning Successful" FLTY19 Trad
 		Given the Commissioning Successful button is displayed for FLTY19 Trad
 		When Commissioning Successful butn clk for FLTY19 Trad
 		Then I should see the "INSTALL PPMID" section for FLTY19 Trad
 		
-	Scenario: Going through "INSTALL PPMID" section
+	Scenario: Going through "INSTALL PPMID" section FLTY19 Trad
 		Given the "INSTALL PPMID" section for FLTY19 Trad
 		When I fill the fields for Install PPMID for FLTY19 Trad
 		Then I should see PPMID COMMISSIONING section for FLTY19 Trad
 
-	Scenario: Going through "PPMID COMMISSIONING" section
+	Scenario: Going through "PPMID COMMISSIONING" section FLTY19 Trad
 		Given the PPMID COMMISSIONING section for FLTY19 Trad
 		When I click on Send Message IHD-PPMID butn for FLTY19 Trad
 		Then I should see PPMID Awaiting Response butn for FLTY19 Trad
 
-	Scenario: Waiting "AWAITING RESPONSE"
-
+	Scenario: Waiting "AWAITING RESPONSE" FLTY19 Trad
 		Given the Awaiting Response butn after ppmid commisioning for FLTY19 Trad
 		When I wait for the button to disappear after PPMID Commisioning for FLTY19 Trad
 		Then I should see PPMID Commissioning Successful button for FLTY19 Trad
@@ -184,44 +177,32 @@ Feature: SF E FLTY19 Trad  - SMETS2 Workflow
 		And I should see PPMID Pair Asset to Comms Hub text message for FLTY19 Trad
 		And I should see Pairing Successful text message for FLTY19 Trad
 
-	Scenario: Confirming "PPMID Commissioning Successful"
-
+	Scenario: Confirming "PPMID Commissioning Successful" FLTY19 Trad
 		Given the PPMID Commissioning Successful button is displayed for FLTY19 Trad
 		When I click on SUB button for FLTY19 Trad
 		Then I should see DEVICE BINDING and COMMISSIONING sec for FLTY19 Trad
 
-
-
-	Scenario: Going through "DEVICE BINDING & COMMISSIONING" section
-
+	Scenario: Going through "DEVICE BINDING & COMMISSIONING" section FLTY19 Trad
 		Given the DEVICE BINDING & COMMISSIONING section for FLTY19 Trad
 		When I fill the fields53 and click next for FLTY19 Trad
 		Then I should see ENERGY EFFICIENCY INFORMATION section for FLTY19 Trad
 
-
-
-	Scenario: Going through "ENERGY EFFICIENCY INFORMATION" section
+	Scenario: Going through "ENERGY EFFICIENCY INFORMATION" section FLTY19 Trad
 		Given the ENERGY EFFICIENCY INFORMATION section for FLTY19 Trad
 		When I fill the fields54 and click next for FLTY19 Trad
 		Then I should see SMART EDUCATION section for FLTY19 Trad
 
-
-
-	Scenario: Going through "SMART EDUCATION" section
+	Scenario: Going through "SMART EDUCATION" section FLTY19 Trad
 		Given the SMART EDUCATION section for FLTY19 Trad
 		When I fill the fields55 and click next for FLTY19 Trad
 		Then I should see SMART LITERATURE LEFT ON SITE section for FLTY19 Trad
 
-
-
-	Scenario: Going through "SMART LITERATURE LEFT ON SITE" section
+	Scenario: Going through "SMART LITERATURE LEFT ON SITE" section FLTY19 Trad
 		Given the SMART LITERATURE LEFT ON SITE section for FLTY19 Trad
 		When I fill the fields56 and click next for FLTY19 Trad
 		Then See CAPTURE CUSTOMER SIGNATURE sec for FLTY19 Trad
 
-
-
-	Scenario: Going through "CAPTURE CUSTOMER SIGNATURE" section
+	Scenario: Going through "CAPTURE CUSTOMER SIGNATURE" section FLTY19 Trad
 		Given the CAPTURE CUSTOMER SIGNATURE section for FLTY19 Trad
 		When I write signature in Customer Signature for FLTY19 Trad
 		And I fill the field57 and Job Complete for FLTY19 Trad
