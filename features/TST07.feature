@@ -75,89 +75,39 @@ Feature: DF FLTY20 Trad No Exchange Workflow
     And I click on the Next button
     Then I should see the Pre Installation Gas Tightness Test section
 
-#     Scenario: Going through "REMOVE IHD/PPMID" section
-#         Given the fltynineteen REMOVE IHD-PPMID section
-#         When I fill the fltynineteen field020 with the Value020
-#         Then I click on fltynineteen OK button in Info window with the text Ensure IHD is Powered On
-#         And I fill the fltynineteen field021 with the Value021
-#         And I click on fltynineteen NEXT SECTION butn in remove IHD
-#         And I should see fltynineteen SEND MESSAGE IHD PPMID section
+  Scenario: Complete Pre-Installation Gas Tightness Test section
+    Given I have accessed the Pre Installation Gas Tightness Test section
+    When I select the value Yes for the Complete Pre-Installation Gas Tightness Test section radio option
+    And I select the value Yes for the Pre Installation-Gas Tightness Test Carried out radio option
+    And I click on the Capture Photo of U-Grade Attached to Gas Meter, showing Pressure in MB button
+    And I select the value Yes for the Was there a drop in pressure radio option
+    And I select the value 1.5 for the Enter DIP Gas Pressure drop-down menu
+    And I select the value U6 - 0.5-4m bars for the Select Meter Type drop-down menu
+    And I select the value Yes for the Can you or Customer Smell Gas radio option
+    And I update the Additional Notes textfield with the value Gas Tested
+    And I select the value GT Issue for the Gas Tightness Test Failure-Outcome? radio option
+    And I select the value Yes for the Reported Incident to GT radio option
+    And I update the National Grid job Ref textfield with the value 1
+    And I select the value Yes for the Reported Incident to H&S radio option
+    And I update the AIRline Ref. No. textfield with the value 2
+    And I select the value Yes for the Need to wait for the GT Attendance on Site radio option
+    And I select the value Yes for the GT Resolve Issue radio option
+    And I click on the Submit button
+    Then I should see the Perform Additional Electricity Tests & Checks section
 
-
-#     Scenario: Going through "SEND MESSAGE IHD / PPMID" section
-#         Given the fltynineteen SEND MESSAGE IHD-PPMID section
-#         When I click on fltynineteen Send Message IHD PPMID button
-#         Then I should see fltynineteen Awaiting Response button
-
-
-#     Scenario: Waiting "AWAITING RESPONSE"
-#         Given the fltynineteen Awaiting Response button
-#         When I wait for fltynineteen the butn to disappear
-#         Then I should see fltynineteen PPMID Removal Successful button
-#         And I should see fltynineteen Request Sent Successfully text message
-#         And I should see fltynineteen Asset Unjoined text message
-
-#     Scenario: Confirming "PPMID Removal Successful"
-#         Given the fltynineteen PPMID Removal Successful button is displayed
-#         When I click on fltynineteen PPMID Removal Successful button
-#         Then I should see fltynineteen CONFIRM IHD PPMID ASSET REMOVAL section
-
-#     Scenario: Going through "CONFIRM IHD-PPMID ASSET REMOVAL" section
-#         Given the fltynineteen CONFIRM IHD-PPMID ASSET REMOVAL section
-#         When I fill the fltynineteen field22 with the Value22
-#         Then I clk fltynineteen OK button in Updated window with the text Asset successfully added to Returns list
-#         And I should see fltynineteen REMOVE METER section
-
-
-#     Scenario: Going through "REMOVE METER" section
-#         Given the fltynineteen REMOVE METER section
-#         When I fill the fltynineteen field023 with the Value023
-#         And I clk fltynineteen remove meter NEXT SECTION button
-#         Then I should see fltynineteen SEND MESSAGE EMREM section
-
-
-#     Scenario: Going through "SEND MESSAGE EMREM" section
-#         Given the fltynineteen SEND MESSAGE EMREM section
-#         When I click on fltynineteen Send Message EMREM button
-#         Then I should see fltynineteen Awaiting Response button
-
-
-#     Scenario: Waiting "AWAITING RESPONSE"
-#         Given the fltynineteen Awaiting Response button
-#         When I wait for fltynineteen the butn to disappear
-#         Then I should see fltynineteen Removal Successful button
-#         And I should see fltynineteen Request Sent Successfully text message
-#         And I should see fltynineteen OK to Remove Asset text message
-
-
-#     Scenario: Confirming "Removal Successful"
-#         Given the fltynineteen Removal Successful button is displayed
-#         When I click on fltynineteen Removal Successful button
-#         Then I should see fltynineteen CONFIRM ELECTRIC ASSET REMOVAL section
-
-
-#     Scenario: Going through "CONFIRM ELECTRIC ASSET REMOVAL" section
-#         Given the fltynineteen CONFIRM ELEC ASSET REMOVAL section
-#         When I fill the fltynineteen field024 with the Value024
-#         And Click ok on asset removal
-#         Then I should see fltynineteen REMOVE COMMS HUB window
-
-
-#     Scenario: Going through "REMOVE COMMS HUB" section
-#         Given the fltynineteen REMOVE COMMS HUB section
-#         When I fill the fltynineteen field027 with the Value027
-#         And I click on fltynineteen NEXT SEC button from Remove Comms Hub
-#         Then I should see fltynineteen CONFIRM COMMS HUB REMOVAL section
-
-#     Scenario: Going through "CONFIRM COMMS HUB REMOVAL" section
-#         Given the fltynineteen CONFIRM COMMS HUB REMOVAL section
-#         When I fill the fltynineteen field028 with the Value028
-#         And I click OK fltynineteen button in Updated window with the text Asset successfully added to Returns list in the final step
-#         And I clk fltynineteen SUBMIT to Install
-#         Then I should see fltynineteen INSTALL COMMS HUB section
-
-#     Scenario: Going through "INSTALL COMMS HUB" section
-#         Given the fltynineteen INSTALL COMMS HUB section
-#         When I fill the fltynineteen field029 with the Valuek029
-#         Then I should see fltynineteen send message xchub
-
+  Scenario: Complete Performed Additional Electricity Tests & Checks section
+    Given I have accessed the Perform Additional Electricity Tests & Checks section
+    When I select the value Yes for the Terminal Screw Tightness Checked radio option
+    And I click on the Capture Photo of Terminal Screws button
+    And I select the value Yes for the All Seals Intact – Including Blocks & Isolators radio option
+    And I select the value Yes for the All Ports Sealed radio option
+    And I select the value Yes for the Approved Siemens Cable Markers installed radio option
+    And I select the value Yes for the Visual Inspection Completed radio option
+    And I select the value 1. L N N L for the Cable Marker drop-down menu
+    And I select the value TN-C-S for the Earth Type drop-down menu
+    And I select the value Yes for the Replacement Meter Board radio option
+    And I select the value No for the Meter Tails Changed radio option
+    And I select the value No for the Replaced Main Fuse radio option
+    And I select the value Yes for the Emergency Job radio option
+    And I click on the Next button
+    Then I should see the Post Installation Checks section
