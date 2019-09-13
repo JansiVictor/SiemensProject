@@ -204,6 +204,10 @@ export class InstallPageObject {
     public EUIenableOK1: ElementFinder;
     public EUIenableOKTRAD: ElementFinder;
 
+    // CGP added 13/09
+    public AssetsuccessOKclkTRAD: ElementFinder;
+    public PPMIDSubmitTRAD: ElementFinder;
+
     constructor() {
 
         //#region Install Comms Hub
@@ -443,7 +447,12 @@ export class InstallPageObject {
 
         this.CaptureMeterReadingenableok1 = element(by.xpath('(//*[contains(text(),"Capture Meter Reading - Register (null)")])[2]'));
         this.EUIenableOK1 = element(by.xpath('(//*[contains(text(),"EUI Device ID:")])[3]'));
-        this.EUIenableOKTRAD = element(by.xpath('//*[contains(text(),"EUI Device ID:")]'));
+        this.EUIenableOKTRAD = element(by.xpath('(//*[contains(text(),"EUI Device ID:")])[2]'));
+        
+        // CGP added 13/09
+        this.AssetsuccessOKclkTRAD = element(by.xpath('//button[@class = "confirm"]'));
+        this.PPMIDSubmitTRAD = element(by.xpath('//*[@id="btn1"]'));
+
 
     }
     public async dummy() {
@@ -916,6 +925,9 @@ export class InstallPageObject {
             await this.commisioningSuccessful.click();
         }
     }
+
+
+
     /**
   * @Author Jansi Victor
   * @Description UAT Automation for FAULTY18 Workflow
@@ -1648,13 +1660,31 @@ public async filltheduelforseePPMIDsectionTRAD(index: number) {
     if (await this.EUIenableOKTRAD.isDisplayed()) {
         await this.EUIenableOKTRAD.click();
     }
-    await utility.wait(2000);
-    if (await this.AssetsuccessOKclk.isDisplayed()) {
-        await this.AssetsuccessOKclk.click();
+    await utility.wait(5000);
+    if (await this.AssetsuccessOKclkTRAD.isDisplayed()) {
+        await this.AssetsuccessOKclkTRAD.click();
     }
-    await utility.wait(2000);
+    await utility.wait(3000);
     if (await this.InstallPPMIDNextSection.isDisplayed()) {
         await this.InstallPPMIDNextSection.click();
+    }
+}
+
+public async clickonSUBbtnTRAD() {
+    await utility.wait(2000);
+    if (await this.PPMIDcommsuccessfulbtn.isDisplayed()) {
+        await this.PPMIDcommsuccessfulbtn.click();
+    }
+    await utility.wait(2000);
+    if (await this.PPMIDSubmitTRAD.isDisplayed()) {
+        await this.PPMIDSubmitTRAD.click();
+    }
+}
+
+public async clickonCommissioningTRAD() {
+    await utility.wait(2000);
+    if (await this.EICOMcommsuccess.isDisplayed()) {
+        await this.EICOMcommsuccess.click();
     }
 }
 
