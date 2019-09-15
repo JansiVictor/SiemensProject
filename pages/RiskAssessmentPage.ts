@@ -618,14 +618,15 @@ export class RiskAssessmentPageObject {
         }
 
         var until = ExpectedConditions;
-        browser.wait(until.elementToBeClickable(this.polarityCheckCutOutYES), 5000);
-        await this.polarityCheckCutOutYES.click();
+        browser.wait(until.elementToBeClickable(this.polarityCheckCutOutYES), 6000);
+        browser.wait(until.elementToBeClickable(this.polarityCheckAtMeter), 6000);
 
-        browser.wait(until.elementToBeClickable(this.polarityCheckAtMeter), 5000);
         try{
+            await this.polarityCheckCutOutYES.click();
             await this.polarityCheckAtMeter.click();
         }
         catch (e) {
+            await this.polarityCheckCutOutYES.click();
             await this.polarityCheckAtMeter.click();
         }
         await utility.wait(2000);
@@ -676,7 +677,6 @@ export class RiskAssessmentPageObject {
     }
 
     public async INFOOK() {
-
         await expect(this.infoOkbutn.isPresent());
     }
 
@@ -696,8 +696,6 @@ export class RiskAssessmentPageObject {
         }
         await utility.wait(1000);
     }
-
-
 }
 
 

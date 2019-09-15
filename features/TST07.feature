@@ -77,37 +77,25 @@ Feature: DF FLTY20 Trad No Exchange Workflow
 
   Scenario: Complete Pre-Installation Gas Tightness Test section
     Given I have accessed the Pre Installation Gas Tightness Test section
-    When I select the value Yes for the Complete Pre-Installation Gas Tightness Test section radio option
-    And I select the value Yes for the Pre Installation-Gas Tightness Test Carried out radio option
+    When I select the value Yes for the Pre Installation-Gas Tightness Test Carried out radio option
     And I click on the Capture Photo of U-Grade Attached to Gas Meter, showing Pressure in MB button
     And I select the value Yes for the Was there a drop in pressure radio option
-    And I select the value 1.5 for the Enter DIP Gas Pressure drop-down menu
-    And I select the value U6 - 0.5-4m bars for the Select Meter Type drop-down menu
-    And I select the value Yes for the Can you or Customer Smell Gas radio option
-    And I update the Additional Notes textfield with the value Gas Tested
-    And I select the value GT Issue for the Gas Tightness Test Failure-Outcome? radio option
-    And I select the value Yes for the Reported Incident to GT radio option
-    And I update the National Grid job Ref textfield with the value 1
-    And I select the value Yes for the Reported Incident to H&S radio option
-    And I update the AIRline Ref. No. textfield with the value 2
-    And I select the value Yes for the Need to wait for the GT Attendance on Site radio option
-    And I select the value Yes for the GT Resolve Issue radio option
-    And I click on the Submit button
+    And I complete the remainder of the Pre Installation Gas Tightness form with values
     Then I should see the Perform Additional Electricity Tests & Checks section
 
-  Scenario: Complete Performed Additional Electricity Tests & Checks section
-    Given I have accessed the Perform Additional Electricity Tests & Checks section
-    When I select the value Yes for the Terminal Screw Tightness Checked radio option
-    And I click on the Capture Photo of Terminal Screws button
-    And I select the value Yes for the All Seals Intact – Including Blocks & Isolators radio option
-    And I select the value Yes for the All Ports Sealed radio option
-    And I select the value Yes for the Approved Siemens Cable Markers installed radio option
-    And I select the value Yes for the Visual Inspection Completed radio option
-    And I select the value 1. L N N L for the Cable Marker drop-down menu
-    And I select the value TN-C-S for the Earth Type drop-down menu
-    And I select the value Yes for the Replacement Meter Board radio option
-    And I select the value No for the Meter Tails Changed radio option
-    And I select the value No for the Replaced Main Fuse radio option
-    And I select the value Yes for the Emergency Job radio option
-    And I click on the Next button
-    Then I should see the Post Installation Checks section
+  #Scenario: Complete Performed Additional Electricity Tests & Checks section
+    #Given I have accessed the Perform Additional Electricity Tests & Checks section
+    #When I select the value Yes for the Terminal Screw Tightness Checked radio option
+    #And I click on the Capture Photo of Terminal Screws button
+    #And I select the value Yes for the All Seals Intact – Including Blocks & Isolators radio option
+    #And I select the value Yes for the All Ports Sealed radio option
+    #And I select the value Yes for the Approved Siemens Cable Markers installed radio option
+    #And I select the value Yes for the Visual Inspection Completed radio option
+    #And I select the value 1. L N N L for the Cable Marker drop-down menu
+    #And I select the value TN-C-S for the Earth Type drop-down menu
+    #And I select the value Yes for the Replacement Meter Board radio option
+    #And I select the value No for the Meter Tails Changed radio option
+    #And I select the value No for the Replaced Main Fuse radio option
+    #And I select the value Yes for the Emergency Job radio option
+    #And I click on the Next button
+    #Then I should see the Post Installation Checks section

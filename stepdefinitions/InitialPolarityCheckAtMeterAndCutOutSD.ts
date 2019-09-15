@@ -14,6 +14,7 @@ Then('I should see Initial Polarity Check - At Meter And Cut Out button', async 
 });
 
 Given('I have accessed the Initial Polarity Check - At Meter And Cut Out section', async function () {
+
 });
 
 When('I update Initial Polarity Check - At Meter And Cut Out controls with values', async function () {

@@ -23,6 +23,7 @@ export class RemovePageObject {
     private confirmgasmeterOnsupply1: ElementFinder;
     private confirmgasmeterOnsupply2: ElementFinder;
     private determineFaultActivityNextBtn: ElementFinder;
+    private capturePhotoOfUGaugeAttachedToGasMeterBtn: ElementFinder;
 
     public ctihdppmidDtl: ElementFinder;
     public smet2ihdppidText: ElementFinder;
@@ -261,8 +262,8 @@ export class RemovePageObject {
         this.ihdPpmidY = element(by.xpath('//input[@id="ihdppmidexdfa"]/following-sibling::span[@class="cr"]'));
         this.commshubNextbtn = element(by.id('btnNextComm'));
         this.preInstgastightnessTest = element(by.xpath('//div/h4[text()="Pre Installation Gas Tightness Test"]'));
-        this.preinstGasTightness = element(by.xpath('//*[contains(text(),"Pre Installation - Gas Tightness Test carried Out?")]'));
-        this.preinstGasTightnessY = element(by.xpath('//*[@id="rb_PreGasTigTCarOut_y"]/span[@class="outer"]'));
+        this.preinstGasTightness = element(by.xpath("//*[contains(text(),'Pre Installation - Gas Tightness Test carried Out?')]"));
+        this.preinstGasTightnessY = element(by.xpath("//label[@id='rb_PreGasTigTCarOut_y']//span[@class='outer']"));
         //#endregion
 
         //#region Pre installation gas tightnes
@@ -292,6 +293,7 @@ export class RemovePageObject {
         this.capctmeterReadingPanel = element(by.xpath('(//*[contains(text(),"Capture Current Meter Reading")])[1]'));
         this.btnnext = element(by.xpath('(//*[@id="btnNextComm"])[2]'));
         this.ctmeterdtlGasNxt = element(by.id('btn_Next_read'));
+        this.capturePhotoOfUGaugeAttachedToGasMeterBtn = element(by.xpath("//button[contains(text(),'CAPTURE PHOTO OF U-GAUGE ATTACHED TO GAS METER, SH')]"));
         //#endregion
 
         //#region Remove Ihd-ppmid */
@@ -562,6 +564,13 @@ export class RemovePageObject {
         await utility.wait(1000);
         if (await this.capexistcommshubInstall.isDisplayed()) {
             await this.capexistcommshubInstall.click();
+        }
+    }
+
+    public async capturePhotoOfUGaugeAttachedToGasMeter() {
+        await utility.wait(1000);
+        if (await this.capturePhotoOfUGaugeAttachedToGasMeterBtn.isDisplayed()) {
+            await this.capturePhotoOfUGaugeAttachedToGasMeterBtn.click();
         }
     }
 
