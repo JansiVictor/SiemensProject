@@ -94,10 +94,10 @@ export class JobCompletionPageObject {
         this.jobCompletesub = element(by.xpath('//*[@id="btn_Comp_submit"]'));
         this.signpad = element(by.xpath('//*[@id="signaturePad"]'));
 
-        this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob5JJFAULTY 20")]'));
+        this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob4JFAULTY 20")]'));
 
         this.summaryCap = element(by.xpath('//div/h4[contains(text(),"SUMMARY")]'));
-        this.TST12jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob5JJFAULTY 18")]'));
+        this.TST12jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob4JFAULTY 18")]'));
 
         //TST13
 

@@ -210,6 +210,8 @@ export class InstallPageObject {
 
     public PPMIDofferedNo: ElementFinder;
     public InstallPPMIDNotOfferedAddNote: ElementFinder;
+    public Tst15selectValidAssettoInst: ElementFinder;
+    public Tst15gasmeterserialSendregList: ElementFinder;
 
 
     constructor() {
@@ -460,6 +462,11 @@ export class InstallPageObject {
         this.TightnessIssueN = element(by.xpath('//*[@id="gtp12"]/following-sibling::span[@class="outer"]'));
         this.PPMIDofferedNo = element(by.xpath('//*[@id="ihdPpmidOfferedfalse"]/following-sibling::span[@class="outer"]'));
         this.InstallPPMIDNotOfferedAddNote = element(by.xpath('(//*[@id="newihdppmid_textIhdPpmidNotOffered"])'));
+
+        //TST15 FLTY 18 Non SMETS2
+
+        this.Tst15selectValidAssettoInst = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[1]'));
+        this.Tst15gasmeterserialSendregList = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[1])/option)[2]'));
     }
     public async dummy() {
 
@@ -1873,5 +1880,143 @@ public async TST13InstallPPMIDbypass(){
         if (await this.InstallPPMIDNextSection.isDisplayed()) {
             await this.InstallPPMIDNextSection.click();
         }     
+}
+
+//TST15 FLTY 18
+
+public async TST15fillthefieldsfornewregulator(index: number) {
+    await utility.wait(1000);
+    if (await this.HasGasRegulatorReplacedY.isDisplayed()) {
+        await this.HasGasRegulatorReplacedY.click();
+    }
+    await utility.wait(1000);
+    if (await this.Tst15selectValidAssettoInst.isDisplayed()) {
+        var select = this.Tst15selectValidAssettoInst;
+        select.$('[value="MA6NC181323805"]').click();
+    }
+    await utility.wait(1000);
+    if (await this.gasmeterserialSendreg.isDisplayed()) {
+        await this.gasmeterserialSendreg.clear();
+        await this.gasmeterserialSendreg.sendKeys("MA6NC181323805");
+    }
+    await utility.wait(1000);
+    if (await this.RegularclickenableOK.isDisplayed()) {
+        await this.RegularclickenableOK.click();
+    }
+    await utility.wait(1000);
+    if (await this.AssetaddedtowallNewReg.isDisplayed()) {
+        await this.AssetaddedtowallNewReg.click();
+    }
+    await utility.wait(1000);
+    if (await this.nextSecnewRegulator.isDisplayed()) {
+        await this.nextSecnewRegulator.click();
+    }
+}
+
+public async Tst15fillthefieldsforperformpostinst() {
+    await utility.wait(2000);
+    if (await this.ContactGTY.isDisplayed()) {
+        await this.ContactGTY.click();
+    }
+    await utility.wait(1000);
+    if (await this.NationalGridSend.isDisplayed()) {
+        await this.NationalGridSend.clear();
+        await this.NationalGridSend.sendKeys("1");
+    }
+    await utility.wait(2000);
+    if (await this.HandSAirline.isDisplayed()) {
+        await this.HandSAirline.click();
+    }
+    await utility.wait(1000);
+    if (await this.Airlineref1.isDisplayed()) {
+        await this.Airlineref1.clear();
+        await this.Airlineref1.sendKeys("2");
+    }
+    await utility.wait(2000);
+    if (await this.GTAttendenceOnsiteY.isDisplayed()) {
+        await this.GTAttendenceOnsiteY.click();
+    }
+    await utility.wait(2000);
+    if (await this.GTresolveIssueY.isDisplayed()) {
+        await this.GTresolveIssueY.click();
+    }
+    await utility.wait(2000);
+    if (await this.TightnessIssueY.isDisplayed()) {
+        await this.TightnessIssueY.click();
+    }
+    await utility.wait(2000);
+    if (await this.cappedgascooker.isDisplayed()) {
+        await this.cappedgascooker.click();
+    }
+    await utility.wait(1000);
+    if (await this.addnlnote.isDisplayed()) {
+        await this.addnlnote.clear();
+        await this.addnlnote.sendKeys("Gas Notes");
+    }
+    await utility.wait(2000);
+    if (await this.ReplacedGasMeterY.isDisplayed()) {
+        await this.ReplacedGasMeterY.click();
+    }
+    await utility.wait(2000);
+    if (await this.ReplacedGasregulatorY.isDisplayed()) {
+        await this.ReplacedGasregulatorY.click();
+    }
+    await utility.wait(2000);
+    if (await this.TightnessperformedY.isDisplayed()) {
+        await this.TightnessperformedY.click();
+    }
+    await utility.wait(2000);
+    if (await this.cappostinstallation.isDisplayed()) {
+        await this.cappostinstallation.click();
+    }
+    await utility.wait(2000);
+    if (await this.Dropinpressure.isDisplayed()) {
+        await this.Dropinpressure.click();
+    }
+    await utility.wait(1000);
+    if (await this.dropinpressureselect.isDisplayed()) {
+        var select = this.dropinpressureselect;
+        select.$('[value="2"]').click();
+    }
+    await utility.wait(1000);
+    if (await this.selectMeterType.isDisplayed()) {
+        var select = this.selectMeterType;
+        select.$('[value="2"]').click();
+    }
+    await utility.wait(2000);
+    if (await this.GasTightnessPassed.isDisplayed()) {
+        await this.GasTightnessPassed.click();
+    }
+    await utility.wait(1000);
+    if (await this.TestWitness.isDisplayed()) {
+        await this.TestWitness.clear();
+        await this.TestWitness.sendKeys("Ellie Taylor");
+    }
+    await utility.wait(1000);
+    if (await this.standingPressure.isDisplayed()) {
+        await this.standingPressure.clear();
+        await this.standingPressure.sendKeys("1.1");
+    }
+    await utility.wait(2000);
+    if (await this.cappostinstallationpressure.isDisplayed()) {
+        await this.cappostinstallationpressure.click();
+    }
+    await utility.wait(1000);
+    if (await this.workingPressure.isDisplayed()) {
+        await this.workingPressure.clear();
+        await this.workingPressure.sendKeys("1.5");
+    }
+    await utility.wait(2000);
+    if (await this.captureworkingPressure.isDisplayed()) {
+        await this.captureworkingPressure.click();
+    }
+    await utility.wait(2000);
+    if (await this.captureFinalMeterInstall.isDisplayed()) {
+        await this.captureFinalMeterInstall.click();
+    }
+    await utility.wait(2000);
+    if (await this.PostinstallNext.isDisplayed()) {
+        await this.PostinstallNext.click();
+    }
 }
 }
