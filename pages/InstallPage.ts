@@ -31,8 +31,16 @@ export class InstallPageObject {
     private capturePhotosOfTerminalScrewsBtn: ElementFinder
     private addElecTestsNextBtn: ElementFinder
     private postInstallationChecksText: ElementFinder
-
-
+    private carryOutPolarityCheckAtMeterTrueRadioOption: ElementFinder
+    private carryOutPolarityCheckWithPlugInTestDeviceDropDownMenu: ElementFinder
+    private confirmSocketSafetyTestPassedTrueRadioOption: ElementFinder
+    private testWitnessNameTextfield: ElementFinder
+    private capturePhotoOfMartindaleTestBtn: ElementFinder
+    private capturePhotoOfFinalMeterInstallBtn: ElementFinder
+    private capturePhotoOfCloseUpOfMeterBtn: ElementFinder
+    private postInstallChecksNextBtn: ElementFinder
+    private commissioningText: ElementFinder
+    private postInstallChecksAdditionalNotesTextfield: ElementFinder
 
     public installcommsHub: ElementFinder
     public commshubReqY: ElementFinder
@@ -173,6 +181,16 @@ export class InstallPageObject {
         this.capturePhotosOfTerminalScrewsBtn = element(by.xpath("//button[contains(text(),'CAPTURE PHOTO OF TERMINAL SCREWS')]"));
         this.addElecTestsNextBtn  = element(by.xpath("//button[@id='btn_Next_PostC']"));
         this.postInstallationChecksText = element(by.xpath("//h4[contains(text(),'Post Installation Checks')]"));
+        this.carryOutPolarityCheckAtMeterTrueRadioOption = element(by.xpath("//label[@id='rb_CarOutPolCk_y']"));
+        this.carryOutPolarityCheckWithPlugInTestDeviceDropDownMenu = element(by.xpath("//select[@id='cbx_PolChkplg_sel']"));
+        this.confirmSocketSafetyTestPassedTrueRadioOption = element(by.xpath("//label[text()='PASS']"));
+        this.testWitnessNameTextfield = element(by.xpath("//input[@id='txt_TestWtn']"));
+        this.capturePhotoOfMartindaleTestBtn = element(by.xpath("//button[@id='btn_CapPhoMart_test']"));
+        this.capturePhotoOfFinalMeterInstallBtn = element(by.xpath("//button[@id='btn_CapPhoFinMet_inst']"));
+        this.capturePhotoOfCloseUpOfMeterBtn = element(by.xpath("//button[@id='btn_CapPhoCloUp_met']"));
+        this.postInstallChecksNextBtn = element(by.xpath("//button[@id='btnNextComm']"));
+        this.commissioningText = element(by.xpath("//h4[contains(text(),'Commissioning')]"));
+        this.postInstallChecksAdditionalNotesTextfield = element(by.xpath("//textarea[@id='postpolnotes']"));
 
         //#region Install Comms Hub
         this.installcommsHub = element(by.xpath('//div/h4[text()="Install Comms Hub"]'));
@@ -346,7 +364,7 @@ export class InstallPageObject {
 
     public async setTerminalScrewTightnessCheckedTrueRadioOption() {
         await this.terminalScrewTightnessCheckedTrueRadioOption.click();
-        await utility.wait(3000);
+        await utility.wait(1000);
     }
 
     public async setAllSealsIntactTrueRadioOption() {
@@ -433,6 +451,73 @@ export class InstallPageObject {
         await this.postInstallationChecksText.getText().then(function (postInstallTxt) {
             console.log("Arrived at : " + postInstallTxt);
         });
+    }
+
+    public async setCarryOutPolarityCheckAtMeterTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.carryOutPolarityCheckAtMeterTrueRadioOption.isDisplayed()) {
+            this.carryOutPolarityCheckAtMeterTrueRadioOption.click();
+        }
+    }
+
+    public async setCarryOutPolarityCheckWithPlugInTestDeviceDropDownMenu() {
+        await utility.wait(1000);
+        if (this.carryOutPolarityCheckWithPlugInTestDeviceDropDownMenu.isDisplayed()) {
+            var select = this.carryOutPolarityCheckWithPlugInTestDeviceDropDownMenu;
+            select.$("[value='true']").click();
+        }
+    }
+
+    public async setConfirmSocketSafetyTestPassedTrueRadioOption() {
+        await this.postInstallChecksAdditionalNotesTextfield.sendKeys("Polarity tested with plug in test device");
+        await utility.wait(1000);
+        if (this.confirmSocketSafetyTestPassedTrueRadioOption.isDisplayed()) {
+            this.confirmSocketSafetyTestPassedTrueRadioOption.click();
+        }
+    }
+
+    public async clickOnCapturePhotoOfMartindaleTestBtn() {
+        await utility.wait(1000);
+        if (this.capturePhotoOfMartindaleTestBtn.isDisplayed()) {
+            this.capturePhotoOfMartindaleTestBtn.click();
+        }
+    }
+
+    public async clickOnCapturePhotoOfFinalMeterInstallBtn() {
+        await utility.wait(1000);
+        if (this.capturePhotoOfFinalMeterInstallBtn.isDisplayed()) {
+            this.capturePhotoOfFinalMeterInstallBtn.click();
+        }
+    }
+
+    public async clickOnCapturePhotoOfCloseUpOfMeterBtn() {
+        await utility.wait(1000);
+        if (this.capturePhotoOfCloseUpOfMeterBtn.isDisplayed()) {
+            this.capturePhotoOfCloseUpOfMeterBtn.click();
+        }
+    }
+
+    public async setTestWitnessNameTextfield() {
+        await utility.wait(1000);
+        if (this.testWitnessNameTextfield.isDisplayed()) {
+            this.testWitnessNameTextfield.sendKeys("Johny Vegas");
+        }
+    }
+
+    public async clickOnPostInstallationChecksNextBtn() {
+        await utility.wait(1000);
+        if (await this.postInstallChecksNextBtn.isDisplayed()) {
+            await this.postInstallChecksNextBtn.click();
+        }
+    }
+
+    public async validateCommissioningSectionIsVisible() {
+        await utility.wait(1000);
+        if (await this.commissioningText.isDisplayed()) {
+            await this.commissioningText.getText().then(function (installKitTxt) {
+                console.log("Arrived at : " + installKitTxt);
+            });
+        }
     }
 
     public async dummy() {
@@ -710,7 +795,7 @@ export class InstallPageObject {
             await this.T1Aerialinput1.clear();
             await this.T1Aerialinput1.sendKeys("2");
         }
-        await utility.wait(2000);
+        await utility.wait(1000);
         if (await this.InstallKitNextSection.isDisplayed()) {
             await this.InstallKitNextSection.click();
         }

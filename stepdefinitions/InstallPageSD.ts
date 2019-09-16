@@ -68,7 +68,50 @@ Then('I click on the Next button in the Additional Electricity Tests & Checks se
     await installPage.clickOnAdditionalElectricityTestsNextBtn();
 });
 
+Given('I have accessed Post Installation Checks section', async function () {
+    await installPage.validatePostInstallationChecksSectionIsVisible();
+});
+
 Then('I should see the Post Installation Checks section', async function () {
     await installPage.validatePostInstallationChecksSectionIsVisible();
 });
 
+When('I select the value Yes for the Carry Out Polarity Check at Meter radio option', async function () {
+    await installPage.setCarryOutPolarityCheckAtMeterTrueRadioOption();
+});
+
+Then('I select the value Polarity tested with plug in option from Carry Out Polarity Check with Plug In Test Device drop-down menu', async function () {
+    await installPage.setCarryOutPolarityCheckWithPlugInTestDeviceDropDownMenu();
+});
+
+Then('I select the value PASS for the Confirm Socket Safety Test Passed radio option', async function () {
+    await installPage.setConfirmSocketSafetyTestPassedTrueRadioOption();
+});
+
+Then('I update the Test Witness Name textfield with the value Johny Vegas', async function () {
+    await installPage.setTestWitnessNameTextfield();
+});
+
+Then('I click on the Capture Photo of Martindale Test button', async function () {
+    await  installPage.clickOnCapturePhotoOfMartindaleTestBtn();
+});
+
+Then('I click on the Capture Photo of Final Meter Installation button', async function () {
+    await  installPage.clickOnCapturePhotoOfFinalMeterInstallBtn();
+});
+
+Then('I click on the Capture Photo of Close Up of Meter Witness Sticker button', async function () {
+    await installPage.clickOnCapturePhotoOfCloseUpOfMeterBtn();
+});
+
+Then('I click on the Next button in the Post Installation Checks Section', async function () {
+    await installPage.clickOnPostInstallationChecksNextBtn();
+});
+
+Given('I have accessed the Commissioning section', async function () {
+    await installPage.validateCommissioningSectionIsVisible();
+});
+
+Then('I should see the Commissioning section', async function () {
+    await installPage.validateCommissioningSectionIsVisible();
+});

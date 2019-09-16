@@ -100,3 +100,18 @@ Feature: DF FLTY20 Trad No Exchange Workflow
     And I select the value Yes for the Emergency Job radio option
     And I click on the Next button in the Additional Electricity Tests & Checks section
     Then I should see the Post Installation Checks section
+
+  Scenario: Complete Post Installation Checks section
+    Given I have accessed Post Installation Checks section
+    When I select the value Yes for the Carry Out Polarity Check at Meter radio option
+    And I select the value Polarity tested with plug in option from Carry Out Polarity Check with Plug In Test Device drop-down menu
+    And I select the value PASS for the Confirm Socket Safety Test Passed radio option
+    And I update the Test Witness Name textfield with the value Johny Vegas
+    And I click on the Capture Photo of Martindale Test button
+    And I click on the Capture Photo of Final Meter Installation button
+    And I click on the Capture Photo of Close Up of Meter Witness Sticker button
+    And I click on the Next button in the Post Installation Checks Section
+    Then I should see the Commissioning section
+
+  Scenario: Complete the Commissioning section
+    Given I have accessed the Commissioning section
