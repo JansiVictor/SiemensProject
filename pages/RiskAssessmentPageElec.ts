@@ -506,6 +506,7 @@ export class RiskAssessmentPageElecObject {
 ***/
 
 	public async verifysuitableforSmartMeterInstallation() {
+		await utility.wait(5000);
 		if (await this.suitableSmartInstalationText.isDisplayed()) {
 			this.suitableSmartInstalationText.getText().then(function (suitableSmartInstalation) {
 				console.log("find suitableSmartInstalation Text  " + suitableSmartInstalation);
@@ -519,6 +520,7 @@ export class RiskAssessmentPageElecObject {
 ***/
 
 	public async suitableforSmartMeterInstallation() {
+		await utility.wait(5000);
 		if (await this.suitableForSmartInstallationYes.isDisplayed()) {
 			await this.suitableForSmartInstallationYes.click();
 		}
@@ -553,6 +555,7 @@ export class RiskAssessmentPageElecObject {
 ***/ 
 
 	public async clickSmartInstallationNextBtn() {
+		await utility.wait(5000);
 		if (await this.smartInstallationNextBtn.isDisplayed()) {
 			await this.smartInstallationNextBtn.click();
 			await utility.wait(2000);
@@ -565,6 +568,7 @@ export class RiskAssessmentPageElecObject {
 ***/
 
 	public async fillthePolarityCheckMeterOut() {
+		await utility.wait(5000);
 		await expect(this.polarityCheckCutOutYES.isPresent());
 		await this.polarityCheckCutOutYES.click();
 		await utility.wait(1000);
@@ -590,6 +594,7 @@ export class RiskAssessmentPageElecObject {
 ***/   
 
 	public async verifyCurrentMeterDetails() {
+		await utility.wait(5000);
 		await expect(this.currentMeterDetailsText.isPresent());
 		await this.currentMeterDetailsText.getText().then(function (currentMeterDetails) {
 			console.log("find currentMeterDetails Text  " + currentMeterDetails);
@@ -739,21 +744,21 @@ export class RiskAssessmentPageElecObject {
 
 		if (await this.arealInstalledYes.isDisplayed()) {
 			await this.arealInstalledYes.click();
-			await utility.wait(1000);
+			await utility.wait(4000);
 		}
 		if (await this.commHubConnectionDD.isDisplayed()) {
 			var select = this.commHubConnectionDD;
 			select.$('[value="2"]').click();
 		}
-		await utility.wait(3000);
+		await utility.wait(4000);
 
 		if (await this.captureCommsHub.isDisplayed()) {
 			await this.captureCommsHub.click();
-			await utility.wait(1000);
+			await utility.wait(2000);
 		}
 		if (await this.commHubLocNxtBtn.isDisplayed()) {
 			await this.commHubLocNxtBtn.click();
-			await utility.wait(1000);
+			await utility.wait(2000);
 		}
 	}
 }
@@ -764,7 +769,8 @@ export class RiskAssessmentPageElecObject {
 ***/
 
 	public async newMeterDetailsDisplayed() {
-		await expect(this.NewMeterDetailsText.isPresent());
+		await utility.wait(4000); // CGP added
+		//await expect(this.NewMeterDetailsText.isDisplayed());
 		await this.NewMeterDetailsText.getText().then(function (NewMeterDetails) {
 			console.log("find NewMeterDetails Text  " + NewMeterDetails);
 		});
@@ -800,11 +806,13 @@ export class RiskAssessmentPageElecObject {
 		console.log("Selecting element based index : "+index)
 		// select the option
 		await this.newMeterDD.element(by.css("option:nth-child("+index+")")).click()
-		await utility.wait(3000);
+		await utility.wait(5000);
 				//await this.commshubPopup.click();
 			
 			await expect(await this.inputelecSerialNum.isPresent());
+			await utility.wait(5000);
 			var options = this.selectinstallMeterOption.getAttribute('value');
+			await utility.wait(3000);
 			await this.inputelecSerialNum.sendKeys(options);
 		
 		await this.randomEUDevice.click();
@@ -814,11 +822,15 @@ export class RiskAssessmentPageElecObject {
 		await utility.wait(2000);
 
 		await this.commshubPopup.click();
-		await utility.wait(3000);
-
-		
 		await utility.wait(2000);
-		if (await this.MeterTypeDD.isDisplayed()) {
+
+		if (await this.manufactureLetterDD.isDisplayed()) {
+			var select1 = this.manufactureLetterDD;
+			select1.$('[value="2"]').click();
+		}
+		//cgp added
+		else if (await this.MeterTypeDD.isDisplayed()) {
+			await utility.wait(2000);
 			var select2 = this.MeterTypeDD;
 			select2.$('[value="0"]').click();
 		}
@@ -837,14 +849,87 @@ export class RiskAssessmentPageElecObject {
 
 	} 
 //}
-// catch(err) {
-// 	console.log("fillNewMeterDetails Error " + err.getText());
-// 	}
+//catch(err) {
+//	console.log("fillNewMeterDetails Error " + err.getText());
+//	}
 	}
 /***
  * @Author Aparna Das
  * @description Verify additional Elec Check section is displayed
 ***/
+
+//CGP Update later today
+public async fillNewMeterDetailsTRAD() 
+{
+
+
+await utility.wait(3000);
+if (await this.newMeterDD.isDisplayed()) {
+	var select = this.newMeterDD;
+	select.$('[value="E9E00000000012"]').click();
+}
+
+await utility.wait(3000);
+if (await this.inputelecSerialNum.isDisplayed()) {
+	await this.inputelecSerialNum.clear();
+	await this.inputelecSerialNum.sendKeys("E9E00000000012");
+}
+
+
+
+await this.randomEUDevice.click();
+		let ale: Alert = browser.switchTo().alert();
+		// clicks 'OK' button
+		ale.accept();
+		await utility.wait(2000);
+
+		await this.commshubPopup.click();
+		await utility.wait(2000);
+/*
+		if (await this.manufactureLetterDD.isDisplayed()) {
+			var select1 = this.manufactureLetterDD;
+			select1.$('[value="2"]').click();
+		}
+		//cgp added
+		else if (await this.MeterTypeDD.isDisplayed()) {
+			await utility.wait(2000);
+			var select2 = this.MeterTypeDD;
+			select2.$('[value="0"]').click();
+		} */
+		await utility.wait(3000);
+		if (await this.meterLocDD.isDisplayed()) {
+			var select3 = this.meterLocDD;
+			select3.$('[value="D"]').click();
+		}
+		await utility.wait(2000);
+
+		await expect(await this.inputDate.isPresent());
+		await this.inputDate.sendKeys('90/01');
+
+		await this.newMeterNxtBtn.click();
+		await utility.wait(2000);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	public async additionalElecCheckDisplayed() {
 		if (this.AddElecCheckTxt.isDisplayed()) {
@@ -942,7 +1027,7 @@ export class RiskAssessmentPageElecObject {
 		await expect(await this.nonserealizedAssetInput.isPresent());
 		await this.nonserealizedAssetInput.sendKeys('1');
 		await this.commsHubConnectedYes.click();
-		await utility.wait(1000);
+		await utility.wait(3000);
 
 		await this.commissioningNxtBtn.click();
 		await utility.wait(1000);

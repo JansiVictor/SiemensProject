@@ -20,8 +20,9 @@ export class DoorStepPageObject {
         
         this.beAware = element(by.xpath('//div/h4[text() =" Be aware of any danger!"]'));
         this.selectInputField = element(by.id('selectInput'));
-        this.accessToSiteY = element(by.xpath('//label[text()="YES"]'));
-        this.customerOnSiteY = element(by.xpath('(//label[@id="rb_cst_onsite_y"])'));
+        this.accessToSiteY = element(by.id('rb_Acc_y'));
+        //this.customerOnSiteY = element(by.xpath('(//label[@id="rb_cst_onsite_y"])'));
+        this.customerOnSiteY = element(by.xpath('//*[@id="rb_cst_onsite_y"]/span[@class="outer"]'));
         this.onSiteBtn = element(by.xpath('(//button[@id="btn_onsite"])'));
         this.initialRiskAssesment = element(by.xpath('(//div/h4[text()="Initial Risk Assessment"])'));
         
@@ -34,17 +35,18 @@ export class DoorStepPageObject {
     }
 
     public async fillTheDoorStepDetails() {
+        await utility.wait(3000);
         var select = this.selectInputField;
         select.$('[value="C94"]').click();
 
         if(this.accessToSiteY.isDisplayed()) {
             await utility.wait(5000);
-            this.accessToSiteY.click();
+            await this.accessToSiteY.click();
         }
 
         if(this.customerOnSiteY.isDisplayed()) {
             await utility.wait(5000);
-            this.customerOnSiteY.click();
+            await this.customerOnSiteY.click();
         }
     }
 
