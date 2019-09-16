@@ -24,6 +24,7 @@ export class RemovePageObject {
     private confirmgasmeterOnsupply2: ElementFinder;
     private determineFaultActivityNextBtn: ElementFinder;
     private capturePhotoOfUGaugeAttachedToGasMeterBtn: ElementFinder;
+    private preInstallationGasTightnessTestSubmitBtn: ElementFinder;
 
     public ctihdppmidDtl: ElementFinder;
     public smet2ihdppidText: ElementFinder;
@@ -188,6 +189,7 @@ export class RemovePageObject {
         this.doYouNeedToExchangeAnAssetFalseRadioOption = element(by.xpath("//radiobutton[@id='exchangeasset']//label[text()='NO']"));
         this.doYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption = element(by.xpath("//radiobutton[@id='additionalwork']//label[text()='YES']"));
         this.determineFaultActivityNextBtn = element(by.xpath("//button[@id='btnNextComm']"));
+        this.preInstallationGasTightnessTestSubmitBtn = element(by.xpath("//button[contains(text(),'SUBMIT')]"));
 
         //#region Panel Click
         //this.ctIhdPpmiddtls = element(by.css('.down'));
@@ -291,7 +293,7 @@ export class RemovePageObject {
         this.gastightnesstestCompleted = element(by.xpath('//*[contains(text(),"Gas Tightness Test Completed?")]'));
         this.gastightnesstestCompletedFail = element(by.xpath('//*[contains(text(),"FAIL")]'));
         this.capctmeterReadingPanel = element(by.xpath('(//*[contains(text(),"Capture Current Meter Reading")])[1]'));
-        this.btnnext = element(by.xpath('(//*[@id="btnNextComm"])[2]'));
+        this.btnnext = element(by.xpath('(//*[@id="btnNextComm"])'));
         this.ctmeterdtlGasNxt = element(by.id('btn_Next_read'));
         this.capturePhotoOfUGaugeAttachedToGasMeterBtn = element(by.xpath("//button[contains(text(),'CAPTURE PHOTO OF U-GAUGE ATTACHED TO GAS METER, SH')]"));
         //#endregion
@@ -428,6 +430,13 @@ export class RemovePageObject {
         await this.ctihdppmidDtl.getText().then(function (ctihdppmidDtlTxt) {
             console.log("Find Current IHD PPMID  " + ctihdppmidDtlTxt);
         });
+    }
+
+    public async clickOnNextBtn() {
+        if (await this.btnnext.isDisplayed()) {
+            await this.btnnext.click();
+        }
+        await utility.wait(3000);
     }
 
     public async populateIHDPPMIDDetailsOnSiteFalse() {
@@ -582,9 +591,17 @@ export class RemovePageObject {
         await utility.wait(4000);
     }
 
+
     public async clickOnDeterminetFaultActivityNextBtn() {
-        if(this.determineFaultActivityNextBtn.isDisplayed()) {
+        if (this.determineFaultActivityNextBtn.isDisplayed()) {
             this.determineFaultActivityNextBtn.click();
+        }
+        await utility.wait(4000);
+    }
+
+    public async clickOnPreInstallationGasTightnessTestSubmitBtn() {
+        if (this.preInstallationGasTightnessTestSubmitBtn.isDisplayed()) {
+            this.preInstallationGasTightnessTestSubmitBtn.click();
         }
         await utility.wait(4000);
     }
@@ -594,13 +611,13 @@ export class RemovePageObject {
             await this.confirmgasmeterOnsupply1.click();
         }
     }
+
     public async setConfirmIfGasMeterIsOnSupplyOrOffSupplyTrueRadioOption() {
         if (await this.confirmgasmeterOnsupply2.isDisplayed()) {
             await this.confirmgasmeterOnsupply2.click();
         }
         await utility.wait(1000);
     }
-
 
 
     //////////////////////////
@@ -645,9 +662,6 @@ export class RemovePageObject {
             await this.doYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption.click();
         }
     }
-
-
-
 
 
     public async fill15commsdtls() {

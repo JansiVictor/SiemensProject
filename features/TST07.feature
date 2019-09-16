@@ -81,21 +81,22 @@ Feature: DF FLTY20 Trad No Exchange Workflow
     And I click on the Capture Photo of U-Grade Attached to Gas Meter, showing Pressure in MB button
     And I select the value Yes for the Was there a drop in pressure radio option
     And I complete the remainder of the Pre Installation Gas Tightness form with values
+    And I click on the Submit button in the Determine Faulty Activity Section
     Then I should see the Perform Additional Electricity Tests & Checks section
 
-  #Scenario: Complete Performed Additional Electricity Tests & Checks section
-    #Given I have accessed the Perform Additional Electricity Tests & Checks section
-    #When I select the value Yes for the Terminal Screw Tightness Checked radio option
-    #And I click on the Capture Photo of Terminal Screws button
-    #And I select the value Yes for the All Seals Intact – Including Blocks & Isolators radio option
-    #And I select the value Yes for the All Ports Sealed radio option
-    #And I select the value Yes for the Approved Siemens Cable Markers installed radio option
-    #And I select the value Yes for the Visual Inspection Completed radio option
-    #And I select the value 1. L N N L for the Cable Marker drop-down menu
-    #And I select the value TN-C-S for the Earth Type drop-down menu
-    #And I select the value Yes for the Replacement Meter Board radio option
-    #And I select the value No for the Meter Tails Changed radio option
-    #And I select the value No for the Replaced Main Fuse radio option
-    #And I select the value Yes for the Emergency Job radio option
-    #And I click on the Next button
-    #Then I should see the Post Installation Checks section
+  Scenario: Complete Performed Additional Electricity Tests & Checks section
+    Given I have accessed the Perform Additional Electricity Tests & Checks section
+    When I select the value Yes for the Terminal Screw Tightness Checked radio option
+    And I click on the Capture Photo of Terminal Screws button
+    And I select the value Yes for the All Seals Intact – Including Blocks & Isolators radio option
+    And I select the value Yes for the All Ports Sealed radio option
+    And I select the value Yes for the Approved Siemens Cable Markers installed radio option
+    And I select the value Yes for the Visual Inspection Completed radio option
+    And I select the value 1. L N N L for the Cable Marker drop-down menu
+    And I select the value TN-C-S for the Earth Type drop-down menu
+    And I select the value Yes for the Replacement Meter Board radio option
+    And I select the value No for the Meter Tails Changed radio option
+    And I select the value Yes for the Replaced Main Fuse radio option
+    And I select the value Yes for the Emergency Job radio option
+    And I click on the Next button in the Additional Electricity Tests & Checks section
+    Then I should see the Post Installation Checks section

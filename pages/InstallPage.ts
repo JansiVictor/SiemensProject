@@ -2,7 +2,7 @@
  * @Author Jansi Victor
  * @Description UAT Automation for FAULTY18 Workflow
  */
-import {element, by, ElementFinder, ElementArrayFinder, browser} from "protractor";
+import {element, by, ElementFinder, ElementArrayFinder, browser, ExpectedConditions} from "protractor";
 
 const {Given, When, Then} = require("cucumber");
 const chai = require("chai");
@@ -16,6 +16,24 @@ const utility: Utility = new Utility();
 export class InstallPageObject {
 
     private pageHeaderText: ElementArrayFinder
+    private terminalScrewTightnessText: ElementFinder
+    private terminalScrewTightnessCheckedTrueRadioOption: ElementFinder
+    private allSealsIntactTrueRadioOption: ElementFinder
+    private allPortsSealedTrueRadioOption: ElementFinder
+    private approvedSiemensCableMarkersInstalledCorrectlyTrueRadioOption: ElementFinder
+    private replacementMeterBoardTrueRadioOption: ElementFinder
+    private meterTailsChangedFalseRadioOption: ElementFinder
+    private replacedMainFuseTrueRadioOption: ElementFinder
+    private emergencyJobTrueRadioOption: ElementFinder
+    private visualInspectionCompletedTrueRadioOption: ElementFinder
+    private cableMarkerDropdownMenu: ElementFinder
+    private earthTypeDropdownMenu: ElementFinder
+    private capturePhotosOfTerminalScrewsBtn: ElementFinder
+    private addElecTestsNextBtn: ElementFinder
+    private postInstallationChecksText: ElementFinder
+
+
+
     public installcommsHub: ElementFinder
     public commshubReqY: ElementFinder
     public selectValid: ElementFinder
@@ -140,6 +158,21 @@ export class InstallPageObject {
     constructor() {
 
         this.pageHeaderText = element.all(by.xpath("//div[contains(@class,'header-text white tg ng-binding')]"));
+        this.terminalScrewTightnessText = element(by.xpath("//*[contains(text(),'Terminal Screw Tightness Checked?')]"));
+        this.terminalScrewTightnessCheckedTrueRadioOption = element(by.xpath("//label[@id='rb_TermSTi_y']"));
+        this.allSealsIntactTrueRadioOption = element(by.xpath("//label[@id='rb_SealsInt_y']"));
+        this.allPortsSealedTrueRadioOption = element(by.xpath("//label[@id='rb_PortsSealed_y']"));
+        this.approvedSiemensCableMarkersInstalledCorrectlyTrueRadioOption = element(by.xpath("//label[@id='rb_SieCMark_y']"));
+        this.visualInspectionCompletedTrueRadioOption = element(by.xpath("//label[@id='rb_VisInsCom_y']"));
+        this.replacementMeterBoardTrueRadioOption = element(by.xpath("//label[@id='rb_ReMetBoard_y']"));
+        this.meterTailsChangedFalseRadioOption = element(by.xpath("//label[@id='rb_MetTailChg_n']"));
+        this.replacedMainFuseTrueRadioOption = element(by.xpath("//label[@id='rb_ReMainFuse_y']"));
+        this.emergencyJobTrueRadioOption = element(by.xpath("//label[@id='rb_EmerJob_y']"));
+        this.cableMarkerDropdownMenu = element(by.xpath("//select[@id='cbx_CabMark_Sel']"));
+        this.earthTypeDropdownMenu = element(by.xpath("//select[@id='cbx_EarType_Sel']"));
+        this.capturePhotosOfTerminalScrewsBtn = element(by.xpath("//button[contains(text(),'CAPTURE PHOTO OF TERMINAL SCREWS')]"));
+        this.addElecTestsNextBtn  = element(by.xpath("//button[@id='btn_Next_PostC']"));
+        this.postInstallationChecksText = element(by.xpath("//h4[contains(text(),'Post Installation Checks')]"));
 
         //#region Install Comms Hub
         this.installcommsHub = element(by.xpath('//div/h4[text()="Install Comms Hub"]'));
@@ -304,8 +337,105 @@ export class InstallPageObject {
         });
     }
 
-    public async dummy() {
+    public async clickOnCapturePhotosOfTerminalScrewsBtn() {
+        await utility.wait(1000);
+        if (this.capturePhotosOfTerminalScrewsBtn.isDisplayed()) {
+            this.capturePhotosOfTerminalScrewsBtn.click();
+        }
+    }
 
+    public async setTerminalScrewTightnessCheckedTrueRadioOption() {
+        await this.terminalScrewTightnessCheckedTrueRadioOption.click();
+        await utility.wait(3000);
+    }
+
+    public async setAllSealsIntactTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.allSealsIntactTrueRadioOption.isDisplayed()) {
+            this.allSealsIntactTrueRadioOption.click();
+        }
+    }
+
+    public async setAllPortsSealedTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.allPortsSealedTrueRadioOption.isDisplayed()) {
+            this.allPortsSealedTrueRadioOption.click();
+        }
+    }
+
+    public async setApprovedSiemensCableMarkersInstalledCorrectlyTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.approvedSiemensCableMarkersInstalledCorrectlyTrueRadioOption.isDisplayed()) {
+            this.approvedSiemensCableMarkersInstalledCorrectlyTrueRadioOption.click();
+        }
+    }
+
+    public async setVisualInspectionCompletedTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.visualInspectionCompletedTrueRadioOption.isDisplayed()) {
+            this.visualInspectionCompletedTrueRadioOption.click();
+        }
+    }
+
+    public async setCableMarkerVal1LNNLDropDownMenu() {
+        await utility.wait(1000);
+        if (this.cableMarkerDropdownMenu.isDisplayed()) {
+            var select = this.cableMarkerDropdownMenu;
+            select.$("[value='1']").click();
+        }
+    }
+
+    public async setEarthTypeVal1DropDownMenu() {
+        await utility.wait(1000);
+        if (this.earthTypeDropdownMenu.isDisplayed()) {
+            var select = this.earthTypeDropdownMenu;
+            select.$("[value='1']").click();
+        }
+    }
+
+    public async setReplacementMeterBoardTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.replacementMeterBoardTrueRadioOption.isDisplayed()) {
+            this.replacementMeterBoardTrueRadioOption.click();
+        }
+    }
+
+    public async setMeterTailsChangedFalseRadioOption() {
+        await utility.wait(1000);
+        if (this.meterTailsChangedFalseRadioOption.isDisplayed()) {
+            this.meterTailsChangedFalseRadioOption.click();
+        }
+    }
+
+    public async setReplacedMainFuseTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.replacedMainFuseTrueRadioOption.isDisplayed()) {
+            this.replacedMainFuseTrueRadioOption.click();
+        }
+    }
+
+    public async setEmergencyJobTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.emergencyJobTrueRadioOption.isDisplayed()) {
+            this.emergencyJobTrueRadioOption.click();
+        }
+    }
+
+    public async clickOnAdditionalElectricityTestsNextBtn() {
+        await utility.wait(1000);
+        if (this.addElecTestsNextBtn.isDisplayed()) {
+            this.addElecTestsNextBtn.click();
+        }
+    }
+
+    public async validatePostInstallationChecksSectionIsVisible() {
+        await utility.wait(1000);
+        await this.postInstallationChecksText.getText().then(function (postInstallTxt) {
+            console.log("Arrived at : " + postInstallTxt);
+        });
+    }
+
+    public async dummy() {
         await this.installdelete.click();
     }
 

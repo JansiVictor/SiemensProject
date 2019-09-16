@@ -30,3 +30,7 @@ Then('I select the value Yes for the Was there a drop in pressure radio option',
 Then('I complete the remainder of the Pre Installation Gas Tightness form with values', async function () {
     await removePage.fill19preInstdtls();
 });
+
+Then('I click on the Submit button in the Determine Faulty Activity Section', async function () {
+    await removePage.clickOnPreInstallationGasTightnessTestSubmitBtn();
+});

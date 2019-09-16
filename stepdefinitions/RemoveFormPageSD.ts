@@ -48,7 +48,7 @@ Then('I select the value Yes for the Do you Need to carry out work on the meter 
 });
 
 Then('I click on the Next button', async function () {
-    await removePage.clickOnDeterminetFaultActivityNextBtn();
+    await removePage.clickOnNextBtn();
 });
 
 Then('I should see the Pre Installation Gas Tightness Test section', async function () {
