@@ -35,6 +35,8 @@ export class HomePageObject {
 	public RemoveGasSelectLink: ElementArrayFinder;
 	public FLTYnoexchangeselectLink: ElementArrayFinder;
 	public flty19noExTradSelectLink: ElementArrayFinder;
+	public SFGASINST14:ElementArrayFinder;
+	public Exch24SelectLink:ElementArrayFinder;
 
 	constructor() {
 		this.Ex20selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest1 EXCH20 SF SMETS2")]'));
@@ -44,7 +46,8 @@ export class HomePageObject {
 		this.Remove6selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobRMVE6 FLAT")]'));
 		this.RemoveGasSelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobRMVE5 FLAT")]'));
 		this.FLTYnoexchangeselectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobFAULTY 20 SMETS2 Site FLAT")]'));
-
+		this.SFGASINST14 = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest1 INST14 DF SMETS")]'));
+		this.Exch24SelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobEXCHANGE 24 FLAT")]'));
 		this.continueLink = element.all(by.xpath('//span[starts-with(@id,"ContinueJobTest EXCH21 DF SMETS2"]'));
 		this.Ex20completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobTest1 EXCH20 DF SMETS2"]'));
 		this.Ex21completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobTest1 EXCH21 DF SMETS2"]'));
@@ -141,6 +144,14 @@ export class HomePageObject {
 				this.clickFLTY19TradNoExSelectLink();
 				console.log('Fieldname:', selectLinkName);
 				break;
+			case ('SFINST14'):
+			this.clickOnTheSFInst14SelectLink();
+			console.log('Fieldname:', selectLinkName);
+			break;
+			case ('DFExchange24'):
+			this.clickOnTheDFECXH24SelectLink();
+			console.log('Fieldname:', selectLinkName);
+			break;
 			default:
 				break;
 		}
@@ -221,6 +232,94 @@ export class HomePageObject {
 			console.log("link " + ('((//span[starts-with(@id,"SelectJobTest1 EXCH21 SF SMETS2")]))' + '[' + [size] + ']'));
 			var selectMe = element(
 				by.xpath('((//span[starts-with(@id,"SelectJobTest1 EXCH21 SF SMETS2")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
+
+	/***
+	 * @Author Aparna Das
+	 * @description Click on the correct Exchange 21 Select Link
+	 ***/
+
+	public async clickOnTheSFInst14SelectLink() {
+		var list = this.SFGASINST14;
+
+		await utility.wait(2000);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobTest1 INST14 DF SMETS")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobTest1 INST14 DF SMETS")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobTest1 INST14 DF SMETS")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
+
+	/***
+	 * @Author Aparna Das
+	 * @description Click on the correct Exchange 21 Select Link
+	 ***/
+
+	public async clickOnTheDFECXH24SelectLink() {
+		var list = this.Exch24SelectLink;
+
+		await utility.wait(2000);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobEXCHANGE 24 FLAT")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobEXCHANGE 24 FLAT")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobEXCHANGE 24 FLAT")]))' + '[' + [size] + ']')
 			);
 			selectMe.getText().then(function (selectMeText) {
 				console.log("find select Me link text  " + selectMeText);
