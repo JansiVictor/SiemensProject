@@ -36,6 +36,10 @@ export class GASPageObject {
 	public repositionReqDD: ElementFinder;
 	public additionalSmartNote: ElementFinder;
 	public suitablenxtBtn: ElementFinder;
+	public suitableforInstaGASYes: ElementFinder;
+	public repositionReqGASDD: ElementFinder;
+	public additionalGASSmartNote: ElementFinder;
+	public suitableGASnxtBtn: ElementFinder;
 	public captureInitialPhotogastxt: ElementFinder;
 	public captureInitialPhotogasbtn: ElementFinder;
 	public preInstalationGASTxt: ElementFinder;
@@ -143,6 +147,10 @@ export class GASPageObject {
 	public infoOKButton: ElementFinder;
 	public inputcradleSerialNo: ElementFinder;
 	public captureEvidenceGas: ElementFinder;
+	public suitableforSmartInstallationGASTxt:ElementFinder;
+	public cptureinitialPhotogas:ElementFinder;
+	public captureInitialPhotogas:ElementFinder;
+
 
 
 	constructor() {
@@ -157,12 +165,19 @@ export class GASPageObject {
 		this.additionalGASNote = element(by.id('text1'));
 		this.safeToContinueYEs = element(by.xpath('//input[@id="radiorag5"]/following-sibling::span[@class="outer"]'));
 		this.suitableforSmartInstallationTxt = element(by.id('Title_Smart_Elec'));
+		this.suitableforSmartInstallationGASTxt = element(by.id('Title_gasSmartCheck'));
 		this.suitableforInstaYes = element(by.id('rb_SuitFS_y'));
 		this.repositionReqDD = element(by.id('repositionSelect'));
 		this.additionalSmartNote = element(by.id('smartnotes'));
 		this.suitablenxtBtn = element(by.id('btn_Next_Section'));
+		this.suitableforInstaGASYes = element(by.xpath('//input[@id="gasradio1a"]/following-sibling::span[@class="outer"]'));
+		this.repositionReqGASDD = element(by.id('gasSmartCheck_gasrepositionSelect'));
+		this.additionalGASSmartNote = element(by.id('gasSmartCheck_gassmartnotes'));
+		this.suitableGASnxtBtn = element(by.id('gasSmartCheck_nextButton'));
 		this.captureInitialPhotogastxt = element(by.id('Title_Init_Photo'));
+		this.captureInitialPhotogas = element(by.id('Title_gasInitialPhoto'));
 		this.captureInitialPhotogasbtn = element(by.id('btn_Init_Photo'));
+		this.cptureinitialPhotogas = element(by.id('gasbtn1'));
 		this.preInstalationGASTxt = element(by.xpath('//div/h4[text()="Pre Installation Gas Tightness Test"]'));
 		this.gasTightnessYes = element(by.id('rb_PreGasTigTCarOut_y'));
 		this.captureGTTPhotobtn = element(by.id('btn_CapPho_GTT'));
@@ -303,6 +318,29 @@ export class GASPageObject {
 
 	}
 
+	public async suitableForSmartInstallationGASTxt() {
+
+		if (this.suitableforSmartInstallationGASTxt.isDisplayed()) {
+			await this.suitableforSmartInstallationGASTxt.getText().then(function (suitableforSmartInstallation) {
+				console.log("find suitableforSmartInstallation GAS Text  " + suitableforSmartInstallation);
+			});
+		}
+
+	}
+
+	public async fillSuitablityForGASSmartInstallation() {
+		await utility.wait(1000);
+		await this.suitableforInstaGASYes.click();
+		if (await this.repositionReqGASDD.isDisplayed()) {
+			var select = this.repositionReqGASDD;
+			select.$('[value="No Reposition Required"]').click();
+		}
+		await utility.wait(1000);
+		await this.additionalGASSmartNote.sendKeys('Add Remarks');
+		await utility.wait(1000);
+		await this.suitableGASnxtBtn.click();
+	}
+
 	public async fillSuitablityForSmartInstallation() {
 		await this.suitableforInstaYes.click();
 		if (await this.repositionReqDD.isDisplayed()) {
@@ -323,6 +361,14 @@ export class GASPageObject {
 		}
 		await this.captureInitialPhotogasbtn.click();
 	}
+	public async captureInitialPhotoGASTxt() {
+		if (this.captureInitialPhotogas.isDisplayed()) {
+			await this.captureInitialPhotogas.getText().then(function (captureInitialPhotogas) {
+				console.log("find captureInitialPhotogas Text  " + captureInitialPhotogas);
+			});
+		}
+	}
+	
 
 	public async preInstallationGasTTxt() {
 		if (this.preInstalationGASTxt.isDisplayed()) {
@@ -415,12 +461,12 @@ export class GASPageObject {
 
 		if (await this.selectValidAssetDD.isDisplayed()) {
 			var select = await this.selectValidAssetDD;
-			select.$('[value="MA6NC000000003"]').click();
+			select.$('[value="MA6NC181323805"]').click();
 		}
 		await utility.wait(2000);
 		await expect(await this.regulatorSerialNoinput.isPresent());
 		await this.regulatorSerialNoinput.clear();
-		await this.regulatorSerialNoinput.sendKeys('MA6NC000000003');
+		await this.regulatorSerialNoinput.sendKeys('MA6NC181323805');
 		await utility.wait(1000);
 		await this.regulatorTxt.click();
 		await utility.wait(2000);
