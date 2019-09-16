@@ -185,6 +185,14 @@ export class RemovePageObject {
 
         public commshubconnectedtoAssetN: ElementFinder;
         public carryoutWorkontheMeterY: ElementFinder;
+        
+        public smet2ihdppidN: ElementFinder;
+        public currentEleccap: ElementFinder;
+        public smets2assetInstN: ElementFinder;
+        public smets2Declined: ElementFinder;
+        public Equipmentreposel: ElementFinder;
+        public Equipmentreposition: ElementFinder;
+        public RemoveElecAssetrplacedorremoved1: ElementFinder;
 
 
     constructor() {
@@ -403,6 +411,19 @@ export class RemovePageObject {
         this.commshubconnectedtoAssetN = element(by.xpath('//input[@id="exchangeassetfalse"]/following-sibling::span[@class="outer"]'));
         this.carryoutWorkontheMeterY = element(by.xpath('//input[@id="additionalworktrue"]/following-sibling::span[@class="outer"]'));
 
+        //#endregion
+
+        //#region Tst13 -Flty 20
+
+        this.smet2ihdppidN = element(by.xpath('//*[@id="currentIhdPpmid_assetOnSite_n"]/span[@class="outer"]'));
+        this.currentEleccap = element(by.xpath('//div[@id="Title_currentMeterDetails"]'));
+        this.smets2assetInstN = element(by.xpath('//input[@id="smets2Installedfalse"]/following-sibling::span[@class="outer"]'));
+        
+        this.Equipmentreposel = element(by.xpath('//select[@id="repositionSelect"]'));
+        this.Equipmentreposition = element(by.xpath('(//select[@id="repositionSelect"])'));
+        this.smets2Declined = element(by.xpath('//input[@id="smets2offeredfalse"]/following-sibling::span[@class="outer"]'));
+
+        this.RemoveElecAssetrplacedorremoved1 = element(by.xpath('(//*[@id="CCHradio5"])/following-sibling::span[@class="outer"]'));
         //#endregion
     }
 
@@ -1078,8 +1099,8 @@ export class RemovePageObject {
     //#region Current Meter Details
     public async CurrentMeterElec() {
         await utility.wait(1000);
-        await this.currentMeterElecCap.getText().then(function (currentMeterElecCapTxt) {
-            console.log("Current Meter" + currentMeterElecCapTxt);
+        await this.currentEleccap.getText().then(function (currentEleccapTxt) {
+            console.log("Current Meter" + currentEleccapTxt);
         });
     }
 
@@ -1249,6 +1270,82 @@ public async Tst12fill16commsdtls() {
         }
 }
 
+//TST13 FLTY20
+
+public async TST13fillcurrentIhdPPMIDdtls() {
+    await utility.wait(3000);
+    if (await this.smet2ihdppidN.isDisplayed()) {
+        await this.smet2ihdppidN.click();
+    }
+    await utility.wait(1000);
+    try {
+        if (await this.IhdPpmidNxt.isPresent()) {
+            await this.IhdPpmidNxt.click();
+        }
+    } catch (error) {
+        console.log("Next section is not present at this moment");
+    }  
+}
+
+public async Tst13fillcurrentmeterdtlGassec() {
+    await utility.wait(1000);
+    if (await this.existgasmeterDtlText.isDisplayed()) {
+        await this.existgasmeterDtlY.click();
+    }
+    await utility.wait(1000);
+    if (await this.meterReading.isDisplayed()) {
+        await this.meterReadingLabel.clear();
+        await this.meterReadingLabel.sendKeys("1234");
+        await utility.wait(1000);
+        await this.meterReading.click();
+    }
+}
+
+public async Tst13fill15commsdtls() {
+    await utility.wait(3000);
+    if (await this.smets2assetInst.isDisplayed()) {
+        await this.smets2assetInstN.click();
+    }
+    await utility.wait(3000);
+    if (await this.commshubconnectedtoAssetY.isDisplayed()) {
+        await this.commshubconnectedtoAssetY.click();
+    }
+}
+
+public async TST13fill45() {
+    await utility.wait(3000);
+    if (await this.Equipmentreposition.isDisplayed()) {
+        await utility.wait(4000);
+        var select = this.Equipmentreposition;
+        await select.$('[value="Yes-Customer Agreed"]').click();
+    }
+    await utility.wait(3000);
+    if (await this.smets2Declined.isDisplayed()) {
+        await this.smets2Declined.click();
+    }
+}
+public async Tst13fill23GasmeterRemoval() {
+    await utility.wait(3000);
+    if (await this.GMassettoberemoved.isDisplayed()) {
+        await this.GMassettoberemoved.click();
+    }
+    await utility.wait(3000);
+    if (await this.statusofAssetSelect.isDisplayed()) {
+        var select = this.statusofAssetSelect;
+        await select.$('[value="0"]').click();
+    }
+}
+public async Tst13fillElecmeterrem() {
+    await utility.wait(3000);
+    if (await this.RemoveElecAssetrplacedorremoved1.isDisplayed()) {
+        await this.RemoveElecAssetrplacedorremoved1.click();
+    }
+    await utility.wait(3000);
+    if (await this.statusofElecAssetSelect.isDisplayed()) {
+        var select = this.statusofElecAssetSelect;
+        await select.$('[value="0"]').click();
+    }
+}
 }
 
 

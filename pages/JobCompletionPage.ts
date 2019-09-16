@@ -56,6 +56,9 @@ export class JobCompletionPageObject {
 
     public summaryCap: ElementFinder;
     public TST12jobcompletion: ElementFinder;
+    public smartLtionsiteN: ElementFinder;
+    public custaddnlhelpinfoN: ElementFinder;
+    public IsCDemoofequipmentcompN: ElementFinder;
 
     constructor() {
 
@@ -91,12 +94,16 @@ export class JobCompletionPageObject {
         this.jobCompletesub = element(by.xpath('//*[@id="btn_Comp_submit"]'));
         this.signpad = element(by.xpath('//*[@id="signaturePad"]'));
 
-        this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob1JFAULTY 20")]'));
+        this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob5JJFAULTY 20")]'));
 
         this.summaryCap = element(by.xpath('//div/h4[contains(text(),"SUMMARY")]'));
-        this.TST12jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob1JFAULTY 18")]'));
-        
+        this.TST12jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob5JJFAULTY 18")]'));
 
+        //TST13
+
+        this.smartLtionsiteN = element(by.xpath('//*[@id="radiose4"]/span[@class="outer"]'));
+        this.custaddnlhelpinfoN = element(by.xpath('//*[@id="smicopAddInfoCheckboxNo"]/span[@class="outer"]'));
+        this.IsCDemoofequipmentcompN = element(by.xpath('//*[@id="radiose8"]/span[@class="outer"]'));
     }
     public async DeviceBinding() {
         await utility.wait(1000);
@@ -262,6 +269,23 @@ export class JobCompletionPageObject {
         await utility.wait(1000);
         if (await this.TST12jobcompletion.isDisplayed()) {
             console.log("Job completed successfully");
+        }
+    }
+
+    //TST13 FLTY20
+
+    public async Tst13fillfield55duelsmartedu() {
+        await utility.wait(1000);
+        if (await this.smartLtionsiteN.isDisplayed()) {
+            await this.smartLtionsiteN.click();
+        }
+        await utility.wait(1000);
+        if (await this.custaddnlhelpinfoN.isDisplayed()) {
+            await this.custaddnlhelpinfoN.click();
+        }
+        await utility.wait(1000);
+        if (await this.IsCDemoofequipmentcompN.isDisplayed()) {
+            await this.IsCDemoofequipmentcompN.click();
         }
     }
 }

@@ -202,6 +202,15 @@ export class InstallPageObject {
     public gasmeterserialSendregList1: ElementFinder;
     public CaptureMeterReadingenableok1: ElementFinder;
     public EUIenableOK1: ElementFinder;
+    public Tst13DummyHan: ElementFinder;
+    public selectValidAssettoInst2: ElementFinder;
+    public gasmeterserialSendregList2: ElementFinder;
+    public AddAppliance: ElementFinder;
+    public TightnessIssueN: ElementFinder;
+
+    public PPMIDofferedNo: ElementFinder;
+    public InstallPPMIDNotOfferedAddNote: ElementFinder;
+
 
     constructor() {
 
@@ -272,7 +281,7 @@ export class InstallPageObject {
 
         this.postInstCaption = element(by.xpath('//div/h4[text()="Post Installation Gas Tightness Test"]'));
         this.ContactGTY = element(by.xpath('//*[@id="gtp1"]/following-sibling::span[@class="outer"]'));
-        this.NationalGridSend = element(by.id('input1'));
+        this.NationalGridSend = element(by.id("input1"));
         //this.NationalGridSend2 = element(by.xpath('(//*[@id="input1"])[2]'));
         this.HandSAirline = element(by.xpath('//*[@id="gtp3"]/following-sibling::span[@class="outer"]'));
         this.Airlineref1 = element(by.xpath('(//*[@id="input2"])[1]'));
@@ -442,7 +451,15 @@ export class InstallPageObject {
 
         this.CaptureMeterReadingenableok1 = element(by.xpath('(//*[contains(text(),"Capture Meter Reading - Register (null)")])[2]'));
         this.EUIenableOK1 = element(by.xpath('(//*[contains(text(),"EUI Device ID:")])[3]'));
+        this.Tst13DummyHan = element(by.xpath('//*[@id="chnohanconnectedfalse"]/following-sibling::span[@class="outer"]'));
 
+        this.selectValidAssettoInst2 = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[2]'));
+       // this.gasmeterserialSendregList2 = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[3])/option)[2]'));
+        this.gasmeterserialSendregList2 = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[2])/option)[2]'));
+        this.AddAppliance = element(by.xpath('(//*[@id="btn1"])[1]'));
+        this.TightnessIssueN = element(by.xpath('//*[@id="gtp12"]/following-sibling::span[@class="outer"]'));
+        this.PPMIDofferedNo = element(by.xpath('//*[@id="ihdPpmidOfferedfalse"]/following-sibling::span[@class="outer"]'));
+        this.InstallPPMIDNotOfferedAddNote = element(by.xpath('(//*[@id="newihdppmid_textIhdPpmidNotOffered"])'));
     }
     public async dummy() {
 
@@ -1725,5 +1742,136 @@ public async Tst12submittoJobcompletion(){
         if (await this.PPMIDSubmit.isDisplayed()) {
             await this.PPMIDSubmit.click();
         }
+}
+
+//TST13 FLTY 20 Changes
+
+public async Tst13fill40Commisioning() {
+    await utility.wait(1000);
+    if (await this.NonSerializedAssetselect1.isDisplayed()) {
+        var select = this.NonSerializedAssetselect1;
+        select.$('[value="3"]').click();
+    }
+    await utility.wait(1000);
+    if (await this.NonSerializedAssetSend1.isDisplayed()) {
+        await this.NonSerializedAssetSend1.clear();
+        await this.NonSerializedAssetSend1.sendKeys("2");
+    }
+}
+
+public async Tst13ElecFailedDummy(){
+    await utility.wait(2000);
+        if (await this.sendmesgtoEICOM.isDisplayed()) {
+            await this.sendmesgtoEICOM.click();
+        }
+        await utility.wait(30000);
+        if (await this.Tst13DummyHan.isDisplayed()) {
+            await this.Tst13DummyHan.click();
+        } 
+}
+public async Tst13fillthefieldsforperformpostinst(){
+
+    await utility.wait(2000);
+    if (await this.ContactGTY.isDisplayed()) {
+        await this.ContactGTY.click();
+    }
+    await utility.wait(1000);
+    if (await this.NationalGridSend.isDisplayed()) {
+        await this.NationalGridSend.clear();
+        await this.NationalGridSend.sendKeys("1");
+    }
+    await utility.wait(2000);
+    if (await this.HandSAirline.isDisplayed()) {
+        await this.HandSAirline.click();
+    }
+    await utility.wait(1000);
+    if (await this.Airlineref1.isDisplayed()) {
+        await this.Airlineref1.clear();
+        await this.Airlineref1.sendKeys("2");
+    }
+    await utility.wait(2000);
+    if (await this.GTAttendenceOnsiteY.isDisplayed()) {
+        await this.GTAttendenceOnsiteY.click();
+    }
+    await utility.wait(2000);
+    if (await this.GTresolveIssueY.isDisplayed()) {
+        await this.GTresolveIssueY.click();
+    }
+    await utility.wait(2000);
+    if (await this.TightnessIssueN.isDisplayed()) {
+        await this.TightnessIssueN.click();
+    }
+    await utility.wait(2000);
+    if (await this.TightnessperformedY.isDisplayed()) {
+        await this.TightnessperformedY.click();
+    }
+    await utility.wait(2000);
+    if (await this.cappostinstallation.isDisplayed()) {
+        await this.cappostinstallation.click();
+    }
+    await utility.wait(2000);
+    if (await this.Dropinpressure.isDisplayed()) {
+        await this.Dropinpressure.click();
+    }
+    await utility.wait(1000);
+    if (await this.dropinpressureselect.isDisplayed()) {
+        var select = this.dropinpressureselect;
+        select.$('[value="2"]').click();
+    }
+    await utility.wait(1000);
+    if (await this.selectMeterType.isDisplayed()) {
+        var select = this.selectMeterType;
+        select.$('[value="2"]').click();
+    }
+    await utility.wait(2000);
+    if (await this.GasTightnessPassed.isDisplayed()) {
+        await this.GasTightnessPassed.click();
+    }
+    await utility.wait(1000);
+    if (await this.TestWitness.isDisplayed()) {
+        await this.TestWitness.clear();
+        await this.TestWitness.sendKeys("Ellie Taylor");
+    }
+    await utility.wait(1000);
+    if (await this.standingPressure.isDisplayed()) {
+        await this.standingPressure.clear();
+        await this.standingPressure.sendKeys("1.1");
+    }
+    await utility.wait(2000);
+    if (await this.cappostinstallationpressure.isDisplayed()) {
+        await this.cappostinstallationpressure.click();
+    }
+    await utility.wait(1000);
+    if (await this.workingPressure.isDisplayed()) {
+        await this.workingPressure.clear();
+        await this.workingPressure.sendKeys("1.5");
+    }
+    await utility.wait(2000);
+    if (await this.captureworkingPressure.isDisplayed()) {
+        await this.captureworkingPressure.click();
+    }
+    await utility.wait(2000);
+    if (await this.captureFinalMeterInstall1.isDisplayed()) {
+        await this.captureFinalMeterInstall1.click();
+    }
+    await utility.wait(2000);
+        if (await this.PostinstallNext1.isDisplayed()) {
+            await this.PostinstallNext1.click();
+        }
+}
+public async TST13InstallPPMIDbypass(){
+    await utility.wait(2000);
+        if (await this.PPMIDofferedNo.isDisplayed()) {
+            await this.PPMIDofferedNo.click();
+        }
+        await utility.wait(3000);
+        if (await this.InstallPPMIDNotOfferedAddNote.isDisplayed()) {
+            await this.InstallPPMIDNotOfferedAddNote.clear();
+            await this.InstallPPMIDNotOfferedAddNote.sendKeys("Bypassing to continue");
+        }
+        await utility.wait(2000);
+        if (await this.InstallPPMIDNextSection.isDisplayed()) {
+            await this.InstallPPMIDNextSection.click();
+        }     
 }
 }
