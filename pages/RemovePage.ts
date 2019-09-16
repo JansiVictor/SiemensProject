@@ -1,194 +1,224 @@
 /**
-  * @@Author Jansi Victor
-  * @Description @Description  Automation for FAULTY18 Workflow
-*/
-import { element, by, ElementFinder, ElementArrayFinder, browser } from "protractor";
-const { Given, When, Then } = require("cucumber");
+ * @@Author Jansi Victor
+ * @Description @Description  Automation for FAULTY18 Workflow
+ */
+import {
+	element,
+	by,
+	ElementFinder,
+	ElementArrayFinder,
+	browser
+} from "protractor";
+const {
+	Given,
+	When,
+	Then
+} = require("cucumber");
 const chai = require("chai");
 const expect = chai.expect;
-import { Utility } from "../support/utility";
+import {
+	Utility
+} from "../support/utility";
 const utility: Utility = new Utility();
 
 export class RemovePageObject {
-
     public ctihdppmidDtl: ElementFinder;
-    public smet2ihdppidText: ElementFinder;
-    public smet2ihdppidY: ElementFinder;
-    public ihdppmidsNoText: ElementFinder;
-    public ihdppmidsSersk: ElementFinder;
-    public ihdppmidsSerText: ElementFinder;
-    public existingihdPpmidText: ElementFinder;
-    public existingihdPpmidY: ElementFinder;
-    public currentmeterdetlGasSec: ElementFinder;
-    public currentmeterdtlPgCont: ElementFinder;
-    public existgasmeterDtlText: ElementFinder;
-    public existgasmeterDtlY: ElementFinder;
-    public meterReadingLabel: ElementFinder;
-    public meterReading: ElementFinder;
-    public currentCommsHubTitle: ElementFinder;
-    public currentHubDtlsPgCont: ElementFinder;
-    public commshubLoc: ElementFinder;
-    public aerialInstalled: ElementFinder;
-    public aerialInstalledY: ElementFinder;
-    public CommshubdtlCorrectText: ElementFinder;
-    public CommshubdtlCorrectY: ElementFinder;
-    public capexistcommshubInstall: ElementFinder;
-    public determinefaultActivityTitle: ElementFinder;
-    public confirmgasmeterOnsupply: ElementFinder;
-    public confirmgasmeterText: ElementFinder;
-    public capturesuspectedTamp: ElementFinder;
-    public smets2assetInst: ElementFinder;
-    public smets2assetInstY: ElementFinder;
-    public commshubResetting: ElementFinder;
-    public commshubResettingY: ElementFinder;
-    public removecommshub5mins: ElementFinder;
-    public commshubconnectedtoSupply: ElementFinder;
-    public commshubconnectedtoSupplyY: ElementFinder;
-    public commshubconnectedtoSWan: ElementFinder;
-    public commshubconnectedtoWanY: ElementFinder;
-    public commshubconnectedtoAsset: ElementFinder;
-    public commshubconnectedtoAssetY: ElementFinder;
-    public commsHub: ElementFinder;
-    public commsHubY: ElementFinder;
-    public gasMeter: ElementFinder;
-    public gasMeterY: ElementFinder;
-    public Regulator: ElementFinder;
-    public RegulatorY: ElementFinder;
-    public ihdPpmid: ElementFinder;
-    public ihdPpmidY: ElementFinder;
-    public commshubNextbtn: ElementFinder;
-    public preInstgastightnessTest: ElementFinder;
-    public preinstGasTightness: ElementFinder;
-    public preinstGasTightnessY: ElementFinder;
-    public capturepressureinMB: ElementFinder;
-    public wasthereadropinPressure: ElementFinder;
-    public wasthereadropinPressureY: ElementFinder;
-    public enterdipGasPressure: ElementFinder;
-    public enterdipGasPressureSelect: ElementFinder;
-    public selectmeterType: ElementFinder;
-    public selectmeterTypeSelect: ElementFinder;
-    public smellGas: ElementFinder;
-    public smellGasY: ElementFinder;
-    public gasTightness: ElementFinder;
-    public gasTightnessTextbox: ElementFinder;
-    public gastightnessOutcome: ElementFinder;
-    public gastightnessOutcomeGT: ElementFinder;
-    public reportedinctoGT: ElementFinder;
-    public reportedinctoGTY: ElementFinder;
-    public jobRefText: ElementFinder;
-    public jobRef: ElementFinder;
-    public reportedinctoHS: ElementFinder;
-    public reportedinctoHSY: ElementFinder;
-    public airRefText: ElementFinder;
-    public airRef: ElementFinder;
-    public gtattendanceText: ElementFinder;
-    public gtattendanceY: ElementFinder;
-    public gtresolveText: ElementFinder;
-    public gtresolveY: ElementFinder;
-    public gastightnesstestCompleted: ElementFinder;
-    public gastightnesstestCompletedFail: ElementFinder;
-    public IhdPpmidNxt: ElementFinder;
-    public ctIhdPpmiddtls: ElementFinder;
-    public currentIhdPpmidnxtBtn: ElementFinder;
-    public ctmeterdtlGasNxt: ElementFinder;
-    public capctmeterReadingPanel: ElementFinder;
-    public ctmeterdtlGasTab: ElementFinder;
-    public ctCommshubdtlTab: ElementFinder;
+	public smet2ihdppidText: ElementFinder;
+	public smet2ihdppidY: ElementFinder;
+	public smet2ihdppidN: ElementFinder;
+	public ihdppmidsNoText: ElementFinder;
+	public ihdppmidsSersk: ElementFinder;
+	public ihdppmidsSerText: ElementFinder;
+	public existingihdPpmidText: ElementFinder;
+	public existingihdPpmidY: ElementFinder;
+	public currentmeterdetlGasSec: ElementFinder;
+	public currentmeterdtlPgCont: ElementFinder;
+	public existgasmeterDtlText: ElementFinder;
+	public existgasmeterDtlY: ElementFinder;
+	public meterReadingLabel: ElementFinder;
+	public meterReading: ElementFinder;
+	public currentCommsHubTitle: ElementFinder;
+	public currentHubDtlsPgCont: ElementFinder;
+	public commshubLoc: ElementFinder;
+	public aerialInstalled: ElementFinder;
+	public aerialInstalledY: ElementFinder;
+	public CommshubdtlCorrectText: ElementFinder;
+	public CommshubdtlCorrectY: ElementFinder;
+	public capexistcommshubInstall: ElementFinder;
+	public determinefaultActivityTitle: ElementFinder;
+	public confirmgasmeterOnsupply: ElementFinder;
+	public confirmgasmeterText: ElementFinder;
+	public capturesuspectedTamp: ElementFinder;
+	public smets2assetInst: ElementFinder;
+	public smets2assetInstY: ElementFinder;
+	public smets2assetInstN: ElementFinder;
+	public commshubResetting: ElementFinder;
+	public commshubResettingY: ElementFinder;
+	public removecommshub5mins: ElementFinder;
+	public commshubconnectedtoSupply: ElementFinder;
+	public commshubconnectedtoSupplyY: ElementFinder;
+	public commshubconnectedtoSWan: ElementFinder;
+	public commshubconnectedtoWanY: ElementFinder;
+	public commshubconnectedtoAsset: ElementFinder;
+	public commshubconnectedtoAssetY: ElementFinder;
+	public commsHub: ElementFinder;
+	public commsHubY: ElementFinder;
+	public gasMeter: ElementFinder;
+	public gasMeterY: ElementFinder;
+	public Regulator: ElementFinder;
+	public RegulatorY: ElementFinder;
+	public ihdPpmid: ElementFinder;
+	public ihdPpmidY: ElementFinder;
+	public commshubNextbtn: ElementFinder;
+	public preInstgastightnessTest: ElementFinder;
+	public preinstGasTightness: ElementFinder;
+	public preinstGasTightnessY: ElementFinder;
+	public capturepressureinMB: ElementFinder;
+	public wasthereadropinPressure: ElementFinder;
+	public wasthereadropinPressureY: ElementFinder;
+	public enterdipGasPressure: ElementFinder;
+	public enterdipGasPressureSelect: ElementFinder;
+	public selectmeterType: ElementFinder;
+	public selectmeterTypeSelect: ElementFinder;
+	public smellGas: ElementFinder;
+	public smellGasY: ElementFinder;
+	public gasTightness: ElementFinder;
+	public gasTightnessTextbox: ElementFinder;
+	public gastightnessOutcome: ElementFinder;
+	public gastightnessOutcomeGT: ElementFinder;
+	public reportedinctoGT: ElementFinder;
+	public reportedinctoGTY: ElementFinder;
+	public jobRefText: ElementFinder;
+	public jobRef: ElementFinder;
+	public reportedinctoHS: ElementFinder;
+	public reportedinctoHSY: ElementFinder;
+	public airRefText: ElementFinder;
+	public airRef: ElementFinder;
+	public gtattendanceText: ElementFinder;
+	public gtattendanceY: ElementFinder;
+	public gtresolveText: ElementFinder;
+	public gtresolveY: ElementFinder;
+	public gastightnesstestCompleted: ElementFinder;
+	public gastightnesstestCompletedFail: ElementFinder;
+	public IhdPpmidNxt: ElementFinder;
+	public ctIhdPpmiddtls: ElementFinder;
+	public currentIhdPpmidnxtBtn: ElementFinder;
+	public ctmeterdtlGasNxt: ElementFinder;
+	public capctmeterReadingPanel: ElementFinder;
+	public ctmeterdtlGasTab: ElementFinder;
+	public ctCommshubdtlTab: ElementFinder;
 
-    public rmvPPMIDPanel: ElementFinder;
-    public AssettobeRemoved: ElementFinder;
-    public rmvihdppmidpopupOK: ElementFinder;
-    public rmvihdppmidstatusofAssetSel: ElementFinder;
-    public rmvihdppmidNxtBtn: ElementFinder;
-    public sendmsgPanel: ElementFinder;
-    public rmvPPMIDTab: ElementFinder;
+	public rmvPPMIDPanel: ElementFinder;
+	public AssettobeRemoved: ElementFinder;
+	public rmvihdppmidpopupOK: ElementFinder;
+	public rmvihdppmidstatusofAssetSel: ElementFinder;
+	public rmvihdppmidNxtBtn: ElementFinder;
+	public sendmsgPanel: ElementFinder;
+	public rmvPPMIDTab: ElementFinder;
 
-    public sendmsgbtn: ElementFinder;
-    public awaitingResp: ElementFinder;
-    public reqSentSuccess: ElementFinder;
-    public AssetUnJoined: ElementFinder;
-    public RemoveIHDAsset: ElementFinder;
-    public ppmidremovalSuccess: ElementFinder;
+	public sendmsgbtn: ElementFinder;
+	public awaitingResp: ElementFinder;
+	public reqSentSuccess: ElementFinder;
+	public AssetUnJoined: ElementFinder;
+	public RemoveIHDAsset: ElementFinder;
+	public ppmidremovalSuccess: ElementFinder;
 
-    public AssetRemovalSelect: ElementFinder;
-    public confirmAssetrmvYES: ElementFinder;
-    public AssetPopup: ElementFinder;
-    public RemoveGasMeterPanel: ElementFinder;
+	public AssetRemovalSelect: ElementFinder;
+	public confirmAssetrmvYES: ElementFinder;
+	public AssetPopup: ElementFinder;
+	public RemoveGasMeterPanel: ElementFinder;
+	public unabletoReadGasMeterYES: ElementFinder;
+	public carryanyAdditionalWorkNo: ElementFinder;
 
-    public GMassettoberemoved: ElementFinder;
-    public statusofAssetSelect: ElementFinder;
-    public removedmeterReading: ElementFinder;
-    public GMremovalNxtBtn: ElementFinder;
-    public SendGMRMPanel: ElementFinder;
+	public GMassettoberemoved: ElementFinder;
+	public statusofAssetSelect: ElementFinder;
+	public removedmeterReading: ElementFinder;
+	public GMremovalNxtBtn: ElementFinder;
+	public SendGMRMPanel: ElementFinder;
 
-    public SendGMREMBtn: ElementFinder;
-    public AwaitingRespGMREM: ElementFinder;
+	public SendGMREMBtn: ElementFinder;
+	public AwaitingRespGMREM: ElementFinder;
 
-    public reqSentSuccessGMREM: ElementFinder;
-    public RemovalSuccess: ElementFinder;
-    public OKtoremoveAsset: ElementFinder;
+	public reqSentSuccessGMREM: ElementFinder;
+	public RemovalSuccess: ElementFinder;
+	public OKtoremoveAsset: ElementFinder;
 
-    public confirmgasAssetRemoval: ElementFinder;
+	public confirmgasAssetRemoval: ElementFinder;
+	public captureassetremovalPhoto: ElementFinder;
 
-    public gasAssetRemoval: ElementFinder;
-    public GasAssetRemovalY: ElementFinder;
-    public GasAssetRemovalPopup: ElementFinder;
-    public RemoveCommsHub: ElementFinder;
+	public gasAssetRemoval: ElementFinder;
+	public GasAssetRemovalY: ElementFinder;
+	public GasAssetRemovalPopup: ElementFinder;
+	public RemoveCommsHub: ElementFinder;
 
-    public IstheassettobeRemovedorReplaced: ElementFinder;
-    public RemoveCommshubSelect: ElementFinder;
-    public StatusofCommsHub: ElementFinder;
-    public RemoveCommsHubAdditionalNotes: ElementFinder;
-    public FaultidentifiedPostInst: ElementFinder;
-    public ConfirmCommsHubRemoval: ElementFinder;
-    public RemCommsHubNxtBtn: ElementFinder;
+	public IstheassettobeRemovedorReplaced: ElementFinder;
+	public RemoveCommshubSelect: ElementFinder;
+	public StatusofCommsHub: ElementFinder;
+	public RemoveCommsHubAdditionalNotes: ElementFinder;
+	public FaultidentifiedPostInst: ElementFinder;
+	public ConfirmCommsHubRemoval: ElementFinder;
+	public RemCommsHubNxtBtn: ElementFinder;
 
-    public ConfirmCommsHubRemovalSelect: ElementFinder;
-    public Confirmcommhubassetremove: ElementFinder;
+	public ConfirmCommsHubRemovalSelect: ElementFinder;
+	public Confirmcommhubassetremove: ElementFinder;
 
-    public ConfirmCommsHubRemovalPopup: ElementFinder;
-    public ConfirmCommsHubNxtBtn: ElementFinder;
-    public removePPMID: ElementFinder;
-    public SMawaitingResp: ElementFinder;
-    public ppmidremoval: ElementFinder;
-    public btnnext: ElementFinder;
+	public ConfirmCommsHubRemovalPopup: ElementFinder;
+	public ConfirmCommsHubNxtBtn: ElementFinder;
+	public removePPMID: ElementFinder;
+	public SMawaitingResp: ElementFinder;
+	public ppmidremoval: ElementFinder;
+	public btnnext: ElementFinder;
+	public finalphotocommshubEvidence: ElementFinder;
+	public finalaseetcapturephoto: ElementFinder;
 
-    public existingelecmeterdtls: ElementFinder;
-    public meterReadingElec: ElementFinder;
+	public existingelecmeterdtls: ElementFinder;
+	public meterReadingElec: ElementFinder;
 
-    public confirmElecmeterText: ElementFinder;
-    public confirmElecmeterOnsupply: ElementFinder;
-    public elecMeter: ElementFinder;
-    public elecMeterY: ElementFinder;
-		public ElecremovalNxtBtn: ElementFinder;
-		public SendElecRMPanel: ElementFinder;
-		public SendEMREMBtn: ElementFinder;
-        public AwaitingRespEMREM: ElementFinder;
-        public ElecRemoveMeter: ElementFinder;
-		public RemoveElecAssetrplacedorremoved: ElementFinder;
-        public statusofElecAssetSelect: ElementFinder;
-        
-		public reqSentSuccessEMREM: ElementFinder;
-		public RemovalSuccessElec: ElementFinder;
-        public OKtoremoveAssetElec: ElementFinder;
-        public confirmElecAssetRemoval: ElementFinder;
-		public ElecAssetRemoval: ElementFinder;
-		public ElecAssetRemovalY: ElementFinder;
-        public ElecAssetRemovalPopup: ElementFinder;
-        public ConfirmElecCommsHubNxtBtn: ElementFinder;
-        public currentMeterElecCap: ElementFinder;
-        public SendElMREMBtn: ElementFinder;
-        public SendElMREMBtnCap: ElementFinder;
-        public meterReadingduel: ElementFinder;
-        public meterReadingduelen: ElementFinder;
-        public duelgastightnessOutcomeGT: ElementFinder;
+	public confirmElecmeterText: ElementFinder;
+	public confirmElecmeterOnsupply: ElementFinder;
+	public elecMeter: ElementFinder;
+	public elecMeterY: ElementFinder;
+	public ElecremovalNxtBtn: ElementFinder;
+	public SendElecRMPanel: ElementFinder;
+	public SendEMREMBtn: ElementFinder;
+	public AwaitingRespEMREM: ElementFinder;
+	public ElecRemoveMeter: ElementFinder;
+	public RemoveElecAssetrplacedorremoved: ElementFinder;
+	public statusofElecAssetSelect: ElementFinder;
 
-        public commshubconnectedtoAssetN: ElementFinder;
-        public carryoutWorkontheMeterY: ElementFinder;
-        
-        public smet2ihdppidN: ElementFinder;
+	public reqSentSuccessEMREM: ElementFinder;
+	public RemovalSuccessElec: ElementFinder;
+	public OKtoremoveAssetElec: ElementFinder;
+	public confirmElecAssetRemoval: ElementFinder;
+	public ElecAssetRemoval: ElementFinder;
+	public ElecAssetRemovalY: ElementFinder;
+	public ElecAssetRemovalPopup: ElementFinder;
+	public ConfirmElecCommsHubNxtBtn: ElementFinder;
+	public currentMeterElecCap: ElementFinder;
+	public SendElMREMBtn: ElementFinder;
+	public SendElMREMBtnCap: ElementFinder;
+
+	public captureassetPhoto: ElementFinder;
+	public removemeterText: ElementFinder;
+	public XCHUBBtn: ElementFinder;
+	public XCHUBRemovalsuccessfulBtn: ElementFinder;
+
+	public meterReadingduel: ElementFinder;
+	public meterReadingduelen: ElementFinder;
+	public duelgastightnessOutcomeGT: ElementFinder;
+
+	public commshubconnectedtoAssetN: ElementFinder;
+	public carryoutWorkontheMeterY: ElementFinder;
+	public capturemeterReadingtext: ElementFinder;
+	public capturemeterReadinginput: ElementFinder;
+	public unabletoReadYes: ElementFinder;
+	public unabletoReadGasYes: ElementFinder;
+	public submitRemovebtn: ElementFinder;
+	public carryoutWorkYes: ElementFinder;
+	public carryoutWorkNo: ElementFinder;
+
         public currentEleccap: ElementFinder;
-        public smets2assetInstN: ElementFinder;
+      
         public smets2Declined: ElementFinder;
         public Equipmentreposel: ElementFinder;
         public Equipmentreposition: ElementFinder;
@@ -376,14 +406,16 @@ export class RemovePageObject {
         this.currentMeterElecCap = element(by.xpath('//*[contains(text(),"Current Meter Details")]'));
         this.confirmElecmeterText = element(by.xpath('//*[contains(text(),"Confirm if Elec meter is On Supply or Off Supply")]'));
         this.confirmElecmeterOnsupply = element(by.xpath('//input[@id="confirmelecsupplytrue"]/following-sibling::span[@class="outer"]'));
+
+
 		this.elecMeter = element(by.xpath('//*[contains(text(),"Elec Meter?")]'));
-        this.elecMeterY = element(by.xpath('//input[@id="elecmexdfa"]/following-sibling::span[@class="cr"]')); 
+		this.elecMeterY = element(by.xpath('//input[@id="elecmexdfa"]/following-sibling::span[@class="cr"]'));
 		this.ElecremovalNxtBtn = element(by.xpath('//*[@id="btn_Next_rmv"]'));
-        this.SendElecRMPanel = element(by.xpath('//div[@id="Title_emrem"]'));
+		this.SendElecRMPanel = element(by.xpath('//div[@id="Title_emrem"]'));
 		this.SendEMREMBtn = element(by.xpath('//*[@id="gmrem_sendMessageButton"]'));
-        this.AwaitingRespEMREM = element(by.xpath('//*[text()="Awaiting Response"]'));
+		this.AwaitingRespEMREM = element(by.xpath('//*[text()="Awaiting Response"]'));
 		this.ElecRemoveMeter = element(by.xpath('//div/h4[text()="Remove Meter"]'));
-		this.RemoveElecAssetrplacedorremoved = element(by.xpath('((//*[@id="CCHradio5"])[2])/following-sibling::span[@class="outer"]'));
+		this.RemoveElecAssetrplacedorremoved = element(by.xpath('((//*[@id="CCHradio5"])[2])/following-sibling::span[@class="outer"]'))
         this.statusofElecAssetSelect = element(by.xpath('//select[@id="cbx_StaAss_sel"]'));
         this.reqSentSuccessEMREM = element(by.xpath('(//*[text()="Request Sent Successfully"])[2]'));
         this.RemovalSuccessElec = element(by.xpath('//*[@id="emrem_nextButton"]'));
@@ -425,6 +457,36 @@ export class RemovePageObject {
 
         this.RemoveElecAssetrplacedorremoved1 = element(by.xpath('(//*[@id="CCHradio5"])/following-sibling::span[@class="outer"]'));
         //#endregion
+        this.statusofElecAssetSelect = element(by.xpath('//select[@id="cbx_StaAss_sel"]'));
+		this.reqSentSuccessEMREM = element(by.xpath('(//*[text()="Request Sent Successfully"])[2]'));
+		this.RemovalSuccessElec = element(by.xpath('//*[@id="emrem_nextButton"]'));
+		this.OKtoremoveAssetElec = element(by.xpath('//*[text()="OK to Remove Asset"]'));
+		this.confirmElecAssetRemoval = element(by.xpath('//*[@id="Title_Remove_Ass"]'));
+		this.ElecAssetRemoval = element(by.xpath('//select[@id="cbx_RAss_Status"]'));
+		this.ElecAssetRemovalY = element(by.xpath('//*[@id="rb_CAssRem_y"]/span[@class="outer"]'));
+		this.ElecAssetRemovalPopup = element(by.xpath('//*[text()="OK"]'));
+		this.ConfirmElecCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])'));
+		this.SendElMREMBtnCap = element(by.xpath('//*[@id="Title_emrem"]'));
+		this.SendElMREMBtn = element(by.xpath('//*[@id="emrem_sendMessageButton"]'));
+
+		//#endregion
+
+		this.removemeterText = element(by.xpath('//div[text()="Removed Meter Reading(s):"]'));
+
+		//#region Flty20 - Duel meter
+
+		this.meterReadingduel = element(by.xpath('(//input[@id="reg0"])[2]'));
+		this.meterReadingduelen = element(by.xpath('(//*[contains(text(),"Capture Meter Reading - Register (1):")])[2]'));
+		this.duelgastightnessOutcomeGT = element(by.id('//*[@id="rb_TestFailOutCmGTIss_y"]/span[@class="outer"]'));
+
+		//#endregion
+
+		//#region Flty Gas Tst12
+
+		this.commshubconnectedtoAssetN = element(by.xpath('//input[@id="exchangeassetfalse"]/following-sibling::span[@class="outer"]'));
+		this.carryoutWorkontheMeterY = element(by.xpath('//input[@id="additionalworktrue"]/following-sibling::span[@class="outer"]'));
+
+		//#endregion
     }
 
     /**
@@ -1346,7 +1408,6 @@ public async Tst13fillElecmeterrem() {
         await select.$('[value="0"]').click();
     }
 }
-}
+	}
 
-
-
+	
