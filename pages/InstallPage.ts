@@ -41,6 +41,14 @@ export class InstallPageObject {
     private postInstallChecksNextBtn: ElementFinder
     private commissioningText: ElementFinder
     private postInstallChecksAdditionalNotesTextfield: ElementFinder
+    private installKitUsedTrueRadioOption: ElementFinder
+    private addAnotherAssetBtn: ElementFinder
+    private assetDropDownMenu1: ElementFinder
+    private assetDropDownMenu2: ElementFinder
+    private quantityTextfield1: ElementFinder
+    private quantityTextfield2: ElementFinder
+    private commissioningNextSectionBtn: ElementFinder
+
 
     public installcommsHub: ElementFinder
     public commshubReqY: ElementFinder
@@ -191,6 +199,14 @@ export class InstallPageObject {
         this.postInstallChecksNextBtn = element(by.xpath("//button[@id='btnNextComm']"));
         this.commissioningText = element(by.xpath("//h4[contains(text(),'Commissioning')]"));
         this.postInstallChecksAdditionalNotesTextfield = element(by.xpath("//textarea[@id='postpolnotes']"));
+        this.addAnotherAssetBtn = element(by.xpath("//button[@id='Cbtn1']"));
+        this.assetDropDownMenu1 = element(by.xpath("//div[@class='collapse in']//div[2]//div[1]//div[1]//select[1]"));
+        this.assetDropDownMenu2 = element(by.xpath("//div[3]//div[1]//div[1]//select[1]"));
+        this.quantityTextfield1 = element(by.xpath("//div[@class='collapse in']//div[2]//div[1]//div[2]//input[1]"));
+        this.quantityTextfield2 = element(by.xpath("//div[contains(@class,'contentTasks')]//div[3]//div[1]//div[2]//input[1]"));
+        this.commissioningNextSectionBtn = element(by.xpath("//button[@id='CbtnNextComm']"));
+        this.installKitUsedTrueRadioOption = element(by.xpath("//label[@id='gasInstallPhoto_installKit_y']"));
+
 
         //#region Install Comms Hub
         this.installcommsHub = element(by.xpath('//div/h4[text()="Install Comms Hub"]'));
@@ -514,11 +530,73 @@ export class InstallPageObject {
     public async validateCommissioningSectionIsVisible() {
         await utility.wait(1000);
         if (await this.commissioningText.isDisplayed()) {
-            await this.commissioningText.getText().then(function (installKitTxt) {
-                console.log("Arrived at : " + installKitTxt);
+            await this.commissioningText.getText().then(function (commissionTxt) {
+                console.log("Arrived at : " + commissionTxt);
             });
         }
     }
+
+    public async setInstallKitUsedTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.installKitUsedTrueRadioOption.isDisplayed()) {
+            this.installKitUsedTrueRadioOption.click();
+        }
+    }
+
+    public async setNonSerialisedAssetsValT1AerialDropDownMenu() {
+        await utility.wait(1000);
+        if (this.assetDropDownMenu1.isDisplayed()) {
+            var select = this.assetDropDownMenu1;
+            select.$("[value='1']").click();
+        }
+    }
+
+    public async setQuantityVal1Textfield() {
+        await utility.wait(1000);
+        if (this.quantityTextfield1.isDisplayed()) {
+            this.quantityTextfield1.sendKeys("1");
+        }
+    }
+
+    public async clickOnAddAnotherAssetBtn() {
+        await utility.wait(1000);
+        if (await this.addAnotherAssetBtn.isDisplayed()) {
+            await this.addAnotherAssetBtn.click();
+        }
+    }
+
+    public async verifyThatANewRecordsetIsDynamicallyCreated() {
+        await utility.wait(1000);
+        assert(await this.assetDropDownMenu2.isDisplayed());
+        assert(await this.quantityTextfield2.isDisplayed());
+    }
+
+    public async setNonSerialisedAssetsValConnectorBlocksDropDownMenu() {
+        await utility.wait(1000);
+        if (this.assetDropDownMenu2.isDisplayed()) {
+            var select = this.assetDropDownMenu2;
+            select.$("[value='3']").click();
+        }
+    }
+
+    public async setQuantityVal2Textfield() {
+        await utility.wait(1000);
+        if (this.quantityTextfield2.isDisplayed()) {
+            this.quantityTextfield2.sendKeys("2");
+        }
+    }
+
+    public async clickOnCommissioningNextSectionBtn() {
+        await utility.wait(1000);
+        if (await this.commissioningNextSectionBtn.isDisplayed()) {
+            await this.commissioningNextSectionBtn.click();
+        }
+    }
+
+
+
+
+
 
     public async dummy() {
         await this.installdelete.click();

@@ -115,3 +115,141 @@ Given('I have accessed the Commissioning section', async function () {
 Then('I should see the Commissioning section', async function () {
     await installPage.validateCommissioningSectionIsVisible();
 });
+
+When('I select the value Yes for the Installed Kit Used? radio option', async function () {
+    await installPage.setInstallKitUsedTrueRadioOption();
+});
+
+Then('I select the value T1 Aerial from the Non Serialised Assets drop-down menu', async function () {
+    await installPage.setNonSerialisedAssetsValT1AerialDropDownMenu();
+});
+
+Then('I update the Quantity textfield with the value 1', async function () {
+    await installPage.setQuantityVal1Textfield();
+});
+
+Then('I click on the Add Another Asset button', async function () {
+    await installPage.clickOnAddAnotherAssetBtn();
+});
+
+Then('A new recordset is displayed dyanmically, directly below the first entry', async function () {
+    await installPage.verifyThatANewRecordsetIsDynamicallyCreated();
+});
+
+When('I select the value Connector Blocks from the Non Serialised Assets drop-down menu', async function () {
+    await installPage.setNonSerialisedAssetsValConnectorBlocksDropDownMenu();
+});
+
+Then('I update the Quantity textfield with the value 2', async function () {
+    await installPage.setQuantityVal2Textfield();
+});
+
+Then('I click on the Commissioning section Next button', async function () {
+    await installPage.clickOnCommissioningNextSectionBtn();
+});
+
+Then('I should see the Install Kit section', async function () {
+    await installPage.installkitSec();
+});
+
+Given('I have accessed the Post Installation Gas Tightness Test section', async function () {
+
+});
+
+When('I select the value Yes for the Did you have to Contact GT radio option', async function () {
+
+});
+
+Then('I update the National Grid GI Job ref textfield with the value 1', async function () {
+
+});
+
+Then('I select the value Yes for the Reported Incident to H&S AIRline radio option', async function () {
+
+});
+
+Then('I update the AIRLine Ref No textfield with the value 2', async function () {
+
+});
+
+Then('I select the value Yes for the Need to wait for the GT Attendance on Site radio option', async function () {
+
+});
+
+Then('I select the value Yes for the GT Resolve Issue radio option', async function () {
+
+});
+
+Then('I select the value Yes for the Did you Carry out any Additional Work to Pass the Gas Tightness Test radio option', async function () {
+
+});
+
+Then('I update the Additional Notes textfield with the value Gas Notes', async function () {
+
+});
+
+Then('I select the value Yes for the Have you replaced the Gas meter radio option', async function () {
+
+});
+
+Then('I select the value Yes for the Have you replaced the Regulator radio option', async function () {
+
+});
+
+Then('I select the value Yes for the Post Installation-Gas Tightness Test Performed radio option', async function () {
+
+});
+
+Then('I click on the Capture Photo of Witness Sticker and U-Gauge button', async function () {
+
+});
+
+Then('I select the value Yes, for the Was there a drop in pressure radio option', async function () {
+
+});
+
+Then('I select the value 1.1 for the Enter DIP Gas Pressure drop-down menu', async function () {
+
+});
+
+Then('I select the value G4 0.5 4m bars for the Select Meter Type drop-down menu', async function () {
+
+});
+
+Then('I select the value Yes for the Gas Tightness Test – Passed radio option', async function () {
+
+});
+
+Then('I update the Test Witness Name textfield with the value Ellie Taylor', async function () {
+
+});
+
+Then('I update the Standing Pressure textfield with the value 1.1', async function () {
+
+});
+
+Then('I click on the Capture Photo of Standing Pressure button', async function () {
+
+});
+
+Then('I update the Working Pressure textfield with the value 2.0', async function () {
+
+});
+
+Then('I click on the Capture Photo of Working Pressure button', async function () {
+
+});
+
+Then('I click on the Capture Photo of Final Meter Installation button', async function () {
+
+});
+
+Then('I click on the Post Installation Gas Tightness Test Next button', async function () {
+
+});
+
+Then('Then I should see the  section', async function () {
+
+});
+
+
