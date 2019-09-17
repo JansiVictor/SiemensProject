@@ -12,14 +12,17 @@ export const config: Config = {
     baseUrl: "https://siemens-og-bykrw4fz56yr6nyvlskmwpwq-sdg1-test.mbaas1.sdg.feedhenry.com/",
 
     capabilities: {
-        browserName: "chrome"
-    },
+        browserName: 'chrome',
+        shardTestFiles: true,
+        maxInstances: 1,
+     },
 
     framework: "custom",
     frameworkPath: require.resolve("protractor-cucumber-framework"),
 
     specs: [
-        "../../features/*.feature",
+        "../../features/*.feature"
+
     ],
 
     jasmineNodeOpts: {

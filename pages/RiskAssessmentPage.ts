@@ -137,6 +137,7 @@ export class RiskAssessmentPageObject {
 
     //cgp added
     public CaptureInitialElecInstTab: ElementFinder;
+    public clickSubmit_SFENMEX15: ElementFinder;
 
 
     constructor() {
@@ -270,7 +271,7 @@ export class RiskAssessmentPageObject {
         this.meterCutOutSubmitBtn = element(by.id('btn1'));
 
         this.meterCutOutSubmit1 = element(by.xpath('(//button[@id = "btn1"])[2]'));
-
+        this.clickSubmit_SFENMEX15 = element(by.xpath('(//button[@id="btn1"])[3]'));
         //---------------------------------------------------------
 
         //added by cgp fhty20 trad
@@ -653,6 +654,15 @@ export class RiskAssessmentPageObject {
 
     }
 
+    public async polarityMeterCutoutSubmitFLTY18TRAD()
+    {
+        await utility.wait(3000);
+        if (await this.clickSubmit_SFENMEX15.isDisplayed()) {
+            await this.clickSubmit_SFENMEX15.click();
+            await utility.wait(3000);
+        }
+        
+    }
     public async meterCutOutnextSection() {
 
         if (await this.meterCutOutNxtBtn.isDisplayed()) {

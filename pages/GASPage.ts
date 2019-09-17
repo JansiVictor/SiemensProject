@@ -23,6 +23,7 @@ import {
 export class GASPageObject {
 
 	public riskAssessGas: ElementFinder;
+	public capturephotoMeterInstall: ElementFinder;  
 	public meterPressureLow: ElementFinder;
 	public voltStickYEs: ElementFinder;
 	public theftOfGasYes: ElementFinder;
@@ -75,6 +76,7 @@ export class GASPageObject {
 	public installKitTxt: ElementFinder;
 	public installKitUsedYes: ElementFinder;
 	public nonSerialisedAsssetsDD: ElementFinder;
+	public nonSerialisedAsssetsDD1: ElementFinder;
 	public assetInput: ElementFinder;
 	public installKitNxtBtn: ElementFinder;
 	public postInstallationGasTxt: ElementFinder;
@@ -143,10 +145,42 @@ export class GASPageObject {
 	public infoOKButton: ElementFinder;
 	public inputcradleSerialNo: ElementFinder;
 	public captureEvidenceGas: ElementFinder;
+	public clickSubmit: ElementFinder;
+	public currentGASMeterDetailsTxt: ElementFinder;
+	public captureInitialPhotogastxtDF17: ElementFinder;
+	public currentMeterDetailsText: ElementFinder;
+	public updateValuesBtn: ElementFinder;
+    public unableToReadMeterYes: ElementFinder;
+	public unableToReadMeterYes_SFENMEX15: ElementFinder;
+	public existingElecMeterNo: ElementFinder;
+	public installKitUsedYes1: ElementFinder;
+    public currentMeterNxtbtn: ElementFinder;
+    public DF17currentMeterNxtbtn: ElementFinder;
+	public SFENMEX15currentNxtbtn: ElementFinder;
+	public currentMeterDetailsHeader: ElementFinder;
+	public existingElecMeterYes: ElementFinder;
+	public commsHubConnectedYes: ElementFinder;
+	public assetInput1: ElementFinder;
+	public installKitNxtBtn1: ElementFinder;
 
 
 	constructor() {
 		this.riskAssessGas = element(by.id('Title_RiskAss_gas'));
+		this.commsHubConnectedYes = element(by.xpath('//input[@id="Cradionm1"]/following-sibling::span[@class="outer"]'));
+        
+		this.currentMeterDetailsText = element(by.xpath('//div/h4[text()="Current Meter Details - Gas"]'));
+		this.updateValuesBtn = element(by.xpath('//*[@id="gasCurrentMeter_updateValues"]'));
+        this.unableToReadMeterYes = element(by.xpath('(//input[@id="rb_UnReadMet_y"]/following-sibling::span[@class="outer"])[2]'));
+		this.unableToReadMeterYes_SFENMEX15 = element(by.xpath('(//input[@id="rb_UnReadMet_y"]/following-sibling::span[@class="outer"])[1]'));
+		this.existingElecMeterYes = element(by.id('gasCurrentMeter_detailsCorrect_y'));
+		this.existingElecMeterNo = element(by.id('gasCurrentMeter_detailsCorrect_n'));
+		this.currentMeterNxtbtn = element(by.id('btnNextComm'));
+        this.DF17currentMeterNxtbtn = element(by.xpath('(//*[@id="btn_Next_read"])[2]'));
+        this.SFENMEX15currentNxtbtn = element(by.xpath('(//*[@id="btn_Next_read"])[1]'));
+        this.currentMeterDetailsHeader = element(by.xpath('//div[@id="Title_gasCurrentMeter"]'));
+			
+		this.clickSubmit = element(by.xpath('(//button[@id="btn1"])[3]'));
+		this.capturephotoMeterInstall = element(by.id('gasbtn1'));
 		this.meterPressureLow = element(by.xpath('//input[@id="radiorag1"]/following-sibling::span[@class="outer"]'));
 		this.voltStickYEs = element(by.xpath('//input[@id="raga0"]/following-sibling::span[@class="outer"]'));
 		this.theftOfGasYes = element(by.xpath('//input[@id="raga1"]/following-sibling::span[@class="outer"]'));
@@ -155,6 +189,7 @@ export class GASPageObject {
 		this.captureEvidence = element(by.xpath('(//button[@id="btn1"])[1]'));
 		this.captureEvidenceGas = element(by.xpath('(//button[starts-with(text(),"CAPTURE PHOTOGRAPHIC")])[1]'));
 		this.additionalGASNote = element(by.id('text1'));
+		this.currentGASMeterDetailsTxt = element(by.id('Title_gasCurrentMeter'));
 		this.safeToContinueYEs = element(by.xpath('//input[@id="radiorag5"]/following-sibling::span[@class="outer"]'));
 		this.suitableforSmartInstallationTxt = element(by.id('Title_Smart_Elec'));
 		this.suitableforInstaYes = element(by.id('rb_SuitFS_y'));
@@ -162,6 +197,7 @@ export class GASPageObject {
 		this.additionalSmartNote = element(by.id('smartnotes'));
 		this.suitablenxtBtn = element(by.id('btn_Next_Section'));
 		this.captureInitialPhotogastxt = element(by.id('Title_Init_Photo'));
+		this.captureInitialPhotogastxtDF17 = element(by.id('Title_gasInitialPhoto'));
 		this.captureInitialPhotogasbtn = element(by.id('btn_Init_Photo'));
 		this.preInstalationGASTxt = element(by.xpath('//div/h4[text()="Pre Installation Gas Tightness Test"]'));
 		this.gasTightnessYes = element(by.id('rb_PreGasTigTCarOut_y'));
@@ -202,7 +238,9 @@ export class GASPageObject {
 		this.capturreMeterReadingTxt = element(by.xpath('//div[text()="Capture Meter Reading - Register (null):"]'));
 		this.installKitTxt = element(by.xpath('//div/h4[text()="Install Kit"]'));
 		this.installKitUsedYes = element(by.xpath('//input[@id="inp1"]/following-sibling::span[@class="outer"]'));
+		this.installKitUsedYes1 = element(by.xpath('//*[@id="gasInstallPhoto_installKit_y"]'));
 		this.nonSerialisedAsssetsDD = element(by.id('assetselect0'));
+		this.nonSerialisedAsssetsDD1 = element(by.id('gasassetselect0'));
 		this.assetInput = element(by.id('assetinput0'));
 		this.installKitNxtBtn = element(by.id('btnNextrmmip'));
 		this.postInstallationGasTxt = element(by.xpath('//div/h4[text()="Post Installation Gas Tightness Test"]'));
@@ -267,6 +305,8 @@ export class GASPageObject {
 		this.commshubconnectedtoWANYes = element(by.xpath('//input[@id="Cradionm1"]/following-sibling::span[@class="outer"]'));
 		this.infoOKButton = element(by.xpath('//div/button[@class="confirm"]'));
 		this.inputcradleSerialNo = element(by.id('chubInstall_cradleSerial'));
+		this.assetInput1 = element(by.id('gasassetinput0'));
+        this.installKitNxtBtn1 = element(by.id('gasInstallPhoto_nextBtn'));
 
 	}
 
@@ -278,6 +318,92 @@ export class GASPageObject {
 		}
 
 	}
+
+	public async verifySFENMEX15CurrentMeterDetails() {
+		await expect(this.currentMeterDetailsText.isPresent());
+		await this.currentMeterDetailsText.getText().then(function (currentMeterDetails) {
+			console.log("find currentMeterDetails Text  " + currentMeterDetails);
+		});
+		await this.updateValuesBtn.click();
+		await utility.wait(5000);
+		await expect(this.existingElecMeterNo.isPresent());
+		await this.existingElecMeterNo.click();
+		//await expect(this.existingElecMeterYes.isPresent());
+		//await this.existingElecMeterYes.click();
+		//await utility.wait(1000);
+		//not req, if new WO required
+		if (await this.currentMeterNxtbtn.isDisplayed()) {
+			await this.currentMeterNxtbtn.click();
+		}
+		await utility.wait(6000);
+		await this.currentMeterDetailsHeader.click();
+		await expect(this.existingElecMeterYes.isPresent());
+		await utility.wait(6000);
+		await this.existingElecMeterYes.click();
+		await utility.wait(6000);
+		if (await this.unableToReadMeterYes_SFENMEX15.isDisplayed()) {
+			await this.unableToReadMeterYes_SFENMEX15.click();
+			await utility.wait(6000);
+        }
+        
+		await this.SFENMEX15currentNxtbtn.click();
+		await utility.wait(3000);
+    }
+
+
+	public async meterCutOutnextSection() {
+		await expect(this.clickSubmit.isPresent());
+		await this.clickSubmit.click();
+		await utility.wait(5000);
+	}
+
+	public async currentGASMeterDetailsTxtDisplay() {
+
+		if (this.currentGASMeterDetailsTxt.isDisplayed()) {
+			await this.currentGASMeterDetailsTxt.getText().then(function (currentGASMeterDetails) {
+				console.log("find currentGASMeterDetails Text  " + currentGASMeterDetails);
+			});
+		} 
+
+}
+
+public async verifyDF17CurrentMeterDetails() {
+	await expect(this.currentMeterDetailsText.isPresent());
+	await this.currentMeterDetailsText.getText().then(function (currentMeterDetails) {
+		console.log("find currentMeterDetails Text  " + currentMeterDetails);
+	});
+	await this.updateValuesBtn.click();
+	await utility.wait(5000);
+	await expect(this.existingElecMeterNo.isPresent());
+	await this.existingElecMeterNo.click();
+	//await expect(this.existingElecMeterYes.isPresent());
+	//await this.existingElecMeterYes.click();
+	//await utility.wait(1000);
+	//not req, if new WO required
+	if (await this.currentMeterNxtbtn.isDisplayed()) {
+		await this.currentMeterNxtbtn.click();
+	}
+	await utility.wait(6000);
+	await this.currentMeterDetailsHeader.click();
+	await expect(this.existingElecMeterYes.isPresent());
+	await utility.wait(6000);
+	await this.existingElecMeterYes.click();
+	await utility.wait(6000);
+	if (await this.unableToReadMeterYes.isDisplayed()) {
+		await this.unableToReadMeterYes.click();
+		await utility.wait(6000);
+	}
+	
+	await this.DF17currentMeterNxtbtn.click();
+	await utility.wait(3000);
+}
+
+public async fillCurrentMeterDetails() {
+	if (await this.existingElecMeterYes.isDisplayed()) {
+		await this.existingElecMeterYes.click();
+		await utility.wait(1000);
+	}
+}
 
 	public async fillRiskAssessGas() {
 		await this.meterPressureLow.click();
@@ -322,6 +448,15 @@ export class GASPageObject {
 			});
 		}
 		await this.captureInitialPhotogasbtn.click();
+	}
+
+	public async captureInitialPhotoTxtDF17() {
+		if (this.captureInitialPhotogastxtDF17.isDisplayed()) {
+			await this.captureInitialPhotogastxtDF17.getText().then(function (captureInitialPhotogas) {
+				console.log("find captureInitialPhotogas Text  " + captureInitialPhotogas);
+			});
+		}
+		//await this.captureInitialPhotogasbtn.click();
 	}
 
 	public async preInstallationGasTTxt() {
@@ -529,7 +664,24 @@ export class GASPageObject {
 			});
 		}
 	}
+	public async fillGasInstallKitDetails_NMEX15() {
 
+        await this.installKitUsedYes1.click();
+        await utility.wait(2000);
+        
+        if (await this.nonSerialisedAsssetsDD1.isDisplayed()) {
+            var select3 = this.nonSerialisedAsssetsDD1;
+            select3.$('[value="1"]').click();
+        }
+        
+        await utility.wait(2000);
+        await this.assetInput1.sendKeys('1');
+        await utility.wait(5000);
+        //browser.executeScript('arguments[0].scrollIntoView()', this.commsHubConnectedYes.getWebElement());
+        await this.commsHubConnectedYes.click();
+		await utility.wait(5000);
+        await this.installKitNxtBtn1.click();
+    }
 	/***
 	 * @Author Aparna Das
 	 * @description Fill Gas install Kit section 

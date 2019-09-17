@@ -1,7 +1,7 @@
 import { browser, protractor, element, by } from "protractor";
 import { loginPageObject } from "../pages/loginPage";
 import { FLTY19homePageObject } from "../pages/FLTY19homePage";
-import { FLTY19AppointmentListPageObject } from "../pages/FLTY19AppointmentListPage";
+import { FLTY19AppointmentListPageObject } from "../pages/AppointmentListPage";
 import { DoorStepPageObject } from "../pages/DoorStepPage";
 import { RiskAssessmentPageObject } from "../pages/RiskAssessmentPage";
 import { RemovePageObject } from "../pages/RemovePage";

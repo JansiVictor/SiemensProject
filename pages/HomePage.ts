@@ -26,9 +26,23 @@ export class HomePageObject {
 	public arriveBtn: ElementFinder;
 	public continueLink: ElementArrayFinder;
 	public Ex20continueLink: ElementArrayFinder;
+	public DF17SmartCreditselectLink: ElementArrayFinder;
+	public SFEFLTY19selectLink: ElementArrayFinder;
+	public SFEFLTY19completedLink: ElementArrayFinder;
+	public SFEFLTY19TRADselectLink: ElementArrayFinder;
+	public SFEFLTY19TRADcompletedLink: ElementArrayFinder;
+	public SFEINST15selectLink: ElementArrayFinder;
+	public SFEINST15completedLink: ElementArrayFinder;
+	public SFENMEX16selectLink: ElementArrayFinder;
+	public SFENMEX16completedLink: ElementArrayFinder;
+	public SFGFLTY18TRADselectLink: ElementArrayFinder;
+	public SFGFLTY18TRADcompletedLink: ElementArrayFinder;
+	public SFGNMEX15selectLink: ElementArrayFinder;
+	public SFGNMEX15completedLink: ElementArrayFinder;
 	public Ex20selectLink: ElementArrayFinder;
 	public Ex20completedLink: ElementArrayFinder;
 	public Ex21completedLink: ElementArrayFinder;
+	public DF17SmartCreditcompletedLink: ElementArrayFinder;
 	public Ex19selectLink: ElementArrayFinder;
 	public Ex19completedLink: ElementArrayFinder;
 	public Remove6selectLink: ElementArrayFinder;
@@ -44,10 +58,26 @@ export class HomePageObject {
 		this.Remove6selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobRMVE6 FLAT")]'));
 		this.RemoveGasSelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobRMVE5 FLAT")]'));
 		this.FLTYnoexchangeselectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobFAULTY 20 SMETS2 Site FLAT")]'));
-
+		this.DF17SmartCreditselectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobNMEX17")]'));
+		this.SFEFLTY19selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobFAULTY 19")]'));
+		this.SFEFLTY19TRADselectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobFAULTY 19 Non S2")]'));
+		this.SFEINST15selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobINST15")]'));
+		this.SFENMEX16selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobNMEX16")]'));
+		this.SFGFLTY18TRADselectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobFAULTY 18")]'));
+		this.SFGNMEX15selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobNMEX15")]'));
+		
+		this.SFEFLTY19completedLink = element.all(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 19")]'));
+		this.SFEFLTY19TRADcompletedLink = element.all(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 19 Non S2")]'));
+		this.SFEINST15completedLink = element.all(by.xpath('//*[starts-with(@id,"CompletedJobINST15")]'));
+		this.SFENMEX16completedLink = element.all(by.xpath('//*[starts-with(@id,"CompletedJobNMEX16")]'));
+		this.SFGFLTY18TRADcompletedLink = element.all(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 18")]'));
+		this.SFGNMEX15completedLink = element.all(by.xpath('//*[starts-with(@id,"CompletedJobNMEX15")]'));
+		
+		
 		this.continueLink = element.all(by.xpath('//span[starts-with(@id,"ContinueJobTest EXCH21 DF SMETS2"]'));
 		this.Ex20completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobTest1 EXCH20 DF SMETS2"]'));
 		this.Ex21completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobTest1 EXCH21 DF SMETS2"]'));
+		this.DF17SmartCreditcompletedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobNMEX17")]'));
 		this.flty19noExTradSelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobFAULTY 19 Trad Non S2 site FLAT")]'));
 		this.Ex19completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobEXCHANGE 19 FLAT"]'));
 		this.selectLink2 = element.all(by.xpath('//div[contains(@id,"SelectJobTest3 EXCH21 DF SMETS2")]'));
@@ -71,11 +101,38 @@ export class HomePageObject {
 				this.verifyEx20CompletedTextAppointmentListPage();
 				console.log('Fieldname:', fieldName);
 				break;
+			case ('DF17SmartCredit'):
+				this.verifyDF17SmartCreditCompletedTextAppointmentListPage();
+				console.log('Fieldname:', fieldName);
+				break;
+			case ('SFEFLTY19'):
+				this.verifySFEFLTY19CompletedTextAppointmentListPage();
+				console.log('Fieldname:', fieldName);
+				break;
+			case ('SFEFLTY19TRAD'):
+				this.verifySFEFLTY19TRADCompletedTextAppointmentListPage();
+				console.log('Fieldname:', fieldName);
+				break;
+			case ('SFEINST15'):
+				this.verifySFEINST15CompletedTextAppointmentListPage();
+				console.log('Fieldname:', fieldName);
+				break;
+			case ('SFENMEX16'):
+				this.verifySFENMEX16CompletedTextAppointmentListPage();
+				console.log('Fieldname:', fieldName);
+				break;
+			case ('SFGFLTY18TRAD'):
+				this.verifySFGFLTY18TRADCompletedTextAppointmentListPage();
+				console.log('Fieldname:', fieldName);
+				break;
+			case ('SFGNMEX15'):
+				this.verifySFGNMEX15CompletedTextAppointmentListPage();
+				console.log('Fieldname:', fieldName);
+				break;
 			case ('DF_FLTY20_SMETS2NoExchange'):
 				job.JobCompletedFLTYNoExchangeScreen();
 				break;
 			case ('ERemove6'):
-
 				console.log('Fieldname:', fieldName);
 				break;
 			case ('Exchange19'):
@@ -120,6 +177,34 @@ export class HomePageObject {
 		switch (selectLinkName) {
 			case ('Exchange20'):
 				this.clickOnTheExchange20SelectLink();
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('DF17SmartCredit'):
+				this.clickOnTheDF17SmartCreditSelectLink();
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('SFEFLTY19'):
+				this.clickOnTheSFEFLTY19SelectLink();
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('SFEFLTY19TRAD'):
+				this.clickOnTheSFEFLTY19TRADSelectLink();
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('SFEINST15'):
+				this.clickOnTheSFEINST15SelectLink();
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('SFENMEX16'):
+				this.clickOnTheSFENMEX16SelectLink();
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('SFGFLTY18TRAD'):
+				this.clickOnTheSFGFLTY18TRADSelectLink();
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('SFGNMEX15'):
+				this.clickOnTheSFGNMEX15SelectLink();
 				console.log('Fieldname:', selectLinkName);
 				break;
 			case ('DF_FLTY20_SMETS2NoExchange'):
@@ -176,6 +261,54 @@ export class HomePageObject {
 		}
 	}
 
+	public verifySFEFLTY19CompletedTextAppointmentListPage() {
+		if (this.SFEFLTY19completedLink != null) {
+			this.SFEFLTY19completedLink.getText().then(function (SFEFLTY19completed) {
+				console.log("find SFEFLTY19completedtext  " + SFEFLTY19completed);
+			});
+		}
+	}
+
+	public verifySFEFLTY19TRADCompletedTextAppointmentListPage() {
+		if (this.SFEFLTY19TRADcompletedLink != null) {
+			this.SFEFLTY19TRADcompletedLink.getText().then(function (SFEFLTY19TRADcompleted) {
+				console.log("find SFEFLTY19TRADcompletedtext  " + SFEFLTY19TRADcompleted);
+			});
+		}
+	}
+
+	public verifySFEINST15CompletedTextAppointmentListPage() {
+		if (this.SFEINST15completedLink != null) {
+			this.SFEINST15completedLink.getText().then(function (SFEINST15completed) {
+				console.log("find SFEINST15completedtext  " + SFEINST15completed);
+			});
+		}
+	}
+
+	public verifySFENMEX16CompletedTextAppointmentListPage() {
+		if (this.SFENMEX16completedLink != null) {
+			this.SFENMEX16completedLink.getText().then(function (SFENMEX16completed) {
+				console.log("find SFENMEX16completedtext  " + SFENMEX16completed);
+			});
+		}
+	}
+
+	public verifySFGFLTY18TRADCompletedTextAppointmentListPage() {
+		if (this.SFGFLTY18TRADcompletedLink != null) {
+			this.SFGFLTY18TRADcompletedLink.getText().then(function (SFGFLTY18TRADcompleted) {
+				console.log("find SFGFLTY18TRADcompletedtext  " + SFGFLTY18TRADcompleted);
+			});
+		}
+	}
+
+	public verifySFGNMEX15CompletedTextAppointmentListPage() {
+		if (this.SFGNMEX15completedLink != null) {
+			this.SFGNMEX15completedLink.getText().then(function (SFGNMEX15completed) {
+				console.log("find SFGNMEX15completedtext  " + SFGNMEX15completed);
+			});
+		}
+	}
+
 	public verifyEx21CompletedTextAppointmentListPage() {
 		if (this.Ex21completedLink != null) {
 			this.Ex21completedLink.getText().then(function (Ex20completed) {
@@ -191,6 +324,324 @@ export class HomePageObject {
 			});
 		}
 	}
+
+	public verifyDF17SmartCreditCompletedTextAppointmentListPage() {
+		if (this.DF17SmartCreditcompletedLink != null) {
+			this.DF17SmartCreditcompletedLink.getText().then(function (DF17SmartCreditcompleted) {
+				console.log("find DF17SmartCreditcompletedtext  " + DF17SmartCreditcompleted);
+			});
+		}
+	}
+
+	/***
+	 * @Author Supriya Harikumar
+	 * @description Click on the correct DF17SmartCredit Select Link
+	 ***/
+
+	public async clickOnTheDF17SmartCreditSelectLink() {
+		var list = this.DF17SmartCreditselectLink;
+
+		await utility.wait(2000);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobNMEX17")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobNMEX17")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobNMEX17")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
+
+	/***
+	 * @Author Supriya Harikumar
+	 * @description Click on the correct SFEFLTY19 Select Link
+	 ***/
+
+	public async clickOnTheSFEFLTY19SelectLink() {
+		var list = this.SFEFLTY19selectLink;
+
+		await utility.wait(2000);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 19")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobFAULTY 19")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 19")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
+
+	/***
+	 * @Author Supriya Harikumar
+	 * @description Click on the correct SFEINST15 Select Link
+	 ***/
+
+	public async clickOnTheSFEINST15SelectLink() {
+		var list = this.SFEINST15selectLink;
+
+		await utility.wait(2000);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobINST15")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobINST15")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobINST15")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
+
+	/***
+	 * @Author Supriya Harikumar
+	 * @description Click on the correct SFENMEX16 Select Link
+	 ***/
+
+	public async clickOnTheSFENMEX16SelectLink() {
+		var list = this.SFENMEX16selectLink;
+
+		await utility.wait(2000);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobNMEX16")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobNMEX16")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobNMEX16")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
+
+	/***
+	 * @Author Supriya Harikumar
+	 * @description Click on the correct SFGFLTY18TRAD Select Link
+	 ***/
+
+	public async clickOnTheSFGFLTY18TRADSelectLink() {
+		var list = this.SFGFLTY18TRADselectLink;
+
+		await utility.wait(2000);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 18")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobFAULTY 18")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 18")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
+
+	/***
+	 * @Author Supriya Harikumar
+	 * @description Click on the correct SFGNMEX15 Select Link
+	 ***/
+
+	public async clickOnTheSFGNMEX15SelectLink() {
+		var list = this.SFGNMEX15selectLink;
+
+		await utility.wait(2000);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobNMEX15")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobNMEX15")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobNMEX15")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
+
+
+
+		/***
+	 * @Author Supriya Harikumar
+	 * @description Click on the correct SFEFLTY19TRAD Select Link
+	 ***/
+
+	public async clickOnTheSFEFLTY19TRADSelectLink() {
+		var list = this.SFEFLTY19TRADselectLink;
+
+		await utility.wait(2000);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 19 Non S2")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobFAULTY 19 Non S2")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 19 Non S2")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
 
 	/***
 	 * @Author Aparna Das

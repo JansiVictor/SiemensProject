@@ -10,7 +10,7 @@ import {
     } from "../pages/HomePage";
     import {
     FLTY19AppointmentListPageObject
-    } from "../pages/FLTY19AppointmentListPage";
+    } from "../pages/AppointmentListPage";
     import {
     DoorStepPageObject
     } from "../pages/DoorStepPage";

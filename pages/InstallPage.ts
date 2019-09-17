@@ -219,6 +219,8 @@ export class InstallPageObject {
 	public postGastightnessNxtbtn: ElementFinder;
 	public EUIenableOKTRAD: ElementFinder;
 	public submitInstall: ElementFinder;
+	public dummydiv: ElementFinder;
+	public infoOkButton: ElementFinder;
 
 	constructor() {
 
@@ -465,8 +467,48 @@ export class InstallPageObject {
 
 		this.EUIenableOKTRAD = element(by.xpath('//*[contains(text(),"EUI Device ID:")]'));
 		this.submitInstall = element(by.xpath('//div/button[text()="SUBMIT"]'));
+		this.dummydiv = element(by.xpath('(//div/h4[text()="Scan Barcode Using Device Hardware Button"])[1]'));
+		this.infoOkButton = element(by.xpath('//div/button[@class="confirm"]'));
 
 	}
+
+	public async fillElecNewMeterDetails(index: number){
+		if (await this.elecNewmeterselect.isDisplayed()) {
+		await utility.wait(2000);
+		this.elecNewmeterselect.click();
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		await this.elecNewmeterselect.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(3000);
+		await expect(await this.elecNewmeterserial.isPresent());
+		var options = this.elecNewmeterserialList.getAttribute('value');
+		await this.elecNewmeterserial.sendKeys(options);
+		await utility.wait(2000);
+		this.dummydiv.click();
+		await utility.wait(4000);
+		if (await this.infoOkButton.isDisplayed()) {
+			this.infoOkButton.click();
+	}}
+	}
+	
+	public async fillElecnewmeterManufacturerdetails() {
+		await utility.wait(1000);
+		if (await this.meterLocCode.isDisplayed()) {
+			var select = this.meterLocCode;
+			select.$('[value="I"]').click();
+		}
+		await utility.wait(1000);
+		if (await this.certYearMonth.isDisplayed()) {
+			await this.certYearMonth.clear();
+			await this.certYearMonth.sendKeys("16/12");
+		}
+		await utility.wait(2000);
+		if (await this.ElecNewmeterNext.isDisplayed()) {
+			await this.ElecNewmeterNext.click();
+		}
+	
+	}
+	
 	public async dummy() {
 
 		await this.installdelete.click();

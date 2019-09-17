@@ -73,6 +73,7 @@ export class ElectricPageObject {
 	public suitableSmartInstalationText: ElementFinder;
 	public instalationNotes: ElementFinder;
 	public polarityCheckCutOutYES: ElementFinder;
+	public polarityCheckCutOutYES1: ElementFinder;
 	public polarityCheckAtMeter: ElementFinder;
 	public currentMeterDetailsText: ElementFinder;
 	public meterCutOutNxtBtn: ElementFinder;
@@ -94,6 +95,7 @@ export class ElectricPageObject {
 	public commHubConnectionDD: ElementFinder;
 	public captureCommsHub: ElementFinder;
 	public commHubLocNxtBtn: ElementFinder;
+	public commHubLocNxtBtn1: ElementFinder;
 	public NewMeterDetailsText: ElementFinder;
 	public rmOptionalText: ElementFinder;
 	public currentMeterNxtbtn: ElementFinder;
@@ -150,7 +152,25 @@ export class ElectricPageObject {
 	public selectinstallAssetOption: ElementFinder;
 	public selectinstallMeterOption: ElementFinder;
 	public meterCutOutSubmitButton: ElementFinder;
+	public updateValuesBtn: ElementFinder;
+	public updateValuesBtn1: ElementFinder;
+	public commHubConnectionDD_n: ElementFinder;
+	public currentMeterDetailsHeader: ElementFinder;
+	public existingElecMeterNo: ElementFinder;
+	public DF17currentMeterNxtbtn: ElementFinder;
+	public currentMeterDetailsHeader1: ElementFinder;
+	public dummydiv: ElementFinder;
 
+	public commHubLocDD1: ElementFinder;
+	public arealInstalledYes1: ElementFinder;
+	public commHubConnectionDD1: ElementFinder;
+	public commHubConnectionDD_n1: ElementFinder;
+	public captureCommsHub1: ElementFinder;
+	public addAnotherAsset: ElementFinder;
+	public hanAvailableText: ElementFinder;
+	public nonserealizedAssetDD1: ElementFinder;
+	public nonserealizedAssetInput1: ElementFinder;
+	public hanAvailableN: ElementFinder;
 
 	/***
 	 * @Author Aparna Das
@@ -160,6 +180,11 @@ export class ElectricPageObject {
 	constructor() {
 		this.initialRiskAssesment = element(by.xpath('(//div/h4[text()="Initial Risk Assessment"])'));
 		this.riskAssesmentHEader = element(by.xpath('(//div[text()="Risk Assessment"])[1]'));
+		this.updateValuesBtn = element(by.xpath('//*[@id="CCHbtnUpdate"]'));
+		this.updateValuesBtn1 = element(by.xpath('//*[@id="btn_Update_values"]'));
+		this.commHubConnectionDD_n = element(by.id('currentCommsHub_existingDetailsCorrect_n'));
+		this.currentMeterDetailsHeader = element(by.xpath('//div[@id="Title_currentCommsHub"]'));
+		this.currentMeterDetailsHeader1 = element(by.xpath('//div[@id="Title_currentMeterDetails"]'));
 		this.canYouSmellText = element(by.xpath('//div[text()="Can you smell Gas?"]'));
 		this.canYouSmellYES = element(by.xpath('//label[@id="rb_SmelGas_y"]'));
 		this.turnedOffGasYES = element(by.xpath('//label[@id="rb_TurnGasOff_y"]'));
@@ -167,6 +192,8 @@ export class ElectricPageObject {
 		this.inputEGPRef = element(by.xpath('//input[@id="txt_EGP_ref"]'));
 		this.riskelecText = element(by.xpath('//div[@id="Title_RiskAss_elec"]'));
 		this.performRiskText = element(by.xpath('//div[text()="Perform Risk Assessment?"]'));
+		this.dummydiv = element(by.xpath('(//div/h4[text()="Scan Barcode Using Device Hardware Button"])[1]'));
+		
 		// this.airLineRefInput = element(by.xpath('//input[@id="txt_AirL_ref"]'));
 		this.OKtoProceedEGPOutcome = element(by.xpath('//label[@id="rb_OKProce_y"]'));
 		this.infoText = element(by.xpath('//div/p[@style="display: block;"]'));
@@ -177,6 +204,7 @@ export class ElectricPageObject {
 		this.riskAssessmentinput = element(by.xpath('//textarea[@id="ranotes"]'));
 		this.cameraBtn = element(by.xpath('//button[@class="cameraBtn grey"]'));
 		this.nextSectionBtn = element(by.xpath('//button[@id="btnNextrae"]'));
+		this.existingElecMeterNo = element(by.id('rb_ExMetDetCorrt_n'));
 		this.riskAssessGASText = element(by.xpath('//div/h4[text()="Risk Assessment - Gas"]'));
 		this.meterPressureLow = element(by.xpath('//input[@id="radiorag1"]/following-sibling::span[@class="outer"]'));
 		this.voltStickYES = element(by.xpath('//input[@id="raga0"]/following-sibling::span[@class="outer"]'));
@@ -209,10 +237,13 @@ export class ElectricPageObject {
 		this.suitableSmartInstalationText = element(by.xpath('//div/h4[text()="Suitable for Smart Installation"]'));
 		this.instalationNotes = element(by.id('smartnotes'));
 		this.polarityCheckCutOutYES = element(by.id('rb_PolCOPass'));
+		this.polarityCheckCutOutYES1 = element(by.xpath('//*[@id="rb_PolCOPass"]//following-sibling::span[@class="outer"]'));
+		
 		this.polarityCheckAtMeter = element(by.id('rb_PolCMPass'));
 		this.currentMeterDetailsText = element(by.xpath('//div/h4[text()="Current Meter Details"]'));
 		this.meterCutOutNxtBtn = element(by.id('btn_Next_Pol'));
 		this.existingElecMeterYes = element(by.id('rb_ExMetDetCorrt_y'));
+		this.DF17currentMeterNxtbtn = element(by.id('btn_Next_read'));
 		this.removeMeterText = element(by.xpath('//div/h4[text()="Remove Meter"]'));
 		this.statusOfAssetDD = element(by.id('cbx_StaAss_sel'));
 		this.removeMeterReadingText = element(by.id('input0'));
@@ -225,10 +256,17 @@ export class ElectricPageObject {
 		this.commHubDD = element(by.id('chubInstall_selectAsset'));
 		this.chfIDInput = element(by.id('chubInstall_CHbarcode'));
 		this.commHubLocDD = element(by.id('chubInstall_chubLocationSelect'));
+
+		this.commHubLocDD1 = element(by.id('currentCommsHub_locationSelect'));
+		this.arealInstalledYes1 = element(by.id('currentCommsHub_aerialInstalled_y'));
+        this.commHubConnectionDD1 = element(by.id('currentCommsHub_existingDetailsCorrect_y'));
+        this.commHubConnectionDD_n1 = element(by.id('currentCommsHub_existingDetailsCorrect_n'));
+		this.captureCommsHub1 = element(by.id('currentCommsHub_existingPhotoButton'));
 		this.arealInstalledYes = element(by.id('chubInstall_aerialInstalled_y'));
 		this.commHubConnectionDD = element(by.id('chubInstall_connectionMethodSelect'));
 		this.captureCommsHub = element(by.id('chubInstall_photoEvidence'));
 		this.commHubLocNxtBtn = element(by.id('chubInstall_nextSectionBtn'));
+		this.commHubLocNxtBtn1 = element(by.id('btnNextcch'));
 		this.NewMeterDetailsText = element(by.id('Title_newMeter'));
 		this.rmOptionalText = element(by.id('optionalassetnotes'));
 		this.currentMeterNxtbtn = element(by.id('currentMeterDetails_nextButton'));
@@ -285,6 +323,13 @@ export class ElectricPageObject {
 		this.selectinstallAssetOption = element(by.xpath('(//select[@id="chubInstall_selectAsset"]/option)[4]'));
 		this.selectinstallMeterOption = element(by.xpath('(//select[@id="newMeter_assetSelect"]/option)[4]'));
 		this.meterCutOutSubmitButton = element(by.xpath('//div/button[text()="SUBMIT"]'));
+		this.addAnotherAsset = element(by.xpath('//*[@id="Cbtn1"]'));
+		this.nonserealizedAssetInput1 = element(by.xpath('(//*[@id="Cbar3"])[2]'));
+		this.nonserealizedAssetDD1 = element(by.xpath('(//*[@id="Cselect4"])[2]'));
+		this.hanAvailableText = element(by.xpath('//*[contains(text(),"HAN Available?")]'));
+		this.hanAvailableN = element(by.xpath('(//input[@id="chnohanconnectedfalse"]/following-sibling::span[@class="outer"])[1]'));
+		
+
 
 	}
 
@@ -696,6 +741,190 @@ export class ElectricPageObject {
 		await utility.wait(1000);
 	}
 
+	public async fillthePolarityCheckMeterOut_INST15() {
+		await expect(this.polarityCheckCutOutYES1.isPresent());
+		await this.polarityCheckCutOutYES1.click();
+		await utility.wait(3000);
+	}
+
+	public async fillCommsHubDetails_INST15(index:number) {
+
+		if (await this.commHubDD.isDisplayed()) {
+			await utility.wait(2000);
+			// click the dropdown
+			this.commHubDD.click()
+			browser.sleep(1000)
+		//index = index ;
+		console.log("Selecting element based index : "+index)
+		// select the option
+		await this.commHubDD.element(by.css("option:nth-child("+index+")")).click()
+		await utility.wait(3000);
+				await this.commshubPopup.click();
+			
+			await expect(await this.chfIDInput.isPresent());
+			var options = this.selectinstallAssetOption.getAttribute('value');
+			console.log(options);
+			await utility.wait(5000);
+			await this.chfIDInput.clear();
+			await utility.wait(1000);
+			await this.chfIDInput.sendKeys(options);
+			await utility.wait(2000);
+			await this.dummydiv.click();
+			await utility.wait(4000);
+			await this.commshubPopup.click();
+			await utility.wait(2000);
+	
+			if (await this.commHubLocDD.isDisplayed()) {
+				var select = this.commHubLocDD;
+				select.$('[value="A"]').click();
+			}
+			await utility.wait(3000);
+	
+			if (await this.arealInstalledYes.isDisplayed()) {
+				await this.arealInstalledYes.click();
+				await utility.wait(1000);
+			}
+			if (await this.commHubConnectionDD.isDisplayed()) {
+				var select = this.commHubConnectionDD;
+				select.$('[value="2"]').click();
+			}
+			await utility.wait(3000);
+	
+			if (await this.captureCommsHub.isDisplayed()) {
+				await this.captureCommsHub.click();
+				await utility.wait(1000);
+			}
+			if (await this.commHubLocNxtBtn.isDisplayed()) {
+				await this.commHubLocNxtBtn.click();
+				await utility.wait(1000);
+			}
+		}
+	}
+
+	public async fillInitialElecMeterReading_INST15() {
+		await expect(await this.captureMeterReadingInput.isPresent());
+		await this.captureMeterReadingInput.sendKeys('12345');
+		//if new WO not req, if existing WO required nxtbtn
+		await utility.wait(3000);
+        await this.unableToReadMeterYes.click();
+		//await this.meterReadingNxtBtn.click();
+		await utility.wait(1000);
+	}
+	
+	public async fillPostInstallationCheck_INST15() {
+        await this.carryOutPolarityChkYes.click();
+        
+		await this.postpolNotes.sendKeys('Additional Remarks');
+        await utility.wait(1000);
+        
+		if (await this.polChkDD.isDisplayed()) {
+			var select = this.polChkDD;
+			select.$('[value="true"]').click();
+		}
+		await utility.wait(1000);
+		await this.confirmSocketPass.click();
+        await utility.wait(3000);
+    }
+
+
+	public async fillNewMeterDetails_INST15(index:number) {
+		// await utility.wait(2000);
+		if (await this.newMeterDD.isDisplayed()) {
+			await utility.wait(2000);
+			// click the dropdown
+			this.newMeterDD.click()
+			browser.sleep(1000)
+		//index = index ;
+		console.log("Selecting element based index : "+index)
+		// select the option
+		await this.newMeterDD.element(by.css("option:nth-child("+index+")")).click()
+		await utility.wait(3000);
+				//await this.commshubPopup.click();
+			
+			await expect(await this.inputelecSerialNum.isPresent());
+			var options = this.selectinstallMeterOption.getAttribute('value');
+			await this.inputelecSerialNum.sendKeys(options);
+		
+		await this.randomEUDevice.click();
+		// let ale: Alert = browser.switchTo().alert();
+		// // clicks 'OK' button
+		// ale.accept();
+		await utility.wait(2000);
+
+		await this.commshubPopup.click();
+		await utility.wait(2000);
+
+		// if (await this.manufactureLetterDD.isDisplayed()) {
+		// 	var select1 = this.manufactureLetterDD;
+		// 	select1.$('[value="2"]').click();
+		// }
+		await utility.wait(2000);
+		if (await this.MeterTypeDD.isDisplayed()) {
+			var select2 = this.MeterTypeDD;
+			select2.$('[value="0"]').click();
+		}
+		await utility.wait(2000);
+		if (await this.meterLocDD.isDisplayed()) {
+			var select3 = this.meterLocDD;
+			select3.$('[value="D"]').click();
+		}
+		await utility.wait(2000);
+
+		await expect(await this.inputDate.isPresent());
+		await this.inputDate.sendKeys('90/01');
+
+		await this.newMeterNxtBtn.click();
+		await utility.wait(2000);
+
+	} 
+
+	}
+	/***
+ * @Author Supriya Harikumar
+ * @description Verify Comms Hub Section is displayed
+***/  
+
+public async CommHubDisplayed_DF17SmartCredit() {
+	await expect(this.currentMeterDetailsHeader.isPresent());
+	await this.currentMeterDetailsText.getText().then(function (CumHub) {
+		console.log("find CuMHubText Text  " + CumHub);
+	});
+	await utility.wait(1000);
+}
+
+public async verifyDF17CurrentMeterDetails() {
+	await expect(this.currentMeterDetailsText.isPresent());
+	await this.currentMeterDetailsText.getText().then(function (currentMeterDetails) {
+		console.log("find currentMeterDetails Text  " + currentMeterDetails);
+	});
+	if (await this.updateValuesBtn1.isDisplayed()) {
+		await this.updateValuesBtn1.click();
+	}
+	await utility.wait(5000);
+	await expect(this.existingElecMeterNo.isPresent());
+	await this.existingElecMeterNo.click();
+	//await expect(this.existingElecMeterYes.isPresent());
+	//await this.existingElecMeterYes.click();
+	//await utility.wait(1000);
+	//not req, if new WO required
+	if (await this.currentMeterNxtbtn.isDisplayed()) {
+		await this.currentMeterNxtbtn.click();
+	}
+	await utility.wait(6000);
+	await this.currentMeterDetailsHeader1.click();
+	await expect(this.existingElecMeterYes.isPresent());
+	await utility.wait(6000);
+	await this.existingElecMeterYes.click();
+	await utility.wait(3000);
+	if (await this.unableToReadMeterYes.isDisplayed()) {
+		await this.unableToReadMeterYes.click();
+		await utility.wait(1000);
+	}
+	await this.DF17currentMeterNxtbtn.click();
+	await utility.wait(3000);
+}
+
+
 	/***
 	 * @Author Aparna Das
 	 * @description Fill Remove asset details
@@ -770,6 +999,76 @@ export class ElectricPageObject {
 			}
 		}
 	}
+
+	/***
+ * @Author Supriya Harikumar
+ * @description Fill Comms Hub Details
+***/
+public async fillCommissioningDetails_SFEFLTY19TRAD() {
+	if (await this.nonserealizedAssetDD.isDisplayed()) {
+		await utility.wait(2000);
+		var select = this.nonserealizedAssetDD;
+		select.$('[value="2"]').click();
+	}
+	await expect(await this.nonserealizedAssetInput.isPresent());
+	await this.nonserealizedAssetInput.sendKeys('1');
+	await utility.wait(2000);
+	await this.addAnotherAsset.click();
+	await utility.wait(2000);
+	if (await this.nonserealizedAssetDD1.isDisplayed()) {
+		await utility.wait(2000);
+		var select = this.nonserealizedAssetDD1;
+		select.$('[value="1"]').click();
+	}
+	await expect(await this.nonserealizedAssetInput1.isPresent());
+	await this.nonserealizedAssetInput1.sendKeys('2');
+	await utility.wait(2000);
+
+	await this.commissioningNxtBtn.click();
+	await utility.wait(1000);
+}
+
+public async fillCommsHubDetails_DF17SmartCredit() {
+
+	if (await this.commHubLocDD1.isDisplayed()) {
+        await utility.wait(2000);
+        if (await this.updateValuesBtn.isDisplayed()) {
+			await this.updateValuesBtn.click();
+		}
+        await utility.wait(4000);
+		// // click the dropdown
+		// this.commHubLocDD.click()
+		browser.sleep(1000);
+
+		if (await this.commHubLocDD1.isDisplayed()) {
+			var select = this.commHubLocDD1;
+			select.$('[value="A"]').click();
+		}
+		await utility.wait(3000);
+
+		if (await this.arealInstalledYes1.isDisplayed()) {
+			await this.arealInstalledYes1.click();
+			await utility.wait(1000);
+		}
+		if (await this.commHubConnectionDD_n1.isDisplayed()) {
+			await this.commHubConnectionDD_n1.click();
+        }
+        await utility.wait(5000);
+        await this.currentMeterDetailsHeader.click();
+        await utility.wait(5000);
+        await this.commHubConnectionDD1.click();
+		await utility.wait(5000);
+
+		if (await this.captureCommsHub1.isDisplayed()) {
+			await this.captureCommsHub1.click();
+			await utility.wait(6000);
+		}
+		if (await this.commHubLocNxtBtn1.isDisplayed()) {
+			await this.commHubLocNxtBtn1.click();
+			await utility.wait(1000);
+        }
+	}
+}
 
 	/***
 	 * @Author Aparna Das
@@ -1066,6 +1365,50 @@ export class ElectricPageObject {
 		}
 
 	}
+
+	public async eicomMessage_INST15() {
+		if (this.eicomSendMsg.isDisplayed()) {
+			await this.eicomSendMsg.getText().then(function (eicomSend) {
+				console.log("find eicomSendMsg Text  " + eicomSend);
+			});
+			await this.eicomSendMsg.click();
+			await utility.wait(80000);
+			//commented below
+			// await this.awaitingResponseTxt.getText().then(function (awaitingResponseTxt) {
+			// 	console.log("find awaitingResponseTxt Text  " + awaitingResponseTxt);
+			// });
+		//	await utility.wait(60000);
+			if (this.commSuccess.isDisplayed()) {
+				await this.commSuccess.click();
+				await utility.wait(3000);
+			}
+
+			await this.submitBtn.click();
+			await utility.wait(3000);
+		}
+	}
+
+		public async eicomMessage_failed() {
+			if (this.eicomSendMsg.isDisplayed()) {
+				await this.eicomSendMsg.getText().then(function (eicomSend) {
+					console.log("find eicomSendMsg Text  " + eicomSend);
+				});
+				await this.eicomSendMsg.click();
+				await utility.wait(60000);
+				//commented below
+				// await this.awaitingResponseTxt.getText().then(function (awaitingResponseTxt) {
+				// 	console.log("find awaitingResponseTxt Text  " + awaitingResponseTxt);
+				// });
+			//	await utility.wait(60000);
+				if (this.hanAvailableText.isDisplayed()) {
+					await this.hanAvailableN.click();
+					await utility.wait(3000);
+				}
+	
+				//await this.submitBtn.click();
+				await utility.wait(3000);
+			}
+		}
 	/***
 	 * @Author Aparna Das
 	 * @description FIll and submit EICOM Message section
@@ -1090,6 +1433,118 @@ export class ElectricPageObject {
 			await this.submitBtn.click();
 			await utility.wait(3000);
 		}
+	}
 
+	public async inputInitialRiskAssessmentDetails_SFENMEX15() {
+		await expect(this.initialRiskAssesment.isPresent());
+		if (this.canYouSmellText.isDisplayed()) {
+			await this.canYouSmellYES.click();
+		}
+		if (this.turnedOffGasYES.isDisplayed()) {
+			await this.turnedOffGasYES.click();
+		}
+		if (this.callEGPYES.isDisplayed()) {
+			await this.callEGPYES.click();
+		}
+		if (this.inputEGPRef.isDisplayed()) {
+			await utility.wait(2000);
+			await this.inputEGPRef.sendKeys('123456');
+		}
+		if (this.reportToHS.isDisplayed()) {
+			await utility.wait(2000);
+			await this.reportToHS.click();
+		}
+		if (this.airLineRefInput.isDisplayed()) {
+			await utility.wait(2000);
+			await this.airLineRefInput.sendKeys('5678910');
+		}
+		if (this.OKtoProceedEGPOutcome.isDisplayed()) {
+			await utility.wait(2000);
+			await this.OKtoProceedEGPOutcome.click();
+			await utility.wait(5000);
+		}
+		if (this.NeedtoWorkYES.isDisplayed()) {
+			await utility.wait(2000);
+			browser.executeScript('arguments[0].scrollIntoView()', this.NeedtoWorkYES.getWebElement());
+			await utility.wait(5000);
+			await this.NeedtoWorkYES.click();
+			await utility.wait(5000);
+		}
+	}
+	
+	public async inputInitialRiskAssessmentDetails_SFEFLTY19() {
+		await expect(this.initialRiskAssesment.isPresent());
+		if (this.canYouSmellText.isDisplayed()) {
+			await this.canYouSmellYES.click();
+		}
+		if (this.turnedOffGasYES.isDisplayed()) {
+			await this.turnedOffGasYES.click();
+		}
+		if (this.callEGPYES.isDisplayed()) {
+			await this.callEGPYES.click();
+		}
+		if (this.inputEGPRef.isDisplayed()) {
+			await utility.wait(2000);
+			await this.inputEGPRef.sendKeys('123456');
+		}
+		if (this.reportToHS.isDisplayed()) {
+			await utility.wait(2000);
+			await this.reportToHS.click();
+		}
+		if (this.airLineRefInput.isDisplayed()) {
+			await utility.wait(2000);
+			await this.airLineRefInput.sendKeys('5678910');
+		}
+		if (this.OKtoProceedEGPOutcome.isDisplayed()) {
+			await utility.wait(2000);
+			await this.OKtoProceedEGPOutcome.click();
+			await utility.wait(5000);
+		}
+		await utility.wait(10000);
+		if (this.infoOKButton.isDisplayed()) {
+			await utility.wait(2000);
+			await this.infoOKButton.click();
+			await utility.wait(5000);
+		}
+    }
+
+	public async fillCommissioningDetails_SFEFLTY19() {
+		if (await this.nonserealizedAssetDD.isDisplayed()) {
+            await utility.wait(2000);
+			var select = this.nonserealizedAssetDD;
+			select.$('[value="1"]').click();
+		}
+		await expect(await this.nonserealizedAssetInput.isPresent());
+		await this.nonserealizedAssetInput.sendKeys('1');
+		await utility.wait(1000);
+
+		await this.commissioningNxtBtn.click();
+		await utility.wait(1000);
+	}
+
+		/***
+	 * @Author Supriya Harikumar
+	 * @description FIll and submit EICOM Message section
+	 ***/
+	public async eicomMessageDF17() {
+		if (this.eicomSendMsg.isDisplayed()) {
+			await this.eicomSendMsg.getText().then(function (eicomSend) {
+				console.log("find eicomSendMsg Text  " + eicomSend);
+			});
+			await this.eicomSendMsg.click();
+			await utility.wait(80000);
+			//commented below
+			// await this.awaitingResponseTxt.getText().then(function (awaitingResponseTxt) {
+			// 	console.log("find awaitingResponseTxt Text  " + awaitingResponseTxt);
+			// });
+			//	await utility.wait(60000);
+			if (this.commSuccess.isDisplayed()) {
+				await this.commSuccess.click();
+				await utility.wait(3000);
+			}
+
+			//await this.submitBtn.click();
+			await utility.wait(3000);
+		}
 	}
 }
