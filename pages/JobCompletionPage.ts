@@ -89,7 +89,7 @@ export class JobCompletionPageObject {
         this.signpad = element(by.xpath('//*[@id="signaturePad"]'));
 
         // CGP changed as per my Job
-        this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobSJG7")]'));
+        this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobNCG3")]'));
 
     }
     public async DeviceBinding() {

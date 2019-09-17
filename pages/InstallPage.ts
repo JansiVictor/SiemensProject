@@ -43,6 +43,10 @@ export class InstallPageObject {
     public newRegulatorHeader: ElementFinder;
     public gasmeterserialSendregTRAD: ElementFinder;
 
+    //CGP instal16
+    public visualCheckPMEBonding: ElementFinder;
+    
+
     public HasGasRegulatorReplacedY: ElementFinder;
     public selectValidAssettoInst: ElementFinder;
     public RegularclickenableOK: ElementFinder;
@@ -214,6 +218,9 @@ export class InstallPageObject {
     public PPMIDSubmitTRAD: ElementFinder;
     public AssetaddedtowallTRAD: ElementFinder;
     public randomClickRegulator: ElementFinder;
+
+    //CGP for INst16
+    public emerJobNo: ElementFinder;
 
     constructor() {
 
@@ -468,6 +475,10 @@ export class InstallPageObject {
         // CGP added 13/09
         this.AssetsuccessOKclkTRAD = element(by.xpath('//button[@class="confirm"]'));
         this.PPMIDSubmitTRAD = element(by.xpath('//*[@id="btn1"]'));
+
+        //CGP added 
+        this.visualCheckPMEBonding = element(by.id('rb_VisCPMEBond_y'));
+        this.emerJobNo = element(by.id('rb_EmerJob_n'));
 
 
     }
@@ -1300,6 +1311,7 @@ export class InstallPageObject {
             console.log("Additional electricity Test and Checks" + additionalElecTestandChkTxt);
         });
     }
+
     public async fill34AdditionalElecTestandChecks() {
         await utility.wait(1000);
         if (await this.TerminalscrewTightness.isDisplayed()) {
@@ -1809,5 +1821,72 @@ public async clickonCommissioningTRAD() {
     }
 }
 
+//CGP added for INST16
 
+public async fillAdditionalElecCheckDetailsINST16() 
+{
+    await utility.wait(3000);
+    if (await this.visualCheckPMEBonding.isDisplayed())
+    {
+        await this.visualCheckPMEBonding.click();
+    }
+    await utility.wait(1000);
+    if (await this.TerminalscrewTightness.isDisplayed()) {
+        await this.TerminalscrewTightness.click();
+    }
 }
+
+public async fillAdditionalElecTestandChecksInst16() {
+    await utility.wait(1000);
+    if (await this.SealsIntactBlocks.isDisplayed()) {
+        await this.SealsIntactBlocks.click();
+    }
+    await utility.wait(1000);
+    if (await this.AllPortsSealed.isDisplayed()) {
+        await this.AllPortsSealed.click();
+    }
+    await utility.wait(1000);
+    if (await this.SiemenscableMarkersInsTxt.isDisplayed()) {
+        await this.SiemenscableMarkersIns.click();
+    }
+    await utility.wait(1000);
+    if (await this.VisualInspectionCompleted.isDisplayed()) {
+        await this.VisualInspectionCompleted.click();
+    }
+    await utility.wait(1000);
+    if (await this.cableMarkerSelect.isDisplayed()) {
+        var select = this.cableMarkerSelect;
+        select.$('[value="1"]').click();
+    }
+    await utility.wait(1000);
+    if (await this.EarthTypeSelect.isDisplayed()) {
+        var select = this.EarthTypeSelect;
+        select.$('[value="1"]').click();
+    }
+    await utility.wait(1000);
+    if (await this.ReplacementMeterBoardY.isDisplayed()) {
+        await this.ReplacementMeterBoardY.click();
+    }
+    await utility.wait(1000);
+    if (await this.MeterTailsChangedN.isDisplayed()) {
+        await this.MeterTailsChangedN.click();
+    }
+    await utility.wait(1000);
+    if (await this.ReplacementmainFuseY.isDisplayed()) {
+        await this.ReplacementmainFuseY.click();
+    }
+    await utility.wait(1000);
+    if (await this.emerJobNo.isDisplayed()) {
+        await this.emerJobNo.click();
+    }
+
+    
+}
+
+    
+}
+
+
+
+
+

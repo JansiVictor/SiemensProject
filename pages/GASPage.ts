@@ -116,6 +116,16 @@ export class GASPageObject {
     public allAppliTestedBtn: ElementFinder;
     public submitGas: ElementFinder;
     public landLordPropertyNo: ElementFinder;
+
+    //CGP added
+    public contactGTYES: ElementFinder;
+   
+    public reportedIncidentYES: ElementFinder;
+    public airLineRefNo: ElementFinder;
+    public waitForGTYES: ElementFinder;
+
+    public gtResolveIssueYES: ElementFinder;
+    
     
 
 
@@ -217,7 +227,19 @@ export class GASPageObject {
         this.allAppliTestedBtn = element(by.id('btn_AllApp_tested'));
         this.submitGas = element(by.id('btn_Subm_gas'));
 
-	}
+        //CGP
+        this.contactGTYES = element(by.xpath('//input[@id="gtp1"]/following-sibling::span[@class="outer"]'));
+        this.reportedIncidentYES = element(by.xpath('//input[@id="gtp3"]/following-sibling::span[@class="outer"]'));
+        this.contactGTYES = element(by.xpath('//input[@id="gtp1"]/following-sibling::span[@class="outer"]'));
+        this.nationalGTRefInput = element(by.id('input1'));
+        this.reportedIncidentYES = element(by.xpath('//input[@id="gtp3"]/following-sibling::span[@class="outer"]'));
+        this.inputGTRef = element(by.id('gt_issue'));
+        this.airLineRefNo =  element(by.id('input2'));
+        this.waitForGTYES =  element(by.xpath('//input[@id="gtp5"]/following-sibling::span[@class="outer"]'));
+        this.gtResolveIssueYES = element(by.xpath('//input[@id="gtp9"]/following-sibling::span[@class="outer"]'));
+        this.GAStightnessTestYes = element(by.xpath('//input[@id="gtp11"]/following-sibling::span[@class="outer"]'));
+        this.replacedGasMeterYes = element(by.xpath('//input[@id="gtp13"]/following-sibling::span[@class="outer"]'));
+    }
 
 	public async riskAssessmentGASDisplayed() {
 		if (this.riskAssessGas.isDisplayed()) {
@@ -378,6 +400,44 @@ public async fillMeterRegulatorDetailsGAS() {
     //}
 }
 
+/***************CGP added for INST16 */
+
+public async fillMeterRegulatorDetailsGASINST16() {
+   
+    await utility.wait(1000);
+    if (await this.regulatorReplacedYes.isDisplayed()) {
+        await this.regulatorReplacedYes.click();
+    }
+   
+    await utility.wait(1000);
+        if (await this.selectValidAssetDD.isDisplayed()) {
+            var select = this.selectValidAssetDD;
+            select.$('[value="MA6NC181323805"]').click();
+        }
+        await utility.wait(1000);
+        if (await this.regulatorSerialNoinput.isDisplayed()) {
+            await this.regulatorSerialNoinput.clear();
+            await this.regulatorSerialNoinput.sendKeys("MA6NC181323805");
+        }
+
+        await utility.wait(1000);
+        if (await this.regulatorTxt.isDisplayed()) {
+            await this.regulatorTxt.click();
+        }
+ 
+        await utility.wait(1000);
+        if (await this.commshubPopup.isDisplayed()) {
+            await this.commshubPopup.click();
+        }
+        await utility.wait(1000);
+        if (await this.newRegulatorNxtBtn.isDisplayed()) {
+            await this.newRegulatorNxtBtn.click();
+        }
+    
+}
+
+
+
 /***
  * @Author Aparna Das
  * @description Verify new meter details section displayed
@@ -422,17 +482,47 @@ public async fillNewMeterDetailsGAS(index:number) {
     await utility.wait(2000);
     await this.commshubPopup.click();
     await utility.wait(2000);
+    if (await this.MeterTypeDD.isDisplayed()) {
+        var select2 = this.MeterTypeDD;
+        select2.$('[value="0"]').click();
+    }
+    await utility.wait(2000);
+    if (await this.meterLocDD.isDisplayed()) {
+        var select3 = this.meterLocDD;
+        select3.$('[value="02"]').click();
+    }
+    await utility.wait(2000);
+}
+}
 
-    // cgp add remove later-------------------------
+public async fillNewMeterDetailsGASInst16(index:number) {
+    if (await this.newMeterDD.isDisplayed()) {
+        await utility.wait(2000);
+        // click the dropdown
+        this.newMeterDD.click()
+        browser.sleep(1000)
+        //index = index ;
+        console.log("Selecting element based index : "+index)
+        // select the option
+        await this.newMeterDD.element(by.css("option:nth-child("+index+")")).click()
+        await utility.wait(3000);
+        //await this.commshubPopup.click();        
+        await expect(await this.inputMeterSerialNum.isPresent());
+        var options=this.selectNewMeterGasOptn.getAttribute('value');
+        await this.inputMeterSerialNum.sendKeys(options);
+    await this.randomEUDevice.click();
+    let ale: Alert = browser.switchTo().alert();
+    // clicks 'OK' button
+    ale.accept();
+    await utility.wait(2000);
+    await this.commshubPopup.click();
+    await utility.wait(2000);
 
     if (await this.manufactureLetterDD.isDisplayed()) {
         var select1 = this.manufactureLetterDD;
             select1.$('[value="34"]').click();
         }
         await utility.wait(2000);
-
-        //-------------------------------
-
 
     if (await this.MeterTypeDD.isDisplayed()) {
         var select2 = this.MeterTypeDD;
@@ -446,6 +536,11 @@ public async fillNewMeterDetailsGAS(index:number) {
     await utility.wait(2000);
 }
 }
+
+
+
+
+
 
 /***
  * @Author Aparna Das
@@ -554,6 +649,82 @@ public async fillPostInstallationGasDetails() {
     await this.finalMeterCapture.click();
     await this.polNxtBtn.click();
 }
+
+public async fillPostInstallationGasDetailsInst16() {
+    //cgp adding
+    await utility.wait(3000);
+    await this.contactGTYES.click();    
+    await this.nationalGTRefInput.sendKeys('1');
+    await utility.wait(2000);
+    await this.reportedIncidentYES.click();
+    await utility.wait(2000);
+    await this.airLineRefNo.sendKeys('2');
+    await utility.wait(2000);
+    await this.waitForGTYES.click();
+    await utility.wait(2000);
+    await this.gtResolveIssueYES.click();
+    await utility.wait(2000);
+    await this.GAStightnessTestYes.click();
+    await utility.wait(2000);
+    await this.replacedGasMeterYes.click();   
+    await utility.wait(2000);
+    //await this.tightnessPassedYes.click();
+    //await utility.wait(2000);
+    await this.additionalWork1.click();
+    await this.additionalWork2.click();
+    await this.additionalWork3.click();
+    await this.additionalWork4.click();
+    await this.additionalWork5.click();
+    await this.additionalWork6.click();
+    await utility.wait(2000);
+    await this.replacedGasMeterYes.click();
+    await utility.wait(2000);
+    
+    await this.replacedGasRegulatorYes.click();
+    await utility.wait(2000);
+    await this.GasTightnessYes.click();
+    await utility.wait(2000);
+    await this.capturePostInstallationGas.click();
+    await this.DIPGASYes.click();
+    await utility.wait(2000);
+
+
+
+    if (await this.dipSelectDD.isDisplayed()) {
+        var select3 = this.dipSelectDD;
+        select3.$('[value="1"]').click();
+    }
+    await utility.wait(5000);
+
+    if (await this.meterTypeGASDD.isDisplayed()) {
+        var select3 = this.meterTypeGASDD;
+        select3.$('[value="1"]').click();
+    }
+    await utility.wait(5000);
+    await this.tightnessPassedYes.click();
+    await utility.wait(2000);
+    await this.witnessName.sendKeys('CGP');
+    await utility.wait(2000);
+    await this.standingPressure.sendKeys('1.1');
+    await utility.wait(2000);
+    await this.dipCaptureBtn.click();
+    await utility.wait(2000);
+    await this.workingpressure.sendKeys('2.0');
+    await utility.wait(2000);
+    await this.wpCapture.click();
+    await utility.wait(2000);
+    await this.finalMeterCapture.click();
+    await utility.wait(2000);
+    await this.polNxtBtn.click();
+}
+
+
+
+
+
+
+
+
 /***
  * @Author Aparna Das
  * @description GICOM Message display section
@@ -611,6 +782,23 @@ public async fillGasSafety(){
     if (this.allAppliTestedBtn.isDisplayed()) {
         await this.allAppliTestedBtn.click();
     }
+    if (this.submitGas.isDisplayed()) {
+        await this.submitGas.click();
+    }
+
+}
+
+
+public async fillGasSafety16(){
+    await utility.wait(1000);
+    if (this.landLordPropertyNo.isDisplayed()) {
+        await this.landLordPropertyNo.click();
+    }
+    await utility.wait(1000);
+    if (this.allAppliTestedBtn.isDisplayed()) {
+        await this.allAppliTestedBtn.click();
+    }
+    await utility.wait(1000);
     if (this.submitGas.isDisplayed()) {
         await this.submitGas.click();
     }
