@@ -1,12 +1,14 @@
 import {Given, Then, When} from "cucumber";
 import {Utility} from "../support/utility";
 import {InstallPageObject} from "../pages/InstallPage";
+import {JobCompletionPageObject} from "../pages/JobCompletionPage";
 
 
 const chai = require("chai");
 const expect = chai.expect;
 const utility: Utility = new Utility();
 const installPage: InstallPageObject = new InstallPageObject();
+const completionPage: JobCompletionPageObject = new JobCompletionPageObject();
 
 Given('I have accessed the Perform Additional Electricity Tests & Checks section', async function () {
     await installPage.isH1HeaderPresentInstallPage();
@@ -285,4 +287,83 @@ Then('I should see the Gas Appliance Safety Checks section', async function () {
     await installPage.validateGasApplianceSafetyChecksSectionIsVisible();
 });
 
+Given('I have accessed the Gas Appliance Safety Checks section', async function () {
+    await installPage.validateGasApplianceSafetyChecksSectionIsVisible();
+});
 
+When('I select the value Yes for the Is Earth Bonding Installed radio option', async function () {
+    await installPage.setIsEarthBondingInstalledTrueRadioOption();
+});
+
+Then('I select the value Yes for Landlord Property? radio option', async function () {
+    await installPage.setLandlordPropertyTrueRadioOption();
+});
+
+Then('I update the Address1 textfield with value', async function () {
+    await installPage.setAddress1ValTextfieldDetails();
+});
+
+Then('I update the Address2 textfield with value', async function () {
+    await installPage.setAddress2ValTextfieldDetails();
+});
+
+Then('I update the Address3 textfield with value', async function () {
+    await installPage.setAddress3ValTextfieldDetails();
+});
+
+Then('I update the Address4 textfield with value', async function () {
+    await installPage.setAddress4ValTextfieldDetails();
+});
+
+Then('I update the Address5 textfield with value', async function () {
+    await installPage.setAddress5ValTextfieldDetails();
+});
+
+Then('I update the Address6 textfield with value', async function () {
+    await installPage.setAddress6ValTextfieldDetails();
+});
+
+Then('I update the Address7 textfield with value', async function () {
+    await installPage.setAddress7ValTextfieldDetails();
+});
+
+Then('I click on the Add Appliance button', async function () {
+    await installPage.clickOnAddApplianceBtn();
+});
+
+Then('I select the value Flueless from the Flue Type drop-down menu', async function () {
+    await installPage.setFlueTypeValFluelessDropDownMenu();
+});
+
+Then('I select the value Yes for the Ventilation Satisfactory? radio option', async function () {
+    await installPage.setVentilationSatisfactoryTrueRadioOption();
+});
+
+Then('I select the value Yes for the Carried Out Purge & Relight Gas Appliance Test?', async function () {
+    await installPage.setCarriedOutPurgeAndRelightGasApplianceTestTrueRadioOption();
+});
+
+Then('I select the value Gas Cooker from the Appliance Type drop-down menu', async function () {
+    await installPage.setApplianceTypeValGasCookerDropDownMenu();
+});
+
+Then('I select the value Kitchen from the Appliance Location drop-down menu', async function () {
+    await installPage.setApplianceLocationValKitchenDropDownMenu();
+});
+
+Then('I select the value Working Order from the Appliance Condition drop-down menu', async function () {
+    await installPage.setApplianceConditionValWorkingOrderDropDownMenu();
+});
+
+Then('I select the value Yes for the Appliance Safe to Use radio option', async function () {
+    await installPage.setApplianceSafeToUseTrueRadioOption();
+});
+
+Then('I click on the All Appliances Tested button', async function () {
+    await installPage.clickOnAllAppliancesTestedBtn();
+});
+
+Then('I click on the Gas Appliance Safety Checks Submit button', async function () {
+    await installPage.clickOnInstallPageSubmitBtn();
+    await utility.wait(1000);
+});

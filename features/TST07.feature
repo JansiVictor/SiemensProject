@@ -110,7 +110,7 @@ Feature: DF FLTY20 Trad No Exchange Workflow
     And I click on the Capture Photo of Martindale Test button
     And I click on the Capture Photo, of Final Meter Installation button
     And I click on the Capture Photo of Close Up of Meter Witness Sticker button
-    And I click on the Next button in the Post Installation Checks Section
+    #And I click on the Next button in the Post Installation Checks Section
     Then I should see the Commissioning section
 
   Scenario: Complete the Commissioning section
@@ -162,20 +162,34 @@ Feature: DF FLTY20 Trad No Exchange Workflow
     And I click on the Post Installation Gas Tightness Test Next button
     Then I should see the Gas Appliance Safety Checks section
 
+  Scenario: Complete the Gas Appliance Safety Checks section
+    Given I have accessed the Gas Appliance Safety Checks section
+    When I select the value Yes for the Is Earth Bonding Installed radio option
+    And I select the value Yes for Landlord Property? radio option
+    And I update the Address1 textfield with value
+    #And I update the Address2 textfield with value
+    #And I update the Address3 textfield with value
+    #And I update the Address4 textfield with value
+    #And I update the Address5 textfield with value
+    #And I update the Address6 textfield with value
+    #And I update the Address7 textfield with value
+    And I click on the Add Appliance button
+    And I select the value Flueless from the Flue Type drop-down menu
+    And I select the value Yes for the Ventilation Satisfactory? radio option
+    And I select the value Yes for the Carried Out Purge & Relight Gas Appliance Test?
+    And I select the value Gas Cooker from the Appliance Type drop-down menu
+    And I select the value Kitchen from the Appliance Location drop-down menu
+    And I select the value Working Order from the Appliance Condition drop-down menu
+    And I select the value Yes for the Appliance Safe to Use radio option
+    And I click on the All Appliances Tested button
+    And I click on the Gas Appliance Safety Checks Submit button
 
+  Scenario: Complete the Energy Efficiency Information section
+    Given I have accessed the Energy Efficiency Information section
+    When  I populate the Energy Efficiency form fields and click Next
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  Scenario: Complete the Capture Customer Signature section
+    Given I have accessed the Capture Customer Signature section
+    When I write my signature in the Customer Signature form field
+    And I populate the Capture Customer Signature form fields and click Job Complete
+    Then I should see the Job Completed screen

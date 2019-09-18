@@ -1,8 +1,4 @@
-/**
- * @Author Jansi Victor
- * @Description UAT Automation for FAULTY18 Workflow
- */
-import {element, by, ElementFinder, ElementArrayFinder, browser, ExpectedConditions} from "protractor";
+import {element, by, ElementFinder, ElementArrayFinder, browser, ExpectedConditions, protractor} from "protractor";
 
 const {Given, When, Then} = require("cucumber");
 const chai = require("chai");
@@ -70,17 +66,34 @@ export class InstallPageObject {
     private enterDIPGasPressureDropDownMenu: ElementFinder
     private selectMeterTypeDropDownMenu: ElementFinder
     private gasTightnessTestPassedTrueRadioOption: ElementFinder
-    private testWitnessNameTxtfield: ElementFinder
     private testWitnessNameTxtfieldPostInstallGasTightnessForm: ElementFinder
     private standingPressureTextfield: ElementFinder
     private capturePhotoOfStandingPressureBtn: ElementFinder
     private workingPressureTextfield: ElementFinder
     private capturePhotoOfWorkingPressureBtn: ElementFinder
-    private capturePhotoOfFinalMeterInstallButton: ElementFinder
     private postInstallGasTightnessTestNextBtn: ElementFinder
     private installKitNextSectionBtn: ElementFinder
     private addAnotherAssetBtnInstallKitSection: ElementFinder
     private gasApplianceSafetyChecksSectionText: ElementFinder
+    private isEarthBondingInstalledTrueRadioOption: ElementFinder
+    private landlordPropertyTrueRadioOption: ElementFinder
+    private address1Textfield: ElementFinder
+    private address2Textfield: ElementFinder
+    private address3Textfield: ElementFinder
+    private address4Textfield: ElementFinder
+    private address5Textfield: ElementFinder
+    private address6Textfield: ElementFinder
+    private address7Textfield: ElementFinder
+    private addApplianceBtn: ElementFinder
+    private flueTypeDropDownMenu: ElementFinder
+    private ventilationSatisfactoryTrueRadioOption: ElementFinder
+    private carriedOutPurgeAndRelightGasApplianceTestTrueRadioOption: ElementFinder
+    private applianceTypeDropDownMenu: ElementFinder
+    private applianceLocationDropDownMenu: ElementFinder
+    private applianceConditionDropDownMenu: ElementFinder
+    private applianceSafeToUseTrueRadioOption: ElementFinder
+    private allAppliancesTestedBtn: ElementFinder
+    public installPageSubmitBtn: ElementFinder
 
 
     public installcommsHub: ElementFinder
@@ -220,7 +233,7 @@ export class InstallPageObject {
         this.cableMarkerDropdownMenu = element(by.xpath("//select[@id='cbx_CabMark_Sel']"));
         this.earthTypeDropdownMenu = element(by.xpath("//select[@id='cbx_EarType_Sel']"));
         this.capturePhotosOfTerminalScrewsBtn = element(by.xpath("//button[contains(text(),'CAPTURE PHOTO OF TERMINAL SCREWS')]"));
-        this.addElecTestsNextBtn  = element(by.xpath("//button[@id='btn_Next_PostC']"));
+        this.addElecTestsNextBtn = element(by.xpath("//button[@id='btn_Next_PostC']"));
         this.postInstallationChecksText = element(by.xpath("//h4[contains(text(),'Post Installation Checks')]"));
         this.carryOutPolarityCheckAtMeterTrueRadioOption = element(by.xpath("//label[@id='rb_CarOutPolCk_y']"));
         this.carryOutPolarityCheckWithPlugInTestDeviceDropDownMenu = element(by.xpath("//select[@id='cbx_PolChkplg_sel']"));
@@ -270,6 +283,26 @@ export class InstallPageObject {
         this.installKitNextSectionBtn = element(by.xpath("//button[@id='gasInstallPhoto_nextBtn']"));
         this.addAnotherAssetBtnInstallKitSection = element(by.xpath("//button[@id='gasInstallPhoto_addAssetBtn']"));
         this.gasApplianceSafetyChecksSectionText = element(by.xpath("//h4[contains(text(),'Gas Appliance Safety Checks')]"));
+        this.isEarthBondingInstalledTrueRadioOption = element(by.xpath("//*[@id='radioraa1a']/following-sibling::span[@class='outer']"));
+        this.landlordPropertyTrueRadioOption = element(by.xpath("//*[@id='radioraa3']/span[@class='outer']"));
+        this.address1Textfield = element(by.xpath("//div[@class='content-row clear ng-scope']//input[@id='input1']"));
+        this.address2Textfield = element(by.xpath("//div[@class='content-row clear ng-scope']//input[@id='input2']"));
+        this.address3Textfield = element(by.xpath("//div[@class='content-row clear ng-scope']//input[@id='input3']"));
+        this.address4Textfield = element(by.xpath("//div[@class='content-row clear ng-scope']//input[@id='input4']"));
+        this.address5Textfield = element(by.xpath("//div[@class='content-row clear ng-scope']//input[@id='input5']"));
+        this.address6Textfield = element(by.xpath("//div[@class='content-row clear ng-scope']//input[@id='input6']"));
+        this.address7Textfield = element(by.xpath("//div[@class='content-row clear ng-scope']//input[@id='input7']"));
+        this.addApplianceBtn = element(by.xpath("(//*[@id='btn1'])[1]"));
+        this.flueTypeDropDownMenu = element(by.xpath("(//select[@id='select1'])[2]"));
+        this.ventilationSatisfactoryTrueRadioOption = element(by.xpath("//*[@id='radioraa10']/following-sibling::span[@class='outer']"));
+        this.carriedOutPurgeAndRelightGasApplianceTestTrueRadioOption = element(by.xpath("//*[@id='radioraa5a0']/following-sibling::span[@class='outer']"));
+        this.applianceTypeDropDownMenu = element(by.xpath("(//select[@id='select2'])[2]"));
+        this.applianceLocationDropDownMenu = element(by.xpath("(//select[@id='select3'])"));
+        this.applianceConditionDropDownMenu = element(by.xpath("(//select[@id='select4'])"));
+        this.applianceSafeToUseTrueRadioOption = element(by.xpath("//*[@id='radioraa50']/following-sibling::span[@class='outer']"));
+        this.allAppliancesTestedBtn = element(by.xpath("//button[@id='btn_AllApp_tested']"));
+        this.installPageSubmitBtn = element(by.xpath("//button[contains(text(),'SUBMIT')]"));
+
 
         //#region Install Comms Hub
         this.installcommsHub = element(by.xpath('//div/h4[text()="Install Comms Hub"]'));
@@ -694,7 +727,6 @@ export class InstallPageObject {
     }
 
 
-
 //////////////////////////////////// POST INSTALLATION GAS TIGHTNESS TEST TST07
 
     public async validatePostInstallGasTightnessTestSectionIsVisible() {
@@ -869,12 +901,151 @@ export class InstallPageObject {
         }
     }
 
+    /////////////////////////////// GAS APPLIANCE SAFETY CHECKS SECTION //////////////////////////////////
+
     public async validateGasApplianceSafetyChecksSectionIsVisible() {
         await utility.wait(1000);
         if (await this.gasApplianceSafetyChecksSectionText.isDisplayed()) {
             await this.gasApplianceSafetyChecksSectionText.getText().then(function (gasApplianceSafetyTxt) {
                 console.log("Arrived at : " + gasApplianceSafetyTxt);
             });
+        }
+    }
+
+    public async setIsEarthBondingInstalledTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.isEarthBondingInstalledTrueRadioOption.isDisplayed()) {
+            this.isEarthBondingInstalledTrueRadioOption.click();
+        }
+    }
+
+    public async setLandlordPropertyTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.landlordPropertyTrueRadioOption.isDisplayed()) {
+            this.landlordPropertyTrueRadioOption.click();
+        }
+    }
+
+    public async setAddress1ValTextfieldDetails() {
+        await utility.wait(1000);
+        if (this.address1Textfield.isDisplayed()) {
+            this.address1Textfield.sendKeys("Street or House No");
+        }
+    }
+
+    public async setAddress2ValTextfieldDetails() {
+        await utility.wait(1000);
+        if (this.address2Textfield.isDisplayed()) {
+            this.address2Textfield.sendKeys("Test Road");
+        }
+    }
+
+    public async setAddress3ValTextfieldDetails() {
+        await utility.wait(1000);
+        if (this.address3Textfield.isDisplayed()) {
+            this.address3Textfield.sendKeys("Test Place");
+        }
+    }
+
+    public async setAddress4ValTextfieldDetails() {
+        await utility.wait(1000);
+        if (this.address4Textfield.isDisplayed()) {
+            this.address4Textfield.sendKeys("Test Town");
+        }
+    }
+
+    public async setAddress5ValTextfieldDetails() {
+        await utility.wait(1000);
+        if (this.address5Textfield.isDisplayed()) {
+            this.address5Textfield.sendKeys("Test Postcode");
+        }
+    }
+
+    public async setAddress6ValTextfieldDetails() {
+        await utility.wait(1000);
+        if (this.address6Textfield.isDisplayed()) {
+            this.address6Textfield.sendKeys("Test County");
+        }
+    }
+
+    public async setAddress7ValTextfieldDetails() {
+        if (this.address7Textfield.isDisplayed()) {
+            this.address7Textfield.sendKeys("Test Region");
+        }
+    }
+
+    public async clickOnAddApplianceBtn() {
+        await utility.wait(1000);
+        if (await this.addApplianceBtn.isDisplayed()) {
+            await this.addApplianceBtn.click();
+        }
+        utility.wait(2000);
+    }
+
+    public async setFlueTypeValFluelessDropDownMenu() {
+        await utility.wait(1000);
+        if (this.flueTypeDropDownMenu.isDisplayed()) {
+            var select = this.flueTypeDropDownMenu;
+            select.$("[value='0']").click();
+        }
+    }
+
+    public async setVentilationSatisfactoryTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.ventilationSatisfactoryTrueRadioOption.isDisplayed()) {
+            this.ventilationSatisfactoryTrueRadioOption.click();
+        }
+    }
+
+    public async setCarriedOutPurgeAndRelightGasApplianceTestTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.carriedOutPurgeAndRelightGasApplianceTestTrueRadioOption.isDisplayed()) {
+            this.carriedOutPurgeAndRelightGasApplianceTestTrueRadioOption.click();
+        }
+    }
+
+    public async setApplianceTypeValGasCookerDropDownMenu() {
+        await utility.wait(1000);
+        if (this.applianceTypeDropDownMenu.isDisplayed()) {
+            var select = this.applianceTypeDropDownMenu;
+            select.$("[value='0']").click();
+        }
+    }
+
+    public async setApplianceLocationValKitchenDropDownMenu() {
+        await utility.wait(1000);
+        if (this.applianceLocationDropDownMenu.isDisplayed()) {
+            var select = this.applianceLocationDropDownMenu;
+            select.$("[value='1']").click();
+        }
+    }
+
+    public async setApplianceConditionValWorkingOrderDropDownMenu() {
+        await utility.wait(1000);
+        if (this.applianceConditionDropDownMenu.isDisplayed()) {
+            var select = this.applianceConditionDropDownMenu;
+            select.$("[value='2']").click();
+        }
+    }
+
+    public async setApplianceSafeToUseTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.applianceSafeToUseTrueRadioOption.isDisplayed()) {
+            this.applianceSafeToUseTrueRadioOption.click();
+        }
+    }
+
+    public async clickOnAllAppliancesTestedBtn() {
+        await utility.wait(2000);
+        if (await this.allAppliancesTestedBtn.isDisplayed()) {
+            await this.allAppliancesTestedBtn.click();
+        }
+    }
+
+    public async clickOnInstallPageSubmitBtn() {
+        await utility.wait(2000);
+        if (await this.installPageSubmitBtn.isDisplayed()) {
+            await this.installPageSubmitBtn.click();
         }
     }
 
