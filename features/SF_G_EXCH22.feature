@@ -1,4 +1,4 @@
-Feature: Login into Siemen Application And proceed with Exchange21 Work Order
+Feature: SF_G_EXCH22 Workflow
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given the ExchTwTwo Login Page

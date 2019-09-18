@@ -230,9 +230,27 @@ export class InstallPageObject {
 	public dummydiv: ElementFinder;
 	public infoOkButton: ElementFinder;
 
+	//CGP added
+    //public newRegulatorHeader: ElementFinder;
+    public gasmeterserialSendregTRAD: ElementFinder;
+
+    //CGP instal16
+    public visualCheckPMEBonding: ElementFinder;
+
+	// CGP added 13/09
+    public AssetsuccessOKclkTRAD: ElementFinder;
+    public PPMIDSubmitTRAD: ElementFinder;
+    public AssetaddedtowallTRAD: ElementFinder;
+    public randomClickRegulator: ElementFinder;
+
+	public selectValidAssettoInstTRAD: ElementFinder;
+    //CGP for INst16
+    public emerJobNo: ElementFinder;
+
 	constructor() {
 
 		//#region Install Comms Hub
+		this.selectValidAssettoInstTRAD = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[2]'));
 		this.installcommsHub = element(by.xpath('//div/h4[text()="Install Comms Hub"]'));
 		this.commshubReqY = element(by.xpath('//*[@id="chubInstall_newChubRequired_y"]/span[@class="outer"]'));
 		this.selectValid = element(by.xpath('//select[@id="chubInstall_selectAsset"]'));
@@ -435,6 +453,12 @@ export class InstallPageObject {
 		this.capCloseUpmeterplusWitnessSticker = element(by.xpath('//*[@id="btn_CapPhoCloUp_met"]'));
 		this.commisioningCaption = element(by.xpath('//div/h4[text()="Commissioning"]'));
 
+		 // CGP added
+		// this.newRegulatorHeader = element(by.id('Title_newRegulator'));
+		 this.gasmeterserialSendregTRAD = element(by.id('btn_RegSNum1'));
+		 this.AssetaddedtowallTRAD = element(by.xpath('//button[@class = "confirm"]'));
+		 this.randomClickRegulator = element(by.id('lbl_SerNote'));
+
 		//Commisioning
 		this.NonSerializedAssetselect = element(by.xpath('//select[@id="Cselect4"]'));
 		this.NonSerializedAssetSend = element(by.xpath('//*[@id="Cbar3"]'));
@@ -484,6 +508,15 @@ export class InstallPageObject {
 
 		this.dummydiv = element(by.xpath('(//div/h4[text()="Scan Barcode Using Device Hardware Button"])[1]'));
 		this.infoOkButton = element(by.xpath('//div/button[@class="confirm"]'));
+
+        // CGP added 13/09
+        this.AssetsuccessOKclkTRAD = element(by.xpath('//button[@class="confirm"]'));
+        this.PPMIDSubmitTRAD = element(by.xpath('//*[@id="btn1"]'));
+
+        //CGP added 
+        this.visualCheckPMEBonding = element(by.id('rb_VisCPMEBond_y'));
+        this.emerJobNo = element(by.id('rb_EmerJob_n'));
+
 
 	}
 
@@ -1856,46 +1889,7 @@ export class InstallPageObject {
 	}
 
 	
-	public async filltheduelforseePPMIDsection(index: number) {
-		await utility.wait(2000);
-		if (await this.PPMIDoffered.isDisplayed()) {
-			await this.PPMIDoffered.click();
-		}
-		await utility.wait(2000);
-		if (await this.PPMIDaccepted.isDisplayed()) {
-			await this.PPMIDaccepted.click();
-		}
-		await utility.wait(1000);
-		if (await this.PPMIDLocsel.isDisplayed()) {
-			var select = this.PPMIDLocsel;
-			select.$('[value="A"]').click();
-		}
-		await utility.wait(2000);
-		if (await this.PPMIDtoInstallsel.isDisplayed()) {
-			await utility.wait(2000);
-			this.PPMIDtoInstallsel.click();
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			// select the option
-			await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(3000);
-			await expect(await this.SerialNoText.isPresent());
-			var options = this.PPMIDtoInstallselList.getAttribute('value');
-			await this.SerialNoText.sendKeys(options);
-		}
-		await utility.wait(2000);
-		if (await this.EUIenableOK1.isDisplayed()) {
-			await this.EUIenableOK1.click();
-		}
-		await utility.wait(2000);
-		if (await this.AssetsuccessOKclk.isDisplayed()) {
-			await this.AssetsuccessOKclk.click();
-		}
-		await utility.wait(2000);
-		if (await this.InstallPPMIDNextSection.isDisplayed()) {
-			await this.InstallPPMIDNextSection.click();
-		}
-	}
+	
 	public async filltheduelforPPMIDsection(index: number) {
 		await utility.wait(2000);
 		if (await this.PPMIDoffered.isDisplayed()) {
@@ -2054,46 +2048,255 @@ export class InstallPageObject {
 	}
 
 
-	//CGP ADDED 11/09
-	public async filltheduelforseePPMIDsectionTRAD(index: number) {
-		await utility.wait(2000);
-		if (await this.PPMIDoffered.isDisplayed()) {
-			await this.PPMIDoffered.click();
-		}
-		await utility.wait(2000);
-		if (await this.PPMIDaccepted.isDisplayed()) {
-			await this.PPMIDaccepted.click();
-		}
-		await utility.wait(1000);
-		if (await this.PPMIDLocsel.isDisplayed()) {
-			var select = this.PPMIDLocsel;
-			select.$('[value="A"]').click();
-		}
-		await utility.wait(2000);
-		if (await this.PPMIDtoInstallsel.isDisplayed()) {
-			await utility.wait(2000);
-			this.PPMIDtoInstallsel.click();
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			// select the option
-			await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(3000);
-			await expect(await this.SerialNoText.isPresent());
-			var options = this.PPMIDtoInstallselList.getAttribute('value');
-			await this.SerialNoText.sendKeys(options);
-		}
-		await utility.wait(2000);
-		if (await this.EUIenableOKTRAD.isDisplayed()) {
-			await this.EUIenableOKTRAD.click();
-		}
-		await utility.wait(2000);
-		if (await this.AssetsuccessOKclk.isDisplayed()) {
-			await this.AssetsuccessOKclk.click();
-		}
-		await utility.wait(2000);
-		if (await this.InstallPPMIDNextSection.isDisplayed()) {
-			await this.InstallPPMIDNextSection.click();
-		}
-	}
+	// CGP added
+    public async fillfieldsInstallcommshubTRAD(index: number) {
+        await utility.wait(1000);
+        if (await this.commshubReqY.isDisplayed()) {
+            await this.commshubReqY.click();
+        }
+        if (await this.selectValid.isDisplayed()) {
+            await utility.wait(2000);
+            this.selectValid.click();
+            browser.sleep(1000);
+            console.log("Selecting element based index : " + index);
+            await this.selectValid.element(by.css("option:nth-child(" + index + ")")).click();
+            await utility.wait(3000);
+            await this.commshubWarning.click();
+            await utility.wait(3000);
+            await expect(await this.CHFIDText.isPresent());
+            var options = this.CHFIDTextList.getAttribute('value');
+            await this.CHFIDText.sendKeys(options);
+        }
+        await utility.wait(1000);
+        if (await this.chfIDokenable.isDisplayed()) {
+            await this.chfIDokenable.click();
+        }
+        await utility.wait(1000);
+        if (await this.assetSuccessAdded.isDisplayed()) {
+            await this.assetSuccessAdded.click();
+        }
+        await utility.wait(1000);
+        if (await this.commsHubLocation.isDisplayed()) {
+            var select = this.commsHubLocation;
+            select.$('[value="A"]').click();
+        }
+        await utility.wait(1000);
+        if (await this.aerialY.isDisplayed()) {
+            await this.aerialY.click();
+        }
+        await utility.wait(1000);
+        if (await this.commshubconnmethodselect.isDisplayed()) {
+            var select = this.commshubconnmethodselect;
+            select.$('[label="ESME"]').click();
+        }
+        await utility.wait(1000);
+        if (await this.commshubPhoto.isDisplayed()) {
+            await this.commshubPhoto.click();
+        }
+        await utility.wait(1000);
+        if (await this.instCommshubNext.isDisplayed()) {
+            await this.instCommshubNext.click();
+        }
 
+	}
+	
+	//CGP added
+
+    public async fillduelfornewregulatorTRAD(index: number) {
+        await utility.wait(1000);
+        if (await this.HasGasRegulatorReplacedY.isDisplayed()) {
+            await this.HasGasRegulatorReplacedY.click();
+        }
+        await utility.wait(1000);
+        if (await this.selectValidAssettoInstTRAD.isDisplayed()) {
+            var select = this.selectValidAssettoInstTRAD;
+            select.$('[value="MA6NC181323805"]').click();
+        }
+        await utility.wait(1000);
+        if (await this.gasmeterserialSendregTRAD.isDisplayed()) {
+            await this.gasmeterserialSendregTRAD.clear();
+            await this.gasmeterserialSendregTRAD.sendKeys("MA6NC181323805");
+        }
+        await utility.wait(1000);
+        if (await this.randomClickRegulator.isDisplayed()) {
+            await this.randomClickRegulator.click();
+            console.log("Random Click");
+            
+        }
+        await utility.wait(3000);
+        if (await this.AssetaddedtowallNewReg.isDisplayed()) {
+            await this.AssetaddedtowallNewReg.click();
+            console.log("Pop up ok clicked");
+        }
+        await utility.wait(2000);
+        if (await this.nextSecnewRegulator.isDisplayed()) {
+            await this.nextSecnewRegulator.click();
+        }
+    }
+    public async filltheduelforseePPMIDsection(index: number) {
+        await utility.wait(2000);
+        if (await this.PPMIDoffered.isDisplayed()) {
+            await this.PPMIDoffered.click();
+        }
+        await utility.wait(2000);
+        if (await this.PPMIDaccepted.isDisplayed()) {
+            await this.PPMIDaccepted.click();
+        }
+        await utility.wait(1000);
+        if (await this.PPMIDLocsel.isDisplayed()) {
+            var select = this.PPMIDLocsel;
+            select.$('[value="A"]').click();
+        }
+        await utility.wait(2000);
+        if (await this.PPMIDtoInstallsel.isDisplayed()) {
+            await utility.wait(2000);
+            this.PPMIDtoInstallsel.click();
+            browser.sleep(1000);
+            console.log("Selecting element based index : " + index);
+            // select the option
+            await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
+            await utility.wait(3000);
+            await expect(await this.SerialNoText.isPresent());
+            var options = this.PPMIDtoInstallselList.getAttribute('value');
+            await this.SerialNoText.sendKeys(options);
+        }
+        await utility.wait(2000);
+        if (await this.EUIenableOK1.isDisplayed()) {
+            await this.EUIenableOK1.click();
+        }
+        await utility.wait(2000);
+        if (await this.AssetsuccessOKclk.isDisplayed()) {
+            await this.AssetsuccessOKclk.click();
+        }
+        await utility.wait(2000);
+        if (await this.InstallPPMIDNextSection.isDisplayed()) {
+            await this.InstallPPMIDNextSection.click();
+        }
+    }
+
+//CGP ADDED 11/09
+public async filltheduelforseePPMIDsectionTRAD(index: number) {
+    await utility.wait(2000);
+    if (await this.PPMIDoffered.isDisplayed()) {
+        await this.PPMIDoffered.click();
+    }
+    await utility.wait(2000);
+    if (await this.PPMIDaccepted.isDisplayed()) {
+        await this.PPMIDaccepted.click();
+    }
+    await utility.wait(1000);
+    if (await this.PPMIDLocsel.isDisplayed()) {
+        var select = this.PPMIDLocsel;
+        select.$('[value="A"]').click();
+    }
+    await utility.wait(2000);
+    if (await this.PPMIDtoInstallsel.isDisplayed()) {
+        await utility.wait(2000);
+        this.PPMIDtoInstallsel.click();
+        browser.sleep(1000);
+        console.log("Selecting element based index : " + index);
+        // select the option
+        await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
+        await utility.wait(3000);
+        await expect(await this.SerialNoText.isPresent());
+        var options = this.PPMIDtoInstallselList.getAttribute('value');
+        await this.SerialNoText.sendKeys(options);
+    }
+    await utility.wait(2000);
+    if (await this.EUIenableOKTRAD.isDisplayed()) {
+        await this.EUIenableOKTRAD.click();
+    }
+    await utility.wait(5000);
+    if (await this.AssetsuccessOKclkTRAD.isDisplayed()) {
+        await this.AssetsuccessOKclkTRAD.click();
+    }
+    await utility.wait(3000);
+    if (await this.InstallPPMIDNextSection.isDisplayed()) {
+        await this.InstallPPMIDNextSection.click();
+    }
 }
+
+public async clickonSUBbtnTRAD() {
+    await utility.wait(2000);
+    if (await this.PPMIDcommsuccessfulbtn.isDisplayed()) {
+        await this.PPMIDcommsuccessfulbtn.click();
+    }
+    await utility.wait(2000);
+    if (await this.PPMIDSubmitTRAD.isDisplayed()) {
+        await this.PPMIDSubmitTRAD.click();
+    }
+}
+
+public async clickonCommissioningTRAD() {
+    await utility.wait(2000);
+    if (await this.EICOMcommsuccess.isDisplayed()) {
+        await this.EICOMcommsuccess.click();
+    }
+}
+
+//CGP added for INST16
+
+public async fillAdditionalElecCheckDetailsINST16() 
+{
+    await utility.wait(3000);
+    if (await this.visualCheckPMEBonding.isDisplayed())
+    {
+        await this.visualCheckPMEBonding.click();
+    }
+    await utility.wait(1000);
+    if (await this.TerminalscrewTightness.isDisplayed()) {
+        await this.TerminalscrewTightness.click();
+    }
+}
+
+public async fillAdditionalElecTestandChecksInst16() {
+    await utility.wait(1000);
+    if (await this.SealsIntactBlocks.isDisplayed()) {
+        await this.SealsIntactBlocks.click();
+    }
+    await utility.wait(1000);
+    if (await this.AllPortsSealed.isDisplayed()) {
+        await this.AllPortsSealed.click();
+    }
+    await utility.wait(1000);
+    if (await this.SiemenscableMarkersInsTxt.isDisplayed()) {
+        await this.SiemenscableMarkersIns.click();
+    }
+    await utility.wait(1000);
+    if (await this.VisualInspectionCompleted.isDisplayed()) {
+        await this.VisualInspectionCompleted.click();
+    }
+    await utility.wait(1000);
+    if (await this.cableMarkerSelect.isDisplayed()) {
+        var select = this.cableMarkerSelect;
+        select.$('[value="1"]').click();
+    }
+    await utility.wait(1000);
+    if (await this.EarthTypeSelect.isDisplayed()) {
+        var select = this.EarthTypeSelect;
+        select.$('[value="1"]').click();
+    }
+    await utility.wait(1000);
+    if (await this.ReplacementMeterBoardY.isDisplayed()) {
+        await this.ReplacementMeterBoardY.click();
+    }
+    await utility.wait(1000);
+    if (await this.MeterTailsChangedN.isDisplayed()) {
+        await this.MeterTailsChangedN.click();
+    }
+    await utility.wait(1000);
+    if (await this.ReplacementmainFuseY.isDisplayed()) {
+        await this.ReplacementmainFuseY.click();
+    }
+    await utility.wait(1000);
+    if (await this.emerJobNo.isDisplayed()) {
+        await this.emerJobNo.click();
+    }
+
+    
+}
+
+    
+}
+
+

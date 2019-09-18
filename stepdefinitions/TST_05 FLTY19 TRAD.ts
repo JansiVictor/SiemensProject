@@ -522,13 +522,19 @@ When('I fill the Perform DCC Message Creation for EICOM details fields with valu
 	await riskassessTRAD.eicomMessage();
 
 });
+Then('I should see Commissioning Successful button for FLTY19 Trad', async function () {
+  await inst.commisioningSuc();
+  });
+
 
 /********** "Commissioning Successful"*/
 Given('the Commissioning Successful button is displayed for FLTY19 Trad', async function () {
-  await inst.commisioningSuc();
+  await inst.Seecommisionsuccessbutton();
   });
   When('Commissioning Successful butn clk for FLTY19 Trad', async function () {
-  await inst.clickonCommissioning();
+  //await inst.clickonCommissioning();
+  await inst.clickSeecommisionsuccessbutton();
+  
   });  
   Then('I should see the "INSTALL PPMID" section for FLTY19 Trad', async function () {
     await inst.seePPMIDsection();
@@ -540,6 +546,8 @@ await inst.seePPMIDsection();
 });
 When('I fill the fields for Install PPMID for FLTY19 Trad', async function () {
 await inst.filltheduelforseePPMIDsectionTRAD(2);
+//await inst.filltheduelforseePPMIDsection(2);
+
 });
 Then('I should see PPMID COMMISSIONING section for FLTY19 Trad', async function () {
 await inst.SeePPMIDcommisioning();
@@ -566,7 +574,7 @@ await inst.waitforthebuttontoDisappearafterppmid();
 Then('I should see PPMID Commissioning Successful button for FLTY19 Trad', async function () {
 await inst.ppmidsuccessbtn();
 });
-Then('FTwenty I should see PPMID Request Sent Successfully txt message for FLTY19 Trad', async function () {
+Then('I should see PPMID Request Sent Successfully txt message for FLTY19 Trad', async function () {
 await inst.reqsentsuctxt();
 });
 Then('I should see PPMID Pair Asset to Comms Hub text message for FLTY19 Trad', async function () {
@@ -582,7 +590,7 @@ Given('the PPMID Commissioning Successful button is displayed for FLTY19 Trad', 
 await inst.pairingsuccessfulppmidcomm();
 });
 When('I click on SUB button for FLTY19 Trad', async function () {
-await inst.clickonSUBbtn();
+await inst.clickonSUBbtnTRAD();
 });
 Then('I should see DEVICE BINDING and COMMISSIONING sec for FLTY19 Trad', async function () {
 await job.DeviceBinding();

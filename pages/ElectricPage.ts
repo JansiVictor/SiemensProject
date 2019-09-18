@@ -171,6 +171,7 @@ export class ElectricPageObject {
 	public nonserealizedAssetDD1: ElementFinder;
 	public nonserealizedAssetInput1: ElementFinder;
 	public hanAvailableN: ElementFinder;
+	
 
 	/***
 	 * @Author Aparna Das
@@ -592,26 +593,28 @@ export class ElectricPageObject {
 		if (await this.instalationNotes.isDisplayed()) {
 			await this.instalationNotes.sendKeys('Adding instalation Notes');
 		}
-	}
+    }
 
-	/***
-	 * @Author Aparna Das
-	 * @description Click on Smart Installation Next button
-	 ***/
+/***
+ * @Author Aparna Das
+ * @description Click on Smart Installation Next button
+***/ 
 
 	public async clickSmartInstallationNextBtn() {
+		await utility.wait(5000);
 		if (await this.smartInstallationNextBtn.isDisplayed()) {
 			await this.smartInstallationNextBtn.click();
 			await utility.wait(2000);
 		}
-	}
-
-	/***
-	 * @Author Aparna Das
-	 * @description Fill Polarity Check Meter Out Details
-	 ***/
+    }
+    
+/***
+ * @Author Aparna Das
+ * @description Fill Polarity Check Meter Out Details
+***/
 
 	public async fillthePolarityCheckMeterOut() {
+		await utility.wait(5000);
 		await expect(this.polarityCheckCutOutYES.isPresent());
 		await this.polarityCheckCutOutYES.click();
 		await utility.wait(1000);
@@ -629,6 +632,7 @@ export class ElectricPageObject {
 		await expect(this.meterCutOutNxtBtn.isPresent());
 		await this.meterCutOutNxtBtn.click();
 		await utility.wait(1000);
+
 	}
 
 	/***
@@ -642,12 +646,14 @@ export class ElectricPageObject {
 		await utility.wait(1000);
 	}
 
-	/***
-	 * @Author Aparna Das
-	 * @description Verify current meter Details section and select the option
-	 ***/
+/***
+ * @Author Aparna Das
+ * @description Verify current meter Details section and select the option
+***/   
 
 	public async verifyCurrentMeterDetails() {
+		await utility.wait(5000);
+
 		await expect(this.currentMeterDetailsText.isPresent());
 		await this.currentMeterDetailsText.getText().then(function (currentMeterDetails) {
 			console.log("find currentMeterDetails Text  " + currentMeterDetails);
@@ -829,6 +835,16 @@ export class ElectricPageObject {
 
 	public async fillNewMeterDetails_INST15(index:number) {
 		// await utility.wait(2000);
+    }
+
+/***
+ * @Author Aparna Das
+ * @description Fill new meter details
+***/
+
+	public async fillNewMeterDetails(index:number) {
+		// await utility.wait(2000);
+	//try{
 		if (await this.newMeterDD.isDisplayed()) {
 			await utility.wait(2000);
 			// click the dropdown
@@ -838,28 +854,31 @@ export class ElectricPageObject {
 		console.log("Selecting element based index : "+index)
 		// select the option
 		await this.newMeterDD.element(by.css("option:nth-child("+index+")")).click()
-		await utility.wait(3000);
+		await utility.wait(5000);
 				//await this.commshubPopup.click();
 			
 			await expect(await this.inputelecSerialNum.isPresent());
+			await utility.wait(5000);
 			var options = this.selectinstallMeterOption.getAttribute('value');
+			await utility.wait(3000);
 			await this.inputelecSerialNum.sendKeys(options);
 		
 		await this.randomEUDevice.click();
-		// let ale: Alert = browser.switchTo().alert();
-		// // clicks 'OK' button
-		// ale.accept();
+		let ale: Alert = browser.switchTo().alert();
+		// clicks 'OK' button
+		ale.accept();
 		await utility.wait(2000);
 
 		await this.commshubPopup.click();
 		await utility.wait(2000);
 
-		// if (await this.manufactureLetterDD.isDisplayed()) {
-		// 	var select1 = this.manufactureLetterDD;
-		// 	select1.$('[value="2"]').click();
-		// }
-		await utility.wait(2000);
-		if (await this.MeterTypeDD.isDisplayed()) {
+		if (await this.manufactureLetterDD.isDisplayed()) {
+			var select1 = this.manufactureLetterDD;
+			select1.$('[value="2"]').click();
+		}
+		//cgp added
+		else if (await this.MeterTypeDD.isDisplayed()) {
+			await utility.wait(2000);
 			var select2 = this.MeterTypeDD;
 			select2.$('[value="0"]').click();
 		}
@@ -1095,64 +1114,7 @@ public async fillCommsHubDetails_DF17SmartCredit() {
 		}
 	}
 
-	/***
-	 * @Author Aparna Das
-	 * @description Fill new meter details
-	 ***/
-
-	public async fillNewMeterDetails(index: number) {
-		// await utility.wait(2000);
-		//try{
-		if (await this.newMeterDD.isDisplayed()) {
-			await utility.wait(2000);
-			// click the dropdown
-			this.newMeterDD.click()
-			browser.sleep(1000)
-			//index = index ;
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(3000);
-			//await this.commshubPopup.click();
-
-			await expect(await this.inputelecSerialNum.isPresent());
-			var options = this.selectinstallMeterOption.getAttribute('value');
-			await this.inputelecSerialNum.sendKeys(options);
-
-			await this.randomEUDevice.click();
-			let ale: Alert = browser.switchTo().alert();
-			// clicks 'OK' button
-			ale.accept();
-			await utility.wait(2000);
-
-			await this.commshubPopup.click();
-			await utility.wait(3000);
-
-
-			await utility.wait(2000);
-			if (await this.MeterTypeDD.isDisplayed()) {
-				var select2 = this.MeterTypeDD;
-				select2.$('[value="0"]').click();
-			}
-			await utility.wait(2000);
-			if (await this.meterLocDD.isDisplayed()) {
-				var select3 = this.meterLocDD;
-				select3.$('[value="D"]').click();
-			}
-			await utility.wait(2000);
-
-			await expect(await this.inputDate.isPresent());
-			await this.inputDate.sendKeys('90/01');
-
-			await this.newMeterNxtBtn.click();
-			await utility.wait(2000);
-
-		}
-		//}
-		// catch(err) {
-		// 	console.log("fillNewMeterDetails Error " + err.getText());
-		// 	}
-	}
+	
 	/***
 	 * @Author Aparna Das
 	 * @description Verify additional Elec Check section is displayed
@@ -1343,19 +1305,39 @@ public async fillCommsHubDetails_DF17SmartCredit() {
 		await utility.wait(1000);
 		await this.confirmSocketPass.click();
 		await expect(await this.witnessName.isPresent());
-		await this.witnessName.sendKeys('John');
-		await utility.wait(1000);
+        await this.witnessName.sendKeys('John');
+        await utility.wait(1000);
 		await this.capturePostinstalation.click();
-		await this.capturefinalmeterinstal.click();
-		await utility.wait(1000);
-		await this.captureCloseupMeter.click();
-		await utility.wait(1000);
+        await this.capturefinalmeterinstal.click();
+        await utility.wait(1000);
+        await this.captureCloseupMeter.click();
+        await utility.wait(1000);
 	}
+	
+// CGP added for Installation 16
 
-	/***
-	 * @Author Aparna Das
-	 * @description Verify Electric installation section is displayed
-	 ***/
+
+public async fillPostInstallationCheckINST16() {
+    await this.carryOutPolarityChkYes.click();
+    
+    await this.postpolNotes.sendKeys('Additional Remarks');
+    await utility.wait(1000);
+    
+    if (await this.polChkDD.isDisplayed()) {
+        var select = this.polChkDD;
+        select.$('[value="true"]').click();
+    }
+    await utility.wait(1000);
+    await this.confirmSocketPass.click();
+}
+
+
+
+    
+/***
+ * @Author Aparna Das
+ * @description Verify Electric installation section is displayed
+***/
 	public async electricInstalDisplayed() {
 
 		if (this.electricInstallTxt.isDisplayed()) {

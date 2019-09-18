@@ -1,4 +1,4 @@
-# Feature: Login into Siemen Application And proceed with RemoveElec Work Order
+# Feature: ERMVE6 Work Flow
 
 # Scenario Outline: Logging in to job's "Work Order" window
 # Given the RmveSix Login Page

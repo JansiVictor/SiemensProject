@@ -1,4 +1,4 @@
-# Feature: Login into Siemen Application And proceed with RmveGas Work Order
+# Feature: GRMVE5 Workflow
 
 # Scenario Outline: Logging in to job's "Work Order" window
 # Given the RmveGas Login Page

@@ -1,4 +1,4 @@
-# Feature: Login into Siemen Application And proceed with ExchangeTwnty Work Order
+# Feature: Exchange20 Workflow
 
 # Scenario Outline: Logging in to job's "Work Order" window
 # Given the ExTwnty Login Page

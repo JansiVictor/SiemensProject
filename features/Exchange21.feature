@@ -1,4 +1,4 @@
-# Feature: Login into Siemen Application And proceed with Exchange21 Work Order
+# Feature: Exchange 21 Workflow
 
 # Scenario Outline: Logging in to job's ExTwOne "Work Order" window
 # Given the ExTwOne Login Page

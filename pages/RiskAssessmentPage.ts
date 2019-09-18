@@ -364,7 +364,6 @@ export class RiskAssessmentPageObject {
 
 		await utility.wait(2000);
             await this.infoOKButton.click();
-
             await utility.wait(5000);
         }
     }

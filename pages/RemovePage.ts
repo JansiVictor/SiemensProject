@@ -237,15 +237,47 @@ export class RemovePageObject {
 	public assetRemovedreplaced: ElementFinder;
 	public assetRemovedreplacedtext: ElementFinder;
 	public removeNextbutton: ElementFinder;
+	public captureCurrentMeterText: ElementFinder;
+	public meterReadingLabel1: ElementFinder;
+    public meterReadingLabel2: ElementFinder;
+    public meterReadingLabelTRAD: ElementFinder;
+    public meterReading1: ElementFinder;
+	public meterReading2: ElementFinder;
+	public meterReadingTRAD: ElementFinder;
+	public randomClick1:ElementFinder;
+	public SMET2AssetInstalledN: ElementFinder;
+	public exchangeAssetY: ElementFinder;
+	public gasMeterRadio: ElementFinder;
+	public regulatorRadio: ElementFinder
+	public equipmentRepositionRequired: ElementFinder;
+	public SMETSOffered: ElementFinder;
+	public nextSecGasBtn: ElementFinder;
+	public submitElecRemSecEndTRAD: ElementFinder;
 	
 
 	constructor() {
+		this.submitElecRemSecEndTRAD = element(by.xpath('//button[@id="btn1"]'));
+		this.nextSecGasBtn = element(by.id('removeGasAsset_nextButton'));
+		this.equipmentRepositionRequired = element(by.id('repositionSelect'));
+        this.SMETSOffered = element(by.xpath('//input[@id="smets2offeredtrue"]/following-sibling::span[@class="outer"]'));
+		this.gasMeterRadio = element(by.xpath('//input[@id="gasmexdfa"]/following-sibling::span[@class="cr"]'));
+        this.regulatorRadio = element(by.xpath('//input[@id="regexdfa"]/following-sibling::span[@class="cr"]'));
+		this.exchangeAssetY = element(by.xpath('//input[@id="exchangeassettrue"]/following-sibling::span[@class="outer"]'));
+		this.meterReading1 = element(by.xpath('(//*[contains(text(),"Capture Meter Reading - Register")])[1]'));
+        this.meterReading2 = element(by.xpath('(//*[contains(text(),"Capture Meter Reading - Register")])[2]'));
+        this.meterReadingTRAD = element(by.xpath('//*[contains(text(),"Capture Meter Reading - Register")]'));
+        this.meterReadingLabel1 = element(by.xpath('(//input[@id="reg0"])[1]'));
+		this.meterReadingLabel2 = element(by.xpath('(//input[@id="reg0"])[2]'));
+		this.randomClick1 = element(by.xpath('(//div[@class = "checkLabel"])[1]'));
+		this.SMET2AssetInstalledN = element(by.xpath('//input[@id="smets2Installedfalse"]/following-sibling::span[@class="outer"]'));
+       
 		//#region Panel Click
 		this.ctIhdPpmiddtls = element(by.css('.ng-scope:nth-child(1) > .task-section .down'));
 		this.ctmeterdtlGasTab = element(by.css('.ng-scope:nth-child(2) > .task-section .down'));
 		this.ctCommshubdtlTab = element(by.css('.ng-scope:nth-child(3) > .task-section .down'));
 		this.rmvPPMIDTab = element(by.css('.ng-scope:nth-child(6) > .task-section .down'));
-
+		this.captureCurrentMeterText = element(by.xpath('//div[@class="sectionTitle assessHeader alignCenter orange"]'));
+        
 		//#endregion
 
 		//#region Current ihd ppmid
@@ -892,7 +924,23 @@ public async fillElectricAssetRemovalSection(){
 			await this.capturepressureinMB.click();
 		}
 	}
+	public async equipReposition()
+    {
+        await utility.wait(2000);
+        if (await this.equipmentRepositionRequired.isDisplayed()) {
+            var select = await this.equipmentRepositionRequired;
+            await select.$('[value="Yes-Customer Agreed"]').click();
+        }
+    }
 
+    public async smetsOffered()
+    { 
+        await utility.wait(3000);
+        if (await this.SMETSOffered.isDisplayed()) {
+            await this.SMETSOffered.click();
+        }
+
+    }
 	public async fill18preInstdtls() {
 		await utility.wait(3000);
 		if (await this.wasthereadropinPressure.isDisplayed()) {
@@ -1004,6 +1052,23 @@ public async fillElectricAssetRemovalSection(){
 	}
 	//#endregion
 
+	public async fillcapturecurrentmeterdtlGassecTRAD() {
+        await utility.wait(2000);
+        if (await this.captureCurrentMeterText.isDisplayed()) {
+            await this.existgasmeterDtlY.click();
+        }
+        await utility.wait(1000);
+        if (await this.meterReading1.isDisplayed()) {
+            await this.meterReadingLabel1.clear();
+            await this.meterReadingLabel1.sendKeys("12345");
+            await this.randomClick1.click();
+            console.log("Random Click 1");
+            await utility.wait(2000);
+          
+        }
+    }
+
+
 	/**
 	 * @Author Jansi Victor
 	 * @Description  Automation for FAULTY18 Workflow
@@ -1042,6 +1107,24 @@ public async fillElectricAssetRemovalSection(){
 		});
 	}
 	//#endregion
+
+	public async clickonNextsectionRemoveTRAD()
+{
+    await utility.wait(2000);
+        if (await this.nextSecGasBtn.isDisplayed()) {
+            await this.nextSecGasBtn.click();
+        }
+}
+
+
+// Added for FLTY19 TRAD
+public async clickSubmitRemElecSecTRAD()
+{
+    await utility.wait(2000);
+        if (await this.submitElecRemSecEndTRAD.isDisplayed()) {
+            await this.submitElecRemSecEndTRAD.click();
+        }
+}
 
 	/**
 	 * @Author Jansi Victor
@@ -1297,6 +1380,24 @@ public async fillElectricAssetRemovalSection(){
 	}
 
 	//#endregion
+
+	public async exchangeAssetGasTRAD()
+    {
+        await utility.wait(3000);
+        if (await this.exchangeAssetY.isDisplayed()) {
+            await this.exchangeAssetY.click();
+        }        
+        await utility.wait(3000);
+        if (await this.gasMeterRadio.isDisplayed()) {
+            await this.gasMeterRadio.click();
+        }
+        await utility.wait(3000);
+        if (await this.regulatorRadio.isDisplayed()) {
+            await this.regulatorRadio.click();
+        }
+
+   }
+
 
 	/**
 	 * @Author Jansi Victor
@@ -1632,6 +1733,42 @@ public async fillElectricAssetRemovalSection(){
 			await this.ElecremovalNxtBtn.click();
 		}
 	}
+
+	public async fillcurrentIhdPPMIDdtlsTRAD() {
+        await utility.wait(2000);
+        if (await this.smet2ihdppidText.isDisplayed()) {
+            await this.smet2ihdppidN.click();
+        }
+        await utility.wait(1000);
+        try {
+            if (await this.IhdPpmidNxt.isPresent()) {
+                await this.IhdPpmidNxt.click();
+            }
+        } catch (error) {
+            console.log("Next section is not present at this moment");
+        }  
+	}
+	public async confirmMeterSupplyGasTRAD() {
+		await utility.wait(4000);
+		if (await this.confirmgasmeterOnsupply.isDisplayed()) {
+			await this.confirmgasmeterOnsupply.click();
+		}
+	}
+
+	public async smet2AssetInstalled()
+    {
+        await utility.wait(3000);
+        if (await this.SMET2AssetInstalledN.isDisplayed()) {
+            await this.SMET2AssetInstalledN.click();
+        }
+    }
+	public async capturecurrentmeterGasPageContent() {
+		await utility.wait(5000);
+		await this.captureCurrentMeterText.getText().then(function (capturecurrentmeterdtlPgContent) {
+			console.log("Find current detail gas section content  " + capturecurrentmeterdtlPgContent);
+		});
+	}
+
 
 	public async sendmsgEMREM() {
 		await utility.wait(1000);

@@ -9,7 +9,7 @@ import {
 	HomePageObject
 } from "../pages/HomePage";
 import {
-	FLTY19AppointmentListPageObject
+	AppointmentListPageObject
 } from "../pages/AppointmentListPage";
 import {
 	DoorStepPageObject
@@ -50,7 +50,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 const utility: Utility = new Utility();
 const login: loginPageObject = new loginPageObject();
 const home: HomePageObject = new HomePageObject();
-const applist: FLTY19AppointmentListPageObject = new FLTY19AppointmentListPageObject();
+const applist: AppointmentListPageObject = new AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: ElectricPageObject = new ElectricPageObject();
 const riskassess1: RiskAssessmentPageObject = new RiskAssessmentPageObject();

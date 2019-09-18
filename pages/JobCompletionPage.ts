@@ -277,7 +277,9 @@ export class JobCompletionPageObject {
         this.FullCOnfigAppliedElecYesINST15 = element(by.xpath('//label[@id="rb_FullCFigE_y"]//following-sibling::span[@class="outer"]'));
         this.fullConfigAppliedPPMIDYesINST15 = element(by.xpath('(//input[@id="rcfg5"]/following-sibling::span[@class="cr"])[1]'));
         
-        this.energyEfficiencyTxt = element(by.xpath('//div/h4[text()="Energy Efficiency Information"]'));
+	this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobNCG3")]'));
+
+    this.energyEfficiencyTxt = element(by.xpath('//div/h4[text()="Energy Efficiency Information"]'));
 	}
 
 	public async sendPPMIDmessageSection(){
@@ -628,25 +630,32 @@ public async fillDeviceBindingSection_NMEX16(){
     await utility.wait(2000);
     if (this.infoOKButton.isDisplayed()) {
         await this.infoOKButton.click();
-    }
-    await utility.wait(2000);
-    if (this.esmeJoinedYes.isDisplayed()) {
-        await this.esmeJoinedYes.click();
-    }
-    await utility.wait(2000);
-    if (this.fullconfigAppliedYes.isDisplayed()) {
-        await this.fullconfigAppliedYes.click();
-    }
-    await utility.wait(2000);
-    if(this.capturePhotoAsset.isDisplayed()){
-        await this.capturePhotoAsset.click();
-    }
-    await utility.wait(2000);
-    if(this.nextButtonEff.isDisplayed()){
-        await this.nextButtonEff.click();
-    }
-    await utility.wait(2000);
+	}
 }
+
+    //CGP added 16/09
+    public async filldDevicebinding() {
+        
+        await utility.wait(2000);
+        if (await this.GSMEJoined.isDisplayed()) {
+            await this.GSMEJoined.click();
+        }
+        await utility.wait(2000);
+        if (await this.configIHDPPMID.isDisplayed()) {
+            await this.configIHDPPMID.click();
+        }
+        await utility.wait(1000);
+        if (await this.joinedcapture.isDisplayed()) {
+            await this.joinedcapture.click();
+        }
+        await utility.wait(1000);
+        if (await this.deviceNext.isDisplayed()) {
+            await this.deviceNext.click();
+        }
+    }
+
+
+
 	/***
  * @Author Supriya Harikumar
  * @description Fill Device Binding Section display

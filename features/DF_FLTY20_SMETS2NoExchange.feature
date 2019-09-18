@@ -1,4 +1,4 @@
-# Feature: Login into Siemen Application And proceed with FLTYTwntyNoExchange Work Order
+# Feature: DF_FLTY20_SMETS2NoExchange
 
 # Scenario Outline: Logging in to job's "Work Order" window
 # Given the FLTYTwntyNoExchange Login Page
