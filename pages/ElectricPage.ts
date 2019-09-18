@@ -444,6 +444,7 @@ export class ElectricPageObject {
 	 ***/
 
 	public async capturePhotoBtnDisplayed() {
+		await utility.wait(utility.medium);
 		if (this.cameraBtn.isDisplayed()) {
 			await this.cameraBtn.click();
 		}

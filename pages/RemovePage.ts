@@ -235,6 +235,7 @@ export class RemovePageObject {
 	public assetRemovedreplaced: ElementFinder;
 	public assetRemovedreplacedtext: ElementFinder;
 	public removeNextbutton: ElementFinder;
+	public dummydiv: ElementFinder;
 	
 
 	constructor() {
@@ -494,7 +495,8 @@ export class RemovePageObject {
         this.assetRemovedreplacedtext = element(by.xpath('//*[contains(text(),"Is the Asset to be Removed/Replaced?")]'));
 		this.removeNextbutton = element(by.id('btn_Next_rmv'));
 		this.carryoutmeterinstallationN = element(by.xpath('//input[@id="additionalworkfalse"]/following-sibling::span[@class="outer"]'));
-        
+        this.dummydiv = element(by.xpath('(//div/h4[text()="Scan Barcode Using Device Hardware Button"])[1]'));
+		
         
 	}
 
@@ -634,6 +636,7 @@ public async fillElectricAssetRemovalSection(){
 			await this.ihdppmidsSersk.clear();
 			await this.ihdppmidsSersk.sendKeys("00-0F-01-FF-FF-E4-85-D4");
 		}
+		await this.dummydiv.click();
 		await utility.wait(utility.low);
 		if (await this.existingihdPpmidY.isDisplayed()) {
 			await this.existingihdPpmidY.click();
