@@ -219,6 +219,14 @@ export class InstallPageObject {
 	public postGastightnessNxtbtn: ElementFinder;
 	public EUIenableOKTRAD: ElementFinder;
 	public submitInstall: ElementFinder;
+	public newGasmeterText:ElementFinder;
+	public newGasMeterDD:ElementFinder;
+	public gasmeterSereal:ElementFinder;
+	public gasmeterSerealList:ElementFinder;
+	public euDivText:ElementFinder;
+	public readingText:ElementFinder;
+	public selectppmidtext:ElementFinder;
+
 
 	constructor() {
 
@@ -462,15 +470,84 @@ export class InstallPageObject {
 
 		this.CaptureMeterReadingenableok1 = element(by.xpath('(//*[contains(text(),"Capture Meter Reading - Register (null)")])[2]'));
 		this.EUIenableOK1 = element(by.xpath('(//*[contains(text(),"EUI Device ID:")])[3]'));
-
+		this.selectppmidtext = element(by.xpath('(//*[contains(text()," Select Valid PPMID To Install: ")])'));
 		this.EUIenableOKTRAD = element(by.xpath('//*[contains(text(),"EUI Device ID:")]'));
 		this.submitInstall = element(by.xpath('//div/button[text()="SUBMIT"]'));
-
+		this.newGasmeterText = element(by.id('Title_gasNewMeter'));
+		//this.newGasMeterDD=element(by.id('gasNewMeter_assetSelect'));
+		this.gasmeterSereal = element(by.id('gasNewMeter_assetSerial'));
+		this.gasmeterSerealList = element(by.xpath('((//select[@id="gasNewMeter_assetSelect"])/option)[2]'));
+		this.euDivText = element(by.xpath('//div[text()="EUI Device ID:"]'));
+		this.readingText = element(by.xpath('//div[text()="Capture Meter Reading - Register (null):"]'));
+	
+	
 	}
 	public async dummy() {
 
 		await this.installdelete.click();
 	}
+
+	/**
+	 * @description :initial Gas meter reading install
+	 */
+
+	public async fillinitmeterReadingGAS() {
+		await utility.wait(1000);
+		if (await this.captureMeterReadingSend.isDisplayed()) {
+			await this.captureMeterReadingSend.clear();
+			await this.captureMeterReadingSend.sendKeys("12345");
+			await this.readingText.click();
+			await utility.wait(1000);
+		}
+	}
+
+	/**
+	 * Description : New GAS meter Details Text
+	 * @Author Aparna Das
+	 */
+
+	public async gasMeterDetailsText() {
+		await utility.wait(1000);
+		await this.newGasmeterText.getText().then(function (GAsmeterTxt) {
+			console.log("New Gas MEter Text" + GAsmeterTxt);
+		});
+	}
+/**
+	 * Description : New GAS meter Details Text
+	 * @Author Aparna Das
+	 */
+
+	public async fillGasMeterDetails(index:number) {
+
+		if (await this.selectValidnewgas.isDisplayed()) {
+			await utility.wait(2000);
+			this.selectValidnewgas.click();
+			browser.sleep(1000);
+			console.log("Selecting element based index : " + index);
+			await this.selectValidnewgas.element(by.css("option:nth-child(" + index + ")")).click();
+			await utility.wait(3000);
+		//	await this.commshubWarning.click();
+		//	await utility.wait(3000);
+			await expect(await this.gasmeterSereal.isPresent());
+			var options = this.gasmeterSerealList.getAttribute('value');
+			await this.gasmeterSereal.sendKeys(options);
+			await this.euDivText.click();
+			await this.commshubWarning.click();
+		}
+		await utility.wait(1000);
+		
+		if (await this.GasnewMeterSelect.isDisplayed()) {
+			var select = this.GasnewMeterSelect;
+			select.$('[value="0"]').click();
+		}
+		await utility.wait(1000);
+		if (await this.GasnewMeternewLocation.isDisplayed()) {
+			var select = this.GasnewMeternewLocation;
+			select.$('[value="12"]').click();
+		}
+	}
+
+
 	/**
 	 * @Author Jansi Victor
 	 * @Description UAT Automation for FAULTY18 Workflow
@@ -519,7 +596,7 @@ export class InstallPageObject {
 		await utility.wait(1000);
 		if (await this.commshubconnmethodselect.isDisplayed()) {
 			var select = this.commshubconnmethodselect;
-			select.$('[value="2"]').click();
+			select.$('[value="3"]').click();
 		}
 		await utility.wait(1000);
 		if (await this.commshubPhoto.isDisplayed()) {
@@ -545,6 +622,33 @@ export class InstallPageObject {
 		}
 
 	}
+
+	/**
+	 * @description New Regulator GAS
+	 */
+	public async fillNewRegulatorGas() {
+	if (await this.selectValidAssettoInst1.isDisplayed()) {
+		var select = this.selectValidAssettoInst1;
+		select.$('[value="MA6NC181323805"]').click();
+	}
+	await utility.wait(1000);
+	if (await this.gasmeterserialSendreg.isDisplayed()) {
+		await this.gasmeterserialSendreg.clear();
+		await this.gasmeterserialSendreg.sendKeys("MA6NC181323805");
+	}
+	await utility.wait(1000);
+	if (await this.RegularclickenableOK.isDisplayed()) {
+		await this.RegularclickenableOK.click();
+	}
+	await utility.wait(1000);
+	if (await this.AssetaddedtowallNewReg.isDisplayed()) {
+		await this.AssetaddedtowallNewReg.click();
+	}
+	await utility.wait(1000);
+	if (await this.nextSecnewRegulator.isDisplayed()) {
+		await this.nextSecnewRegulator.click();
+	}
+}
 	/**
 	 * @Author Jansi Victor
 	 * @Description UAT Automation for FAULTY18 Workflow
@@ -595,7 +699,7 @@ export class InstallPageObject {
 			console.log("New Regulator: " + newRegulatorTxt);
 		});
 	}
-	public async fillthefieldsfornewregulator(index: number) {
+	public async fillthefieldsfornewregulator(index:number) {
 		await utility.wait(1000);
 		if (await this.HasGasRegulatorReplacedY.isDisplayed()) {
 			await this.HasGasRegulatorReplacedY.click();
@@ -1681,12 +1785,11 @@ export class InstallPageObject {
 		}
 	}
 
-	public async fillduelfornewregulator(index: number) {
+	public async fillduelfornewregulator(index:number) {
 		await utility.wait(1000);
 		if (await this.HasGasRegulatorReplacedY.isDisplayed()) {
-			await this.HasGasRegulatorReplacedY.click();
+		await this.HasGasRegulatorReplacedY.click();
 		}
-		await utility.wait(1000);
 		if (await this.selectValidAssettoInst1.isDisplayed()) {
 			var select = this.selectValidAssettoInst1;
 			select.$('[value="MA6NC181323805"]').click();
@@ -1709,6 +1812,8 @@ export class InstallPageObject {
 			await this.nextSecnewRegulator.click();
 		}
 	}
+
+	
 	public async filltheduelforseePPMIDsection(index: number) {
 		await utility.wait(2000);
 		if (await this.PPMIDoffered.isDisplayed()) {
@@ -1739,6 +1844,46 @@ export class InstallPageObject {
 		await utility.wait(2000);
 		if (await this.EUIenableOK1.isDisplayed()) {
 			await this.EUIenableOK1.click();
+		}
+		await utility.wait(2000);
+		if (await this.AssetsuccessOKclk.isDisplayed()) {
+			await this.AssetsuccessOKclk.click();
+		}
+		await utility.wait(2000);
+		if (await this.InstallPPMIDNextSection.isDisplayed()) {
+			await this.InstallPPMIDNextSection.click();
+		}
+	}
+	public async filltheduelforPPMIDsection(index: number) {
+		await utility.wait(2000);
+		if (await this.PPMIDoffered.isDisplayed()) {
+			await this.PPMIDoffered.click();
+		}
+		await utility.wait(2000);
+		if (await this.PPMIDaccepted.isDisplayed()) {
+			await this.PPMIDaccepted.click();
+		}
+		await utility.wait(1000);
+		if (await this.PPMIDLocsel.isDisplayed()) {
+			var select = this.PPMIDLocsel;
+			select.$('[value="A"]').click();
+		}
+		await utility.wait(2000);
+		if (await this.PPMIDtoInstallsel.isDisplayed()) {
+			await utility.wait(2000);
+			this.PPMIDtoInstallsel.click();
+			browser.sleep(1000);
+			console.log("Selecting element based index : " + index);
+			// select the option
+			await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
+			await utility.wait(3000);
+			await expect(await this.SerialNoText.isPresent());
+			var options = this.PPMIDtoInstallselList.getAttribute('value');
+			await this.SerialNoText.sendKeys(options);
+		}
+		await utility.wait(2000);
+		if (await this.selectppmidtext.isDisplayed()) {
+			await this.selectppmidtext.click();
 		}
 		await utility.wait(2000);
 		if (await this.AssetsuccessOKclk.isDisplayed()) {

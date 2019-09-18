@@ -150,6 +150,8 @@ export class GASPageObject {
 	public suitableforSmartInstallationGASTxt:ElementFinder;
 	public cptureinitialPhotogas:ElementFinder;
 	public captureInitialPhotogas:ElementFinder;
+	public regulatorText:ElementFinder;
+	public selectassettoNewwRegGasDD:ElementFinder;
 
 
 
@@ -199,8 +201,6 @@ export class GASPageObject {
 		this.currentMeterDetailsTxt = element(by.id('Title_CurrMe_Det'));
 		this.newRegulatorTxt = element(by.id('TITLE_RegNew'));
 		this.regulatorReplacedYes = element(by.xpath('//input[@id="regulator_replacedtrue"]/following-sibling::span[@class="outer"]'));
-		this.selectValidAssetDD = element(by.model('scp.selectedAsset'));
-		this.regulatorSerialNoinput = element(by.id('btn_RegSNum1'));
 		this.OKpopupBtn = element(by.xpath('//div/button[text()="OK"]'));
 		this.regulatorTxt = element(by.xpath('//div[@id="lbl_SerNote"]'));
 		this.newRegulatorNxtBtn = element(by.id('newRegulator_nextButton'));
@@ -222,7 +222,8 @@ export class GASPageObject {
 		this.installKitNxtBtn = element(by.id('btnNextrmmip'));
 		this.postInstallationGasTxt = element(by.xpath('//div/h4[text()="Post Installation Gas Tightness Test"]'));
 		this.additionalTxtPreInstallGas = element(by.id('txt_AddNotGasTigT'));
-		this.selectassettoInstallGas = element(by.xpath('(//select[@ng-model="scp.selectedAsset"]/option)[1]'));
+		this.selectassettoNewwRegGasDD = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[2]'));
+		this.selectassettoInstallGas = element(by.xpath('(//select[@ng-model="scp.selectedAsset"]/option)[2]'));
 		this.inputinstallCommshub = element(by.id('chubInstall_CHbarcode'));
 		this.selectNewMeterGasOptn = element(by.xpath('(//select[@id="newMeter_assetSelect"]/option)[3]'));
 		this.inputMeterSerialNum = element(by.xpath('(//div/input[@id="txt_Serial_Num"])[1]'));
@@ -252,7 +253,7 @@ export class GASPageObject {
 		this.workingpressure = element(by.id('gaspostworkingpressure'));
 		this.wpCapture = element(by.xpath('(//div[@id="btn_CapStPr"])[2]'));
 		this.finalMeterCapture = element(by.xpath('//button[@id="btn2"]'));
-		this.polNxtBtn = element(by.xpath('(//div/button[@id="btnNextPol"])[2]'));
+		this.polNxtBtn = element(by.xpath('(//div/button[@id="btnNextPol"])'));
 		this.gicomSendMessage = element(by.id('gicom_sendMessageButton'));
 		this.successfulBtn = element(by.id('gicom_nextButton'));
 		this.gasAppliencesSafetyTxt = element(by.xpath('//div/h4[text()="Gas Appliance Safety Checks"]'));
@@ -282,6 +283,7 @@ export class GASPageObject {
 		this.commshubconnectedtoWANYes = element(by.xpath('//input[@id="Cradionm1"]/following-sibling::span[@class="outer"]'));
 		this.infoOKButton = element(by.xpath('//div/button[@class="confirm"]'));
 		this.inputcradleSerialNo = element(by.id('chubInstall_cradleSerial'));
+		this.regulatorText = element(by.xpath('//div/h4[text()="New Regulator"]'));
 
 	}
 
@@ -436,37 +438,33 @@ export class GASPageObject {
 
 	}
 
+	public async ExGasRegulatorDetailsTxtDisplay() {
+
+		if (this.regulatorText.isDisplayed()) {
+			await this.regulatorText.getText().then(function (regulator) {
+				console.log("find regulator Text  " + regulator);
+			});
+		}
+
+	}
+
+
 	/***
 	 * @Author Aparna Das
 	 * @description Fill new meter regulator details GAS
 	 ***/
 	public async fillMeterRegulatorDetailsGAS() {
+		await utility.wait(1000);
 		await this.regulatorReplacedYes.click();
-
-		// if (await this.selectValidAssetDD.isDisplayed()) {
-		// await utility.wait(2000);
-		// // click the dropdown
-		// this.selectValidAssetDD.click()
-		// browser.sleep(1000)
-		// //index = index ;
-		// console.log("Selecting element based index : "+index)
-		// // select the option
-		// await this.selectValidAssetDD.element(by.css("option:nth-child("+index+")")).click()
-		// await utility.wait(3000);
-		// //await this.commshubPopup.click();
-
-		// await expect(await this.inputelecSerialNum.isPresent());
-		// var options=this.selectassettoInstallGas.getAttribute('value');
-		// await this.inputelecSerialNum.sendKeys(options);
-
-		if (await this.selectValidAssetDD.isDisplayed()) {
-			var select = await this.selectValidAssetDD;
+		await utility.wait(1000);
+		if (await this.selectassettoNewwRegGasDD.isDisplayed()) {
+			var select = await this.selectassettoNewwRegGasDD;
 			select.$('[value="MA6NC181323805"]').click();
 		}
 		await utility.wait(2000);
-		await expect(await this.regulatorSerialNoinput.isPresent());
-		await this.regulatorSerialNoinput.clear();
-		await this.regulatorSerialNoinput.sendKeys('MA6NC181323805');
+	//	await expect(await this.regulatorSerialNoinput.isPresent());
+		await this.inputelecSerialNum.clear();
+		await this.inputelecSerialNum.sendKeys('MA6NC181323805');
 		await utility.wait(1000);
 		await this.regulatorTxt.click();
 		await utility.wait(2000);
@@ -476,6 +474,29 @@ export class GASPageObject {
 		await utility.wait(1000);
 		//}
 	}
+
+	public async fillMeterRegulatorGAS() {
+		await this.regulatorReplacedYes.click();
+		await utility.wait(1000);
+		if (await this.selectassettoNewwRegGasDD.isDisplayed()) {
+			var select = await this.selectassettoNewwRegGasDD;
+			select.$('[value="MA6NC181323805"]').click();
+		}
+		await utility.wait(2000);
+	//	await expect(await this.regulatorSerialNoinput.isPresent());
+		await this.inputelecSerialNum.clear();
+		await this.inputelecSerialNum.sendKeys('MA6NC181323805');
+		await utility.wait(1000);
+		await this.regulatorTxt.click();
+		await utility.wait(2000);
+		await this.commshubPopup.click();
+		await utility.wait(2000);
+		await this.newRegulatorNxtBtn.click();
+		await utility.wait(1000);
+		//}
+	}
+
+	
 
 	/***
 	 * @Author Aparna Das
@@ -649,6 +670,7 @@ export class GASPageObject {
 		await this.wpCapture.click();
 		await this.finalMeterCapture.click();
 		await this.commshubconnectedtoWANYes.click();
+		//updated xpath according to ex22, if fails in ex21 then update
 		await this.polNxtBtn.click();
 	}
 	/***

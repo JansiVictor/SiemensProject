@@ -217,6 +217,8 @@ export class RemovePageObject {
 	public submitRemovebtn: ElementFinder;
 	public carryoutWorkYes: ElementFinder;
 	public carryoutWorkNo: ElementFinder;
+	public removePPMIDOK:ElementFinder;
+	
 
 
 	constructor() {
@@ -352,7 +354,7 @@ export class RemovePageObject {
 		this.RemoveGasMeterPanel = element(by.xpath('//div[@id="Title_removeGasMeter"]'));
 		this.captureassetPhoto = element(by.id('removeIhdPpmidAsset_photoButton'));
 		this.captureassetremovalPhoto = element(by.id('removeGasAsset_photoButton'));
-
+		this.removePPMIDOK = element(by.xpath('//div/button[@class="confirm"]'));
 		//#endregion
 
 		//#region Gas Meter Removal 
@@ -575,7 +577,7 @@ export class RemovePageObject {
 	public async fillcurrenthubdtl(index: number) {
 
 		if (await this.commshubLoc.isDisplayed()) {
-			await utility.wait(4000);
+			await utility.wait(2000);
 			var select = this.commshubLoc;
 			await select.$('[value="A"]').click();
 		}
@@ -741,6 +743,43 @@ export class RemovePageObject {
 			await this.gastightnesstestCompletedFail.isDisplayed();
 		}
 	}
+
+	public async fillPreInstdtls() {
+		await utility.wait(1000);
+		if (await this.gasTightness.isDisplayed()) {
+			await this.gasTightnessTextbox.sendKeys("Gas Tested");
+		}
+		await utility.wait(1000);
+		if (await this.gastightnessOutcome.isDisplayed()) {
+			await this.gastightnessOutcomeGT.click();
+		}
+		await utility.wait(1000);
+		if (await this.reportedinctoGT.isDisplayed()) {
+			await this.reportedinctoGTY.click();
+		}
+		await utility.wait(1000);
+		if (await this.jobRef.isDisplayed()) {
+			await this.jobRef.clear();
+			await this.jobRef.sendKeys("1");
+		}
+		await utility.wait(1000);
+		if (await this.reportedinctoHS.isDisplayed()) {
+			await this.reportedinctoHSY.click();
+		}
+		await utility.wait(1000);
+		if (await this.airRef.isDisplayed()) {
+			await this.airRef.clear();
+			await this.airRef.sendKeys("2");
+		}
+		await utility.wait(1000);
+		if (await this.gtattendanceY.isDisplayed()) {
+			await this.gtattendanceY.click();
+		}
+		await utility.wait(1000);
+		if (await this.gtresolveY.isDisplayed()) {
+			await this.gtresolveY.click();
+		}
+	}
 	public async fill19preInstdtls() {
 		await utility.wait(1000);
 		if (await this.gasTightness.isDisplayed()) {
@@ -862,7 +901,7 @@ export class RemovePageObject {
 	}
 	public async ppmidRemovalbtn() {
 		await utility.wait(1000);
-		await expect(this.ppmidremoval.isDisplayed());
+		await expect(this.ppmidremovalSuccess.isDisplayed());
 	}
 	public async sentmesgSuccess() {
 		await utility.wait(1000);
@@ -998,6 +1037,7 @@ export class RemovePageObject {
 	}
 
 	//#endregion
+	
 
 	/**
 	 * @Author Jansi Victor
@@ -1013,7 +1053,7 @@ export class RemovePageObject {
 		}
 	}
 	public async AwaitingResponseGMREM() {
-		await utility.wait(20000);
+		await utility.wait(30000);
 	}
 	//#endregion
 
@@ -1027,6 +1067,7 @@ export class RemovePageObject {
 	public async removalsuccessfulbtn() {
 		await utility.wait(2000);
 		await expect(this.RemovalSuccess.isDisplayed());
+		await this.RemovalSuccess.click();
 	}
 	public async ReqSentSuccess() {
 		await utility.wait(1000);
@@ -1057,6 +1098,26 @@ export class RemovePageObject {
 		await this.confirmgasAssetRemoval.getText().then(function (confirmgasAssetRemovalTxt) {
 			console.log("Confirm Gas Asset Removal" + confirmgasAssetRemovalTxt);
 		});
+	}
+
+	//#region Gas Meter Removal 
+
+	public async fillGasmeterRemoval() {
+		await utility.wait(3000);
+		if (await this.GMassettoberemoved.isDisplayed()) {
+			await this.GMassettoberemoved.click();
+		}
+		await utility.wait(3000);
+		if (await this.statusofAssetSelect.isDisplayed()) {
+			var select = this.statusofAssetSelect;
+			await select.$('[value="1"]').click();
+		}
+		await utility.wait(1000);
+		if (await this.removedmeterReading.isDisplayed()) {
+			await this.removedmeterReading.clear();
+			await this.removedmeterReading.sendKeys('12345');
+			await utility.wait(1000);
+		}
 	}
 
 	//#endregion
@@ -1366,6 +1427,28 @@ export class RemovePageObject {
 			await this.removedmeterReading.sendKeys('12345');
 			await this.removemeterText.click();
 		}
+	}
+
+	public async fillRemovePPMID() {
+		
+		await utility.wait(3000);
+		if (await this.AssettobeRemoved.isDisplayed()) {
+			await this.AssettobeRemoved.click();
+		}
+	
+		await utility.wait(1000);
+		if (await this.rmvihdppmidpopupOK.isDisplayed()) {
+			await this.rmvihdppmidpopupOK.click();
+		}
+		await utility.wait(3000);
+		if (await this.rmvihdppmidstatusofAssetSel.isDisplayed()) {
+			var select = await this.rmvihdppmidstatusofAssetSel;
+			await select.$('[value="1"]').click();
+		}
+		await utility.wait(1000);
+
+			await this.rmvihdppmidNxtBtn.click();
+		
 	}
 	public async clickonnxtBtnofElecmeterRemoval() {
 		await utility.wait(1000);

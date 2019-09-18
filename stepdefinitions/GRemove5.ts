@@ -9,8 +9,8 @@ import {
     HomePageObject
   } from "../pages/HomePage";
   import {
-  FLTY19AppointmentListPageObject
-  } from "../pages/FLTY19AppointmentListPage";
+  AppointmentListPageObject
+  } from "../pages/AppointmentListPage";
   import {
   DoorStepPageObject
   } from "../pages/DoorStepPage";
@@ -47,7 +47,7 @@ import {
   const utility: Utility = new Utility();
   const login: loginPageObject = new loginPageObject();
   const home: HomePageObject = new HomePageObject();
-  const applist: FLTY19AppointmentListPageObject = new FLTY19AppointmentListPageObject();
+  const applist: AppointmentListPageObject = new AppointmentListPageObject();
   const doorstep: DoorStepPageObject = new DoorStepPageObject();
   const riskassess: RiskAssessmentPageObject = new RiskAssessmentPageObject();
   const riskassessGAS: GASPageObject = new GASPageObject();

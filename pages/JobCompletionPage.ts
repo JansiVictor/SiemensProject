@@ -738,10 +738,12 @@ export class JobCompletionPageObject {
 	}
 	public async JobCompletedScreen() {
 		await utility.wait(1000);
-		if (await this.jobcompletion.isDisplayed()) {
-			console.log("Job completed successfully");
-		}
+		if (this.AppointmentText.isDisplayed) {
+			this.AppointmentText.getText().then(async function (appointment) {
+				console.log("find Appointment Page Text  " + appointment);
+			});
 	}
+}
 
 	public async JobCompletedFLTYNoExchangeScreen() {
 		await utility.wait(1000);

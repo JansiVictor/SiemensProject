@@ -14,6 +14,8 @@ import {
 } from "../support/utility";
 const utility: Utility = new Utility();
 const job: JobCompletionPageObject = new JobCompletionPageObject();
+const chai = require("chai");
+const expect = chai.expect;
 
 
 export class HomePageObject {
@@ -37,6 +39,8 @@ export class HomePageObject {
 	public flty19noExTradSelectLink: ElementArrayFinder;
 	public SFGASINST14:ElementArrayFinder;
 	public Exch24SelectLink:ElementArrayFinder;
+	public SFGASEx22:ElementArrayFinder;
+	public appointmentListLab:ElementFinder;
 
 	constructor() {
 		this.Ex20selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest1 EXCH20 SF SMETS2")]'));
@@ -47,6 +51,7 @@ export class HomePageObject {
 		this.RemoveGasSelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobRMVE5 FLAT")]'));
 		this.FLTYnoexchangeselectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobFAULTY 20 SMETS2 Site FLAT")]'));
 		this.SFGASINST14 = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest1 INST14 DF SMETS")]'));
+		this.SFGASEx22 = element.all(by.xpath('//span[starts-with(@id,"SelectJobEXCHANGE 22 FLAT")]'));
 		this.Exch24SelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobEXCHANGE 24 FLAT")]'));
 		this.continueLink = element.all(by.xpath('//span[starts-with(@id,"ContinueJobTest EXCH21 DF SMETS2"]'));
 		this.Ex20completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobTest1 EXCH20 DF SMETS2"]'));
@@ -59,6 +64,7 @@ export class HomePageObject {
 		this.password = element(by.id("input2"));
 		this.loginbtn = element(by.id("submitbutton"));
 		this.arriveBtn = element(by.id('btn_arrive'));
+		this.appointmentListLab = element(by.xpath('//*[text()="Appointments List"]'));
 
 
 	}
@@ -152,6 +158,10 @@ export class HomePageObject {
 			this.clickOnTheDFECXH24SelectLink();
 			console.log('Fieldname:', selectLinkName);
 			break;
+			case ('SFExchange22'):
+			this.clickOnSFGASEx22SelectLink();
+			console.log('Fieldname:', selectLinkName);
+			break;
 			default:
 				break;
 		}
@@ -232,6 +242,52 @@ export class HomePageObject {
 			console.log("link " + ('((//span[starts-with(@id,"SelectJobTest1 EXCH21 SF SMETS2")]))' + '[' + [size] + ']'));
 			var selectMe = element(
 				by.xpath('((//span[starts-with(@id,"SelectJobTest1 EXCH21 SF SMETS2")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
+
+	
+
+	/***
+	 * @Author Aparna Das
+	 * @description Click on the correct Exchange 21 Select Link
+	 ***/
+
+	public async clickOnSFGASEx22SelectLink() {
+		var list = this.SFGASEx22;
+
+		await utility.wait(2000);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobEXCHANGE 22 FLAT")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobEXCHANGE 22 FLAT")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobEXCHANGE 22 FLAT")]))' + '[' + [size] + ']')
 			);
 			selectMe.getText().then(function (selectMeText) {
 				console.log("find select Me link text  " + selectMeText);
@@ -720,6 +776,16 @@ export class HomePageObject {
 
 
 	};
+/**
+ * @description App List
+ */
+
+public async seeAppList() {
+await utility.wait(1000);
+await expect(this.appointmentListLab.isDisplayed());
+    }
+
+
 
 	/***
 	 * @Author Aparna Das
