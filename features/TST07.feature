@@ -108,10 +108,74 @@ Feature: DF FLTY20 Trad No Exchange Workflow
     And I select the value PASS for the Confirm Socket Safety Test Passed radio option
     And I update the Test Witness Name textfield with the value Johny Vegas
     And I click on the Capture Photo of Martindale Test button
-    And I click on the Capture Photo of Final Meter Installation button
+    And I click on the Capture Photo, of Final Meter Installation button
     And I click on the Capture Photo of Close Up of Meter Witness Sticker button
     And I click on the Next button in the Post Installation Checks Section
     Then I should see the Commissioning section
 
   Scenario: Complete the Commissioning section
     Given I have accessed the Commissioning section
+    And I select the value T1 Aerial from the Non Serialised Assets drop-down menu
+    And I update the Quantity textfield with the value 1
+    And I click on the Add Another Asset button from the Commissioning section
+    Then A new recordset is displayed dyanmically, directly below the first entry
+    When I select the value Connector Blocks from the Non Serialised Assets drop-down menu
+    And I update the Quantity textfield with the value 2
+    And I click on the Commissioning section Next button
+    Then I should see the Install Kit section
+
+  Scenario: Complete the Install Kit section
+    Given I have accessed the Install Kit section
+    When I select the value Yes for the Installed Kit Used? radio option
+    And I select the value T1 Aerial, from the Non Serialised Assets drop-down menu
+    And I update the Quantity textfield, in the with the value 1
+    And I click on the Add Another Asset button from the Install Kit section
+    When I select the value Meter Board from the Non Serialised Assets drop-down menu
+    And I update the Quantity textfield, with the value 2
+    And I click on the Install Kit section Next button
+    Then I should see the Post Installation Gas Tightness Test section
+
+  Scenario: Complete the Post Installation Gas Tightness Test section
+    Given I have accessed the Post Installation Gas Tightness Test section
+    When I select the value Yes for the Did you have to Contact GT radio option
+    And I update the National Grid GI Job ref textfield with the value 1
+    And I select the value Yes for the Reported Incident to H&S AIRline radio option
+    And I update the AIRLine Ref No textfield with the value 2
+    And I select the value Yes for the Need to wait for the GT Attendance on Site radio option
+    And I select the value Yes for the GT Resolve Issue radio option
+    And I select the value Yes for the Did you Carry out any Additional Work to Pass the Gas Tightness Test radio option
+    And I update the Additional Notes textfield with the value Gas Notes
+    And I select the value Yes for the Have you replaced the Gas meter radio option
+    And I select the value Yes for the Have you replaced the Regulator radio option
+    And I select the value Yes for the Post Installation-Gas Tightness Test Performed radio option
+    And I click on the Capture Photo of Witness Sticker and U-Gauge button
+    And I select the value Yes, for the Was there a drop in pressure radio option
+    And I select the value 1.1 for the Enter DIP Gas Pressure drop-down menu
+    And I select the value G4 0.5 4m bars for the Select Meter Type drop-down menu
+    And I select the value Yes for the Gas Tightness Test – Passed radio option
+    And I update the Test Witness Name textfield with the value Ellie Taylor
+    And I update the Standing Pressure textfield with the value 1.1
+    And I click on the Capture Photo of Standing Pressure button
+    And I update the Working Pressure textfield with the value 2.0
+    And I click on the Capture Photo of Working Pressure button
+    And I click on the Capture Photo of Final Meter Installation button
+    And I click on the Post Installation Gas Tightness Test Next button
+    Then I should see the Gas Appliance Safety Checks section
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

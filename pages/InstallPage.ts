@@ -37,6 +37,7 @@ export class InstallPageObject {
     private testWitnessNameTextfield: ElementFinder
     private capturePhotoOfMartindaleTestBtn: ElementFinder
     private capturePhotoOfFinalMeterInstallBtn: ElementFinder
+    private capturePhotoOfFinalMeterInstallBtn2: ElementFinder
     private capturePhotoOfCloseUpOfMeterBtn: ElementFinder
     private postInstallChecksNextBtn: ElementFinder
     private commissioningText: ElementFinder
@@ -45,9 +46,41 @@ export class InstallPageObject {
     private addAnotherAssetBtn: ElementFinder
     private assetDropDownMenu1: ElementFinder
     private assetDropDownMenu2: ElementFinder
+    private assetDropDownMenu3: ElementFinder
+    private assetDropDownMenu4: ElementFinder
     private quantityTextfield1: ElementFinder
     private quantityTextfield2: ElementFinder
+    private quantityTextfield3: ElementFinder
+    private quantityTextfield4: ElementFinder
     private commissioningNextSectionBtn: ElementFinder
+    private postInstallationGasTightnessTestText: ElementFinder
+    private didYouHaveToContactGTTrueRadioOption: ElementFinder
+    private nationalGridGIJobRefTextfield: ElementFinder
+    private reportedIncidentToHAndSAIRLineTrueRadioOption: ElementFinder
+    private aIRLineRefTextfield: ElementFinder
+    private needToWaitForTheGTAttendanceOnSiteTrueRadioOption: ElementFinder
+    private gTResolveIssueTrueRadioOption: ElementFinder
+    private didYouCarryOutAnyExtraWorkToPassGasTightnessTestTrueRadioOption: ElementFinder
+    private additionalNotesTextfield: ElementFinder
+    private haveYouReplacedGasMeterTrueRadioOption: ElementFinder
+    private haveYouReplacedRegulatorTrueRadioOption: ElementFinder
+    private postInstallationGasTightnessTestPerformedTrueRadioOption: ElementFinder
+    private capturePhotoOfWitnessStickerAndUGaugeBtn: ElementFinder
+    private wasThereADropInPressureTrueRadioOption: ElementFinder
+    private enterDIPGasPressureDropDownMenu: ElementFinder
+    private selectMeterTypeDropDownMenu: ElementFinder
+    private gasTightnessTestPassedTrueRadioOption: ElementFinder
+    private testWitnessNameTxtfield: ElementFinder
+    private testWitnessNameTxtfieldPostInstallGasTightnessForm: ElementFinder
+    private standingPressureTextfield: ElementFinder
+    private capturePhotoOfStandingPressureBtn: ElementFinder
+    private workingPressureTextfield: ElementFinder
+    private capturePhotoOfWorkingPressureBtn: ElementFinder
+    private capturePhotoOfFinalMeterInstallButton: ElementFinder
+    private postInstallGasTightnessTestNextBtn: ElementFinder
+    private installKitNextSectionBtn: ElementFinder
+    private addAnotherAssetBtnInstallKitSection: ElementFinder
+    private gasApplianceSafetyChecksSectionText: ElementFinder
 
 
     public installcommsHub: ElementFinder
@@ -195,18 +228,48 @@ export class InstallPageObject {
         this.testWitnessNameTextfield = element(by.xpath("//input[@id='txt_TestWtn']"));
         this.capturePhotoOfMartindaleTestBtn = element(by.xpath("//button[@id='btn_CapPhoMart_test']"));
         this.capturePhotoOfFinalMeterInstallBtn = element(by.xpath("//button[@id='btn_CapPhoFinMet_inst']"));
+        this.capturePhotoOfFinalMeterInstallBtn2 = element(by.xpath("//div[@class='btn-container2line grey']//button[@id='btn2']"));
         this.capturePhotoOfCloseUpOfMeterBtn = element(by.xpath("//button[@id='btn_CapPhoCloUp_met']"));
-        this.postInstallChecksNextBtn = element(by.xpath("//button[@id='btnNextComm']"));
+        this.postInstallChecksNextBtn = element(by.xpath("//*[@id='btnNextComm']"));
         this.commissioningText = element(by.xpath("//h4[contains(text(),'Commissioning')]"));
         this.postInstallChecksAdditionalNotesTextfield = element(by.xpath("//textarea[@id='postpolnotes']"));
         this.addAnotherAssetBtn = element(by.xpath("//button[@id='Cbtn1']"));
-        this.assetDropDownMenu1 = element(by.xpath("//div[@class='collapse in']//div[2]//div[1]//div[1]//select[1]"));
-        this.assetDropDownMenu2 = element(by.xpath("//div[3]//div[1]//div[1]//select[1]"));
-        this.quantityTextfield1 = element(by.xpath("//div[@class='collapse in']//div[2]//div[1]//div[2]//input[1]"));
-        this.quantityTextfield2 = element(by.xpath("//div[contains(@class,'contentTasks')]//div[3]//div[1]//div[2]//input[1]"));
+        this.assetDropDownMenu1 = element(by.xpath("//select[@id='Cselect4']"));
+        this.assetDropDownMenu2 = element(by.xpath("//commissions2[@class='ng-scope ng-isolate-scope']//div[3]//div[1]//div[1]//select[1]"));
+        this.assetDropDownMenu3 = element(by.xpath("//select[@id='gasassetselect0']"));
+        this.assetDropDownMenu4 = element(by.xpath("//select[@id='gasassetselect1']"));
+        this.quantityTextfield1 = element(by.xpath("//commissions2[@class='ng-scope ng-isolate-scope']//div[@class='collapse in']//div[2]//div[1]//div[2]//input[1]"));
+        this.quantityTextfield2 = element(by.xpath("//commissions2[@class='ng-scope ng-isolate-scope']//div[3]//div[1]//div[2]//input[1]"));
+        this.quantityTextfield3 = element(by.xpath("//input[@id='gasassetinput0']"));
+        this.quantityTextfield4 = element(by.xpath(" //input[@id='gasassetinput1']"));
         this.commissioningNextSectionBtn = element(by.xpath("//button[@id='CbtnNextComm']"));
         this.installKitUsedTrueRadioOption = element(by.xpath("//label[@id='gasInstallPhoto_installKit_y']"));
-
+        this.postInstallationGasTightnessTestText = element(by.xpath("//h4[contains(text(),'Post Installation Gas Tightness Test')]"));
+        this.didYouHaveToContactGTTrueRadioOption = element(by.xpath("//*[@id='gtp1']/following-sibling::span[@class='outer']"));
+        this.nationalGridGIJobRefTextfield = element(by.id("input1"));
+        this.reportedIncidentToHAndSAIRLineTrueRadioOption = element(by.xpath("//*[@id='gtp3']/following-sibling::span[@class='outer']"));
+        this.aIRLineRefTextfield = element(by.xpath("//*[@id='input2'][1]"));
+        this.needToWaitForTheGTAttendanceOnSiteTrueRadioOption = element(by.xpath("//*[@id='gtp5']/following-sibling::span[@class='outer']"));
+        this.gTResolveIssueTrueRadioOption = element(by.xpath("//*[@id='gtp9']/following-sibling::span[@class='outer']"));
+        this.didYouCarryOutAnyExtraWorkToPassGasTightnessTestTrueRadioOption = element(by.xpath("//*[@id='gtp11']/following-sibling::span[@class='outer']"));
+        this.additionalNotesTextfield = element(by.id("text1"));
+        this.haveYouReplacedGasMeterTrueRadioOption = element(by.xpath("//*[@id='gtp13']/following-sibling::span[@class='outer']"));
+        this.haveYouReplacedRegulatorTrueRadioOption = element(by.xpath("//*[@id='gtp15']/following-sibling::span[@class='outer']"));
+        this.postInstallationGasTightnessTestPerformedTrueRadioOption = element(by.xpath("//*[@id='gtp17']/following-sibling::span[@class='outer']"));
+        this.capturePhotoOfWitnessStickerAndUGaugeBtn = element(by.xpath("//*[@id='btn_CapPoTi_test']/button"));
+        this.wasThereADropInPressureTrueRadioOption = element(by.xpath("//*[@id='gtp19']/following-sibling::span[@class='outer']"));
+        this.enterDIPGasPressureDropDownMenu = element(by.xpath("//select[@id='select1']"));
+        this.testWitnessNameTxtfieldPostInstallGasTightnessForm = element(by.xpath("//input[@id='input3']"));
+        this.selectMeterTypeDropDownMenu = element(by.xpath("//select[@id='select2'][1]"));
+        this.gasTightnessTestPassedTrueRadioOption = element(by.xpath("//*[@id='gtp21']/following-sibling::span[@class='outer']"));
+        this.standingPressureTextfield = element(by.id("gaspoststandingpressure"));
+        this.capturePhotoOfStandingPressureBtn = element(by.xpath("//*[@id='btn_CapStPr']/button"));
+        this.workingPressureTextfield = element(by.id("gaspostworkingpressure"));
+        this.capturePhotoOfWorkingPressureBtn = element(by.xpath("//div[@class='content-row ng-scope']//div[@class='content-row ng-scope']//div[@class='alignCenter']//button[@class='cameraBtn2line grey mandatoryWhite'][contains(text(),'CAPTURE')]"));
+        this.postInstallGasTightnessTestNextBtn = element(by.xpath("//button[@id='btnNextPol']"));
+        this.installKitNextSectionBtn = element(by.xpath("//button[@id='gasInstallPhoto_nextBtn']"));
+        this.addAnotherAssetBtnInstallKitSection = element(by.xpath("//button[@id='gasInstallPhoto_addAssetBtn']"));
+        this.gasApplianceSafetyChecksSectionText = element(by.xpath("//h4[contains(text(),'Gas Appliance Safety Checks')]"));
 
         //#region Install Comms Hub
         this.installcommsHub = element(by.xpath('//div/h4[text()="Install Comms Hub"]'));
@@ -520,13 +583,6 @@ export class InstallPageObject {
         }
     }
 
-    public async clickOnPostInstallationChecksNextBtn() {
-        await utility.wait(1000);
-        if (await this.postInstallChecksNextBtn.isDisplayed()) {
-            await this.postInstallChecksNextBtn.click();
-        }
-    }
-
     public async validateCommissioningSectionIsVisible() {
         await utility.wait(1000);
         if (await this.commissioningText.isDisplayed()) {
@@ -551,6 +607,22 @@ export class InstallPageObject {
         }
     }
 
+    public async setNonSerialisedAssetsValT1AerialDropDownMenuInstallKitForm() {
+        await utility.wait(1000);
+        if (this.assetDropDownMenu3.isDisplayed()) {
+            var select = this.assetDropDownMenu3;
+            select.$("[value='1']").click();
+        }
+    }
+
+    public async setNonSerialisedAssetsValMeterBoardDropDownMenu() {
+        await utility.wait(1000);
+        if (this.assetDropDownMenu4.isDisplayed()) {
+            var select = this.assetDropDownMenu4;
+            select.$("[value='3']").click();
+        }
+    }
+
     public async setQuantityVal1Textfield() {
         await utility.wait(1000);
         if (this.quantityTextfield1.isDisplayed()) {
@@ -558,10 +630,24 @@ export class InstallPageObject {
         }
     }
 
+    public async setQuantityVal1TextfieldInstallKitForm() {
+        await utility.wait(1000);
+        if (this.quantityTextfield3.isDisplayed()) {
+            this.quantityTextfield3.sendKeys("1");
+        }
+    }
+
     public async clickOnAddAnotherAssetBtn() {
         await utility.wait(1000);
         if (await this.addAnotherAssetBtn.isDisplayed()) {
             await this.addAnotherAssetBtn.click();
+        }
+    }
+
+    public async clickOnAddAnotherAssetBtnInstallKitSection() {
+        await utility.wait(1000);
+        if (await this.addAnotherAssetBtnInstallKitSection.isDisplayed()) {
+            await this.addAnotherAssetBtnInstallKitSection.click();
         }
     }
 
@@ -586,6 +672,13 @@ export class InstallPageObject {
         }
     }
 
+    public async setQuantityVal2TextfieldInstallKitForm() {
+        await utility.wait(1000);
+        if (this.quantityTextfield4.isDisplayed()) {
+            this.quantityTextfield4.sendKeys("2");
+        }
+    }
+
     public async clickOnCommissioningNextSectionBtn() {
         await utility.wait(1000);
         if (await this.commissioningNextSectionBtn.isDisplayed()) {
@@ -593,9 +686,199 @@ export class InstallPageObject {
         }
     }
 
+    public async clickOnInstallKitNextSectionBtn() {
+        await utility.wait(1000);
+        if (await this.installKitNextSectionBtn.isDisplayed()) {
+            await this.installKitNextSectionBtn.click();
+        }
+    }
 
 
 
+//////////////////////////////////// POST INSTALLATION GAS TIGHTNESS TEST TST07
+
+    public async validatePostInstallGasTightnessTestSectionIsVisible() {
+        await utility.wait(1000);
+        if (await this.postInstallationGasTightnessTestText.isDisplayed()) {
+            await this.postInstallationGasTightnessTestText.getText().then(function (postInstGassTightTxt) {
+                console.log("Arrived at : " + postInstGassTightTxt);
+            });
+        }
+    }
+
+    public async setDidYouHaveToContactGTTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.didYouHaveToContactGTTrueRadioOption.isDisplayed()) {
+            this.didYouHaveToContactGTTrueRadioOption.click();
+        }
+    }
+
+    public async setNationalGridGIJobRefVal1Textfield() {
+        await utility.wait(1000);
+        if (this.nationalGridGIJobRefTextfield.isDisplayed()) {
+            this.nationalGridGIJobRefTextfield.sendKeys("2");
+        }
+    }
+
+    public async setReportedIncidentToHAndSAIRLineTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.reportedIncidentToHAndSAIRLineTrueRadioOption.isDisplayed()) {
+            this.reportedIncidentToHAndSAIRLineTrueRadioOption.click();
+        }
+    }
+
+    public async setAIRLineRefTextfieldVal2() {
+        await utility.wait(1000);
+        if (this.aIRLineRefTextfield.isDisplayed()) {
+            this.aIRLineRefTextfield.sendKeys("2");
+        }
+    }
+
+    public async setNeedToWaitForTheGTAttendanceOnSiteTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.needToWaitForTheGTAttendanceOnSiteTrueRadioOption.isDisplayed()) {
+            this.needToWaitForTheGTAttendanceOnSiteTrueRadioOption.click();
+        }
+    }
+
+    public async setGTResolveIssueTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.gTResolveIssueTrueRadioOption.isDisplayed()) {
+            this.gTResolveIssueTrueRadioOption.click();
+        }
+    }
+
+    public async setDidYouCarryOutAnyExtraWorkToPassGasTightnessTestTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.didYouCarryOutAnyExtraWorkToPassGasTightnessTestTrueRadioOption.isDisplayed()) {
+            this.didYouCarryOutAnyExtraWorkToPassGasTightnessTestTrueRadioOption.click();
+        }
+    }
+
+    public async setExtraNotesValGasNotesTextfield() {
+        await utility.wait(1000);
+        if (this.additionalNotesTextfield.isDisplayed()) {
+            this.additionalNotesTextfield.sendKeys("2");
+        }
+    }
+
+    public async setHaveYouReplacedGasMeterTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.haveYouReplacedGasMeterTrueRadioOption.isDisplayed()) {
+            this.haveYouReplacedGasMeterTrueRadioOption.click();
+        }
+    }
+
+    public async setHaveYouReplacedRegulatorTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.haveYouReplacedRegulatorTrueRadioOption.isDisplayed()) {
+            this.haveYouReplacedRegulatorTrueRadioOption.click();
+        }
+    }
+
+    public async setPostInstallationGasTightnessTestPerformedTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.postInstallationGasTightnessTestPerformedTrueRadioOption.isDisplayed()) {
+            this.postInstallationGasTightnessTestPerformedTrueRadioOption.click();
+        }
+    }
+
+    public async clickOnCapturePhotoOfWitnessStickerAndUGaugeBtn() {
+        await utility.wait(1000);
+        if (await this.capturePhotoOfWitnessStickerAndUGaugeBtn.isDisplayed()) {
+            await this.capturePhotoOfWitnessStickerAndUGaugeBtn.click();
+        }
+    }
+
+    public async setWasThereADropInPressureTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.wasThereADropInPressureTrueRadioOption.isDisplayed()) {
+            this.wasThereADropInPressureTrueRadioOption.click();
+        }
+    }
+
+    public async setDIPGasPressureDropDownMenu() {
+        await utility.wait(1000);
+        if (await this.enterDIPGasPressureDropDownMenu.isDisplayed()) {
+            var select = this.enterDIPGasPressureDropDownMenu;
+            select.$('[value="3"]').click();
+        }
+    }
+
+    public async setSelectMeterTypValG4054DropDownMenu() {
+        await utility.wait(1000);
+        if (this.selectMeterTypeDropDownMenu.isDisplayed()) {
+            var select = this.selectMeterTypeDropDownMenu;
+            select.$("[value='3']").click();
+        }
+    }
+
+    public async setGasTightnessTestPassedTrueRadioOption() {
+        await utility.wait(1000);
+        if (this.gasTightnessTestPassedTrueRadioOption.isDisplayed()) {
+            this.gasTightnessTestPassedTrueRadioOption.click();
+        }
+    }
+
+    public async setTestWitnessNameValEllieTaylorTextfield() {
+        await utility.wait(1000);
+        if (this.testWitnessNameTxtfieldPostInstallGasTightnessForm.isDisplayed()) {
+            this.testWitnessNameTxtfieldPostInstallGasTightnessForm.sendKeys("Ellie Taylor");
+        }
+    }
+
+    public async setStandingPressureVal11Textfield() {
+        await utility.wait(1000);
+        if (this.standingPressureTextfield.isDisplayed()) {
+            this.standingPressureTextfield.sendKeys("2");
+        }
+    }
+
+    public async clickOnCapturePhotoOfStandingPressureBtn() {
+        await utility.wait(1000);
+        if (await this.capturePhotoOfStandingPressureBtn.isDisplayed()) {
+            await this.capturePhotoOfStandingPressureBtn.click();
+        }
+    }
+
+    public async setWorkingPressureVal20Textfield() {
+        await utility.wait(1000);
+        if (this.workingPressureTextfield.isDisplayed()) {
+            this.workingPressureTextfield.sendKeys("2");
+        }
+    }
+
+    public async clickOnCapturePhotoOfWorkingPressureBtn() {
+        await utility.wait(1000);
+        if (await this.capturePhotoOfWorkingPressureBtn.isDisplayed()) {
+            await this.capturePhotoOfWorkingPressureBtn.click();
+        }
+    }
+
+    public async clickOnCapturePhotoOfFinalMeterInstallButton() {
+        await utility.wait(1000);
+        if (await this.capturePhotoOfFinalMeterInstallBtn2.isDisplayed()) {
+            await this.capturePhotoOfFinalMeterInstallBtn2.click();
+        }
+    }
+
+    public async clickOnPostInstallGasTightnessTestNextBtn() {
+        await utility.wait(1000);
+        if (await this.postInstallGasTightnessTestNextBtn.isDisplayed()) {
+            await this.postInstallGasTightnessTestNextBtn.click();
+        }
+    }
+
+    public async validateGasApplianceSafetyChecksSectionIsVisible() {
+        await utility.wait(1000);
+        if (await this.gasApplianceSafetyChecksSectionText.isDisplayed()) {
+            await this.gasApplianceSafetyChecksSectionText.getText().then(function (gasApplianceSafetyTxt) {
+                console.log("Arrived at : " + gasApplianceSafetyTxt);
+            });
+        }
+    }
+
+/////////////////////////////////////////////////////////////////////////////////////////////////
 
 
     public async dummy() {
