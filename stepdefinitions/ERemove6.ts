@@ -9,7 +9,7 @@ import {
 	HomePageObject
 } from "../pages/HomePage";
 import {
-	AppointmentListPageObject
+		AppointmentListPageObject
 } from "../pages/AppointmentListPage";
 import {
 	DoorStepPageObject

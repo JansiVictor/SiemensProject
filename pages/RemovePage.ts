@@ -186,6 +186,7 @@ export class RemovePageObject {
 	public ElecRemoveMeter: ElementFinder;
 	public RemoveElecAssetrplacedorremoved: ElementFinder;
 	public statusofElecAssetSelect: ElementFinder;
+	public carryoutmeterinstallationN: ElementFinder;
 
 	public reqSentSuccessEMREM: ElementFinder;
 	public RemovalSuccessElec: ElementFinder;
@@ -219,7 +220,24 @@ export class RemovePageObject {
 	public carryoutWorkNo: ElementFinder;
 	public removePPMIDOK:ElementFinder;
 	
-
+	public confirmelecmeterOnsupply: ElementFinder;
+	public carryoutmeterinstallation: ElementFinder;
+    public carryoutmeterinstallationY: ElementFinder;
+	public electricMeter: ElementFinder;
+	public electricMeterY: ElementFinder;
+	public assetRepositionY: ElementFinder;
+	public assetReposition: ElementFinder;
+	public smets2offered: ElementFinder;
+	public smets2offeredfalse: ElementFinder;
+	public confirmassetRemovaltext: ElementFinder;
+	public removedAssetStatustext: ElementFinder;
+    public removedAssetStatusOffcircuit: ElementFinder;
+	public confirmedAssetRemovalY: ElementFinder;
+	public infoOKButton: ElementFinder;
+	public assetRemovedreplaced: ElementFinder;
+	public assetRemovedreplacedtext: ElementFinder;
+	public removeNextbutton: ElementFinder;
+	
 
 	constructor() {
 		//#region Panel Click
@@ -459,7 +477,70 @@ export class RemovePageObject {
 		this.carryoutWorkontheMeterY = element(by.xpath('//input[@id="additionalworktrue"]/following-sibling::span[@class="outer"]'));
 
 		//#endregion
+
+		this.confirmassetRemovaltext = element(by.xpath('//div/h4[text()="Confirm Electric Asset Removal"]'));
+		this.confirmelecmeterOnsupply = element(by.xpath('//input[@id="confirmelecsupplytrue"]/following-sibling::span[@class="outer"]'));
+        this.carryoutmeterinstallationY = element(by.xpath('//input[@id="additionalworktrue"]/following-sibling::span[@class="outer"]'));
+        this.carryoutmeterinstallation = element(by.xpath('//*[contains(text(),"Do you need to carry out work on the meter installation?")]'));
+        this.electricMeter = element(by.xpath('//*[contains(text(),"Elec Meter?")]'));
+        this.electricMeterY = element(by.xpath('//input[@id="elecmexdfa"]/following-sibling::span[@class="cr"]'));
+        this.assetRepositionY = element(by.xpath('(//select[@id="repositionSelect"]/option)[2]'));
+        this.assetReposition = element(by.xpath('//*[contains(text(),"Equipment Reposition Required?")]'));
+        this.smets2offered = element(by.xpath('//*[contains(text(),"SMETS2 Offered?")]'));
+        this.smets2offeredfalse = element(by.xpath('//input[@id="smets2offeredfalse"]/following-sibling::span[@class="outer"]'));
+        this.removedAssetStatustext = element(by.xpath('//*[contains(text(),"Removed Asset Status")]'));
+        this.removedAssetStatusOffcircuit = element(by.xpath('(//select[@id="cbx_RAss_Status"]/option)[2]'));
+		this.confirmedAssetRemovalY = element(by.xpath('//*[@id="rb_CAssRem_y"]/span'));
+		this.infoOKButton = element(by.xpath('//div/button[@class="confirm"]'));
+		this.assetRemovedreplaced =  element(by.xpath('//input[@id="CCHradio5"]/following-sibling::span[@class="outer"]'));
+        this.assetRemovedreplacedtext = element(by.xpath('//*[contains(text(),"Is the Asset to be Removed/Replaced?")]'));
+		this.removeNextbutton = element(by.id('btn_Next_rmv'));
+		this.carryoutmeterinstallationN = element(by.xpath('//input[@id="additionalworkfalse"]/following-sibling::span[@class="outer"]'));
+        
+        
 	}
+
+	public async confirmelectricassetremovalSectiondispaly(){
+		if (this.confirmassetRemovaltext.isDisplayed()) {
+			await this.confirmassetRemovaltext.getText().then(function (assetRemoval) {
+				console.log("find installPPMID Text  " + assetRemoval);
+			});
+		}
+	}
+
+	/***
+ * @Author Supriya Harikumar
+ * @description Fill Current PPMID section / ppmidComm 
+***/
+public async fillRemoveMeterSection(){
+    if (this.assetRemovedreplacedtext.isDisplayed()) {
+        await this.assetRemovedreplaced.click();
+    }
+    await utility.wait(3000);
+    if (this.removeNextbutton.isDisplayed()) {
+        await this.removeNextbutton.click();
+    }
+    await utility.wait(3000);
+}
+
+	/***
+ * @Author Supriya Harikumar
+ * @description Fill Current PPMID section / ppmidComm 
+***/
+public async fillElectricAssetRemovalSection(){
+    if (this.removedAssetStatustext.isDisplayed()) {
+        await this.removedAssetStatusOffcircuit.click();
+    }
+    await utility.wait(3000);
+    if (this.confirmedAssetRemovalY.isDisplayed()) {
+        await this.confirmedAssetRemovalY.click();
+    }
+    await utility.wait(3000);
+    if (this.infoOKButton.isDisplayed()) {
+        await this.infoOKButton.click();
+    }
+    await utility.wait(3000);
+}
 
 	/**
 	 * @Author Jansi Victor
@@ -474,11 +555,76 @@ export class RemovePageObject {
 			console.log("Find Current IHD PPMID  " + ctihdppmidDtlTxt);
 		});
 	}
+	
 	public async fillcurrentIhdPPMIDdtlsnoExchangeTrade() {
 		await utility.wait(2000);
 		if (await this.smet2ihdppidN.isDisplayed()) {
 			await this.smet2ihdppidN.click();
 		}
+	}
+
+	public async fillFlty19TRADcommsdtls() {
+		await utility.wait(3000);
+			if (await this.smets2assetInst.isDisplayed()) {
+				await this.smets2assetInstN.click();
+			}
+			
+		await utility.wait(3000);
+		if (await this.commshubconnectedtoAsset.isDisplayed()) {
+			await this.commshubconnectedtoAssetY.click();
+		}
+		await utility.wait(3000);
+		if (await this.electricMeter.isDisplayed()) {
+			await this.electricMeterY.click();
+		}
+		await utility.wait(3000);
+		if (await this.assetReposition.isDisplayed()) {
+			await this.assetRepositionY.click();
+		}
+		await utility.wait(3000);
+		if (await this.smets2offered.isDisplayed()) {
+			await this.smets2offeredfalse.click();
+		}
+		await utility.wait(3000);
+		if (await this.commshubNextbtn.isDisplayed()) {
+			await this.commshubNextbtn.click();
+		}
+		await utility.wait(3000);
+	}
+
+	public async fillFlty19commsdtls() {
+		await utility.wait(3000);
+			if (await this.smets2assetInst.isDisplayed()) {
+				await this.smets2assetInstY.click();
+			}
+			await utility.wait(3000);
+			if (await this.commshubResetting.isDisplayed()) {
+				await this.commshubResettingY.click();
+			}
+			await utility.wait(3000);
+			if (await this.removecommshub5mins.isDisplayed()) {
+				await this.removecommshub5mins.click();
+			}
+		await utility.wait(3000);
+		if (await this.commshubconnectedtoSupply.isDisplayed()) {
+			await this.commshubconnectedtoSupplyY.click();
+		}
+		await utility.wait(3000);
+		if (await this.commshubconnectedtoSWan.isDisplayed()) {
+			await this.commshubconnectedtoWanY.click();
+		}
+		if (await this.commshubconnectedtoAsset.isDisplayed()) {
+			await this.commshubconnectedtoAssetN.click();
+		}
+		await utility.wait(3000);
+		if (await this.carryoutmeterinstallation.isDisplayed()) {
+			await this.carryoutmeterinstallationY.click();
+		}
+		await utility.wait(3000);
+		if (await this.commshubNextbtn.isDisplayed()) {
+			await this.commshubNextbtn.click();
+		}
+		await utility.wait(3000);
 	}
 	public async fillcurrentIhdPPMIDdtls() {
 		await utility.wait(2000);
@@ -490,7 +636,7 @@ export class RemovePageObject {
 			await this.ihdppmidsSersk.clear();
 			await this.ihdppmidsSersk.sendKeys("00-0F-01-FF-FF-E4-85-D4");
 		}
-		await utility.wait(1000);
+		await utility.wait(3000);
 		if (await this.existingihdPpmidY.isDisplayed()) {
 			await this.existingihdPpmidY.click();
 		}
@@ -503,6 +649,7 @@ export class RemovePageObject {
 			console.log("Next section is not present at this moment");
 		}
 	}
+
 	public async currentmeterdetlGasSection() {
 		await utility.wait(1000);
 		await this.currentmeterdetlGasSec.getText().then(function (currentdtlGasSection) {
@@ -605,6 +752,15 @@ export class RemovePageObject {
 		});
 		await utility.wait(4000);
 	}
+
+	
+	public async filleleccommsdtls() {
+		await utility.wait(4000);
+		if (await this.confirmelecmeterOnsupply.isDisplayed()) {
+			await this.confirmelecmeterOnsupply.click();
+		}
+	}
+
 	//#endregion
 
 	/**
@@ -637,6 +793,26 @@ export class RemovePageObject {
 		if (await this.commshubResetting.isDisplayed()) {
 			await this.commshubResettingY.click();
 		}
+	}
+
+	public async fill15commsdtls_FLTY18TRAD() {
+		await utility.wait(3000);
+		if (await this.smets2assetInst.isDisplayed()) {
+			await this.smets2assetInstN.click();
+		}
+		await utility.wait(3000);
+		if (await this.commshubconnectedtoAsset.isDisplayed()) {
+			await this.commshubconnectedtoAssetN.click();
+		}
+		await utility.wait(3000);
+		if (await this.carryoutmeterinstallation.isDisplayed()) {
+			await this.carryoutmeterinstallationN.click();
+		}
+		await utility.wait(3000);
+		if (await this.commshubNextbtn.isDisplayed()) {
+			await this.commshubNextbtn.click();
+		}
+		await utility.wait(3000);
 	}
 	public async clickOk5mins() {
 		await utility.wait(3000);

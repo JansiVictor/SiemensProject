@@ -15,10 +15,9 @@ import {
 	Utility
 } from "../support/utility";
 const utility: Utility = new Utility();
-
-
 export class AppointmentListPageObject {
 
+	
 	//public appointmentListLabel: ElementFinder;
 	public usrname: ElementFinder;
 	public password: ElementFinder;

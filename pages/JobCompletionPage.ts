@@ -55,6 +55,7 @@ export class JobCompletionPageObject {
 	public smartLetLeftYes: ElementFinder;
 	public HelpandInfoYEs: ElementFinder;
 	public DemoOfEquipmentYes: ElementFinder;
+	public PPMIDCommisioningText: ElementFinder;
 	public SummaryTxt: ElementFinder;
 	public SummaryPageContent: ElementFinder;
 	public PotentialCustIdenYes: ElementFinder;
@@ -95,6 +96,7 @@ export class JobCompletionPageObject {
 	public configIHDPPMID: ElementFinder;
 	public joinedcapture: ElementFinder;
 	public deviceNext: ElementFinder;
+	public signaturepadCanvas: ElementFinder;
 
 	public EnergyeffCap: ElementFinder;
 	public energyeffinfoProvided: ElementFinder;
@@ -111,6 +113,7 @@ export class JobCompletionPageObject {
 	public potentialcustVulnerability: ElementFinder;
 	public customeraggreementtoInfo: ElementFinder;
 	public capturecustsignature: ElementFinder;
+	public smartLitLeftOnsiteTxt: ElementFinder;
 
 	public custrefusedtoSign: ElementFinder;
 	public signedbycustorRep: ElementFinder;
@@ -120,6 +123,31 @@ export class JobCompletionPageObject {
 
 	public summaryCap: ElementFinder;
 	public TST12jobcompletion: ElementFinder;
+	public installsubmission: ElementFinder;
+	public installPPMIDText1: ElementFinder;
+	public PPMIDOfferedYes1: ElementFinder;
+	public PPMIDAccepted1: ElementFinder;
+	public PPMIDLOCDD1: ElementFinder;
+	public PPMIDToInstall1: ElementFinder;
+	public inputPPMIDSerialNum1: ElementFinder;
+	public infoOKButton1: ElementFinder;
+	public PPMIDTxt1: ElementFinder;
+	public ppmidAdditionalNote1: ElementFinder;
+	public ppmidNXTBtn1: ElementFinder;
+	public PPMIDinstallDDList1: ElementFinder;
+
+	public esmeJoinedYes: ElementFinder;
+	public gsmeJoinedYes: ElementFinder;
+	public fullconfigAppliedYes: ElementFinder;
+	public capturePhotoAsset: ElementFinder;
+	public nextButtonEff: ElementFinder;
+	public energyEfficiencyTxt: ElementFinder;
+	public PPMIDinstallDDListINST15: ElementFinder;
+	public dummydiv1: ElementFinder;
+	public devicebindingNext: ElementFinder;
+	public FullWANYesINST15: ElementFinder;
+    public FullCOnfigAppliedElecYesINST15: ElementFinder;
+    public fullConfigAppliedPPMIDYesINST15: ElementFinder;
 
 
 	constructor() {
@@ -127,6 +155,9 @@ export class JobCompletionPageObject {
 		//JANSI CHANGES
 
 		//#region Install Comms Hub
+		this.PPMIDinstallDDListINST15 = element(by.xpath('//select[@id="ihdscan2_assetSelect"]/option[2]'));
+		this.dummydiv1 = element(by.xpath('(//div/h3[text()="Scan Barcode Using Device Hardware Button"])[1]'));
+        
 		this.deviceBindingCap = element(by.xpath('//div/h4[text()="Device Binding & Commissioning"]'));
 		this.ESMEJoinedY = element(by.xpath('//*[@id="dbc2_esme_joined_y"]/span[@class="outer"]'));
 		this.deviceOK = element(by.xpath('//*[text()="OK"]'));
@@ -134,6 +165,8 @@ export class JobCompletionPageObject {
 		this.configIHDPPMID = element(by.xpath('//input[@id="dbc2_full_config_y"]/following-sibling::span[@class="cr"]'));
 		this.joinedcapture = element(by.xpath('//*[@id="dbc2_capture_photo_joined"]'));
 		this.deviceNext = element(by.xpath('//button[@id="dbc2_btnNextEff"]'));
+		this.PPMIDCommisioningText = element(by.id('Title_xittd2'));
+		this.signaturepadCanvas = element(by.id('signaturePad'))
 
 		this.EnergyeffCap = element(by.xpath('//div/h4[text()="Energy Efficiency Information"]'));
 		this.energyeffinfoProvided = element(by.xpath('//*[@id="rb_EngEffInfoP_y"]/span[@class="outer"]'));
@@ -218,6 +251,108 @@ export class JobCompletionPageObject {
 		this.custSignText = element(by.xpath('//div[text()="Customer Signature"]'));
 		this.jobcompletionFLTYNoExchange = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 20 SMETS2 Site FLAT")]'));
 		this.jobcompletionFLTYTrads2NoExchange = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 19 Trad Non S2 site FLAT")]'));
+		
+		this.smartLitLeftOnsiteTxt = element(by.xpath('//h4[contains(text(),"Smart Literature Left on Site")]'));
+		this.installsubmission = element(by.id('btn1'));
+		
+		//Supriya Changes
+		this.installPPMIDText1 = element(by.id('Title_newihdppmid'));
+        this.PPMIDOfferedYes1 = element(by.id('newihdppmid_ihdPpmidOfferedtrue'));
+        this.PPMIDAccepted1 = element(by.id('newihdppmid_ihdOrPPMIDAccepted_a'));
+        this.PPMIDLOCDD1 = element(by.id('newihdppmid_assetLocationSelect'));
+        this.PPMIDToInstall1 = element(by.id('newihdppmid_assetSelect'));
+        this.inputPPMIDSerialNum1 = element(by.id('newihdppmid_assetSerialNumber'));
+        this.infoOKButton1 = element(by.xpath('//div/button[@class="confirm"]'));
+        this.PPMIDTxt1 = element(by.xpath('//div[text()=" Select Valid PPMID To Install: "]'));
+        this.ppmidAdditionalNote1 = element(by.id('newihdppmid_additionalNotes'));
+		this.ppmidNXTBtn1 = element(by.id('newihdppmid_nextButton'));
+		this.PPMIDinstallDDList1 = element(by.xpath('(//select[@id="newihdppmid_assetSelect"]/option)[2]'));
+        this.esmeJoinedYes = element(by.id('dbc2_esme_joined_y'));
+        this.gsmeJoinedYes = element(by.id('dbc2_gsme_joined_y'));
+        this.fullconfigAppliedYes = element(by.id('dbc2_full_config_y'));
+        this.capturePhotoAsset = element(by.id('dbc2_capture_photo_joined'));
+		this.nextButtonEff = element(by.id('dbc2_btnNextEff'));
+		this.devicebindingNext = element(by.xpath('//*[@id="dbc2_trad_btnNextEff"]'));
+		this.FullWANYesINST15 = element(by.xpath('//input[@id="rcfg1"]//following-sibling::span[@class="outer"]'));
+        this.FullCOnfigAppliedElecYesINST15 = element(by.xpath('//label[@id="rb_FullCFigE_y"]//following-sibling::span[@class="outer"]'));
+        this.fullConfigAppliedPPMIDYesINST15 = element(by.xpath('(//input[@id="rcfg5"]/following-sibling::span[@class="cr"])[1]'));
+        
+        this.energyEfficiencyTxt = element(by.xpath('//div/h4[text()="Energy Efficiency Information"]'));
+	}
+
+	public async sendPPMIDmessageSection(){
+
+		await this.sendMsgPPMID.click();
+		await utility.wait(80000);
+		if (this.ppmidCommSuccess.isDisplayed()) {
+			await this.ppmidCommSuccess.click();
+		}
+		await utility.wait(5000);
+	}
+
+	public async fillConfigAllmeter_INST15(){
+		await utility.wait(3000);
+		if (this.FullWANYesINST15.isDisplayed()) {
+			await this.FullWANYesINST15.click();
+		}
+		if (this.FullCOnfigAppliedElecYesINST15.isDisplayed()) {
+			await this.FullCOnfigAppliedElecYesINST15.click();
+		}
+		await utility.wait(3000);
+		if(this.infoOKButton.isDisplayed())
+		{
+			await this.infoOKButton.click();
+		}
+		await utility.wait(3000);
+		if (this.fullConfigAppliedPPMIDYesINST15.isDisplayed()) {
+			await this.fullConfigAppliedPPMIDYesINST15.click();
+		}
+		if (this.capturePPMIDBtn.isDisplayed()) {
+			await this.capturePPMIDBtn.click();
+		}
+		if (this.PPMIDNxtBtn.isDisplayed()) {
+			await this.PPMIDNxtBtn.click();
+		}
+	}
+	
+
+	public async fillEEInfo_INST15(){
+		if (this.energyEffProvidedYes.isDisplayed()) {
+			await this.energyEffProvidedYes.click();
+		}
+		if (this.energyEffDocLeftYes.isDisplayed()) {
+			await this.energyEffDocLeftYes.click();
+		}
+		if (this.isCustHappyYes.isDisplayed()) {
+			await this.isCustHappyYes.click();
+		}
+		if (this.AdditionalEEInfoReqYes.isDisplayed()) {
+			await this.AdditionalEEInfoReqYes.click();
+		}
+		await utility.wait(3000);
+		if (this.EENxtBtn.isDisplayed()) {
+			await this.EENxtBtn.click();
+		}
+	
+	}
+
+	public async installSubmit(){
+		if (this.installsubmission.isDisplayed()) {
+			await this.installsubmission.click();
+	}
+	}
+
+	public async fillDeviceBindingSection_INST15(){
+		if (this.IHDPairedYes.isDisplayed()) {
+			await this.IHDPairedYes.click();
+		}
+		if (this.FUlHANYes.isDisplayed()) {
+			await this.FUlHANYes.click();
+		}
+		await utility.wait(3000);
+		if(this.devicebindingNext.isDisplayed()){
+			await this.devicebindingNext.click();
+		}
 	}
 
 	/***
@@ -229,6 +364,57 @@ export class JobCompletionPageObject {
 			await this.installPPMIDText.getText().then(function (installPPMID) {
 				console.log("find installPPMID Text  " + installPPMID);
 			});
+		}
+	}
+
+	/***
+	 * @Author Supriya Harikumar
+	 * @description PPMID section text display
+	 ***/
+	public async PPMIDSectiondispalyDF17() {
+		if (this.installPPMIDText1.isDisplayed()) {
+			await this.installPPMIDText1.getText().then(function (installPPMID) {
+				console.log("find installPPMID Text  " + installPPMID);
+			});
+		}
+	}
+
+	public async fillPPMIDSection_INST15(index:number){
+		if (this.PPMIDOfferedYes.isDisplayed()) {
+			await this.PPMIDOfferedYes.click();
+		}
+		if (this.PPMIDAccepted.isDisplayed()) {
+			await this.PPMIDAccepted.click();
+		}
+		if (await this.PPMIDLOCDD.isDisplayed()) {
+			var select = this.PPMIDLOCDD;
+			select.$('[value="B"]').click();
+			await utility.wait(1000);
+		}
+		if (await this.PPMIDToInstall.isDisplayed()) {
+			await utility.wait(2000);
+			// click the dropdown
+			this.PPMIDToInstall.click()
+			browser.sleep(1000)
+		//index = index ;
+		console.log("Selecting element based index : "+index)
+		// select the option
+		await this.PPMIDToInstall.element(by.css("option:nth-child("+index+")")).click()
+		await utility.wait(3000);
+			await expect(await this.inputPPMIDSerialNum.isPresent());
+			var options = this.PPMIDinstallDDListINST15.getAttribute('value');
+			await this.inputPPMIDSerialNum.sendKeys(options);
+			await utility.wait(2000);
+			await this.dummydiv1.click();
+			await utility.wait(4000);
+			await this.infoOKButton.click();
+		}
+	  
+		if (this.ppmidAdditionalNote.isDisplayed()) {
+			await this.ppmidAdditionalNote.sendKeys('Additonal Notes');
+		}
+		if (this.ppmidNXTBtn.isDisplayed()) {
+			await this.ppmidNXTBtn.click();
 		}
 	}
 
@@ -280,6 +466,57 @@ export class JobCompletionPageObject {
 	}
 
 	/***
+	 * @Author Supriya Harikumar
+	 * @description Fill PPMID section
+	 ***/
+	public async fillPPMIDSectionDF17(index: number) {
+		if (this.PPMIDOfferedYes1.isDisplayed()) {
+			await this.PPMIDOfferedYes1.click();
+		}
+		if (this.PPMIDAccepted1.isDisplayed()) {
+			await this.PPMIDAccepted1.click();
+		}
+		if (await this.PPMIDLOCDD1.isDisplayed()) {
+			var select = this.PPMIDLOCDD1;
+			select.$('[value="B"]').click();
+			await utility.wait(1000);
+		}
+		if (await this.PPMIDToInstall1.isDisplayed()) {
+			await utility.wait(2000);
+			// click the dropdown
+			this.PPMIDToInstall1.click()
+			browser.sleep(1000)
+		//index = index ;
+		console.log("Selecting element based index : "+index)
+		// select the option
+		await this.PPMIDToInstall1.element(by.css("option:nth-child("+index+")")).click()
+		await utility.wait(3000);
+		
+		//if (this.infoOKButton.isPresent()) {
+		  //  await this.infoOKButton.click();
+		//}
+		await utility.wait(4000);
+			await expect(await this.inputPPMIDSerialNum1.isPresent());
+			var options = this.PPMIDinstallDDList1.getAttribute('value');
+			await this.inputPPMIDSerialNum1.sendKeys(options);
+			await utility.wait(8000);
+			if (this.ppmidNXTBtn1.isDisplayed()) {
+				await this.ppmidNXTBtn1.click();
+			}
+			if (this.infoOKButton1.isDisplayed()) {
+				await this.infoOKButton1.click();
+			}
+		}
+	  
+		if (this.ppmidAdditionalNote1.isDisplayed()) {
+			await this.ppmidAdditionalNote1.sendKeys('Additonal Notes');
+		}
+		if (this.ppmidNXTBtn1.isDisplayed()) {
+			await this.ppmidNXTBtn1.click();
+		}
+	}
+
+	/***
 	 * @Author Aparna Das
 	 * @description XIPMD section / ppmidComm Success text display
 	 ***/
@@ -314,6 +551,32 @@ export class JobCompletionPageObject {
 		}
 	}
 
+	public async fillDeviceBindingSection_SFEFLTY19(){
+		if (this.esmeJoinedYes.isDisplayed()) {
+			await this.esmeJoinedYes.click();
+		}
+		await utility.wait(2000);
+		if (this.infoOKButton.isDisplayed()) {
+			await this.infoOKButton.click();
+		}
+		await utility.wait(2000);
+		if (this.esmeJoinedYes.isDisplayed()) {
+			await this.esmeJoinedYes.click();
+		}
+		await utility.wait(2000);
+		if (this.fullconfigAppliedYes.isDisplayed()) {
+			await this.fullconfigAppliedYes.click();
+		}
+		await utility.wait(2000);
+		if(this.capturePhotoAsset.isDisplayed()){
+			await this.capturePhotoAsset.click();
+		}
+		await utility.wait(2000);
+		if(this.nextButtonEff.isDisplayed()){
+			await this.nextButtonEff.click();
+		}
+		await utility.wait(2000);
+	}
 	/***
 	 * @Author Aparna Das
 	 * @description Fill Device Binding Section display
@@ -333,6 +596,88 @@ export class JobCompletionPageObject {
 		}
 		await utility.wait(1000);
 	}
+
+	public async fillDeviceBindingSection_SFENMEX15(){
+		if (this.gsmeJoinedYes.isDisplayed()) {
+			await this.gsmeJoinedYes.click();
+		}
+		await utility.wait(2000);
+		
+		if (this.fullconfigAppliedYes.isDisplayed()) {
+			await this.fullconfigAppliedYes.click();
+		}
+		await utility.wait(2000);
+		if(this.capturePhotoAsset.isDisplayed()){
+			await this.capturePhotoAsset.click();
+		}
+		await utility.wait(2000);
+		if(this.nextButtonEff.isDisplayed()){
+			await this.nextButtonEff.click();
+		}
+		await utility.wait(2000);
+	}
+	
+/***
+ * @Author Supriya Harikumar
+ * @description Fill Device Binding Section display
+***/
+public async fillDeviceBindingSection_NMEX16(){
+    if (this.esmeJoinedYes.isDisplayed()) {
+        await this.esmeJoinedYes.click();
+    }
+    await utility.wait(2000);
+    if (this.infoOKButton.isDisplayed()) {
+        await this.infoOKButton.click();
+    }
+    await utility.wait(2000);
+    if (this.esmeJoinedYes.isDisplayed()) {
+        await this.esmeJoinedYes.click();
+    }
+    await utility.wait(2000);
+    if (this.fullconfigAppliedYes.isDisplayed()) {
+        await this.fullconfigAppliedYes.click();
+    }
+    await utility.wait(2000);
+    if(this.capturePhotoAsset.isDisplayed()){
+        await this.capturePhotoAsset.click();
+    }
+    await utility.wait(2000);
+    if(this.nextButtonEff.isDisplayed()){
+        await this.nextButtonEff.click();
+    }
+    await utility.wait(2000);
+}
+	/***
+ * @Author Supriya Harikumar
+ * @description Fill Device Binding Section display
+***/
+public async fillDeviceBindingSectionDF17(){
+    if (this.esmeJoinedYes.isDisplayed()) {
+        await this.esmeJoinedYes.click();
+    }
+    await utility.wait(2000);
+    if (this.infoOKButton.isDisplayed()) {
+        await this.infoOKButton.click();
+    }
+    await utility.wait(2000);
+    if (this.gsmeJoinedYes.isDisplayed()) {
+        await this.gsmeJoinedYes.click();
+    }
+    await utility.wait(2000);
+    if (this.fullconfigAppliedYes.isDisplayed()) {
+        await this.fullconfigAppliedYes.click();
+    }
+    await utility.wait(2000);
+    if(this.capturePhotoAsset.isDisplayed()){
+        await this.capturePhotoAsset.click();
+    }
+    await utility.wait(2000);
+    if(this.nextButtonEff.isDisplayed()){
+        await this.nextButtonEff.click();
+    }
+    await utility.wait(2000);
+}
+
 
 	/***
 	 * @Author Aparna Das
@@ -561,6 +906,37 @@ export class JobCompletionPageObject {
 
 		}
 	}
+	/***
+ * @Author Supriya Harikumar
+ * @description Submit the job
+***/
+public async FinalSubmission1(){
+    if (this.captureCustSignTxt.isDisplayed()) {
+        await this.captureCustSignTxt.getText().then(function (captureCustSign) {
+            console.log("Print captureCustSign Txt  " + captureCustSign);
+        });
+    }
+
+    if (await this.signedbyCustorRepDD.isDisplayed()) {
+        await utility.wait(1000);
+        var select = this.signedbyCustorRepDD;
+        select.$('[value="Customer"]').click();
+    }
+    await this.signaturepadCanvas.click();
+    await utility.wait(5000);
+    if (this.custRefusedToSignNo.isDisplayed()) {
+        await this.custRefusedToSignNo.click();
+    }
+    
+    
+    await utility.wait(20000);
+    if (this.jobCompleteBtn.isDisplayed()) {
+        await this.jobCompleteBtn.click();
+        await utility.wait(2000);
+        await this.infoOKButton.click();
+    }
+}
+
 	/***
 	 * @Author Aparna Das
 	 * @description Submit the job
