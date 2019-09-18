@@ -149,7 +149,7 @@ public async fillPPMIDSection(index:number){
     if (await this.PPMIDLOCDD.isDisplayed()) {
         var select = this.PPMIDLOCDD;
         select.$('[value="B"]').click();
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
     }
     if (await this.PPMIDToInstall.isDisplayed()) {
 		await utility.wait(2000);
@@ -160,7 +160,7 @@ public async fillPPMIDSection(index:number){
 	console.log("Selecting element based index : "+index);
 	// select the option
 	await this.PPMIDToInstall.element(by.css("option:nth-child("+index+")")).click()
-	await utility.wait(3000);
+	await utility.wait(utility.low);
 		await expect(await this.inputPPMIDSerialNum.isPresent());
 		var options = this.PPMIDinstallDDList.getAttribute('value');
         await this.inputPPMIDSerialNum.sendKeys(options);
@@ -174,10 +174,10 @@ public async fillPPMIDSection(index:number){
     if (this.ppmidNXTBtn.isDisplayed()) {
         await this.ppmidNXTBtn.click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (this.sendMsgPPMID.isDisplayed()) {
         await this.sendMsgPPMID.click();
-        await utility.wait(80000);
+        await utility.wait(utility.high);
     }
     
 }
@@ -202,7 +202,7 @@ public async fillXIPMDSection(){
     if (this.ppmidCommSuccess.isDisplayed()) {
         await this.ppmidCommSuccess.click();
     }
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
 }
 
  /***
@@ -234,7 +234,7 @@ public async fillDeviceBindingSection(){
     if (this.DeviceNxtBtn.isDisplayed()) {
         await this.DeviceNxtBtn.click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
 }
 
 /***
@@ -251,7 +251,7 @@ public async fillDeviceBindingGasMeterSection(){
     if (this.DeviceNxtBtn.isDisplayed()) {
         await this.DeviceNxtBtn.click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
 }
 
 /***
@@ -268,7 +268,7 @@ public async fillEx20DeviceBindingSection(){
     if (this.DeviceNxtBtn.isDisplayed()) {
         await this.DeviceNxtBtn.click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
 }
 
 /***
@@ -302,11 +302,11 @@ public async fillConfigAllmeter(){
     // if (this.fullConfigAppliedPPMIDYes.isDisplayed()) {
     //     await this.fullConfigAppliedPPMIDYes.click();
     // }
-    // await utility.wait(1000);
+    // await utility.wait(utility.very_low);
     // if (this.capturePPMIDBtn.isDisplayed()) {
     //     await this.capturePPMIDBtn.click();
     // }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (this.PPMIDNxtBtn.isDisplayed()) {
         await this.PPMIDNxtBtn.click();
     }
@@ -325,14 +325,14 @@ public async fillConfigAllmeterGASElec(){
         await this.fullConfigAppliedGasYes.click();
     }
 
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (this.fullConfigAppliedPPMIDYes.isDisplayed()) {
         await this.fullConfigAppliedPPMIDYes.click();
     }
     if (this.capturePPMIDBtn.isDisplayed()) {
              await this.capturePPMIDBtn.click();
         }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (this.PPMIDNxtBtn.isDisplayed()) {
         await this.PPMIDNxtBtn.click();
     }
@@ -351,19 +351,19 @@ public async fillEx20ConfigAllmeter(){
     }
     if (this.infoOKButton.isDisplayed()) {
         await this.infoOKButton.click();
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
     }
     
     //  if (this.fullEx20ConfigAppliedGasYes.isDisplayed()) {
     //      await this.fullEx20ConfigAppliedGasYes.click();
     // }
-    //  await utility.wait(1000);
+    //  await utility.wait(utility.very_low);
     // if (this.capturePPMIDBtn.isDisplayed()) {
     //     await this.capturePPMIDBtn.click();
     //     await this.capturePPMIDBtn.click();
 
     // }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (this.PPMIDNxtBtn.isDisplayed()) {
         await this.PPMIDNxtBtn.click();
     }
@@ -474,21 +474,21 @@ public async FinalSubmission(){
             console.log("Print captureCustSign Txt  " + captureCustSign);
         });
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (this.eSign.isDisplayed()) {
         await this.eSign.click();
     }
     if (await this.signedbyCustorRepDD.isDisplayed()) {
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         var select = this.signedbyCustorRepDD;
         select.$('[value="Customer"]').click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (this.custRefusedToSignNo.isDisplayed()) {
         await this.custRefusedToSignNo.click();
         await this.custSignText.click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (this.custRefusedToSignNo.isDisplayed()) {
         await this.custRefusedToSignNo.click();
         await this.custSignText.click();

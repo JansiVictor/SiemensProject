@@ -45,24 +45,24 @@ export class DoorStepPageObject {
 	}
 
 	public async fillTheDoorStepDetails() {
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		var select = this.selectInputField;
 		select.$('[value="C94"]').click();
 
 		if (this.accessToSiteY.isDisplayed()) {
-			await utility.wait(5000);
+			await utility.wait(utility.medium_low);
 			await this.accessToSiteY.click();
 		}
 
 		if (this.customerOnSiteY.isDisplayed()) {
-			await utility.wait(5000);
+			await utility.wait(utility.medium_low);
 			await this.customerOnSiteY.click();
 		}
 	}
 
 	public async clickONSITEBtn() {
 		this.onSiteBtn.click();
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 		await expect(this.initialRiskAssesment.isPresent());
 	}
 }

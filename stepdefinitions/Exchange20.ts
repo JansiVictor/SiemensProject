@@ -49,7 +49,7 @@ const exchnge21Complete: JobCompletionPageObject = new JobCompletionPageObject()
 
 Given('the ExTwnty Login Page', async function () {
 	await browser.get(config.baseUrl);
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 When('I pass ExTwnty {string} and {string}', async function (username, password) {
@@ -59,7 +59,7 @@ When('I pass ExTwnty {string} and {string}', async function (username, password)
 
 Then('I click ExTwnty Login button', async function () {
 	await login.clickLogin();
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 });
 
 Then('I should see the ExchangeTwnty Appointment List', async function () {
@@ -74,7 +74,7 @@ Given('the ExchangeTwnty Appointment List window', async function () {
   When('I click on ExchangeTwnty select button', async function () {
     await home.clickCorrectSelectLink('Exchange20');
     //await home.clickOnTheExchange20SelectLink();
- await utility.wait(5000);
+ await utility.wait(utility.medium_low);
   });
 
 
@@ -100,13 +100,13 @@ Given('the ExchangeTwnty Appointment List window', async function () {
   });
 
   Then('I should see the ExchangeTwnty CUSTOMER CONTACT NUMBER', async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
 	await expect(await applist.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
 
   });
 
   Then('I should see ExchangeTwnty Contact made field', async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
     await expect(applist.contactMadeYes.isPresent());
   });
@@ -154,14 +154,14 @@ Given('the ExchangeTwnty Appointment List window', async function () {
   });
 
   When('I should see ExchangeTwnty ARRIVE button', async function () {
-    await utility.wait(10000);
+    await utility.wait(utility.medium);
 	await applist.arriveBtn.getText().then(function (arriveBtnText) {
 		console.log("find Arrive Btn Text  " + arriveBtnText);
 	});
   });
 
   Then('I should see ExchangeTwnty DOORSTEP PROTOCOL tab activated', async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});
@@ -177,9 +177,9 @@ Given('the ExchangeTwnty Appointment List window', async function () {
 
   Then('I should see ExchangeTwnty Arrival Time details', async function () {
    //comment these 2 lines when continue link is not displayed
-	// await utility.wait(5000);
+	// await utility.wait(utility.medium_low);
 	// await applist.continueLink.click();
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
 	});
@@ -224,11 +224,11 @@ Given('the ExchangeTwnty Appointment List window', async function () {
   Given('the ExchangeTwnty INFO window with the text', async function () {
 	await riskassess.infoOKButton.click();
 	//await riskassess.performanceRiskNextBtn.click();
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 	if (riskassess.NeedtoWorkYES.isDisplayed()) {
 		var element = riskassess.NeedtoWorkYES;
 		browser.executeScript("arguments[0].click()", element);
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 	}
   });
 

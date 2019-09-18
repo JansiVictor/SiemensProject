@@ -343,7 +343,7 @@ export class RiskAssessmentPageElecObject {
 		if (this.OKtoProceedEGPOutcome.isDisplayed()) {
 			await utility.wait(2000);
 			await this.OKtoProceedEGPOutcome.click();
-			await utility.wait(5000);
+			await utility.wait(utility.medium_low);
 		}
     }
     
@@ -355,7 +355,7 @@ export class RiskAssessmentPageElecObject {
 	public async infoTextPopUp() {
 		if (this.infoText.isDisplayed()) {
 			//  await this.infoOKButton.click();
-			await utility.wait(5000);
+			await utility.wait(utility.medium_low);
 		}
     }
     
@@ -413,7 +413,7 @@ export class RiskAssessmentPageElecObject {
 	public async clickNextSectionBtn() {
 		if (this.nextSectionBtn.isDisplayed()) {
 			await this.nextSectionBtn.click();
-			await utility.wait(5000);
+			await utility.wait(utility.medium_low);
 		}
     }
     
@@ -427,7 +427,7 @@ export class RiskAssessmentPageElecObject {
 			await this.captureInitialPhotoElec.getText().then(function (captureInitialPhotoElecText) {
 				console.log("find initialElecCapure Text  " + captureInitialPhotoElecText);
 			});
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
     }
     
@@ -441,7 +441,7 @@ export class RiskAssessmentPageElecObject {
 			await this.initialpolarityCheck.getText().then(function (initialpolarityCheckText) {
 				console.log("find initialpolarityCheck Text  " + initialpolarityCheckText);
 			});
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
     }
     
@@ -455,16 +455,16 @@ export class RiskAssessmentPageElecObject {
 			var select = this.polarityCheckDD;
 			select.$('[value="true"]').click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 
 		await expect(await this.socketSafetyBtnYES.isPresent());
 		await this.socketSafetyBtnYES.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 
 		if (await this.socketSetLocDD.isDisplayed()) {
 			var select = this.socketSetLocDD;
 			select.$('[value="9"]').click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
 
     }
@@ -477,7 +477,7 @@ export class RiskAssessmentPageElecObject {
 	public async verifyCapturepreInstallation() {
 		if (await this.capturePreinsatllation.isDisplayed()) {
 			await this.capturePreinsatllation.click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
     }
 
@@ -489,7 +489,7 @@ export class RiskAssessmentPageElecObject {
 	public async verifyanySocketFoundNO() {
 		await expect(this.anySocketFoundNO.isPresent());
 		await this.anySocketFoundNO.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
     }
     
 /***
@@ -570,10 +570,10 @@ export class RiskAssessmentPageElecObject {
 	public async fillthePolarityCheckMeterOut() {
 		await expect(this.polarityCheckCutOutYES.isPresent());
 		await this.polarityCheckCutOutYES.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await expect(this.polarityCheckAtMeter.isPresent());
 		await this.polarityCheckAtMeter.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
     }
     
 /***
@@ -584,7 +584,7 @@ export class RiskAssessmentPageElecObject {
 	public async meterCutOutnextSection() {
 		await expect(this.meterCutOutNxtBtn.isPresent());
 		await this.meterCutOutNxtBtn.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 	}
 	
 	/***
@@ -595,7 +595,7 @@ export class RiskAssessmentPageElecObject {
 public async meterCutOutRemoveSubmitButton() {
 	await expect(this.meterCutOutSubmitButton.isPresent());
 	await this.meterCutOutSubmitButton.click();
-	await utility.wait(1000);
+	await utility.wait(utility.very_low);
 }
 
 /***
@@ -608,10 +608,10 @@ public async meterCutOutRemoveSubmitButton() {
 		await this.currentMeterDetailsText.getText().then(function (currentMeterDetails) {
 			console.log("find currentMeterDetails Text  " + currentMeterDetails);
 		});
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await expect(this.existingElecMeterYes.isPresent());
 		await this.existingElecMeterYes.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		//not req, if new WO required
 		await this.currentMeterNxtbtn.click();
     }
@@ -624,7 +624,7 @@ public async meterCutOutRemoveSubmitButton() {
 	public async removeTabdisplayed() {
 		await expect(this.removeMeterText.isPresent());
 		//await this.removeMeterText.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
     }
     
 /***
@@ -637,28 +637,28 @@ public async meterCutOutRemoveSubmitButton() {
 		if (this.statusOfAssetDD.isDisplayed()) {
 			var select = this.statusOfAssetDD;
 			select.$('[label="No Fault Found"]').click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
 		// await expect(await this.rmOptionalText.isPresent());
 		// await this.rmOptionalText.sendKeys('optional text');
-		// await utility.wait(1000);
+		// await utility.wait(utility.very_low);
 
 		await expect(await this.removeMeterReadingText.isPresent());
 		await this.removeMeterReadingText.sendKeys('12345');
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 
 		if (await this.unableToReadMeterYes.isDisplayed()) {
 			await this.unableToReadMeterYes.click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
 		await expect(await this.removeMeterAddText.isPresent());
 		await this.removeMeterAddText.sendKeys('Additional Test Message');
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 
 		//If page is continued then this function required for new WO not req
 		// if(await this.rmvNextBtn.isDisplayed()){
 		//     await this.rmvNextBtn.click();
-		//     await utility.wait(1000)
+		//     await utility.wait(utility.very_low)
 
     }
 
@@ -670,7 +670,7 @@ public async meterCutOutRemoveSubmitButton() {
 	public async OKButton() {
 		if (await this.assetSuccessfullyaddedOKbtn.isDisplayed()) {
 			await this.assetSuccessfullyaddedOKbtn.click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
     }
 
@@ -681,7 +681,7 @@ public async meterCutOutRemoveSubmitButton() {
 
 	public async removeAssetTextDisplayed() {
 		await expect(this.removeAssetTabText.isPresent());
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
     }
 
  /***
@@ -694,7 +694,7 @@ public async meterCutOutRemoveSubmitButton() {
 		await this.CommHubText.getText().then(function (CumHub) {
 			console.log("find CuMHubText Text  " + CumHub);
 		});
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
     }
 
  /***
@@ -704,15 +704,15 @@ public async meterCutOutRemoveSubmitButton() {
 
 	public async fillremoveAssetDetails() {
 		if (await this.removeassetDD.isDisplayed()) {
-            await utility.wait(1000);
+            await utility.wait(utility.very_low);
 			var select = this.removeassetDD;
 			select.$('[value="1"]').click();
 		}
 
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.confirmAssetYes.isDisplayed()) {
 			await this.confirmAssetYes.click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
 
 	}
@@ -733,13 +733,13 @@ public async meterCutOutRemoveSubmitButton() {
 	console.log("Selecting element based index : "+index)
 	// select the option
 	await this.commHubDD.element(by.css("option:nth-child("+index+")")).click()
-	await utility.wait(3000);
+	await utility.wait(utility.low);
 			await this.commshubPopup.click();
 		
 		await expect(await this.chfIDInput.isPresent());
 		var options = this.selectinstallAssetOption.getAttribute('value');
 		await this.chfIDInput.clear();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.chfIDInput.sendKeys(options);
 		await this.randomClick.click();
 		await this.commshubPopup.click();
@@ -749,25 +749,25 @@ public async meterCutOutRemoveSubmitButton() {
 			var select = this.commHubLocDD;
 			select.$('[value="A"]').click();
 		}
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 
 		if (await this.arealInstalledYes.isDisplayed()) {
 			await this.arealInstalledYes.click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
 		if (await this.commHubConnectionDD.isDisplayed()) {
 			var select = this.commHubConnectionDD;
 			select.$('[value="2"]').click();
 		}
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 
 		if (await this.captureCommsHub.isDisplayed()) {
 			await this.captureCommsHub.click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
 		if (await this.commHubLocNxtBtn.isDisplayed()) {
 			await this.commHubLocNxtBtn.click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
 	}
 }
@@ -782,7 +782,7 @@ public async meterCutOutRemoveSubmitButton() {
 		await this.NewMeterDetailsText.getText().then(function (NewMeterDetails) {
 			console.log("find NewMeterDetails Text  " + NewMeterDetails);
 		});
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
     }
 
 /***
@@ -793,7 +793,7 @@ public async meterCutOutRemoveSubmitButton() {
 	public async fillCurrentMeterDetails() {
 		if (await this.existingElecMeterYes.isDisplayed()) {
 			await this.existingElecMeterYes.click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
     }
     
@@ -814,7 +814,7 @@ public async meterCutOutRemoveSubmitButton() {
 		console.log("Selecting element based index : "+index)
 		// select the option
 		await this.newMeterDD.element(by.css("option:nth-child("+index+")")).click()
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 				//await this.commshubPopup.click();
 			
 			await expect(await this.inputelecSerialNum.isPresent());
@@ -828,7 +828,7 @@ public async meterCutOutRemoveSubmitButton() {
 		await utility.wait(2000);
 
 		await this.commshubPopup.click();
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 
 		
 		await utility.wait(2000);
@@ -874,33 +874,33 @@ public async meterCutOutRemoveSubmitButton() {
 
 	public async fillAdditionalElecCheckDetails() {
 		await this.terminalNewTightness.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.photoOfTerminalScrew.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.sealsIntactYes.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.portsSealedYes.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.approveCableMakersYes.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.visualInspectionYes.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.cableMArkerDD.isDisplayed()) {
 			var select = this.cableMArkerDD;
 			select.$('[value="2"]').click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.earthTypeDD.isDisplayed()) {
 			var select = this.earthTypeDD;
 			select.$('[value="4"]').click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.recentMeterBoardYes.click();
 		await this.meterTailsChangedNo.click();
 		await this.replacedMainFuseYes.click();
 		await this.emerJobNo.click();
 		await this.additionalElecNxtBtn.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 
     }
 /***
@@ -926,7 +926,7 @@ public async meterCutOutRemoveSubmitButton() {
         //if new WO not req, if existing WO required nxtbtn
         await this.initialElctext.click();
 		await this.meterReadingNxtBtn.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
     }
 
 /***
@@ -956,10 +956,10 @@ public async meterCutOutRemoveSubmitButton() {
 		await expect(await this.nonserealizedAssetInput.isPresent());
 		await this.nonserealizedAssetInput.sendKeys('1');
 		await this.commsHubConnectedYes.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 
 		await this.commissioningNxtBtn.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 	}
 
 /***
@@ -984,22 +984,22 @@ public async meterCutOutRemoveSubmitButton() {
         await this.carryOutPolarityChkYes.click();
         
 		await this.postpolNotes.sendKeys('Additional Remarks');
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         
 		if (await this.polChkDD.isDisplayed()) {
 			var select = this.polChkDD;
 			select.$('[value="true"]').click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.confirmSocketPass.click();
 		await expect(await this.witnessName.isPresent());
         await this.witnessName.sendKeys('John');
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
 		await this.capturePostinstalation.click();
         await this.capturefinalmeterinstal.click();
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         await this.captureCloseupMeter.click();
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
     }
     
 /***
@@ -1025,7 +1025,7 @@ public async meterCutOutRemoveSubmitButton() {
 				console.log("find eicomSendMsg Text  " + eicomSend);
 			});
 			await this.eicomSendMsg.click();
-			await utility.wait(80000);
+			await utility.wait(utility.high);
 			//commented below
 			// await this.awaitingResponseTxt.getText().then(function (awaitingResponseTxt) {
 			// 	console.log("find awaitingResponseTxt Text  " + awaitingResponseTxt);
@@ -1033,11 +1033,11 @@ public async meterCutOutRemoveSubmitButton() {
 		//	await utility.wait(60000);
 			if (this.commSuccess.isDisplayed()) {
 				await this.commSuccess.click();
-				await utility.wait(3000);
+				await utility.wait(utility.low);
 			}
 
 			await this.submitBtn.click();
-			await utility.wait(3000);
+			await utility.wait(utility.low);
 		}
 
 	}
@@ -1074,11 +1074,11 @@ public async meterCutOutRemoveSubmitButton() {
 // 	if (this.OKtoProceedEGPOutcome.isDisplayed()) {
 // 		await utility.wait(2000);
 // 		await this.OKtoProceedEGPOutcome.click();
-// 		await utility.wait(5000);
+// 		await utility.wait(utility.medium_low);
 // 	}
 // 	if (this.infoOKButton.isDisplayed()) {
 // 		await this.infoOKButton.click();
-// 		//await utility.wait(5000);
+// 		//await utility.wait(utility.medium_low);
 // 	}
 // }
 }

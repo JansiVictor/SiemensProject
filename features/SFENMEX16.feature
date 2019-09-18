@@ -1,4 +1,4 @@
-Feature: Login into Siemen Application
+Feature: SFENMEX16 Workflow
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given the Login Page For SFENMEX16

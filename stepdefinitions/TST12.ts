@@ -27,7 +27,7 @@ const job: JobCompletionPageObject = new JobCompletionPageObject();
 
 Given('TST12 the Login Page', async function () {
     await browser.get(config.baseUrl);
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
 });
 
 When('TST12 I pass {string} and {string}', async function (username, password) {
@@ -37,7 +37,7 @@ When('TST12 I pass {string} and {string}', async function (username, password) {
 
 Then('TST12 I click Login button', async function () {
     await login.clickLogin();
-    await utility.wait(10000);
+    await utility.wait(utility.medium);
 });
 
 Then('TST12 I should see the Appointment List', async function () {
@@ -52,7 +52,7 @@ When('TST12 I click on select button', async function () {
     //await home.continueLink.click();
     await home.selectLink.click();
     //await home.clickOnTheSelectLink();
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
 });
 Then('TST12 I should see Work Order window', async function () {
     await applist.verifyWorkOrderWindowText();
@@ -74,7 +74,7 @@ Then('TST12 I should see the CUSTOMER CONTACT NUMBER', async function () {
     await applist.customercontactnumberavailable();
 });
 Then('TST12 I should see Contact made field', async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await expect(await applist.contactMadeText.getText()).equal("Contact made?");
     await expect(applist.contactMadeYes.isPresent());
 });
@@ -105,13 +105,13 @@ When('TST12 I click on OK button', async function () {
     await applist.mprnOKbtn();
 });
 Then('TST12 I should see ARRIVE button', async function () {
-    await utility.wait(10000);
+    await utility.wait(utility.medium);
     await applist.arriveBtn.getText().then(function (arriveBtnText) {
         console.log("find Arrive Btn Text  " + arriveBtnText);
     });
 });
 Then('TST12 I should see DOORSTEP PROTOCOL tab activated', async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await applist.doorStepPROText.getText().then(function (doorStepPROText) {
         console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
     });
@@ -120,7 +120,7 @@ When('TST12 I click on ARRIVE button', async function () {
     await applist.clickArriveBtn();
 });
 Then('TST12 I should see Arrival Time details', async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await applist.arrivalTime.getText().then(function (arrivalTimeText) {
         console.log("find Arrival Time Text  " + arrivalTimeText);
     });
@@ -168,11 +168,11 @@ Given('TST12 the INFO window with the text', async function () {
 When('TST12 click OK in Popup', async function () {
     await riskassess.INFOOKClick();
     //await riskassess.NeedtoWork();
-    await utility.wait(10000);
+    await utility.wait(utility.medium);
   if (riskassess.NeedtoWorkYES.isDisplayed()) {
     var element = riskassess.NeedtoWorkYES;
     browser.executeScript("arguments[0].click()", element);
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
   }
 });
 

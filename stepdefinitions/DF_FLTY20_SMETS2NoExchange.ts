@@ -61,7 +61,7 @@ const job: JobCompletionPageObject = new JobCompletionPageObject();
 
 Given('the FLTYTwntyNoExchange Login Page', async function () {
 	await browser.get(config.baseUrl);
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 When('I pass FLTYTwntyNoExchange {string} and {string}', async function (username, password) {
@@ -72,7 +72,7 @@ When('I pass FLTYTwntyNoExchange {string} and {string}', async function (usernam
 
 Then('I click FLTYTwntyNoExchange Login button', async function () {
 	await login.clickLogin();
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 });
 
 Then('I should see the FLTYTwntyNoExchange Appointment List', async function () {
@@ -88,7 +88,7 @@ When('I click on FLTYTwntyNoExchange select button', async function () {
 	await home.clickCorrectSelectLink('DF_FLTY20_SMETS2NoExchange');
 	//await home.clickOnTheFLTY20NoExchangeSelectLink();
 	//await home.clickOnTheContinueLink();
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 Then('I should see FLTYTwntyNoExchange Work Order window', async function () {
@@ -115,13 +115,13 @@ Then('I should see FLTYTwntyNoExchange page contect display', async function () 
 
 
 // Then('I should see the FLTYTwntyNoExchange CUSTOMER CONTACT NUMBER', async function () {
-// await utility.wait(5000);
+// await utility.wait(utility.medium_low);
 // await expect(await applist.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
 
 // });
 
 Then('I should see FLTYTwntyNoExchange Contact made field', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
 	await expect(applist.contactMadeYes.isPresent());
 });
@@ -168,14 +168,14 @@ When('I click on FLTYTwntyNoExchange Appointment OK button', async function () {
 });
 
 When('I should see FLTYTwntyNoExchange ARRIVE button', async function () {
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 	await applist.arriveBtn.getText().then(function (arriveBtnText) {
 		console.log("find Arrive Btn Text  " + arriveBtnText);
 	});
 });
 
 When('I should see FLTYTwntyNoExchange DOORSTEP PROTOCOL tab activated', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});
@@ -187,9 +187,9 @@ When('I click on FLTYTwntyNoExchange ARRIVE button', async function () {
 
 Then('I should see FLTYTwntyNoExchange Arrival Time details', async function () {
 	//comment these 2 lines when continue link is not displayed
-	// await utility.wait(5000);
+	// await utility.wait(utility.medium_low);
 	// await applist.continueLink.click();
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
 	});
@@ -238,11 +238,11 @@ Given('the FLTYTwntyNoExchange INFO window with the text', async function () {
 	//await riskassess.performanceRiskNextBtn.click();
 
 
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 	if (riskassess.NeedtoWorkYES.isDisplayed()) {
 		var element = riskassess.NeedtoWorkYES;
 		browser.executeScript("arguments[0].click()", element);
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 	}
 });
 

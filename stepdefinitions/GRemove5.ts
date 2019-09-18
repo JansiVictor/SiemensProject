@@ -57,7 +57,7 @@ import {
   
   Given('the RmveGas Login Page', async function () {
     await browser.get(config.baseUrl);
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     });
     
     When('I pass RmveGas {string} and {string}', async function (username, password) {
@@ -68,7 +68,7 @@ import {
     
     Then('I click RmveGas Login button', async function () {
     await login.clickLogin();
-    await utility.wait(10000);
+    await utility.wait(utility.medium);
     });
     
     Then('I should see the RmveGas Appointment List', async function () {
@@ -82,7 +82,7 @@ import {
     
     When('I click on RmveGas select button', async function () {
     await home.clickOnTheRemoveGASSelectLink();
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     });
     
     Then('I should see RmveGas Work Order window',async  function () {
@@ -109,13 +109,13 @@ import {
     
     
     Then('I should see the RmveGas CUSTOMER CONTACT NUMBER', async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await expect(await applist.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
     
     });
     
     Then('I should see RmveGas Contact made field', async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await expect(await applist.contactMadeText.getText()).equal("Contact made?");
     await expect(applist.contactMadeYes.isPresent());
     });
@@ -163,14 +163,14 @@ import {
     });
     
     When('I should see RmveGas ARRIVE button',async function () {
-    await utility.wait(10000);
+    await utility.wait(utility.medium);
     await applist.arriveBtn.getText().then(function (arriveBtnText) {
         console.log("find Arrive Btn Text  " + arriveBtnText);
     });
     });
     
     When('I should see RmveGas DOORSTEP PROTOCOL tab activated',async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await applist.doorStepPROText.getText().then(function (doorStepPROText) {
         console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
     });
@@ -182,9 +182,9 @@ import {
     
     Then('I should see RmveGas Arrival Time details',async function () {
     //comment these 2 lines when continue link is not displayed
-    // await utility.wait(5000);
+    // await utility.wait(utility.medium_low);
     // await applist.continueLink.click();
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await applist.arrivalTime.getText().then(function (arrivalTimeText) {
         console.log("find Arrival Time Text  " + arrivalTimeText);
     });
@@ -233,11 +233,11 @@ import {
     //await riskassess.performanceRiskNextBtn.click();
     
     
-    await utility.wait(10000);
+    await utility.wait(utility.medium);
     if (riskassess.NeedtoWorkYES.isDisplayed()) {
         var element = riskassess.NeedtoWorkYES;
         browser.executeScript("arguments[0].click()", element);
-        await utility.wait(5000);
+        await utility.wait(utility.medium_low);
     }
     });
 
@@ -537,7 +537,7 @@ import {
     Then('I should see RmveGas Request Sent Successfully text msg XCHUB', async function () {
      // await inst.reqsentMsg();
       //await inst.clickonremsuccess();
-      await utility.wait(3000);
+      await utility.wait(utility.low);
       await inst.remvSuccessful.click();
     });
     Given('the RmveGas CONFIRM COMMS HUB REMOVAL section', async function () {

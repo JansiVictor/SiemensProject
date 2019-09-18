@@ -308,9 +308,9 @@ export class RiskAssessmentforGASPageObject {
 			var select = this.repositionReqDD;
 			select.$('[value="No Reposition Required"]').click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
         await this.additionalSmartNote.sendKeys('Add Remarks');
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         await this.suitablenxtBtn.click();
 	}
 
@@ -405,7 +405,7 @@ public async fillMeterRegulatorDetailsGAS() {
 // console.log("Selecting element based index : "+index)
 // // select the option
 // await this.selectValidAssetDD.element(by.css("option:nth-child("+index+")")).click()
-// await utility.wait(3000);
+// await utility.wait(utility.low);
 // //await this.commshubPopup.click();
 
 // await expect(await this.inputelecSerialNum.isPresent());
@@ -420,13 +420,13 @@ public async fillMeterRegulatorDetailsGAS() {
     await expect(await this.regulatorSerialNoinput.isPresent());
     await this.regulatorSerialNoinput.clear();
     await this.regulatorSerialNoinput.sendKeys('MA6NC000000003');
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     await this.regulatorTxt.click();
     await utility.wait(2000);
     await this.commshubPopup.click();
     await utility.wait(2000);
     await this.newRegulatorNxtBtn.click();
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     //}
 }
 
@@ -461,7 +461,7 @@ public async fillNewMeterDetailsGAS(index:number) {
         console.log("Selecting element based index : "+index)
         // select the option
         await this.newMeterDD.element(by.css("option:nth-child("+index+")")).click()
-        await utility.wait(3000);
+        await utility.wait(utility.low);
         //await this.commshubPopup.click();
         
         await expect(await this.inputMeterSerialNum.isPresent());
@@ -565,7 +565,7 @@ public async GasPostInstallationTxt() {
  * @description Fill Gas Post Installation Gas Tightness Test section
 ***/
 public async fillPostInstallationGasDetails() {
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     await this.contactGTYEs.click();
     await this.nationalGTRefInput.sendKeys('12345');
     await this.reportedToHSYEsGas.click();
@@ -625,10 +625,10 @@ public async fillPostInstallationGasDetails() {
     public async filllGiComSection(){
 
     await this.gicomSendMessage.click();
-    await utility.wait(80000);
+    await utility.wait(utility.high);
     if (this.successfulBtn.isDisplayed()) {
         await this.successfulBtn.click();
-        await utility.wait(3000);
+        await utility.wait(utility.low);
     }
 }
 
@@ -661,7 +661,7 @@ public async fillGasSafety(){
     if (this.allAppliTestedBtn.isDisplayed()) {
         await this.allAppliTestedBtn.click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (this.submitGas.isDisplayed()) {
         await this.submitGas.click();
     }
@@ -688,11 +688,11 @@ public async fillCurrentCommsHubDetailsGAS(){
 
     if (await this.smets2CommshubOnsiteNo.isDisplayed()) {
         await this.smets2CommshubOnsiteNo.click();
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
     }
             if (await this.commshubNxtbtn.isDisplayed()) {
                 await this.commshubNxtbtn.click();
-                await utility.wait(1000);
+                await utility.wait(utility.very_low);
         }
     }
 
@@ -704,7 +704,7 @@ public async fillinstallCommsHubDetailsGAS(index:number){
 
     if (await this.installCommsHubYes.isDisplayed()) {
         await this.installCommsHubYes.click();
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
     }
 
 if (await this.commHubDD.isDisplayed()) {
@@ -716,7 +716,7 @@ browser.sleep(1000)
 console.log("Selecting element based index : "+index)
 // select the option
 await this.commHubDD.element(by.css("option:nth-child("+index+")")).click()
-await utility.wait(3000);
+await utility.wait(utility.low);
 await this.commshubPopup.click();
 await expect(await this.inputinstallCommshub.isPresent());
 var options=this.selectinstallAssetOption.getAttribute('value');
@@ -729,17 +729,17 @@ if (await this.commHubLocDD.isDisplayed()) {
     var select = this.commHubLocDD;
     select.$('[value="A"]').click();
 }
-await utility.wait(3000);
+await utility.wait(utility.low);
 
 if (await this.arealInstalledYes.isDisplayed()) {
     await this.arealInstalledYes.click();
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
 }
 if (await this.commHubConnectionDD.isDisplayed()) {
     var select = this.commHubConnectionDD;
     select.$('[value="2"]').click();
 }
-await utility.wait(3000);
+await utility.wait(utility.low);
 await expect(await this.inputcradleSerialNo.isPresent());
 var options=this.selectinstallAssetOption.getAttribute('value');
 await this.inputcradleSerialNo.sendKeys(options);
@@ -747,13 +747,13 @@ await utility.wait(2000);
 
 if (await this.captureCommsHub.isDisplayed()) {
     await this.captureCommsHub.click();
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
 }
 
 
 if (await this.commHubLocNxtBtn.isDisplayed()) {
     await this.commHubLocNxtBtn.click();
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
 }
     }
 }

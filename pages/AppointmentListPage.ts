@@ -138,7 +138,7 @@ export class FLTY19AppointmentListPageObject {
 	};
 
 	public async customercontactnoDisplayed() {
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.customercontactnumberdis.isDisplayed()) {
 			await this.customercontactnumberdis.click();
 		}
@@ -149,7 +149,7 @@ export class FLTY19AppointmentListPageObject {
 			await expect(this.doorStepText.isPresent());
 			await expect(this.arriveBtn.isPresent());
 			this.arriveBtn.click();
-			await utility.wait(5000);
+			await utility.wait(utility.medium_low);
 			this.arrivalTime.getText().then(function (arrivalTimeText) {
 				console.log("Arrival Time Text  " + arrivalTimeText);
 			});
@@ -168,7 +168,7 @@ export class FLTY19AppointmentListPageObject {
 
 		this.callForwardText.click();
 		//customerContactNumberText
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		//await expect(await this.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
 
 
@@ -180,19 +180,19 @@ export class FLTY19AppointmentListPageObject {
 		this.contactMadeYes.click();
 	}
 	public async verifyDepartForAppointmentWindow() {
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 		await expect(await this.departAppointment.getText()).equal("Depart for Appointment?");
 		expect(this.departAppointment.isPresent());
 	}
 	public async clickDepartBtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await expect(this.departBtn.isDisplayed());
 		await this.departBtn.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 	}
 	public async customercontactnumberavailable() {
 
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await expect(this.custcontnumberTxt.isPresent());
 	}
 
@@ -229,24 +229,24 @@ export class FLTY19AppointmentListPageObject {
 	}
 
 	public async additionalDetails() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.additionalAccessDetailsTextBox.clear();
 		await this.additionalAccessDetailsTextBox.sendKeys('Additional access details comment 123');
 	}
 
 
 	public async mprnOKbtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await expect(this.mprnOK.isPresent());
 		await this.mprnOK.click();
-		await utility.wait(10000);
+		await utility.wait(utility.medium);
 		await expect(this.arriveBtn.isPresent());
 	}
 
 	public async clickArriveBtn() {
 		await expect(this.arriveBtn.isPresent());
 		this.arriveBtn.click();
-		await utility.wait(10000);
+		await utility.wait(utility.medium);
 		await expect(this.arrivalTime.isPresent());
 	}
 

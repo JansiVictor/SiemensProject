@@ -8,7 +8,7 @@ const targetJson = jsonReports + "/cucumber_report.json";
 
 const cucumberReporterOptions = {
     jsonFile: targetJson,
-    output: htmlReports + "/cucumber_reporter.html",
+    output: htmlReports + "/"+Math.random()+"cucumber_reporter.html",
     reportSuiteAsScenarios: true,
     theme: "bootstrap",
 };

@@ -56,7 +56,7 @@ import {
     
     Given('the FLTYTTradNoExchange Login Page', async function () {
     await browser.get(config.baseUrl);
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     });
     
     When('I pass FLTYTTradNoExchange {string} and {string}', async function (username, password) {
@@ -67,7 +67,7 @@ import {
     
     Then('I click FLTYTTradNoExchange Login button', async function () {
     await login.clickLogin();
-    await utility.wait(10000);
+    await utility.wait(utility.medium);
     });
     
     Then('I should see the FLTYTTradNoExchange Appointment List', async function () {
@@ -83,7 +83,7 @@ import {
       await home.clickCorrectSelectLink('SF _E_FLTY19TradNoExchange');
     //await home.clickFLTY19TradNoExSelectLink();
     //await home.clickOnTheContinueLink();
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     });
     
     Then('I should see FLTYTTradNoExchange Work Order window',async  function () {
@@ -110,13 +110,13 @@ import {
     
     
     // Then('I should see the FLTYTTradNoExchange CUSTOMER CONTACT NUMBER', async function () {
-    // await utility.wait(5000);
+    // await utility.wait(utility.medium_low);
     // await expect(await applist.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
     
     // });
     
     Then('I should see FLTYTTradNoExchange Contact made field', async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await expect(await applist.contactMadeText.getText()).equal("Contact made?");
     await expect(applist.contactMadeYes.isPresent());
     });
@@ -163,14 +163,14 @@ import {
     });
     
     When('I should see FLTYTTradNoExchange ARRIVE button',async function () {
-    await utility.wait(10000);
+    await utility.wait(utility.medium);
     await applist.arriveBtn.getText().then(function (arriveBtnText) {
         console.log("find Arrive Btn Text  " + arriveBtnText);
     });
     });
     
     When('I should see FLTYTTradNoExchange DOORSTEP PROTOCOL tab activated',async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await applist.doorStepPROText.getText().then(function (doorStepPROText) {
         console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
     });
@@ -182,9 +182,9 @@ import {
     
     Then('I should see FLTYTTradNoExchange Arrival Time details',async function () {
     //comment these 2 lines when continue link is not displayed
-    // await utility.wait(5000);
+    // await utility.wait(utility.medium_low);
     // await applist.continueLink.click();
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await applist.arrivalTime.getText().then(function (arrivalTimeText) {
         console.log("find Arrival Time Text  " + arrivalTimeText);
     });
@@ -233,11 +233,11 @@ import {
     //await riskassess.performanceRiskNextBtn.click();
     
     
-    await utility.wait(10000);
+    await utility.wait(utility.medium);
     if (riskassess.NeedtoWorkYES.isDisplayed()) {
         var element = riskassess.NeedtoWorkYES;
         browser.executeScript("arguments[0].click()", element);
-        await utility.wait(5000);
+        await utility.wait(utility.medium_low);
     }
     });
     

@@ -50,7 +50,7 @@ export class FLTY19homePageObject {
 	}
 
 	public async seeAppList() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await expect(this.appointmentListLabel.isDisplayed());
 	}
 

@@ -56,7 +56,7 @@ const remove: RemovePageObject = new RemovePageObject();
 
 Given('the RmveSix Login Page', async function () {
 	await browser.get(config.baseUrl);
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 When('I pass RmveSix {string} and {string}', async function (username, password) {
@@ -67,7 +67,7 @@ When('I pass RmveSix {string} and {string}', async function (username, password)
 
 Then('I click RmveSix Login button', async function () {
 	await login.clickLogin();
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 });
 
 Then('I should see the RmveSix Appointment List', async function () {
@@ -83,7 +83,7 @@ When('I click on RmveSix select button', async function () {
 	await home.clickCorrectSelectLink('ERemove6');
 	//await home.clickOnTheRemove6SelectLink();
 	//await home.clickOnTheContinueLink();
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 Then('I should see RmveSix Work Order window', async function () {
@@ -110,13 +110,13 @@ Then('I should see RmveSix page contect display', async function () {
 
 
 Then('I should see the RmveSix CUSTOMER CONTACT NUMBER', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await expect(await applist.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
 
 });
 
 Then('I should see RmveSix Contact made field', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
 	await expect(applist.contactMadeYes.isPresent());
 });
@@ -164,14 +164,14 @@ When('I click on RmveSix OK button', async function () {
 });
 
 When('I should see RmveSix ARRIVE button', async function () {
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 	await applist.arriveBtn.getText().then(function (arriveBtnText) {
 		console.log("find Arrive Btn Text  " + arriveBtnText);
 	});
 });
 
 When('I should see RmveSix DOORSTEP PROTOCOL tab activated', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});
@@ -183,9 +183,9 @@ When('I click on RmveSix ARRIVE button', async function () {
 
 Then('I should see RmveSix Arrival Time details', async function () {
 	//comment these 2 lines when continue link is not displayed
-	// await utility.wait(5000);
+	// await utility.wait(utility.medium_low);
 	// await applist.continueLink.click();
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
 	});
@@ -234,11 +234,11 @@ Given('the RmveSix INFO window with the text', async function () {
 	//await riskassess.performanceRiskNextBtn.click();
 
 
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 	if (riskassess.NeedtoWorkYES.isDisplayed()) {
 		var element = riskassess.NeedtoWorkYES;
 		browser.executeScript("arguments[0].click()", element);
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 	}
 });
 
@@ -532,7 +532,7 @@ When('I fill the RmveSix field027 with the Value027', async function () {
 Then('I click on RmveSix NEXT SEC button from Remove Comms Hub', async function () {
 	await remove.clickonNxtBtnRmvCommsHub();
 	await remove.XCHUBSubmit();
-	await utility.wait(1000);
+	await utility.wait(utility.very_low);
 	await remove.XCHUBRemovalsuccessfulBtn.click();
 	await utility.wait(2000);
 });

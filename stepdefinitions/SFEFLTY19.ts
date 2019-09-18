@@ -63,7 +63,7 @@ const SFEFLTY19Complete: JobCompletionPageObject = new JobCompletionPageObject()
 
 Given('the Login Page For SFEFLTY19', async function () {
 	await browser.get(config.baseUrl);
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 When('I pass {string} and {string} For SFEFLTY19', async function (username, password) {
@@ -73,11 +73,11 @@ When('I pass {string} and {string} For SFEFLTY19', async function (username, pas
 
 Then('I click Login button For SFEFLTY19', async function () {
 	await login.clickLogin();
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 });
 
 Then('I should see the Appointment List For SFEFLTY19', async function () {
-	//await utility.wait(10000);
+	//await utility.wait(utility.medium);
 	await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
 });
 
@@ -88,7 +88,7 @@ Given('the Appointment List window For SFEFLTY19', async function () {
 When('I click on select button For SFEFLTY19', async function () {
 	//await applist.continueLinkforEx21.click();
 	await home.clickCorrectSelectLink('SFEFLTY19');
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 Then('I should see Work Order window For SFEFLTY19', async function () {
@@ -112,19 +112,19 @@ Then('I should see page contect display For SFEFLTY19', async function () {
 });
 
 Then('I should see the CUSTOMER CONTACT NUMBER For SFEFLTY19', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await expect(await applist.custcontnumberTxt.getText()).equal("CUSTOMER CONTACT NUMBER:");
 
 });
 
 Then('I should see Contact made field For SFEFLTY19', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
 	await expect(applist.contactMadeYes.isPresent());
 });
 
 Then('I should see SFEFLTY19 DETERMINE FAULT ACTIVITY section', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await remove.determintfaultActivity();
 });
 
@@ -147,7 +147,7 @@ When('I fill the SFEFLTY19 determine faulty activity fields with values', async 
 	await remove.filleleccommsdtls();
 	await remove.captureevidsuspectedtamp();
 	await remove.fillFlty19commsdtls();
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await SFEFLTY19Complete.installSubmit();
 });
 
@@ -180,14 +180,14 @@ When('I click on OK button For SFEFLTY19', async function () {
 });
 
 Then('I should see ARRIVE button For SFEFLTY19', async function () {
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 	await applist.arriveBtn.getText().then(function (arriveBtnText) {
 		console.log("find Arrive Btn Text  " + arriveBtnText);
 	});
 });
 
 Then('I should see DOORSTEP PROTOCOL tab activated For SFEFLTY19', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});
@@ -200,9 +200,9 @@ When('I click on ARRIVE button For SFEFLTY19', async function () {
 
 Then('I should see Arrival Time details For SFEFLTY19', async function () {
 	//comment these 2 lines when continue link is not displayed
-	// await utility.wait(5000);
+	// await utility.wait(utility.medium_low);
 	// await applist.continueLink.click();
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
 	});
@@ -274,7 +274,7 @@ Given('the SFEFLTY19 CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section', async 
 
 When('I click on SFEFLTY19 CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {
 	await riskassess.capturephotoMeterInstall.click();
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 Then('I should see SFEFLTY19 INITIAL POLARITY CHECK - MARTINDALE TEST section', async function () {
@@ -324,7 +324,7 @@ Then('I should see SFEFLTY19 CURRENT METER DETAILS section', async function () {
 
 Given('the Check the SFEFLTY19 current meter detailssection', async function () {
 	await riskassess.verifyDF17CurrentMeterDetails();
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 });
 
 When('I fill the SFEFLTY19 current COMM meter details fields with the values', async function () {
@@ -384,7 +384,7 @@ When('I fill the SFEFLTY19 Perform Post Installation Checks details fields with 
 
 Then('I should see SFEFLTY19 current PPMID section', async function () {
 	await remove.currentihdppmiddetailtext();
-	await utility.wait(1000);
+	await utility.wait(utility.very_low);
 });
 
 Given('the SFEFLTY19 current PPMID detailssection', async function () {
