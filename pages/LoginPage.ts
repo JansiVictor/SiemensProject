@@ -1,6 +1,6 @@
 import { $, ElementFinder, element, by, browser } from "protractor";
 
-export class loginPageObject {
+export class LoginPageObject {
     public usernameTextBox: ElementFinder;
     public passwordTextBox: ElementFinder;
     public loginButton: ElementFinder;
