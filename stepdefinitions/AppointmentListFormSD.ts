@@ -1,10 +1,10 @@
 import {Then, When} from "cucumber";
 import {Utility} from "../support/utility";
-import {MarkAppointmentListPageObject} from "../pages/AppointmentListFormPage";
+import {AppointmentListPageObject} from "../pages/AppointmentListFormPage";
 
 const chai = require("chai");
 const expect = chai.expect;
-const appointmentListForm: MarkAppointmentListPageObject = new MarkAppointmentListPageObject();
+const appointmentListForm: AppointmentListPageObject = new AppointmentListPageObject();
 const utility: Utility = new Utility();
 
 Then('I should see the Appointment List Form', async function () {

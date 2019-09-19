@@ -1,12 +1,11 @@
-import {browser, by, element, ElementArrayFinder, ElementFinder} from "protractor";
+import {browser, by, element, ElementArrayFinder} from "protractor";
 import {Utility} from "../support/utility";
-import * as assert from "assert";
 
 const utility: Utility = new Utility();
 const chai = require("chai");
 const expect = chai.expect;
 
-export class MarkAppointmentListPageObject {
+export class AppointmentListPageObject {
 
     private pageHeaderText: ElementArrayFinder;
     private allRelevantSelectLinks: ElementArrayFinder;
@@ -25,6 +24,7 @@ export class MarkAppointmentListPageObject {
                 });
             };
         }
+
         browser.wait(presenceOfAll(this.pageHeaderText), 10000);
 
         if (await this.pageHeaderText.count() > 0) {

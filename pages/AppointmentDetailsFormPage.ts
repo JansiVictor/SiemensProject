@@ -1,6 +1,5 @@
 import {by, element, ElementArrayFinder, ElementFinder} from "protractor";
 import {Utility} from "../support/utility";
-import * as assert from "assert";
 
 const chai = require("chai");
 const expect = chai.expect;
