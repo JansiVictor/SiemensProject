@@ -25,7 +25,7 @@ import {
 } from "../pages/InstallPage";
 import {
     GASPageObject
-} from "../pages/GASPage";
+} from "../pages/GasPage";
 import {
     JobCompletionPageObject
 } from "../pages/JobCompletionPage";
