@@ -37,7 +37,7 @@ export class MarkAppointmentListPageObject {
 
     public clickOnRelevantSelectLink() {
         this.allRelevantSelectLinks.count().then(function (count) {
-            console.log("The number of relevant select > links identified = " + count + " !!!!");
+            console.log("The number of relevant select > links identified for this scenario is " + count);
         });
         this.allRelevantSelectLinks.get(0).click();
     }
