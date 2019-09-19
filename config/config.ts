@@ -14,7 +14,7 @@ export const config: Config = {
     capabilities: {
         browserName: 'chrome',
         shardTestFiles: true,
-        maxInstances: 1,
+        maxInstances: 2,
         metadata: {
             browser: {
                 name: 'chrome',
