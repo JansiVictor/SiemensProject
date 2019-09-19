@@ -141,16 +141,15 @@ They can be customized according to user's specific needs.
 
 ![cucumberreporterscreen](https://raw.githubusercontent.com/igniteram/protractor-cucumber-typescript/master/images/cucumberReporter_1.PNG)
 
-## Contributors
+#### Contributors
 * Aparna Das 
 * Jansi Victor
 * Supriya Harikumar
 * Priya Gangadharan
 * Mark Raphael
 
-## License
+#### License
 ```   
 MIT License
-
 Copyright (c) 2019
 ```
