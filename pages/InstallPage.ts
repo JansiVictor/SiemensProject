@@ -8,6 +8,9 @@ const chai = require("chai");
 const expect = chai.expect;
 import { Utility } from "../support/utility";
 import { watchFile } from "fs";
+import {
+	Alert
+} from 'selenium-webdriver';
 const utility: Utility = new Utility();
 
 export class InstallPageObject {
@@ -45,6 +48,23 @@ export class InstallPageObject {
 
     //CGP instal16
     public visualCheckPMEBonding: ElementFinder;
+    public installPPMIDText: ElementFinder;
+    public PPMIDOfferedYes: ElementFinder;
+    public PPMIDAccepted: ElementFinder;
+    public PPMIDLOCDD: ElementFinder;
+    public PPMIDToInstall: ElementFinder;
+    public inputPPMIDSerialNum: ElementFinder;
+    public infoOKButton: ElementFinder;
+    public PPMIDTxt: ElementFinder;
+    public ppmidAdditionalNote: ElementFinder;
+    public ppmidNXTBtn: ElementFinder;
+    public PPMIDinstallDDList: ElementFinder;
+    public randomEUDevicePPMID: ElementFinder;
+    public PPMIDCommText: ElementFinder;   
+    public emerJobNo: ElementFinder;
+
+
+
     
 
     public HasGasRegulatorReplacedY: ElementFinder;
@@ -219,8 +239,12 @@ export class InstallPageObject {
     public AssetaddedtowallTRAD: ElementFinder;
     public randomClickRegulator: ElementFinder;
 
-    //CGP for INst16
-    public emerJobNo: ElementFinder;
+    
+
+
+    // CGP added for EX23
+
+    public newCommsHubReqN: ElementFinder;
 
     constructor() {
 
@@ -480,6 +504,23 @@ export class InstallPageObject {
         this.visualCheckPMEBonding = element(by.id('rb_VisCPMEBond_y'));
         this.emerJobNo = element(by.id('rb_EmerJob_n'));
 
+
+        // CGP added for EX23
+        this.newCommsHubReqN = element(by.id('chubInstall_newChubRequired_n'));
+
+        //CGP INSTALL16
+        this.PPMIDOfferedYes = element(by.id('ihdscan2_ihdPpmidOfferedtrue'));
+        this.PPMIDAccepted = element(by.id('ihdscan2_ihdOrPPMIDAccepted_a'));
+        this.PPMIDLOCDD = element(by.id('ihdscan2_assetLocationSelect'));
+        this.PPMIDToInstall = element(by.id('ihdscan2_assetSelect'));
+        this.inputPPMIDSerialNum = element(by.id('ihdscan2_assetSerialNumber'));
+        this.infoOKButton = element(by.xpath('//div/button[@class="confirm"]'));
+        this.PPMIDTxt = element(by.xpath('//div[text()=" Select Valid PPMID To Install: "]'));
+        this.ppmidAdditionalNote = element(by.id('ihdscan2_additionalNotes'));
+        this.ppmidNXTBtn = element(by.id('ihdscan2_nextButton'));
+        this.PPMIDCommText = element(by.id('Title_xittd2'));
+        this.PPMIDinstallDDList = element(by.xpath('(//select[@id="ihdscan2_assetSelect"]/option)[2]'));
+        this.randomEUDevicePPMID = element(by.xpath('//div[text()="EUI Device ID:"]'));
 
     }
     public async dummy() {
@@ -1883,7 +1924,76 @@ public async fillAdditionalElecTestandChecksInst16() {
     
 }
 
-    
+//CGP added for EX23
+
+public async fillfieldsInstallcommshubEX23() {
+    await utility.wait(1000);
+    if (await this.newCommsHubReqN.isDisplayed()) {
+        await this.newCommsHubReqN.click();
+    }
+    // Next Section Button
+    await utility.wait(1000);
+        if (await this.instCommshubNext.isDisplayed()) {
+            await this.instCommshubNext.click();
+        }
+   
+}
+
+//CGP added for INSTALL16
+
+public async fillPPMIDSectionInst16(index:number){
+    if (this.PPMIDOfferedYes.isDisplayed()) {
+        await this.PPMIDOfferedYes.click();
+    }
+    if (this.PPMIDAccepted.isDisplayed()) {
+        await this.PPMIDAccepted.click();
+    }
+    if (await this.PPMIDLOCDD.isDisplayed()) {
+        var select = this.PPMIDLOCDD;
+        select.$('[value="A"]').click();
+        await utility.wait(1000);
+    }
+    if (await this.PPMIDToInstall.isDisplayed()) {
+		await utility.wait(5000);
+		// click the dropdown
+		this.PPMIDToInstall.click()
+		browser.sleep(5000)
+	//index = index ;
+	console.log("Selecting element based index : "+index)
+	// select the option
+	await this.PPMIDToInstall.element(by.css("option:nth-child("+index+")")).click()
+	await utility.wait(8000);
+		await expect(await this.inputPPMIDSerialNum.isPresent());
+		var options = this.PPMIDinstallDDList.getAttribute('value');
+        await this.inputPPMIDSerialNum.sendKeys(options);
+        await this.randomEUDevicePPMID.click();
+		let ale: Alert = browser.switchTo().alert();
+		// clicks 'OK' button
+		ale.accept();
+		//await utility.wait(2000);
+        await this.infoOKButton.click();
+    }
+  
+    if (this.ppmidAdditionalNote.isDisplayed()) {
+        await this.ppmidAdditionalNote.sendKeys('Additonal Notes CGP');
+    }
+    if (this.ppmidNXTBtn.isDisplayed()) {
+        await this.ppmidNXTBtn.click();
+    }
+}
+//-------------------------
+
+public async PPMIDCommisioningdisplay(){
+    if (this.PPMIDCommText.isDisplayed()) {
+        await this.PPMIDCommText.getText().then(function (PPMIDCommText) {
+            console.log("find PPMIDCommText Text  " + PPMIDCommText);
+        });
+    }
+}
+
+
+
+
 }
 
 

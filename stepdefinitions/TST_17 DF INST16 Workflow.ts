@@ -1,7 +1,7 @@
 import { browser, protractor, element, by } from "protractor";
 import { loginPageObject } from "../pages/loginPage";
 import { FLTY19homePageObject } from "../pages/FLTY19homePage";
-import { FLTY19AppointmentListPageObject } from "../pages/FLTY19AppointmentListPage";
+import { AppointmentListPageObject } from "../pages/AppointmentListPage";
 import { DoorStepPageObject } from "../pages/DoorStepPage";
 import { RiskAssessmentPageObject } from "../pages/RiskAssessmentPage";
 import { RemovePageObject } from "../pages/RemovePage";
@@ -13,7 +13,7 @@ import { RemoveTRADPageObject } from "../pages/RemoveTRAD";
 import { RiskAssessmentPageElecObject } from "../pages/ElectricPage";
 import { GASPageObject } from "../pages/GASPage";
 import { JobCompletionPageObject } from "../pages/JobCompletionPage";
-import { Installation16JobCompletionPageObject } from "../pages/Installation16JobCompletion";
+
 const { Given, When, Then } = require("cucumber");
 const chai = require("chai");
 const expect = chai.expect;
@@ -22,14 +22,14 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 const utility: Utility = new Utility();
 const login: loginPageObject = new loginPageObject();
 const home: FLTY19homePageObject = new FLTY19homePageObject();
-const applist: FLTY19AppointmentListPageObject = new FLTY19AppointmentListPageObject();
+const applist: AppointmentListPageObject = new AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: RiskAssessmentPageObject = new RiskAssessmentPageObject();
 const riskassessElecInst16: RiskAssessmentPageElecObject = new RiskAssessmentPageElecObject();
 const inst: InstallPageObject =new InstallPageObject();
 const riskassessGAS: GASPageObject = new GASPageObject();
 const job: JobCompletionPageObject = new JobCompletionPageObject();
-const installation16Complete: Installation16JobCompletionPageObject = new Installation16JobCompletionPageObject();
+
 
 
 Given('the Login Page for INST16', async function () {
@@ -526,7 +526,7 @@ await inst.seePPMIDsection();
 });
 When('I fill the fields for Install PPMID for INST16', async function () {
 //await inst.fillthefieldsforseePPMIDsection(2);
-await installation16Complete.fillPPMIDSection(2);
+await inst.fillPPMIDSectionInst16(2);
 
 });
 Then('I should see PPMID COMMISSIONING section for INST16', async function () {
@@ -539,7 +539,7 @@ await inst.SeePPMIDcommisioning();
 });
 When('I click on Send Message IHD-PPMID butn for INST16', async function () {
 //await inst.clickonIHDPPMID();
-await installation16Complete.PPMIDMessage();
+await job.PPMIDMessage();
 });
 
 Then('I should see DEVICE BINDING and COMMISSIONING sec for INST16', async function () {
@@ -552,21 +552,21 @@ Given('the DEVICE BINDING & COMMISSIONING section for INST16', async function ()
   await job.DeviceBinding();
 });
 When('I fill the fields53 and click next for INST16', async function () {
-  await installation16Complete.fillDeviceBindingSection();
+  await job.fillDeviceBindingSectionInst16();
 });
 Then('I should see configuration of all meters installed section for INST16', async function () {
-  await installation16Complete.configAllmeterDisplay();
+  await job.configAllmeterDisplayInst16();
   console.log ("Test");
 });
 
 //----------------------------------------------------------------------------------------
 Given('the configuration of all meters installed  section for INST16',async function () {
-  await installation16Complete.configAllmeterDisplay();
+  await job.configAllmeterDisplayInst16();
   console.log ("Test");
 });
 
 When('I fill the configuration of all meters installed  fields with values for INST16',async function () {
-  await installation16Complete.fillConfigAllmeterInstall16();
+  await job.fillConfigAllmeterInstall16();
   
 });
 

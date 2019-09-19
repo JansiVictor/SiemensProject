@@ -339,11 +339,8 @@ export class RiskAssessmentPageObject {
         if (this.infoText.isDisplayed()) {
             //CGP added
             let ale: Alert = browser.switchTo().alert();
-
 		// clicks 'OK' button
-
 		//ale.accept();
-
 		await utility.wait(2000);
             await this.infoOKButton.click();
             await utility.wait(5000);

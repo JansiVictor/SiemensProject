@@ -282,8 +282,13 @@ export class RiskAssessmentPageElecObject {
         this.DDnewMeteroption = element(by.xpath('//select/option[@value="E9E00000000021"]'));
 		this.initialElctext = element(by.xpath('//div[text()="Capture Meter Reading - Register (null):"]'));
 		this.selectinstallAssetOption = element(by.xpath('(//select[@id="chubInstall_selectAsset"]/option)[4]'));
+		
 		this.selectinstallMeterOption=element(by.xpath('(//select[@id="newMeter_assetSelect"]/option)[4]'));
+	
+
+	
 	}
+
 	
 	
     
@@ -987,7 +992,35 @@ await this.randomEUDevice.click();
         await this.initialElctext.click();
 		await this.meterReadingNxtBtn.click();
 		await utility.wait(1000);
+	}
+	
+
+	//CGP added for ex23
+
+	public async fillInitialElecMeterReadingEX23() {
+		await expect(await this.captureMeterReadingInput.isPresent());
+		await this.captureMeterReadingInput.clear();
+		await this.captureMeterReadingInput.sendKeys('12345');
+		
+		await utility.wait(5000);
+		await this.initialElctext.click();
+		console.log("Clicked");
+
+		//Below can be used if random click doesnt work
+
+		// if (await this.unableToReadMeterYes.isDisplayed()) {
+        //     await this.unableToReadMeterYes.click();
+		// }    
+		// await utility.wait(1000);	 
+		
+		// if (await this.meterReadingNxtBtn.isDisplayed()) {
+        //     await this.meterReadingNxtBtn.click();
+		// }   
+		
+		
+		await utility.wait(1000);
     }
+
 
 /***
  * @Author Aparna Das
@@ -1121,4 +1154,27 @@ public async fillPostInstallationCheckINST16() {
 		}
 
 	}
+// CGP added for EX23
+	public async eicomMessageEX23() {
+		if (this.eicomSendMsg.isDisplayed()) {
+			await this.eicomSendMsg.getText().then(function (eicomSend) {
+				console.log("find eicomSendMsg Text  " + eicomSend);
+			});
+			await this.eicomSendMsg.click();
+			await utility.wait(80000);
+			//commented below
+			// await this.awaitingResponseTxt.getText().then(function (awaitingResponseTxt) {
+			// 	console.log("find awaitingResponseTxt Text  " + awaitingResponseTxt);
+			// });
+		//	await utility.wait(60000);
+			if (this.commSuccess.isDisplayed()) {
+				await this.commSuccess.click();
+				await utility.wait(3000);
+			}
+		}
+
+	}
+
+
+
 }

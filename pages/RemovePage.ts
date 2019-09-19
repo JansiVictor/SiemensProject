@@ -153,6 +153,75 @@ export class RemovePageObject {
     public ppmidremoval: ElementFinder;
     public btnnext: ElementFinder;
 
+     //cgp added 13/09
+     public nextSecGasBtn: ElementFinder;
+     //CGP added 18/09    
+    public ElecRemoveMeter: ElementFinder;
+	public RemoveElecAssetrplacedorremoved: ElementFinder;
+    public statusofElecAssetSelect: ElementFinder;
+	public reqSentSuccessEMREM: ElementFinder;
+	public RemovalSuccessElec: ElementFinder;
+    public OKtoremoveAssetElec: ElementFinder;    
+	public ElecAssetRemoval: ElementFinder;
+	public ElecAssetRemovalY: ElementFinder;
+    public ElecAssetRemovalPopup: ElementFinder;
+    public ConfirmElecCommsHubNxtBtn: ElementFinder;
+    public currentMeterElecCap: ElementFinder;
+    public SendElMREMBtn: ElementFinder;
+    public SendElMREMBtnCap: ElementFinder;
+    public existingelecmeterdtls: ElementFinder;
+    public meterReadingElec: ElementFinder;
+    public confirmElecmeterText: ElementFinder;
+    public confirmElecmeterOnsupply: ElementFinder;
+    public elecMeter: ElementFinder;
+    public elecMeterY: ElementFinder;
+	public ElecremovalNxtBtn: ElementFinder;
+	public SendElecRMPanel: ElementFinder;
+	public SendEMREMBtn: ElementFinder;
+    public AwaitingRespEMREM: ElementFinder;
+    //CGP added
+    public currentMeterDetTRAD: ElementFinder
+    public captureCurrentMeterText: ElementFinder;
+    public randomClick1: ElementFinder;
+    public randomClick2: ElementFinder;
+    public randomClickEX23: ElementFinder;
+    public randomClickTRAD: ElementFinder;
+    public currentMetDet: ElementFinder;
+    public nonserealizedAssetDD: ElementFinder;
+    public nonserealizedAssetInput: ElementFinder;  
+    
+    public removeMeter: ElementFinder;
+    public assetRemovalElec: ElementFinder;
+    public elecRemoveNextSec: ElementFinder;
+    public confirmElecAssetRemoval: ElementFinder;
+    public elecAssetRemoval: ElementFinder;
+    public elecAssetRemovalY: ElementFinder;
+    public elecAssetRemovalPopup: ElementFinder;
+    public statusofAssetElec: ElementFinder;
+    public nextSecRem: ElementFinder;
+    public commshubReqY: ElementFinder;
+    public msgToDCCY: ElementFinder;
+    public commsHubConnectedYes: ElementFinder;
+    public commissioningNxtBtn: ElementFinder;
+    public submitElecRemSecEndTRAD: ElementFinder;
+    public meterReadingLabel1: ElementFinder;
+    public meterReadingLabel2: ElementFinder;
+    public meterReadingLabelTRAD: ElementFinder;
+    public meterReading1: ElementFinder;
+    public meterReading2: ElementFinder;    
+    public meterReadingTRAD: ElementFinder;
+    public existelecmeterDtlY: ElementFinder;
+    public confirmElecMeterOnsupply: ElementFinder;
+    public SMET2AssetInstalledN: ElementFinder;
+    public exchangeAssetY: ElementFinder;
+    public equipmentRepositionRequired: ElementFinder;
+    public SMETSOffered: ElementFinder;    
+    public elecMeterRadio: ElementFinder;
+    public gasMeterRadio: ElementFinder;
+    public regulatorRadio: ElementFinder;
+    public smet2ihdppidN: ElementFinder;
+
+
 
     constructor() {
         //#region Panel Click
@@ -331,6 +400,95 @@ export class RemovePageObject {
         this.ConfirmCommsHubRemovalPopup = element(by.xpath('//*[text()="OK"]'));
         this.ConfirmCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])[2]'));
         //#endregion
+
+        
+        //CGP added for FLTY TRAD20
+
+        this.removeMeter = element(by.xpath('//div/h4[text()="Remove Meter"]'));
+        this.assetRemovalElec = element(by.xpath('//input[@id ="CCHradio5"]/following-sibling::span[@class="outer"]'));
+        this.statusofAssetElec = element(by.xpath('//select[@id="cbx_StaAss_sel"]'));
+        this.elecRemoveNextSec = element(by.id('btn_Next_rmv'));
+        this.confirmElecAssetRemoval = element(by.xpath('//div/h4[text()="Confirm Electric Asset Removal"]'));
+        this.elecAssetRemoval = element(by.xpath('//select[@id="cbx_RAss_Status"]'));
+        this.elecAssetRemovalY = element(by.xpath('//*[@id="rb_CAssRem_y"]'));
+        this.elecAssetRemovalPopup = element(by.xpath('//*[text()="OK"]'));
+        this.commshubReqY = element(by.xpath('//*[@id="chubInstall_newChubRequired_y"]/span[@class="outer"]'));
+        this.commsHubConnectedYes = element(by.id('Cradionm1'));
+        this.commissioningNxtBtn = element(by.id('CbtnNextComm'));
+        this.submitElecRemSecEndTRAD = element(by.xpath('//button[@id="btn1"]'));
+        this.existelecmeterDtlY = element(by.id('rb_ExMetDetCorrt_y'));
+
+        //CGP added
+        this.nextSecGasBtn = element(by.id('removeGasAsset_nextButton'));
+        this.existingelecmeterdtls = element(by.xpath('//*[@id="rb_ExMetDetCorrt_y"]/span[@class="outer"]'));
+        this.meterReadingElec = element(by.xpath('//*[contains(text(),"Capture Meter Reading - Register (1):")]'));
+        this.currentMeterElecCap = element(by.xpath('//*[contains(text(),"Current Meter Details")]'));
+        this.confirmElecmeterText = element(by.xpath('//*[contains(text(),"Confirm if Elec meter is On Supply or Off Supply")]'));
+        this.confirmElecmeterOnsupply = element(by.xpath('//input[@id="confirmelecsupplytrue"]/following-sibling::span[@class="outer"]'));
+		this.elecMeter = element(by.xpath('//*[contains(text(),"Elec Meter?")]'));
+        this.elecMeterY = element(by.xpath('//input[@id="elecmexdfa"]/following-sibling::span[@class="cr"]'));
+        this.ElecremovalNxtBtn = element(by.xpath('//*[@id="btn_Next_rmv"]'));
+        this.SendElecRMPanel = element(by.xpath('//div[@id="Title_emrem"]'));	
+		this.SendEMREMBtn = element(by.xpath('//*[@id="gmrem_sendMessageButton"]'));
+        this.AwaitingRespEMREM = element(by.xpath('//*[text()="Awaiting Response"]'));     
+		this.ElecRemoveMeter = element(by.xpath('//div/h4[text()="Remove Meter"]'));
+		this.RemoveElecAssetrplacedorremoved = element(by.xpath('((//*[@id="CCHradio5"])[2])/following-sibling::span[@class="outer"]'));
+        this.statusofElecAssetSelect = element(by.xpath('//select[@id="cbx_StaAss_sel"]'));      
+        this.reqSentSuccessEMREM = element(by.xpath('(//*[text()="Request Sent Successfully"])[2]'));
+        this.RemovalSuccessElec = element(by.xpath('//*[@id="emrem_nextButton"]'));
+        this.OKtoremoveAssetElec = element(by.xpath('//*[text()="OK to Remove Asset"]'));
+        this.confirmElecAssetRemoval = element(by.xpath('//*[@id="Title_Remove_Ass"]'));
+        this.ElecAssetRemoval = element(by.xpath('//select[@id="cbx_RAss_Status"]'));
+        this.ElecAssetRemovalY = element(by.xpath('//*[@id="rb_CAssRem_y"]/span[@class="outer"]'));
+        this.ElecAssetRemovalPopup = element(by.xpath('//*[text()="OK"]'));
+        this.ConfirmElecCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])'));
+        this.SendElMREMBtnCap = element(by.xpath('//*[@id="Title_emrem"]'));
+        this.SendElMREMBtn = element(by.xpath('//*[@id="emrem_sendMessageButton"]'));
+        this.meterReading1 = element(by.xpath('(//*[contains(text(),"Capture Meter Reading - Register")])[1]'));
+        this.meterReading2 = element(by.xpath('(//*[contains(text(),"Capture Meter Reading - Register")])[2]'));
+        this.meterReadingTRAD = element(by.xpath('//*[contains(text(),"Capture Meter Reading - Register")]'));
+        this.meterReadingLabel1 = element(by.xpath('(//input[@id="reg0"])[1]'));
+        this.meterReadingLabel2 = element(by.xpath('(//input[@id="reg0"])[2]'));
+        this.meterReadingLabelTRAD = element(by.xpath('//input[@id="reg0"]'));
+
+        this.captureCurrentMeterText = element(by.xpath('//div[@class="sectionTitle assessHeader alignCenter orange"]'));
+        // CGP added for Determine Fault Activity
+        //this.confirmgasmeterOnsupply = element(by.xpath('//input[@id="confirmgassupplytrue"]/following-sibling::span[@class="outer"]'));
+        this.confirmElecMeterOnsupply = element(by.xpath('//input[@id="confirmelecsupplytrue"]/following-sibling::span[@class="outer"]'));
+        this.SMET2AssetInstalledN = element(by.xpath('//input[@id="smets2Installedfalse"]/following-sibling::span[@class="outer"]'));
+        this.exchangeAssetY = element(by.xpath('//input[@id="exchangeassettrue"]/following-sibling::span[@class="outer"]'));
+        this.equipmentRepositionRequired = element(by.id('repositionSelect'));
+        this.SMETSOffered = element(by.xpath('//input[@id="smets2offeredtrue"]/following-sibling::span[@class="outer"]'));
+        this.elecMeterRadio = element(by.xpath('//input[@id="elecmexdfa"]/following-sibling::span[@class="cr"]'));
+        this.gasMeterRadio = element(by.xpath('//input[@id="gasmexdfa"]/following-sibling::span[@class="cr"]'));
+        this.regulatorRadio = element(by.xpath('//input[@id="regexdfa"]/following-sibling::span[@class="cr"]'));
+        this.nextSecRem = element(by.id('btnNextEff'));
+        this.msgToDCCY = element(by.xpath('//input[@id="comms2MessageReqtrue"]/following-sibling::span[@class="outer"]'));
+        this.currentMeterDetTRAD = element(by.id('Title_currentMeterDetails'));
+        this.randomClickEX23 = element(by.id('rb_UnReadMet_y'));
+        // cgp added
+        this.existelecmeterDtlY = element(by.id('rb_ExMetDetCorrt_y'));
+        // CGP added
+        this.currentMeterDetTRAD = element(by.id('Title_currentMeterDetails'));
+        this.randomClick1 = element(by.xpath('(//div[@class="checkLabel"])[1]'));
+        this.randomClick2 =  element(by.xpath('(//div[@class="checkLabel"])[2]'));
+        this.currentMeterDetTRAD = element(by.id('Title_currentMeterDetails'));
+       // this.randomClick1 = element(by.xpath('(//div[@class="checkLabel"])[1]'));
+       // this.randomClick2 =  element(by.xpath('(//div[@class="checkLabel"])[2]'));
+        this.randomClickEX23 = element(by.id('rb_UnReadMet_y'));
+
+        this.randomClickTRAD = element(by.xpath('//div[@class="checkLabel"]'));
+        this.currentMetDet = element(by.id('Title_CurrMe_Det'));
+        this.nonserealizedAssetDD = element(by.id('Cselect4'));
+        this.nonserealizedAssetInput = element(by.id('Cbar3'));
+        //CGP TRAD changes
+        this.smet2ihdppidN = element(by.xpath('//label[@id="currentIhdPpmid_assetOnSite_n"]'));
+
+        
+
+
+
+
     }
 
     /**
@@ -996,6 +1154,586 @@ export class RemovePageObject {
         }
     }
     //#endregion
+
+// cgp added
+
+public async capturecurrentmeterGasPageContent() {
+    await utility.wait(5000);
+    await this.captureCurrentMeterText.getText().then(function (capturecurrentmeterdtlPgContent) {
+        console.log("Find current detail gas section content  " + capturecurrentmeterdtlPgContent);
+    });
+}
+
+//CGP added
+//CGP added
+
+public async captureElecSection() {
+    await utility.wait(5000);
+    await this.currentMetDet.getText().then(function (capturecurrentmeterdtlPgContentElec) {
+        console.log("Find current detail elec section content  " + capturecurrentmeterdtlPgContentElec);
+    });
+}
+
+//CGP added
+public async captureElecSectionTRAD() {
+    await utility.wait(5000);
+    await this.capctmeterReadingPanel.getText().then(function (Test1) {
+        console.log("Find current detail elec section content  " + Test1);
+    });
+}
+
+
+
+
+
+//CGP added capture current meter
+    public async fillcapturecurrentmeterdtlGassec() {
+        await utility.wait(2000);
+        if (await this.captureCurrentMeterText.isDisplayed()) {
+            await this.existgasmeterDtlY.click();
+        }
+        await utility.wait(1000);
+        if (await this.meterReading1.isDisplayed()) {
+            await this.meterReadingLabel1.clear();
+            await this.meterReadingLabel1.sendKeys("1234");
+            await this.randomClick1.click();
+            console.log("Random Click 1");
+            await utility.wait(2000);
+          
+        }
+    }
+
+    // CGP added 13/09
+
+ public async fillcapturecurrentmeterdtlGassecTRAD() {
+        await utility.wait(2000);
+        if (await this.captureCurrentMeterText.isDisplayed()) {
+            await this.existgasmeterDtlY.click();
+        }
+        await utility.wait(1000);
+        if (await this.meterReading1.isDisplayed()) {
+            await this.meterReadingLabel1.clear();
+            await this.meterReadingLabel1.sendKeys("12345");
+            await this.randomClick1.click();
+            console.log("Random Click 1");
+            await utility.wait(2000);
+          
+        }
+    }
+ public async  currentMeterDetailsHeader()
+    {
+        await this.currentMeterDetTRAD.getText().then(function (currentMeterDetails) {
+            console.log("Current Meter Details Title  " + currentMeterDetails);
+        });
+    }
+   
+public async fillcurrentmeterdtlElecsecTRAD() {
+        await utility.wait(2000);
+        if (await this.currentMetDet.isDisplayed()) {
+            await utility.wait(2000);
+            console.log("Current meter details displayed");
+            await this.existelecmeterDtlY.click();
+            console.log("Electric section clciked");
+            
+        }
+        await utility.wait(2000);
+        if (await this.meterReadingTRAD.isDisplayed()) {
+            await this.meterReadingLabelTRAD.clear();
+            await this.meterReadingLabelTRAD.sendKeys("12345");
+            console.log("Text Enterd for elect 5 digits");
+            await this.randomClickTRAD.click();
+            console.log("Random Click 2");
+            // Change Later
+
+           //await utility.wait(1000);
+            //await this.elecRemoveNextSec.click();
+            
+            //await this.ctmeterdtlGasNxt.click();
+            console.log("Next Button clicked 2");
+            await utility.wait(3000);
+
+           // await this.meterReading.click();
+        }
+    }
+
+   
+public async fillcurrentmeterdtlElecsecEX23() {
+        await utility.wait(2000);
+        if (await this.existelecmeterDtlY.isDisplayed()) {                        
+            await this.existelecmeterDtlY.click();
+            console.log("Electric section clciked");         
+        
+    }
+}
+
+public async fillcurrentmeterdtlElecsec() {
+        await utility.wait(2000);
+        if (await this.currentMetDet.isDisplayed()) {
+            await utility.wait(2000);
+            console.log("Current meter details displayed");
+            await this.existelecmeterDtlY.click();
+            console.log("Electric section clciked");
+            
+        }
+        await utility.wait(2000);
+        if (await this.meterReading2.isDisplayed()) {
+            await this.meterReadingLabel2.clear();
+            await this.meterReadingLabel2.sendKeys("12345");
+            console.log("Text Enterd for elect 5 digits");
+            await this.randomClick2.click();
+            console.log("Random Click 2");
+            
+            await utility.wait(3000);
+            await this.elecRemoveNextSec.click();            
+            //await this.ctmeterdtlGasNxt.click();
+            console.log("Next Button clicked 2");
+            await utility.wait(3000);
+           // await this.meterReading.click();
+        }
+    }
+
+//CGP added for FLTY20TRAD
+
+public async confirmMeterSupply() {
+    await utility.wait(4000);
+    if (await this.confirmElecMeterOnsupply.isDisplayed()) {
+        await this.confirmElecMeterOnsupply.click();
+    }
+    await utility.wait(2000);
+    if (await this.confirmgasmeterOnsupply.isDisplayed()) {
+        await this.confirmgasmeterOnsupply.click();
+    }
+}
+ 
+public async confirmMeterSupplyTRAD() {
+    await utility.wait(4000);
+    if (await this.confirmElecMeterOnsupply.isDisplayed()) {
+        await this.confirmElecMeterOnsupply.click();
+    }
+}
+
+public async confirmMeterSupplyGasTRAD() {
+    await utility.wait(4000);
+    if (await this.confirmgasmeterOnsupply.isDisplayed()) {
+        await this.confirmgasmeterOnsupply.click();
+    }
+}
+
+//CGP added 13/09
+
+public async exchangeAssetGasTRAD()
+{
+    await utility.wait(3000);
+    if (await this.exchangeAssetY.isDisplayed()) {
+        await this.exchangeAssetY.click();
+    }        
+    await utility.wait(3000);
+    if (await this.gasMeterRadio.isDisplayed()) {
+        await this.gasMeterRadio.click();
+    }
+    await utility.wait(3000);
+    if (await this.regulatorRadio.isDisplayed()) {
+        await this.regulatorRadio.click();
+    }
+
+}
+
+public async exchangeAssetTRAD()
+{
+    await utility.wait(3000);
+    if (await this.exchangeAssetY.isDisplayed()) {
+        await this.exchangeAssetY.click();
+    }
+    await utility.wait(3000);
+    if (await this.elecMeterRadio.isDisplayed()) {
+        await this.elecMeterRadio.click();
+    }
+}
+
+//CGP Added for FLTY20 TRAD flow
+public async removeGasMeter() {
+    await utility.wait(1000);
+    await this.removePPMID.getText().then(function (removePPMIDTxt) {
+        console.log("Remove PPMID " + removePPMIDTxt);
+    });
+}
+
+// CGP added for EX23
+public async fill21rmvihdppmidtlsEX23() {
+    await utility.wait(2000);
+    if (await this.rmvihdppmidstatusofAssetSel.isDisplayed()) {
+        var select = await this.rmvihdppmidstatusofAssetSel;
+        await select.$('[label = "No Fault Found"]').click();
+    }
+}
+
+
+// CGP Added for TRAD20
+
+public async removeElecmeterSec() {
+    await utility.wait(1000);
+    await this.removeMeter.getText().then(function (RemoveIRemoveElecMeterPanelTxt) {
+        console.log("Remove Elec Meter " + RemoveIRemoveElecMeterPanelTxt);
+    });
+}
+   //CGP Elect Asset Removal
+
+
+   public async fillElecmeterRemoval() {
+    await utility.wait(1000);
+    if (await this.assetRemovalElec.isDisplayed()) {
+        await this.assetRemovalElec.click();
+        console.log("Status of elec asset removed yes selected")
+    }
+    await utility.wait(1000); // Change Later
+    if (await this.statusofAssetElec.isDisplayed()) {
+        var select1 = this.statusofAssetElec;
+        await select1.$('[label = "No Fault Found"]').click();
+
+        console.log("No Fault Found Selected")
+    }
+    await utility.wait(1000);
+    // if (await this.removedmeterReading.isDisplayed()) {
+    //     await this.removedmeterReading.clear();
+    //     //await this.removedmeterReading.sendKeys('1234');
+    // }
+}
+
+public async clickonnxtBtnofElecmeterRemovalTRAD() {
+    await utility.wait(1000);
+    if (await this.elecRemoveNextSec.isDisplayed()) {
+        await this.elecRemoveNextSec.click();
+    }
+}
+
+//CGP ADDED for EX23
+
+public async RmvElecmeterSec() {
+
+    await utility.wait(1000);
+
+    if(this.ElecRemoveMeter.isDisplayed()){}
+
+        console.log("REMOVE ELECTRIC METER");
+
+}
+
+public async fillElecmeterremEX23() {
+
+    await utility.wait(3000);
+
+    if (await this.RemoveElecAssetrplacedorremoved.isDisplayed()) {
+
+        await this.RemoveElecAssetrplacedorremoved.click();
+
+    }
+
+    await utility.wait(3000);
+
+    if (await this.statusofElecAssetSelect.isDisplayed()) {
+
+        var select = this.statusofElecAssetSelect;
+
+        await select.$('[label="No Fault Found"]').click();
+
+    }
+
+    await utility.wait(1000);
+
+    if (await this.removedmeterReading.isDisplayed()) {
+
+        await this.removedmeterReading.clear();
+
+        await this.removedmeterReading.sendKeys('12345');
+
+        await utility.wait(5000);
+
+        await this.randomClick2.click();
+            console.log("Random Click EX23");
+
+    }
+
+}
+
+public async clickonnxtBtnofElecmeterRemovalEX23() {
+
+    await utility.wait(1000);
+
+    if (await this.ElecremovalNxtBtn.isDisplayed()) {
+
+        await this.ElecremovalNxtBtn.click();
+
+    }
+
+}
+
+public async sendmsgEMREM() {
+
+    await utility.wait(1000);
+
+    await this.SendElMREMBtnCap.getText().then(function (SendElMREMBtnCapTxt) {
+
+        console.log("Send EMRM" + SendElMREMBtnCapTxt);
+
+    });
+
+}
+
+public async clickOnsendmsgEMREM() {
+
+    await utility.wait(1000);
+
+    if (await this.SendElMREMBtn.isDisplayed()) {
+
+        await this.SendElMREMBtn.click();
+
+    }
+
+}
+
+
+
+public async AwaitingResponseEMREMEX23() {
+
+    await utility.wait(80000);
+
+}
+
+public async Elecremovalsuccessfulbtn() {
+
+    await utility.wait(2000);
+
+    await expect(this.RemovalSuccessElec.isDisplayed());
+
+}
+
+public async ElecReqSentSuccess() {
+
+    await utility.wait(1000);
+
+    await expect(this.reqSentSuccessEMREM.isDisplayed());
+
+}
+
+public async ElecOktoRemoveAsset() {
+
+    await utility.wait(1000);
+
+    await expect(this.OKtoremoveAssetElec.isDisplayed());
+
+}
+
+public async clickonElecremovalsuccessfulbtn() {
+
+    await utility.wait(1000);
+
+    if (await this.RemovalSuccessElec.isDisplayed()) {
+
+        await this.RemovalSuccessElec.click();
+
+    }
+
+}
+
+public async confirmElecAssetRem() {
+
+    await utility.wait(1000);
+
+    await this.confirmElecAssetRemoval.getText().then(function (confirmElecAssetRemovalTxt) {
+
+        console.log("Confirm Elec Asset Removal" + confirmElecAssetRemovalTxt);
+
+    });
+
+}
+
+public async fill24ElecAssetRemoval() {
+
+    await utility.wait(1000);
+
+    if (await this.ElecAssetRemoval.isDisplayed()) {
+
+        var select = this.ElecAssetRemoval;
+
+        await select.$('[value="1"]').click();
+
+    }
+
+    await utility.wait(1000);
+
+    if (await this.ElecAssetRemovalY.isDisplayed()) {
+
+        await this.ElecAssetRemovalY.click();
+
+    }
+
+}
+
+public async clickonokElecAssetRemovalEX23() {
+
+    await utility.wait(1000);
+
+    if (await this.ElecAssetRemovalPopup.isDisplayed()) {
+
+        await this.ElecAssetRemovalPopup.click();
+
+    }
+
+}
+
+public async clickonElecsubmitforRemoval() {
+
+    await utility.wait(1000);
+
+    if (await this.ConfirmElecCommsHubNxtBtn.isDisplayed()) {
+
+        await this.ConfirmElecCommsHubNxtBtn.click();
+
+    }
+
+}
+
+// CGP Added Elec Removal
+
+public async fillElecAssetRemoval() {
+    await utility.wait(4000);
+    if (await this.elecAssetRemoval.isDisplayed()) {
+        var select = this.elecAssetRemoval;
+        await select.$('[value="1"]').click();
+    }
+    await utility.wait(4000);
+    if (await this.elecAssetRemovalY.isDisplayed()) {
+        await this.elecAssetRemovalY.click();
+    }
+}
+public async clickonokElecAssetRemoval() {
+    await utility.wait(2000);
+    if (await this.GasAssetRemovalPopup.isDisplayed()) {
+        await this.GasAssetRemovalPopup.click();
+    }
+}
+
+public async clickonNextsectionRemove()
+{
+await utility.wait(2000);
+    if (await this.nextSecRem.isDisplayed()) {
+        await this.nextSecRem.click();
+    }
+}
+
+//CGP added 13/09
+
+public async clickonNextsectionRemoveTRAD()
+{
+    await utility.wait(2000);
+        if (await this.nextSecGasBtn.isDisplayed()) {
+            await this.nextSecGasBtn.click();
+        }
+}
+
+// Added for FLTY19 TRAD
+public async clickSubmitRemElecSecTRAD()
+{
+    await utility.wait(2000);
+        if (await this.submitElecRemSecEndTRAD.isDisplayed()) {
+            await this.submitElecRemSecEndTRAD.click();
+        }
+}
+
+public async fillCommsHubReqY() {
+    await utility.wait(5000);
+    if (await this.commshubReqY.isDisplayed()) {
+        await this.commshubReqY.click();
+    }
+}
+
+public async fillCommissioningDetailsTRAD() {
+    if (await this.nonserealizedAssetDD.isDisplayed()) {
+        await utility.wait(2000);
+        var select = this.nonserealizedAssetDD;
+        select.$('[value="1"]').click();
+    }
+    await expect(await this.nonserealizedAssetInput.isPresent());
+    await this.nonserealizedAssetInput.sendKeys('1');
+
+    await utility.wait(1000);
+        if (await this.msgToDCCY.isDisplayed()) {
+            await this.msgToDCCY.click();
+        }
+        await this.commsHubConnectedYes.click();
+		await utility.wait(3000);
+
+		await this.commissioningNxtBtn.click();
+		await utility.wait(1000);
+}
+//CGP added
+public async fillCommissioningDetailsEX23() {
+
+    if (await this.nonserealizedAssetDD.isDisplayed()) {
+        await utility.wait(3000);
+        var select = this.nonserealizedAssetDD;
+        select.$('[value="1"]').click();
+    }
+    await utility.wait(3000);
+    await expect(await this.nonserealizedAssetInput.isPresent());
+    await this.nonserealizedAssetInput.sendKeys('1');
+
+    await utility.wait(3000);
+        if (await this.commsHubConnectedYes.isDisplayed()) {
+            await this.commsHubConnectedYes.click();
+        }      
+        await utility.wait(3000);    
+		await this.commissioningNxtBtn.click();
+		await utility.wait(1000);
+}
+
+// CGP TRAD CHanges
+
+public async fillcurrentIhdPPMIDdtlsTRAD() {
+    await utility.wait(2000);
+    if (await this.smet2ihdppidText.isDisplayed()) {
+        await this.smet2ihdppidN.click();
+    }
+    await utility.wait(1000);
+    try {
+        if (await this.IhdPpmidNxt.isPresent()) {
+            await this.IhdPpmidNxt.click();
+        }
+    } catch (error) {
+        console.log("Next section is not present at this moment");
+    }  
+}
+
+public async smet2AssetInstalled()
+    {
+        await utility.wait(3000);
+        if (await this.SMET2AssetInstalledN.isDisplayed()) {
+            await this.SMET2AssetInstalledN.click();
+        }
+    }
+
+    public async equipReposition()
+    {
+        await utility.wait(2000);
+        if (await this.equipmentRepositionRequired.isDisplayed()) {
+            var select = await this.equipmentRepositionRequired;
+            await select.$('[value="Yes-Customer Agreed"]').click();
+        }
+    }
+
+    public async smetsOffered()
+    { 
+        await utility.wait(3000);
+        if (await this.SMETSOffered.isDisplayed()) {
+            await this.SMETSOffered.click();
+        }
+
+    }
+
+
+
+
+
 }
 
 

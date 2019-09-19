@@ -9,6 +9,9 @@ const chai = require("chai");
 const expect = chai.expect;
 import { Utility } from "../support/utility";
 import { watchFile } from "fs";
+import {
+	Alert
+} from 'selenium-webdriver';
 const utility: Utility = new Utility();
 
 export class JobCompletionPageObject {
@@ -54,6 +57,28 @@ export class JobCompletionPageObject {
     public signpad: ElementFinder;
     public jobcompletion: ElementFinder;
 
+    //CGP install 16 changes
+
+    public PPMIDCommText: ElementFinder;
+    public PPMIDSendMessageButton: ElementFinder;
+    public PPMIDComSuccessButton: ElementFinder;
+    public deviceBindingNextSecButton: ElementFinder;
+    public checkDetailsAlertButton: ElementFinder;
+    public smartEduNextButton: ElementFinder;
+    public nextButtonWAN: ElementFinder;
+    public gasMeterPairedYes: ElementFinder;
+    public FUlHANYes: ElementFinder;
+    public IHDPairedYes: ElementFinder;
+    public FullWANYes: ElementFinder;
+    public FullCOnfigAppliedElecYes: ElementFinder;
+    public fullConfigAppliedGasYes: ElementFinder;
+    public fullConfigAppliedPPMIDYes: ElementFinder;
+    public capturePPMIDBtn: ElementFinder;
+    public configAllMeterTextin16: ElementFinder;
+   
+
+    
+
     constructor() {
 
         //#region Install Comms Hub
@@ -89,8 +114,26 @@ export class JobCompletionPageObject {
         this.signpad = element(by.xpath('//*[@id="signaturePad"]'));
 
         // CGP changed as per my Job
-        this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobNCG3")]'));
+        this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobSJG2")]'));
 
+        //CGP install 16 Changes
+
+        this.PPMIDCommText = element(by.id('Title_xittd2'));
+        this.PPMIDSendMessageButton = element(by.id('xittd2_sendMessageButton'));
+        this.PPMIDComSuccessButton = element(by.id('xittd2_nextButton'));
+        this.deviceBindingNextSecButton = element(by.id('dbc2_trad_btnNextEff'));
+        this.checkDetailsAlertButton = element(by.xpath('//button[@class = "confirm"]'));
+        this.smartEduNextButton = element(by.id('btnNextComm'));
+        this.gasMeterPairedYes = element(by.id('rb_GasElecMPairSuc_y'));
+        this.FUlHANYes = element(by.id('rb_FulHANEst_y'));
+        this.IHDPairedYes = element(by.id('rb_IHDPaiSucc_y'));
+        this.FullWANYes = element(by.id('rb_FulWANEst_y'));
+        this.FullCOnfigAppliedElecYes = element(by.id('rb_FullCFigE_y'));
+        this.fullConfigAppliedGasYes = element(by.xpath('(//input[@id="rcfg5"]/following-sibling::span[@class="cr"])[1]'));
+        this.fullConfigAppliedPPMIDYes = element(by.xpath('(//input[@id="rcfg5"]/following-sibling::span[@class="cr"])[2]'));
+        this.capturePPMIDBtn = element(by.className('cameraBtn2line grey mandatoryWhite'));
+        this.configAllMeterTextin16 = element(by.xpath('//div/h4[text()="Configure All Meters Installed (Includes Gas & Elec)"]'));    
+        this.nextButtonWAN = element(by.id('btnNextEff'));
     }
     public async DeviceBinding() {
         await utility.wait(1000);
@@ -248,4 +291,100 @@ export class JobCompletionPageObject {
             console.log("Job completed successfully");
         }
     }
+
+//CGP INstall 16 changes
+
+public async PPMIDMessage() {
+    if (this.PPMIDCommText.isDisplayed()) {
+        await this.PPMIDCommText.getText().then(function (PPMIDCommText) {
+            console.log("find PPMID comm SendMsg Text  " + PPMIDCommText);
+        });
+        await this.PPMIDSendMessageButton.click();
+        console.log("find PPMID comm SendMsg Text Button clicked  " );
+
+        await utility.wait(80000);
+        //commented below
+        // await this.awaitingResponseTxt.getText().then(function (awaitingResponseTxt) {
+        // 	console.log("find awaitingResponseTxt Text  " + awaitingResponseTxt);
+        // });
+    //	await utility.wait(60000);
+        if (this.PPMIDComSuccessButton.isDisplayed()) {
+            await this.PPMIDComSuccessButton.click();
+            await utility.wait(3000);
+        }
+
+        //await this.submitBtn.click(); remove later
+        await utility.wait(3000);
+    }
+
+}
+
+
+
+public async fillDeviceBindingSectionInst16(){
+    await utility.wait(1000);
+
+   
+   if (this.gasMeterPairedYes.isDisplayed()) {
+      await this.gasMeterPairedYes.click();
+    }
+    await utility.wait(1000);
+    if (this.IHDPairedYes.isDisplayed()) {
+        await this.IHDPairedYes.click();
+    }
+    await utility.wait(1000);
+    if (this.FUlHANYes.isDisplayed()) {
+        await this.FUlHANYes.click();
+    }
+    await utility.wait(1000);
+    if (this.deviceBindingNextSecButton.isDisplayed()) {
+        await this.deviceBindingNextSecButton.click();
+    }
+
+   
+}
+
+public async fillConfigAllmeterInstall16(){
+    await utility.wait(5000);
+    if (this.FullWANYes.isDisplayed()) {
+        await this.FullWANYes.click();
+    }
+    if (this.FullCOnfigAppliedElecYes.isDisplayed()) {
+        await this.FullCOnfigAppliedElecYes.click();
+    }
+    let ale1: Alert = browser.switchTo().alert();
+		// clicks 'OK' button
+		await this.checkDetailsAlertButton.click();
+
+        await utility.wait(3000);    
+    if (this.fullConfigAppliedGasYes.isDisplayed()) {
+        await this.fullConfigAppliedGasYes.click();
+    }
+    if (this.fullConfigAppliedPPMIDYes.isDisplayed()) {
+        await this.fullConfigAppliedPPMIDYes.click();
+    }
+    if (this.capturePPMIDBtn.isDisplayed()) {
+        await this.capturePPMIDBtn.click();
+    }
+
+    await utility.wait(3000); 
+    //----------------------------------------------------------------
+    if (this.nextButtonWAN.isDisplayed()) {
+      await this.nextButtonWAN.click();
+   }
+}
+
+public async configAllmeterDisplayInst16(){
+    if (this.configAllMeterTextin16.isDisplayed()) {
+        await this.configAllMeterTextin16.getText().then(function (configAllMeter) {
+            console.log("find configAllMeter Text  " + configAllMeter);
+        });
+    }
+}
+
+
+
+
+
+
 }
