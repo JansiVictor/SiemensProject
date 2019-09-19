@@ -29,16 +29,8 @@ export class MarkAppointmentListPageObject {
 
         if (await this.pageHeaderText.count() > 0) {
             this.pageHeaderText.count().then(function (pageHeaderCount) {
-                console.log("Arrived at : AppointmentListPage, count = " + pageHeaderCount)
-                assert.equal(pageHeaderCount, '1');
-            });
-        }
-    }
+                console.log("Arrived at : Appointment List Page");
 
-    public verifyAppointmentListFormSelectLinksExist() {
-        if (this.allRelevantSelectLinks != null) {
-            this.allRelevantSelectLinks.getText().then(function (select) {
-                console.log("Link element identified : " + select);
             });
         }
     }
