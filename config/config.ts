@@ -2,6 +2,8 @@
 import { browser, Config } from "protractor";
 import { Reporter } from "../support/reporter";
 const htmlReports = process.cwd() + "/reports/html";
+const htmlfeaturesReports = process.cwd() + "/reports/html/report/features";
+const jsonfeaturesReports = process.cwd() + "/reports/html/json-output-folder";
 
 export const config: Config = {
 
@@ -33,7 +35,6 @@ export const config: Config = {
 
     specs: [
         "../../features/*.feature"
-
     ],
 
     jasmineNodeOpts: {
@@ -43,12 +44,18 @@ export const config: Config = {
     onPrepare: () => {
         browser.ignoreSynchronization = true;
         browser.manage().window().maximize();
-        Reporter.createDirectory(htmlReports);
+        
+        //Reporter.createDirectory(htmlReports);
     },
+
+    beforeLaunch: () => {
+        Reporter.cleanseDirectory(jsonfeaturesReports);
+        Reporter.cleanseDirectory(htmlfeaturesReports);
+    }, 
 
     cucumberOpts: {
         compiler: "ts:ts-node/register",
-        format: "json:./reports/html/"+Date.now()+"cucumber_report.json",
+        format: "json:./reports/html/cucumber_report.json",
         require: ["../../typeScript/stepdefinitions/*.js", "../../typeScript/support/*.js"],
         strict: true
         //tags: "@CucumberScenario or @ProtractorScenario or @TypeScriptScenario or @OutlineScenario",
