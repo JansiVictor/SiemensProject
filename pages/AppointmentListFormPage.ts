@@ -29,7 +29,7 @@ export class MarkAppointmentListPageObject {
 
         if (await this.pageHeaderText.count() > 0) {
             this.pageHeaderText.count().then(function (pageHeaderCount) {
-                console.log("AppointmentListPage pageHeaderText exists, count = " + pageHeaderCount)
+                console.log("Arrived at : AppointmentListPage, count = " + pageHeaderCount)
                 assert.equal(pageHeaderCount, '1');
             });
         }

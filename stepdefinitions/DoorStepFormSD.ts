@@ -1,12 +1,12 @@
 import {Given, Then, When} from "cucumber";
 import {Utility} from "../support/utility";
-import {MarkDoorStepFormPageObject} from "../pages/DoorStepFormPage";
 import {DoorStepPageObject} from "../pages/DoorStepPage";
+import {DoorStepFormPageObject} from "../pages/DoorStepFormPage";
 
 const chai = require("chai");
 const expect = chai.expect;
 const utility: Utility = new Utility();
-const doorStepForm: MarkDoorStepFormPageObject = new MarkDoorStepFormPageObject();
+const doorStepForm: DoorStepFormPageObject = new DoorStepFormPageObject();
 const doorStepPage: DoorStepPageObject = new DoorStepPageObject();
 
 Given('I have accessed the DoorStep page', async function () {

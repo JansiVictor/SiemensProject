@@ -1,12 +1,12 @@
 import {Then, When} from "cucumber";
 import {Utility} from "../support/utility";
-import {MarkAppointmentDetailsPageObject} from "../pages/AppointmentDetailsFormPage";
 import {DepartForApptDialogueBoxPageObject} from "../pages/DepartForApptDialogueBoxPage";
+import {AppointmentDetailsPageObject} from "../pages/AppointmentDetailsFormPage";
 
 const chai = require("chai");
 const expect = chai.expect;
 const utility: Utility = new Utility();
-const appointmentDetailsForm: MarkAppointmentDetailsPageObject = new MarkAppointmentDetailsPageObject();
+const appointmentDetailsForm: AppointmentDetailsPageObject = new AppointmentDetailsPageObject();
 const departForApptDialogueBox: DepartForApptDialogueBoxPageObject = new DepartForApptDialogueBoxPageObject();
 
 Then('I should see the Appointment Details Form', async function () {
@@ -54,4 +54,3 @@ When('I click on the Depart Ok button', async function () {
     await departForApptDialogueBox.clickOnDepartOkBtn();
     await utility.wait(3000);
 });
-

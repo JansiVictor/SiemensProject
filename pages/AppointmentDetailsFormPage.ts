@@ -7,7 +7,7 @@ const expect = chai.expect;
 const utility: Utility = new Utility();
 
 
-export class MarkAppointmentDetailsPageObject {
+export class AppointmentDetailsPageObject {
 
     private pageHeaderText: ElementArrayFinder;
     private callForwardButton: ElementFinder;
@@ -24,20 +24,15 @@ export class MarkAppointmentDetailsPageObject {
 
     constructor() {
         this.pageHeaderText = element.all(by.xpath("//div[contains(@class,'header-text white tg ng-binding')]"));
-
         this.callForwardButton = element(by.xpath("//*[@id='btnCall1'][1]"));
         this.departButton = element(by.id('btn_depart'));
-
         this.custContactNoText = element(by.xpath("//p[contains(@class,'ng-binding')]"));
-
         this.contactMadeTextLabel = element(by.xpath('//div[text()="Contact made?"]'));
         this.contactMadeRadioOptionTrue = element(by.xpath('//label[@id="rb_contact_y"]'));
         this.contactMadeRadioOptionFalse = element(by.xpath('//label[@id="rb_contact_n"]'));
-
         this.appointmentConfTextLabel = element(by.xpath('//div[text()="Appointment Confirm?"]'));
         this.appointmentConfRadioOptionTrue = element(by.id('rb_app_conf_y'));
         this.appointmentConfRadioOptionFalse = element(by.id('rb_app_conf_n'));
-
         this.additionalAccessDetailsTextLabel = element(by.xpath('//div[text()="Additional Access Details"]'));
         this.additionalAccessDetailsTextBox = element(by.id('call_fwd_notes'));
     }

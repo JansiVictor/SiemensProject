@@ -28,7 +28,7 @@ When('I update the Confirm if Elec Meter is On Supply or Off Supply with the val
 });
 
 Then('I update the Confirm if Gas Meter is On Supply or Off Supply with the value Yes', async function () {
-    await  removePage.setConfirmIfGasMeterIsOnSupplyOrOffSupplyTrueRadioOption();
+    await removePage.setConfirmIfGasMeterIsOnSupplyOrOffSupplyTrueRadioOption();
 });
 
 Then('I click on the Capture Photographic Evidence - Suspected Tampering button', async function () {

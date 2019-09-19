@@ -7,7 +7,7 @@ const expect = chai.expect;
 const utility: Utility = new Utility();
 
 
-export class MarkDoorStepFormPageObject {
+export class DoorStepFormPageObject {
 
     private doorStepTextLabel: ElementFinder;
     private arriveButton: ElementFinder;

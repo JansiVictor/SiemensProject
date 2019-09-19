@@ -57,5 +57,3 @@ export class DoorStepPageObject {
         await expect(this.initialRiskAssesment.isPresent());
     }
 }
-
-

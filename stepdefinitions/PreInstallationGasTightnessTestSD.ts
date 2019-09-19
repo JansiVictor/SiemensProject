@@ -1,14 +1,12 @@
-import {Given, Then, When} from "cucumber";
+import {Then, When} from "cucumber";
 import {Utility} from "../support/utility";
 import {RemovePageObject} from "../pages/RemovePage";
-import {RemovePagePreInstallationGasTightnessTestSectionObject} from "../pages/RemovePagePreInstallationGasTightnessTestSection";
 
 
 const chai = require("chai");
 const expect = chai.expect;
 const utility: Utility = new Utility();
 const removePage: RemovePageObject = new RemovePageObject();
-const removePagePreInstallGasTightnessTestSectionObject: RemovePagePreInstallationGasTightnessTestSectionObject = new RemovePagePreInstallationGasTightnessTestSectionObject();
 
 
 When('I have accessed the Pre Installation Gas Tightness Test section', async function () {

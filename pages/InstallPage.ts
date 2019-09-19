@@ -1,11 +1,10 @@
-import {element, by, ElementFinder, ElementArrayFinder, browser, ExpectedConditions, protractor} from "protractor";
+import {by, element, ElementArrayFinder, ElementFinder} from "protractor";
+import {Utility} from "../support/utility";
+import * as assert from "assert";
 
 const {Given, When, Then} = require("cucumber");
 const chai = require("chai");
 const expect = chai.expect;
-import {Utility} from "../support/utility";
-import {watchFile} from "fs";
-import * as assert from "assert";
 
 const utility: Utility = new Utility();
 
@@ -93,7 +92,7 @@ export class InstallPageObject {
     private applianceConditionDropDownMenu: ElementFinder
     private applianceSafeToUseTrueRadioOption: ElementFinder
     private allAppliancesTestedBtn: ElementFinder
-    public installPageSubmitBtn: ElementFinder
+    private installPageSubmitBtn: ElementFinder
 
 
     public installcommsHub: ElementFinder
@@ -218,7 +217,6 @@ export class InstallPageObject {
     public DeviceBinding: ElementFinder;
 
     constructor() {
-
         this.pageHeaderText = element.all(by.xpath("//div[contains(@class,'header-text white tg ng-binding')]"));
         this.terminalScrewTightnessText = element(by.xpath("//*[contains(text(),'Terminal Screw Tightness Checked?')]"));
         this.terminalScrewTightnessCheckedTrueRadioOption = element(by.xpath("//label[@id='rb_TermSTi_y']"));
@@ -302,8 +300,6 @@ export class InstallPageObject {
         this.applianceSafeToUseTrueRadioOption = element(by.xpath("//*[@id='radioraa50']/following-sibling::span[@class='outer']"));
         this.allAppliancesTestedBtn = element(by.xpath("//button[@id='btn_AllApp_tested']"));
         this.installPageSubmitBtn = element(by.xpath("//button[contains(text(),'SUBMIT')]"));
-
-
         //#region Install Comms Hub
         this.installcommsHub = element(by.xpath('//div/h4[text()="Install Comms Hub"]'));
         this.commshubReqY = element(by.xpath('//*[@id="chubInstall_newChubRequired_y"]/span[@class="outer"]'));
@@ -321,26 +317,19 @@ export class InstallPageObject {
         this.commshubPhoto = element(by.xpath('//*[@id="chubInstall_photoEvidence"]'));
         this.instCommshubNext = element(by.xpath('//*[@id="chubInstall_nextSectionBtn"]'));
         //#endregion
-
-
         this.clksendMsgXCHUB = element(by.xpath('//div/h4[text()="SEND MESSAGE XCHUB"]'));
         this.SendXCHUBbtn = element(by.xpath('//*[@id="xchub_sendMessageButton"]'));
-
         this.AwaitingRespXCHUB = element(by.xpath('//*[text()="Awaiting Response"]'));
         this.AwaitingReqSent = element(by.xpath('//*[text()="Request Sent Successfully"]'));
         this.AwaitingWhiteList = element(by.xpath('//*[text()="Whitelist transfer completed check LED indication is correct"]'));
-
         this.remvSuccessful = element(by.xpath('//*[@id="xchub_nextButton"]'));
         this.NewGasMeterDtls = element(by.xpath('//div/h4[text()="New Gas Meter Details"]'));
-
         this.selectValidnewgas = element(by.xpath('//select[@id="gasNewMeter_assetSelect"]'));
         this.gasmeterserialSend = element(by.xpath('//*[@id="gasNewMeter_assetSerial"]'));
         this.Gas_Meter_Txt = element(by.xpath('//*[contains(text(),"Gas Meter Serial No(s):")]'));
         this.AssetaddedtoWall = element(by.xpath('//*[text()="OK"]'));
         this.GasnewMeterSelect = element(by.xpath('//select[@id="gasNewMeter_meterTypeSelect"]'));
         this.GasnewMeternewLocation = element(by.xpath('//select[@id="gasNewMeter_meterLocationSelect"]'));
-
-
         this.newRegulator = element(by.xpath('//div/h4[text()="New Regulator"]'));
         this.HasGasRegulatorReplacedY = element(by.xpath('//*[@id="regulator_replacedtrue"]/following-sibling::span[@class="outer"]'));
         this.selectValidAssettoInst = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[2]'));
@@ -348,7 +337,6 @@ export class InstallPageObject {
         this.RegularclickenableOK = element(by.xpath('//*[contains(text(),"Regulator Serial No(s)")]'));
         this.AssetaddedtowallNewReg = element(by.xpath('//*[text()="OK"]'));
         this.nextSecnewRegulator = element(by.xpath('//*[@id="newRegulator_nextButton"]'));
-
         this.GasInitialmeterReading = element(by.xpath('//div/h4[text()="Gas Initial Meter Reading"]'));
         this.captureMeterReadingSend = element(by.xpath('//*[@id="reg0"]'));
         this.CaptureMeterReadingenableok = element(by.xpath('//*[contains(text(),"Capture Meter Reading - Register (null)")]'));
@@ -365,7 +353,6 @@ export class InstallPageObject {
         this.InstallKitNextSection = element(by.xpath('//*[@id="gasInstallPhoto_nextBtn"]'));
 
         //Post Installation
-
         this.postInstCaption = element(by.xpath('//div/h4[text()="Post Installation Gas Tightness Test"]'));
         this.ContactGTY = element(by.xpath('//*[@id="gtp1"]/following-sibling::span[@class="outer"]'));
         this.NationalGridSend = element(by.id('input1'));
@@ -383,7 +370,6 @@ export class InstallPageObject {
         this.TightnessperformedY = element(by.xpath('//*[@id="gtp17"]/following-sibling::span[@class="outer"]'));
         this.cappostinstallation = element(by.xpath('//*[@id="btn_CapPoTi_test"]/button'));
         this.Dropinpressure = element(by.xpath('//*[@id="gtp19"]/following-sibling::span[@class="outer"]'));
-
         this.dropinpressureselect = element(by.xpath('(//select[@id="select1"])[1]'));
         this.selectMeterType = element(by.xpath('(//select[@id="select2"])[1]'));
         this.GasTightnessPassed = element(by.xpath('//*[@id="gtp21"]/following-sibling::span[@class="outer"]'));
@@ -396,8 +382,6 @@ export class InstallPageObject {
         this.MsgreqDCC = element(by.xpath('//*[@id="comms2MessageReqtrue"]/following-sibling::span[@class="outer"]'));
         this.hubconnectdtoWAN = element(by.xpath('//*[@id="Cradionm1"]/following-sibling::span[@class="outer"]'));
         this.PostinstallNext = element(by.xpath('//*[@id="btnNextPol"]'));
-
-
         this.DCCGPFdevice = element(by.xpath('//*[contains(text(),"DCC Handover Requested for GPF Device")]'));
         this.DeviceClk = element(by.xpath('//*[contains(text(),"Device Clock Synchronised")]'));
         this.gasInstallcommisioningcaption = element(by.xpath('//div/h4[text()="Gas Install & Commissioning"]'));
@@ -455,7 +439,6 @@ export class InstallPageObject {
         this.PPMIDcommsuccessfulbtn = element(by.xpath('//*[@id="xittd2_nextButton"]'));
         this.PPMIDSubmit = element(by.xpath('(//*[@id="btn1"])[2]'));
         this.DeviceBinding = element(by.xpath('//div/h4[text()="Device Binding & Commissioning"]'));
-
 
         //#endregion
     }
@@ -726,9 +709,6 @@ export class InstallPageObject {
         }
     }
 
-
-//////////////////////////////////// POST INSTALLATION GAS TIGHTNESS TEST TST07
-
     public async validatePostInstallGasTightnessTestSectionIsVisible() {
         await utility.wait(1000);
         if (await this.postInstallationGasTightnessTestText.isDisplayed()) {
@@ -901,8 +881,6 @@ export class InstallPageObject {
         }
     }
 
-    /////////////////////////////// GAS APPLIANCE SAFETY CHECKS SECTION //////////////////////////////////
-
     public async validateGasApplianceSafetyChecksSectionIsVisible() {
         await utility.wait(1000);
         if (await this.gasApplianceSafetyChecksSectionText.isDisplayed()) {
@@ -1048,9 +1026,6 @@ export class InstallPageObject {
             await this.installPageSubmitBtn.click();
         }
     }
-
-/////////////////////////////////////////////////////////////////////////////////////////////////
-
 
     public async dummy() {
         await this.installdelete.click();
