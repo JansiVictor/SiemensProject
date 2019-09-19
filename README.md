@@ -1,46 +1,35 @@
+<p> <strong><center><h1>SIEMENS-SMETS2 Mobility Workflow Process</h1></center></strong>
 <p align="center">
-<img src= "./images/protractor-typescript-cucumber.png" height=300 alt="titleImage.png"/>
+<!--<img src= "./images/protractor-typescript-cucumber.png" height=300 alt="titleImage.png"/>-->
 </p>
 
 <p align="center">
-   <i><strong>This project demonstrates the basic protractor-cucumber-typescript framework project setup.
+   <i><strong>This project automates the SMETS2 workflows using protractor-cucumber-typescript framework.
 </strong></i>
 <p>
 
-<p align="center">
-<a href="https://circleci.com/gh/igniteram/protractor-cucumber-typescript/tree/master"><img alt="circleCI Status" src="https://circleci.com/gh/igniteram/protractor-cucumber-typescript/tree/master.svg?style=shield"></a>
-<a href="https://david-dm.org/igniteram/protractor-cucumber-typescript"><img alt="dependencies status" src="https://david-dm.org/igniteram/protractor-cucumber-typescript.svg"></a>
-<a href=#contributors><img alt="contributors" src="https://img.shields.io/badge/all_contributors-4-orange.svg"></a>
-<a href="https://opensource.org/licenses/MIT"><img alt="MIT License" src="https://img.shields.io/dub/l/vibe-d.svg"></a>
-</p>
-
----
-
-
 ### Protractor-Cucumber-TypeScript Setup Guide   
 
-### Medium Article
-Please do checkout my medium article which would give you more insight on this setup. [protractor-cucumber-typescript(Medium)](https://medium.com/@igniteram/e2e-testing-with-protractor-cucumber-using-typescript-564575814e4a)
-
 ### Features
-* No typings.json or typings folder, they have been replaced by better **'@types'** modules in package.json.
-* ts-node(typescript execution environment for node) in cucumberOpts. 
 * All scripts written with > Typescript2.0 & Cucumber2.0.
 * Neat folder structures with transpiled js files in separate output folder.
 * Page Object design pattern implementation.
-* Extensive hooks implemented for BeforeFeature, AfterScenarios etc.
-* Screenshots on failure feature scenarios.
-
+* Extensive hooks implemented for BeforeLaunch, OnPrepare etc.
+* Screenshots attached to failure feature scenarios.
+* Reports generated at the end of execution with error messages for failed steps
+* Parallel execution possible with the multicapabilities feature.
 
 ### To Get Started
 
 #### Pre-requisites
-1.NodeJS installed globally in the system.
+1.Install NodeJS
 https://nodejs.org/en/download/
 
-2.Chrome or Firefox browsers installed.
+2.Chrome browser installed.
 
 3.Text Editor(Optional) installed-->Sublime/Visual Studio Code/Brackets.
+
+4.Install Java
 
 #### Setup Scripts
 * Clone the repository into a folder
@@ -53,14 +42,18 @@ npm install
 #### Run Scripts
 
 * First step is to fire up the selenium server which could be done in many ways,  **webdriver-manager** proves very handy for this.The below command should download the **chrome & gecko driver** binaries locally for you!
-
 ```
 npm run webdriver-update
 ``` 
-
 * Then you should start your selenium server!
 ```
 npm run webdriver-start
+```
+
+* Run the below commands to install dependencies used within the project 
+```
+npm install protractor-multiple-cucumber-html-reporter-plugin
+npm install unlink
 ```
 
 * The below command would create an output folder named 'typeScript' and transpile the .ts files to .js.
@@ -70,7 +63,7 @@ npm run build
 
 * Now just run the test command which launches the Chrome Browser and runs the scripts.
 ```
-npm test
+npm run test
 ```
 ![result](https://raw.githubusercontent.com/igniteram/protractor-cucumber-typescript/master/images/protractor-cucumber-typescript-result.gif)
 
@@ -138,35 +131,26 @@ cucumberOpts: {
 },
 ```
 #### HTML Reports
-Currently this project has been integrated with [cucumber-html-reporter](https://github.com/gkushang/cucumber-html-reporter), which is generated in the `reports` folder when you run `npm test`.
+Currently this project has been integrated with [protractor-multiple-cucumber-html-reporter-plugin], which generates execution reports in the `reports` folder when you run `npm run test`.
+
+index.html file within the reports folder contains the overall execution status and the number of scenarios passed/failed. Each scenario's status can be viewed in detail using the corresponding Workorder link on the page.
+
 They can be customized according to user's specific needs.
 
 ![cucumberreporterscreen](https://raw.githubusercontent.com/igniteram/protractor-cucumber-typescript/master/images/cucumberReporter.PNG)
 
-## Contributions
-For contributors who want to improve this repo by contributing some code, reporting bugs, issues or improving documentation - PR's are highly welcome, please maintain the coding style , folder structure , detailed description of documentation and bugs/issues with examples if possible.
+![cucumberreporterscreen](https://raw.githubusercontent.com/igniteram/protractor-cucumber-typescript/master/images/cucumberReporter_1.PNG)
 
 ## Contributors
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
-| [<img src="https://avatars1.githubusercontent.com/u/15998104?v=4" width="100px;"/><br /><sub><b>Ram Pasala</b></sub>](https://in.linkedin.com/in/rpasala)<br />[💻](https://github.com/igniteram/protractor-cucumber-typescript/commits?author=igniteram "Code") [📖](https://github.com/igniteram/protractor-cucumber-typescript/commits?author=igniteram "Documentation") [⚠️](https://github.com/igniteram/protractor-cucumber-typescript/commits?author=igniteram "Tests") [🐛](https://github.com/igniteram/protractor-cucumber-typescript/issues?q=author%3Aigniteram "Bug reports") | [<img src="https://avatars1.githubusercontent.com/u/304328?v=4" width="100px;"/><br /><sub><b>Burk Hufnagel</b></sub>](https://github.com/BurkHufnagel)<br />[💻](https://github.com/igniteram/protractor-cucumber-typescript/commits?author=BurkHufnagel "Code") | [<img src="https://avatars3.githubusercontent.com/u/6922793?v=4" width="100px;"/><br /><sub><b>Alejandro</b></sub>](https://github.com/sanko1983)<br />[💻](https://github.com/igniteram/protractor-cucumber-typescript/commits?author=sanko1983 "Code") [🐛](https://github.com/igniteram/protractor-cucumber-typescript/issues?q=author%3Asanko1983 "Bug reports") | [<img src="https://avatars0.githubusercontent.com/u/14068808?v=4" width="100px;"/><br /><sub><b>David Jimenez</b></sub>](https://github.com/runnerdave)<br />[💻](https://github.com/igniteram/protractor-cucumber-typescript/commits?author=runnerdave "Code") |
-| :---: | :---: | :---: | :---: |
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-Thanks goes to these wonderful people ([emoji key](https://github.com/kentcdodds/all-contributors#emoji-key)):
-
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-
-This project follows the [all-contributors](https://github.com/kentcdodds/all-contributors) specification. Contributions of any kind welcome!
+* Aparna Das 
+* Jansi Victor
+* Supriya Harikumar
+* Priya Gangadharan
+* Mark Raphael
 
 ## License
 ```   
 MIT License
 
-Copyright (c) 2019 Ram Pasala
+Copyright (c) 2019
 ```
