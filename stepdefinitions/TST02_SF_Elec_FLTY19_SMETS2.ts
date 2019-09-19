@@ -1,7 +1,7 @@
 import { browser, protractor, element, by } from "protractor";
 import { loginPageObject } from "../pages/loginPage";
-import { FLTY19homePageObject } from "../pages/FLTY19homePage";
-import { FLTY19AppointmentListPageObject } from "../pages/FLTY19AppointmentListPage";
+import { HomePageObject } from "../pages/HomePage";
+import { FLTY19AppointmentListPageObject } from "../pages/AppointmentListPage";
 import { DoorStepPageObject } from "../pages/DoorStepPage";
 import { RiskAssessmentPageObject } from "../pages/RiskAssessmentPage";
 import { RemovePageObject } from "../pages/RemovePage";
@@ -16,7 +16,7 @@ const expect = chai.expect;
 const delay = ms => new Promise(res => setTimeout(res, ms));
 const utility: Utility = new Utility();
 const login: loginPageObject = new loginPageObject();
-const home: FLTY19homePageObject = new FLTY19homePageObject();
+const home: HomePageObject = new HomePageObject();
 const applist: FLTY19AppointmentListPageObject = new FLTY19AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: RiskAssessmentPageObject = new RiskAssessmentPageObject();
@@ -25,7 +25,7 @@ const inst: InstallPageObject = new InstallPageObject();
 
 Given('the fltynineteen Login Page', async function () {
     await browser.get(config.baseUrl);
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
 });
 
 When('I pass fltynineteen {string} and {string}', async function (username, password) {
@@ -35,7 +35,7 @@ When('I pass fltynineteen {string} and {string}', async function (username, pass
 
 Then('I click fltynineteen Login button', async function () {
     await login.clickLogin();
-    await utility.wait(10000);
+    await utility.wait(utility.medium);
 });
 
 Then('I should see fltynineteen the Appointment List', async function () {
@@ -47,11 +47,8 @@ Given('the fltynineteen Appointment List window', async function () {
 });
 
 When('I click on fltynineteen select button', async function () {
-    await utility.wait(2000);
-    //await home.continueLink.click();
-    await home.selectLink.click();
-    //await home.clickOnTheSelectLink();
-    await utility.wait(5000);
+    await home.clickCorrectSelectLink('SFElecFLTY19SMETS2');
+    await utility.wait(utility.medium_low);
 });
 
 Then('I should see fltynineteen Work Order window', async function () {
@@ -59,7 +56,6 @@ Then('I should see fltynineteen Work Order window', async function () {
 });
 
 Given('the fltynineteen Work Order window', async function () {
-    //WorkOrder Window
     await applist.verifyWorkOrderWindowText();
 });
 
@@ -76,13 +72,10 @@ Then('I should see fltynineteen page contect display', async function () {
 
 Then('I should see fltynineteen the CUSTOMER CONTACT NUMBER', async function () {
     await applist.customercontactnoDisplayed();
-   // await utility.wait(5000);
-    //await expect(await applist.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
-
 });
 
 Then('I should see fltynineteen Contact made field', async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await expect(await applist.contactMadeText.getText()).equal("Contact made?");
     await expect(applist.contactMadeYes.isPresent());
 });
@@ -94,7 +87,6 @@ Given('the fltynineteen Work Order page', async function () {
 });
 
 When('I fill the fltynineteen fields with the value', async function () {
-    // await applist.clickOnCallForwardBtn();
     await applist.clickOnContactMadeOtion();
     await applist.appointmentConfirmationYes();
     await applist.additionalDetails();
@@ -131,14 +123,14 @@ When('I click on fltynineteen OK button', async function () {
 });
 
 Then('I should see fltynineteen ARRIVE button', async function () {
-    await utility.wait(10000);
+    await utility.wait(utility.medium);
     await applist.arriveBtn.getText().then(function (arriveBtnText) {
         console.log("find Arrive Btn Text  " + arriveBtnText);
     });
 });
 
 Then('I should see fltynineteen DOORSTEP PROTOCOL tab activated', async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await applist.doorStepPROText.getText().then(function (doorStepPROText) {
         console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
     });
@@ -149,10 +141,7 @@ When('I click on fltynineteen ARRIVE button', async function () {
 });
 
 Then('I should see fltynineteen Arrival Time details', async function () {
-    //comment these 2 lines when continue link is not displayed
-    // await utility.wait(5000);
-    //await applist.continueLink.click();
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await applist.arrivalTime.getText().then(function (arrivalTimeText) {
         console.log("find Arrival Time Text  " + arrivalTimeText);
     });
@@ -195,15 +184,13 @@ When('I fill the fltynineteen initialRisk field with the values', async function
 });
 
 Then('I should see fltynineteen INFO window', async function () {
-    await riskassess.infoTextPopUp();
+    await riskassess.INFOOK();
 });
 
 /***INFO window with the text */
 
 Given('the fltynineteen INFO window with the text', async function () {
     await riskassess.INFOOK();
-    // await utility.wait(1000);    
-    // await expect(this.infoOK.isPresent());
 });
 When('pop-up ok click in fltynineteen Risk', async function () {
     await riskassess.INFOOKClick();
@@ -553,7 +540,6 @@ Then('I should see fltynineteen INSTALL COMMS HUB section', async function () {
 
 
 Given('the fltynineteen INSTALL COMMS HUB section', async function () {
-    //await inst.dummy();
     await inst.InstallCommsHubSection();
 });
 When('I fill the fltynineteen field029 with the Valuek029', async function () {

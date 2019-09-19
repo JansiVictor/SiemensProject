@@ -1,7 +1,7 @@
 import { browser, protractor, element, by } from "protractor";
 import { loginPageObject } from "../pages/loginPage";
-import { FLTY19homePageObject } from "../pages/FLTY19homePage";
-import { FLTY19AppointmentListPageObject } from "../pages/FLTY19AppointmentListPage";
+import { HomePageObject } from "../pages/HomePage";
+import { FLTY19AppointmentListPageObject } from "../pages/AppointmentListPage";
 import { DoorStepPageObject } from "../pages/DoorStepPage";
 import { RiskAssessmentPageObject } from "../pages/RiskAssessmentPage";
 import { RemovePageObject } from "../pages/RemovePage";
@@ -17,7 +17,7 @@ const expect = chai.expect;
 const delay = ms => new Promise(res => setTimeout(res, ms));
 const utility: Utility = new Utility();
 const login: loginPageObject = new loginPageObject();
-const home: FLTY19homePageObject = new FLTY19homePageObject();
+const home: HomePageObject = new HomePageObject();
 const applist: FLTY19AppointmentListPageObject = new FLTY19AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: RiskAssessmentPageObject = new RiskAssessmentPageObject();
@@ -28,7 +28,7 @@ const job: JobCompletionPageObject = new JobCompletionPageObject();
 
 Given('TST13 the Login Page', async function () {
     await browser.get(config.baseUrl);
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
 });
 
 When('TST13 I pass {string} and {string}', async function (username, password) {
@@ -38,12 +38,11 @@ When('TST13 I pass {string} and {string}', async function (username, password) {
 
 Then('TST13 I click Login button', async function () {
     await login.clickLogin();
-    await utility.wait(10000);
+    await utility.wait(utility.medium);
 });
 
 Then('TST13 I should see the Appointment List', async function () {
     await home.seeAppList();
-    //await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
 });
 
 Given('TST13 the Appointment List window', async function () {
@@ -51,11 +50,8 @@ Given('TST13 the Appointment List window', async function () {
 });
 
 When('TST13 I click on select button', async function () {
-    await utility.wait(2000);
-    //await home.continueLink.click();
-    await home.selectLink.click();
-    //await home.clickOnTheSelectLink();
-    await utility.wait(5000);
+    await home.clickCorrectSelectLink('DFFLTY20NonSMETS2');
+    await utility.wait(utility.medium_low);
 });
 
 Then('TST13 I should see Work Order window', async function () {
@@ -63,7 +59,6 @@ Then('TST13 I should see Work Order window', async function () {
 });
 
 Given('TST13 the {string} window', async function (string) {
-    //WorkOrder Window
     await applist.verifyWorkOrderWindowText();
 });
 
@@ -83,7 +78,7 @@ Then('TST13 I should see the CUSTOMER CONTACT NUMBER', async function () {
 });
 
 Then('TST13 I should see Contact made field', async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await expect(await applist.contactMadeText.getText()).equal("Contact made?");
     await expect(applist.contactMadeYes.isPresent());
 });
@@ -119,14 +114,14 @@ When('TST13D I click on OK button', async function () {
 });
 
 Then('TST13 I should see ARRIVE button', async function () {
-    await utility.wait(10000);
+    await utility.wait(utility.medium);
     await applist.arriveBtn.getText().then(function (arriveBtnText) {
         console.log("find Arrive Btn Text  " + arriveBtnText);
     });
 });
 
 Then('TST13 I should see DOORSTEP PROTOCOL tab activated', async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await applist.doorStepPROText.getText().then(function (doorStepPROText) {
         console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
     });
@@ -137,10 +132,7 @@ When('TST13 I click on ARRIVE button', async function () {
 });
 
 Then('TST13 I should see Arrival Time details', async function () {
-    //comment these 2 lines when continue link is not displayed
-    // await utility.wait(5000);
-    //await applist.continueLink.click();
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await applist.arrivalTime.getText().then(function (arrivalTimeText) {
         console.log("find Arrival Time Text  " + arrivalTimeText);
     });
@@ -218,9 +210,6 @@ Then('TST13 I click on CAPTURE PHOTOGRAPHIC EVIDENCE button', async function () 
 Then('TST13 I fill the field06 with the value06', async function () {
     await riskassess.fillthedtl06();
 });
-// Then('I click on CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION btn', async function () {
-//   await riskassess.capturefullmeterInst();
-// });
 Then('TST13E I should see CAPTURE INITIAL PHOTO OF ELEC INSTALLATION sec', async function () {
     await riskassess.ElecInstSec();
 });
@@ -565,7 +554,11 @@ Then('TST13 I clk commisioning on NEXT button', async function () {
     await inst.CommisioningClickNext();
 });
 Then('TST13 I should see NEW GAS METER DETAILS section', async function () {
-    await inst.Tst13ElecFailedDummy();
+    try {
+        await inst.Tst13ElecFailedDummy();
+    } catch (error) {
+        console.log("Not need to bypadd the EICOM now");
+    }
     await inst.gasMeterdetails();
 });
 
@@ -686,5 +679,5 @@ Then('TST13 I should see ENERGY EFFICIENCY INFORMATION section', async function 
     await job.fillfield57Capturecust();
   });
   Then('TST13 see Job Completed screen', async function () {
-    await job.JobCompletedScreen();
+    await home.verifyCompletedStatus('DFFLTY20NonSMETS2');
   });

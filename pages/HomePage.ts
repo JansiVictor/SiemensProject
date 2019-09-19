@@ -5,6 +5,8 @@ import {
 	ElementArrayFinder,
 	browser
 } from "protractor";
+const chai = require("chai");
+const expect = chai.expect;
 import {
 	JobCompletionPageObject
 } from "../pages/JobCompletionPage";
@@ -37,6 +39,15 @@ export class HomePageObject {
 	public flty19noExTradSelectLink: ElementArrayFinder;
 	public SFGASINST14:ElementArrayFinder;
 	public Exch24SelectLink:ElementArrayFinder;
+	public appointmentListLab: ElementFinder;
+	public FLTY18SelectLink: ElementArrayFinder;
+	public GasFLTY18SMETS2SelectLink: ElementArrayFinder;
+	public DFFLTY20NonSMETS2SelectLink: ElementArrayFinder;
+	public SFGasFLTY18NonSMETS2SelectLink: ElementArrayFinder;
+	public DFFLTY20SMETS2SelectLink: ElementArrayFinder;
+	public SFGasFLTY18SMETS2SelectLink: ElementArrayFinder;
+	public SFElecFLTY19SMETS2SelectLink: ElementArrayFinder;
+	public DFRMVE7SelectLink: ElementArrayFinder;
 
 	constructor() {
 		this.Ex20selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest1 EXCH20 SF SMETS2")]'));
@@ -53,12 +64,23 @@ export class HomePageObject {
 		this.Ex21completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobTest1 EXCH21 DF SMETS2"]'));
 		this.flty19noExTradSelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobFAULTY 19 Trad Non S2 site FLAT")]'));
 		this.Ex19completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobEXCHANGE 19 FLAT"]'));
+
+		//FLTY Changes
+		//this.GasFLTY18SMETS2SelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobFAULTY 18 SMETS2")]'));
+		this.DFFLTY20NonSMETS2SelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobFAULTY 20 Non S2")]'));
+		this.SFGasFLTY18NonSMETS2SelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobFAULTY 18 Non S2")]'));
+		this.DFFLTY20SMETS2SelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobFAULTY 20 SMETS2")]'));
+		this.SFGasFLTY18SMETS2SelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobFAULTY 18 SMETS2")]'));
+		this.SFElecFLTY19SMETS2SelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobFAULTY 19 SMETS2")]'));
+		this.DFRMVE7SelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobRMVE7 ")]'));
+		
 		this.selectLink2 = element.all(by.xpath('//div[contains(@id,"SelectJobTest3 EXCH21 DF SMETS2")]'));
 		this.appointmentListLabel = element(by.xpath('//div[@id="btn_top"]/div[2]/div'));
 		this.usrname = element(by.id("input1"));
 		this.password = element(by.id("input2"));
 		this.loginbtn = element(by.id("submitbutton"));
 		this.arriveBtn = element(by.id('btn_arrive'));
+		this.appointmentListLab = element(by.xpath('//*[text()="Appointments List"]'));
 
 
 	}
@@ -105,10 +127,31 @@ export class HomePageObject {
 				job.JobCompletedScreen();
 				console.log('Fieldname:', fieldName);
 				break;
-			case ('TST12'):
+			case ('GasFLTY18SMETS2'):
 				job.Tst12JobCompletedScreen();
 				console.log('Fieldname:', fieldName);
 				break;
+			case ('DFExchange24'):
+				job.TST22JobCompletedScreen();
+				console.log('Fieldname:', fieldName);
+				break;
+			case ('DFFLTY20NonSMETS2'):
+				job.TST13JobCompletedScreen();
+				console.log('Fieldname:', fieldName);
+				break;
+			case ('SFGasFLTY18NonSMETS2'):
+				job.TST15JobCompletedScreen();
+				console.log('Fieldname:', fieldName);
+				break;
+			case ('DFFLTY20SMETS2'):
+				job.TST01JobCompletedScreen();
+				console.log('Fieldname:', fieldName);
+				break;
+			case ('DFRMVE7'):
+				job.TST28JobCompletedScreen();
+				console.log('Fieldname:', fieldName);
+				break;
+				
 			default:
 				break;
 		}
@@ -145,13 +188,42 @@ export class HomePageObject {
 				console.log('Fieldname:', selectLinkName);
 				break;
 			case ('SFINST14'):
-			this.clickOnTheSFInst14SelectLink();
-			console.log('Fieldname:', selectLinkName);
-			break;
+				this.clickOnTheSFInst14SelectLink();
+				console.log('Fieldname:', selectLinkName);
+				break;
 			case ('DFExchange24'):
-			this.clickOnTheDFECXH24SelectLink();
-			console.log('Fieldname:', selectLinkName);
-			break;
+				this.clickOnTheDFECXH24SelectLink();
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('GasFLTY18SMETS2'):
+				this.clickOnTheGasFLTY18SMETS2SelectLink();
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('DFFLTY20NonSMETS2'):
+				this.clickOnTheGasFLTY20NonSMETS2SelectLink();
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('SFGasFLTY18NonSMETS2'):
+				this.clickOnTheSFGasFLTY18NonSMETS2SelectLink();
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('DFFLTY20SMETS2'):
+				this.clickOnTheDFFLTY20SMETS2SelectLink();
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('SFGasFLTY18SMETS2'):
+				this.clickOnTheSFGasFLTY18SMETS2SelectLink();
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('SFElecFLTY19SMETS2'):
+				this.clickOnTheSFElecFLTY19SMETS2SelectLink();
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('DFRMVE7'):
+				this.clickOnTheDFRMVE7SelectLink();
+				console.log('Fieldname:', selectLinkName);
+				break;
+				
 			default:
 				break;
 		}
@@ -178,6 +250,11 @@ export class HomePageObject {
 		}
 	}
 
+	//FLTY CHANGES
+	public async seeAppList() {
+		await utility.wait(utility.very_low);
+		await expect(this.appointmentListLab.isDisplayed());
+	}
 
 	public verifyEx20CompletedTextAppointmentListPage() {
 		if (this.Ex20completedLink != null) {
@@ -202,7 +279,281 @@ export class HomePageObject {
 			});
 		}
 	}
+	/***
+	 * @Author Jansi Changes
+	 * @description Click on the correct Exchange 21 Select Link
+	 ***/
+	
+	public async clickOnTheDFRMVE7SelectLink() {
+		var list = this.DFRMVE7SelectLink;
 
+		await utility.wait(utility.Avg_low);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobRMVE7 ")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobRMVE7 ")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobRMVE7 ")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
+	public async clickOnTheSFElecFLTY19SMETS2SelectLink() {
+		var list = this.SFElecFLTY19SMETS2SelectLink;
+
+		await utility.wait(utility.Avg_low);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 19 SMETS2")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobFAULTY 19 SMETS2")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 19 SMETS2")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
+
+	public async clickOnTheSFGasFLTY18SMETS2SelectLink() {
+		var list = this.SFGasFLTY18SMETS2SelectLink;
+
+		await utility.wait(utility.Avg_low);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 18 SMETS2")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobFAULTY 18 SMETS2")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 18 SMETS2")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
+public async clickOnTheDFFLTY20SMETS2SelectLink() {
+		var list = this.DFFLTY20SMETS2SelectLink;
+
+		await utility.wait(utility.Avg_low);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 20 SMETS2")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobFAULTY 20 SMETS2")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 20 SMETS2")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
+
+	public async clickOnTheGasFLTY18SMETS2SelectLink() {
+		var list = this.SFGasFLTY18SMETS2SelectLink;
+
+		await utility.wait(utility.Avg_low);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 18 SMETS2")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobFAULTY 18 SMETS2")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 18 SMETS2")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
+
+	public async clickOnTheGasFLTY20NonSMETS2SelectLink() {
+		var list = this.DFFLTY20NonSMETS2SelectLink;
+
+		await utility.wait(utility.Avg_low);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 20 Non S2")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobFAULTY 20 Non S2")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 20 Non S2")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
+	public async clickOnTheSFGasFLTY18NonSMETS2SelectLink() {
+		var list = this.SFGasFLTY18NonSMETS2SelectLink;
+
+		await utility.wait(utility.Avg_low);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 18 Non S2")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobFAULTY 18 Non S2")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"SelectJobFAULTY 18 Non S2")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
+	
 	/***
 	 * @Author Aparna Das
 	 * @description Click on the correct Exchange 21 Select Link
@@ -211,7 +562,7 @@ export class HomePageObject {
 	public async clickOnTheExchange21SelectLink() {
 		var list = this.selectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -255,7 +606,7 @@ export class HomePageObject {
 	public async clickOnTheSFInst14SelectLink() {
 		var list = this.SFGASINST14;
 
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -299,7 +650,7 @@ export class HomePageObject {
 	public async clickOnTheDFECXH24SelectLink() {
 		var list = this.Exch24SelectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -345,7 +696,7 @@ export class HomePageObject {
 
 		var list = this.continueLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -385,7 +736,7 @@ export class HomePageObject {
 	public async clickOnTheExchange20SelectLink() {
 		var list = this.Ex20selectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -431,7 +782,7 @@ export class HomePageObject {
 
 		var list = this.Ex20continueLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -472,7 +823,7 @@ export class HomePageObject {
 	public async clickOnTheExchange19SelectLink() {
 		var list = this.Ex19selectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -517,7 +868,7 @@ export class HomePageObject {
 
 		var list = this.Ex20completedLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		list.count().then(async function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -558,7 +909,7 @@ export class HomePageObject {
 
 		var list = this.Ex21completedLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		list.count().then(async function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -594,7 +945,7 @@ export class HomePageObject {
 	public async clickOnTheRemove6SelectLink() {
 		var list = this.Remove6selectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -638,7 +989,7 @@ export class HomePageObject {
 	public async clickOnTheFLTY20NoExchangeSelectLink() {
 		var list = this.FLTYnoexchangeselectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -683,7 +1034,7 @@ export class HomePageObject {
 	public async clickFLTY19TradNoExSelectLink() {
 		var list = this.flty19noExTradSelectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -729,7 +1080,7 @@ export class HomePageObject {
 	public async clickOnTheRemoveGASSelectLink() {
 		var list = this.RemoveGasSelectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4

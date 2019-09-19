@@ -123,7 +123,12 @@ export class JobCompletionPageObject {
     public TST12jobcompletion: ElementFinder;
     public IsCDemoofequipmentcompN:ElementFinder;
     public smartLtionsiteN:ElementFinder;
-    public custaddnlhelpinfoN:ElementFinder;
+	public custaddnlhelpinfoN:ElementFinder;
+	public TST22jobcompletion: ElementFinder;
+	public TST13jobcompletion: ElementFinder;
+	public TST15jobcompletion: ElementFinder;
+	public TST01jobcompletion: ElementFinder;
+	public TST28jobcompletion: ElementFinder;
 
     
 
@@ -164,13 +169,11 @@ export class JobCompletionPageObject {
             this.jobCompletesub = element(by.xpath('//*[@id="btn_Comp_submit"]'));
             this.signpad = element(by.xpath('//*[@id="signaturePad"]'));
     
-            this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob4JFAULTY 20")]'));
+            this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob5JFAULTY 20")]'));
     
             this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob1JFAULTY 20")]'));
     
             this.summaryCap = element(by.xpath('//div/h4[contains(text(),"SUMMARY")]'));
-            this.TST12jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob1JFAULTY 18")]'));
-    
     
             //APARNA CHANGES
             this.AppointmentText = element(by.xpath('(//*[@id="btn_top"]/div[2]/div)[1]'));
@@ -259,31 +262,36 @@ export class JobCompletionPageObject {
         this.jobCompletesub = element(by.xpath('//*[@id="btn_Comp_submit"]'));
         this.signpad = element(by.xpath('//*[@id="signaturePad"]'));
 
-        this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob4JFAULTY 20")]'));
+        this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob5JFAULTY 20")]'));
 
         this.summaryCap = element(by.xpath('//div/h4[contains(text(),"SUMMARY")]'));
-        this.TST12jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob4JFAULTY 18")]'));
 
         //TST13
 
         this.smartLtionsiteN = element(by.xpath('//*[@id="radiose4"]/span[@class="outer"]'));
         this.custaddnlhelpinfoN = element(by.xpath('//*[@id="smicopAddInfoCheckboxNo"]/span[@class="outer"]'));
-        this.IsCDemoofequipmentcompN = element(by.xpath('//*[@id="radiose8"]/span[@class="outer"]'));
+		this.IsCDemoofequipmentcompN = element(by.xpath('//*[@id="radiose8"]/span[@class="outer"]'));
+		this.TST01jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 20 SMETS2")]'));
+		this.TST12jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 18 SMETS2")]'));
+		this.TST13jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedFAULTY 20 Non S2")]'));
+		this.TST15jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedFAULTY 18 Non S2")]'));
+		this.TST22jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobEXCHANGE 24")]'));
+		this.TST28jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobRMVE7 ")]'));
     }
     
 
     //TST13 FLTY20
 
     public async Tst13fillfield55duelsmartedu() {
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.smartLtionsiteN.isDisplayed()) {
             await this.smartLtionsiteN.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.custaddnlhelpinfoN.isDisplayed()) {
             await this.custaddnlhelpinfoN.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.IsCDemoofequipmentcompN.isDisplayed()) {
             await this.IsCDemoofequipmentcompN.click();
         }
@@ -318,10 +326,10 @@ export class JobCompletionPageObject {
 		if (await this.PPMIDLOCDD.isDisplayed()) {
 			var select = this.PPMIDLOCDD;
 			select.$('[value="B"]').click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
 		if (await this.PPMIDToInstall.isDisplayed()) {
-			await utility.wait(2000);
+			await utility.wait(utility.Avg_low);
 			// click the dropdown
 			this.PPMIDToInstall.click();
 			browser.sleep(1000);
@@ -329,7 +337,7 @@ export class JobCompletionPageObject {
 			console.log("Selecting element based index : " + index);
 			// select the option
 			await this.PPMIDToInstall.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(3000);
+			await utility.wait(utility.low);
 			await expect(await this.inputPPMIDSerialNum.isPresent());
 			var options = this.PPMIDinstallDDList.getAttribute('value');
 			await this.inputPPMIDSerialNum.sendKeys(options);
@@ -343,10 +351,10 @@ export class JobCompletionPageObject {
 		if (this.ppmidNXTBtn.isDisplayed()) {
 			await this.ppmidNXTBtn.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.sendMsgPPMID.isDisplayed()) {
 			await this.sendMsgPPMID.click();
-			await utility.wait(80000);
+			await utility.wait(utility.high);
 		}
 
 	}
@@ -371,7 +379,7 @@ export class JobCompletionPageObject {
 		if (this.ppmidCommSuccess.isDisplayed()) {
 			await this.ppmidCommSuccess.click();
 		}
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 	}
 
 	/***
@@ -403,7 +411,7 @@ export class JobCompletionPageObject {
 		if (this.DeviceNxtBtn.isDisplayed()) {
 			await this.DeviceNxtBtn.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 	}
 
 	/***
@@ -420,7 +428,7 @@ export class JobCompletionPageObject {
 		if (this.DeviceNxtBtn.isDisplayed()) {
 			await this.DeviceNxtBtn.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 	}
 
 	/***
@@ -437,7 +445,7 @@ export class JobCompletionPageObject {
 		if (this.DeviceNxtBtn.isDisplayed()) {
 			await this.DeviceNxtBtn.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 	}
 
 	/***
@@ -471,11 +479,11 @@ export class JobCompletionPageObject {
 		// if (this.fullConfigAppliedPPMIDYes.isDisplayed()) {
 		//     await this.fullConfigAppliedPPMIDYes.click();
 		// }
-		// await utility.wait(1000);
+		// await utility.wait(utility.very_low);
 		// if (this.capturePPMIDBtn.isDisplayed()) {
 		//     await this.capturePPMIDBtn.click();
 		// }
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.PPMIDNxtBtn.isDisplayed()) {
 			await this.PPMIDNxtBtn.click();
 		}
@@ -494,14 +502,14 @@ export class JobCompletionPageObject {
 			await this.fullConfigAppliedGasYes.click();
 		}
 
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.fullConfigAppliedPPMIDYes.isDisplayed()) {
 			await this.fullConfigAppliedPPMIDYes.click();
 		}
 		if (this.capturePPMIDBtn.isDisplayed()) {
 			await this.capturePPMIDBtn.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.PPMIDNxtBtn.isDisplayed()) {
 			await this.PPMIDNxtBtn.click();
 		}
@@ -520,19 +528,19 @@ export class JobCompletionPageObject {
 		}
 		if (this.infoOKButton.isDisplayed()) {
 			await this.infoOKButton.click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
 
 		//  if (this.fullEx20ConfigAppliedGasYes.isDisplayed()) {
 		//      await this.fullEx20ConfigAppliedGasYes.click();
 		// }
-		//  await utility.wait(1000);
+		//  await utility.wait(utility.very_low);
 		// if (this.capturePPMIDBtn.isDisplayed()) {
 		//     await this.capturePPMIDBtn.click();
 		//     await this.capturePPMIDBtn.click();
 
 		// }
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.PPMIDNxtBtn.isDisplayed()) {
 			await this.PPMIDNxtBtn.click();
 		}
@@ -643,21 +651,21 @@ export class JobCompletionPageObject {
 				console.log("Print captureCustSign Txt  " + captureCustSign);
 			});
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.eSign.isDisplayed()) {
 			await this.eSign.click();
 		}
 		if (await this.signedbyCustorRepDD.isDisplayed()) {
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 			var select = this.signedbyCustorRepDD;
 			select.$('[value="Customer"]').click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.custRefusedToSignNo.isDisplayed()) {
 			await this.custRefusedToSignNo.click();
 			await this.custSignText.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.custRefusedToSignNo.isDisplayed()) {
 			await this.custRefusedToSignNo.click();
 			await this.custSignText.click();
@@ -665,13 +673,13 @@ export class JobCompletionPageObject {
 
 		if (this.jobCompleteBtn.isDisplayed()) {
 			await this.jobCompleteBtn.click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 			await this.infoOKButton.click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 
 		}
 
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (this.AppointmentText.isDisplayed) {
 			this.AppointmentText.getText().then(async function (appointment) {
 				console.log("find Appointment Page Text  " + appointment);
@@ -680,105 +688,108 @@ export class JobCompletionPageObject {
 		}
 	}
 
-
+/***
+	 * @Author Jansi Victor
+	 * @description Job Completion changes
+	 ***/
 	public async DeviceBinding() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.deviceBindingCap.getText().then(function (deviceBindingCapTxt) {
 			console.log("Device Binding " + deviceBindingCapTxt);
 		});
 	}
 	public async fillfield53dueldevicebinding() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ESMEJoinedY.isDisplayed()) {
 			await this.ESMEJoinedY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.deviceOK.isDisplayed()) {
 			await this.deviceOK.click();
 		}
-		// await utility.wait(2000);
+		// await utility.wait(utility.Avg_low);
 		// if (await this.GSMEJoined.isDisplayed()) {
 		//     await this.GSMEJoined.click();
 		// }
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.configIHDPPMID.isDisplayed()) {
 			await this.configIHDPPMID.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.joinedcapture.isDisplayed()) {
 			await this.joinedcapture.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.deviceNext.isDisplayed()) {
 			await this.deviceNext.click();
 		}
 	}
 	public async energyeffInfo() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.EnergyeffCap.getText().then(function (EnergyeffCapText) {
 			console.log("Energy Efficiency Information " + EnergyeffCapText);
 		});
 	}
 	public async fillfield55duelenergyeff() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.energyeffinfoProvided.isDisplayed()) {
 			await this.energyeffinfoProvided.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.EngeffDocLeft.isDisplayed()) {
 			await this.EngeffDocLeft.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.IsCustomerhappy.isDisplayed()) {
 			await this.IsCustomerhappy.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.additionaleneinfoReq.isDisplayed()) {
 			await this.additionaleneinfoReq.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.EnergyeffNext.isDisplayed()) {
 			await this.EnergyeffNext.click();
 		}
 	}
 	public async smartEducation() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.smartEducationCap.getText().then(function (smartEducationCapTxt) {
 			console.log("Smart Education " + smartEducationCapTxt);
 		});
 	}
 	public async fillfield55duelsmartedu() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.smartLtionsite.isDisplayed()) {
 			await this.smartLtionsite.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.custaddnlhelpinfo.isDisplayed()) {
 			await this.custaddnlhelpinfo.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.IsCDemoofequipmentcomp.isDisplayed()) {
 			await this.IsCDemoofequipmentcomp.click();
 		}
 	}
 	public async smartLitLeftOnsite() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.smartLitLeftCap.getText().then(function (smartLitLeftCapTxt) {
 			console.log("Smart Literature Left On Site " + smartLitLeftCapTxt);
 		});
 	}
 	public async fillfield56duelsmartLit() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.potentialcustVulnerability.isDisplayed()) {
 			await this.potentialcustVulnerability.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.customeraggreementtoInfo.isDisplayed()) {
 			await this.customeraggreementtoInfo.click();
 		}
 	}
 	public async captureCustSign() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.capturecustsignature.getText().then(function (capturecustsignatureTxt) {
 			console.log("Capture customer signature " + capturecustsignatureTxt);
 		});
@@ -790,40 +801,69 @@ export class JobCompletionPageObject {
 
 	}
 	public async fillfield57Capturecust() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.signedbycustorRep.isDisplayed()) {
 			var select = this.signedbycustorRep;
 			select.$('[value="Customer"]').click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.custrefusedtoSign.isDisplayed()) {
 			await this.custrefusedtoSign.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.jobCompletesub.isDisplayed()) {
 			await this.jobCompletesub.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.deviceOK.isDisplayed()) {
 			await this.deviceOK.click();
 		}
 	}
 	public async JobCompletedScreen() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.jobcompletion.isDisplayed()) {
 			console.log("Job completed successfully");
 		}
 	}
-
+	public async TST01JobCompletedScreen() {
+		await utility.wait(utility.very_low);
+		if (await this.TST01jobcompletion.isDisplayed()) {
+			console.log("Job completed successfully");
+		}
+	}
+	public async TST28JobCompletedScreen() {
+		await utility.wait(utility.very_low);
+		if (await this.TST28jobcompletion.isDisplayed()) {
+			console.log("Job completed successfully");
+		}
+	}
+	public async TST22JobCompletedScreen() {
+		await utility.wait(utility.very_low);
+		if (await this.TST22jobcompletion.isDisplayed()) {
+			console.log("Job completed successfully");
+		}
+	}
+	public async TST13JobCompletedScreen() {
+		await utility.wait(utility.very_low);
+		if (await this.TST13jobcompletion.isDisplayed()) {
+			console.log("Job completed successfully");
+		}
+	}
+	public async TST15JobCompletedScreen() {
+		await utility.wait(utility.very_low);
+		if (await this.TST15jobcompletion.isDisplayed()) {
+			console.log("Job completed successfully");
+		}
+	}
 	public async JobCompletedFLTYNoExchangeScreen() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.jobcompletionFLTYNoExchange.isDisplayed()) {
 			console.log("Job completed successfully");
 		}
 	}
 
 	public async JobCompletedFLTYTradS2NoExchangeScreen() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.jobcompletionFLTYTrads2NoExchange.isDisplayed()) {
 			console.log("Job completed successfully");
 		}
@@ -831,33 +871,33 @@ export class JobCompletionPageObject {
 	//TST12 FLTY GAS
 
 	public async Tst12fillfield53dueldevicebinding() {
-		await utility.wait(2000);
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
+		await utility.wait(utility.Avg_low);
 		if (await this.GSMEJoined.isDisplayed()) {
 			await this.GSMEJoined.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.configIHDPPMID.isDisplayed()) {
 			await this.configIHDPPMID.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.joinedcapture.isDisplayed()) {
 			await this.joinedcapture.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.deviceNext.isDisplayed()) {
 			await this.deviceNext.click();
 		}
 	}
 
 	public async TST12summary() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.summaryCap.getText().then(function (summaryCapTxt) {
 			console.log("SUMMARY " + summaryCapTxt);
 		});
 	}
 	public async Tst12JobCompletedScreen() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.TST12jobcompletion.isDisplayed()) {
 			console.log("Job completed successfully");
 		}

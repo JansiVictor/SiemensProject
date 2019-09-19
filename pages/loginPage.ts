@@ -16,7 +16,7 @@ export class loginPageObject {
       this.usernameTextBox.sendKeys(username);
       browser.sleep(5000);
       this.passwordTextBox.sendKeys(password);
-      browser.sleep(50000);
+      browser.sleep(80000);
     }
 
     public async clickLogin(){

@@ -1,4 +1,4 @@
-Feature: Login into Siemen Application
+Feature: TST15_SF_Gas_FLTY18_Non_SMETS2
 
     Scenario Outline: Logging in to job's "Work Order" window
         Given TST15 the Login Page
