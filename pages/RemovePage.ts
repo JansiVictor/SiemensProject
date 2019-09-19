@@ -1729,8 +1729,53 @@ public async smet2AssetInstalled()
         }
 
     }
+    public async exchangeAsset()
+    {
+        await utility.wait(3000);
+        if (await this.exchangeAssetY.isDisplayed()) {
+            await this.exchangeAssetY.click();
+        }
+        await utility.wait(3000);
+        if (await this.elecMeterRadio.isDisplayed()) {
+            await this.elecMeterRadio.click();
+        }
+        await utility.wait(3000);
+        if (await this.gasMeterRadio.isDisplayed()) {
+            await this.gasMeterRadio.click();
+        }
+        await utility.wait(3000);
+        if (await this.regulatorRadio.isDisplayed()) {
+            await this.regulatorRadio.click();
+        }
 
+   }
 
+   //Added By CGP TRAD
+
+   public async confirmElecAssetRemovalTRAD() {
+    await utility.wait(5000);
+    await this.confirmElecAssetRemoval.getText().then(function (confirmElecAssetRemovalTxt) {
+        console.log("Confirm Elec Asset Removal" + confirmElecAssetRemovalTxt);
+    });
+}
+
+public async fill23GasmeterRemovalTC4() {
+    await utility.wait(3000);
+    if (await this.GMassettoberemoved.isDisplayed()) {
+        await this.GMassettoberemoved.click();
+    }
+    await utility.wait(2000);
+    if (await this.statusofAssetSelect.isDisplayed()) {
+        var select = this.statusofAssetSelect;
+        //await select.$('[value="0"]').click();
+        await select.$('[label = "No Fault Found"]').click();
+    }
+    //----------------- Can add-----------------------
+    // if (await this.removedmeterReading.isDisplayed()) {
+    //     await this.removedmeterReading.clear();
+    //     //await this.removedmeterReading.sendKeys('1234');
+    // }
+}
 
 
 
