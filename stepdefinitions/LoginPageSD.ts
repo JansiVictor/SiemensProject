@@ -2,10 +2,10 @@ import {Given, When} from "cucumber";
 import {config} from "../config/config";
 import {browser} from "protractor";
 import {Utility} from "../support/utility";
-import {loginPageObject} from "../pages/loginPage";
+import {LoginPageObject} from "../pages/LoginPage";
 
 const utility: Utility = new Utility();
-const login: loginPageObject = new loginPageObject();
+const login: LoginPageObject = new LoginPageObject();
 
 Given('I have accessed the login page', async function () {
     await browser.get(config.baseUrl);

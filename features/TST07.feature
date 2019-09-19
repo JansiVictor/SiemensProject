@@ -43,7 +43,7 @@ Feature: DF FLTY20 Trad No Exchange Workflow
     And input the details for a Gas risk assessment
 
   Scenario: Capture Screenshots for both Gas and Electrical assessments
-    Given I have accessed the Gas risk assessment tab section
+    #Given I have accessed the Gas risk assessment tab section
     When I capture photo of initial electric installation
     And I capture photo of initial gas installation
     Then I should see Initial Polarity Check - Martindale Test button
@@ -51,10 +51,10 @@ Feature: DF FLTY20 Trad No Exchange Workflow
   Scenario: Complete 'Initial Polarity Check Martindale Test' section
     Given the Initial Polarity Check Martindale Test section
     When I update Initial Polarity Check Martindale Test form controls with values
-    Then I should see Initial Polarity Check - At Meter And Cut Out button
+    #Then I should see Initial Polarity Check - At Meter And Cut Out button
 
   Scenario: Complete 'Initial Polarity Check - At Meter And Cut Out' section
-    Given I have accessed the Initial Polarity Check - At Meter And Cut Out section
+    #Given I have accessed the Initial Polarity Check - At Meter And Cut Out section
     When I update Initial Polarity Check - At Meter And Cut Out controls with values
     And I click on the Submit button
     Then I should be directed to the Remove page
@@ -187,6 +187,7 @@ Feature: DF FLTY20 Trad No Exchange Workflow
   Scenario: Complete the Energy Efficiency Information section
     Given I have accessed the Energy Efficiency Information section
     When  I populate the Energy Efficiency form fields and click Next
+    Then I should see the Capture Customer Signature section
 
   Scenario: Complete the Capture Customer Signature section
     Given I have accessed the Capture Customer Signature section

@@ -21,6 +21,10 @@ When('I populate the Energy Efficiency form fields and click Next', async functi
     await completionPage.fillfield55duelenergyeff();
 });
 
+Then('I should see the Capture Customer Signature section', async function () {
+    await completionPage.summaryDisplay();
+});
+
 /**********"Capture Customer Signature" */
 Given('I have accessed the Capture Customer Signature section', async function () {
     await completionPage.summaryDisplay();
