@@ -1,14 +1,143 @@
 import {Given, Then, When} from "cucumber";
+import {config} from "../config/config";
+import {browser} from "protractor";
 import {Utility} from "../support/utility";
+import {DepartForApptDialogueBoxPageObject} from "../pages/DepartForApptDialogueBoxPage";
+import {AppointmentDetailsPageObject} from "../pages/AppointmentDetailsFormPage";
+import {AppointmentListPageObject} from "../pages/AppointmentListFormPage";
+import {DoorStepPageObject} from "../pages/DoorStepPage";
+import {DoorStepFormPageObject} from "../pages/DoorStepFormPage";
+import {RiskAssessmentPageObject} from "../pages/RiskAssessmentPage";
+import {RiskAssessmentForGasPageObject} from "../pages/RiskAssessmentForGasPage";
+import {RiskAssessmentForElecPageObject} from "../pages/RiskAssessmentForElecPage";
+import {RemovePageObject} from "../pages/RemovePage";
 import {InstallPageObject} from "../pages/InstallPage";
+import {LoginPageObject} from "../pages/LoginPage";
 import {JobCompletionPageObject} from "../pages/JobCompletionPage";
 
 
 const chai = require("chai");
 const expect = chai.expect;
 const utility: Utility = new Utility();
+const login: LoginPageObject = new LoginPageObject();
+const appointmentDetailsForm: AppointmentDetailsPageObject = new AppointmentDetailsPageObject();
+const departForApptDialogueBox: DepartForApptDialogueBoxPageObject = new DepartForApptDialogueBoxPageObject();
+const appointmentListForm: AppointmentListPageObject = new AppointmentListPageObject();
+const doorStepForm: DoorStepFormPageObject = new DoorStepFormPageObject();
+const doorStepPage: DoorStepPageObject = new DoorStepPageObject();
+const removePage: RemovePageObject = new RemovePageObject();
 const installPage: InstallPageObject = new InstallPageObject();
+const riskAssmentPage: RiskAssessmentPageObject = new RiskAssessmentPageObject();
+const riskAssessmentForGasPage: RiskAssessmentForGasPageObject = new RiskAssessmentForGasPageObject();
+const riskAssessmentForElecPage: RiskAssessmentForElecPageObject = new RiskAssessmentForElecPageObject();
 const completionPage: JobCompletionPageObject = new JobCompletionPageObject();
+
+
+Then('I should see the Appointment Details Form', async function () {
+    appointmentDetailsForm.isH1HeaderPresentAppointmentDetailsPage();
+});
+
+When('I click on the Call Forward Button', async function () {
+    await appointmentDetailsForm.clickOnCallForwardBtn();
+    await utility.wait(1000);
+});
+
+Then('I should see the Customer Contact Number', async function () {
+    await appointmentDetailsForm.isCustContactNoTextPresent();
+    await utility.wait(1000);
+});
+
+Then('the Contact Made? Radio Option', async function () {
+    await appointmentDetailsForm.isContactMadeElementsPresent();
+    await utility.wait(1000);
+});
+
+Then('the Appointment Confirm? Radio Option', async function () {
+    await appointmentDetailsForm.isAppointmentConfirmTextElementsPresent();
+});
+
+Then('the Additional Access Details Notes Textfield', async function () {
+    await appointmentDetailsForm.isAdditionaAccessDetailElementsPresent();
+});
+
+When('I update the pre-check options for my selected appointment', async function () {
+    await appointmentDetailsForm.updatePreCheckOptionsForSelectedAppointment();
+    await utility.wait(3000);
+});
+
+Then('click on the Depart button', async function () {
+    appointmentDetailsForm.clickOnDepartBtn();
+    await utility.wait(3000);
+});
+
+Then('the Depart for Appointment Dialogue Box is displayed', async function () {
+    await departForApptDialogueBox.isdepartForApptDialogueBoxDisplayed();
+});
+
+When('I click on the Depart Ok button', async function () {
+    await departForApptDialogueBox.clickOnDepartOkBtn();
+    await utility.wait(3000);
+});
+
+Then('I should see the Appointment List Form', async function () {
+    appointmentListForm.isH1HeaderPresentAppointmentListPage();
+    await utility.wait(5000);
+});
+
+When('I click on the Select link', async function () {
+    await appointmentListForm.clickOnRelevantSelectLink();
+    await utility.wait(1000);
+});
+
+Given('I have accessed the DoorStep page', async function () {
+    doorStepForm.isDoorStepTextLabelDisplayed();
+});
+
+Then('the DoorStep page is displayed', async function () {
+    doorStepForm.isDoorStepTextLabelDisplayed();
+});
+
+When('I click on the Arrive button', async function () {
+    doorStepForm.clickOnArriveButton();
+    await utility.wait(5000);
+});
+
+Then('update the pre-check options for the Door Step Protocol', async function () {
+    doorStepPage.fillTheDoorStepDetails();
+    await utility.wait(10000);
+});
+
+Then('click on the On-Site button', async function () {
+    doorStepPage.clickOnSiteButton();
+    await utility.wait(10000);
+});
+
+Then('I should see Initial Polarity Check - At Meter And Cut Out button', async function () {
+});
+
+Given('I have accessed the Initial Polarity Check - At Meter And Cut Out section', async function () {
+
+});
+
+When('I update Initial Polarity Check - At Meter And Cut Out controls with values', async function () {
+    await riskAssmentPage.populateInitialPolarityCheckAtMeterAndCutOutSection();
+});
+
+Then('I click on the Submit button', async function () {
+    await riskAssmentPage.clickOnRiskAssessmentPageSubmitButton();
+});
+
+Then('I should be directed to the Remove page', async function () {
+    await removePage.currentihdppmiddetailtext();
+});
+
+Given('the Initial Polarity Check Martindale Test section', async function () {
+    await riskAssmentPage.verifyInitialPolarityCheck();
+});
+
+When('I update Initial Polarity Check Martindale Test form controls with values', async function () {
+    await riskAssmentPage.populatePolarityCheckMartinDaleWithCPAndRPF();
+});
 
 Given('I have accessed the Perform Additional Electricity Tests & Checks section', async function () {
     await installPage.isH1HeaderPresentInstallPage();
@@ -55,7 +184,7 @@ Then('I select the value Yes for the Replacement Meter Board radio option', asyn
 });
 
 Then('I select the value No for the Meter Tails Changed radio option', async function () {
-    await  installPage.setMeterTailsChangedFalseRadioOption();
+    await installPage.setMeterTailsChangedFalseRadioOption();
 });
 
 Then('I select the value Yes for the Replaced Main Fuse radio option', async function () {
@@ -95,11 +224,11 @@ Then('I update the Test Witness Name textfield with the value Johny Vegas', asyn
 });
 
 Then('I click on the Capture Photo of Martindale Test button', async function () {
-    await  installPage.clickOnCapturePhotoOfMartindaleTestBtn();
+    await installPage.clickOnCapturePhotoOfMartindaleTestBtn();
 });
 
 Then('I click on the Capture Photo, of Final Meter Installation button', async function () {
-    await  installPage.clickOnCapturePhotoOfFinalMeterInstallBtn();
+    await installPage.clickOnCapturePhotoOfFinalMeterInstallBtn();
 });
 
 Then('I click on the Capture Photo of Close Up of Meter Witness Sticker button', async function () {
@@ -366,4 +495,153 @@ Then('I click on the All Appliances Tested button', async function () {
 Then('I click on the Gas Appliance Safety Checks Submit button', async function () {
     await installPage.clickOnInstallPageSubmitBtn();
     await utility.wait(1000);
+});
+
+Given('I have accessed the login page', async function () {
+    await browser.get(config.baseUrl);
+    await utility.wait(3000);
+});
+
+When('I provide the {string} and {string}', async function (username, password) {
+    await login.setUsernamePassword(username, password);
+    await utility.wait(500);
+});
+
+When('I click on the Login button', async function () {
+    await login.clickLogin();
+    await utility.wait(3000);
+});
+
+When('I have accessed the Pre Installation Gas Tightness Test section', async function () {
+    await removePage.preinstgasTighttest();
+});
+
+When('I select the value Yes for the Pre Installation-Gas Tightness Test Carried out radio option', async function () {
+    await removePage.fill17preInstdtls();
+});
+
+Then('I click on the Capture Photo of U-Grade Attached to Gas Meter, showing Pressure in MB button', async function () {
+    await removePage.capturePhotoOfUGaugeAttachedToGasMeter();
+});
+
+Then('I select the value Yes for the Was there a drop in pressure radio option', async function () {
+    await removePage.fill18preInstdtls();
+});
+
+Then('I complete the remainder of the Pre Installation Gas Tightness form with values', async function () {
+    await removePage.fill19preInstdtls();
+});
+
+Then('I click on the Submit button in the Determine Faulty Activity Section', async function () {
+    await removePage.clickOnPreInstallationGasTightnessTestSubmitBtn();
+});
+
+Given('the Current IHD PPMId Details section', async function () {
+    await removePage.currentihdppmiddetailtext();
+});
+
+When('I update the SMETS2 IHD PPMID on Site form controls', async function () {
+    await removePage.populateIHDPPMIDDetailsOnSiteFalse();
+});
+
+Then('I should see the Current Meter Details section', async function () {
+    await removePage.currentmeterdetlGasSection();
+});
+
+Given('I have accessed the Determine Fault Activity section', async function () {
+    await removePage.determintfaultActivity()
+});
+
+When('I update the Confirm if Elec Meter is On Supply or Off Supply with the value Yes', async function () {
+    await removePage.setConfirmIfElecMeterIsOnSupplyOrOffSupplyTrueRadioOption();
+});
+
+Then('I update the Confirm if Gas Meter is On Supply or Off Supply with the value Yes', async function () {
+    await removePage.setConfirmIfGasMeterIsOnSupplyOrOffSupplyTrueRadioOption();
+});
+
+Then('I click on the Capture Photographic Evidence - Suspected Tampering button', async function () {
+    await removePage.captureevidsuspectedtamp();
+});
+
+Then('I select the value No for the Are SMETS2 assets installed? radio option', async function () {
+    await removePage.setAreSMETS2AssetInstalledFalseRadioOption();
+});
+
+Then('I select the value No for the Do you need to Exchange an asset? radio option', async function () {
+    await removePage.setDoYouNeedToExchangeAnAssetFalseRadioOption();
+});
+
+Then('I select the value Yes for the Do you Need to carry out work on the meter installtion? radio option', async function () {
+    await removePage.setDoYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption();
+});
+
+Then('I click on the Next button', async function () {
+    await removePage.clickOnNextBtn();
+});
+
+Then('I should see the Pre Installation Gas Tightness Test section', async function () {
+    await removePage.preinstgasTighttest();
+});
+
+Then('I am prompted to submit details for an initial risk assessment', async function () {
+    await riskAssessmentForElecPage.verifyInitialRiskAssessmentPage();
+});
+
+Given('I have accessed the initial risk assessment tab', async function () {
+    await riskAssessmentForElecPage.verifyInitialRiskAssessmentPage();
+});
+
+When('I input details for the initial risk assessment', async function () {
+    await riskAssmentPage.inputInitialRiskAssessmentDetails();
+});
+
+Then('input the details for a Electric risk assessment', async function () {
+    await riskAssessmentForElecPage.fillRiskAssesmentElecFields();
+});
+
+Then('input the details for a Gas risk assessment', async function () {
+    await riskAssessmentForGasPage.populateRiskAssessmentForGasWithoutPhotoEvidence();
+});
+
+Given('I have accessed the Gas risk assessment tab section', async function () {
+});
+
+When('I capture photo of initial electric installation', async function () {
+    await riskAssessmentForElecPage.captureInitialElectricalPhoto();
+});
+
+Then('I capture photo of initial gas installation', async function () {
+    await riskAssessmentForGasPage.captureInitialGasPhoto();
+
+});
+
+Then('I should see Initial Polarity Check - Martindale Test button', async function () {
+    await riskAssmentPage.verifyInitialPolarityCheckMartindaleTestBtnIsPresent();
+});
+
+Given('I have accessed the Energy Efficiency Information section', async function () {
+    await completionPage.energyeffInfo();
+});
+When('I populate the Energy Efficiency form fields and click Next', async function () {
+    await completionPage.fillfield55duelenergyeff();
+});
+
+Then('I should see the Capture Customer Signature section', async function () {
+    await completionPage.summaryDisplay();
+});
+
+/**********"Capture Customer Signature" */
+Given('I have accessed the Capture Customer Signature section', async function () {
+    await completionPage.summaryDisplay();
+});
+When('I write my signature in the Customer Signature form field', async function () {
+    await completionPage.fillAndPrintSummaryContent();
+});
+Then('I populate the Capture Customer Signature form fields and click Job Complete', async function () {
+    await completionPage.FinalSubmission();
+});
+Then('I should see the Job Completed screen', async function () {
+    await completionPage.JobCompletedFLTYNoExchangeScreen();
+
 });
