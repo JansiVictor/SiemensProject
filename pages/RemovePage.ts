@@ -7,7 +7,7 @@ import {
 	by,
 	ElementFinder,
 	ElementArrayFinder,
-	browser
+	browser, ExpectedConditions
 } from "protractor";
 const {
 	Given,
@@ -253,9 +253,35 @@ export class RemovePageObject {
 	public SMETSOffered: ElementFinder;
 	public nextSecGasBtn: ElementFinder;
 	public submitElecRemSecEndTRAD: ElementFinder;
-	
+	private unableToReadMeterTrueRadioBtn: ElementFinder;
+	private unabeToReadMeterTrueRadioBtn2: ElementFinder;
+	private meterReadingElectricTextfield: ElementFinder;
+	private areSMETS2AssetInstalledFalseRadioOption: ElementFinder;
+	private smet2IHDPPIdFalse: ElementFinder;
+	private doYouNeedToExchangeAnAssetFalseRadioOption: ElementFinder;
+	private doYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption: ElementFinder;
+	private captureMeterReadingText: ElementFinder;
+	private confirmgasmeterOnsupply1: ElementFinder;
+	private confirmgasmeterOnsupply2: ElementFinder;
+	private determineFaultActivityNextBtn: ElementFinder;
+	private capturePhotoOfUGaugeAttachedToGasMeterBtn: ElementFinder;
+	private preInstallationGasTightnessTestSubmitBtn: ElementFinder;
+
 
 	constructor() {
+		this.unableToReadMeterTrueRadioBtn = element(by.xpath("//div[contains(@class,'radioInput ng-scope')]/div[2]"));
+		this.unabeToReadMeterTrueRadioBtn2 = element(by.xpath("//reading[@name='currentmeter']//label[text()='YES']"));
+		this.meterReadingElectricTextfield = element(by.xpath("//reading[@name='currentmeter']//input[@id='reg0']"));
+		this.areSMETS2AssetInstalledFalseRadioOption = element(by.xpath("//radiobutton[@id='smets2Installed']//label[text()='NO']"));
+		this.smet2IHDPPIdFalse = element(by.xpath("//label[@id='currentIhdPpmid_assetOnSite_n']"));
+		this.doYouNeedToExchangeAnAssetFalseRadioOption = element(by.xpath("//radiobutton[@id='exchangeasset']//label[text()='NO']"));
+		this.doYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption = element(by.xpath("//radiobutton[@id='additionalwork']//label[text()='YES']"));
+		this.captureMeterReadingText = element(by.xpath('//*[contains(text(),"Capture Meter Reading - Register")]'));
+		this.confirmgasmeterOnsupply1 = element(by.xpath("//radiobutton[@id='confirmelecsupply']//label[text()='On Supply']"));
+		this.confirmgasmeterOnsupply2 = element(by.xpath("//radiobutton[@id='confirmgassupply']//label[text()='On Supply']"));
+		this.determineFaultActivityNextBtn = element(by.xpath("//button[@id='btnNextComm']"));
+		this.capturePhotoOfUGaugeAttachedToGasMeterBtn = element(by.xpath("//button[contains(text(),'CAPTURE PHOTO OF U-GAUGE ATTACHED TO GAS METER, SH')]"));
+		this.preInstallationGasTightnessTestSubmitBtn = element(by.xpath("//button[contains(text(),'SUBMIT')]"));
 		this.submitElecRemSecEndTRAD = element(by.xpath('//button[@id="btn1"]'));
 		this.nextSecGasBtn = element(by.id('removeGasAsset_nextButton'));
 		this.equipmentRepositionRequired = element(by.id('repositionSelect'));
@@ -371,7 +397,7 @@ export class RemovePageObject {
 		this.gastightnesstestCompleted = element(by.xpath('//*[contains(text(),"Gas Tightness Test Completed?")]'));
 		this.gastightnesstestCompletedFail = element(by.xpath('//*[contains(text(),"FAIL")]'));
 		this.capctmeterReadingPanel = element(by.xpath('(//*[contains(text(),"Capture Current Meter Reading")])[1]'));
-		this.btnnext = element(by.xpath('(//*[@id="btnNextComm"])[2]'));
+		this.btnnext = element(by.xpath('(//*[@id="btnNextComm"])'));
 		this.ctmeterdtlGasNxt = element(by.id('btn_Next_read'));
 		//#endregion
 
@@ -1879,5 +1905,89 @@ public async clickSubmitRemElecSecTRAD()
 			await this.ConfirmCommsHubNxtBtn.click();
 		}
 	}
+
+
+	public async capturePhotoOfUGaugeAttachedToGasMeter() {
+		await utility.wait(1000);
+		if (await this.capturePhotoOfUGaugeAttachedToGasMeterBtn.isDisplayed()) {
+			await this.capturePhotoOfUGaugeAttachedToGasMeterBtn.click();
+		}
+	}
+
+	public async clickOnPreInstallationGasTightnessTestSubmitBtn() {
+		if (this.preInstallationGasTightnessTestSubmitBtn.isDisplayed()) {
+			this.preInstallationGasTightnessTestSubmitBtn.click();
+		}
+		await utility.wait(4000);
+	}
+
+	public async populateIHDPPMIDDetailsOnSiteFalse() {
+		if (this.smet2ihdppidText.isDisplayed()) {
+			var until = ExpectedConditions;
+			browser.wait(until.elementToBeClickable(this.smet2IHDPPIdFalse), 5000);
+			await this.smet2IHDPPIdFalse.click();
+		}
+		await utility.wait(1000);
+		if (this.existgasmeterDtlText.isDisplayed()) {
+			browser.wait(until.elementToBeClickable(this.smet2IHDPPIdFalse), 5000);
+			await this.existgasmeterDtlY.click();
+			await this.meterReadingLabel.clear();
+			await this.meterReadingLabel.sendKeys("1234");
+			browser.wait(until.elementToBeClickable(this.unableToReadMeterTrueRadioBtn), 5000);
+			await this.unableToReadMeterTrueRadioBtn.click();
+		}
+		await utility.wait(1000);
+		if (this.existingelecmeterdtls.isDisplayed()) {
+			await this.existingelecmeterdtls.click();
+			await utility.wait(2000);
+			await this.meterReadingElectricTextfield.clear();
+			await this.meterReadingElectricTextfield.sendKeys("12345");
+			browser.wait(until.elementToBeClickable(this.unabeToReadMeterTrueRadioBtn2), 5000);
+			await this.unabeToReadMeterTrueRadioBtn2.click();
+		}
+	}
+
+	public async setConfirmIfElecMeterIsOnSupplyOrOffSupplyTrueRadioOption() {
+		if (await this.confirmgasmeterOnsupply1.isDisplayed()) {
+			await this.confirmgasmeterOnsupply1.click();
+		}
+	}
+
+	public async setConfirmIfGasMeterIsOnSupplyOrOffSupplyTrueRadioOption() {
+		if (await this.confirmgasmeterOnsupply2.isDisplayed()) {
+			await this.confirmgasmeterOnsupply2.click();
+		}
+		await utility.wait(1000);
+	}
+
+	public async setAreSMETS2AssetInstalledFalseRadioOption() {
+		await utility.wait(1000);
+		if (await this.areSMETS2AssetInstalledFalseRadioOption.isDisplayed()) {
+			await this.areSMETS2AssetInstalledFalseRadioOption.click();
+		}
+	}
+
+	public async setDoYouNeedToExchangeAnAssetFalseRadioOption() {
+		await utility.wait(1000);
+		if (await this.doYouNeedToExchangeAnAssetFalseRadioOption.isDisplayed()) {
+			await this.doYouNeedToExchangeAnAssetFalseRadioOption.click();
+		}
+	}
+
+	public async setDoYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption() {
+		await utility.wait(1000);
+		if (await this.doYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption.isDisplayed()) {
+			await this.doYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption.click();
+		}
+	}
+
+	public async clickOnNextBtn() {
+		if (await this.btnnext.isDisplayed()) {
+			await this.btnnext.click();
+		}
+		await utility.wait(3000);
+	}
+
+
 
 }

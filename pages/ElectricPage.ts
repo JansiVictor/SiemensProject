@@ -56,7 +56,6 @@ export class ElectricPageObject {
 	public NextSectiontoCaptureBtn: ElementFinder;
 	public NeedtoWorkYES: ElementFinder;
 	public performanceRiskNextBtn: ElementFinder;
-	public captureInitialPhotoElec: ElementFinder;
 	public capturephotoMeterInstall: ElementFinder;
 	public initialpolarityCheck: ElementFinder;
 	public smartInstallationNextBtn: ElementFinder;
@@ -171,7 +170,9 @@ export class ElectricPageObject {
 	public nonserealizedAssetDD1: ElementFinder;
 	public nonserealizedAssetInput1: ElementFinder;
 	public hanAvailableN: ElementFinder;
-	
+	public captureInitialPhotoElec: ElementFinder;
+	private initialElectricPhotoCameraButton: ElementFinder;
+	private currentElectricPhotoFullMeterButton: ElementFinder;
 
 	/***
 	 * @Author Aparna Das
@@ -179,6 +180,8 @@ export class ElectricPageObject {
 	 ***/
 
 	constructor() {
+		this.initialElectricPhotoCameraButton = element(by.xpath("//h4[@class='ng-binding']"));
+		this.currentElectricPhotoFullMeterButton = element(by.xpath("//button[@id='btn_Init_Photo']"));
 		this.initialRiskAssesment = element(by.xpath('(//div/h4[text()="Initial Risk Assessment"])'));
 		this.riskAssesmentHEader = element(by.xpath('(//div[text()="Risk Assessment"])[1]'));
 		this.updateValuesBtn = element(by.xpath('//*[@id="CCHbtnUpdate"]'));
@@ -436,6 +439,10 @@ export class ElectricPageObject {
 		}
 		if (await this.riskAssessmentinput.isDisplayed()) {
 			await this.riskAssessmentinput.sendKeys('Testing Input');
+		}
+		await utility.wait(1000);
+		if (await this.nextSectionBtn.isDisplayed()) {
+			await this.nextSectionBtn.click();
 		}
 	}
 
@@ -1527,6 +1534,12 @@ public async fillPostInstallationCheckINST16() {
 
 			//await this.submitBtn.click();
 			await utility.wait(3000);
+		}
+	}
+
+	public async captureInitialElectricalPhoto() {
+		if (this.currentElectricPhotoFullMeterButton.isPresent()) {
+			await this.currentElectricPhotoFullMeterButton.click();
 		}
 	}
 }

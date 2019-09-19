@@ -2,7 +2,7 @@ import {
 	element,
 	by,
 	ElementFinder,
-	ElementArrayFinder
+	ElementArrayFinder, browser
 } from "protractor";
 const {
 	Given,
@@ -48,17 +48,16 @@ export class AppointmentListPageObject {
 	public doorStepPROText: ElementFinder;
 	public beAware: ElementFinder;
 	public continueLink: ElementFinder;
-
 	public continueLinkforEx21: ElementFinder;
 	public contactMadeNo: ElementFinder;
 	public appointmentconfirmationNo: ElementFinder;
-
 	public custcontnumberTxt: ElementFinder;
 	public customercontactnumberdis: ElementFinder;
+	private pageHeaderText: ElementArrayFinder;
+	private allRelevantSelectLinks: ElementArrayFinder;
 
 
 	constructor() {
-
 		//this.appointmentListLabel = element(by.xpath('//*[@id="btn_top"]/div[2]/div'));
 		this.usrname = element(by.id("input1"));
 		this.password = element(by.id("input2"));
@@ -91,18 +90,15 @@ export class AppointmentListPageObject {
 		this.arrivalTime = element(by.xpath('//div[@class="content-row bold"]'));
 		this.callfrwdpageContent = element(by.xpath('//div[@class="description"]'));
 		this.beAware = element(by.xpath('//div/h4[text() =" Be aware of any danger!"]'));
-
 		this.continueLink = element(by.xpath('//span[text()="continue >"]'));
 		this.continueLinkforEx21 = element(by.xpath('(//div[(@id="SelectJobTest1 EXCH21 DF SMETS2")])'));
-
 		//this.continueLink = element(by.xpath('(//span[text()="continue >"])[1]'));
 		this.continueLink = element(by.xpath('//*[starts-with(@id,"SelectJob3JFAULTY 18")]'));
-
 		this.customercontactnumberdis = element(by.xpath('//*[contains(text(),"CUSTOMER CONTACT NUMBER:")]'));
 		//this.continueLink = element(by.xpath('(//span[text()="continue >"])[1]'));
-
 		this.continueLink = element(by.xpath('//*[starts-with(@id,"ContinueJob3JFAULTY 19")]'));
-
+		this.pageHeaderText = element.all(by.xpath("//div[contains(@class,'header-text white tg ng-binding')]"));
+		this.allRelevantSelectLinks = element.all(by.xpath("//span[starts-with(@id,'SelectJobFAULTY 20 Non S2 site FLAT')]"));
 	}
 
 	public verifyDoorstepWorkOrderWindow() {
@@ -169,8 +165,6 @@ export class AppointmentListPageObject {
 		//customerContactNumberText
 		await utility.wait(1000);
 		//await expect(await this.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
-
-
 	}
 	//ContactMadeText
 	public async clickOnContactMadeOtion() {
@@ -233,7 +227,6 @@ export class AppointmentListPageObject {
 		await this.additionalAccessDetailsTextBox.sendKeys('Additional access details comment 123');
 	}
 
-
 	public async mprnOKbtn() {
 		await utility.wait(1000);
 		await expect(this.mprnOK.isPresent());
@@ -249,5 +242,31 @@ export class AppointmentListPageObject {
 		await expect(this.arrivalTime.isPresent());
 	}
 
+	public async isH1HeaderPresentAppointmentListPage() {
+
+		function presenceOfAll(elementArrayFinder) {
+			return function () {
+				return elementArrayFinder.count(function (count) {
+					return count > 0;
+				});
+			};
+		}
+
+		browser.wait(presenceOfAll(this.pageHeaderText), 10000);
+
+		if (await this.pageHeaderText.count() > 0) {
+			this.pageHeaderText.count().then(function (pageHeaderCount) {
+				console.log("Arrived at : Appointment List Page");
+
+			});
+		}
+	}
+
+	public clickOnRelevantSelectLink() {
+		this.allRelevantSelectLinks.count().then(function (count) {
+			console.log("The number of relevant select > links identified for this scenario is " + count);
+		});
+		this.allRelevantSelectLinks.get(0).click();
+	}
 
 }

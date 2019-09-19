@@ -21,7 +21,7 @@ import {
 } from 'selenium-webdriver';
 
 export class GASPageObject {
-
+	private currentGasPhotoFullMeterButton: ElementFinder;
 	public riskAssessGas: ElementFinder;
 	public capturephotoMeterInstall: ElementFinder;  
 	public meterPressureLow: ElementFinder;
@@ -187,6 +187,7 @@ export class GASPageObject {
 
 
 	constructor() {
+		this.currentGasPhotoFullMeterButton = element(by.xpath("//button[@id='gasbtn1']"));
 		this.riskAssessGas = element(by.id('Title_RiskAss_gas'));
 		this.commsHubConnectedYes = element(by.xpath('//input[@id="Cradionm1"]/following-sibling::span[@class="outer"]'));
         
@@ -1191,7 +1192,32 @@ public async fillGasSafety16(){
     if (this.submitGas.isDisplayed()) {
         await this.submitGas.click();
     }
-
 }
+
+	public async populateRiskAssessmentForGasWithoutPhotoEvidence() {
+		await utility.wait(2000);
+		await expect(this.meterPressureLow.isPresent());
+		await this.meterPressureLow.click();
+		await expect(this.voltStickYEs.isPresent());
+		await this.voltStickYEs.click();
+		await expect(this.theftOfGasYes.isPresent());
+		await this.theftOfGasYes.click();
+		await expect(this.ecvChksPAss.isPresent());
+		await this.ecvChksPAss.click();
+		await expect(this.workAreaSafetyYes.isPresent());
+		await this.workAreaSafetyYes.click();
+		await expect(this.captureEvidence.isPresent());
+		await this.additionalGASNote.sendKeys('Fault Checked');
+		await expect(await this.safeToContinueYEs.isPresent());
+		browser.executeScript("arguments[0].scrollIntoView();", this.safeToContinueYEs.getWebElement());
+		await this.safeToContinueYEs.click();
+		await utility.wait(2000);
+	}
+
+	public async captureInitialGasPhoto() {
+		if (this.currentGasPhotoFullMeterButton.isPresent()) {
+			await this.currentGasPhotoFullMeterButton.click();
+		}
+	}
 
 }

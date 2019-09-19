@@ -2,7 +2,7 @@ import {
 	element,
 	by,
 	ElementFinder,
-	ElementArrayFinder
+	ElementArrayFinder, ExpectedConditions, browser
 } from "protractor";
 const {
 	Given,
@@ -25,6 +25,8 @@ export class DoorStepPageObject {
 	public customerOnSiteY: ElementFinder;
 	public onSiteBtn: ElementFinder;
 	public initialRiskAssesment: ElementFinder;
+	private doorStepTextLabel: ElementFinder;
+	private arriveButton: ElementFinder;
 
 	constructor() {
 
@@ -35,7 +37,8 @@ export class DoorStepPageObject {
 		this.customerOnSiteY = element(by.xpath('//*[@id="rb_cst_onsite_y"]/span[@class="outer"]'));
 		this.onSiteBtn = element(by.xpath('(//button[@id="btn_onsite"])'));
 		this.initialRiskAssesment = element(by.xpath('(//div/h4[text()="Initial Risk Assessment"])'));
-
+		this.doorStepTextLabel = element(by.xpath('(//div[text() ="Doorstep"])[1]'));
+		this.arriveButton = element(by.id("btn_arrive"));
 	}
 
 	public verifyBeAwareOfAnyDangerPage() {
@@ -55,7 +58,9 @@ export class DoorStepPageObject {
 		}
 
 		if (this.customerOnSiteY.isDisplayed()) {
-			await utility.wait(5000);
+			await utility.wait(7000);
+			var expectedConditions = ExpectedConditions;
+			browser.wait(expectedConditions.elementToBeClickable(this.customerOnSiteY), 5000);
 			await this.customerOnSiteY.click();
 		}
 	}
@@ -64,5 +69,14 @@ export class DoorStepPageObject {
 		this.onSiteBtn.click();
 		await utility.wait(5000);
 		await expect(this.initialRiskAssesment.isPresent());
+	}
+
+	public async isDoorStepTextLabelDisplayed() {
+		await expect(this.doorStepTextLabel.isDisplayed());
+	}
+
+	public async clickOnArriveButton() {
+		await expect(this.arriveButton.isPresent());
+		this.arriveButton.click();
 	}
 }
