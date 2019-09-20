@@ -1,7 +1,7 @@
 import { browser, protractor, element, by } from "protractor";
 import { loginPageObject } from "../pages/loginPage";
 import { FLTY19homePageObject } from "../pages/FLTY19homePage";
-import { FLTY19AppointmentListPageObject } from "../pages/FLTY19AppointmentListPage";
+import { AppointmentListPageObject } from "../pages/AppointmentListPage";
 import { DoorStepPageObject } from "../pages/DoorStepPage";
 import { RiskAssessmentPageObject } from "../pages/RiskAssessmentPage";
 import { RemovePageObject } from "../pages/RemovePage";
@@ -11,12 +11,7 @@ import { when } from "q";
 import { InstallPageObject } from "../pages/InstallPage";
 import { RemoveTRADPageObject } from "../pages/RemoveTRAD";
 
-import { RiskAssessmentPageElecObject } from "../pages/RiskAssessmentPageElec";
-import {
-
-	Exchange21JobCompletionPageObject
-
-} from "../pages/Exchange21JobCompletion";
+import { RiskAssessmentPageElecObject } from "../pages/ElectricPage";
 import { RiskAssessmentforGASPageObject } from "../pages/RiskAssessmentForGAS";
 import { JobCompletionPageObject } from "../pages/JobCompletionPage";
 const { Given, When, Then } = require("cucumber");
@@ -27,14 +22,14 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 const utility: Utility = new Utility();
 const login: loginPageObject = new loginPageObject();
 const home: FLTY19homePageObject = new FLTY19homePageObject();
-const applist: FLTY19AppointmentListPageObject = new FLTY19AppointmentListPageObject();
+const applist: AppointmentListPageObject = new AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: RiskAssessmentPageObject = new RiskAssessmentPageObject();
 const riskassessTRAD: RiskAssessmentPageElecObject = new RiskAssessmentPageElecObject();
-const remove: RemoveTRADPageObject = new RemoveTRADPageObject();
+const remove: RemovePageObject = new RemovePageObject();
 const inst: InstallPageObject =new InstallPageObject();
 const riskassessGAS: RiskAssessmentforGASPageObject = new RiskAssessmentforGASPageObject();
-const exchnge21Complete: Exchange21JobCompletionPageObject = new Exchange21JobCompletionPageObject();
+
 const job: JobCompletionPageObject = new JobCompletionPageObject();
 
 Given('the Login Page for FLTY19 Trad', async function () {
@@ -191,23 +186,6 @@ Given('the INITIAL RISK ASSESSMENT section for FLTY19 Trad', async function () {
 When('I fill the initialRisk field with the values for FLTY19 Trad', async function () {
   await riskassess.inputInitialRiskAssessmentDetails();
 });
-
-Then('I should see INFO window for FLTY19 Trad', async function () {
-  await riskassess.infoTextPopUp();
-});
-
-/***INFO window with the text */
-
-Given('the INFO window with the text for FLTY19 Trad', async function () {
-  await riskassess.infoOKButton.click();
-  await utility.wait(10000);
-  if (riskassess.NeedtoWorkYES.isDisplayed()) {
-    var element = riskassess.NeedtoWorkYES;
-    browser.executeScript("arguments[0].click()", element);
-    await utility.wait(5000);
-  }
-});
-
 
 Then('I should see RISK ASSESSMENT ELEC section for FLTY19 Trad', async function () {
   await riskassess.verifyriskElecText();
@@ -526,7 +504,7 @@ Given('Perform DCC Message Creation for EICOM section for FLTY19 Trad', async fu
 });
 When('I fill the Perform DCC Message Creation for EICOM details fields with values for FLTY19 Trad', async function () {
 
-	await riskassessTRAD.eicomMessage();
+	await riskassessTRAD.eicomMessageEX23();
 
 });
 Then('I should see Commissioning Successful button for FLTY19 Trad', async function () {

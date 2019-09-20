@@ -114,7 +114,7 @@ export class JobCompletionPageObject {
         this.signpad = element(by.xpath('//*[@id="signaturePad"]'));
 
         // CGP changed as per my Job
-        this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobMAN4")]'));
+        this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobNCG5")]'));
 
         //CGP install 16 Changes
 
