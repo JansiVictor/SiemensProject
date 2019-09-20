@@ -28,7 +28,7 @@ const job: JobCompletionPageObject = new JobCompletionPageObject();
 
 Given('FTwenty the Login Page', async function () {
     await browser.get(config.baseUrl);
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
 });
 
 When('FTwenty I pass {string} and {string}', async function (username, password) {
@@ -38,7 +38,7 @@ When('FTwenty I pass {string} and {string}', async function (username, password)
 
 Then('FTwenty I click Login button', async function () {
     await login.clickLogin();
-    await utility.wait(10000);
+    await utility.wait(utility.medium);
 });
 
 Then('FTwenty I should see the Appointment List', async function () {
@@ -55,7 +55,7 @@ When('FTwenty I click on select button', async function () {
     //await home.continueLink.click();
     await home.selectLink.click();
     //await home.clickOnTheSelectLink();
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
 });
 
 Then('FTwenty I should see Work Order window', async function () {
@@ -83,7 +83,7 @@ Then('FTwenty I should see the CUSTOMER CONTACT NUMBER', async function () {
 });
 
 Then('FTwenty I should see Contact made field', async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await expect(await applist.contactMadeText.getText()).equal("Contact made?");
     await expect(applist.contactMadeYes.isPresent());
 });
@@ -119,14 +119,14 @@ When('FTwentyD I click on OK button', async function () {
 });
 
 Then('FTwenty I should see ARRIVE button', async function () {
-    await utility.wait(10000);
+    await utility.wait(utility.medium);
     await applist.arriveBtn.getText().then(function (arriveBtnText) {
         console.log("find Arrive Btn Text  " + arriveBtnText);
     });
 });
 
 Then('FTwenty I should see DOORSTEP PROTOCOL tab activated', async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await applist.doorStepPROText.getText().then(function (doorStepPROText) {
         console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
     });
@@ -138,9 +138,9 @@ When('FTwenty I click on ARRIVE button', async function () {
 
 Then('FTwenty I should see Arrival Time details', async function () {
     //comment these 2 lines when continue link is not displayed
-    // await utility.wait(5000);
+    // await utility.wait(utility.medium_low);
     //await applist.continueLink.click();
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     await applist.arrivalTime.getText().then(function (arrivalTimeText) {
         console.log("find Arrival Time Text  " + arrivalTimeText);
     });
@@ -191,11 +191,11 @@ Then('FTwenty I should see INFO window', async function () {
 Given('FTwenty the INFO window with the text', async function () {
     await riskassess.INFOOK();
     //   await riskassess.infoOKButton.click();
-    //   await utility.wait(10000);
+    //   await utility.wait(utility.medium);
     //   if (riskassess.NeedtoWorkYES.isDisplayed()) {
     //     var element = riskassess.NeedtoWorkYES;
     //     browser.executeScript("arguments[0].click()", element);
-    //     await utility.wait(5000);
+    //     await utility.wait(utility.medium_low);
     //   }
 });
 

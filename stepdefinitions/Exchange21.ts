@@ -29,6 +29,7 @@ import {
 import {
 	Utility
 } from "../support/utility";
+import { RiskAssessmentPageObject } from "../pages/RiskAssessmentPage";
 const {
 	Given,
 	When,
@@ -46,12 +47,13 @@ const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: ElectricPageObject = new ElectricPageObject();
 const riskassessGAS: GASPageObject = new GASPageObject();
 const exchnge21Complete: JobCompletionPageObject = new JobCompletionPageObject();
+const risk: RiskAssessmentPageObject = new RiskAssessmentPageObject();
 
 
 
 Given('the ExTwOne Login Page', async function () {
 	await browser.get(config.baseUrl);
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 When('I pass ExTwOne {string} and {string}', async function (username, password) {
@@ -61,7 +63,7 @@ When('I pass ExTwOne {string} and {string}', async function (username, password)
 
 Then('I click ExTwOne Login button', async function () {
 	await login.clickLogin();
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 });
 
 Then('I should see the ExTwOne Appointment List', async function () {
@@ -76,7 +78,7 @@ When('I click on ExTwOne select button', async function () {
 	await home.clickCorrectSelectLink('Exchange21');
 	//await home.clickOnTheExchange21SelectLink();
 	//await home.clickOnTheContinueLink();
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 Then('I should see ExTwOne Work Order window', async function () {
@@ -95,18 +97,18 @@ Then('I click on ExTwOne CALL FORWARD button', async function () {
 	await applist.clickOnCallForwardBtn();
 });
 
-Then('I should see page ExTwOne contect display', async function () {
+Then('I should see ExTwOne page contect display', async function () {
 	await applist.validateTheCallFrwdPageTextDisplay();
 });
 
 Then('I should see the ExTwOne CUSTOMER CONTACT NUMBER', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await expect(await applist.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
 
 });
 
 Then('I should see ExTwOne Contact made field', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
 	await expect(applist.contactMadeYes.isPresent());
 });
@@ -151,14 +153,14 @@ When('I click on ExTwOne OK button', async function () {
 });
 
 Then('I should see ExTwOne ARRIVE button', async function () {
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 	await applist.arriveBtn.getText().then(function (arriveBtnText) {
 		console.log("find Arrive Btn Text  " + arriveBtnText);
 	});
 });
 
 Then('I should see ExTwOne DOORSTEP PROTOCOL tab activated', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});
@@ -171,9 +173,9 @@ When('I click on ExTwOne ARRIVE button', async function () {
 
 Then('I should see ExTwOne Arrival Time details', async function () {
 	//comment these 2 lines when continue link is not displayed
-	// await utility.wait(5000);
+	// await utility.wait(utility.medium_low);
 	// await applist.continueLink.click();
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
 	});
@@ -218,17 +220,17 @@ Then('I should see ExTwOne INFO window', async function () {
 
 
 Given('the ExTwOne INFO window with the text', async function () {
-	await riskassess.infoOKButton.isDisplayed();
-	await riskassess.infoOKButton.click();
+	//await riskassess.infoOKButton.isDisplayed();
+	await risk.INFOOKClick();
 
 	//await riskassess.performanceRiskNextBtn.click();
 
 
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 	if (riskassess.NeedtoWorkYES.isDisplayed()) {
 		var element = riskassess.NeedtoWorkYES;
 		browser.executeScript("arguments[0].click()", element);
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 	}
 });
 
@@ -289,11 +291,11 @@ When('I fill the ExTwOne Socket Found field with the values', async function () 
 
 });
 
-Given('the ExTwOne Suitable for Smart Installation section', async function () {
+Given('the Suitable for ExTwOne Smart Installation section', async function () {
 	await riskassess.verifysuitableforSmartMeterInstallation();
 });
 
-When('I click on ExTwOne Is Site Suitable for Smart Installation? button', async function () {
+When('I click on Is ExTwOne Site Suitable for Smart Installation? button', async function () {
 	await riskassess.suitableforSmartMeterInstallation();
 });
 
@@ -492,7 +494,7 @@ When('I fill the ExTwOne Suitability for Smart Meter Installation fields with th
 Then('I should see ExTwOne Capture Photo of GAS Installation section', async function () {
 	await riskassessGAS.captureInitialPhotoTxt();
 	await riskassessGAS.captureInitialPhotogasbtn.click();
-	await utility.wait(1000);
+	await utility.wait(utility.very_low);
 });
 
 Given('the ExTwOne Pre Installation Gas Tightness section', async function () {
@@ -560,7 +562,7 @@ When('I fill the ExTwOne Gas Install Kit section fields with values', async func
 });
 
 When('I fill the ExTwOne Post Installation GAS section fields with values', async function () {
-  await riskassessGAS.fillPostInstallationGasDetails();
+  await riskassessGAS.fillPostInstallationEx21Details();
 });
 
 
@@ -603,7 +605,7 @@ Given('the ExTwOne SMETS PPMID section', async function () {
 
 
 When('I fill the ExTwOne SMETS PPMID section fields with values',async function () {
-  await exchnge21Complete.fillPPMIDSection(4);
+  await exchnge21Complete.fillPPMIDSection(2);
 });
 
 
@@ -621,7 +623,7 @@ When('I fill the ExTwOne SMETS XIPMD section fields with values',async function 
 });
 
 
-Then('I should see ExTwOne Check Binding and commissioning of PPMID section',async function () {
+Then('I should see Check ExTwOne Binding and commissioning of PPMID section',async function () {
   await exchnge21Complete.DeviceBindingSectiondispaly();
 
 });
@@ -674,12 +676,12 @@ Then('I should see ExTwOne Perform Smart Meter Education and Demonstration secti
 });
 
 
-Given('the ExTwOne Perform Smart Meter Education and Demonstration section', async function () {
+Given('the Perform ExTwOne Smart Meter Education and Demonstration section', async function () {
   await exchnge21Complete.smartEducationDisplay();
 });
 
 
-When('I fill the ExTwOne Perform Smart Meter Education and Demonstration  fields with values', async function () {
+When('I fill the Perform ExTwOne Smart Meter Education and Demonstration  fields with values', async function () {
   await exchnge21Complete.fillSmartEducationDetails();
 });
 

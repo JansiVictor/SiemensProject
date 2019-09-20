@@ -312,7 +312,11 @@ export class RiskAssessmentPageObject {
         });
 
     }
+    
 
+
+    
+    
     public async inputInitialRiskAssessmentDetails() {
         await expect(this.initialRiskAssesment.isPresent());
         try {
@@ -348,7 +352,7 @@ export class RiskAssessmentPageObject {
         if (this.OKtoProceedEGPOutcome.isDisplayed()) {
             await utility.wait(2000);
             await this.OKtoProceedEGPOutcome.click();
-            await utility.wait(5000);
+            await utility.wait(utility.medium_low);
         }
     }
 
@@ -364,7 +368,8 @@ export class RiskAssessmentPageObject {
 
 		await utility.wait(2000);
             await this.infoOKButton.click();
-            await utility.wait(5000);
+
+            await utility.wait(utility.medium_low);
         }
     }
 
@@ -378,43 +383,43 @@ export class RiskAssessmentPageObject {
     }
 
     public async fillRiskAssesmentElecFields() {
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.performRiskText.isDisplayed()) {
             try {
-                await utility.wait(3000);
+                await utility.wait(utility.low);
                 await this.performRiskYES.click();
             } catch (error) {
                 console.log("performrisk not clicked");
             }
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.selectRiskReasonDD.isDisplayed()) {
             var select = await this.selectRiskReasonDD;
             await select.$('[value="37"]').click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.performRiskPassText.isDisplayed()) {
             await this.RiskAssessmentPassYES.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.riskAssessmentinput.isDisplayed()) {
             await this.riskAssessmentinput.clear();
             await this.riskAssessmentinput.sendKeys('Risk assessment notes');
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
     }
 
     public async capturePhotoBtnDisplayed() {
-        await utility.wait(5000);
+        await utility.wait(utility.medium_low);
         if (await this.cameraElecBtn.isDisplayed()) {
-            await utility.wait(1000);
+            await utility.wait(utility.very_low);
             await this.cameraElecBtn.click();
-            await utility.wait(5000);
+            await utility.wait(utility.medium_low);
         }
     }
 
     public async clickNextSectionBtn() {
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.nextSectionBtn.isDisplayed()) {
             await this.nextSectionBtn.click();
         }
@@ -434,15 +439,15 @@ export class RiskAssessmentPageObject {
         if (await this.capmeterressureText.isDisplayed()) {
             await this.meterPressureLow.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.voltstickCheckText.isDisplayed()) {
             await this.voltStickYES.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.tamptheftGasText.isDisplayed()) {
             await this.theftOfGASPASS.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.ecvCheckText.isDisplayed()) {
             await this.ECVChecksBtnYES.click();
         }
@@ -455,48 +460,48 @@ export class RiskAssessmentPageObject {
         if (await this.capmeterressureText.isDisplayed()) {
             await this.meterPressureLow.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
     }
     public async capturegasbtn() {
         if (await this.cameraGasBtn.isDisplayed()) {
             await this.cameraGasBtn.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
     }
     public async fillthedtl06() {
         if (await this.gasriskAdditionalText.isDisplayed()) {
             await this.GASRiskTextInput.clear();
             await this.GASRiskTextInput.sendKeys("Risk Notes");
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.safetoContText.isDisplayed()) {
             await this.safetoContPass.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
     }
 
     // CGP for FLTY20TRAD
 
     public async elecInstSec() {
-        await utility.wait(5000);
+        await utility.wait(utility.medium_low);
         if (await this.CaptureInitialElecInstTab.isDisplayed()) {
             await this.CaptureInitialElecInstTab.getText().then(function (capinitialElecInst) {
                 console.log("Find capture initial photo of elec installation  " + capinitialElecInst);
             });
         }
-        await utility.wait(5000);
+        await utility.wait(utility.medium_low);
     }
 
     public async elecfullmeterInst() {
-        await utility.wait(3000);
+        await utility.wait(utility.low);
         if (await this.CaptureInitialElecInstTab.isPresent()) {
        //     await this.CaptureInitialElecInstTab.click();
         }
-        await utility.wait(3000);
+        await utility.wait(utility.low);
         if (await this.capturephotoMeterInstall.isDisplayed()) {
             await this.capturephotoMeterInstall.click();
         }
-        // await utility.wait(1000);
+        // await utility.wait(utility.very_low);
         // try {
         //     if (await this.CaptureInitialGasInstNext.isDisplayed()) {
         //         await this.CaptureInitialGasInstNext.click();
@@ -504,7 +509,7 @@ export class RiskAssessmentPageObject {
         // } catch (error) {
         //     console.log("Gas full meter next section is not available at this moment");
         // }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         
     }
 
@@ -513,25 +518,25 @@ export class RiskAssessmentPageObject {
 
 
     public async gasInstSec() {
-        await utility.wait(5000);
+        await utility.wait(utility.medium_low);
         if (await this.captureInitialPhotoElec.isDisplayed()) {
             await this.captureInitialPhotoElec.getText().then(function (capinitialGasInst) {
                 console.log("Find capture initial photo of gas installation  " + capinitialGasInst);
             });
         }
-        await utility.wait(5000);
+        await utility.wait(utility.medium_low);
     }
 
     public async gasfullmeterInst() {
-        await utility.wait(5000);
+        await utility.wait(utility.medium_low);
         if (await this.CaptureInitialGasInstTab.isPresent()) {
             await this.CaptureInitialGasInstTab.click();
         }
-        await utility.wait(5000);
+        await utility.wait(utility.medium_low);
         if (await this.capfullmeterInst.isDisplayed()) {
             await this.capfullmeterInst.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
     }
     public async verifyInitialPolarityCheck() {
         if (await this.initialpolarityCheck.isDisplayed()) {
@@ -539,23 +544,23 @@ export class RiskAssessmentPageObject {
                 console.log("Find initialpolarityCheck Text " + initialpolarityCheckText);
             });
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
     }
 
     public async fillthePolarityCheckMartinDale() {
         if (await this.InitPolCheckMartindaleTab.isPresent()) {
             await this.InitPolCheckMartindaleTab.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.polarityCheckDD.isDisplayed()) {
             var select = this.polarityCheckDD;
             await select.$('[value="true"]').click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.socketSafetyBtnYES.isPresent()) {
             await this.socketSafetyBtnYES.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.socketSetLocDD.isDisplayed()) {
             var select = this.socketSetLocDD;
             await select.$('[value="9"]').click();
@@ -566,10 +571,10 @@ export class RiskAssessmentPageObject {
         if (await this.capturePreinsatllation.isDisplayed()) {
             await this.capturePreinsatllation.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
     }
     public async verifyanySocketFoundNO() {
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.anySocketFoundNO.isPresent()) {
             await this.anySocketFoundNO.click();
         }
@@ -588,66 +593,66 @@ export class RiskAssessmentPageObject {
                 console.log("Find Meter cut out Text " + metercutOut);
             });
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
     }
 
     public async fillthePolarityCheckMeterOut() {
         if (await this.InitPCMTab.isPresent()) {
             await this.InitPCMTab.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         await expect(this.polarityCheckCutOutYES.isPresent());
         await this.polarityCheckCutOutYES.click();
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         await expect(this.polarityCheckAtMeter.isPresent());
         await this.polarityCheckAtMeter.click();
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
     }
 
     public async fillthePolarityCheckMeterOutFLTY20() {
         if (await this.InitPCMTab.isPresent()) {
             await this.InitPCMTab.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         await expect(this.polarityCheckCutOutYES.isPresent());
         await this.polarityCheckCutOutYES.click();
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         await expect(this.polarityCheckAtMeter.isPresent());
         await this.polarityCheckAtMeter.click(); 
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
 
         // added by cgp for FLTY20 TRAD
         await expect(this.reportToMngr.isPresent());
         await this.reportToMngr.click(); 
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         await expect(this.teamMgnrName.isPresent());
         await this.teamMgnrName.sendKeys("CGP");
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         await expect(this.teamMgnrAuth.isPresent());
         await this.teamMgnrAuth.click();
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         await expect(this.calledAirline.isPresent());
         await this.calledAirline.click();
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         await expect(this.airLineRefName.isPresent());
         await this.airLineRefName.sendKeys("Test 1");
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         await expect(this.reportedRiskDNO.isPresent());
         await this.reportedRiskDNO.click();
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         await expect(this.DNOrefNum.isPresent());
         await this.DNOrefNum.sendKeys("1111111");
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
     }
 
     //Added By CGP for Faulty20 TRAD
 
     public async polarityMeterCutoutSubmit()
     {
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.meterCutOutSubmitBtn.isDisplayed()) {
             await this.meterCutOutSubmitBtn.click();
-            await utility.wait(1000);
+            await utility.wait(utility.very_low);
         }
         
     
@@ -656,10 +661,10 @@ export class RiskAssessmentPageObject {
 
     public async polarityMeterCutoutSubmitTRAD()
     {
-        await utility.wait(3000);
+        await utility.wait(utility.low);
         if (await this.meterCutOutSubmit1.isDisplayed()) {
             await this.meterCutOutSubmit1.click();
-            await utility.wait(3000);
+            await utility.wait(utility.low);
         }
         
     
@@ -668,10 +673,10 @@ export class RiskAssessmentPageObject {
 
     public async polarityMeterCutoutSubmitFLTY18TRAD()
     {
-        await utility.wait(3000);
+        await utility.wait(utility.low);
         if (await this.clickSubmit_SFENMEX15.isDisplayed()) {
             await this.clickSubmit_SFENMEX15.click();
-            await utility.wait(3000);
+            await utility.wait(utility.low);
         }
         
     }
@@ -679,13 +684,13 @@ export class RiskAssessmentPageObject {
 
         if (await this.meterCutOutNxtBtn.isDisplayed()) {
             await this.meterCutOutNxtBtn.click();
-            await utility.wait(1000);
+            await utility.wait(utility.very_low);
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.nextbtntoRemove.isDisplayed()) {
             await this.nextbtntoRemove.click();
             console.log("Clicked on Submit");
-            await utility.wait(1000);
+            await utility.wait(utility.very_low);
         }
     }
 
@@ -699,16 +704,16 @@ export class RiskAssessmentPageObject {
 
         if (await this.capturephotoMeterInstall.isDisplayed()) {
             await this.capturephotoMeterInstall.click();
-            await utility.wait(1000);
+            await utility.wait(utility.very_low);
         }
     }
     public async meterCutOutnextSectionfrmElec() {
 
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.nextbtntoRemfromElec.isDisplayed()) {
             await this.nextbtntoRemfromElec.click();
             console.log("Clicked on Submit from Elec");
-            await utility.wait(1000);
+            await utility.wait(utility.very_low);
         }
     }
     public async INFOOK() {
@@ -719,12 +724,12 @@ export class RiskAssessmentPageObject {
 
         if (await this.infoOkbutn.isDisplayed()) {
             await this.infoOkbutn.click();
-            await utility.wait(1000);
+            await utility.wait(utility.very_low);
         }
     }
 
     public async ElecInstSec() {
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.captureInitialPhotoE.isDisplayed()) {
             await this.captureInitialPhotoE.getText().then(function (captureInitialPhotoETxt) {
                 console.log("Find capture initial photo of Elec installation  " + captureInitialPhotoETxt);
@@ -734,10 +739,10 @@ export class RiskAssessmentPageObject {
     //TST_12 FLTY GAS
 
     public async NeedtoWork() {
-        await utility.wait(5000);
+        await utility.wait(utility.medium_low);
         if (await this.NeedtoWorkY.isDisplayed()) {
             await this.NeedtoWorkY.click();
-            await utility.wait(1000);
+            await utility.wait(utility.very_low);
         }
     }
 

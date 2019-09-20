@@ -23,7 +23,8 @@ export class HomePageObject {
 	public usrname: ElementFinder;
 	public password: ElementFinder;
 	public loginbtn: ElementFinder;
-	public selectLink: ElementArrayFinder;
+	public selectLink:ElementArrayFinder;
+	public selectLinkEx21: ElementArrayFinder;
 	public selectLink2: ElementArrayFinder;
 	public arriveBtn: ElementFinder;
 	public continueLink: ElementArrayFinder;
@@ -60,7 +61,7 @@ export class HomePageObject {
 		this.Ex20selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest1 EXCH20 SF SMETS2")]'));
 		this.Ex19selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJob1EXCHANGE 19 FLAT")]'));
 		this.Ex20continueLink = element.all(by.xpath('//span[starts-with(@id,"ContinueJobTest EXCH20 SF SMETS2"]'));
-		this.selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest EXCH21 DF SMETS2"]'));
+		this.selectLinkEx21 = element.all(by.xpath('(//span[starts-with(@id,"SelectJobTest EXCH21 DF")])'));
 		this.Remove6selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobRMVE6 FLAT")]'));
 		this.RemoveGasSelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobRMVE5 FLAT")]'));
 		this.FLTYnoexchangeselectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobFAULTY 20 SMETS2 Site FLAT")]'));
@@ -362,7 +363,7 @@ export class HomePageObject {
 	public async clickOnTheDF17SmartCreditSelectLink() {
 		var list = this.DF17SmartCreditselectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -406,7 +407,7 @@ export class HomePageObject {
 	public async clickOnTheSFEFLTY19SelectLink() {
 		var list = this.SFEFLTY19selectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -450,7 +451,7 @@ export class HomePageObject {
 	public async clickOnTheSFEINST15SelectLink() {
 		var list = this.SFEINST15selectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -494,7 +495,7 @@ export class HomePageObject {
 	public async clickOnTheSFENMEX16SelectLink() {
 		var list = this.SFENMEX16selectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -538,7 +539,7 @@ export class HomePageObject {
 	public async clickOnTheSFGFLTY18TRADSelectLink() {
 		var list = this.SFGFLTY18TRADselectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -582,7 +583,7 @@ export class HomePageObject {
 	public async clickOnTheSFGNMEX15SelectLink() {
 		var list = this.SFGNMEX15selectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -628,7 +629,7 @@ export class HomePageObject {
 	public async clickOnTheSFEFLTY19TRADSelectLink() {
 		var list = this.SFEFLTY19TRADselectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -670,9 +671,9 @@ export class HomePageObject {
 	 ***/
 
 	public async clickOnTheExchange21SelectLink() {
-		var list = this.selectLink;
+		var list = this.selectLinkEx21;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -682,7 +683,7 @@ export class HomePageObject {
 
 
 			var selectlatest = element(
-				by.xpath('((//span[starts-with(@id,"SelectJobTest1 EXCH21 SF SMETS2")]))' + '[' + [size] + ']')
+				by.xpath('((//span[starts-with(@id,"SelectJobTest EXCH21 DF")]))' + '[' + [size] + ']')
 			);
 
 			selectlatest.getText().then(function (selectText) {
@@ -690,9 +691,9 @@ export class HomePageObject {
 			});
 
 
-			console.log("link " + ('((//span[starts-with(@id,"SelectJobTest1 EXCH21 SF SMETS2")]))' + '[' + [size] + ']'));
+			console.log("link " + ('((//span[starts-with(@id,"SelectJobTest EXCH21 DF")]))' + '[' + [size] + ']'));
 			var selectMe = element(
-				by.xpath('((//span[starts-with(@id,"SelectJobTest1 EXCH21 SF SMETS2")]))' + '[' + [size] + ']')
+				by.xpath('((//span[starts-with(@id,"SelectJobTest EXCH21 DF")]))' + '[' + [size] + ']')
 			);
 			selectMe.getText().then(function (selectMeText) {
 				console.log("find select Me link text  " + selectMeText);
@@ -718,7 +719,7 @@ export class HomePageObject {
 	public async clickOnSFGASEx22SelectLink() {
 		var list = this.SFGASEx22;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -762,7 +763,7 @@ export class HomePageObject {
 	public async clickOnTheSFInst14SelectLink() {
 		var list = this.SFGASINST14;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -806,7 +807,7 @@ export class HomePageObject {
 	public async clickOnTheDFECXH24SelectLink() {
 		var list = this.Exch24SelectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -852,7 +853,7 @@ export class HomePageObject {
 
 		var list = this.continueLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -892,7 +893,7 @@ export class HomePageObject {
 	public async clickOnTheExchange20SelectLink() {
 		var list = this.Ex20selectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -938,7 +939,7 @@ export class HomePageObject {
 
 		var list = this.Ex20continueLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -979,7 +980,7 @@ export class HomePageObject {
 	public async clickOnTheExchange19SelectLink() {
 		var list = this.Ex19selectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -1024,7 +1025,7 @@ export class HomePageObject {
 
 		var list = this.Ex20completedLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(async function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -1065,7 +1066,7 @@ export class HomePageObject {
 
 		var list = this.Ex21completedLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(async function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -1101,7 +1102,7 @@ export class HomePageObject {
 	public async clickOnTheRemove6SelectLink() {
 		var list = this.Remove6selectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -1145,7 +1146,7 @@ export class HomePageObject {
 	public async clickOnTheFLTY20NoExchangeSelectLink() {
 		var list = this.FLTYnoexchangeselectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -1190,7 +1191,7 @@ export class HomePageObject {
 	public async clickFLTY19TradNoExSelectLink() {
 		var list = this.flty19noExTradSelectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4
@@ -1232,7 +1233,7 @@ export class HomePageObject {
  */
 
 public async seeAppList() {
-await utility.wait(1000);
+await utility.wait(utility.very_low);
 await expect(this.appointmentListLab.isDisplayed());
     }
 
@@ -1246,7 +1247,7 @@ await expect(this.appointmentListLab.isDisplayed());
 	public async clickOnTheRemoveGASSelectLink() {
 		var list = this.RemoveGasSelectLink;
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		list.count().then(function (promiseResult) {
 			console.log("size is: " + promiseResult);
 			var size = promiseResult; //4

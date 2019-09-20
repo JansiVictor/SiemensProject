@@ -265,454 +265,395 @@ export class RemoveTRADPageObject {
         this.currentMetDet = element(by.id('Title_CurrMe_Det'));
         this.nonserealizedAssetDD = element(by.id('Cselect4'));
 		this.nonserealizedAssetInput = element(by.id('Cbar3'));
-        // CGP added for Determine Fault Activity
-        //this.confirmgasmeterOnsupply = element(by.xpath('//input[@id="confirmgassupplytrue"]/following-sibling::span[@class="outer"]'));
-        this.confirmElecMeterOnsupply = element(by.xpath('//input[@id="confirmelecsupplytrue"]/following-sibling::span[@class="outer"]'));
-        this.SMET2AssetInstalledN = element(by.xpath('//input[@id="smets2Installedfalse"]/following-sibling::span[@class="outer"]'));
-        this.exchangeAssetY = element(by.xpath('//input[@id="exchangeassettrue"]/following-sibling::span[@class="outer"]'));
-        this.equipmentRepositionRequired = element(by.id('repositionSelect'));
-        this.SMETSOffered = element(by.xpath('//input[@id="smets2offeredtrue"]/following-sibling::span[@class="outer"]'));
-        this.elecMeterRadio = element(by.xpath('//input[@id="elecmexdfa"]/following-sibling::span[@class="cr"]'));
-        this.gasMeterRadio = element(by.xpath('//input[@id="gasmexdfa"]/following-sibling::span[@class="cr"]'));
-        this.regulatorRadio = element(by.xpath('//input[@id="regexdfa"]/following-sibling::span[@class="cr"]'));
-        this.nextSecRem = element(by.id('btnNextEff'));
-        this.msgToDCCY = element(by.xpath('//input[@id="comms2MessageReqtrue"]/following-sibling::span[@class="outer"]'));
-   
-        //#region CURRENT COMMS HUB DETAILS
-        this.commshubLoc = element(by.xpath('//select[@id="currentCommsHub_locationSelect"]'));
-        this.aerialInstalled = element(by.xpath('//*[contains(text(),"Aerial Installed")]'));
-        this.aerialInstalledY = element(by.id('currentCommsHub_aerialInstalled_y'));
-        //input[@id="currentCommsHub_aerialInstalled_y"]/following-sibling::span[@class="outer"]
-        this.CommshubdtlCorrectText = element(by.xpath('//*[contains(text(),"Existing Comms Hub Details Correct?")]'));
-        this.CommshubdtlCorrectY = element(by.id('currentCommsHub_existingDetailsCorrect_y'));
-        this.capexistcommshubInstall = element(by.id('currentCommsHub_existingPhotoButton'));
-        this.determinefaultActivityTitle = element(by.xpath('//*[contains(text(),"Determine Fault Activity")]'));
-        //#endregion
 
-        //#region Determine Faulty Activity
-        this.confirmgasmeterText = element(by.xpath('//*[contains(text(),"Confirm if Gas meter is On Supply or Off Supply")]'));
-        this.confirmgasmeterOnsupply = element(by.xpath('//input[@id="confirmgassupplytrue"]/following-sibling::span[@class="outer"]'));
-        this.capturesuspectedTamp = element(by.id('determinefaultyassets_tamperingPhotoButton'));
-        this.smets2assetInst = element(by.xpath('//*[contains(text(),"Are SMETS2 assets installed?")]'));
-        this.smets2assetInstY = element(by.xpath('//input[@id="smets2Installedtrue"]/following-sibling::span[@class="outer"]'));
-        this.commshubResetting = element(by.xpath('//*[contains(text(),"Does Comms Hub need resetting?")]'));
-        this.commshubResettingY = element(by.xpath('//input[@id="commshubresettrue"]/following-sibling::span[@class="outer"]'));
-        this.removecommshub5mins = element(by.xpath('//button[text()="OK"]'));
-        this.commshubconnectedtoSupply = element(by.xpath('//*[contains(text(),"Comms Hub Connected to Supply?")]'));
-        this.commshubconnectedtoSupplyY = element(by.xpath('//input[@id="commshubconnectedtrue"]/following-sibling::span[@class="outer"]'));
-        this.commshubconnectedtoSWan = element(by.xpath('//*[contains(text(),"Comms Hub Connected to WAN?")]'));
-        this.commshubconnectedtoWanY = element(by.xpath('//input[@id="commhubwantrue"]/following-sibling::span[@class="outer"]'));
-        this.commshubconnectedtoAsset = element(by.xpath('//*[contains(text(),"Do you need to exchange an asset?")]'));
-        this.commshubconnectedtoAssetY = element(by.xpath('//input[@id="exchangeassettrue"]/following-sibling::span[@class="outer"]'));
-        this.commsHub = element(by.xpath('//*[contains(text(),"Comms Hub?")]'));
-        this.commsHubY = element(by.xpath('//input[@id="chubexdfa"]/following-sibling::span[@class="cr"]'));
-        this.gasMeter = element(by.xpath('//*[contains(text(),"Gas Meter?")]'));
-        this.gasMeterY = element(by.xpath('//input[@id="gasmexdfa"]/following-sibling::span[@class="cr"]'));
-        this.Regulator = element(by.xpath('//*[contains(text(),"Regulator?")]'));
-        this.RegulatorY = element(by.xpath('//input[@id="regexdfa"]/following-sibling::span[@class="cr"]'));
-        this.ihdPpmid = element(by.xpath('//*[contains(text(),"IHD / PPMID?")]'));
-        this.ihdPpmidY = element(by.xpath('//input[@id="ihdppmidexdfa"]/following-sibling::span[@class="cr"]'));
-        this.commshubNextbtn = element(by.id('btnNextComm'));
-        this.preInstgastightnessTest = element(by.xpath('//div/h4[text()="Pre Installation Gas Tightness Test"]'));
-        this.preinstGasTightness = element(by.xpath('//*[contains(text(),"Pre Installation - Gas Tightness Test carried Out?")]'));
-        this.preinstGasTightnessY = element(by.xpath('//*[@id="rb_PreGasTigTCarOut_y"]/span[@class="outer"]'));
-        //#endregion
-
-        //#region Pre installation gas tightnes
-        this.capturepressureinMB = element(by.xpath('(//*[@id="btn1"])[1]'));
-        this.wasthereadropinPressure = element(by.xpath('//*[contains(text(),"Was there a drop in pressure?")]'));
-        this.wasthereadropinPressureY = element(by.id('rb_WasDropPress_y'));
-        this.enterdipGasPressure = element(by.xpath('//*[contains(text(),"Enter DIP Gas Pressure (mbars)")]'));
-        this.enterdipGasPressureSelect = element(by.id('cbx_DipPress_sel'));
-        this.selectmeterType = element(by.xpath('//*[contains(text(),"Select Meter Type")]'));
-        this.selectmeterTypeSelect = element(by.id('cbx_MetreType_sel'));
-        this.smellGas = element(by.xpath('//*[contains(text(),"Can you or Customer Smell Gas")]'));
-        this.smellGasY = element(by.id('rb_SmellGas_y'));
-        this.gasTightness = element(by.xpath('//*[contains(text(),"Additional Notes / Remarks - Gas Tightness Test Fail")]'));
-        this.gasTightnessTextbox = element(by.id('txt_AddNotGasTigT'));
-        this.gastightnessOutcome = element(by.xpath('//*[contains(text(),"Gas Tightness Test Failure-Outcome?")]'));
-        this.gastightnessOutcomeGT = element(by.id('rb_TestFailOutCmGTIss_y'));
-        this.reportedinctoGT = element(by.xpath('//*[contains(text(),"Reported Incident to GT?")]'));
-        this.reportedinctoGTY = element(by.xpath('//*[@id="rb_RepGT_y"]/span[@class="outer"]'));
-        this.jobRef = element(by.id('gt_issue'));
-        this.reportedinctoHS = element(by.xpath('//*[contains(text(),"Reported Incident to H&S(AIRline?)?")]'));
-        this.reportedinctoHSY = element(by.xpath('//*[@id="rb_RepAirLine_y"]/span[@class="outer"]'));
-        this.airRef = element(by.xpath('//*[@id="hsjobref"]'));
-        this.gtattendanceY = element(by.xpath('//*[@id="rb_GTAttSite_y"]/span[@class="outer"]'));
-        this.gtresolveY = element(by.xpath('//*[@id="rb_GTResIss_y"]/span[@class="outer"]'));
-        this.gastightnesstestCompleted = element(by.xpath('//*[contains(text(),"Gas Tightness Test Completed?")]'));
-        this.gastightnesstestCompletedFail = element(by.xpath('//*[contains(text(),"FAIL")]'));
-        this.capctmeterReadingPanel = element(by.xpath('(//*[contains(text(),"Capture Current Meter Reading")])[1]'));
-        this.btnnext = element(by.xpath('(//*[@id="btnNextComm"])[2]'));
-        this.ctmeterdtlGasNxt = element(by.id('btn_Next_read'));
-        //#endregion
-
-        //#region Remove Ihd-ppmid */
-
-        this.removePPMID = element(by.xpath('//*[@id="Title_removeIhdPpmid"]'));
-        this.rmvPPMIDPanel = element(by.xpath('//div/h4[text()="Remove PPMID"]'));
-        this.AssettobeRemoved = element(by.xpath('//*[@id="removeIhdPpmid_assetRemoved_y"]/span[@class="outer"]'));
-        this.rmvihdppmidpopupOK = element(by.xpath('//button[text()="OK"]'));
-        this.rmvihdppmidstatusofAssetSel = element(by.xpath('//select[@id="removeIhdPpmid_assetStatusSelect"]'));
-        this.rmvihdppmidNxtBtn = element(by.id('removeIhdPpmid_nextButton'));
-        this.sendmsgPanel = element(by.xpath('//*[contains(text(),"SEND MESSAGE PPMID")]'));
-        this.RemoveIHDAsset=element(by.xpath('//*[@id="Title_removeIhdPpmidAsset"]'));
-        //#endregion
-
-        //#region Send Mesg */
-        this.sendmsgbtn = element(by.xpath('//*[@id="xttmt_sendMessageButton"]'));
-        this.reqSentSuccess = element(by.xpath('//*[text()="Request Sent Successfully"]'));
-        this.AssetUnJoined = element(by.xpath('//*[text()="Asset Unjoined"]'));
-        this.SMawaitingResp = element(by.xpath('(//*[text()="Awaiting Response"])[1]'));
-        this.ppmidremoval = element(by.xpath('//*[@id="xttmt_nextButton"]'));
-        this.ppmidremovalSuccess = element(by.xpath('//*[contains(text(),"PPMID Removal Successful")]'));
-        this.awaitingResp = element(by.xpath('//*[@id="Title_removeIhdPpmidAsset"]'));
-        //#endregion
-
-        //#region Asset Removal 
-        this.AssetRemovalSelect = element(by.xpath('//select[@id="removeIhdPpmidAsset_removeAssetStatusSelect"]'));
-        this.confirmAssetrmvYES = element(by.xpath('//*[@id="removeIhdPpmidAsset_confirmRemoved"]/following-sibling::span[@class="outer"]'));
-        this.AssetPopup = element(by.xpath('//*[text()="OK"]'));
-        this.RemoveGasMeterPanel = element(by.xpath('//div[@id="Title_removeGasMeter"]'));
-        //#endregion
-
-        //#region Gas Meter Removal 
-        this.GMassettoberemoved = element(by.xpath('//*[@id="removeGasMeter_assetRemovedReplaced_y"]/span[@class="outer"]'));
-        this.statusofAssetSelect = element(by.xpath('//select[@id="removeGasMeter_assetStatusSelect"]'));
-        this.removedmeterReading = element(by.xpath('//input[@id="input0"]'));
-        this.GMremovalNxtBtn = element(by.xpath('//*[@id="removeGasMeter_nextButton"]'));
-        this.SendGMRMPanel = element(by.xpath('//div[@id="Title_gmrem"]'));
-        //#endregion
-
-        //#region Send GMREM 
-        this.SendGMREMBtn = element(by.xpath('//*[@id="gmrem_sendMessageButton"]'));
-        this.AwaitingRespGMREM = element(by.xpath('//*[text()="Awaiting Response"][2]'));
-        //#endregion
-
-        //#region Awaiting Response after GMREM 
-        this.reqSentSuccessGMREM = element(by.xpath('(//*[text()="Request Sent Successfully"])[2]'));
-        this.RemovalSuccess = element(by.xpath('//*[@id="gmrem_nextButton"]'));
-        this.OKtoremoveAsset = element(by.xpath('//*[text()="OK to Remove Asset"]'));
-        //#endregion
-
-        //#region Removal Successful 
-        this.confirmgasAssetRemoval = element(by.xpath('//*[@id="Title_removeGasAsset"]'));
-        //#endregion
-
-        //#region Confirm gas Asset Removal
-        this.gasAssetRemoval = element(by.xpath('//select[@id="removeGasAsset_removedAssetStatus"]'));
-        this.GasAssetRemovalY = element(by.xpath('//*[@id="removeGasAsset_confirmAssetRemoved"]/following-sibling::span[@class="outer"]'));
-        this.GasAssetRemovalPopup = element(by.xpath('//*[text()="OK"]'));
-        this.RemoveCommsHub = element(by.xpath('//div[@id="Title_chubRemove"]'));
-        //#endregion
+		// CGP added for Determine Fault Activity
+		//this.confirmgasmeterOnsupply = element(by.xpath('//input[@id="confirmgassupplytrue"]/following-sibling::span[@class="outer"]'));
+		this.confirmElecMeterOnsupply = element(by.xpath('//input[@id="confirmelecsupplytrue"]/following-sibling::span[@class="outer"]'));
+		this.SMET2AssetInstalledN = element(by.xpath('//input[@id="smets2Installedfalse"]/following-sibling::span[@class="outer"]'));
+		this.exchangeAssetY = element(by.xpath('//input[@id="exchangeassettrue"]/following-sibling::span[@class="outer"]'));
+		this.equipmentRepositionRequired = element(by.id('repositionSelect'));
+		this.SMETSOffered = element(by.xpath('//input[@id="smets2offeredtrue"]/following-sibling::span[@class="outer"]'));
+		this.elecMeterRadio = element(by.xpath('//input[@id="elecmexdfa"]/following-sibling::span[@class="cr"]'));
+		this.gasMeterRadio = element(by.xpath('//input[@id="gasmexdfa"]/following-sibling::span[@class="cr"]'));
+		this.regulatorRadio = element(by.xpath('//input[@id="regexdfa"]/following-sibling::span[@class="cr"]'));
+		this.nextSecRem = element(by.id('btnNextEff'));
+		this.msgToDCCY = element(by.xpath('//input[@id="comms2MessageReqtrue"]/following-sibling::span[@class="outer"]'));
 
 
-        //CGP added for FLTY TRAD20
+		//#region CURRENT COMMS HUB DETAILS
+		this.commshubLoc = element(by.xpath('//select[@id="currentCommsHub_locationSelect"]'));
+		this.aerialInstalled = element(by.xpath('//*[contains(text(),"Aerial Installed")]'));
+		this.aerialInstalledY = element(by.id('currentCommsHub_aerialInstalled_y'));
+		//input[@id="currentCommsHub_aerialInstalled_y"]/following-sibling::span[@class="outer"]
+		this.CommshubdtlCorrectText = element(by.xpath('//*[contains(text(),"Existing Comms Hub Details Correct?")]'));
+		this.CommshubdtlCorrectY = element(by.id('currentCommsHub_existingDetailsCorrect_y'));
+		this.capexistcommshubInstall = element(by.id('currentCommsHub_existingPhotoButton'));
+		this.determinefaultActivityTitle = element(by.xpath('//*[contains(text(),"Determine Fault Activity")]'));
+		//#endregion
 
-        this.removeMeter = element(by.xpath('//div/h4[text()="Remove Meter"]'));
-        this.assetRemovalElec = element(by.xpath('//input[@id ="CCHradio5"]/following-sibling::span[@class="outer"]'));
-        this.statusofAssetElec = element(by.xpath('//select[@id="cbx_StaAss_sel"]'));
-        this.elecRemoveNextSec = element(by.id('btn_Next_rmv'));
-        this.confirmElecAssetRemoval = element(by.xpath('//div/h4[text()="Confirm Electric Asset Removal"]'));
-        this.elecAssetRemoval = element(by.xpath('//select[@id="cbx_RAss_Status"]'));
-        this.elecAssetRemovalY = element(by.xpath('//*[@id="rb_CAssRem_y"]'));
-        this.elecAssetRemovalPopup = element(by.xpath('//*[text()="OK"]'));
-        this.commshubReqY = element(by.xpath('//*[@id="chubInstall_newChubRequired_y"]/span[@class="outer"]'));
-        this.commsHubConnectedYes = element(by.id('Cradionm1'));
-        this.commissioningNxtBtn = element(by.id('CbtnNextComm'));
-        this.submitElecRemSecEndTRAD = element(by.xpath('//button[@id="btn1"]'));
+		//#region Determine Faulty Activity
+		this.confirmgasmeterText = element(by.xpath('//*[contains(text(),"Confirm if Gas meter is On Supply or Off Supply")]'));
+		this.confirmgasmeterOnsupply = element(by.xpath('//input[@id="confirmgassupplytrue"]/following-sibling::span[@class="outer"]'));
+		this.capturesuspectedTamp = element(by.id('determinefaultyassets_tamperingPhotoButton'));
+		this.smets2assetInst = element(by.xpath('//*[contains(text(),"Are SMETS2 assets installed?")]'));
+		this.smets2assetInstY = element(by.xpath('//input[@id="smets2Installedtrue"]/following-sibling::span[@class="outer"]'));
+		this.commshubResetting = element(by.xpath('//*[contains(text(),"Does Comms Hub need resetting?")]'));
+		this.commshubResettingY = element(by.xpath('//input[@id="commshubresettrue"]/following-sibling::span[@class="outer"]'));
+		this.removecommshub5mins = element(by.xpath('//button[text()="OK"]'));
+		this.commshubconnectedtoSupply = element(by.xpath('//*[contains(text(),"Comms Hub Connected to Supply?")]'));
+		this.commshubconnectedtoSupplyY = element(by.xpath('//input[@id="commshubconnectedtrue"]/following-sibling::span[@class="outer"]'));
+		this.commshubconnectedtoSWan = element(by.xpath('//*[contains(text(),"Comms Hub Connected to WAN?")]'));
+		this.commshubconnectedtoWanY = element(by.xpath('//input[@id="commhubwantrue"]/following-sibling::span[@class="outer"]'));
+		this.commshubconnectedtoAsset = element(by.xpath('//*[contains(text(),"Do you need to exchange an asset?")]'));
+		this.commshubconnectedtoAssetY = element(by.xpath('//input[@id="exchangeassettrue"]/following-sibling::span[@class="outer"]'));
+		this.commsHub = element(by.xpath('//*[contains(text(),"Comms Hub?")]'));
+		this.commsHubY = element(by.xpath('//input[@id="chubexdfa"]/following-sibling::span[@class="cr"]'));
+		this.gasMeter = element(by.xpath('//*[contains(text(),"Gas Meter?")]'));
+		this.gasMeterY = element(by.xpath('//input[@id="gasmexdfa"]/following-sibling::span[@class="cr"]'));
+		this.Regulator = element(by.xpath('//*[contains(text(),"Regulator?")]'));
+		this.RegulatorY = element(by.xpath('//input[@id="regexdfa"]/following-sibling::span[@class="cr"]'));
+		this.ihdPpmid = element(by.xpath('//*[contains(text(),"IHD / PPMID?")]'));
+		this.ihdPpmidY = element(by.xpath('//input[@id="ihdppmidexdfa"]/following-sibling::span[@class="cr"]'));
+		this.commshubNextbtn = element(by.id('btnNextComm'));
+		this.preInstgastightnessTest = element(by.xpath('//div/h4[text()="Pre Installation Gas Tightness Test"]'));
+		this.preinstGasTightness = element(by.xpath('//*[contains(text(),"Pre Installation - Gas Tightness Test carried Out?")]'));
+		this.preinstGasTightnessY = element(by.xpath('//*[@id="rb_PreGasTigTCarOut_y"]/span[@class="outer"]'));
+		//#endregion
 
-        //CGP added
-        this.nextSecGasBtn = element(by.id('removeGasAsset_nextButton'));
+		//#region Pre installation gas tightnes
+		this.capturepressureinMB = element(by.xpath('(//*[@id="btn1"])[1]'));
+		this.wasthereadropinPressure = element(by.xpath('//*[contains(text(),"Was there a drop in pressure?")]'));
+		this.wasthereadropinPressureY = element(by.id('rb_WasDropPress_y'));
+		this.enterdipGasPressure = element(by.xpath('//*[contains(text(),"Enter DIP Gas Pressure (mbars)")]'));
+		this.enterdipGasPressureSelect = element(by.id('cbx_DipPress_sel'));
+		this.selectmeterType = element(by.xpath('//*[contains(text(),"Select Meter Type")]'));
+		this.selectmeterTypeSelect = element(by.id('cbx_MetreType_sel'));
+		this.smellGas = element(by.xpath('//*[contains(text(),"Can you or Customer Smell Gas")]'));
+		this.smellGasY = element(by.id('rb_SmellGas_y'));
+		this.gasTightness = element(by.xpath('//*[contains(text(),"Additional Notes / Remarks - Gas Tightness Test Fail")]'));
+		this.gasTightnessTextbox = element(by.id('txt_AddNotGasTigT'));
+		this.gastightnessOutcome = element(by.xpath('//*[contains(text(),"Gas Tightness Test Failure-Outcome?")]'));
+		this.gastightnessOutcomeGT = element(by.id('rb_TestFailOutCmGTIss_y'));
+		this.reportedinctoGT = element(by.xpath('//*[contains(text(),"Reported Incident to GT?")]'));
+		this.reportedinctoGTY = element(by.xpath('//*[@id="rb_RepGT_y"]/span[@class="outer"]'));
+		this.jobRef = element(by.id('gt_issue'));
+		this.reportedinctoHS = element(by.xpath('//*[contains(text(),"Reported Incident to H&S(AIRline?)?")]'));
+		this.reportedinctoHSY = element(by.xpath('//*[@id="rb_RepAirLine_y"]/span[@class="outer"]'));
+		this.airRef = element(by.xpath('//*[@id="hsjobref"]'));
+		this.gtattendanceY = element(by.xpath('//*[@id="rb_GTAttSite_y"]/span[@class="outer"]'));
+		this.gtresolveY = element(by.xpath('//*[@id="rb_GTResIss_y"]/span[@class="outer"]'));
+		this.gastightnesstestCompleted = element(by.xpath('//*[contains(text(),"Gas Tightness Test Completed?")]'));
+		this.gastightnesstestCompletedFail = element(by.xpath('//*[contains(text(),"FAIL")]'));
+		this.capctmeterReadingPanel = element(by.xpath('(//*[contains(text(),"Capture Current Meter Reading")])[1]'));
+		this.btnnext = element(by.xpath('(//*[@id="btnNextComm"])[2]'));
+		this.ctmeterdtlGasNxt = element(by.id('btn_Next_read'));
+		//#endregion
 
+		//#region Remove Ihd-ppmid */
 
+		this.removePPMID = element(by.xpath('//*[@id="Title_removeIhdPpmid"]'));
+		this.rmvPPMIDPanel = element(by.xpath('//div/h4[text()="Remove PPMID"]'));
+		this.AssettobeRemoved = element(by.xpath('//*[@id="removeIhdPpmid_assetRemoved_y"]/span[@class="outer"]'));
+		this.rmvihdppmidpopupOK = element(by.xpath('//button[text()="OK"]'));
+		this.rmvihdppmidstatusofAssetSel = element(by.xpath('//select[@id="removeIhdPpmid_assetStatusSelect"]'));
+		this.rmvihdppmidNxtBtn = element(by.id('removeIhdPpmid_nextButton'));
+		this.sendmsgPanel = element(by.xpath('//*[contains(text(),"SEND MESSAGE PPMID")]'));
+		this.RemoveIHDAsset = element(by.xpath('//*[@id="Title_removeIhdPpmidAsset"]'));
+		//#endregion
 
+		//#region Send Mesg */
+		this.sendmsgbtn = element(by.xpath('//*[@id="xttmt_sendMessageButton"]'));
+		this.reqSentSuccess = element(by.xpath('//*[text()="Request Sent Successfully"]'));
+		this.AssetUnJoined = element(by.xpath('//*[text()="Asset Unjoined"]'));
+		this.SMawaitingResp = element(by.xpath('(//*[text()="Awaiting Response"])[1]'));
+		this.ppmidremoval = element(by.xpath('//*[@id="xttmt_nextButton"]'));
+		this.ppmidremovalSuccess = element(by.xpath('//*[contains(text(),"PPMID Removal Successful")]'));
+		this.awaitingResp = element(by.xpath('//*[@id="Title_removeIhdPpmidAsset"]'));
+		//#endregion
 
+		//#region Asset Removal 
+		this.AssetRemovalSelect = element(by.xpath('//select[@id="removeIhdPpmidAsset_removeAssetStatusSelect"]'));
+		this.confirmAssetrmvYES = element(by.xpath('//*[@id="removeIhdPpmidAsset_confirmRemoved"]/following-sibling::span[@class="outer"]'));
+		this.AssetPopup = element(by.xpath('//*[text()="OK"]'));
+		this.RemoveGasMeterPanel = element(by.xpath('//div[@id="Title_removeGasMeter"]'));
+		//#endregion
 
-        //----------------------------------------------------------
+		//#region Gas Meter Removal 
+		this.GMassettoberemoved = element(by.xpath('//*[@id="removeGasMeter_assetRemovedReplaced_y"]/span[@class="outer"]'));
+		this.statusofAssetSelect = element(by.xpath('//select[@id="removeGasMeter_assetStatusSelect"]'));
+		this.removedmeterReading = element(by.xpath('//input[@id="input0"]'));
+		this.GMremovalNxtBtn = element(by.xpath('//*[@id="removeGasMeter_nextButton"]'));
+		this.SendGMRMPanel = element(by.xpath('//div[@id="Title_gmrem"]'));
+		//#endregion
 
-        //#region Removal Comms Hub
-        this.IstheassettobeRemovedorReplaced = element(by.xpath('//*[@id="chubRemove_assetRemoved_y"]/span[@class="outer"]'));
-        this.RemoveCommshubSelect = element(by.xpath('//select[@id="chubRemove_connectionMethodSelect"]'));
-        this.StatusofCommsHub = element(by.xpath('//select[@id="chubRemove_statusSelect"]'));
-        this.RemoveCommsHubAdditionalNotes = element(by.xpath('//*[@id="chubRemove_additionalNotes"]'));
-        this.FaultidentifiedPostInst = element(by.xpath('//*[@id="chubRemove_faultIdentifiedPostInstall"]/following-sibling::span[@class="outer"]'));
-        this.RemCommsHubNxtBtn = element(by.xpath('//*[@id="chubRemove_submitButton"]'));
-        this.ConfirmCommsHubRemoval = element(by.xpath('//div[@id="Title_removeChubAsset"]'));
-        //#endregion
+		//#region Send GMREM 
+		this.SendGMREMBtn = element(by.xpath('//*[@id="gmrem_sendMessageButton"]'));
+		this.AwaitingRespGMREM = element(by.xpath('//*[text()="Awaiting Response"][2]'));
+		//#endregion
 
-        //#region Confirm Comms Hub Removal
-        this.ConfirmCommsHubRemovalSelect = element(by.xpath('//select[@id="removeChubAsset_assetStatusSelect"]'));
-        this.Confirmcommhubassetremove = element(by.xpath('//*[@id="removeChubAsset_confirmAssetRemoved"]/following-sibling::span[@class="outer"]'));
-        this.ConfirmCommsHubRemovalPopup = element(by.xpath('//*[text()="OK"]'));
-        this.ConfirmCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])[2]'));
-        //#endregion
-    }
+		//#region Awaiting Response after GMREM 
+		this.reqSentSuccessGMREM = element(by.xpath('(//*[text()="Request Sent Successfully"])[2]'));
+		this.RemovalSuccess = element(by.xpath('//*[@id="gmrem_nextButton"]'));
+		this.OKtoremoveAsset = element(by.xpath('//*[text()="OK to Remove Asset"]'));
+		//#endregion
 
-    /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
+		//#region Removal Successful 
+		this.confirmgasAssetRemoval = element(by.xpath('//*[@id="Title_removeGasAsset"]'));
+		//#endregion
 
-    //#region CURRENT IHD/PPMID DETAILS
-
-    public async currentihdppmiddetailtext() {
-        await utility.wait(1000);
-        await this.ctihdppmidDtl.getText().then(function (ctihdppmidDtlTxt) {
-            console.log("Find Current IHD PPMID  " + ctihdppmidDtlTxt);
-        });
-    }
-
-    public async fillcurrentIhdPPMIDdtlsTRAD() {
-        await utility.wait(2000);
-        if (await this.smet2ihdppidText.isDisplayed()) {
-            await this.smet2ihdppidN.click();
-        }
-        await utility.wait(1000);
-        try {
-            if (await this.IhdPpmidNxt.isPresent()) {
-                await this.IhdPpmidNxt.click();
-            }
-        } catch (error) {
-            console.log("Next section is not present at this moment");
-        }  
-    }
-    public async currentmeterdetlGasSection() {
-        await utility.wait(1000);
-        await this.currentmeterdetlGasSec.getText().then(function (currentdtlGasSection) {
-            console.log("Find current detail gas section  " + currentdtlGasSection);
-        });
-    }
-    public async currentmeterGasPageContent() {
-        await utility.wait(1000);
-        await this.currentmeterdtlPgCont.getText().then(function (currentmeterdtlPgContent) {
-            console.log("Find current detail gas section content  " + currentmeterdtlPgContent);
-        });
-    }
-
-    //#endregion
-
-    /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-// cgp added
-
-public async capturecurrentmeterGasPageContent() {
-    await utility.wait(5000);
-    await this.captureCurrentMeterText.getText().then(function (capturecurrentmeterdtlPgContent) {
-        console.log("Find current detail gas section content  " + capturecurrentmeterdtlPgContent);
-    });
-}
-
-//CGP added
-
-public async captureElecSection() {
-    await utility.wait(5000);
-    await this.currentMetDet.getText().then(function (capturecurrentmeterdtlPgContentElec) {
-        console.log("Find current detail elec section content  " + capturecurrentmeterdtlPgContentElec);
-    });
-}
-
-//CGP added
-public async captureElecSectionTRAD() {
-    await utility.wait(5000);
-    await this.capctmeterReadingPanel.getText().then(function (Test1) {
-        console.log("Find current detail elec section content  " + Test1);
-    });
-}
-
-
-
-
-
-//CGP added capture current meter
-    public async fillcapturecurrentmeterdtlGassec() {
-        await utility.wait(2000);
-        if (await this.captureCurrentMeterText.isDisplayed()) {
-            await this.existgasmeterDtlY.click();
-        }
-        await utility.wait(1000);
-        if (await this.meterReading1.isDisplayed()) {
-            await this.meterReadingLabel1.clear();
-            await this.meterReadingLabel1.sendKeys("1234");
-            await this.randomClick1.click();
-            console.log("Random Click 1");
-            await utility.wait(2000);
-          
-        }
-    }
-
-    // CGP added 13/09
-
-    public async fillcapturecurrentmeterdtlGassecTRAD() {
-        await utility.wait(2000);
-        if (await this.captureCurrentMeterText.isDisplayed()) {
-            await this.existgasmeterDtlY.click();
-        }
-        await utility.wait(1000);
-        if (await this.meterReading1.isDisplayed()) {
-            await this.meterReadingLabel1.clear();
-            await this.meterReadingLabel1.sendKeys("12345");
-            await this.randomClick1.click();
-            console.log("Random Click 1");
-            await utility.wait(2000);
-          
-        }
-    }
+		//#region Confirm gas Asset Removal
+		this.gasAssetRemoval = element(by.xpath('//select[@id="removeGasAsset_removedAssetStatus"]'));
+		this.GasAssetRemovalY = element(by.xpath('//*[@id="removeGasAsset_confirmAssetRemoved"]/following-sibling::span[@class="outer"]'));
+		this.GasAssetRemovalPopup = element(by.xpath('//*[text()="OK"]'));
+		this.RemoveCommsHub = element(by.xpath('//div[@id="Title_chubRemove"]'));
+		//#endregion
 
 
-    public async  currentMeterDetailsHeader()
-    {
-        await this.currentMeterDetTRAD.getText().then(function (currentMeterDetails) {
-            console.log("Current Meter Details Title  " + currentMeterDetails);
-        });
-    }
+		//CGP added for FLTY TRAD20
 
-   
-    public async fillcurrentmeterdtlElecsecTRAD() {
-        await utility.wait(2000);
-        if (await this.currentMetDet.isDisplayed()) {
-            await utility.wait(2000);
-            console.log("Current meter details displayed");
-            await this.existelecmeterDtlY.click();
-            console.log("Electric section clciked");
-            
-        }
-        await utility.wait(2000);
-        if (await this.meterReadingTRAD.isDisplayed()) {
-            await this.meterReadingLabelTRAD.clear();
-            await this.meterReadingLabelTRAD.sendKeys("12345");
-            console.log("Text Enterd for elect 5 digits");
-            await this.randomClickTRAD.click();
-            console.log("Random Click 2");
-            // Change Later
-
-           //await utility.wait(1000);
-            //await this.elecRemoveNextSec.click();
-            
-            //await this.ctmeterdtlGasNxt.click();
-            console.log("Next Button clicked 2");
-            await utility.wait(3000);
-
-           // await this.meterReading.click();
-        }
-    }
-
-    public async fillcurrentmeterdtlElecsec() {
-        await utility.wait(2000);
-        if (await this.currentMetDet.isDisplayed()) {
-            await utility.wait(2000);
-            console.log("Current meter details displayed");
-            await this.existelecmeterDtlY.click();
-            console.log("Electric section clciked");
-            
-        }
-        await utility.wait(2000);
-        if (await this.meterReading2.isDisplayed()) {
-            await this.meterReadingLabel2.clear();
-            await this.meterReadingLabel2.sendKeys("12345");
-            console.log("Text Enterd for elect 5 digits");
-            await this.randomClick2.click();
-            console.log("Random Click 2");
-            
-            await utility.wait(3000);
-            await this.elecRemoveNextSec.click();
-            
-            //await this.ctmeterdtlGasNxt.click();
-            console.log("Next Button clicked 2");
-            await utility.wait(3000);
-
-           // await this.meterReading.click();
-        }
-    }
+		this.removeMeter = element(by.xpath('//div/h4[text()="Remove Meter"]'));
+		this.assetRemovalElec = element(by.xpath('//input[@id ="CCHradio5"]/following-sibling::span[@class="outer"]'));
+		this.statusofAssetElec = element(by.xpath('//select[@id="cbx_StaAss_sel"]'));
+		this.elecRemoveNextSec = element(by.id('btn_Next_rmv'));
+		this.confirmElecAssetRemoval = element(by.xpath('//div/h4[text()="Confirm Electric Asset Removal"]'));
+		this.elecAssetRemoval = element(by.xpath('//select[@id="cbx_RAss_Status"]'));
+		this.elecAssetRemovalY = element(by.xpath('//*[@id="rb_CAssRem_y"]'));
+		this.elecAssetRemovalPopup = element(by.xpath('//*[text()="OK"]'));
+		this.commshubReqY = element(by.xpath('//*[@id="chubInstall_newChubRequired_y"]/span[@class="outer"]'));
+		this.commsHubConnectedYes = element(by.id('Cradionm1'));
+		this.commissioningNxtBtn = element(by.id('CbtnNextComm'));
+		this.submitElecRemSecEndTRAD = element(by.xpath('//button[@id="btn1"]'));
 
 
+		//----------------------------------------------------------
 
+		//#region Removal Comms Hub
+		this.IstheassettobeRemovedorReplaced = element(by.xpath('//*[@id="chubRemove_assetRemoved_y"]/span[@class="outer"]'));
+		this.RemoveCommshubSelect = element(by.xpath('//select[@id="chubRemove_connectionMethodSelect"]'));
+		this.StatusofCommsHub = element(by.xpath('//select[@id="chubRemove_statusSelect"]'));
+		this.RemoveCommsHubAdditionalNotes = element(by.xpath('//*[@id="chubRemove_additionalNotes"]'));
+		this.FaultidentifiedPostInst = element(by.xpath('//*[@id="chubRemove_faultIdentifiedPostInstall"]/following-sibling::span[@class="outer"]'));
+		this.RemCommsHubNxtBtn = element(by.xpath('//*[@id="chubRemove_submitButton"]'));
+		this.ConfirmCommsHubRemoval = element(by.xpath('//div[@id="Title_removeChubAsset"]'));
+		//#endregion
 
-
-
-
-    public async currentcommsHubdtl() {
-        await utility.wait(8000);
-        browser.sleep(3000);
-        await this.currentCommsHubTitle.getText().then(function (currentCommsHubTit) {
-            console.log("Find current comms Hub Title  " + currentCommsHubTit);
-        });
-    }
-    public async currentcommsHubdtlPgCont() {
-        await utility.wait(8000);
-        browser.sleep(6000);
-        await this.currentHubDtlsPgCont.getText().then(function (currentCommsHubTitlePgCont) {
-            console.log("Find current comms Hub Detail page content  " + currentCommsHubTitlePgCont);
-        });
-    }
-
-    //#endregion
-
-    /**
-  * @Author Jansi Victor
-  * @Description  Automation for FAULTY18 Workflow
-    */
-   
-    //#region CURRENT COMMS HUB DETAILS
-    public async fillcurrenthubdtl(index:number) {
-       
-        if (await this.commshubLoc.isDisplayed()) {
-            await utility.wait(4000);
-            var select = this.commshubLoc;
-            await select.$('[value="A"]').click();
-            //await select.$('[label="A : Outside Premises"]').click();
-        }
-        await utility.wait(1000);
-        if (await this.aerialInstalledY.isDisplayed()) {
-            await this.aerialInstalledY.click();
-        }
-        await utility.wait(1000);
-        if (await this.CommshubdtlCorrectText.isDisplayed()) {
-            await this.CommshubdtlCorrectY.click();
-        }
-        await utility.wait(1000);
-    }
-
-  
-
-
-
-public async confirmMeterSupplyGasTRAD() {
-    await utility.wait(4000);
-    if (await this.confirmgasmeterOnsupply.isDisplayed()) {
-        await this.confirmgasmeterOnsupply.click();
-    }
-}
-   //CGP added 13/09
-
-   public async exchangeAssetGasTRAD()
-    {
-        await utility.wait(3000);
-        if (await this.exchangeAssetY.isDisplayed()) {
-            await this.exchangeAssetY.click();
-        }        
-        await utility.wait(3000);
-        if (await this.gasMeterRadio.isDisplayed()) {
-            await this.gasMeterRadio.click();
-        }
-        await utility.wait(3000);
-        if (await this.regulatorRadio.isDisplayed()) {
-            await this.regulatorRadio.click();
-        }
-
+		//#region Confirm Comms Hub Removal
+		this.ConfirmCommsHubRemovalSelect = element(by.xpath('//select[@id="removeChubAsset_assetStatusSelect"]'));
+		this.Confirmcommhubassetremove = element(by.xpath('//*[@id="removeChubAsset_confirmAssetRemoved"]/following-sibling::span[@class="outer"]'));
+		this.ConfirmCommsHubRemovalPopup = element(by.xpath('//*[text()="OK"]'));
+		this.ConfirmCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])[2]'));
+		//#endregion
 	}
-//---------------------------------------------------------------------------
+
+	/**
+	 * @Author Jansi Victor
+	 * @Description  Automation for FAULTY18 Workflow
+	 */
+
+	//#region CURRENT IHD/PPMID DETAILS
+
+	public async currentihdppmiddetailtext() {
+		await utility.wait(utility.very_low);
+		await this.ctihdppmidDtl.getText().then(function (ctihdppmidDtlTxt) {
+			console.log("Find Current IHD PPMID  " + ctihdppmidDtlTxt);
+		});
+	}
+
+	public async fillcurrentIhdPPMIDdtlsTRAD() {
+		await utility.wait(2000);
+		if (await this.smet2ihdppidText.isDisplayed()) {
+			await this.smet2ihdppidN.click();
+		}
+		await utility.wait(utility.very_low);
+		try {
+			if (await this.IhdPpmidNxt.isPresent()) {
+				await this.IhdPpmidNxt.click();
+			}
+		} catch (error) {
+			console.log("Next section is not present at this moment");
+		}
+	}
+	public async currentmeterdetlGasSection() {
+		await utility.wait(utility.very_low);
+		await this.currentmeterdetlGasSec.getText().then(function (currentdtlGasSection) {
+			console.log("Find current detail gas section  " + currentdtlGasSection);
+		});
+	}
+	public async currentmeterGasPageContent() {
+		await utility.wait(utility.very_low);
+		await this.currentmeterdtlPgCont.getText().then(function (currentmeterdtlPgContent) {
+			console.log("Find current detail gas section content  " + currentmeterdtlPgContent);
+		});
+	}
+
+	//#endregion
+
+	/**
+	 * @Author Jansi Victor
+	 * @Description  Automation for FAULTY18 Workflow
+	 */
+	// cgp added
+
+	public async capturecurrentmeterGasPageContent() {
+		await utility.wait(utility.medium_low);
+		await this.captureCurrentMeterText.getText().then(function (capturecurrentmeterdtlPgContent) {
+			console.log("Find current detail gas section content  " + capturecurrentmeterdtlPgContent);
+		});
+	}
+
+	//CGP added
+
+	public async captureElecSection() {
+		await utility.wait(utility.medium_low);
+		await this.currentMetDet.getText().then(function (capturecurrentmeterdtlPgContentElec) {
+			console.log("Find current detail elec section content  " + capturecurrentmeterdtlPgContentElec);
+		});
+	}
+
+	//CGP added
+	public async captureElecSectionTRAD() {
+		await utility.wait(utility.medium_low);
+		await this.capctmeterReadingPanel.getText().then(function (Test1) {
+			console.log("Find current detail elec section content  " + Test1);
+		});
+	}
+
+
+	//CGP added capture current meter
+	public async fillcapturecurrentmeterdtlGassec() {
+		await utility.wait(2000);
+		if (await this.captureCurrentMeterText.isDisplayed()) {
+			await this.existgasmeterDtlY.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.meterReading1.isDisplayed()) {
+			await this.meterReadingLabel1.clear();
+			await this.meterReadingLabel1.sendKeys("1234");
+
+			await this.randomClick1.click();
+			console.log("Random Click 1");
+
+			await utility.wait(2000);
+
+		}
+	}
+
+
+	public async currentMeterDetailsHeader() {
+		await this.currentMeterDetTRAD.getText().then(function (currentMeterDetails) {
+			console.log("Current Meter Details Title  " + currentMeterDetails);
+		});
+	}
+
+
+	public async fillcurrentmeterdtlElecsecTRAD() {
+		await utility.wait(2000);
+		if (await this.currentMetDet.isDisplayed()) {
+			await utility.wait(2000);
+			console.log("Current meter details displayed");
+			await this.existelecmeterDtlY.click();
+			console.log("Electric section clciked");
+
+		}
+		await utility.wait(2000);
+		if (await this.meterReadingTRAD.isDisplayed()) {
+			await this.meterReadingLabelTRAD.clear();
+			await this.meterReadingLabelTRAD.sendKeys("12345");
+			console.log("Text Enterd for elect 5 digits");
+			await this.randomClickTRAD.click();
+			console.log("Random Click 2");
+			// Change Later
+
+			//await utility.wait(utility.very_low);
+			//await this.elecRemoveNextSec.click();
+
+			//await this.ctmeterdtlGasNxt.click();
+			console.log("Next Button clicked 2");
+			await utility.wait(utility.low);
+
+			// await this.meterReading.click();
+		}
+	}
+
+	public async fillcurrentmeterdtlElecsec() {
+		await utility.wait(2000);
+		if (await this.currentMetDet.isDisplayed()) {
+			await utility.wait(2000);
+			console.log("Current meter details displayed");
+			await this.existelecmeterDtlY.click();
+			console.log("Electric section clciked");
+
+		}
+		await utility.wait(2000);
+		if (await this.meterReading2.isDisplayed()) {
+			await this.meterReadingLabel2.clear();
+			await this.meterReadingLabel2.sendKeys("12345");
+			console.log("Text Enterd for elect 5 digits");
+			await this.randomClick2.click();
+			console.log("Random Click 2");
+
+			await utility.wait(utility.low);
+			await this.elecRemoveNextSec.click();
+
+			//await this.ctmeterdtlGasNxt.click();
+			console.log("Next Button clicked 2");
+			await utility.wait(utility.low);
+
+			// await this.meterReading.click();
+		}
+	}
+
+
+	public async currentcommsHubdtl() {
+		await utility.wait(8000);
+		browser.sleep(3000);
+		await this.currentCommsHubTitle.getText().then(function (currentCommsHubTit) {
+			console.log("Find current comms Hub Title  " + currentCommsHubTit);
+		});
+	}
+	public async currentcommsHubdtlPgCont() {
+		await utility.wait(8000);
+		browser.sleep(6000);
+		await this.currentHubDtlsPgCont.getText().then(function (currentCommsHubTitlePgCont) {
+			console.log("Find current comms Hub Detail page content  " + currentCommsHubTitlePgCont);
+		});
+	}
+
+	//#endregion
+
+	/**
+	 * @Author Jansi Victor
+	 * @Description  Automation for FAULTY18 Workflow
+	 */
+
+	//#region CURRENT COMMS HUB DETAILS
+	public async fillcurrenthubdtl(index: number) {
+
+		if (await this.commshubLoc.isDisplayed()) {
+			await utility.wait(4000);
+			var select = this.commshubLoc;
+			await select.$('[value="A"]').click();
+			//await select.$('[label="A : Outside Premises"]').click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.aerialInstalledY.isDisplayed()) {
+			await this.aerialInstalledY.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.CommshubdtlCorrectText.isDisplayed()) {
+			await this.CommshubdtlCorrectY.click();
+		}
+		await utility.wait(utility.very_low);
+	}
 
 	public async capturephotocommsHub() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.capexistcommshubInstall.isDisplayed()) {
 			await this.capexistcommshubInstall.click();
 		}
 	}
 	public async determintfaultActivity() {
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 		await this.determinefaultActivityTitle.getText().then(function (determinefaultActivityTit) {
 			console.log("Faulty activity  " + determinefaultActivityTit);
 		});
@@ -741,32 +682,32 @@ public async confirmMeterSupplyGasTRAD() {
 	}
 
 	public async captureevidsuspectedtamp() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.capturesuspectedTamp.isDisplayed()) {
 			await this.capturesuspectedTamp.click();
 		}
 	}
 
 	public async smet2AssetInstalled() {
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.SMET2AssetInstalledN.isDisplayed()) {
 			await this.SMET2AssetInstalledN.click();
 		}
 	}
 	public async exchangeAsset() {
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.exchangeAssetY.isDisplayed()) {
 			await this.exchangeAssetY.click();
 		}
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.elecMeterRadio.isDisplayed()) {
 			await this.elecMeterRadio.click();
 		}
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.gasMeterRadio.isDisplayed()) {
 			await this.gasMeterRadio.click();
 		}
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.regulatorRadio.isDisplayed()) {
 			await this.regulatorRadio.click();
 		}
@@ -774,11 +715,11 @@ public async confirmMeterSupplyGasTRAD() {
 	}
 
 	public async exchangeAssetTRAD() {
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.exchangeAssetY.isDisplayed()) {
 			await this.exchangeAssetY.click();
 		}
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.elecMeterRadio.isDisplayed()) {
 			await this.elecMeterRadio.click();
 		}
@@ -794,7 +735,7 @@ public async confirmMeterSupplyGasTRAD() {
 	}
 
 	public async smetsOffered() {
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.SMETSOffered.isDisplayed()) {
 			await this.SMETSOffered.click();
 		}
@@ -802,7 +743,7 @@ public async confirmMeterSupplyGasTRAD() {
 	}
 
 	public async clickonNextsectionDFA() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.commshubNextbtn.isDisplayed()) {
 			await this.commshubNextbtn.click();
 		}
@@ -811,21 +752,21 @@ public async confirmMeterSupplyGasTRAD() {
 
 	//---------------------------------------------------------------------------------------------
 	public async clickOk5mins() {
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.removecommshub5mins.isDisplayed()) {
 			await this.removecommshub5mins.click();
 		}
 	}
 	public async fill16commsdtls() {
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.commshubconnectedtoSupply.isDisplayed()) {
 			await this.commshubconnectedtoSupplyY.click();
 		}
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.commshubconnectedtoSWan.isDisplayed()) {
 			await this.commshubconnectedtoWanY.click();
 		}
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.commshubconnectedtoAssetY.isDisplayed()) {
 			await this.commshubconnectedtoAssetY.click();
 		}
@@ -837,31 +778,31 @@ public async confirmMeterSupplyGasTRAD() {
 		}
 	}
 	public async gasmeterSelect() {
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.gasMeter.isDisplayed()) {
 			await this.gasMeterY.click();
 		}
 	}
 	public async regulatorSelect() {
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.Regulator.isDisplayed()) {
 			await this.RegulatorY.click();
 		}
 	}
 	public async ihdppmidSelect() {
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.ihdPpmid.isDisplayed()) {
 			await this.ihdPpmidY.click();
 		}
 	}
 	public async clickoncommsNextsection() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.commshubNextbtn.isDisplayed()) {
 			await this.commshubNextbtn.click();
 		}
 	}
 	public async preinstgasTighttest() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.preInstgastightnessTest.getText().then(function (preInstgastightnessTst) {
 			console.log("Pre Installation Gas Tightness " + preInstgastightnessTst);
 		});
@@ -876,21 +817,21 @@ public async confirmMeterSupplyGasTRAD() {
 
 	//#region Pre installation gas tightness
 	public async fill17preInstdtls() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.preinstGasTightness.isDisplayed()) {
 			await this.preinstGasTightnessY.click();
 		}
 	}
 
 	public async capturepressureMB() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.capturepressureinMB.isDisplayed()) {
 			await this.capturepressureinMB.click();
 		}
 	}
 
 	public async fill18preInstdtls() {
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.wasthereadropinPressure.isDisplayed()) {
 			await this.wasthereadropinPressureY.click();
 		}
@@ -904,53 +845,53 @@ public async confirmMeterSupplyGasTRAD() {
 			var select = this.selectmeterTypeSelect;
 			await select.$('[value="2"]').click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.smellGas.isDisplayed()) {
 			await this.smellGasY.click();
 		}
 	}
 	public async gastightnessfieldfailed() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.gastightnesstestCompleted.isDisplayed()) {
 			await this.gastightnesstestCompletedFail.isDisplayed();
 		}
 	}
 	public async fill19preInstdtls() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.gasTightness.isDisplayed()) {
 			await this.gasTightnessTextbox.sendKeys("Gas Tested");
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.gastightnessOutcome.isDisplayed()) {
 			await this.gastightnessOutcomeGT.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.reportedinctoGT.isDisplayed()) {
 			await this.reportedinctoGTY.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.jobRef.isDisplayed()) {
 			await this.jobRef.clear();
 			await this.jobRef.sendKeys("1");
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.reportedinctoHS.isDisplayed()) {
 			await this.reportedinctoHSY.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.airRef.isDisplayed()) {
 			await this.airRef.clear();
 			await this.airRef.sendKeys("2");
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.gtattendanceY.isDisplayed()) {
 			await this.gtattendanceY.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.gtresolveY.isDisplayed()) {
 			await this.gtresolveY.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.btnnext.isDisplayed()) {
 			await this.btnnext.click();
 		}
@@ -958,7 +899,7 @@ public async confirmMeterSupplyGasTRAD() {
 
 	//CGP Added for FLTY20 TRAD flow
 	public async removeGasMeter() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.removePPMID.getText().then(function (removePPMIDTxt) {
 			console.log("Remove PPMID " + removePPMIDTxt);
 		});
@@ -966,7 +907,7 @@ public async confirmMeterSupplyGasTRAD() {
 
 
 	public async removeihdPpmid() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.removePPMID.getText().then(function (removePPMIDTxt) {
 			console.log("Remove PPMID " + removePPMIDTxt);
 		});
@@ -980,13 +921,13 @@ public async confirmMeterSupplyGasTRAD() {
 
 	//#region REMOVE IHD/PPMID
 	public async fill20rmvihdppmidtls() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.AssettobeRemoved.isDisplayed()) {
 			await this.AssettobeRemoved.click();
 		}
 	}
 	public async ihdpowerOnOK() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.rmvihdppmidpopupOK.isDisplayed()) {
 			await this.rmvihdppmidpopupOK.click();
 		}
@@ -999,13 +940,13 @@ public async confirmMeterSupplyGasTRAD() {
 		}
 	}
 	public async rmvihdppmidnxtbtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.rmvihdppmidNxtBtn.isDisplayed()) {
 			await this.rmvihdppmidNxtBtn.click();
 		}
 	}
 	public async sendmsgihdppmid() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.sendmsgPanel.getText().then(function (sendmsgPanelTxt) {
 			console.log("Send Msg Tab " + sendmsgPanelTxt);
 		});
@@ -1027,7 +968,7 @@ public async confirmMeterSupplyGasTRAD() {
 
 	}
 	public async awaitingResponse() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.SMawaitingResp.getText().then(function (SMawaitingRespTxt) {
 			console.log("Awaiting Response " + SMawaitingRespTxt);
 		});
@@ -1045,15 +986,15 @@ public async confirmMeterSupplyGasTRAD() {
 		await utility.wait(60000);
 	}
 	public async ppmidRemovalbtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await expect(this.ppmidremoval.isDisplayed());
 	}
 	public async sentmesgSuccess() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await expect(this.reqSentSuccess.isDisplayed());
 	}
 	public async assetUnjoinedText() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await expect(this.AssetUnJoined.isDisplayed());
 	}
 	//#endregion
@@ -1066,27 +1007,57 @@ public async confirmMeterSupplyGasTRAD() {
 	//#region PPMID Removal Successful
 
 	public async PPMIDRemovalbtndisplayed() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await expect(this.ppmidremovalSuccess.isDisplayed());
 	}
 	public async clickonPPMIDRmvl() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.ppmidremovalSuccess.isDisplayed()) {
 			await this.ppmidremovalSuccess.click();
 		}
 	}
 	public async confirmAssetRmvl() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.RemoveIHDAsset.getText().then(function (RemoveIHDAssetTxt) {
 			console.log("Confirm Asset Removal " + RemoveIHDAssetTxt);
 		});
 	}
 	//#endregion
 
+	/**
+	 * @Author Jansi Victor
+	 * @Description  Automation for FAULTY18 Workflow
+	 */
+
+	//#region Asset Removal
+	public async fill22AssetRemoval() {
+		await utility.wait(utility.very_low);
+		if (await this.AssetRemovalSelect.isDisplayed()) {
+			var select = this.AssetRemovalSelect;
+			await select.$('[value="1"]').click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.confirmAssetrmvYES.isDisplayed()) {
+			await this.confirmAssetrmvYES.click();
+		}
+	}
+	public async clickonOKBtn() {
+		await utility.wait(utility.very_low);
+		if (await this.AssetPopup.isDisplayed()) {
+			await this.AssetPopup.click();
+		}
+	}
+	public async RmvGasmeterSec() {
+		await utility.wait(utility.very_low);
+		await this.RemoveGasMeterPanel.getText().then(function (RemoveIRemoveGasMeterPanelTxt) {
+			console.log("Remove Gas Meter " + RemoveIRemoveGasMeterPanelTxt);
+		});
+	}
+
 	// CGP Added for TRAD20
 
 	public async removeElecmeterSec() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.removeMeter.getText().then(function (RemoveIRemoveElecMeterPanelTxt) {
 			console.log("Remove Elec Meter " + RemoveIRemoveElecMeterPanelTxt);
 		});
@@ -1102,7 +1073,7 @@ public async confirmMeterSupplyGasTRAD() {
 	//#region Gas Meter Removal 
 
 	public async fill23GasmeterRemoval() {
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.GMassettoberemoved.isDisplayed()) {
 			await this.GMassettoberemoved.click();
 		}
@@ -1119,7 +1090,7 @@ public async confirmMeterSupplyGasTRAD() {
 		// }
 	}
 	public async clickonnxtBtnofgasmeterRemoval() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.GMremovalNxtBtn.isDisplayed()) {
 			await this.GMremovalNxtBtn.click();
 		}
@@ -1130,32 +1101,32 @@ public async confirmMeterSupplyGasTRAD() {
 
 
 	public async fillElecmeterRemoval() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.assetRemovalElec.isDisplayed()) {
 			await this.assetRemovalElec.click();
 			console.log("Status of elec asset removed yes selected")
 		}
-		await utility.wait(1000); // Change Later
+		await utility.wait(utility.very_low); // Change Later
 		if (await this.statusofAssetElec.isDisplayed()) {
 			var select1 = this.statusofAssetElec;
 			await select1.$('[label = "No Fault Found"]').click();
 
 			console.log("No Fault Found Selected")
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		// if (await this.removedmeterReading.isDisplayed()) {
 		//     await this.removedmeterReading.clear();
 		//     //await this.removedmeterReading.sendKeys('1234');
 		// }
 	}
 	public async clickonnxtBtnofElecmeterRemoval() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.GMremovalNxtBtn.isDisplayed()) {
 			await this.GMremovalNxtBtn.click();
 		}
 	}
 	public async clickonnxtBtnofElecmeterRemovalTRAD() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.elecRemoveNextSec.isDisplayed()) {
 			await this.elecRemoveNextSec.click();
 		}
@@ -1166,7 +1137,7 @@ public async confirmMeterSupplyGasTRAD() {
 
 
 	public async sendmsgGMREM() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.SendGMRMPanel.getText().then(function (SendGMRMPanelTxt) {
 			console.log("Send GMRM" + SendGMRMPanelTxt);
 		});
@@ -1182,7 +1153,7 @@ public async confirmMeterSupplyGasTRAD() {
 	//#region Send GMREM 
 
 	public async clickOnsendmsgGMREM() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.SendGMREMBtn.isDisplayed()) {
 			await this.SendGMREMBtn.click();
 		}
@@ -1204,11 +1175,11 @@ public async confirmMeterSupplyGasTRAD() {
 		await expect(this.RemovalSuccess.isDisplayed());
 	}
 	public async ReqSentSuccess() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await expect(this.reqSentSuccessGMREM.isDisplayed());
 	}
 	public async OktoRemoveAsset() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await expect(this.OKtoremoveAsset.isDisplayed());
 	}
 
@@ -1222,13 +1193,13 @@ public async confirmMeterSupplyGasTRAD() {
 	//#region Removal Successful 
 
 	public async clickonremovalsuccessfulbtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.RemovalSuccess.isDisplayed()) {
 			await this.RemovalSuccess.click();
 		}
 	}
 	public async confirmGasAssetRemoval() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.confirmgasAssetRemoval.getText().then(function (confirmgasAssetRemovalTxt) {
 			console.log("Confirm Gas Asset Removal" + confirmgasAssetRemovalTxt);
 		});
@@ -1237,7 +1208,7 @@ public async confirmMeterSupplyGasTRAD() {
 	//Added By CGP TRAD
 
 	public async confirmElecAssetRemovalTRAD() {
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 		await this.confirmElecAssetRemoval.getText().then(function (confirmElecAssetRemovalTxt) {
 			console.log("Confirm Elec Asset Removal" + confirmElecAssetRemovalTxt);
 		});
@@ -1246,11 +1217,96 @@ public async confirmMeterSupplyGasTRAD() {
 
 	//#endregion
 
-	
+	/**
+	 * @Author Jansi Victor
+	 * @Description  Automation for FAULTY18 Workflow
+	 */
+
+	//#region Gas Asset Removal 
+
+	public async fill24GasAssetRemoval() {
+		await utility.wait(2000);
+		if (await this.gasAssetRemoval.isDisplayed()) {
+			var select = this.gasAssetRemoval;
+			await select.$('[value="1"]').click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.GasAssetRemovalY.isDisplayed()) {
+			await this.GasAssetRemovalY.click();
+		}
+	}
+	public async clickonokGasAssetRemoval() {
+		await utility.wait(utility.very_low);
+		if (await this.GasAssetRemovalPopup.isDisplayed()) {
+			await this.GasAssetRemovalPopup.click();
+		}
+	}
+
+	// CGP Added Elec Removal
+
+	public async fillElecAssetRemoval() {
+		await utility.wait(4000);
+		if (await this.elecAssetRemoval.isDisplayed()) {
+			var select = this.elecAssetRemoval;
+			await select.$('[value="1"]').click();
+		}
+		await utility.wait(4000);
+		if (await this.elecAssetRemovalY.isDisplayed()) {
+			await this.elecAssetRemovalY.click();
+		}
+	}
+	public async clickonokElecAssetRemoval() {
+		await utility.wait(2000);
+		if (await this.GasAssetRemovalPopup.isDisplayed()) {
+			await this.GasAssetRemovalPopup.click();
+		}
+	}
+
+	public async clickonNextsectionRemove() {
+		await utility.wait(2000);
+		if (await this.nextSecRem.isDisplayed()) {
+			await this.nextSecRem.click();
+		}
+	}
+	// Added for FLTY19 TRAD
+	public async clickSubmitRemElecSecTRAD() {
+		await utility.wait(2000);
+		if (await this.submitElecRemSecEndTRAD.isDisplayed()) {
+			await this.submitElecRemSecEndTRAD.click();
+		}
+	}
+
+
+	public async fillCommsHubReqY() {
+		await utility.wait(utility.medium_low);
+		if (await this.commshubReqY.isDisplayed()) {
+			await this.commshubReqY.click();
+		}
+	}
+
+	public async fillCommissioningDetailsTRAD() {
+		if (await this.nonserealizedAssetDD.isDisplayed()) {
+			await utility.wait(2000);
+			var select = this.nonserealizedAssetDD;
+			select.$('[value="1"]').click();
+		}
+		await expect(await this.nonserealizedAssetInput.isPresent());
+		await this.nonserealizedAssetInput.sendKeys('1');
+
+		await utility.wait(utility.very_low);
+		if (await this.msgToDCCY.isDisplayed()) {
+			await this.msgToDCCY.click();
+		}
+		await this.commsHubConnectedYes.click();
+		await utility.wait(utility.low);
+
+		await this.commissioningNxtBtn.click();
+		await utility.wait(utility.very_low);
+	}
 
 
 	public async RemoveCommsHubWindow() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.RemoveCommsHub.getText().then(function (RemoveCommsHubTxt) {
 			console.log("Gas Asset Removal" + RemoveCommsHubTxt);
 		});
@@ -1266,7 +1322,7 @@ public async confirmMeterSupplyGasTRAD() {
 	//#region REMOVE COMMS HUB 
 
 	public async fill27RmvCommsHub() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.IstheassettobeRemovedorReplaced.isDisplayed()) {
 			await this.IstheassettobeRemovedorReplaced.click();
 		}
@@ -1274,29 +1330,29 @@ public async confirmMeterSupplyGasTRAD() {
 			var select = this.RemoveCommshubSelect;
 			await select.$('[value="2"]').click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.StatusofCommsHub.isDisplayed()) {
 			var select = this.StatusofCommsHub;
 			await select.$('[value="2"]').click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.RemoveCommsHubAdditionalNotes.isDisplayed()) {
 			await this.RemoveCommsHubAdditionalNotes.clear();
 			await this.RemoveCommsHubAdditionalNotes.sendKeys("Remove COMMS HUB remarks");
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.FaultidentifiedPostInst.isDisplayed()) {
 			await this.FaultidentifiedPostInst.click();
 		}
 	}
 	public async clickonNxtBtnRmvCommsHub() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.RemCommsHubNxtBtn.isDisplayed()) {
 			await this.RemCommsHubNxtBtn.click();
 		}
 	}
 	public async ConfirmHubRmv() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.ConfirmCommsHubRemoval.getText().then(function (ConfirmCommsHubRemovalTxt) {
 			console.log("Confirm Hub Removal" + ConfirmCommsHubRemovalTxt);
 		});
@@ -1312,18 +1368,18 @@ public async confirmMeterSupplyGasTRAD() {
 	//#region Confirm Comm hub removal
 
 	public async fill28ConfirmremovalCommsHub() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.ConfirmCommsHubRemovalSelect.isDisplayed()) {
 			var select = this.ConfirmCommsHubRemovalSelect;
 			await select.$('[value="1"]').click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.Confirmcommhubassetremove.isDisplayed()) {
 			await this.Confirmcommhubassetremove.click();
 		}
 	}
 	public async clickonokconfrimremovalpopup() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.ConfirmCommsHubRemovalPopup.isDisplayed()) {
 			await this.ConfirmCommsHubRemovalPopup.click();
 		}

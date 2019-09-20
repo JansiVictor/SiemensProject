@@ -62,7 +62,7 @@ const install: InstallPageObject = new InstallPageObject();
 
 Given('the Login Page For SFENMEX15', async function () {
 	await browser.get(config.baseUrl);
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 When('I pass {string} and {string} For SFENMEX15', async function (username, password) {
@@ -72,11 +72,11 @@ When('I pass {string} and {string} For SFENMEX15', async function (username, pas
 
 Then('I click Login button For SFENMEX15', async function () {
 	await login.clickLogin();
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 });
 
 Then('I should see the Appointment List For SFENMEX15', async function () {
-	await utility.wait(1000);
+	await utility.wait(utility.very_low);
 	await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
 });
 
@@ -87,7 +87,7 @@ Given('the Appointment List window For SFENMEX15', async function () {
 When('I click on select button For SFENMEX15', async function () {
 	//await applist.continueLinkforEx21.click();
 	await home.clickCorrectSelectLink('SFGNMEX15');
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 Then('I should see Work Order window For SFENMEX15', async function () {
@@ -111,13 +111,13 @@ Then('I should see page contect display For SFENMEX15', async function () {
 });
 
 Then('I should see the CUSTOMER CONTACT NUMBER For SFENMEX15', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await expect(await applist.custcontnumberTxt.getText()).equal("CUSTOMER CONTACT NUMBER:");
 
 });
 
 Then('I should see Contact made field For SFENMEX15', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
 	await expect(applist.contactMadeYes.isPresent());
 });
@@ -162,14 +162,14 @@ When('I click on OK button For SFENMEX15', async function () {
 });
 
 Then('I should see ARRIVE button For SFENMEX15', async function () {
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 	await applist.arriveBtn.getText().then(function (arriveBtnText) {
 		console.log("find Arrive Btn Text  " + arriveBtnText);
 	});
 });
 
 Then('I should see DOORSTEP PROTOCOL tab activated For SFENMEX15', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});
@@ -182,9 +182,9 @@ When('I click on ARRIVE button For SFENMEX15', async function () {
 
 Then('I should see Arrival Time details For SFENMEX15', async function () {
 	//comment these 2 lines when continue link is not displayed
-	// await utility.wait(5000);
+	// await utility.wait(utility.medium_low);
 	// await applist.continueLink.click();
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
 	});
@@ -235,11 +235,11 @@ Given('the SFENMEX15 INFO window with the text', async function () {
 	//await riskassess.performanceRiskNextBtn.click();
 
 
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 	if (riskassess.NeedtoWorkYES.isDisplayed()) {
 		var element = riskassess.NeedtoWorkYES;
 		browser.executeScript("arguments[0].click()", element);
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 	}
 });
 
@@ -286,7 +286,7 @@ Given('the SFENMEX15 CAPTURE INITIAL PHOTO OF GAS INSTALLATION section', async f
 
 When('I click on SFENMEX15 CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {
 	await riskassess.capturephotoMeterInstall.click();
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 When('I click on SFENMEX15 CAPTURE PHOTO OF CURRENT FULL GAS METER INSTALLATION button', async function () {
@@ -361,7 +361,7 @@ Then('I should see SFENMEX15 CURRENT METER DETAILS section', async function () {
 
 Given('the Check the SFENMEX15 current meter detailssection', async function () {
 	await riskassess.verifyDF17CurrentMeterDetails();
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 });
 
 When('I fill the SFENMEX15 current COMM meter details fields with the values', async function () {
@@ -382,7 +382,7 @@ Then('I should see SFENMEX15 CURRENT COMMS HUB DETAILS section', async function 
 
 Given('the Check the SFENMEX15 current GAS meter detailssection', async function () {
 	await riskassessGAS.verifySFENMEX15CurrentMeterDetails();
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 });
 
 
@@ -538,7 +538,7 @@ When('I fill the Suitability for Smart Meter Installation fields with the values
 Then('I should see SFENMEX15 Capture Photo of GAS Installation section', async function () {
 	await riskassessGAS.captureInitialPhotoTxt();
 	await riskassessGAS.captureInitialPhotogasbtn.click();
-	await utility.wait(1000);
+	await utility.wait(utility.very_low);
 });
 
 Given('the Pre Installation Gas Tightness section', async function () {

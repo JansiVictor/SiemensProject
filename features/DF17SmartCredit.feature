@@ -1,4 +1,4 @@
-# Feature: Login into Siemen Application
+# Feature: DF17SmartCredit Workflow 
 
 # Scenario Outline: Logging in to job's "Work Order" window
 # Given the Login Page For DF17SmartCredit
@@ -88,7 +88,7 @@
 # Scenario: Going through "INITIAL POLARITY CHECK - AT METER AND CUT OUT" section     	
 # Given the DF17SmartCredit INITIAL POLARITY CHECK - AT METER AND CUT OUT section  
 # When I fill the DF17SmartCredit METER AND CUT OUT fields with the values
-# #for new WO this is not req, for existing one required
+# for new WO this is not req, for existing one required
 # And I click on DF17SmartCredit SUBMIT button
 # Then I should see DF17SmartCredit CURRENT METER DETAILS section
 

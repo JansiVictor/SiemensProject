@@ -57,10 +57,10 @@ Given the ExchTwTwo INITIAL RISK ASSESSMENT section
 When I fill the ExchTwTwo initialRisk field with the values
 Then I should see ExchTwTwo INFO window
 
-Scenario: Going through ExchTwTwo "INFO" window   
-Given the ExchTwTwo INFO window with the text
-#When I click on ExchTwTwo OK button 
-Then I should see ExchTwTwo RISK ASSESSMENT ELEC section 
+ Scenario: Going through ExchTwTwo "INFO" window   
+ Given the ExchTwTwo INFO window with the text
+ #When I click on ExchTwTwo OK button 
+ Then I should see ExchTwTwo RISK ASSESSMENT ELEC section 
 
 Scenario: Going through ExchTwTwo "RISK ASSESSMENT - ELEC" section	
 Given the ExchTwTwo RISK ASSESSMENT - ELEC section
@@ -103,10 +103,10 @@ Then ExchTwTwo I click on CAPTURE PHOTO OF U-GAUGE ATTACHED TO GAS METER, SHOWIN
 And ExchTwTwo I fill the field18 with the value18
 And ExchTwTwo I see Gas Tightness Test Completed field as FAIL
 And ExchTwTwo I fill the field19 with the value19
-And ExchTwTwo I should see REMOVE IHD-PPMID section
+#And ExchTwTwo I should see REMOVE IHD-PPMID section
 
 Scenario: Going through "CURRENT IHD/PPMID DETAILS" section
-Given ExchTwTwo the CURRENT IHD-PPMID DETAILS section
+#Given ExchTwTwo the CURRENT IHD-PPMID DETAILS section
 When ExchTwTwo I fill the field010 with the value010
 And ExchTwTwo I should see CURRENT METER DETAILS - GAS section
 Then ExchTwTwo I should see the page contect display of current meter details

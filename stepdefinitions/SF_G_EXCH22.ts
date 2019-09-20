@@ -222,7 +222,7 @@ Then('I should see ExchTwTwo INFO window', async function () {
 
 
 Given('the ExchTwTwo INFO window with the text', async function () {
-	await riskassess.infoOKButton.isDisplayed();
+	//await riskassess.infoOKButton.isDisplayed();
 	await riskassess.infoOKButton.click();
 
 	//await riskassess.performanceRiskNextBtn.click();
@@ -635,16 +635,18 @@ Then('I should see ExchTwTwo New Regulator section',async function () {
 /***** NEW REGULATOR */
 
    Given('the ExchTwTwo New Regulator section', async function () {
-    if (riskassessGAS.regulatorText.isDisplayed()) {
-        await riskassessGAS.regulatorText.getText().then(function (regulator) {
+    await utility.wait(utility.low);
+    if (inst.newRegulatorHeader.isDisplayed()) {
+        await inst.newRegulatorHeader.getText().then(function (regulator) {
             console.log("find regulator Text  " + regulator);
         });
     }
    });
 
    When('I fill the ExchTwTwo New Regulator fields with values',async function () {
+    await utility.wait(utility.very_low);
     await inst.HasGasRegulatorReplacedY.click();
-    await inst.fillduelfornewregulator(2);
+    await inst.fillfornewregulator();
     
    });
 

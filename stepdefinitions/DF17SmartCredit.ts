@@ -51,7 +51,7 @@ const df17smartcreditComplete: JobCompletionPageObject = new JobCompletionPageOb
 
 Given('the Login Page For DF17SmartCredit', async function () {
 	await browser.get(config.baseUrl);
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 When('I pass {string} and {string} For DF17SmartCredit', async function (username, password) {
@@ -61,11 +61,11 @@ When('I pass {string} and {string} For DF17SmartCredit', async function (usernam
 
 Then('I click Login button For DF17SmartCredit', async function () {
 	await login.clickLogin();
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 });
 
 Then('I should see the Appointment List For DF17SmartCredit', async function () {
-	//await utility.wait(10000);
+	//await utility.wait(utility.medium);
 	await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
 });
 
@@ -76,7 +76,7 @@ Given('the Appointment List window For DF17SmartCredit', async function () {
 When('I click on select button For DF17SmartCredit', async function () {
 	//await applist.continueLinkforEx21.click();
 	await home.clickCorrectSelectLink('DF17SmartCredit');
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 Then('I should see Work Order window For DF17SmartCredit', async function () {
@@ -100,13 +100,13 @@ Then('I should see page contect display For DF17SmartCredit', async function () 
 });
 
 Then('I should see the CUSTOMER CONTACT NUMBER For DF17SmartCredit', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await expect(await applist.custcontnumberTxt.getText()).equal("CUSTOMER CONTACT NUMBER:");
 
 });
 
 Then('I should see Contact made field For DF17SmartCredit', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
 	await expect(applist.contactMadeYes.isPresent());
 });
@@ -151,14 +151,14 @@ When('I click on OK button For DF17SmartCredit', async function () {
 });
 
 Then('I should see ARRIVE button For DF17SmartCredit', async function () {
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 	await applist.arriveBtn.getText().then(function (arriveBtnText) {
 		console.log("find Arrive Btn Text  " + arriveBtnText);
 	});
 });
 
 Then('I should see DOORSTEP PROTOCOL tab activated For DF17SmartCredit', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});
@@ -171,9 +171,9 @@ When('I click on ARRIVE button For DF17SmartCredit', async function () {
 
 Then('I should see Arrival Time details For DF17SmartCredit', async function () {
 	//comment these 2 lines when continue link is not displayed
-	// await utility.wait(5000);
+	// await utility.wait(utility.medium_low);
 	// await applist.continueLink.click();
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
 	});
@@ -224,11 +224,11 @@ Given('the DF17SmartCredit INFO window with the text', async function () {
 	//await riskassess.performanceRiskNextBtn.click();
 
 
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 	if (riskassess.NeedtoWorkYES.isDisplayed()) {
 		var element = riskassess.NeedtoWorkYES;
 		browser.executeScript("arguments[0].click()", element);
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 	}
 });
 
@@ -275,7 +275,7 @@ Given('the DF17SmartCredit CAPTURE INITIAL PHOTO OF GAS INSTALLATION section', a
 
 When('I click on DF17SmartCredit CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {
 	await riskassess.capturephotoMeterInstall.click();
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 When('I click on DF17SmartCredit CAPTURE PHOTO OF CURRENT FULL GAS METER INSTALLATION button', async function () {
@@ -350,7 +350,7 @@ Then('I should see DF17SmartCredit CURRENT METER DETAILS section', async functio
 
 Given('the Check the DF17SmartCredit current meter detailssection', async function () {
 	await riskassess.verifyDF17CurrentMeterDetails();
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 });
 
 When('I fill the DF17SmartCredit current COMM meter details fields with the values', async function () {
@@ -371,7 +371,7 @@ Then('I should see DF17SmartCredit CURRENT COMMS HUB DETAILS section', async fun
 
 Given('the Check the DF17SmartCredit current GAS meter detailssection', async function () {
 	await riskassessGAS.verifyDF17CurrentMeterDetails();
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 });
 
 
@@ -523,7 +523,7 @@ When('I fill the Suitability for Smart Meter Installation fields with the values
 Then('I should see DF17SmartCredit Capture Photo of GAS Installation section', async function () {
 	await riskassessGAS.captureInitialPhotoTxt();
 	await riskassessGAS.captureInitialPhotogasbtn.click();
-	await utility.wait(1000);
+	await utility.wait(utility.very_low);
 });
 
 Given('the Pre Installation Gas Tightness section', async function () {

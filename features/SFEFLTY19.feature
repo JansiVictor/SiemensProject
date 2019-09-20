@@ -1,4 +1,4 @@
-# Feature: Login into Siemen Application
+# Feature: SFEFLTY19 Workflow
 
 # Scenario Outline: Logging in to job's "Work Order" window
 # Given the Login Page For SFEFLTY19

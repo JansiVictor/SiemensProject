@@ -1,5 +1,5 @@
 import {
-	element,
+	element,browser,
 	by,
 	ElementFinder,
 	ElementArrayFinder
@@ -56,9 +56,28 @@ export class AppointmentListPageObject {
 	public custcontnumberTxt: ElementFinder;
 	public customercontactnumberdis: ElementFinder;
 
+	private pageHeaderText: ElementArrayFinder;
+    private allRelevantSelectLinks: ElementArrayFinder;
+	
+    private callForwardButton: ElementFinder;
+    private departButton: ElementFinder;
+    private custContactNoText: ElementFinder;
+    private contactMadeTextLabel: ElementFinder;
+    private contactMadeRadioOptionTrue: ElementFinder;
+    private contactMadeRadioOptionFalse: ElementFinder;
+    private appointmentConfTextLabel: ElementFinder;
+    private appointmentConfRadioOptionTrue: ElementFinder;
+    private appointmentConfRadioOptionFalse: ElementFinder;
+	private additionalAccessDetailsTextLabel: ElementFinder;
+	
+    private departOkBtn: ElementFinder;
+    
 
 	constructor() {
-
+		
+        this.departOkBtn = element(by.xpath("//button[@id='btnCall2']"));
+		this.departWindow = element(by.css("[ng-show='departDialog']"));
+        this.departBtn = element(by.id("btn_depart"));
 		//this.appointmentListLabel = element(by.xpath('//*[@id="btn_top"]/div[2]/div'));
 		this.usrname = element(by.id("input1"));
 		this.password = element(by.id("input2"));
@@ -94,7 +113,8 @@ export class AppointmentListPageObject {
 
 		this.continueLink = element(by.xpath('//span[text()="continue >"]'));
 		this.continueLinkforEx21 = element(by.xpath('(//div[(@id="SelectJobTest1 EXCH21 DF SMETS2")])'));
-
+		this.pageHeaderText = element.all(by.xpath("//div[contains(@class,'header-text white tg ng-binding')]"));
+        this.allRelevantSelectLinks = element.all(by.xpath("//span[starts-with(@id,'SelectJobFAULTY 20 Non S2 site FLAT')]"));
 		//this.continueLink = element(by.xpath('(//span[text()="continue >"])[1]'));
 		this.continueLink = element(by.xpath('//*[starts-with(@id,"SelectJob3JFAULTY 18")]'));
 
@@ -102,8 +122,56 @@ export class AppointmentListPageObject {
 		//this.continueLink = element(by.xpath('(//span[text()="continue >"])[1]'));
 
 		this.continueLink = element(by.xpath('//*[starts-with(@id,"ContinueJob3JFAULTY 19")]'));
-
+		this.pageHeaderText = element.all(by.xpath("//div[contains(@class,'header-text white tg ng-binding')]"));
+        this.callForwardButton = element(by.xpath("//*[@id='btnCall1'][1]"));
+        this.departButton = element(by.id('btn_depart'));
+        this.custContactNoText = element(by.xpath("//p[contains(@class,'ng-binding')]"));
+        this.contactMadeTextLabel = element(by.xpath('//div[text()="Contact made?"]'));
+        this.contactMadeRadioOptionTrue = element(by.xpath('//label[@id="rb_contact_y"]'));
+        this.contactMadeRadioOptionFalse = element(by.xpath('//label[@id="rb_contact_n"]'));
+        this.appointmentConfTextLabel = element(by.xpath('//div[text()="Appointment Confirm?"]'));
+        this.appointmentConfRadioOptionTrue = element(by.id('rb_app_conf_y'));
+        this.appointmentConfRadioOptionFalse = element(by.id('rb_app_conf_n'));
+        this.additionalAccessDetailsTextLabel = element(by.xpath('//div[text()="Additional Access Details"]'));
+        this.additionalAccessDetailsTextBox = element(by.id('call_fwd_notes'));
 	}
+	//MARKS UPDATE
+
+	public async isH1HeaderPresentAppointmentDetailsPage() {
+        this.pageHeaderText.count().then(function (pageHeaderCount) {
+            console.log("Arrived at Appointment Details Page");
+        });
+    }
+    public async clickOnDepartBtn() {
+        await expect(this.departButton.isPresent());
+        this.departButton.click();
+    }
+
+    public async isCustContactNoTextPresent() {
+        await expect(this.custContactNoText.isPresent());
+    }
+
+    public async isContactMadeElementsPresent() {
+        await expect(this.contactMadeTextLabel.isPresent());
+        await expect(this.contactMadeRadioOptionTrue.isPresent());
+        await expect(this.contactMadeRadioOptionFalse.isPresent());
+    }
+
+    public async isAppointmentConfirmTextElementsPresent() {
+        await expect(this.appointmentConfTextLabel.isPresent());
+        await expect(this.appointmentConfRadioOptionTrue.isPresent());
+        await expect(this.contactMadeRadioOptionFalse.isPresent());
+    }
+
+    public async isAdditionaAccessDetailElementsPresent() {
+        await expect(this.additionalAccessDetailsTextLabel.isPresent());
+        await expect(this.additionalAccessDetailsTextBox.isPresent());
+    }
+
+    public async updatePreCheckOptionsForSelectedAppointment() {
+        await this.contactMadeRadioOptionTrue.click();
+        await this.appointmentConfRadioOptionTrue.click()
+    }
 
 	public verifyDoorstepWorkOrderWindow() {
 		if (this.doorStepText.isDisplayed) {
@@ -137,7 +205,7 @@ export class AppointmentListPageObject {
 	};
 
 	public async customercontactnoDisplayed() {
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (await this.customercontactnumberdis.isDisplayed()) {
 			await this.customercontactnumberdis.click();
 		}
@@ -148,7 +216,7 @@ export class AppointmentListPageObject {
 			await expect(this.doorStepText.isPresent());
 			await expect(this.arriveBtn.isPresent());
 			this.arriveBtn.click();
-			await utility.wait(5000);
+			await utility.wait(utility.medium_low);
 			this.arrivalTime.getText().then(function (arrivalTimeText) {
 				console.log("Arrival Time Text  " + arrivalTimeText);
 			});
@@ -167,31 +235,74 @@ export class AppointmentListPageObject {
 
 		this.callForwardText.click();
 		//customerContactNumberText
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		//await expect(await this.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
 
 
 	}
+
+	/**
+	 * //Mark's Update
+	 * 
+	 */
+
+	public async isH1HeaderPresentAppointmentListPage() {
+
+        function presenceOfAll(elementArrayFinder) {
+            return function () {
+                return elementArrayFinder.count(function (count) {
+                    return count > 0;
+                });
+            };
+        }
+
+        browser.wait(presenceOfAll(this.pageHeaderText), 10000);
+
+        if (await this.pageHeaderText.count() > 0) {
+            this.pageHeaderText.count().then(function (pageHeaderCount) {
+                console.log("Arrived at : Appointment List Page");
+
+            });
+        }
+    }
+
+    public clickOnRelevantSelectLink() {
+        this.allRelevantSelectLinks.count().then(function (count) {
+            console.log("The number of relevant select > links identified for this scenario is " + count);
+        });
+        this.allRelevantSelectLinks.get(0).click();
+    }
+
 	//ContactMadeText
 	public async clickOnContactMadeOtion() {
 		await expect(await this.contactMadeText.getText()).equal("Contact made?");
 		await expect(this.contactMadeYes.isPresent());
 		this.contactMadeYes.click();
 	}
+
+	public async isdepartForApptDialogueBoxDisplayed(){
+        await expect(this.departWindow.isDisplayed());
+    }
+
+    public async clickOnDepartOkBtn() {
+        await expect(this.departOkBtn.isDisplayed());
+        this.departOkBtn.click();
+	}
+	
 	public async verifyDepartForAppointmentWindow() {
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 		await expect(await this.departAppointment.getText()).equal("Depart for Appointment?");
 		expect(this.departAppointment.isPresent());
 	}
 	public async clickDepartBtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await expect(this.departBtn.isDisplayed());
 		await this.departBtn.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 	}
 	public async customercontactnumberavailable() {
 
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await expect(this.custcontnumberTxt.isPresent());
 	}
 
@@ -228,24 +339,24 @@ export class AppointmentListPageObject {
 	}
 
 	public async additionalDetails() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.additionalAccessDetailsTextBox.clear();
 		await this.additionalAccessDetailsTextBox.sendKeys('Additional access details comment 123');
 	}
 
 
 	public async mprnOKbtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await expect(this.mprnOK.isPresent());
 		await this.mprnOK.click();
-		await utility.wait(10000);
+		await utility.wait(utility.low);
 		await expect(this.arriveBtn.isPresent());
 	}
 
 	public async clickArriveBtn() {
 		await expect(this.arriveBtn.isPresent());
 		this.arriveBtn.click();
-		await utility.wait(10000);
+		await utility.wait(utility.medium);
 		await expect(this.arrivalTime.isPresent());
 	}
 

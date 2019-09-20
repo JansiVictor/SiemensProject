@@ -1,4 +1,11 @@
-import { $, ElementFinder, element, by, browser } from "protractor";
+import {
+   $, ElementFinder, element,
+    by, browser 
+  } from "protractor";
+import {
+	Utility
+} from "../support/utility";
+const utility: Utility = new Utility();
 
 export class loginPageObject {
     public usernameTextBox: ElementFinder;
@@ -11,12 +18,12 @@ export class loginPageObject {
        this.loginButton = element(by.id("submitbutton"));
     }
 
-    public setUsernamePassword(username: string, password: string) {
-      browser.sleep(5000);
+    public async setUsernamePassword(username: string, password: string) {
+      await utility.wait(utility.low);
       this.usernameTextBox.sendKeys(username);
-      browser.sleep(5000);
+      await utility.wait(utility.low);
       this.passwordTextBox.sendKeys(password);
-      browser.sleep(50000);
+      await utility.wait(utility.low);
     }
 
     public async clickLogin(){

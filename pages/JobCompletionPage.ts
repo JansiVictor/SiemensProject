@@ -285,27 +285,27 @@ export class JobCompletionPageObject {
 	public async sendPPMIDmessageSection(){
 
 		await this.sendMsgPPMID.click();
-		await utility.wait(80000);
+		await utility.wait(utility.high);
 		if (this.ppmidCommSuccess.isDisplayed()) {
 			await this.ppmidCommSuccess.click();
 		}
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 	}
 
 	public async fillConfigAllmeter_INST15(){
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (this.FullWANYesINST15.isDisplayed()) {
 			await this.FullWANYesINST15.click();
 		}
 		if (this.FullCOnfigAppliedElecYesINST15.isDisplayed()) {
 			await this.FullCOnfigAppliedElecYesINST15.click();
 		}
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if(this.infoOKButton.isDisplayed())
 		{
 			await this.infoOKButton.click();
 		}
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (this.fullConfigAppliedPPMIDYesINST15.isDisplayed()) {
 			await this.fullConfigAppliedPPMIDYesINST15.click();
 		}
@@ -331,7 +331,7 @@ export class JobCompletionPageObject {
 		if (this.AdditionalEEInfoReqYes.isDisplayed()) {
 			await this.AdditionalEEInfoReqYes.click();
 		}
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (this.EENxtBtn.isDisplayed()) {
 			await this.EENxtBtn.click();
 		}
@@ -351,7 +351,7 @@ export class JobCompletionPageObject {
 		if (this.FUlHANYes.isDisplayed()) {
 			await this.FUlHANYes.click();
 		}
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if(this.devicebindingNext.isDisplayed()){
 			await this.devicebindingNext.click();
 		}
@@ -391,10 +391,10 @@ export class JobCompletionPageObject {
 		if (await this.PPMIDLOCDD.isDisplayed()) {
 			var select = this.PPMIDLOCDD;
 			select.$('[value="B"]').click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
 		if (await this.PPMIDToInstall.isDisplayed()) {
-			await utility.wait(2000);
+			await utility.wait(utility.low);
 			// click the dropdown
 			this.PPMIDToInstall.click()
 			browser.sleep(1000)
@@ -402,11 +402,11 @@ export class JobCompletionPageObject {
 		console.log("Selecting element based index : "+index)
 		// select the option
 		await this.PPMIDToInstall.element(by.css("option:nth-child("+index+")")).click()
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 			await expect(await this.inputPPMIDSerialNum.isPresent());
 			var options = this.PPMIDinstallDDListINST15.getAttribute('value');
 			await this.inputPPMIDSerialNum.sendKeys(options);
-			await utility.wait(2000);
+			await utility.wait(utility.low);
 			await this.dummydiv1.click();
 			await utility.wait(4000);
 			await this.infoOKButton.click();
@@ -434,10 +434,10 @@ export class JobCompletionPageObject {
 		if (await this.PPMIDLOCDD.isDisplayed()) {
 			var select = this.PPMIDLOCDD;
 			select.$('[value="B"]').click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
 		if (await this.PPMIDToInstall.isDisplayed()) {
-			await utility.wait(2000);
+			await utility.wait(utility.low);
 			// click the dropdown
 			this.PPMIDToInstall.click();
 			browser.sleep(1000);
@@ -445,7 +445,7 @@ export class JobCompletionPageObject {
 			console.log("Selecting element based index : " + index);
 			// select the option
 			await this.PPMIDToInstall.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(3000);
+			await utility.wait(utility.low);
 			await expect(await this.inputPPMIDSerialNum.isPresent());
 			var options = this.PPMIDinstallDDList.getAttribute('value');
 			await this.inputPPMIDSerialNum.sendKeys(options);
@@ -459,10 +459,10 @@ export class JobCompletionPageObject {
 		if (this.ppmidNXTBtn.isDisplayed()) {
 			await this.ppmidNXTBtn.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.sendMsgPPMID.isDisplayed()) {
 			await this.sendMsgPPMID.click();
-			await utility.wait(80000);
+			await utility.wait(utility.high);
 		}
 
 	}
@@ -481,10 +481,10 @@ export class JobCompletionPageObject {
 		if (await this.PPMIDLOCDD1.isDisplayed()) {
 			var select = this.PPMIDLOCDD1;
 			select.$('[value="B"]').click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
 		if (await this.PPMIDToInstall1.isDisplayed()) {
-			await utility.wait(2000);
+			await utility.wait(utility.low);
 			// click the dropdown
 			this.PPMIDToInstall1.click()
 			browser.sleep(1000)
@@ -492,7 +492,7 @@ export class JobCompletionPageObject {
 		console.log("Selecting element based index : "+index)
 		// select the option
 		await this.PPMIDToInstall1.element(by.css("option:nth-child("+index+")")).click()
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		
 		//if (this.infoOKButton.isPresent()) {
 		  //  await this.infoOKButton.click();
@@ -538,7 +538,7 @@ export class JobCompletionPageObject {
 		if (this.ppmidCommSuccess.isDisplayed()) {
 			await this.ppmidCommSuccess.click();
 		}
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 	}
 
 	/***
@@ -557,27 +557,27 @@ export class JobCompletionPageObject {
 		if (this.esmeJoinedYes.isDisplayed()) {
 			await this.esmeJoinedYes.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		if (this.infoOKButton.isDisplayed()) {
 			await this.infoOKButton.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		if (this.esmeJoinedYes.isDisplayed()) {
 			await this.esmeJoinedYes.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		if (this.fullconfigAppliedYes.isDisplayed()) {
 			await this.fullconfigAppliedYes.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		if(this.capturePhotoAsset.isDisplayed()){
 			await this.capturePhotoAsset.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		if(this.nextButtonEff.isDisplayed()){
 			await this.nextButtonEff.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 	}
 	/***
 	 * @Author Aparna Das
@@ -596,27 +596,27 @@ export class JobCompletionPageObject {
 		if (this.DeviceNxtBtn.isDisplayed()) {
 			await this.DeviceNxtBtn.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 	}
 
 	public async fillDeviceBindingSection_SFENMEX15(){
 		if (this.gsmeJoinedYes.isDisplayed()) {
 			await this.gsmeJoinedYes.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		
 		if (this.fullconfigAppliedYes.isDisplayed()) {
 			await this.fullconfigAppliedYes.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		if(this.capturePhotoAsset.isDisplayed()){
 			await this.capturePhotoAsset.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		if(this.nextButtonEff.isDisplayed()){
 			await this.nextButtonEff.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 	}
 	
 /***
@@ -627,7 +627,7 @@ public async fillDeviceBindingSection_NMEX16(){
     if (this.esmeJoinedYes.isDisplayed()) {
         await this.esmeJoinedYes.click();
     }
-    await utility.wait(2000);
+    await utility.wait(utility.low);
     if (this.infoOKButton.isDisplayed()) {
         await this.infoOKButton.click();
 	}
@@ -636,19 +636,19 @@ public async fillDeviceBindingSection_NMEX16(){
     //CGP added 16/09
     public async filldDevicebinding() {
         
-        await utility.wait(2000);
+        await utility.wait(utility.low);
         if (await this.GSMEJoined.isDisplayed()) {
             await this.GSMEJoined.click();
         }
-        await utility.wait(2000);
+        await utility.wait(utility.low);
         if (await this.configIHDPPMID.isDisplayed()) {
             await this.configIHDPPMID.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.joinedcapture.isDisplayed()) {
             await this.joinedcapture.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.deviceNext.isDisplayed()) {
             await this.deviceNext.click();
         }
@@ -664,27 +664,27 @@ public async fillDeviceBindingSectionDF17(){
     if (this.esmeJoinedYes.isDisplayed()) {
         await this.esmeJoinedYes.click();
     }
-    await utility.wait(2000);
+    await utility.wait(utility.low);
     if (this.infoOKButton.isDisplayed()) {
         await this.infoOKButton.click();
     }
-    await utility.wait(2000);
+    await utility.wait(utility.low);
     if (this.gsmeJoinedYes.isDisplayed()) {
         await this.gsmeJoinedYes.click();
     }
-    await utility.wait(2000);
+    await utility.wait(utility.low);
     if (this.fullconfigAppliedYes.isDisplayed()) {
         await this.fullconfigAppliedYes.click();
     }
-    await utility.wait(2000);
+    await utility.wait(utility.low);
     if(this.capturePhotoAsset.isDisplayed()){
         await this.capturePhotoAsset.click();
     }
-    await utility.wait(2000);
+    await utility.wait(utility.low);
     if(this.nextButtonEff.isDisplayed()){
         await this.nextButtonEff.click();
     }
-    await utility.wait(2000);
+    await utility.wait(utility.low);
 }
 
 
@@ -702,7 +702,7 @@ public async fillDeviceBindingSectionDF17(){
 		if (this.DeviceNxtBtn.isDisplayed()) {
 			await this.DeviceNxtBtn.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 	}
 
 	/***
@@ -719,7 +719,7 @@ public async fillDeviceBindingSectionDF17(){
 		if (this.DeviceNxtBtn.isDisplayed()) {
 			await this.DeviceNxtBtn.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 	}
 
 	/***
@@ -753,11 +753,11 @@ public async fillDeviceBindingSectionDF17(){
 		// if (this.fullConfigAppliedPPMIDYes.isDisplayed()) {
 		//     await this.fullConfigAppliedPPMIDYes.click();
 		// }
-		// await utility.wait(1000);
+		// await utility.wait(utility.very_low);
 		// if (this.capturePPMIDBtn.isDisplayed()) {
 		//     await this.capturePPMIDBtn.click();
 		// }
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.PPMIDNxtBtn.isDisplayed()) {
 			await this.PPMIDNxtBtn.click();
 		}
@@ -776,14 +776,14 @@ public async fillDeviceBindingSectionDF17(){
 			await this.fullConfigAppliedGasYes.click();
 		}
 
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.fullConfigAppliedPPMIDYes.isDisplayed()) {
 			await this.fullConfigAppliedPPMIDYes.click();
 		}
 		if (this.capturePPMIDBtn.isDisplayed()) {
 			await this.capturePPMIDBtn.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.PPMIDNxtBtn.isDisplayed()) {
 			await this.PPMIDNxtBtn.click();
 		}
@@ -802,19 +802,19 @@ public async fillDeviceBindingSectionDF17(){
 		}
 		if (this.infoOKButton.isDisplayed()) {
 			await this.infoOKButton.click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
 
 		//  if (this.fullEx20ConfigAppliedGasYes.isDisplayed()) {
 		//      await this.fullEx20ConfigAppliedGasYes.click();
 		// }
-		//  await utility.wait(1000);
+		//  await utility.wait(utility.very_low);
 		// if (this.capturePPMIDBtn.isDisplayed()) {
 		//     await this.capturePPMIDBtn.click();
 		//     await this.capturePPMIDBtn.click();
 
 		// }
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.PPMIDNxtBtn.isDisplayed()) {
 			await this.PPMIDNxtBtn.click();
 		}
@@ -927,12 +927,12 @@ public async FinalSubmission1(){
     }
 
     if (await this.signedbyCustorRepDD.isDisplayed()) {
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         var select = this.signedbyCustorRepDD;
         select.$('[value="Customer"]').click();
     }
     await this.signaturepadCanvas.click();
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     if (this.custRefusedToSignNo.isDisplayed()) {
         await this.custRefusedToSignNo.click();
     }
@@ -941,7 +941,7 @@ public async FinalSubmission1(){
     await utility.wait(20000);
     if (this.jobCompleteBtn.isDisplayed()) {
         await this.jobCompleteBtn.click();
-        await utility.wait(2000);
+        await utility.wait(utility.low);
         await this.infoOKButton.click();
     }
 }
@@ -956,21 +956,21 @@ public async FinalSubmission1(){
 				console.log("Print captureCustSign Txt  " + captureCustSign);
 			});
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.eSign.isDisplayed()) {
 			await this.eSign.click();
 		}
 		if (await this.signedbyCustorRepDD.isDisplayed()) {
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 			var select = this.signedbyCustorRepDD;
 			select.$('[value="Customer"]').click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.custRefusedToSignNo.isDisplayed()) {
 			await this.custRefusedToSignNo.click();
 			await this.custSignText.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.custRefusedToSignNo.isDisplayed()) {
 			await this.custRefusedToSignNo.click();
 			await this.custSignText.click();
@@ -978,13 +978,13 @@ public async FinalSubmission1(){
 
 		if (this.jobCompleteBtn.isDisplayed()) {
 			await this.jobCompleteBtn.click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 			await this.infoOKButton.click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 
 		}
 
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		if (this.AppointmentText.isDisplayed) {
 			this.AppointmentText.getText().then(async function (appointment) {
 				console.log("find Appointment Page Text  " + appointment);
@@ -995,103 +995,103 @@ public async FinalSubmission1(){
 
 
 	public async DeviceBinding() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.deviceBindingCap.getText().then(function (deviceBindingCapTxt) {
 			console.log("Device Binding " + deviceBindingCapTxt);
 		});
 	}
 	public async fillfield53dueldevicebinding() {
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		if (await this.ESMEJoinedY.isDisplayed()) {
 			await this.ESMEJoinedY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		if (await this.deviceOK.isDisplayed()) {
 			await this.deviceOK.click();
 		}
-		// await utility.wait(2000);
+		// await utility.wait(utility.low);
 		// if (await this.GSMEJoined.isDisplayed()) {
 		//     await this.GSMEJoined.click();
 		// }
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		if (await this.configIHDPPMID.isDisplayed()) {
 			await this.configIHDPPMID.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.joinedcapture.isDisplayed()) {
 			await this.joinedcapture.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.deviceNext.isDisplayed()) {
 			await this.deviceNext.click();
 		}
 	}
 	public async energyeffInfo() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.EnergyeffCap.getText().then(function (EnergyeffCapText) {
 			console.log("Energy Efficiency Information " + EnergyeffCapText);
 		});
 	}
 	public async fillfield55duelenergyeff() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.energyeffinfoProvided.isDisplayed()) {
 			await this.energyeffinfoProvided.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.EngeffDocLeft.isDisplayed()) {
 			await this.EngeffDocLeft.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.IsCustomerhappy.isDisplayed()) {
 			await this.IsCustomerhappy.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.additionaleneinfoReq.isDisplayed()) {
 			await this.additionaleneinfoReq.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.EnergyeffNext.isDisplayed()) {
 			await this.EnergyeffNext.click();
 		}
 	}
 	public async smartEducation() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.smartEducationCap.getText().then(function (smartEducationCapTxt) {
 			console.log("Smart Education " + smartEducationCapTxt);
 		});
 	}
 	public async fillfield55duelsmartedu() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.smartLtionsite.isDisplayed()) {
 			await this.smartLtionsite.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.custaddnlhelpinfo.isDisplayed()) {
 			await this.custaddnlhelpinfo.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.IsCDemoofequipmentcomp.isDisplayed()) {
 			await this.IsCDemoofequipmentcomp.click();
 		}
 	}
 	public async smartLitLeftOnsite() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.smartLitLeftCap.getText().then(function (smartLitLeftCapTxt) {
 			console.log("Smart Literature Left On Site " + smartLitLeftCapTxt);
 		});
 	}
 	public async fillfield56duelsmartLit() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.potentialcustVulnerability.isDisplayed()) {
 			await this.potentialcustVulnerability.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.customeraggreementtoInfo.isDisplayed()) {
 			await this.customeraggreementtoInfo.click();
 		}
 	}
 	public async captureCustSign() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.capturecustsignature.getText().then(function (capturecustsignatureTxt) {
 			console.log("Capture customer signature " + capturecustsignatureTxt);
 		});
@@ -1103,42 +1103,42 @@ public async FinalSubmission1(){
 
 	}
 	public async fillfield57Capturecust() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.signedbycustorRep.isDisplayed()) {
 			var select = this.signedbycustorRep;
 			select.$('[value="Customer"]').click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.custrefusedtoSign.isDisplayed()) {
 			await this.custrefusedtoSign.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.jobCompletesub.isDisplayed()) {
 			await this.jobCompletesub.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		if (await this.deviceOK.isDisplayed()) {
 			await this.deviceOK.click();
 		}
 	}
-	public async JobCompletedScreen() {
-		await utility.wait(1000);
-		if (this.AppointmentText.isDisplayed) {
+
+	public async JobCompletedFLTYNoExchangeScreen() {
+		await utility.wait(utility.very_low);
+        if (this.AppointmentText.isDisplayed) {
 			this.AppointmentText.getText().then(async function (appointment) {
 				console.log("find Appointment Page Text  " + appointment);
 			});
+		}
 	}
-}
-
-	public async JobCompletedFLTYNoExchangeScreen() {
-		await utility.wait(1000);
-		if (await this.jobcompletionFLTYNoExchange.isDisplayed()) {
+	public async JobCompletedScreen() {
+		await utility.wait(utility.very_low);
+		if (await this.jobcompletion.isDisplayed()) {
 			console.log("Job completed successfully");
 		}
 	}
 
 	public async JobCompletedFLTYTradS2NoExchangeScreen() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.jobcompletionFLTYTrads2NoExchange.isDisplayed()) {
 			console.log("Job completed successfully");
 		}
@@ -1146,33 +1146,33 @@ public async FinalSubmission1(){
 	//TST12 FLTY GAS
 
 	public async Tst12fillfield53dueldevicebinding() {
-		await utility.wait(2000);
-		await utility.wait(2000);
+		await utility.wait(utility.low);
+		await utility.wait(utility.low);
 		if (await this.GSMEJoined.isDisplayed()) {
 			await this.GSMEJoined.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		if (await this.configIHDPPMID.isDisplayed()) {
 			await this.configIHDPPMID.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.joinedcapture.isDisplayed()) {
 			await this.joinedcapture.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.low);
 		if (await this.deviceNext.isDisplayed()) {
 			await this.deviceNext.click();
 		}
 	}
 
 	public async TST12summary() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.summaryCap.getText().then(function (summaryCapTxt) {
 			console.log("SUMMARY " + summaryCapTxt);
 		});
 	}
 	public async Tst12JobCompletedScreen() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.TST12jobcompletion.isDisplayed()) {
 			console.log("Job completed successfully");
 		}
