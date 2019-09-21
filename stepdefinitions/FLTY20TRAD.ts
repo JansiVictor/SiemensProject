@@ -1,6 +1,6 @@
 import { browser, protractor, element, by } from "protractor";
 import { loginPageObject } from "../pages/loginPage";
-import { FLTY19homePageObject } from "../pages/FLTY19homePage";
+import { HomePageObject } from "../pages/HomePage";
 import { AppointmentListPageObject } from "../pages/AppointmentListPage";
 import { DoorStepPageObject } from "../pages/DoorStepPage";
 import { RiskAssessmentPageObject } from "../pages/RiskAssessmentPage";
@@ -9,8 +9,6 @@ import { config } from "../config/config";
 import { Utility } from "../support/utility";
 import { when } from "q";
 import { InstallPageObject } from "../pages/InstallPage";
-import { RemoveTRADPageObject } from "../pages/RemoveTRAD";
-
 import { ElectricPageObject } from "../pages/ElectricPage";
 import { JobCompletionPageObject } from "../pages/JobCompletionPage";
 const { Given, When, Then } = require("cucumber");
@@ -20,7 +18,7 @@ const expect = chai.expect;
 const delay = ms => new Promise(res => setTimeout(res, ms));
 const utility: Utility = new Utility();
 const login: loginPageObject = new loginPageObject();
-const home: FLTY19homePageObject = new FLTY19homePageObject();
+const home: HomePageObject = new HomePageObject();
 const applist: AppointmentListPageObject = new AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: RiskAssessmentPageObject = new RiskAssessmentPageObject();

@@ -535,7 +535,6 @@ When('I fill the RmveSix field027 with the Value027', async function () {
 Then('I click on RmveSix NEXT SEC button from Remove Comms Hub', async function () {
 	await remove.clickonNxtBtnRmvCommsHub();
 	await remove.XCHUBSubmit();
-	await remove.remvSuccessfulFInal.click();
 });
 Then('I should see RmveSix CONFIRM COMMS HUB REMOVAL section', async function () {
 	await remove.ConfirmHubRmv();

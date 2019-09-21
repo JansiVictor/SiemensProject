@@ -330,7 +330,7 @@ export class InstallPageObject {
 		this.selectValidAssettoInst = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[2]'));
 		this.gasmeterserialSendreg = element(by.xpath('//*[@id="btn_RegSNum1"]'));
 		this.RegularclickenableOK = element(by.xpath('//*[contains(text(),"Regulator Serial No(s)")]'));
-		this.validAssetTxt = element(by.xpath('//*[contains(text()," Select Valid Asset To Install: ")]'));
+		this.validAssetTxt = element(by.xpath('//div[text()="MA6NC181323805"]'));
 		this.AssetaddedtowallNewReg = element(by.xpath('//*[text()="OK"]'));
 		this.nextSecnewRegulator = element(by.xpath('//*[@id="newRegulator_nextButton"]'));
 
@@ -616,6 +616,47 @@ export class InstallPageObject {
 		}
 	}
 
+	public async filltheduelforPPMIDsection(index: number) {
+        await utility.wait(2000);
+        if (await this.PPMIDoffered.isDisplayed()) {
+            await this.PPMIDoffered.click();
+        }
+        await utility.wait(2000);
+        if (await this.PPMIDaccepted.isDisplayed()) {
+            await this.PPMIDaccepted.click();
+        }
+        await utility.wait(1000);
+        if (await this.PPMIDLocsel.isDisplayed()) {
+            var select = this.PPMIDLocsel;
+            select.$('[value="A"]').click();
+        }
+        await utility.wait(2000);
+        if (await this.PPMIDtoInstallsel.isDisplayed()) {
+            await utility.wait(2000);
+            this.PPMIDtoInstallsel.click();
+            browser.sleep(1000);
+            console.log("Selecting element based index : " + index);
+            // select the option
+            await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
+            await utility.wait(3000);
+            await expect(await this.SerialNoText.isPresent());
+            var options = this.PPMIDtoInstallselList.getAttribute('value');
+            await this.SerialNoText.sendKeys(options);
+        }
+        await utility.wait(2000);
+        if (await this.selectppmidtext.isDisplayed()) {
+            await this.selectppmidtext.click();
+        }
+        await utility.wait(2000);
+        if (await this.AssetsuccessOKclk.isDisplayed()) {
+            await this.AssetsuccessOKclk.click();
+        }
+        await utility.wait(2000);
+        if (await this.InstallPPMIDNextSection.isDisplayed()) {
+            await this.InstallPPMIDNextSection.click();
+        }
+    }
+
 	// CGP added
     public async fillfieldsInstallcommshubTRAD(index: number) {
         await utility.wait(1000);
@@ -871,8 +912,8 @@ public async TST15fillthefieldsfornewregulator(index: number) {
         await this.gasmeterserialSendreg.sendKeys("MA6NC181323805");
     }
     await utility.wait(utility.very_low);
-    if (await this.RegularclickenableOK.isDisplayed()) {
-        await this.RegularclickenableOK.click();
+    if (await this.validAssetTxt.isDisplayed()) {
+        await this.validAssetTxt.click();
     }
     await utility.wait(utility.very_low);
     if (await this.AssetaddedtowallNewReg.isDisplayed()) {

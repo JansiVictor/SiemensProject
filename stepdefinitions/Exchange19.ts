@@ -522,7 +522,7 @@ Given('the ExchngNineteen Appointment List window', async function () {
 
 
    When('I fill the ExchngNineteen Perform Smart Meter Education and Demonstration  fields with values', async function () {
-    await exchnge21Complete.fillSmartEducationDetails();
+    await exchnge21Complete.fillfield55duelsmartedu();
    });
 
    Then('I should see ExchngNineteen Summary of Job and receive Customer Signature section',async function () {

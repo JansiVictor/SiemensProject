@@ -222,7 +222,7 @@ Given('the ExchangeTwnty Appointment List window', async function () {
   });
 
   Given('the ExchangeTwnty INFO window with the text', async function () {
-	await riskassess.infoOKButton.click();
+	//await riskassess.infoOKButton.click();
 	//await riskassess.performanceRiskNextBtn.click();
 	await utility.wait(utility.medium);
 	if (riskassess.NeedtoWorkYES.isDisplayed()) {

@@ -76,7 +76,7 @@ Then('I click FLTYTwntyNoExchange Login button', async function () {
 });
 
 Then('I should see the FLTYTwntyNoExchange Appointment List', async function () {
-	await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
+	await home.seeAppList();
 });
 
 Given('the FLTYTwntyNoExchange Appointment List window', async function () {
@@ -86,8 +86,6 @@ Given('the FLTYTwntyNoExchange Appointment List window', async function () {
 
 When('I click on FLTYTwntyNoExchange select button', async function () {
 	await home.clickCorrectSelectLink('DF_FLTY20_SMETS2NoExchange');
-	//await home.clickOnTheFLTY20NoExchangeSelectLink();
-	//await home.clickOnTheContinueLink();
 	await utility.wait(utility.medium_low);
 });
 
@@ -114,11 +112,9 @@ Then('I should see FLTYTwntyNoExchange page contect display', async function () 
 });
 
 
-// Then('I should see the FLTYTwntyNoExchange CUSTOMER CONTACT NUMBER', async function () {
-// await utility.wait(utility.medium_low);
-// await expect(await applist.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
-
-// });
+Then('I should see the FLTYTwntyNoExchange CUSTOMER CONTACT NUMBER', async function () {
+	await applist.customercontactnumberavailable();
+ });
 
 Then('I should see FLTYTwntyNoExchange Contact made field', async function () {
 	await utility.wait(utility.medium_low);

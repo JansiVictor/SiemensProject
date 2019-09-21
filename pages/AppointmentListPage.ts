@@ -230,9 +230,12 @@ export class AppointmentListPageObject {
 		//customerContactNumberText
 		// await expect(await this.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
 		await expect(this.callForwardText.isPresent());
-
+		//browser.executeScript('arguments[0].scrollIntoView()', this.callForwardText.getWebElement());
+	
+		//browser.executeScript("arguments[0].click();", this.callForwardText.getWebElement());
+		
 		this.callForwardText.click();
-
+		await utility.wait(utility.very_low);
 		this.callForwardText.click();
 		//customerContactNumberText
 		await utility.wait(utility.very_low);

@@ -1,7 +1,7 @@
 import { browser, protractor, element, by } from "protractor";
 import { loginPageObject } from "../pages/loginPage";
 import { HomePageObject } from "../pages/HomePage";
-import { FLTY19AppointmentListPageObject } from "../pages/AppointmentListPage";
+import { AppointmentListPageObject } from "../pages/AppointmentListPage";
 import { DoorStepPageObject } from "../pages/DoorStepPage";
 import { RiskAssessmentPageObject } from "../pages/RiskAssessmentPage";
 import { RemovePageObject } from "../pages/RemovePage";
@@ -17,7 +17,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 const utility: Utility = new Utility();
 const login: loginPageObject = new loginPageObject();
 const home: HomePageObject = new HomePageObject();
-const applist: FLTY19AppointmentListPageObject = new FLTY19AppointmentListPageObject();
+const applist: AppointmentListPageObject = new AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: RiskAssessmentPageObject = new RiskAssessmentPageObject();
 const remove: RemovePageObject = new RemovePageObject();

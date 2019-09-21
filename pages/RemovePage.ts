@@ -1476,9 +1476,7 @@ public async fillElectricAssetRemovalSection(){
 			await this.XCHUBBtn.click();
 			await utility.wait(utility.high);
 			browser.executeScript('arguments[0].scrollIntoView()', this.remvSuccessfulFInal.getWebElement());
-				await this.remvSuccessfulFInal.click();
-			
-
+			await this.remvSuccessfulFInal.click();
 		}
 	}
 
@@ -1802,7 +1800,7 @@ public async fillElectricAssetRemovalSection(){
             await this.existgasmeterDtlY.click();
         }
         await utility.wait(utility.very_low);
-        if (await this.meterReading.isDisplayed()) {
+        if (await this.meterReadingLabel.isDisplayed()) {
             await this.meterReadingLabel.clear();
             await this.meterReadingLabel.sendKeys("12345");
             await utility.wait(utility.very_low);

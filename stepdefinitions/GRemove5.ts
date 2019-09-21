@@ -349,7 +349,7 @@ import {
       await remove.currentmeterGasPageContent();
     });
     When('I fill the RmveGas CURRENT METER DETAILS field with the value', async function () {
-      await remove.fillcurrentmeterdtlGassec();
+      await remove.TST28fillcurrentmeterdtlGassec();
     });
     Then('I should see RmveGas CURRENT COMMS HUB DETAILS section', async function () {
       await remove.currentcommsHubdtl();
@@ -510,8 +510,7 @@ import {
     });
     Then('I click on RmveGas NEXT SEC button from Remove Comms Hub', async function () {
       await remove.clickonNxtBtnRmvCommsHub();
-	await remove.XCHUBSubmit();
-	//await remove.remvSuccessfulFInal.click();
+	      await remove.XCHUBSubmit();
     });
     Then('I should see RmveGas SEND MSG XCHUB section', async function () {
       await inst.sendmsgXCHUB();

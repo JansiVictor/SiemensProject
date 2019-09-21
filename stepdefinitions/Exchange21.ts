@@ -221,11 +221,8 @@ Then('I should see ExTwOne INFO window', async function () {
 
 Given('the ExTwOne INFO window with the text', async function () {
 	//await riskassess.infoOKButton.isDisplayed();
-	await risk.INFOOKClick();
-
+	//await risk.INFOOKClick();
 	//await riskassess.performanceRiskNextBtn.click();
-
-
 	await utility.wait(utility.medium);
 	if (riskassess.NeedtoWorkYES.isDisplayed()) {
 		var element = riskassess.NeedtoWorkYES;

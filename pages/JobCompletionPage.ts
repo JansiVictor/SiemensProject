@@ -10,14 +10,16 @@ const {
 	When,
 	Then
 } = require("cucumber");
-const chai = require("chai");
-const expect = chai.expect;
-const utility: Utility = new Utility();
+
 import { Utility } from "../support/utility";
 import { watchFile } from "fs";
 import {
 	Alert
 } from 'selenium-webdriver';
+
+const chai = require("chai");
+const expect = chai.expect;
+const utility: Utility = new Utility();
 
 export class JobCompletionPageObject {
 

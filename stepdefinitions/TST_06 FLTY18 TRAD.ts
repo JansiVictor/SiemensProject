@@ -1,6 +1,6 @@
 import { browser, protractor, element, by } from "protractor";
 import { loginPageObject } from "../pages/loginPage";
-import { FLTY19homePageObject } from "../pages/FLTY19homePage";
+import { HomePageObject } from "../pages/HomePage";
 import { AppointmentListPageObject } from "../pages/AppointmentListPage";
 import { DoorStepPageObject } from "../pages/DoorStepPage";
 import { RiskAssessmentPageObject } from "../pages/RiskAssessmentPage";
@@ -19,7 +19,7 @@ const expect = chai.expect;
 const delay = ms => new Promise(res => setTimeout(res, ms));
 const utility: Utility = new Utility();
 const login: loginPageObject = new loginPageObject();
-const home: FLTY19homePageObject = new FLTY19homePageObject();
+const home: HomePageObject = new HomePageObject();
 const applist: AppointmentListPageObject = new AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: RiskAssessmentPageObject = new RiskAssessmentPageObject();
