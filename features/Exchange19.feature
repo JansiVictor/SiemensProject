@@ -160,7 +160,7 @@ When I fill the ExchngNineteen Energy Efficiency information fields with values
 
 Scenario: Going through ExchngNineteen "Perform Smart Meter Education and Demonstration " GAS section 
 #Given the ExchngNineteen Perform Smart Meter Education and Demonstration section 
-When I fill the ExchngNineteen Perform Smart Meter Education and Demonstration  fields with values
+#When I fill the ExchngNineteen Perform Smart Meter Education and Demonstration  fields with values
 Then I should see ExchngNineteen Summary of Job and receive Customer Signature section
 
 Scenario: Going through ExchngNineteen "Summary of Job and receive Customer Signature" GAS section 

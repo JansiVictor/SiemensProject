@@ -832,11 +832,6 @@ export class ElectricPageObject {
         await utility.wait(utility.low);
     }
 
-
-	public async fillNewMeterDetails_INST15(index:number) {
-		// await utility.wait(utility.low);
-    }
-
 /***
  * @Author Aparna Das
  * @description Fill new meter details
@@ -1583,6 +1578,59 @@ public async fillPostInstallationCheckINST16() {
 				await utility.wait(3000);
 			}
 		}
+
+	}
+
+	public async fillNewMeterDetails_INST15(index:number) {
+		// await utility.wait(2000);
+		if (await this.newMeterDD.isDisplayed()) {
+			await utility.wait(2000);
+			// click the dropdown
+			this.newMeterDD.click()
+			browser.sleep(1000)
+		//index = index ;
+		console.log("Selecting element based index : "+index)
+		// select the option
+		await this.newMeterDD.element(by.css("option:nth-child("+index+")")).click()
+		await utility.wait(utility.low);
+				//await this.commshubPopup.click();
+			
+			await expect(await this.inputelecSerialNum.isPresent());
+			var options = this.selectinstallMeterOption.getAttribute('value');
+			await this.inputelecSerialNum.sendKeys(options);
+		
+		await this.randomEUDevice.click();
+		// let ale: Alert = browser.switchTo().alert();
+		// // clicks 'OK' button
+		// ale.accept();
+		await utility.wait(2000);
+
+		await this.commshubPopup.click();
+		await utility.wait(2000);
+
+		// if (await this.manufactureLetterDD.isDisplayed()) {
+		// 	var select1 = this.manufactureLetterDD;
+		// 	select1.$('[value="2"]').click();
+		// }
+		await utility.wait(2000);
+		if (await this.MeterTypeDD.isDisplayed()) {
+			var select2 = this.MeterTypeDD;
+			select2.$('[value="0"]').click();
+		}
+		await utility.wait(2000);
+		if (await this.meterLocDD.isDisplayed()) {
+			var select3 = this.meterLocDD;
+			select3.$('[value="D"]').click();
+		}
+		await utility.wait(2000);
+
+		await expect(await this.inputDate.isPresent());
+		await this.inputDate.sendKeys('90/01');
+
+		await this.newMeterNxtBtn.click();
+		await utility.wait(2000);
+
+	} 
 
 	}
 }

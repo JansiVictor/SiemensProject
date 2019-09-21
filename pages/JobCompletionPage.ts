@@ -665,21 +665,6 @@ export class JobCompletionPageObject {
 		await utility.wait(utility.low);
 	}
 	
-/***
- * @Author Supriya Harikumar
- * @description Fill Device Binding Section display
-***/
-public async fillDeviceBindingSection_NMEX16(){
-    if (this.esmeJoinedYes.isDisplayed()) {
-        await this.esmeJoinedYes.click();
-    }
-    await utility.wait(utility.low);
-    if (this.infoOKButton.isDisplayed()) {
-        await this.infoOKButton.click();
-
-	}
-}
-
     //CGP added 16/09
     public async filldDevicebinding() {
         
@@ -1361,6 +1346,37 @@ public async configAllmeterDisplayInst16(){
             console.log("find configAllMeter Text  " + configAllMeter);
         });
     }
+}
+
+/***
+ * @Author Supriya Harikumar
+ * @description Fill Device Binding Section display
+***/
+public async fillDeviceBindingSection_NMEX16(){
+    if (this.esmeJoinedYes.isDisplayed()) {
+        await this.esmeJoinedYes.click();
+    }
+    await utility.wait(2000);
+    if (this.infoOKButton.isDisplayed()) {
+        await this.infoOKButton.click();
+    }
+    await utility.wait(2000);
+    if (this.esmeJoinedYes.isDisplayed()) {
+        await this.esmeJoinedYes.click();
+    }
+    await utility.wait(2000);
+    if (this.fullconfigAppliedYes.isDisplayed()) {
+        await this.fullconfigAppliedYes.click();
+    }
+    await utility.wait(2000);
+    if(this.capturePhotoAsset.isDisplayed()){
+        await this.capturePhotoAsset.click();
+    }
+    await utility.wait(2000);
+    if(this.nextButtonEff.isDisplayed()){
+        await this.nextButtonEff.click();
+    }
+    await utility.wait(2000);
 }
 
 }
