@@ -737,6 +737,7 @@ When('I fill the SFEINST15 Perform Smart Meter Education and Demonstration  fiel
 
 Then('I should see SFEINST15 Summary of Job and Smart literature left onsite section',async function () {
 	await SFEINST15Complete.summaryDisplay();
+	await utility.wait(utility.medium);
 	await SFEINST15Complete.SmartLiteraturedispaly();
 });
 

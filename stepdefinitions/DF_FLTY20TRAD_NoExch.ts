@@ -2,17 +2,17 @@
 // import {config} from "../config/config";
 // import {browser} from "protractor";
 // import {Utility} from "../support/utility";
-// import {DepartForApptDialogueBoxPageObject} from "../pages/DepartForApptDialogueBoxPage";
-// import {AppointmentDetailsPageObject} from "../pages/AppointmentDetailsFormPage";
-// import {AppointmentListPageObject} from "../pages/AppointmentListFormPage";
+// import {AppointmentListPageObject} from "../pages/AppointmentListPage";
+// // import {AppointmentDetailsPageObject} from "../pages/AppointmentDetailsFormPage";
+// // import {AppointmentListPageObject} from "../pages/AppointmentListFormPage";
 // import {DoorStepPageObject} from "../pages/DoorStepPage";
-// import {DoorStepFormPageObject} from "../pages/DoorStepFormPage";
+// // import {DoorStepFormPageObject} from "../pages/DoorStepFormPage";
 // import {RiskAssessmentPageObject} from "../pages/RiskAssessmentPage";
-// import {RiskAssessmentForGasPageObject} from "../pages/RiskAssessmentForGasPage";
-// import {RiskAssessmentForElecPageObject} from "../pages/RiskAssessmentForElecPage";
+// // import {RiskAssessmentForGasPageObject} from "../pages/RiskAssessmentForGasPage";
+// // import {RiskAssessmentForElecPageObject} from "../pages/RiskAssessmentForElecPage";
 // import {RemovePageObject} from "../pages/RemovePage";
 // import {InstallPageObject} from "../pages/InstallPage";
-// import {LoginPageObject} from "../pages/LoginPage";
+// import {loginPageObject} from "../pages/loginPage";
 // import {JobCompletionPageObject} from "../pages/JobCompletionPage";
 
 
