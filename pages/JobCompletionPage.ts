@@ -470,12 +470,7 @@ export class JobCompletionPageObject {
 			await utility.wait(utility.very_low);
 		}
 		if (await this.PPMIDToInstall.isDisplayed()) {
-<<<<<<< HEAD
 			await utility.wait(utility.low);
-=======
-			await utility.wait(utility.Avg_low);
->>>>>>> bbfb2973d3534901ae634f1476b75e78204fbfc3
-			// click the dropdown
 			this.PPMIDToInstall.click();
 			browser.sleep(1000);
 			//index = index ;
