@@ -81,7 +81,7 @@ import {
     
     
     When('I click on RmveGas select button', async function () {
-    await home.clickOnTheRemoveGASSelectLink();
+    await home.clickCorrectSelectLink('GRemove5');
     await utility.wait(utility.medium_low);
     });
     

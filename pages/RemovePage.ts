@@ -1476,6 +1476,7 @@ public async fillElectricAssetRemovalSection(){
 			await this.XCHUBBtn.click();
 			await utility.wait(utility.high);
 			browser.executeScript('arguments[0].scrollIntoView()', this.remvSuccessfulFInal.getWebElement());
+			await utility.wait(utility.very_low);
 			await this.remvSuccessfulFInal.click();
 		}
 	}

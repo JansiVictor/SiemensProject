@@ -837,6 +837,18 @@ public async fillDeviceBindingSectionDF17(){
 	}
 
 	/***
+	 * @Author Supriya Harikumar
+	 * @description Smart Literature section text display
+	 ***/
+	public async SmartLiteraturedispaly() {
+		if (this.smartLitLeftOnsiteTxt.isDisplayed()) {
+			await this.smartLitLeftOnsiteTxt.getText().then(function (SmartLiterature) {
+				console.log("find installPPMID Text  " + SmartLiterature);
+			});
+		}
+	}
+
+	/***
 	 * @Author Aparna Das
 	 * @description Fill config All meter Section Ex20
 	 ***/
@@ -884,6 +896,7 @@ public async fillDeviceBindingSectionDF17(){
 	 * @description Fill Energy Efficiency Info Section
 	 ***/
 	public async fillEEInfo() {
+		await utility.wait(utility.very_low);
 		if (this.energyEffProvidedYes.isDisplayed()) {
 			await this.energyEffProvidedYes.click();
 		}

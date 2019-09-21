@@ -508,7 +508,7 @@ Given('the ExchngNineteen Appointment List window', async function () {
 
 
    When('I fill the ExchngNineteen Energy Efficiency information fields with values',async function () {
-    await exchnge21Complete.fillEEInfo();
+    await exchnge21Complete.fillfield55duelenergyeff();
    });
 
 

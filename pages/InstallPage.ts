@@ -2281,8 +2281,9 @@ public async Tst15fillthefieldsforperformpostinst() {
 			await this.gasmeterserialSendreg.sendKeys("MA6NC181323805");
 		}
 		await utility.wait(utility.very_low);
-		if (await this.RegularclickenableOK.isDisplayed()) {
-			await this.RegularclickenableOK.click();
+		browser.executeScript('arguments[0].scrollIntoView()', this.validAssetTxt.getWebElement());
+		if (await this.validAssetTxt.isDisplayed()) {
+			await this.validAssetTxt.click();
 		}
 		await utility.wait(utility.very_low);
 		if (await this.AssetaddedtowallNewReg.isDisplayed()) {

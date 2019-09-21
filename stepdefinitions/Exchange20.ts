@@ -492,7 +492,7 @@ Given('the ExchangeTwnty Appointment List window', async function () {
   });
 
   When('I fill the ExchangeTwnty Energy Efficiency information fields with values', async function () {
-    await exchnge21Complete.fillEEInfo();
+    await exchnge21Complete.fillfield55duelenergyeff();
   });
 
   Then('I should see Perform ExchangeTwnty Smart Meter Education and Demonstration section', async function () {

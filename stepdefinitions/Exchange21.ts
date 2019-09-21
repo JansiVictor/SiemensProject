@@ -663,7 +663,7 @@ Given('the ExTwOne Energy Efficiency information  section', async function () {
 
 
 When('I fill the ExTwOne Energy Efficiency information fields with values',async function () {
-  await exchnge21Complete.fillEEInfo();
+  await exchnge21Complete.fillfield55duelenergyeff();
 });
 
 
