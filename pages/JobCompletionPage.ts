@@ -76,8 +76,8 @@ export class JobCompletionPageObject {
 	//JANSI CHANGES 
 
 
-	public jobcompletionFLTYNoExchange: ElementFinder;
-	public jobcompletionFLTYTrads2NoExchange: ElementFinder;
+	
+	
 	public installcommsHub: ElementFinder;
 	public commshubReqY: ElementFinder;
 	public selectValid: ElementFinder;
@@ -119,10 +119,8 @@ export class JobCompletionPageObject {
 	public signedbycustorRep: ElementFinder;
 	public jobCompletesub: ElementFinder;
 	public signpad: ElementFinder;
-	public jobcompletion: ElementFinder;
 
 	public summaryCap: ElementFinder;
-	public TST12jobcompletion: ElementFinder;
 	public installsubmission: ElementFinder;
 	public installPPMIDText1: ElementFinder;
 	public PPMIDOfferedYes1: ElementFinder;
@@ -191,13 +189,8 @@ export class JobCompletionPageObject {
 		this.jobCompletesub = element(by.xpath('//*[@id="btn_Comp_submit"]'));
 		this.signpad = element(by.xpath('//*[@id="signaturePad"]'));
 
-		this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob4JFAULTY 20")]'));
-
-		this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob1JFAULTY 20")]'));
-
 		this.summaryCap = element(by.xpath('//div/h4[contains(text(),"SUMMARY")]'));
-		this.TST12jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJob1JFAULTY 18")]'));
-
+		
 
 		//APARNA CHANGES
 		this.AppointmentText = element(by.xpath('(//*[@id="btn_top"]/div[2]/div)[1]'));
@@ -249,8 +242,7 @@ export class JobCompletionPageObject {
 		this.DeviceNxtBtn = element(by.xpath('//div/button[@id="dbc2_trad_btnNextEff"]'));
 		this.eSign = element(by.id('signaturePad'));
 		this.custSignText = element(by.xpath('//div[text()="Customer Signature"]'));
-		this.jobcompletionFLTYNoExchange = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 20 SMETS2 Site FLAT")]'));
-		this.jobcompletionFLTYTrads2NoExchange = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 19 Trad Non S2 site FLAT")]'));
+		
 		
 		this.smartLitLeftOnsiteTxt = element(by.xpath('//h4[contains(text(),"Smart Literature Left on Site")]'));
 		this.installsubmission = element(by.id('btn1'));
@@ -363,6 +355,18 @@ export class JobCompletionPageObject {
 		if (this.installPPMIDText.isDisplayed()) {
 			await this.installPPMIDText.getText().then(function (installPPMID) {
 				console.log("find installPPMID Text  " + installPPMID);
+			});
+		}
+	}
+
+	/***
+	 * @Author Supriya Harikumar
+	 * @description Smart Literature section text display
+	 ***/
+	public async SmartLiteraturedispaly() {
+		if (this.smartLitLeftOnsiteTxt.isDisplayed()) {
+			await this.smartLitLeftOnsiteTxt.getText().then(function (SmartLiterature) {
+				console.log("find installPPMID Text  " + SmartLiterature);
 			});
 		}
 	}
@@ -1112,26 +1116,7 @@ public async FinalSubmission1(){
 			await this.deviceOK.click();
 		}
 	}
-	public async JobCompletedScreen() {
-		await utility.wait(utility.very_low);
-		if (await this.jobcompletion.isDisplayed()) {
-			console.log("Job completed successfully");
-		}
-	}
-
-	public async JobCompletedFLTYNoExchangeScreen() {
-		await utility.wait(utility.very_low);
-		if (await this.jobcompletionFLTYNoExchange.isDisplayed()) {
-			console.log("Job completed successfully");
-		}
-	}
-
-	public async JobCompletedFLTYTradS2NoExchangeScreen() {
-		await utility.wait(utility.very_low);
-		if (await this.jobcompletionFLTYTrads2NoExchange.isDisplayed()) {
-			console.log("Job completed successfully");
-		}
-	}
+	
 	//TST12 FLTY GAS
 
 	public async Tst12fillfield53dueldevicebinding() {
@@ -1160,11 +1145,6 @@ public async FinalSubmission1(){
 			console.log("SUMMARY " + summaryCapTxt);
 		});
 	}
-	public async Tst12JobCompletedScreen() {
-		await utility.wait(utility.very_low);
-		if (await this.TST12jobcompletion.isDisplayed()) {
-			console.log("Job completed successfully");
-		}
-	}
+	
 
 }
