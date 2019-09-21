@@ -239,7 +239,7 @@ export class HomePageObject {
 				console.log('Fieldname:', selectLinkName);
 				break;
 			case ('Exchange21'):
-				this.clickOnTheSelectLink(this.selectLinkEx21,'SelectJobTest1 EXCH21 SF SMETS2');
+				this.clickOnTheSelectLink(this.selectLinkEx21,'SelectJobTest EXCH21 DF');
 				console.log('Fieldname:', selectLinkName);
 				break;
 			case ('SF _E_FLTY19TradNoExchange'):
