@@ -12,15 +12,15 @@ const {
 } = require("cucumber");
 const chai = require("chai");
 const expect = chai.expect;
-import {
-	Utility
-} from "../support/utility";
 const utility: Utility = new Utility();
+import { Utility } from "../support/utility";
+import { watchFile } from "fs";
 import {
 	Alert
 } from 'selenium-webdriver';
 
 export class JobCompletionPageObject {
+
 
 
 	public installPPMIDText: ElementFinder;
@@ -157,7 +157,15 @@ export class JobCompletionPageObject {
 	public TST15jobcompletion: ElementFinder;
 	public TST01jobcompletion: ElementFinder;
 	public TST28jobcompletion: ElementFinder;
-
+	public configAllMeterTextin16: ElementFinder;
+	public PPMIDCommText: ElementFinder;
+	public PPMIDSendMessageButton: ElementFinder;
+	public PPMIDComSuccessButton: ElementFinder;
+	public deviceBindingNextSecButton: ElementFinder;
+	public checkDetailsAlertButton: ElementFinder;
+	public smartEduNextButton: ElementFinder;
+	public nextButtonWAN:ElementFinder;
+	
 
 
 	constructor() {
@@ -286,10 +294,16 @@ export class JobCompletionPageObject {
 		this.FullWANYesINST15 = element(by.xpath('//input[@id="rcfg1"]//following-sibling::span[@class="outer"]'));
         this.FullCOnfigAppliedElecYesINST15 = element(by.xpath('//label[@id="rb_FullCFigE_y"]//following-sibling::span[@class="outer"]'));
         this.fullConfigAppliedPPMIDYesINST15 = element(by.xpath('(//input[@id="rcfg5"]/following-sibling::span[@class="cr"])[1]'));
-        
-	this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobNCG3")]'));
-
-    this.energyEfficiencyTxt = element(by.xpath('//div/h4[text()="Energy Efficiency Information"]'));
+        this.PPMIDCommText = element(by.id('Title_xittd2'));
+        this.PPMIDSendMessageButton = element(by.id('xittd2_sendMessageButton'));
+		this.PPMIDComSuccessButton = element(by.id('xittd2_nextButton'));
+		this.deviceBindingNextSecButton = element(by.id('dbc2_trad_btnNextEff'));
+        this.checkDetailsAlertButton = element(by.xpath('//button[@class = "confirm"]'));
+        this.smartEduNextButton = element(by.id('btnNextComm'));
+		this.gasMeterPairedYes = element(by.id('rb_GasElecMPairSuc_y'));
+		this.nextButtonWAN = element(by.id('btnNextEff'));
+		this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobNCG3")]'));
+    	this.energyEfficiencyTxt = element(by.xpath('//div/h4[text()="Energy Efficiency Information"]'));
 	}
 
 	public async sendPPMIDmessageSection(){
@@ -386,10 +400,7 @@ export class JobCompletionPageObject {
             await this.IsCDemoofequipmentcompN.click();
         }
     }
-
-
-
-	
+    
 	/***
 	 * @Author Aparna Das
 	 * @description PPMID section text display
@@ -978,6 +989,7 @@ public async FinalSubmission1(){
         await utility.wait(utility.low);
         await this.infoOKButton.click();
     }
+
 }
 
 	/***
@@ -1244,4 +1256,96 @@ public async FinalSubmission1(){
 			console.log("Job completed successfully");
 		}
 	}
+
+
+//CGP INstall 16 changes
+
+public async PPMIDMessage() {
+    if (this.PPMIDCommText.isDisplayed()) {
+        await this.PPMIDCommText.getText().then(function (PPMIDCommText) {
+            console.log("find PPMID comm SendMsg Text  " + PPMIDCommText);
+        });
+        await this.PPMIDSendMessageButton.click();
+        console.log("find PPMID comm SendMsg Text Button clicked  " );
+
+        await utility.wait(80000);
+        //commented below
+        // await this.awaitingResponseTxt.getText().then(function (awaitingResponseTxt) {
+        // 	console.log("find awaitingResponseTxt Text  " + awaitingResponseTxt);
+        // });
+    //	await utility.wait(60000);
+        if (this.PPMIDComSuccessButton.isDisplayed()) {
+            await this.PPMIDComSuccessButton.click();
+            await utility.wait(3000);
+        }
+
+        //await this.submitBtn.click(); remove later
+        await utility.wait(3000);
+    }
+
+}
+
+
+
+public async fillDeviceBindingSectionInst16(){
+    await utility.wait(1000);
+
+   
+   if (this.gasMeterPairedYes.isDisplayed()) {
+      await this.gasMeterPairedYes.click();
+    }
+    await utility.wait(1000);
+    if (this.IHDPairedYes.isDisplayed()) {
+        await this.IHDPairedYes.click();
+    }
+    await utility.wait(1000);
+    if (this.FUlHANYes.isDisplayed()) {
+        await this.FUlHANYes.click();
+    }
+    await utility.wait(1000);
+    if (this.deviceBindingNextSecButton.isDisplayed()) {
+        await this.deviceBindingNextSecButton.click();
+    }
+
+   
+}
+
+public async fillConfigAllmeterInstall16(){
+    await utility.wait(5000);
+    if (this.FullWANYes.isDisplayed()) {
+        await this.FullWANYes.click();
+    }
+    if (this.FullCOnfigAppliedElecYes.isDisplayed()) {
+        await this.FullCOnfigAppliedElecYes.click();
+    }
+    let ale1: Alert = browser.switchTo().alert();
+		// clicks 'OK' button
+		await this.checkDetailsAlertButton.click();
+
+        await utility.wait(3000);    
+    if (this.fullConfigAppliedGasYes.isDisplayed()) {
+        await this.fullConfigAppliedGasYes.click();
+    }
+    if (this.fullConfigAppliedPPMIDYes.isDisplayed()) {
+        await this.fullConfigAppliedPPMIDYes.click();
+    }
+    if (this.capturePPMIDBtn.isDisplayed()) {
+        await this.capturePPMIDBtn.click();
+    }
+
+    await utility.wait(3000); 
+    //----------------------------------------------------------------
+    if (this.nextButtonWAN.isDisplayed()) {
+      await this.nextButtonWAN.click();
+   }
+}
+
+public async configAllmeterDisplayInst16(){
+    if (this.configAllMeterTextin16.isDisplayed()) {
+        await this.configAllMeterTextin16.getText().then(function (configAllMeter) {
+            console.log("find configAllMeter Text  " + configAllMeter);
+        });
+    }
+}
+
 }

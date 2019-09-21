@@ -329,8 +329,7 @@ export class ElectricPageObject {
 		this.nonserealizedAssetDD1 = element(by.xpath('(//*[@id="Cselect4"])[2]'));
 		this.hanAvailableText = element(by.xpath('//*[contains(text(),"HAN Available?")]'));
 		this.hanAvailableN = element(by.xpath('(//input[@id="chnohanconnectedfalse"]/following-sibling::span[@class="outer"])[1]'));
-		
-
+		this.selectinstallMeterOption=element(by.xpath('(//select[@id="newMeter_assetSelect"]/option)[4]'));
 
 	}
 
@@ -1242,10 +1241,38 @@ public async fillCommsHubDetails_DF17SmartCredit() {
 		await utility.wait(utility.very_low);
 	}
 
-	/***
-	 * @Author Aparna Das
-	 * @description Verify Commisssioning section is displayed
-	 ***/
+
+	//CGP added for ex23
+
+	public async fillInitialElecMeterReadingEX23() {
+		await expect(await this.captureMeterReadingInput.isPresent());
+		await this.captureMeterReadingInput.clear();
+		await this.captureMeterReadingInput.sendKeys('12345');
+		
+		await utility.wait(5000);
+		await this.initialElctext.click();
+		console.log("Clicked");
+
+		//Below can be used if random click doesnt work
+
+		// if (await this.unableToReadMeterYes.isDisplayed()) {
+        //     await this.unableToReadMeterYes.click();
+		// }    
+		// await utility.wait(1000);	 
+		
+		// if (await this.meterReadingNxtBtn.isDisplayed()) {
+        //     await this.meterReadingNxtBtn.click();
+		// }   
+		
+		
+		await utility.wait(1000);
+    }
+
+
+/***
+ * @Author Aparna Das
+ * @description Verify Commisssioning section is displayed
+***/
 	public async commisioningTxtDisplayed() {
 
 		if (this.commissioningTxt.isDisplayed()) {
@@ -1418,6 +1445,13 @@ public async fillPostInstallationCheckINST16() {
 		}
 	}
 
+	//CGP added
+	public async fillthePolarityCheckMeterOutINST16() 
+	{
+			await expect(this.polarityCheckCutOutYES.isPresent());
+			await this.polarityCheckCutOutYES.click();
+	}
+
 	public async inputInitialRiskAssessmentDetails_SFENMEX15() {
 		await expect(this.initialRiskAssesment.isPresent());
 		if (this.canYouSmellText.isDisplayed()) {
@@ -1529,5 +1563,26 @@ public async fillPostInstallationCheckINST16() {
 			//await this.submitBtn.click();
 			await utility.wait(utility.low);
 		}
+	}
+
+//CGP added for EX23
+	public async eicomMessageEX23() {
+		if (this.eicomSendMsg.isDisplayed()) {
+			await this.eicomSendMsg.getText().then(function (eicomSend) {
+				console.log("find eicomSendMsg Text  " + eicomSend);
+			});
+			await this.eicomSendMsg.click();
+			await utility.wait(80000);
+			//commented below
+			// await this.awaitingResponseTxt.getText().then(function (awaitingResponseTxt) {
+			// 	console.log("find awaitingResponseTxt Text  " + awaitingResponseTxt);
+			// });
+		//	await utility.wait(60000);
+			if (this.commSuccess.isDisplayed()) {
+				await this.commSuccess.click();
+				await utility.wait(3000);
+			}
+		}
+
 	}
 }

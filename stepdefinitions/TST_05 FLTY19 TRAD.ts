@@ -9,7 +9,6 @@ import { config } from "../config/config";
 import { Utility } from "../support/utility";
 import { when } from "q";
 import { InstallPageObject } from "../pages/InstallPage";
-import { RemoveTRADPageObject } from "../pages/RemoveTRAD";
 
 import { ElectricPageObject } from "../pages/ElectricPage";
 import { GASPageObject } from "../pages/GASPage";
@@ -26,7 +25,7 @@ const applist: AppointmentListPageObject = new AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: RiskAssessmentPageObject = new RiskAssessmentPageObject();
 const riskassessTRAD: ElectricPageObject = new ElectricPageObject();
-const remove: RemoveTRADPageObject = new RemoveTRADPageObject();
+const remove: RemovePageObject = new RemovePageObject();
 const inst: InstallPageObject =new InstallPageObject();
 const job: JobCompletionPageObject = new JobCompletionPageObject();
 
@@ -519,7 +518,7 @@ Given('Perform DCC Message Creation for EICOM section for FLTY19 Trad', async fu
 });
 When('I fill the Perform DCC Message Creation for EICOM details fields with values for FLTY19 Trad', async function () {
 
-	await riskassessTRAD.eicomMessage();
+	await riskassessTRAD.eicomMessageEX23();
 
 });
 Then('I should see Commissioning Successful button for FLTY19 Trad', async function () {

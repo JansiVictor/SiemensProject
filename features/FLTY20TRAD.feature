@@ -51,11 +51,6 @@
 # 	Scenario: Going through "INITIAL RISK ASSESSMENT" for FLTY20TRAD
 # 		Given the INITIAL RISK ASSESSMENT section for FLTY20TRAD
 # 		When I fill the initialRisk field with the values for FLTY20TRAD
-# 		Then I should see INFO window for FLTY20TRAD
-
-# 	Scenario: Going through "INFO" window for FLTY20TRAD
-# 		Given the INFO window with the text for FLTY20TRAD
-# 		When I click on OK button for FLTY20TRAD
 # 		Then I should see RISK ASSESSMENT ELEC section for FLTY20TRAD
 
 # 	Scenario: Going through "RISK ASSESSMENT - ELEC" section for FLTY20TRAD

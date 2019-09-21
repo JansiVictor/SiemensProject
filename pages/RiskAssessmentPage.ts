@@ -361,9 +361,7 @@ export class RiskAssessmentPageObject {
 
             //CGP added
             let ale: Alert = browser.switchTo().alert();
-
 		// clicks 'OK' button
-
 		//ale.accept();
 
 		await utility.wait(utility.Avg_low);

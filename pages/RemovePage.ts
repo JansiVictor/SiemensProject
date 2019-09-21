@@ -277,6 +277,38 @@ export class RemovePageObject {
 	public remvSuccessful:ElementFinder;
 	public remvSuccessfulFInal:ElementFinder;
 	public remvSuccessfulERemove:ElementFinder;
+
+	
+    //CGP added
+    public currentMeterDetTRAD: ElementFinder
+    
+    public randomClick2: ElementFinder;
+    public randomClickEX23: ElementFinder;
+    public randomClickTRAD: ElementFinder;
+    public currentMetDet: ElementFinder;
+    public nonserealizedAssetDD: ElementFinder;
+    public nonserealizedAssetInput: ElementFinder;  
+    
+    public removeMeter: ElementFinder;
+    public assetRemovalElec: ElementFinder;
+    public elecRemoveNextSec: ElementFinder;
+  
+    public elecAssetRemoval: ElementFinder;
+    public elecAssetRemovalY: ElementFinder;
+    public elecAssetRemovalPopup: ElementFinder;
+    public statusofAssetElec: ElementFinder;
+    public nextSecRem: ElementFinder;
+    public commshubReqY: ElementFinder;
+    public msgToDCCY: ElementFinder;
+    public commsHubConnectedYes: ElementFinder;
+    public commissioningNxtBtn: ElementFinder;
+   
+    public existelecmeterDtlY: ElementFinder;
+    public confirmElecMeterOnsupply: ElementFinder;
+     
+    public elecMeterRadio: ElementFinder;
+   
+
 	
 
 	constructor() {
@@ -949,23 +981,8 @@ public async fillElectricAssetRemovalSection(){
 			await this.capturepressureinMB.click();
 		}
 	}
-	public async equipReposition()
-    {
-        await utility.wait(utility.low);
-        if (await this.equipmentRepositionRequired.isDisplayed()) {
-            var select = await this.equipmentRepositionRequired;
-            await select.$('[value="Yes-Customer Agreed"]').click();
-        }
-    }
-
-    public async smetsOffered()
-    { 
-        await utility.wait(3000);
-        if (await this.SMETSOffered.isDisplayed()) {
-            await this.SMETSOffered.click();
-        }
-
-    }
+	
+  
 	public async fill18preInstdtls() {
 		await utility.wait(utility.low);
 		if (await this.wasthereadropinPressure.isDisplayed()) {
@@ -1077,23 +1094,6 @@ public async fillElectricAssetRemovalSection(){
 	}
 	//#endregion
 
-	public async fillcapturecurrentmeterdtlGassecTRAD() {
-        await utility.wait(utility.low);
-        if (await this.captureCurrentMeterText.isDisplayed()) {
-            await this.existgasmeterDtlY.click();
-        }
-        await utility.wait(utility.low);
-        if (await this.meterReading1.isDisplayed()) {
-            await this.meterReadingLabel1.clear();
-            await this.meterReadingLabel1.sendKeys("12345");
-            await this.randomClick1.click();
-            console.log("Random Click 1");
-            await utility.wait(utility.low);
-          
-        }
-    }
-
-
 	/**
 	 * @Author Jansi Victor
 	 * @Description  Automation for FAULTY18 Workflow
@@ -1106,10 +1106,6 @@ public async fillElectricAssetRemovalSection(){
 			await this.AssettobeRemoved.click();
 		}
 	}
-	
-    
-
-    
 
    
     public async ihdpowerOnOK() {
@@ -1141,24 +1137,6 @@ public async fillElectricAssetRemovalSection(){
 		});
 	}
 	//#endregion
-
-	public async clickonNextsectionRemoveTRAD()
-{
-    await utility.wait(utility.low);
-        if (await this.nextSecGasBtn.isDisplayed()) {
-            await this.nextSecGasBtn.click();
-        }
-}
-
-
-// Added for FLTY19 TRAD
-public async clickSubmitRemElecSecTRAD()
-{
-    await utility.wait(utility.low);
-        if (await this.submitElecRemSecEndTRAD.isDisplayed()) {
-            await this.submitElecRemSecEndTRAD.click();
-        }
-}
 
 	/**
 	 * @Author Jansi Victor
@@ -1415,24 +1393,6 @@ public async clickSubmitRemElecSecTRAD()
 
 	//#endregion
 
-	public async exchangeAssetGasTRAD()
-    {
-        await utility.wait(3000);
-        if (await this.exchangeAssetY.isDisplayed()) {
-            await this.exchangeAssetY.click();
-        }        
-        await utility.wait(3000);
-        if (await this.gasMeterRadio.isDisplayed()) {
-            await this.gasMeterRadio.click();
-        }
-        await utility.wait(3000);
-        if (await this.regulatorRadio.isDisplayed()) {
-            await this.regulatorRadio.click();
-        }
-
-   }
-
-
 	/**
 	 * @Author Jansi Victor
 	 * @Description  Automation for FAULTY18 Workflow
@@ -1630,11 +1590,7 @@ public async clickSubmitRemElecSecTRAD()
 			await this.elecMeterY.click();
 		}
 	}
-	public async RmvElecmeterSec() {
-		await utility.wait(utility.very_low);
-		if (this.ElecRemoveMeter.isDisplayed()) {}
-		console.log("REMOVE ELECTRIC METER");
-	}
+
 	public async fillElecmeterrem() {
 		await utility.wait(utility.low);
 		if (await this.RemoveElecAssetrplacedorremoved.isDisplayed()) {
@@ -1699,35 +1655,7 @@ public async clickSubmitRemElecSecTRAD()
 			await this.ElecremovalNxtBtn.click();
 		}
 	}
-
-	public async fillcurrentIhdPPMIDdtlsTRAD() {
-        await utility.wait(utility.low);
-        if (await this.smet2ihdppidText.isDisplayed()) {
-            await this.smet2ihdppidN.click();
-        }
-        await utility.wait(utility.low);
-        try {
-            if (await this.IhdPpmidNxt.isPresent()) {
-                await this.IhdPpmidNxt.click();
-            }
-        } catch (error) {
-            console.log("Next section is not present at this moment");
-        }  
-	}
-	public async confirmMeterSupplyGasTRAD() {
-		await utility.wait(4000);
-		if (await this.confirmgasmeterOnsupply.isDisplayed()) {
-			await this.confirmgasmeterOnsupply.click();
-		}
-	}
-
-	public async smet2AssetInstalled()
-    {
-        await utility.wait(3000);
-        if (await this.SMET2AssetInstalledN.isDisplayed()) {
-            await this.SMET2AssetInstalledN.click();
-        }
-    }
+	
 	public async capturecurrentmeterGasPageContent() {
 		await utility.wait(utility.medium_low);
 		await this.captureCurrentMeterText.getText().then(function (capturecurrentmeterdtlPgContent) {
@@ -1736,69 +1664,9 @@ public async clickSubmitRemElecSecTRAD()
 	}
 
 
-	public async sendmsgEMREM() {
-		await utility.wait(utility.very_low);
-		await this.SendElMREMBtnCap.getText().then(function (SendElMREMBtnCapTxt) {
-			console.log("Send EMRM" + SendElMREMBtnCapTxt);
-		});
-	}
-	public async clickOnsendmsgEMREM() {
-		await utility.wait(utility.very_low);
-		if (await this.SendElMREMBtn.isDisplayed()) {
-			await this.SendElMREMBtn.click();
-		}
-	}
-
+	
 	public async AwaitingResponseEMREM() {
 		await utility.wait(60000);
-	}
-	public async Elecremovalsuccessfulbtn() {
-		await utility.wait(utility.low);
-		await expect(this.RemovalSuccessElec.isDisplayed());
-	}
-	public async ElecReqSentSuccess() {
-		await utility.wait(utility.very_low);
-		await expect(this.reqSentSuccessEMREM.isDisplayed());
-	}
-	public async ElecOktoRemoveAsset() {
-		await utility.wait(utility.very_low);
-		await expect(this.OKtoremoveAssetElec.isDisplayed());
-	}
-	public async clickonElecremovalsuccessfulbtn() {
-		await utility.wait(utility.very_low);
-		if (await this.RemovalSuccessElec.isDisplayed()) {
-			await this.RemovalSuccessElec.click();
-		}
-	}
-	public async confirmElecAssetRem() {
-		await utility.wait(utility.very_low);
-		await this.confirmElecAssetRemoval.getText().then(function (confirmElecAssetRemovalTxt) {
-			console.log("Confirm Elec Asset Removal" + confirmElecAssetRemovalTxt);
-		});
-	}
-	public async fill24ElecAssetRemoval() {
-		await utility.wait(utility.very_low);
-		if (await this.ElecAssetRemoval.isDisplayed()) {
-			var select = this.ElecAssetRemoval;
-			await select.$('[value="1"]').click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.ElecAssetRemovalY.isDisplayed()) {
-			await this.ElecAssetRemovalY.click();
-		}
-	}
-	public async clickonokElecAssetRemoval() {
-		await utility.wait(utility.very_low);
-		if (await this.ElecAssetRemovalPopup.isDisplayed()) {
-			await this.ElecAssetRemovalPopup.click();
-		}
-	}
-	public async clickonElecsubmitforRemoval() {
-		await utility.wait(utility.very_low);
-		if (await this.ConfirmElecCommsHubNxtBtn.isDisplayed()) {
-			await this.ConfirmElecCommsHubNxtBtn.click();
-			await utility.wait(3000);
-		}
 	}
 
 
@@ -2173,6 +2041,619 @@ public async clickSubmitRemElecSecTRAD()
             await this.commshubevidence.click();
         }
     }
+    //#endregion
+
+
+//CGP added
+
+public async captureElecSection() {
+    await utility.wait(5000);
+    await this.currentMetDet.getText().then(function (capturecurrentmeterdtlPgContentElec) {
+        console.log("Find current detail elec section content  " + capturecurrentmeterdtlPgContentElec);
+    });
+}
+
+//CGP added
+public async captureElecSectionTRAD() {
+    await utility.wait(5000);
+    await this.capctmeterReadingPanel.getText().then(function (Test1) {
+        console.log("Find current detail elec section content  " + Test1);
+    });
+}
+
+
+
+
+
+//CGP added capture current meter
+    public async fillcapturecurrentmeterdtlGassec() {
+        await utility.wait(2000);
+        if (await this.captureCurrentMeterText.isDisplayed()) {
+            await this.existgasmeterDtlY.click();
+        }
+        await utility.wait(1000);
+        if (await this.meterReading1.isDisplayed()) {
+            await this.meterReadingLabel1.clear();
+            await this.meterReadingLabel1.sendKeys("1234");
+            await this.randomClick1.click();
+            console.log("Random Click 1");
+            await utility.wait(2000);
+          
+        }
+    }
+
+    // CGP added 13/09
+
+ public async fillcapturecurrentmeterdtlGassecTRAD() {
+        await utility.wait(2000);
+        if (await this.captureCurrentMeterText.isDisplayed()) {
+            await this.existgasmeterDtlY.click();
+        }
+        await utility.wait(1000);
+        if (await this.meterReading1.isDisplayed()) {
+            await this.meterReadingLabel1.clear();
+            await this.meterReadingLabel1.sendKeys("12345");
+            await this.randomClick1.click();
+            console.log("Random Click 1");
+            await utility.wait(2000);
+          
+        }
+    }
+ public async  currentMeterDetailsHeader()
+    {
+        await this.currentMeterDetTRAD.getText().then(function (currentMeterDetails) {
+            console.log("Current Meter Details Title  " + currentMeterDetails);
+        });
+    }
+   
+public async fillcurrentmeterdtlElecsecTRAD() {
+        await utility.wait(2000);
+        if (await this.currentMetDet.isDisplayed()) {
+            await utility.wait(2000);
+            console.log("Current meter details displayed");
+            await this.existelecmeterDtlY.click();
+            console.log("Electric section clciked");
+            
+        }
+        await utility.wait(2000);
+        if (await this.meterReadingTRAD.isDisplayed()) {
+            await this.meterReadingLabelTRAD.clear();
+            await this.meterReadingLabelTRAD.sendKeys("12345");
+            console.log("Text Enterd for elect 5 digits");
+            await this.randomClickTRAD.click();
+            console.log("Random Click 2");
+            // Change Later
+
+           //await utility.wait(1000);
+            //await this.elecRemoveNextSec.click();
+            
+            //await this.ctmeterdtlGasNxt.click();
+            console.log("Next Button clicked 2");
+            await utility.wait(3000);
+
+           // await this.meterReading.click();
+        }
+    }
+
+   
+public async fillcurrentmeterdtlElecsecEX23() {
+        await utility.wait(2000);
+        if (await this.existelecmeterDtlY.isDisplayed()) {                        
+            await this.existelecmeterDtlY.click();
+            console.log("Electric section clciked");         
+        
+    }
+}
+
+public async fillcurrentmeterdtlElecsec() {
+        await utility.wait(2000);
+        if (await this.currentMetDet.isDisplayed()) {
+            await utility.wait(2000);
+            console.log("Current meter details displayed");
+            await this.existelecmeterDtlY.click();
+            console.log("Electric section clciked");
+            
+        }
+        await utility.wait(2000);
+        if (await this.meterReading2.isDisplayed()) {
+            await this.meterReadingLabel2.clear();
+            await this.meterReadingLabel2.sendKeys("12345");
+            console.log("Text Enterd for elect 5 digits");
+            await this.randomClick2.click();
+            console.log("Random Click 2");
+            
+            await utility.wait(3000);
+            await this.elecRemoveNextSec.click();            
+            //await this.ctmeterdtlGasNxt.click();
+            console.log("Next Button clicked 2");
+            await utility.wait(3000);
+           // await this.meterReading.click();
+        }
+    }
+
+//CGP added for FLTY20TRAD
+
+public async confirmMeterSupply() {
+    await utility.wait(4000);
+    if (await this.confirmElecMeterOnsupply.isDisplayed()) {
+        await this.confirmElecMeterOnsupply.click();
+    }
+    await utility.wait(2000);
+    if (await this.confirmgasmeterOnsupply.isDisplayed()) {
+        await this.confirmgasmeterOnsupply.click();
+    }
+}
+ 
+public async confirmMeterSupplyTRAD() {
+    await utility.wait(4000);
+    if (await this.confirmElecMeterOnsupply.isDisplayed()) {
+        await this.confirmElecMeterOnsupply.click();
+    }
+}
+
+public async confirmMeterSupplyGasTRAD() {
+    await utility.wait(4000);
+    if (await this.confirmgasmeterOnsupply.isDisplayed()) {
+        await this.confirmgasmeterOnsupply.click();
+    }
+}
+
+//CGP added 13/09
+
+public async exchangeAssetGasTRAD()
+{
+    await utility.wait(3000);
+    if (await this.exchangeAssetY.isDisplayed()) {
+        await this.exchangeAssetY.click();
+    }        
+    await utility.wait(3000);
+    if (await this.gasMeterRadio.isDisplayed()) {
+        await this.gasMeterRadio.click();
+    }
+    await utility.wait(3000);
+    if (await this.regulatorRadio.isDisplayed()) {
+        await this.regulatorRadio.click();
+    }
+
+}
+
+public async exchangeAssetTRAD()
+{
+    await utility.wait(3000);
+    if (await this.exchangeAssetY.isDisplayed()) {
+        await this.exchangeAssetY.click();
+    }
+    await utility.wait(3000);
+    if (await this.elecMeterRadio.isDisplayed()) {
+        await this.elecMeterRadio.click();
+    }
+}
+
+//CGP Added for FLTY20 TRAD flow
+public async removeGasMeter() {
+    await utility.wait(1000);
+    await this.removePPMID.getText().then(function (removePPMIDTxt) {
+        console.log("Remove PPMID " + removePPMIDTxt);
+    });
+}
+
+// CGP added for EX23
+public async fill21rmvihdppmidtlsEX23() {
+    await utility.wait(2000);
+    if (await this.rmvihdppmidstatusofAssetSel.isDisplayed()) {
+        var select = await this.rmvihdppmidstatusofAssetSel;
+        await select.$('[label = "No Fault Found"]').click();
+    }
+}
+
+
+// CGP Added for TRAD20
+
+public async removeElecmeterSec() {
+    await utility.wait(1000);
+    await this.removeMeter.getText().then(function (RemoveIRemoveElecMeterPanelTxt) {
+        console.log("Remove Elec Meter " + RemoveIRemoveElecMeterPanelTxt);
+    });
+}
+   //CGP Elect Asset Removal
+
+
+   public async fillElecmeterRemoval() {
+    await utility.wait(1000);
+    if (await this.assetRemovalElec.isDisplayed()) {
+        await this.assetRemovalElec.click();
+        console.log("Status of elec asset removed yes selected")
+    }
+    await utility.wait(1000); // Change Later
+    if (await this.statusofAssetElec.isDisplayed()) {
+        var select1 = this.statusofAssetElec;
+        await select1.$('[label = "No Fault Found"]').click();
+
+        console.log("No Fault Found Selected")
+    }
+    await utility.wait(1000);
+    // if (await this.removedmeterReading.isDisplayed()) {
+    //     await this.removedmeterReading.clear();
+    //     //await this.removedmeterReading.sendKeys('1234');
+    // }
+}
+
+public async clickonnxtBtnofElecmeterRemovalTRAD() {
+    await utility.wait(1000);
+    if (await this.elecRemoveNextSec.isDisplayed()) {
+        await this.elecRemoveNextSec.click();
+    }
+}
+
+//CGP ADDED for EX23
+
+public async RmvElecmeterSec() {
+
+    await utility.wait(1000);
+
+    if(this.ElecRemoveMeter.isDisplayed()){}
+
+        console.log("REMOVE ELECTRIC METER");
+
+}
+
+public async fillElecmeterremEX23() {
+
+    await utility.wait(3000);
+
+    if (await this.RemoveElecAssetrplacedorremoved.isDisplayed()) {
+
+        await this.RemoveElecAssetrplacedorremoved.click();
+
+    }
+
+    await utility.wait(3000);
+
+    if (await this.statusofElecAssetSelect.isDisplayed()) {
+
+        var select = this.statusofElecAssetSelect;
+
+        await select.$('[label="No Fault Found"]').click();
+
+    }
+
+    await utility.wait(1000);
+
+    if (await this.removedmeterReading.isDisplayed()) {
+
+        await this.removedmeterReading.clear();
+
+        await this.removedmeterReading.sendKeys('12345');
+
+        await utility.wait(5000);
+
+        await this.randomClick2.click();
+            console.log("Random Click EX23");
+
+    }
+
+}
+
+public async clickonnxtBtnofElecmeterRemovalEX23() {
+
+    await utility.wait(1000);
+
+    if (await this.ElecremovalNxtBtn.isDisplayed()) {
+
+        await this.ElecremovalNxtBtn.click();
+
+    }
+
+}
+
+public async sendmsgEMREM() {
+
+    await utility.wait(1000);
+
+    await this.SendElMREMBtnCap.getText().then(function (SendElMREMBtnCapTxt) {
+
+        console.log("Send EMRM" + SendElMREMBtnCapTxt);
+
+    });
+
+}
+
+public async clickOnsendmsgEMREM() {
+
+    await utility.wait(1000);
+
+    if (await this.SendElMREMBtn.isDisplayed()) {
+
+        await this.SendElMREMBtn.click();
+
+    }
+
+}
+
+
+
+public async AwaitingResponseEMREMEX23() {
+
+    await utility.wait(80000);
+
+}
+
+public async Elecremovalsuccessfulbtn() {
+
+    await utility.wait(2000);
+
+    await expect(this.RemovalSuccessElec.isDisplayed());
+
+}
+
+public async ElecReqSentSuccess() {
+
+    await utility.wait(1000);
+
+    await expect(this.reqSentSuccessEMREM.isDisplayed());
+
+}
+
+public async ElecOktoRemoveAsset() {
+
+    await utility.wait(1000);
+
+    await expect(this.OKtoremoveAssetElec.isDisplayed());
+
+}
+
+public async clickonElecremovalsuccessfulbtn() {
+
+    await utility.wait(1000);
+
+    if (await this.RemovalSuccessElec.isDisplayed()) {
+
+        await this.RemovalSuccessElec.click();
+
+    }
+
+}
+
+public async confirmElecAssetRem() {
+
+    await utility.wait(1000);
+
+    await this.confirmElecAssetRemoval.getText().then(function (confirmElecAssetRemovalTxt) {
+
+        console.log("Confirm Elec Asset Removal" + confirmElecAssetRemovalTxt);
+
+    });
+
+}
+
+public async fill24ElecAssetRemoval() {
+
+    await utility.wait(1000);
+
+    if (await this.ElecAssetRemoval.isDisplayed()) {
+
+        var select = this.ElecAssetRemoval;
+
+        await select.$('[value="1"]').click();
+
+    }
+
+    await utility.wait(1000);
+
+    if (await this.ElecAssetRemovalY.isDisplayed()) {
+
+        await this.ElecAssetRemovalY.click();
+
+    }
+
+}
+
+public async clickonokElecAssetRemovalEX23() {
+
+    await utility.wait(1000);
+
+    if (await this.ElecAssetRemovalPopup.isDisplayed()) {
+
+        await this.ElecAssetRemovalPopup.click();
+
+    }
+
+}
+
+public async clickonElecsubmitforRemoval() {
+
+    await utility.wait(1000);
+
+    if (await this.ConfirmElecCommsHubNxtBtn.isDisplayed()) {
+
+        await this.ConfirmElecCommsHubNxtBtn.click();
+
+    }
+
+}
+
+// CGP Added Elec Removal
+
+public async fillElecAssetRemoval() {
+    await utility.wait(4000);
+    if (await this.elecAssetRemoval.isDisplayed()) {
+        var select = this.elecAssetRemoval;
+        await select.$('[value="1"]').click();
+    }
+    await utility.wait(4000);
+    if (await this.elecAssetRemovalY.isDisplayed()) {
+        await this.elecAssetRemovalY.click();
+    }
+}
+public async clickonokElecAssetRemoval() {
+    await utility.wait(2000);
+    if (await this.GasAssetRemovalPopup.isDisplayed()) {
+        await this.GasAssetRemovalPopup.click();
+    }
+}
+
+public async clickonNextsectionRemove()
+{
+await utility.wait(2000);
+    if (await this.nextSecRem.isDisplayed()) {
+        await this.nextSecRem.click();
+    }
+}
+
+//CGP added 13/09
+
+public async clickonNextsectionRemoveTRAD()
+{
+    await utility.wait(2000);
+        if (await this.nextSecGasBtn.isDisplayed()) {
+            await this.nextSecGasBtn.click();
+        }
+}
+
+// Added for FLTY19 TRAD
+public async clickSubmitRemElecSecTRAD()
+{
+    await utility.wait(2000);
+        if (await this.submitElecRemSecEndTRAD.isDisplayed()) {
+            await this.submitElecRemSecEndTRAD.click();
+        }
+}
+
+public async fillCommsHubReqY() {
+    await utility.wait(5000);
+    if (await this.commshubReqY.isDisplayed()) {
+        await this.commshubReqY.click();
+    }
+}
+
+public async fillCommissioningDetailsTRAD() {
+    if (await this.nonserealizedAssetDD.isDisplayed()) {
+        await utility.wait(2000);
+        var select = this.nonserealizedAssetDD;
+        select.$('[value="1"]').click();
+    }
+    await expect(await this.nonserealizedAssetInput.isPresent());
+    await this.nonserealizedAssetInput.sendKeys('1');
+
+    await utility.wait(1000);
+        if (await this.msgToDCCY.isDisplayed()) {
+            await this.msgToDCCY.click();
+        }
+        await this.commsHubConnectedYes.click();
+		await utility.wait(3000);
+
+		await this.commissioningNxtBtn.click();
+		await utility.wait(1000);
+}
+//CGP added
+public async fillCommissioningDetailsEX23() {
+
+    if (await this.nonserealizedAssetDD.isDisplayed()) {
+        await utility.wait(3000);
+        var select = this.nonserealizedAssetDD;
+        select.$('[value="1"]').click();
+    }
+    await utility.wait(3000);
+    await expect(await this.nonserealizedAssetInput.isPresent());
+    await this.nonserealizedAssetInput.sendKeys('1');
+
+    await utility.wait(3000);
+        if (await this.commsHubConnectedYes.isDisplayed()) {
+            await this.commsHubConnectedYes.click();
+        }      
+        await utility.wait(3000);    
+		await this.commissioningNxtBtn.click();
+		await utility.wait(1000);
+}
+
+// CGP TRAD CHanges
+
+public async fillcurrentIhdPPMIDdtlsTRAD() {
+    await utility.wait(2000);
+    if (await this.smet2ihdppidText.isDisplayed()) {
+        await this.smet2ihdppidN.click();
+    }
+    await utility.wait(1000);
+    try {
+        if (await this.IhdPpmidNxt.isPresent()) {
+            await this.IhdPpmidNxt.click();
+        }
+    } catch (error) {
+        console.log("Next section is not present at this moment");
+    }  
+}
+
+public async smet2AssetInstalled()
+    {
+        await utility.wait(3000);
+        if (await this.SMET2AssetInstalledN.isDisplayed()) {
+            await this.SMET2AssetInstalledN.click();
+        }
+    }
+
+    public async equipReposition()
+    {
+        await utility.wait(2000);
+        if (await this.equipmentRepositionRequired.isDisplayed()) {
+            var select = await this.equipmentRepositionRequired;
+            await select.$('[value="Yes-Customer Agreed"]').click();
+        }
+    }
+
+	public async smetsOffered() {
+		await utility.wait(utility.low);
+		if (await this.SMETSOffered.isDisplayed()) {
+			await this.SMETSOffered.click();
+		}
+
+	}
+    public async exchangeAsset()
+    {
+        await utility.wait(3000);
+        if (await this.exchangeAssetY.isDisplayed()) {
+            await this.exchangeAssetY.click();
+        }
+        await utility.wait(3000);
+        if (await this.elecMeterRadio.isDisplayed()) {
+            await this.elecMeterRadio.click();
+        }
+        await utility.wait(3000);
+        if (await this.gasMeterRadio.isDisplayed()) {
+            await this.gasMeterRadio.click();
+        }
+        await utility.wait(3000);
+        if (await this.regulatorRadio.isDisplayed()) {
+            await this.regulatorRadio.click();
+        }
+
+   }
+
+   //Added By CGP TRAD
+
+   public async confirmElecAssetRemovalTRAD() {
+    await utility.wait(5000);
+    await this.confirmElecAssetRemoval.getText().then(function (confirmElecAssetRemovalTxt) {
+        console.log("Confirm Elec Asset Removal" + confirmElecAssetRemovalTxt);
+    });
+}
+
+public async fill23GasmeterRemovalTC4() {
+    await utility.wait(3000);
+    if (await this.GMassettoberemoved.isDisplayed()) {
+        await this.GMassettoberemoved.click();
+    }
+    await utility.wait(2000);
+    if (await this.statusofAssetSelect.isDisplayed()) {
+        var select = this.statusofAssetSelect;
+        //await select.$('[value="0"]').click();
+        await select.$('[label = "No Fault Found"]').click();
+    }
+    //----------------- Can add-----------------------
+    // if (await this.removedmeterReading.isDisplayed()) {
+    //     await this.removedmeterReading.clear();
+    //     //await this.removedmeterReading.sendKeys('1234');
+    // }
+}
 }
 
 

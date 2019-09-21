@@ -16,12 +16,11 @@ const {
 } = require("cucumber");
 const chai = require("chai");
 const expect = chai.expect;
+import { Utility } from "../support/utility";
+import { watchFile } from "fs";
 import {
-	Utility
-} from "../support/utility";
-import {
-	watchFile
-} from "fs";
+	Alert
+} from 'selenium-webdriver';
 const utility: Utility = new Utility();
 
 export class InstallPageObject {
@@ -54,6 +53,27 @@ export class InstallPageObject {
     public GasnewMeterSelect: ElementFinder;
     public GasnewMeternewLocation: ElementFinder;
     public newRegulator: ElementFinder;
+
+    //CGP added
+    public newRegulatorHeader: ElementFinder;
+    public gasmeterserialSendregTRAD: ElementFinder;
+
+    //CGP instal16
+    public visualCheckPMEBonding: ElementFinder;
+    public installPPMIDText: ElementFinder;
+    public PPMIDOfferedYes: ElementFinder;
+    public PPMIDAccepted: ElementFinder;
+    public PPMIDLOCDD: ElementFinder;
+    public PPMIDToInstall: ElementFinder;
+    public inputPPMIDSerialNum: ElementFinder;
+    public infoOKButton: ElementFinder;
+    public PPMIDTxt: ElementFinder;
+    public ppmidAdditionalNote: ElementFinder;
+    public ppmidNXTBtn: ElementFinder;
+    public PPMIDinstallDDList: ElementFinder;
+    public randomEUDevicePPMID: ElementFinder;
+    public PPMIDCommText: ElementFinder;   
+    public emerJobNo: ElementFinder;
     public HasGasRegulatorReplacedY: ElementFinder;
     public selectValidAssettoInst: ElementFinder;
     public RegularclickenableOK: ElementFinder;
@@ -245,24 +265,18 @@ export class InstallPageObject {
 	public dummydiv: ElementFinder;
 	public infoOkButton: ElementFinder;
 	public EmergencyJobN: ElementFinder;
-	//CGP added
-    public newRegulatorHeader: ElementFinder;
-    public gasmeterserialSendregTRAD: ElementFinder;
-
-    //CGP instal16
-    public visualCheckPMEBonding: ElementFinder;
 
 	// CGP added 13/09
     public AssetsuccessOKclkTRAD: ElementFinder;
     public PPMIDSubmitTRAD: ElementFinder;
     public AssetaddedtowallTRAD: ElementFinder;
     public randomClickRegulator: ElementFinder;
-
 	public selectValidAssettoInstTRAD: ElementFinder;
     //CGP for INst16
-	public emerJobNo: ElementFinder;
 	public regulatorTxt:ElementFinder;
+ // CGP added for EX23
 
+ public newCommsHubReqN: ElementFinder;
 	constructor() {
 
 			//#region TST22
@@ -528,16 +542,31 @@ export class InstallPageObject {
 
 		this.dummydiv = element(by.xpath('(//div/h4[text()="Scan Barcode Using Device Hardware Button"])[1]'));
 		this.infoOkButton = element(by.xpath('//div/button[@class="confirm"]'));
-
-        // CGP added 13/09
         this.AssetsuccessOKclkTRAD = element(by.xpath('//button[@class="confirm"]'));
         this.PPMIDSubmitTRAD = element(by.xpath('//*[@id="btn1"]'));
 
         //CGP added 
         this.visualCheckPMEBonding = element(by.id('rb_VisCPMEBond_y'));
-        this.emerJobNo = element(by.id('rb_EmerJob_n'));
+		this.emerJobNo = element(by.id('rb_EmerJob_n'));
+		
+		  // CGP added for EX23
+		  this.newCommsHubReqN = element(by.id('chubInstall_newChubRequired_n'));
 
-
+		  //CGP INSTALL16
+		  this.PPMIDOfferedYes = element(by.id('ihdscan2_ihdPpmidOfferedtrue'));
+		  this.PPMIDAccepted = element(by.id('ihdscan2_ihdOrPPMIDAccepted_a'));
+		  this.PPMIDLOCDD = element(by.id('ihdscan2_assetLocationSelect'));
+		  this.PPMIDToInstall = element(by.id('ihdscan2_assetSelect'));
+		  this.inputPPMIDSerialNum = element(by.id('ihdscan2_assetSerialNumber'));
+		  this.infoOKButton = element(by.xpath('//div/button[@class="confirm"]'));
+		  this.PPMIDTxt = element(by.xpath('//div[text()=" Select Valid PPMID To Install: "]'));
+		  this.ppmidAdditionalNote = element(by.id('ihdscan2_additionalNotes'));
+		  this.ppmidNXTBtn = element(by.id('ihdscan2_nextButton'));
+		  this.PPMIDCommText = element(by.id('Title_xittd2'));
+		  this.PPMIDinstallDDList = element(by.xpath('(//select[@id="ihdscan2_assetSelect"]/option)[2]'));
+		  this.randomEUDevicePPMID = element(by.xpath('//div[text()="EUI Device ID:"]'));
+  
+	  
 	}
 
 	public async fillElecNewMeterDetails(index: number){
@@ -587,6 +616,66 @@ export class InstallPageObject {
 		}
 	}
 
+	// CGP added
+    public async fillfieldsInstallcommshubTRAD(index: number) {
+        await utility.wait(1000);
+        if (await this.commshubReqY.isDisplayed()) {
+            await this.commshubReqY.click();
+        }
+        if (await this.selectValid.isDisplayed()) {
+            await utility.wait(2000);
+            this.selectValid.click();
+            browser.sleep(1000);
+            console.log("Selecting element based index : " + index);
+            await this.selectValid.element(by.css("option:nth-child(" + index + ")")).click();
+            await utility.wait(3000);
+            await this.commshubWarning.click();
+            await utility.wait(3000);
+            await expect(await this.CHFIDText.isPresent());
+            var options = this.CHFIDTextList.getAttribute('value');
+            await this.CHFIDText.sendKeys(options);
+        }
+        await utility.wait(1000);
+        if (await this.chfIDokenable.isDisplayed()) {
+            await this.chfIDokenable.click();
+        }
+        await utility.wait(1000);
+        if (await this.assetSuccessAdded.isDisplayed()) {
+            await this.assetSuccessAdded.click();
+        }
+        await utility.wait(1000);
+        if (await this.commsHubLocation.isDisplayed()) {
+            var select = this.commsHubLocation;
+            select.$('[value="A"]').click();
+        }
+        await utility.wait(1000);
+        if (await this.aerialY.isDisplayed()) {
+            await this.aerialY.click();
+        }
+        await utility.wait(1000);
+        if (await this.commshubconnmethodselect.isDisplayed()) {
+            var select = this.commshubconnmethodselect;
+            select.$('[label="ESME"]').click();
+        }
+        await utility.wait(1000);
+        if (await this.commshubPhoto.isDisplayed()) {
+            await this.commshubPhoto.click();
+        }
+        await utility.wait(1000);
+        if (await this.instCommshubNext.isDisplayed()) {
+            await this.instCommshubNext.click();
+        }
+
+	}
+	
+	 //CGP added
+	 public async newregulatorTRAD() {
+        await utility.wait(1000);
+        await this.newRegulatorHeader.getText().then(function (newRegulator1Txt) {
+            console.log("New Regulator: " + newRegulator1Txt);
+        });
+    }
+
 	/**
 	 * Description : New GAS meter Details Text
 	 * @Author Aparna Das
@@ -632,11 +721,6 @@ export class InstallPageObject {
 			select.$('[value="12"]').click();
 		}
 	}
-   
-    public async dummy() {
-
-        await this.installdelete.click();
-    }
 
 //TST13 FLTY 20 Changes
 
@@ -2679,4 +2763,72 @@ public async fillAdditionalElecTestandChecksInst16() {
 			await this.PostinstallNext1.click();
 		}
 	}
+
+//CGP added for EX23
+
+public async fillfieldsInstallcommshubEX23() {
+    await utility.wait(1000);
+    if (await this.newCommsHubReqN.isDisplayed()) {
+        await this.newCommsHubReqN.click();
+    }
+    // Next Section Button
+    await utility.wait(1000);
+        if (await this.instCommshubNext.isDisplayed()) {
+            await this.instCommshubNext.click();
+        }
+   
+}
+
+//CGP added for INSTALL16
+
+public async fillPPMIDSectionInst16(index:number){
+    if (this.PPMIDOfferedYes.isDisplayed()) {
+        await this.PPMIDOfferedYes.click();
+    }
+    if (this.PPMIDAccepted.isDisplayed()) {
+        await this.PPMIDAccepted.click();
+    }
+    if (await this.PPMIDLOCDD.isDisplayed()) {
+        var select = this.PPMIDLOCDD;
+        select.$('[value="A"]').click();
+        await utility.wait(1000);
+    }
+    if (await this.PPMIDToInstall.isDisplayed()) {
+		await utility.wait(5000);
+		// click the dropdown
+		this.PPMIDToInstall.click()
+		browser.sleep(5000)
+	//index = index ;
+	console.log("Selecting element based index : "+index)
+	// select the option
+	await this.PPMIDToInstall.element(by.css("option:nth-child("+index+")")).click()
+	await utility.wait(8000);
+		await expect(await this.inputPPMIDSerialNum.isPresent());
+		var options = this.PPMIDinstallDDList.getAttribute('value');
+        await this.inputPPMIDSerialNum.sendKeys(options);
+        await this.randomEUDevicePPMID.click();
+		let ale: Alert = browser.switchTo().alert();
+		// clicks 'OK' button
+		ale.accept();
+		//await utility.wait(2000);
+        await this.infoOKButton.click();
+    }
+  
+    if (this.ppmidAdditionalNote.isDisplayed()) {
+        await this.ppmidAdditionalNote.sendKeys('Additonal Notes CGP');
+    }
+    if (this.ppmidNXTBtn.isDisplayed()) {
+        await this.ppmidNXTBtn.click();
+    }
+}
+//-------------------------
+
+public async PPMIDCommisioningdisplay(){
+    if (this.PPMIDCommText.isDisplayed()) {
+        await this.PPMIDCommText.getText().then(function (PPMIDCommText) {
+            console.log("find PPMIDCommText Text  " + PPMIDCommText);
+        });
+    }
+}
+
 }
