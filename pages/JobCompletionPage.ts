@@ -22,6 +22,7 @@ import {
 
 export class JobCompletionPageObject {
 
+
 	public installPPMIDText: ElementFinder;
 	public PPMIDOfferedYes: ElementFinder;
 	public PPMIDAccepted: ElementFinder;
@@ -147,7 +148,16 @@ export class JobCompletionPageObject {
 	public devicebindingNext: ElementFinder;
 	public FullWANYesINST15: ElementFinder;
     public FullCOnfigAppliedElecYesINST15: ElementFinder;
-    public fullConfigAppliedPPMIDYesINST15: ElementFinder;
+	public fullConfigAppliedPPMIDYesINST15: ElementFinder;
+	public IsCDemoofequipmentcompN:ElementFinder;
+    public smartLtionsiteN:ElementFinder;
+	public custaddnlhelpinfoN:ElementFinder;
+	public TST22jobcompletion: ElementFinder;
+	public TST13jobcompletion: ElementFinder;
+	public TST15jobcompletion: ElementFinder;
+	public TST01jobcompletion: ElementFinder;
+	public TST28jobcompletion: ElementFinder;
+
 
 
 	constructor() {
@@ -357,6 +367,29 @@ export class JobCompletionPageObject {
 		}
 	}
 
+   
+    
+
+    //TST13 FLTY20
+
+    public async Tst13fillfield55duelsmartedu() {
+        await utility.wait(utility.very_low);
+        if (await this.smartLtionsiteN.isDisplayed()) {
+            await this.smartLtionsiteN.click();
+        }
+        await utility.wait(utility.very_low);
+        if (await this.custaddnlhelpinfoN.isDisplayed()) {
+            await this.custaddnlhelpinfoN.click();
+        }
+        await utility.wait(utility.very_low);
+        if (await this.IsCDemoofequipmentcompN.isDisplayed()) {
+            await this.IsCDemoofequipmentcompN.click();
+        }
+    }
+
+
+
+	
 	/***
 	 * @Author Aparna Das
 	 * @description PPMID section text display
@@ -437,7 +470,11 @@ export class JobCompletionPageObject {
 			await utility.wait(utility.very_low);
 		}
 		if (await this.PPMIDToInstall.isDisplayed()) {
+<<<<<<< HEAD
 			await utility.wait(utility.low);
+=======
+			await utility.wait(utility.Avg_low);
+>>>>>>> bbfb2973d3534901ae634f1476b75e78204fbfc3
 			// click the dropdown
 			this.PPMIDToInstall.click();
 			browser.sleep(1000);
@@ -597,6 +634,7 @@ export class JobCompletionPageObject {
 			await this.DeviceNxtBtn.click();
 		}
 		await utility.wait(utility.very_low);
+
 	}
 
 	public async fillDeviceBindingSection_SFENMEX15(){
@@ -630,6 +668,7 @@ public async fillDeviceBindingSection_NMEX16(){
     await utility.wait(utility.low);
     if (this.infoOKButton.isDisplayed()) {
         await this.infoOKButton.click();
+
 	}
 }
 
@@ -984,7 +1023,9 @@ public async FinalSubmission1(){
 
 		}
 
-		await utility.wait(utility.low);
+
+		await utility.wait(utility.Avg_low);
+
 		if (this.AppointmentText.isDisplayed) {
 			this.AppointmentText.getText().then(async function (appointment) {
 				console.log("find Appointment Page Text  " + appointment);
@@ -993,7 +1034,10 @@ public async FinalSubmission1(){
 		}
 	}
 
-
+/***
+	 * @Author Jansi Victor
+	 * @description Job Completion changes
+	 ***/
 	public async DeviceBinding() {
 		await utility.wait(utility.very_low);
 		await this.deviceBindingCap.getText().then(function (deviceBindingCapTxt) {
@@ -1001,19 +1045,19 @@ public async FinalSubmission1(){
 		});
 	}
 	public async fillfield53dueldevicebinding() {
-		await utility.wait(utility.low);
+		await utility.wait(utility.Avg_low);
 		if (await this.ESMEJoinedY.isDisplayed()) {
 			await this.ESMEJoinedY.click();
 		}
-		await utility.wait(utility.low);
+		await utility.wait(utility.Avg_low);
 		if (await this.deviceOK.isDisplayed()) {
 			await this.deviceOK.click();
 		}
-		// await utility.wait(utility.low);
+		// await utility.wait(utility.Avg_low);
 		// if (await this.GSMEJoined.isDisplayed()) {
 		//     await this.GSMEJoined.click();
 		// }
-		await utility.wait(utility.low);
+		await utility.wait(utility.Avg_low);
 		if (await this.configIHDPPMID.isDisplayed()) {
 			await this.configIHDPPMID.click();
 		}
@@ -1116,23 +1160,51 @@ public async FinalSubmission1(){
 		if (await this.jobCompletesub.isDisplayed()) {
 			await this.jobCompletesub.click();
 		}
-		await utility.wait(utility.low);
+		await utility.wait(utility.Avg_low);
 		if (await this.deviceOK.isDisplayed()) {
 			await this.deviceOK.click();
-		}
-	}
-
-	public async JobCompletedFLTYNoExchangeScreen() {
-		await utility.wait(utility.very_low);
-        if (this.AppointmentText.isDisplayed) {
-			this.AppointmentText.getText().then(async function (appointment) {
-				console.log("find Appointment Page Text  " + appointment);
-			});
 		}
 	}
 	public async JobCompletedScreen() {
 		await utility.wait(utility.very_low);
 		if (await this.jobcompletion.isDisplayed()) {
+			console.log("Job completed successfully");
+		}
+	}
+	public async TST01JobCompletedScreen() {
+		await utility.wait(utility.very_low);
+		if (await this.TST01jobcompletion.isDisplayed()) {
+			console.log("Job completed successfully");
+		}
+	}
+	public async TST28JobCompletedScreen() {
+		await utility.wait(utility.very_low);
+		if (await this.TST28jobcompletion.isDisplayed()) {
+			console.log("Job completed successfully");
+		}
+	}
+	public async TST22JobCompletedScreen() {
+		await utility.wait(utility.very_low);
+		if (await this.TST22jobcompletion.isDisplayed()) {
+			console.log("Job completed successfully");
+		}
+	}
+	public async TST13JobCompletedScreen() {
+		await utility.wait(utility.very_low);
+		if (await this.TST13jobcompletion.isDisplayed()) {
+			console.log("Job completed successfully");
+		}
+	}
+	public async TST15JobCompletedScreen() {
+		await utility.wait(utility.very_low);
+		if (await this.TST15jobcompletion.isDisplayed()) {
+			console.log("Job completed successfully");
+		}
+	}
+	public async JobCompletedFLTYNoExchangeScreen() {
+		await utility.wait(utility.very_low);
+		if (await this.jobcompletionFLTYNoExchange.isDisplayed()) {
+
 			console.log("Job completed successfully");
 		}
 	}
@@ -1146,12 +1218,12 @@ public async FinalSubmission1(){
 	//TST12 FLTY GAS
 
 	public async Tst12fillfield53dueldevicebinding() {
-		await utility.wait(utility.low);
-		await utility.wait(utility.low);
+		await utility.wait(utility.Avg_low);
+		await utility.wait(utility.Avg_low);
 		if (await this.GSMEJoined.isDisplayed()) {
 			await this.GSMEJoined.click();
 		}
-		await utility.wait(utility.low);
+		await utility.wait(utility.Avg_low);
 		if (await this.configIHDPPMID.isDisplayed()) {
 			await this.configIHDPPMID.click();
 		}
@@ -1159,7 +1231,7 @@ public async FinalSubmission1(){
 		if (await this.joinedcapture.isDisplayed()) {
 			await this.joinedcapture.click();
 		}
-		await utility.wait(utility.low);
+		await utility.wait(utility.Avg_low);
 		if (await this.deviceNext.isDisplayed()) {
 			await this.deviceNext.click();
 		}
@@ -1177,5 +1249,4 @@ public async FinalSubmission1(){
 			console.log("Job completed successfully");
 		}
 	}
-
 }

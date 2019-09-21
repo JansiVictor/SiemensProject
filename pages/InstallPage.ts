@@ -26,196 +26,210 @@ const utility: Utility = new Utility();
 
 export class InstallPageObject {
 
-	public installcommsHub: ElementFinder;
-	public commshubReqY: ElementFinder;
-	public selectValid: ElementFinder;
-	public selectValidnewgas: ElementFinder;
-	public commshubWarning: ElementFinder;
-	public CHFIDText: ElementFinder;
-	public assetSuccessAdded: ElementFinder;
-	public commsHubLocation: ElementFinder;
-	public Assetserialsmatchnext: ElementFinder;
-	public CHF_ID_Txt: ElementFinder;
-	public aerialY: ElementFinder;
-	public commshubconnmethodselect: ElementFinder;
-	public commshubPhoto: ElementFinder;
-	public instCommshubNext: ElementFinder;
-	public clksendMsgXCHUB: ElementFinder;
-	public SendXCHUBbtn: ElementFinder;
-	public AwaitingRespXCHUB: ElementFinder;
-	public AwaitingReqSent: ElementFinder;
-	public AwaitingWhiteList: ElementFinder;
-	public remvSuccessful: ElementFinder;
-	public NewGasMeterDtls: ElementFinder;
-	public gasmeterserialSend: ElementFinder;
-	public Gas_Meter_Txt: ElementFinder;
-	public AssetaddedtoWall: ElementFinder;
-	public GasnewMeterSelect: ElementFinder;
-	public GasnewMeternewLocation: ElementFinder;
-	public newRegulator: ElementFinder;
-	public HasGasRegulatorReplacedY: ElementFinder;
-	public selectValidAssettoInst: ElementFinder;
-	public RegularclickenableOK: ElementFinder;
-	public AssetaddedtowallNewReg: ElementFinder;
-	public nextSecnewRegulator: ElementFinder;
-	public GasInitialmeterReading: ElementFinder;
-	public captureMeterReadingSend: ElementFinder;
-	public CaptureMeterReadingenableok: ElementFinder;
-	public InstKitCaption: ElementFinder;
-	public InstallkitUsedY: ElementFinder;
-	public NonserializedassetSel: ElementFinder;
-	public NonserializedassetSel2: ElementFinder;
-	public T1Aerialinput: ElementFinder;
-	public T1Aerialinput1: ElementFinder;
-	public Addanotherset: ElementFinder;
-	public InstallKitNextSection: ElementFinder;
-	public ContactGTY: ElementFinder;
-	public NationalGridSend: ElementFinder;
-	public GTAttendenceOnsiteY: ElementFinder;
-	public GTresolveIssueY: ElementFinder;
-	public TightnessIssueY: ElementFinder;
-	public ReplacedGasMeterY: ElementFinder;
-	public ReplacedGasregulatorY: ElementFinder;
-	public TightnessperformedY: ElementFinder;
-	public cappostinstallation: ElementFinder;
-	public Dropinpressure: ElementFinder;
-	public dropinpressureselect: ElementFinder;
-	public selectMeterType: ElementFinder;
-	public GasTightnessPassed: ElementFinder;
-	public TestWitness: ElementFinder;
-	public standingPressure: ElementFinder;
-	public cappostinstallationpressure: ElementFinder;
-	public workingPressure: ElementFinder;
-	public captureworkingPressure: ElementFinder;
-	public captureFinalMeterInstall: ElementFinder;
-	public MsgreqDCC: ElementFinder;
-	public hubconnectdtoWAN: ElementFinder;
-	public PostinstallNext: ElementFinder
-	public gasInstallcommisioningcaption: ElementFinder;
-	public sendMsgGICOM: ElementFinder;
-	public awaitingresponse: ElementFinder;
-	public reqsentSuccess: ElementFinder;
-	public pairAssettocommsHub: ElementFinder;
-	public Pairingsuccessful: ElementFinder;
-	public DCChandover: ElementFinder;
-	public DCChandover1: ElementFinder;
-	public MPRNsetconfig: ElementFinder;
-	public Joinsareinit: ElementFinder;
-	public commisioningSuccessful: ElementFinder;
-	public GasApplianceSafetychk: ElementFinder;
-	public postInstCaption: ElementFinder;
-	public HandSAirline: ElementFinder;
-	public addnlnote: ElementFinder;
-	public Airlineref1: ElementFinder;
-	public cappedgascooker: ElementFinder;
-	public DCCGPFdevice: ElementFinder;
-	public DeviceClk: ElementFinder;
-	public installdelete: ElementFinder;
-	public chfIDokenable: ElementFinder;
-	public nextSecnewgasMeter: ElementFinder;
 
-	public earthBondingInstclk: ElementFinder;
-	public LandlordPropclk: ElementFinder;
-	public Addresssend: ElementFinder;
-	public AddApplianceclk: ElementFinder;
-	public FlueTypesel: ElementFinder;
-	public ventSatclk: ElementFinder;
-	public carriedoutPurgeclk: ElementFinder;
-	public ApplianceTypesel: ElementFinder;
-	public ApplianceLocsel: ElementFinder;
-	public ApplCondnsel: ElementFinder;
-	public AppsafetoUse: ElementFinder;
-	public AllapplTested: ElementFinder;
-	public InstallPPMIDCaption: ElementFinder;
-	public PPMIDoffered: ElementFinder;
-	public PPMIDaccepted: ElementFinder;
-	public PPMIDLocsel: ElementFinder;
-	public PPMIDtoInstallsel: ElementFinder;
-	public SerialNoText: ElementFinder;
-	public EUIenableOK: ElementFinder;
-	public AssetsuccessOKclk: ElementFinder;
-	public InstallPPMIDNextSection: ElementFinder;
-	public PPMIDCommisioning: ElementFinder;
-	public sendmsgIHDPPMID: ElementFinder;
-	public awaitingresponsePPMID: ElementFinder;
-	public ReqSent: ElementFinder;
-	public PairAssettoComms: ElementFinder;
-	public PairingSuccess: ElementFinder;
-	public PPMIDSuccess: ElementFinder;
-	public gasmeterserialSendreg: ElementFinder;
-	public PPMIDcommsuccessfulbtn: ElementFinder;
-	public AssetaddedtoWallnewgas: ElementFinder;
-	public PPMIDSubmit: ElementFinder;
-	public DeviceBinding: ElementFinder;
-	public NewMeterDtls: ElementFinder;
+    public installcommsHub: ElementFinder;
+    public commshubReqY: ElementFinder;
+    public selectValid: ElementFinder;
+    public selectValidnewgas: ElementFinder;
+    public commshubWarning: ElementFinder;
+    public CHFIDText: ElementFinder;
+    public assetSuccessAdded: ElementFinder;
+    public commsHubLocation: ElementFinder;
+    public Assetserialsmatchnext: ElementFinder;
+    public CHF_ID_Txt: ElementFinder;
+    public aerialY: ElementFinder;
+    public commshubconnmethodselect: ElementFinder;
+    public commshubPhoto: ElementFinder;
+    public instCommshubNext: ElementFinder;
+    public clksendMsgXCHUB: ElementFinder;
+    public SendXCHUBbtn: ElementFinder;
+    public AwaitingRespXCHUB: ElementFinder;
+    public AwaitingReqSent: ElementFinder;
+    public AwaitingWhiteList: ElementFinder;
+    public remvSuccessful: ElementFinder;
+    public NewGasMeterDtls: ElementFinder;
+    public gasmeterserialSend: ElementFinder;
+    public Gas_Meter_Txt: ElementFinder;
+    public AssetaddedtoWall: ElementFinder;
+    public GasnewMeterSelect: ElementFinder;
+    public GasnewMeternewLocation: ElementFinder;
+    public newRegulator: ElementFinder;
+    public HasGasRegulatorReplacedY: ElementFinder;
+    public selectValidAssettoInst: ElementFinder;
+    public RegularclickenableOK: ElementFinder;
+    public AssetaddedtowallNewReg: ElementFinder;
+    public nextSecnewRegulator: ElementFinder;
+    public GasInitialmeterReading: ElementFinder;
+    public captureMeterReadingSend: ElementFinder;
+    public CaptureMeterReadingenableok: ElementFinder;
+    public InstKitCaption: ElementFinder;
+    public InstallkitUsedY: ElementFinder;
+    public NonserializedassetSel: ElementFinder;
+    public NonserializedassetSel2: ElementFinder;
+    public T1Aerialinput: ElementFinder;
+    public T1Aerialinput1: ElementFinder;
+    public Addanotherset: ElementFinder;
+    public InstallKitNextSection: ElementFinder;
+    public ContactGTY: ElementFinder;
+    public NationalGridSend: ElementFinder;
+    public GTAttendenceOnsiteY: ElementFinder;
+    public GTresolveIssueY: ElementFinder;
+    public TightnessIssueY: ElementFinder;
+    public ReplacedGasMeterY: ElementFinder;
+    public ReplacedGasregulatorY: ElementFinder;
+    public TightnessperformedY: ElementFinder;
+    public cappostinstallation: ElementFinder;
+    public Dropinpressure: ElementFinder;
+    public dropinpressureselect: ElementFinder;
+    public selectMeterType: ElementFinder;
+    public GasTightnessPassed: ElementFinder;
+    public TestWitness: ElementFinder;
+    public standingPressure: ElementFinder;
+    public cappostinstallationpressure: ElementFinder;
+    public workingPressure: ElementFinder;
+    public captureworkingPressure: ElementFinder;
+    public captureFinalMeterInstall: ElementFinder;
+    public MsgreqDCC: ElementFinder;
+    public hubconnectdtoWAN: ElementFinder;
+    public PostinstallNext: ElementFinder
+    public gasInstallcommisioningcaption: ElementFinder;
+    public sendMsgGICOM: ElementFinder;
+    public awaitingresponse: ElementFinder;
+    public reqsentSuccess: ElementFinder;
+    public pairAssettocommsHub: ElementFinder;
+    public Pairingsuccessful: ElementFinder;
+    public DCChandover: ElementFinder;
+    public DCChandover1: ElementFinder;
+    public MPRNsetconfig: ElementFinder;
+    public Joinsareinit: ElementFinder;
+    public commisioningSuccessful: ElementFinder;
+    public GasApplianceSafetychk: ElementFinder;
+    public postInstCaption: ElementFinder;
+    public HandSAirline: ElementFinder;
+    public addnlnote: ElementFinder;
+    public Airlineref1: ElementFinder;
+    public cappedgascooker: ElementFinder;
+    public DCCGPFdevice: ElementFinder;
+    public DeviceClk: ElementFinder;
+    public installdelete: ElementFinder;
+    public chfIDokenable: ElementFinder;
+    public nextSecnewgasMeter: ElementFinder;
 
-	public elecNewmeterselect: ElementFinder;
-	public elecNewmeterserial: ElementFinder;
-	public EUIdeviceIDenableOK: ElementFinder;
-	public Manufacturerletter: ElementFinder;
-	public meterLocCode: ElementFinder;
-	public certYearMonth: ElementFinder;
-	public ElecNewmeterNext: ElementFinder;
-	public additionalElecTestandChk: ElementFinder;
-	public clkokEUIdev: ElementFinder;
+    public earthBondingInstclk: ElementFinder;
+    public LandlordPropclk: ElementFinder;
+    public Addresssend: ElementFinder;
+    public AddApplianceclk: ElementFinder;
+    public FlueTypesel: ElementFinder;
+    public ventSatclk: ElementFinder;
+    public carriedoutPurgeclk: ElementFinder;
+    public ApplianceTypesel: ElementFinder;
+    public ApplianceLocsel: ElementFinder;
+    public ApplCondnsel: ElementFinder;
+    public AppsafetoUse: ElementFinder;
+    public AllapplTested: ElementFinder;
+    public InstallPPMIDCaption: ElementFinder;
+    public PPMIDoffered: ElementFinder;
+    public PPMIDaccepted: ElementFinder;
+    public PPMIDLocsel: ElementFinder;
+    public PPMIDtoInstallsel: ElementFinder;
+    public SerialNoText: ElementFinder;
+    public EUIenableOK: ElementFinder;
+    public AssetsuccessOKclk: ElementFinder;
+    public InstallPPMIDNextSection: ElementFinder;
+    public PPMIDCommisioning: ElementFinder;
+    public sendmsgIHDPPMID: ElementFinder;
+    public awaitingresponsePPMID: ElementFinder;
+    public ReqSent: ElementFinder;
+    public PairAssettoComms: ElementFinder;
+    public PairingSuccess: ElementFinder;
+    public PPMIDSuccess: ElementFinder;
+    public gasmeterserialSendreg: ElementFinder;
+    public PPMIDcommsuccessfulbtn: ElementFinder;
+    public AssetaddedtoWallnewgas: ElementFinder;
+    public PPMIDSubmit: ElementFinder;
+    public DeviceBinding: ElementFinder;
+    public NewMeterDtls: ElementFinder;
 
-	public TerminalscrewTightness: ElementFinder;
-	public capTerminalscrews: ElementFinder;
-	public SealsIntactBlocks: ElementFinder;
-	public AllPortsSealed: ElementFinder;
-	public SiemenscableMarkersIns: ElementFinder;
-	public VisualInspectionCompleted: ElementFinder;
-	public cableMarkerSelect: ElementFinder;
-	public EarthTypeSelect: ElementFinder;
-	public ReplacementMeterBoardY: ElementFinder;
-	public MeterTailsChangedN: ElementFinder;
-	public ReplacementmainFuseY: ElementFinder;
-	public EmergencyJobY: ElementFinder;
-	public AdditionalTestChkNext: ElementFinder;
-	public ElecInitMeterReadingCap: ElementFinder;
-	public AllPortsSealedText: ElementFinder;
-	public SiemenscableMarkersInsTxt: ElementFinder;
+    public elecNewmeterselect: ElementFinder;
+    public elecNewmeterserial: ElementFinder;
+    public EUIdeviceIDenableOK: ElementFinder;
+    public Manufacturerletter: ElementFinder;
+    public meterLocCode: ElementFinder;
+    public certYearMonth: ElementFinder;
+    public ElecNewmeterNext: ElementFinder;
+    public additionalElecTestandChk: ElementFinder;
+    public clkokEUIdev: ElementFinder;
 
-	public postInstallationChkCap: ElementFinder;
-	public CarryoutPolChkatMeterY: ElementFinder;
-	public AdditionalTextSend: ElementFinder;
-	public carryoutPolChksPluginTestDev: ElementFinder;
-	public ConfirmSocSafetyTestPassed: ElementFinder;
-	public testWitnessname: ElementFinder;
-	public capmarindaleTestpostinst: ElementFinder;
-	public capfinalmeterPostInst: ElementFinder;
-	public capCloseUpmeterplusWitnessSticker: ElementFinder;
-	public commisioningCaption: ElementFinder;
-	public PostInstallationText: ElementFinder;
+    public TerminalscrewTightness: ElementFinder;
+    public capTerminalscrews: ElementFinder;
+    public SealsIntactBlocks: ElementFinder;
+    public AllPortsSealed: ElementFinder;
+    public SiemenscableMarkersIns: ElementFinder;
+    public VisualInspectionCompleted: ElementFinder;
+    public cableMarkerSelect: ElementFinder;
+    public EarthTypeSelect: ElementFinder;
+    public ReplacementMeterBoardY: ElementFinder;
+    public MeterTailsChangedN: ElementFinder;
+    public ReplacementmainFuseY: ElementFinder;
+    public EmergencyJobY: ElementFinder;
+    public AdditionalTestChkNext: ElementFinder;
+    public ElecInitMeterReadingCap: ElementFinder;
+    public AllPortsSealedText: ElementFinder;
+    public SiemenscableMarkersInsTxt: ElementFinder;
 
-	public NonSerializedAssetSend: ElementFinder;
-	public addAnotherasset: ElementFinder;
-	public NonSerializedAssetselect1: ElementFinder;
-	public NonSerializedAssetSend1: ElementFinder;
-	public mesgreqtoDCCY: ElementFinder;
-	public CommsHubconnectedtoWAN: ElementFinder;
-	public CommNextSection: ElementFinder;
-	public NonSerializedAssetselect: ElementFinder;
-	public ElecInstallCommCap: ElementFinder;
+    public postInstallationChkCap: ElementFinder;
+    public CarryoutPolChkatMeterY: ElementFinder;
+    public AdditionalTextSend: ElementFinder;
+    public carryoutPolChksPluginTestDev: ElementFinder;
+    public ConfirmSocSafetyTestPassed: ElementFinder;
+    public testWitnessname: ElementFinder;
+    public capmarindaleTestpostinst: ElementFinder;
+    public capfinalmeterPostInst: ElementFinder;
+    public capCloseUpmeterplusWitnessSticker: ElementFinder;
+    public commisioningCaption: ElementFinder;
+    public PostInstallationText: ElementFinder;
 
-	public sendmesgtoEICOM: ElementFinder;
-	public awaitingresponseEICOM: ElementFinder;
-	public pairAssettoCommsHub: ElementFinder;
-	public MPANSetbyDCC: ElementFinder;
-	public EICOMcommsuccess: ElementFinder;
-	public selectValidnewgasList: ElementFinder;
-	public CHFIDTextList: ElementFinder;
-	public elecNewmeterserialList: ElementFinder;
-	public PPMIDtoInstallselList: ElementFinder;
-	public captureMeterReadingSend2: ElementFinder;
-	public captureFinalMeterInstall1: ElementFinder;
-	public MsgreqDCC1: ElementFinder;
-	public PostinstallNext1: ElementFinder;
-	public selectValidAssettoInst1: ElementFinder;
-	public gasmeterserialSendregList: ElementFinder;
-	public gasmeterserialSendregList1: ElementFinder;
-	public CaptureMeterReadingenableok1: ElementFinder;
-	public EUIenableOK1: ElementFinder;
+    public NonSerializedAssetSend: ElementFinder;
+    public addAnotherasset: ElementFinder;
+    public NonSerializedAssetselect1: ElementFinder;
+    public NonSerializedAssetSend1: ElementFinder;
+    public mesgreqtoDCCY: ElementFinder;
+    public CommsHubconnectedtoWAN: ElementFinder;
+    public CommNextSection: ElementFinder;
+    public NonSerializedAssetselect: ElementFinder;
+    public ElecInstallCommCap: ElementFinder;
+
+    public sendmesgtoEICOM: ElementFinder;
+    public awaitingresponseEICOM: ElementFinder;
+    public pairAssettoCommsHub: ElementFinder;
+    public MPANSetbyDCC: ElementFinder;
+    public EICOMcommsuccess: ElementFinder;
+    public selectValidnewgasList: ElementFinder;
+    public CHFIDTextList: ElementFinder;
+    public elecNewmeterserialList: ElementFinder;
+    public PPMIDtoInstallselList: ElementFinder;
+    public captureMeterReadingSend2: ElementFinder;
+    public captureFinalMeterInstall1: ElementFinder;
+    public MsgreqDCC1: ElementFinder;
+    public PostinstallNext1: ElementFinder;
+    public selectValidAssettoInst1: ElementFinder;
+    public gasmeterserialSendregList: ElementFinder;
+    public gasmeterserialSendregList1: ElementFinder;
+    public CaptureMeterReadingenableok1: ElementFinder;
+    public EUIenableOK1: ElementFinder;
+    public Tst13DummyHan: ElementFinder;
+    public selectValidAssettoInst2: ElementFinder;
+    public gasmeterserialSendregList2: ElementFinder;
+    public AddAppliance: ElementFinder;
+    public TightnessIssueN: ElementFinder;
+
+    public PPMIDofferedNo: ElementFinder;
+    public InstallPPMIDNotOfferedAddNote: ElementFinder;
+    public Tst15selectValidAssettoInst: ElementFinder;
+    public Tst15gasmeterserialSendregList: ElementFinder;
+
+    //New Changes
+    
 	public postGastightnessNxtbtn: ElementFinder;
 	public EUIenableOKTRAD: ElementFinder;
 	public submitInstall: ElementFinder;
@@ -230,7 +244,7 @@ export class InstallPageObject {
 
 	public dummydiv: ElementFinder;
 	public infoOkButton: ElementFinder;
-
+	public EmergencyJobN: ElementFinder;
 	//CGP added
     public newRegulatorHeader: ElementFinder;
     public gasmeterserialSendregTRAD: ElementFinder;
@@ -250,6 +264,9 @@ export class InstallPageObject {
 	public regulatorTxt:ElementFinder;
 
 	constructor() {
+
+			//#region TST22
+		this.EmergencyJobN = element(by.xpath('//*[@id="rb_EmerJob_n"]/span[@class="outer"]'));
 		this.regulatorTxt = element(by.xpath('//div[@id="lbl_SerNote"]'));
 		//#region Install Comms Hub
 		this.selectValidAssettoInstTRAD = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[2]'));
@@ -559,15 +576,6 @@ export class InstallPageObject {
 		}
 	
 	}
-	
-	public async dummy() {
-
-		await this.installdelete.click();
-	}
-
-	/**
-	 * @description :initial Gas meter reading install
-	 */
 
 	public async fillinitmeterReadingGAS() {
 		await utility.wait(1000);
@@ -624,6 +632,280 @@ export class InstallPageObject {
 			select.$('[value="12"]').click();
 		}
 	}
+   
+    public async dummy() {
+
+        await this.installdelete.click();
+    }
+
+//TST13 FLTY 20 Changes
+
+public async Tst13fill40Commisioning() {
+    await utility.wait(utility.very_low);
+    if (await this.NonSerializedAssetselect1.isDisplayed()) {
+        var select = this.NonSerializedAssetselect1;
+        select.$('[value="3"]').click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.NonSerializedAssetSend1.isDisplayed()) {
+        await this.NonSerializedAssetSend1.clear();
+        await this.NonSerializedAssetSend1.sendKeys("2");
+    }
+}
+
+public async Tst13ElecFailedDummy(){
+    await utility.wait(utility.Avg_low);
+        if (await this.sendmesgtoEICOM.isDisplayed()) {
+            await this.sendmesgtoEICOM.click();
+        }
+        await utility.wait(30000);
+        if (await this.Tst13DummyHan.isDisplayed()) {
+            await this.Tst13DummyHan.click();
+        } 
+}
+public async Tst13fillthefieldsforperformpostinst(){
+
+    await utility.wait(utility.Avg_low);
+    if (await this.ContactGTY.isDisplayed()) {
+        await this.ContactGTY.click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.NationalGridSend.isDisplayed()) {
+        await this.NationalGridSend.clear();
+        await this.NationalGridSend.sendKeys("1");
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.HandSAirline.isDisplayed()) {
+        await this.HandSAirline.click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.Airlineref1.isDisplayed()) {
+        await this.Airlineref1.clear();
+        await this.Airlineref1.sendKeys("2");
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.GTAttendenceOnsiteY.isDisplayed()) {
+        await this.GTAttendenceOnsiteY.click();
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.GTresolveIssueY.isDisplayed()) {
+        await this.GTresolveIssueY.click();
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.TightnessIssueN.isDisplayed()) {
+        await this.TightnessIssueN.click();
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.TightnessperformedY.isDisplayed()) {
+        await this.TightnessperformedY.click();
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.cappostinstallation.isDisplayed()) {
+        await this.cappostinstallation.click();
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.Dropinpressure.isDisplayed()) {
+        await this.Dropinpressure.click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.dropinpressureselect.isDisplayed()) {
+        var select = this.dropinpressureselect;
+        select.$('[value="2"]').click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.selectMeterType.isDisplayed()) {
+        var select = this.selectMeterType;
+        select.$('[value="2"]').click();
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.GasTightnessPassed.isDisplayed()) {
+        await this.GasTightnessPassed.click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.TestWitness.isDisplayed()) {
+        await this.TestWitness.clear();
+        await this.TestWitness.sendKeys("Ellie Taylor");
+    }
+    await utility.wait(utility.very_low);
+    if (await this.standingPressure.isDisplayed()) {
+        await this.standingPressure.clear();
+        await this.standingPressure.sendKeys("1.1");
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.cappostinstallationpressure.isDisplayed()) {
+        await this.cappostinstallationpressure.click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.workingPressure.isDisplayed()) {
+        await this.workingPressure.clear();
+        await this.workingPressure.sendKeys("1.5");
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.captureworkingPressure.isDisplayed()) {
+        await this.captureworkingPressure.click();
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.captureFinalMeterInstall1.isDisplayed()) {
+        await this.captureFinalMeterInstall1.click();
+    }
+    await utility.wait(utility.Avg_low);
+        if (await this.PostinstallNext1.isDisplayed()) {
+            await this.PostinstallNext1.click();
+        }
+}
+public async TST13InstallPPMIDbypass(){
+    await utility.wait(utility.Avg_low);
+        if (await this.PPMIDofferedNo.isDisplayed()) {
+            await this.PPMIDofferedNo.click();
+        }
+        await utility.wait(utility.low);
+        if (await this.InstallPPMIDNotOfferedAddNote.isDisplayed()) {
+            await this.InstallPPMIDNotOfferedAddNote.clear();
+            await this.InstallPPMIDNotOfferedAddNote.sendKeys("Bypassing to continue");
+        }
+        await utility.wait(utility.Avg_low);
+        if (await this.InstallPPMIDNextSection.isDisplayed()) {
+            await this.InstallPPMIDNextSection.click();
+        }     
+}
+
+//TST15 FLTY 18
+
+public async TST15fillthefieldsfornewregulator(index: number) {
+    await utility.wait(utility.very_low);
+    if (await this.HasGasRegulatorReplacedY.isDisplayed()) {
+        await this.HasGasRegulatorReplacedY.click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.Tst15selectValidAssettoInst.isDisplayed()) {
+        var select = this.Tst15selectValidAssettoInst;
+        select.$('[value="MA6NC181323805"]').click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.gasmeterserialSendreg.isDisplayed()) {
+        await this.gasmeterserialSendreg.clear();
+        await this.gasmeterserialSendreg.sendKeys("MA6NC181323805");
+    }
+    await utility.wait(utility.very_low);
+    if (await this.RegularclickenableOK.isDisplayed()) {
+        await this.RegularclickenableOK.click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.AssetaddedtowallNewReg.isDisplayed()) {
+        await this.AssetaddedtowallNewReg.click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.nextSecnewRegulator.isDisplayed()) {
+        await this.nextSecnewRegulator.click();
+    }
+}
+
+public async Tst15fillthefieldsforperformpostinst() {
+    await utility.wait(utility.Avg_low);
+    if (await this.ContactGTY.isDisplayed()) {
+        await this.ContactGTY.click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.NationalGridSend.isDisplayed()) {
+        await this.NationalGridSend.clear();
+        await this.NationalGridSend.sendKeys("1");
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.HandSAirline.isDisplayed()) {
+        await this.HandSAirline.click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.Airlineref1.isDisplayed()) {
+        await this.Airlineref1.clear();
+        await this.Airlineref1.sendKeys("2");
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.GTAttendenceOnsiteY.isDisplayed()) {
+        await this.GTAttendenceOnsiteY.click();
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.GTresolveIssueY.isDisplayed()) {
+        await this.GTresolveIssueY.click();
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.TightnessIssueY.isDisplayed()) {
+        await this.TightnessIssueY.click();
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.cappedgascooker.isDisplayed()) {
+        await this.cappedgascooker.click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.addnlnote.isDisplayed()) {
+        await this.addnlnote.clear();
+        await this.addnlnote.sendKeys("Gas Notes");
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.ReplacedGasMeterY.isDisplayed()) {
+        await this.ReplacedGasMeterY.click();
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.ReplacedGasregulatorY.isDisplayed()) {
+        await this.ReplacedGasregulatorY.click();
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.TightnessperformedY.isDisplayed()) {
+        await this.TightnessperformedY.click();
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.cappostinstallation.isDisplayed()) {
+        await this.cappostinstallation.click();
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.Dropinpressure.isDisplayed()) {
+        await this.Dropinpressure.click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.dropinpressureselect.isDisplayed()) {
+        var select = this.dropinpressureselect;
+        select.$('[value="2"]').click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.selectMeterType.isDisplayed()) {
+        var select = this.selectMeterType;
+        select.$('[value="2"]').click();
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.GasTightnessPassed.isDisplayed()) {
+        await this.GasTightnessPassed.click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.TestWitness.isDisplayed()) {
+        await this.TestWitness.clear();
+        await this.TestWitness.sendKeys("Ellie Taylor");
+    }
+    await utility.wait(utility.very_low);
+    if (await this.standingPressure.isDisplayed()) {
+        await this.standingPressure.clear();
+        await this.standingPressure.sendKeys("1.1");
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.cappostinstallationpressure.isDisplayed()) {
+        await this.cappostinstallationpressure.click();
+    }
+    await utility.wait(utility.very_low);
+    if (await this.workingPressure.isDisplayed()) {
+        await this.workingPressure.clear();
+        await this.workingPressure.sendKeys("1.5");
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.captureworkingPressure.isDisplayed()) {
+        await this.captureworkingPressure.click();
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.captureFinalMeterInstall.isDisplayed()) {
+        await this.captureFinalMeterInstall.click();
+    }
+    await utility.wait(utility.Avg_low);
+    if (await this.PostinstallNext.isDisplayed()) {
+        await this.PostinstallNext.click();
+    }
+}
 
 
 	/**
@@ -642,7 +924,7 @@ export class InstallPageObject {
 			await this.commshubReqY.click();
 		}
 		if (await this.selectValid.isDisplayed()) {
-			await utility.wait(2000);
+			await utility.wait(utility.Avg_low);
 			this.selectValid.click();
 			browser.sleep(1000);
 			console.log("Selecting element based index : " + index);
@@ -671,10 +953,12 @@ export class InstallPageObject {
 		if (await this.aerialY.isDisplayed()) {
 			await this.aerialY.click();
 		}
-		await utility.wait(utility.very_low);
+
+		await utility.wait(utility.Avg_low);
 		if (await this.commshubconnmethodselect.isDisplayed()) {
 			var select = this.commshubconnmethodselect;
-			select.$('[value="3"]').click();
+			select.$('[label="ESME"]').click();
+
 		}
 		await utility.wait(utility.very_low);
 		if (await this.commshubPhoto.isDisplayed()) {
@@ -736,7 +1020,7 @@ export class InstallPageObject {
 	}
 
 	public async waitforthebuttontoDisappear() {
-		await utility.wait(50000);
+		await utility.wait(utility.high);
 	}
 	public async Remosuccessful() {
 		await utility.wait(utility.very_low);
@@ -815,7 +1099,7 @@ export class InstallPageObject {
 
 	public async fillthefieldsfornewgasmeterdtls(index: number) {
 		if (await this.selectValidnewgas.isDisplayed()) {
-			await utility.wait(2000);
+			await utility.wait(utility.Avg_low);
 			this.selectValidnewgas.click();
 			browser.sleep(1000);
 			console.log("Selecting element based index : " + index);
@@ -883,7 +1167,7 @@ export class InstallPageObject {
 		});
 	}
 	public async fillthedetailsforinstallkit() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.InstallkitUsedY.isDisplayed()) {
 			await this.InstallkitUsedY.click();
 		}
@@ -897,7 +1181,7 @@ export class InstallPageObject {
 			await this.T1Aerialinput.clear();
 			await this.T1Aerialinput.sendKeys("1");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.Addanotherset.isDisplayed()) {
 			await this.Addanotherset.click();
 		}
@@ -911,7 +1195,7 @@ export class InstallPageObject {
 			await this.T1Aerialinput1.clear();
 			await this.T1Aerialinput1.sendKeys("2");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.InstallKitNextSection.isDisplayed()) {
 			await this.InstallKitNextSection.click();
 		}
@@ -928,7 +1212,7 @@ export class InstallPageObject {
 	}
 
 	public async fillthefieldsforperformpostinst() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ContactGTY.isDisplayed()) {
 			await this.ContactGTY.click();
 		}
@@ -937,7 +1221,7 @@ export class InstallPageObject {
 			await this.NationalGridSend.clear();
 			await this.NationalGridSend.sendKeys("1");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.HandSAirline.isDisplayed()) {
 			await this.HandSAirline.click();
 		}
@@ -946,19 +1230,19 @@ export class InstallPageObject {
 			await this.Airlineref1.clear();
 			await this.Airlineref1.sendKeys("2");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.GTAttendenceOnsiteY.isDisplayed()) {
 			await this.GTAttendenceOnsiteY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.GTresolveIssueY.isDisplayed()) {
 			await this.GTresolveIssueY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.TightnessIssueY.isDisplayed()) {
 			await this.TightnessIssueY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.cappedgascooker.isDisplayed()) {
 			await this.cappedgascooker.click();
 		}
@@ -967,23 +1251,23 @@ export class InstallPageObject {
 			await this.addnlnote.clear();
 			await this.addnlnote.sendKeys("Gas Notes");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ReplacedGasMeterY.isDisplayed()) {
 			await this.ReplacedGasMeterY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ReplacedGasregulatorY.isDisplayed()) {
 			await this.ReplacedGasregulatorY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.TightnessperformedY.isDisplayed()) {
 			await this.TightnessperformedY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.cappostinstallation.isDisplayed()) {
 			await this.cappostinstallation.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.Dropinpressure.isDisplayed()) {
 			await this.Dropinpressure.click();
 		}
@@ -997,7 +1281,7 @@ export class InstallPageObject {
 			var select = this.selectMeterType;
 			select.$('[value="2"]').click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.GasTightnessPassed.isDisplayed()) {
 			await this.GasTightnessPassed.click();
 		}
@@ -1011,7 +1295,7 @@ export class InstallPageObject {
 			await this.standingPressure.clear();
 			await this.standingPressure.sendKeys("1.1");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.cappostinstallationpressure.isDisplayed()) {
 			await this.cappostinstallationpressure.click();
 		}
@@ -1020,23 +1304,23 @@ export class InstallPageObject {
 			await this.workingPressure.clear();
 			await this.workingPressure.sendKeys("1.5");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.captureworkingPressure.isDisplayed()) {
 			await this.captureworkingPressure.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.captureFinalMeterInstall.isDisplayed()) {
 			await this.captureFinalMeterInstall.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.MsgreqDCC.isDisplayed()) {
 			await this.MsgreqDCC.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.hubconnectdtoWAN.isDisplayed()) {
 			await this.hubconnectdtoWAN.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.PostinstallNext.isDisplayed()) {
 			await this.PostinstallNext.click();
 		}
@@ -1053,7 +1337,7 @@ export class InstallPageObject {
 
 	}
 	public async sendMesgGICOM() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.sendMsgGICOM.isDisplayed()) {
 			await this.sendMsgGICOM.click();
 		}
@@ -1062,7 +1346,7 @@ export class InstallPageObject {
 		await expect(this.awaitingresponse.isPresent());
 	}
 	public async waitforthebuttoDisappear() {
-		await utility.wait(50000);
+		await utility.wait(utility.high);
 	}
 	public async commisioningsuccess() {
 		await utility.wait(utility.very_low);
@@ -1113,7 +1397,7 @@ export class InstallPageObject {
 		await expect(this.commisioningSuccessful.isDisplayed());
 	}
 	public async clickonCommissioning() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.commisioningSuccessful.isDisplayed()) {
 			await this.commisioningSuccessful.click();
 		}
@@ -1129,56 +1413,56 @@ export class InstallPageObject {
 		});
 	}
 	public async fillthefieldsforgasApplicancesafety() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.earthBondingInstclk.isDisplayed()) {
 			await this.earthBondingInstclk.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.LandlordPropclk.isDisplayed()) {
 			await this.LandlordPropclk.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.Addresssend.isDisplayed()) {
 			await this.Addresssend.clear();
 			await this.Addresssend.sendKeys("1");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.AddApplianceclk.isDisplayed()) {
 			await this.AddApplianceclk.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.FlueTypesel.isDisplayed()) {
 			var select = this.FlueTypesel;
 			select.$('[value="0"]').click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ventSatclk.isDisplayed()) {
 			await this.ventSatclk.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.carriedoutPurgeclk.isDisplayed()) {
 			await this.carriedoutPurgeclk.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ApplianceTypesel.isDisplayed()) {
 			var select = this.ApplianceTypesel;
 			select.$('[value="0"]').click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ApplianceLocsel.isDisplayed()) {
 			var select = this.ApplianceLocsel;
 			select.$('[value="1"]').click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ApplCondnsel.isDisplayed()) {
 			var select = this.ApplCondnsel;
 			select.$('[value="2"]').click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.AppsafetoUse.isDisplayed()) {
 			await this.AppsafetoUse.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.AllapplTested.isDisplayed()) {
 			await this.AllapplTested.click();
 		}
@@ -1194,11 +1478,11 @@ export class InstallPageObject {
 		});
 	}
 	public async fillthefieldsforseePPMIDsection(index: number) {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.PPMIDoffered.isDisplayed()) {
 			await this.PPMIDoffered.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.PPMIDaccepted.isDisplayed()) {
 			await this.PPMIDaccepted.click();
 		}
@@ -1207,9 +1491,9 @@ export class InstallPageObject {
 			var select = this.PPMIDLocsel;
 			select.$('[value="A"]').click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.PPMIDtoInstallsel.isDisplayed()) {
-			await utility.wait(2000);
+			await utility.wait(utility.Avg_low);
 			this.PPMIDtoInstallsel.click();
 			browser.sleep(1000);
 			console.log("Selecting element based index : " + index);
@@ -1219,15 +1503,15 @@ export class InstallPageObject {
 			var options = this.PPMIDtoInstallselList.getAttribute('value');
 			await this.SerialNoText.sendKeys(options);
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.EUIenableOK.isDisplayed()) {
 			await this.EUIenableOK.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.AssetsuccessOKclk.isDisplayed()) {
 			await this.AssetsuccessOKclk.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.InstallPPMIDNextSection.isDisplayed()) {
 			await this.InstallPPMIDNextSection.click();
 		}
@@ -1237,40 +1521,40 @@ export class InstallPageObject {
 	 * @Description UAT Automation for FAULTY18 Workflow
 	 */
 	public async SeePPMIDcommisioning() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		await this.PPMIDCommisioning.getText().then(function (PPMIDCommisioningTxt) {
 			console.log("PPMID Commisioning " + PPMIDCommisioningTxt);
 		});
 	}
 	public async clickonIHDPPMID() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.sendmsgIHDPPMID.isDisplayed()) {
 			await this.sendmsgIHDPPMID.click();
 		}
 	}
 	public async AwaitingrespaftPPMID() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		await expect(this.awaitingresponsePPMID.isDisplayed());
 	}
 	public async waitforthebuttontoDisappearafterppmid() {
-		await utility.wait(60000);
+		await utility.wait(utility.high);
 	}
 	public async ppmidsuccessbtn() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		await expect(this.PPMIDcommsuccessfulbtn.isPresent());
 	}
 	public async reqsentsuctxt() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		await expect(this.ReqSent.isDisplayed());
 	}
 
 	public async pairAssettoComms() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		await expect(this.PairAssettoComms.isDisplayed());
 	}
 	public async pairingsuccessfulppmidcomm() {
 		try {
-			await utility.wait(2000);
+			await utility.wait(utility.Avg_low);
 			await expect(this.Pairingsuccessful.isDisplayed());
 		} catch (error) {
 			console.log("First element is used");
@@ -1278,18 +1562,18 @@ export class InstallPageObject {
 	}
 	public async clickonSUBbtn() {
 
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.PPMIDcommsuccessfulbtn.isDisplayed()) {
 			await this.PPMIDcommsuccessfulbtn.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 
 		if (await this.PPMIDSubmit.isDisplayed()) {
 			await this.PPMIDSubmit.click();
 		}
 	}
 	public async deviceBindingandCommisioning() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.DeviceBinding.isDisplayed()) {
 			await this.DeviceBinding.click();
 		}
@@ -1302,7 +1586,7 @@ export class InstallPageObject {
 			await this.commshubReqY.click();
 		}
 		if (await this.selectValid.isDisplayed()) {
-			await utility.wait(2000);
+			await utility.wait(utility.Avg_low);
 			this.selectValid.click();
 			browser.sleep(1000);
 			console.log("Selecting element based index : " + index);
@@ -1348,7 +1632,7 @@ export class InstallPageObject {
 	}
 	//FLTY20 Changes
 	public async DuelNewMeterDetails() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		await this.NewMeterDtls.getText().then(function (NewMeterDtlsTxt) {
 			console.log("New Meter Details " + NewMeterDtlsTxt);
 		});
@@ -1356,7 +1640,7 @@ export class InstallPageObject {
 
 	public async fillDuelNewMeterDetails(index: number) {
 		if (await this.elecNewmeterselect.isDisplayed()) {
-			await utility.wait(2000);
+			await utility.wait(utility.Avg_low);
 			this.elecNewmeterselect.click();
 			browser.sleep(1000);
 			console.log("Selecting element based index : " + index);
@@ -1401,7 +1685,7 @@ export class InstallPageObject {
 		}
 	}
 	public async AdditionalElecTestandChecks() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		await this.additionalElecTestandChk.getText().then(function (additionalElecTestandChkTxt) {
 			console.log("Additional electricity Test and Checks" + additionalElecTestandChkTxt);
 		});
@@ -1470,14 +1754,14 @@ export class InstallPageObject {
 	}
 
 	public async ElecInitialMeterReading() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		await this.ElecInitMeterReadingCap.getText().then(function (ElecInitMeterReadingCapTxt) {
 			console.log("Elec Initial Meter Reading" + ElecInitMeterReadingCapTxt);
 		});
 	}
 
 	public async PostInstallationChks() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		await this.postInstallationChkCap.getText().then(function (postInstallationChkCapTxt) {
 			console.log("Post Installation Checks" + postInstallationChkCapTxt);
 		});
@@ -1534,7 +1818,7 @@ export class InstallPageObject {
 		}
 	}
 	public async Commisioning() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		await this.commisioningCaption.getText().then(function (commisioningCaptionTxt) {
 			console.log("Commisioning " + commisioningCaptionTxt);
 		});
@@ -1584,7 +1868,7 @@ export class InstallPageObject {
 		}
 	}
 	public async ElecInstallCommisioning() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		await this.ElecInstallCommCap.getText().then(function (ElecInstallCommCapTxt) {
 			console.log("Electric Install Commisioning" + ElecInstallCommCapTxt);
 		});
@@ -1604,7 +1888,7 @@ export class InstallPageObject {
 	}
 
 	public async waitEICOMbuttontoDisappear() {
-		await utility.wait(50000);
+		await utility.wait(utility.high);
 	}
 	public async PairAssettoCommsHub() {
 		await utility.wait(utility.very_low);
@@ -1644,7 +1928,7 @@ export class InstallPageObject {
 	}
 
 	public async fillNoExchangePerformPostInst() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ContactGTY.isDisplayed()) {
 			await this.ContactGTY.click();
 		}
@@ -1653,7 +1937,7 @@ export class InstallPageObject {
 			await this.NationalGridSend.clear();
 			await this.NationalGridSend.sendKeys("1");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.HandSAirline.isDisplayed()) {
 			await this.HandSAirline.click();
 		}
@@ -1662,19 +1946,19 @@ export class InstallPageObject {
 			await this.Airlineref1.clear();
 			await this.Airlineref1.sendKeys("2");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.GTAttendenceOnsiteY.isDisplayed()) {
 			await this.GTAttendenceOnsiteY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.GTresolveIssueY.isDisplayed()) {
 			await this.GTresolveIssueY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.TightnessIssueY.isDisplayed()) {
 			await this.TightnessIssueY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.cappedgascooker.isDisplayed()) {
 			await this.cappedgascooker.click();
 		}
@@ -1683,23 +1967,23 @@ export class InstallPageObject {
 			await this.addnlnote.clear();
 			await this.addnlnote.sendKeys("Gas Notes");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ReplacedGasMeterY.isDisplayed()) {
 			await this.ReplacedGasMeterY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ReplacedGasregulatorY.isDisplayed()) {
 			await this.ReplacedGasregulatorY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.TightnessperformedY.isDisplayed()) {
 			await this.TightnessperformedY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.cappostinstallation.isDisplayed()) {
 			await this.cappostinstallation.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.Dropinpressure.isDisplayed()) {
 			await this.Dropinpressure.click();
 		}
@@ -1713,7 +1997,7 @@ export class InstallPageObject {
 			var select = this.selectMeterType;
 			select.$('[value="2"]').click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.GasTightnessPassed.isDisplayed()) {
 			await this.GasTightnessPassed.click();
 		}
@@ -1727,7 +2011,7 @@ export class InstallPageObject {
 			await this.standingPressure.clear();
 			await this.standingPressure.sendKeys("1.1");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.cappostinstallationpressure.isDisplayed()) {
 			await this.cappostinstallationpressure.click();
 		}
@@ -1736,21 +2020,21 @@ export class InstallPageObject {
 			await this.workingPressure.clear();
 			await this.workingPressure.sendKeys("1.5");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.captureworkingPressure.isDisplayed()) {
 			await this.captureworkingPressure.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.captureFinalMeterInstall1.isDisplayed()) {
 			await this.captureFinalMeterInstall1.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.postGastightnessNxtbtn.isDisplayed()) {
 			await this.postGastightnessNxtbtn.click();
 		}
 	}
 	public async fillthefieldsforperformpostinstduel() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ContactGTY.isDisplayed()) {
 			await this.ContactGTY.click();
 		}
@@ -1759,7 +2043,7 @@ export class InstallPageObject {
 			await this.NationalGridSend.clear();
 			await this.NationalGridSend.sendKeys("1");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.HandSAirline.isDisplayed()) {
 			await this.HandSAirline.click();
 		}
@@ -1768,19 +2052,19 @@ export class InstallPageObject {
 			await this.Airlineref1.clear();
 			await this.Airlineref1.sendKeys("2");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.GTAttendenceOnsiteY.isDisplayed()) {
 			await this.GTAttendenceOnsiteY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.GTresolveIssueY.isDisplayed()) {
 			await this.GTresolveIssueY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.TightnessIssueY.isDisplayed()) {
 			await this.TightnessIssueY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.cappedgascooker.isDisplayed()) {
 			await this.cappedgascooker.click();
 		}
@@ -1789,23 +2073,23 @@ export class InstallPageObject {
 			await this.addnlnote.clear();
 			await this.addnlnote.sendKeys("Gas Notes");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ReplacedGasMeterY.isDisplayed()) {
 			await this.ReplacedGasMeterY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ReplacedGasregulatorY.isDisplayed()) {
 			await this.ReplacedGasregulatorY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.TightnessperformedY.isDisplayed()) {
 			await this.TightnessperformedY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.cappostinstallation.isDisplayed()) {
 			await this.cappostinstallation.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.Dropinpressure.isDisplayed()) {
 			await this.Dropinpressure.click();
 		}
@@ -1819,7 +2103,7 @@ export class InstallPageObject {
 			var select = this.selectMeterType;
 			select.$('[value="2"]').click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.GasTightnessPassed.isDisplayed()) {
 			await this.GasTightnessPassed.click();
 		}
@@ -1833,7 +2117,7 @@ export class InstallPageObject {
 			await this.standingPressure.clear();
 			await this.standingPressure.sendKeys("1.1");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.cappostinstallationpressure.isDisplayed()) {
 			await this.cappostinstallationpressure.click();
 		}
@@ -1842,19 +2126,19 @@ export class InstallPageObject {
 			await this.workingPressure.clear();
 			await this.workingPressure.sendKeys("1.5");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.captureworkingPressure.isDisplayed()) {
 			await this.captureworkingPressure.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.captureFinalMeterInstall1.isDisplayed()) {
 			await this.captureFinalMeterInstall1.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.MsgreqDCC1.isDisplayed()) {
 			await this.MsgreqDCC1.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.PostinstallNext1.isDisplayed()) {
 			await this.PostinstallNext1.click();
 		}
@@ -1914,53 +2198,12 @@ export class InstallPageObject {
 	}
 
 	
-	
-	public async filltheduelforPPMIDsection(index: number) {
-		await utility.wait(2000);
-		if (await this.PPMIDoffered.isDisplayed()) {
-			await this.PPMIDoffered.click();
-		}
-		await utility.wait(2000);
-		if (await this.PPMIDaccepted.isDisplayed()) {
-			await this.PPMIDaccepted.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.PPMIDLocsel.isDisplayed()) {
-			var select = this.PPMIDLocsel;
-			select.$('[value="A"]').click();
-		}
-		await utility.wait(2000);
-		if (await this.PPMIDtoInstallsel.isDisplayed()) {
-			await utility.wait(2000);
-			this.PPMIDtoInstallsel.click();
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			// select the option
-			await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.low);
-			await expect(await this.SerialNoText.isPresent());
-			var options = this.PPMIDtoInstallselList.getAttribute('value');
-			await this.SerialNoText.sendKeys(options);
-		}
-		await utility.wait(2000);
-		if (await this.selectppmidtext.isDisplayed()) {
-			await this.selectppmidtext.click();
-		}
-		await utility.wait(2000);
-		if (await this.AssetsuccessOKclk.isDisplayed()) {
-			await this.AssetsuccessOKclk.click();
-		}
-		await utility.wait(2000);
-		if (await this.InstallPPMIDNextSection.isDisplayed()) {
-			await this.InstallPPMIDNextSection.click();
-		}
-	}
 
 	//Tst12 FLTY GAS
 
 	public async Tst12fillthefieldsforperformpostinst() {
 
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ContactGTY.isDisplayed()) {
 			await this.ContactGTY.click();
 		}
@@ -1969,7 +2212,7 @@ export class InstallPageObject {
 			await this.NationalGridSend.clear();
 			await this.NationalGridSend.sendKeys("1");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.HandSAirline.isDisplayed()) {
 			await this.HandSAirline.click();
 		}
@@ -1978,19 +2221,19 @@ export class InstallPageObject {
 			await this.Airlineref1.clear();
 			await this.Airlineref1.sendKeys("2");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.GTAttendenceOnsiteY.isDisplayed()) {
 			await this.GTAttendenceOnsiteY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.GTresolveIssueY.isDisplayed()) {
 			await this.GTresolveIssueY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.TightnessIssueY.isDisplayed()) {
 			await this.TightnessIssueY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.cappedgascooker.isDisplayed()) {
 			await this.cappedgascooker.click();
 		}
@@ -1999,23 +2242,23 @@ export class InstallPageObject {
 			await this.addnlnote.clear();
 			await this.addnlnote.sendKeys("Gas Notes");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ReplacedGasMeterY.isDisplayed()) {
 			await this.ReplacedGasMeterY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ReplacedGasregulatorY.isDisplayed()) {
 			await this.ReplacedGasregulatorY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.TightnessperformedY.isDisplayed()) {
 			await this.TightnessperformedY.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.cappostinstallation.isDisplayed()) {
 			await this.cappostinstallation.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.Dropinpressure.isDisplayed()) {
 			await this.Dropinpressure.click();
 		}
@@ -2029,7 +2272,7 @@ export class InstallPageObject {
 			var select = this.selectMeterType;
 			select.$('[value="2"]').click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.GasTightnessPassed.isDisplayed()) {
 			await this.GasTightnessPassed.click();
 		}
@@ -2043,7 +2286,7 @@ export class InstallPageObject {
 			await this.standingPressure.clear();
 			await this.standingPressure.sendKeys("1.1");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.cappostinstallationpressure.isDisplayed()) {
 			await this.cappostinstallationpressure.click();
 		}
@@ -2052,21 +2295,21 @@ export class InstallPageObject {
 			await this.workingPressure.clear();
 			await this.workingPressure.sendKeys("1.5");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.captureworkingPressure.isDisplayed()) {
 			await this.captureworkingPressure.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.captureFinalMeterInstall.isDisplayed()) {
 			await this.captureFinalMeterInstall.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.PostinstallNext.isDisplayed()) {
 			await this.PostinstallNext.click();
 		}
 	}
 	public async Tst12submittoJobcompletion() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.PPMIDSubmit.isDisplayed()) {
 			await this.PPMIDSubmit.click();
 		}
@@ -2075,11 +2318,11 @@ export class InstallPageObject {
 
 	//CGP ADDED 11/09
 	public async filltheduelforseePPMIDsectionTRAD(index: number) {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.PPMIDoffered.isDisplayed()) {
 			await this.PPMIDoffered.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.PPMIDaccepted.isDisplayed()) {
 			await this.PPMIDaccepted.click();
 		}
@@ -2088,9 +2331,9 @@ export class InstallPageObject {
 			var select = this.PPMIDLocsel;
 			select.$('[value="A"]').click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.PPMIDtoInstallsel.isDisplayed()) {
-			await utility.wait(2000);
+			await utility.wait(utility.Avg_low);
 			this.PPMIDtoInstallsel.click();
 			browser.sleep(1000);
 			console.log("Selecting element based index : " + index);
@@ -2101,15 +2344,15 @@ export class InstallPageObject {
 			var options = this.PPMIDtoInstallselList.getAttribute('value');
 			await this.SerialNoText.sendKeys(options);
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.EUIenableOKTRAD.isDisplayed()) {
 			await this.EUIenableOKTRAD.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.AssetsuccessOKclk.isDisplayed()) {
 			await this.AssetsuccessOKclk.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.InstallPPMIDNextSection.isDisplayed()) {
 			await this.InstallPPMIDNextSection.click();
 		}
@@ -2265,12 +2508,175 @@ public async fillAdditionalElecTestandChecksInst16() {
     await utility.wait(1000);
     if (await this.emerJobNo.isDisplayed()) {
         await this.emerJobNo.click();
-    }
-
-    
+    } 
 }
+	//TST22 FLTY18
 
-    
+	public async TST22fill35AdditionalElecTestandChecks() {
+		await utility.wait(utility.very_low);
+		if (await this.SealsIntactBlocks.isDisplayed()) {
+			await this.SealsIntactBlocks.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.AllPortsSealed.isDisplayed()) {
+			await this.AllPortsSealed.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.SiemenscableMarkersInsTxt.isDisplayed()) {
+			await this.SiemenscableMarkersIns.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.VisualInspectionCompleted.isDisplayed()) {
+			await this.VisualInspectionCompleted.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.cableMarkerSelect.isDisplayed()) {
+			var select = this.cableMarkerSelect;
+			select.$('[value="1"]').click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.EarthTypeSelect.isDisplayed()) {
+			var select = this.EarthTypeSelect;
+			select.$('[value="1"]').click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.ReplacementMeterBoardY.isDisplayed()) {
+			await this.ReplacementMeterBoardY.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.MeterTailsChangedN.isDisplayed()) {
+			await this.MeterTailsChangedN.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.ReplacementmainFuseY.isDisplayed()) {
+			await this.ReplacementmainFuseY.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.EmergencyJobN.isDisplayed()) {
+			await this.EmergencyJobN.click();
+		}
+	}
+
+	public async Tst22fill40Commisioning() {
+		await utility.wait(utility.very_low);
+		if (await this.NonSerializedAssetselect1.isDisplayed()) {
+			var select = this.NonSerializedAssetselect1;
+			select.$('[value="3"]').click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.NonSerializedAssetSend1.isDisplayed()) {
+			await this.NonSerializedAssetSend1.clear();
+			await this.NonSerializedAssetSend1.sendKeys("2");
+		}
+		await utility.wait(utility.very_low);
+		if (await this.CommsHubconnectedtoWAN.isDisplayed()) {
+			await this.CommsHubconnectedtoWAN.click();
+		}
+	}
+	public async Tst22fillthefieldsforperformpostinstduel() {
+		await utility.wait(utility.Avg_low);
+		if (await this.ContactGTY.isDisplayed()) {
+			await this.ContactGTY.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.NationalGridSend.isDisplayed()) {
+			await this.NationalGridSend.clear();
+			await this.NationalGridSend.sendKeys("1");
+		}
+		await utility.wait(utility.Avg_low);
+		if (await this.HandSAirline.isDisplayed()) {
+			await this.HandSAirline.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.Airlineref1.isDisplayed()) {
+			await this.Airlineref1.clear();
+			await this.Airlineref1.sendKeys("2");
+		}
+		await utility.wait(utility.Avg_low);
+		if (await this.GTAttendenceOnsiteY.isDisplayed()) {
+			await this.GTAttendenceOnsiteY.click();
+		}
+		await utility.wait(utility.Avg_low);
+		if (await this.GTresolveIssueY.isDisplayed()) {
+			await this.GTresolveIssueY.click();
+		}
+		await utility.wait(utility.Avg_low);
+		if (await this.TightnessIssueY.isDisplayed()) {
+			await this.TightnessIssueY.click();
+		}
+		await utility.wait(utility.Avg_low);
+		if (await this.cappedgascooker.isDisplayed()) {
+			await this.cappedgascooker.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.addnlnote.isDisplayed()) {
+			await this.addnlnote.clear();
+			await this.addnlnote.sendKeys("Gas Notes");
+		}
+		await utility.wait(utility.Avg_low);
+		if (await this.ReplacedGasMeterY.isDisplayed()) {
+			await this.ReplacedGasMeterY.click();
+		}
+		await utility.wait(utility.Avg_low);
+		if (await this.ReplacedGasregulatorY.isDisplayed()) {
+			await this.ReplacedGasregulatorY.click();
+		}
+		await utility.wait(utility.Avg_low);
+		if (await this.TightnessperformedY.isDisplayed()) {
+			await this.TightnessperformedY.click();
+		}
+		await utility.wait(utility.Avg_low);
+		if (await this.cappostinstallation.isDisplayed()) {
+			await this.cappostinstallation.click();
+		}
+		await utility.wait(utility.Avg_low);
+		if (await this.Dropinpressure.isDisplayed()) {
+			await this.Dropinpressure.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.dropinpressureselect.isDisplayed()) {
+			var select = this.dropinpressureselect;
+			select.$('[value="2"]').click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.selectMeterType.isDisplayed()) {
+			var select = this.selectMeterType;
+			select.$('[value="2"]').click();
+		}
+		await utility.wait(utility.Avg_low);
+		if (await this.GasTightnessPassed.isDisplayed()) {
+			await this.GasTightnessPassed.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.TestWitness.isDisplayed()) {
+			await this.TestWitness.clear();
+			await this.TestWitness.sendKeys("Ellie Taylor");
+		}
+		await utility.wait(utility.very_low);
+		if (await this.standingPressure.isDisplayed()) {
+			await this.standingPressure.clear();
+			await this.standingPressure.sendKeys("1.1");
+		}
+		await utility.wait(utility.Avg_low);
+		if (await this.cappostinstallationpressure.isDisplayed()) {
+			await this.cappostinstallationpressure.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.workingPressure.isDisplayed()) {
+			await this.workingPressure.clear();
+			await this.workingPressure.sendKeys("1.5");
+		}
+		await utility.wait(utility.Avg_low);
+		if (await this.captureworkingPressure.isDisplayed()) {
+			await this.captureworkingPressure.click();
+		}
+		await utility.wait(utility.Avg_low);
+		if (await this.captureFinalMeterInstall1.isDisplayed()) {
+			await this.captureFinalMeterInstall1.click();
+		}
+		await utility.wait(utility.Avg_low);
+		if (await this.PostinstallNext1.isDisplayed()) {
+			await this.PostinstallNext1.click();
+		}
+	}
 }
-
-

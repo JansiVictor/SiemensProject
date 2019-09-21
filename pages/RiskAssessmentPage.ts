@@ -336,21 +336,21 @@ export class RiskAssessmentPageObject {
             await this.callEGPYES.click();
         }
         if (this.inputEGPRef.isDisplayed()) {
-            await utility.wait(2000);
+            await utility.wait(utility.Avg_low);
             await this.inputEGPRef.clear();
             await this.inputEGPRef.sendKeys('123456');
         }
         if (this.reportToHS.isDisplayed()) {
-            await utility.wait(2000);
+            await utility.wait(utility.Avg_low);
             await this.reportToHS.click();
         }
         if (this.airLineRefInput.isDisplayed()) {
-            await utility.wait(2000);
+            await utility.wait(utility.Avg_low);
             await this.airLineRefInput.clear();
             await this.airLineRefInput.sendKeys('5678910');
         }
         if (this.OKtoProceedEGPOutcome.isDisplayed()) {
-            await utility.wait(2000);
+            await utility.wait(utility.Avg_low);
             await this.OKtoProceedEGPOutcome.click();
             await utility.wait(utility.medium_low);
         }
@@ -366,7 +366,7 @@ export class RiskAssessmentPageObject {
 
 		//ale.accept();
 
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
             await this.infoOKButton.click();
 
             await utility.wait(utility.medium_low);
@@ -435,7 +435,7 @@ export class RiskAssessmentPageObject {
     }
 
     public async fillthedtlsGas() {
-        await utility.wait(2000);
+        await utility.wait(utility.Avg_low);
         if (await this.capmeterressureText.isDisplayed()) {
             await this.meterPressureLow.click();
         }
@@ -451,12 +451,12 @@ export class RiskAssessmentPageObject {
         if (await this.ecvCheckText.isDisplayed()) {
             await this.ECVChecksBtnYES.click();
         }
-        await utility.wait(2000);
+        await utility.wait(utility.Avg_low);
         browser.sleep(1000);
         if (await this.workSafetyYES.isDisplayed()) {
             await this.workSafetyYES.click();
         }
-        await utility.wait(2000);
+        await utility.wait(utility.Avg_low);
         if (await this.capmeterressureText.isDisplayed()) {
             await this.meterPressureLow.click();
         }

@@ -307,7 +307,7 @@ export class AppointmentListPageObject {
 	}
 
 	public async appointmentConfirmationYes() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		await expect(await this.appointmentConfirmation.getText()).equal("Appointment Confirm?");
 		this.appointmentconfirmationYes.click();
 	}
@@ -349,7 +349,8 @@ export class AppointmentListPageObject {
 		await utility.wait(utility.very_low);
 		await expect(this.mprnOK.isPresent());
 		await this.mprnOK.click();
-		await utility.wait(utility.low);
+		await utility.wait(utility.medium);
+
 		await expect(this.arriveBtn.isPresent());
 	}
 
