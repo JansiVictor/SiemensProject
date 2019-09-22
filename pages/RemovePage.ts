@@ -240,7 +240,7 @@ export class RemovePageObject {
 	public carryoutWorkNo: ElementFinder;
 	public removePPMIDOK:ElementFinder;
 	
-	public confirmelecmeterOnsupply: ElementFinder;
+	public confirmelecmeterOnsupply: ElementFinder; 
 	public carryoutmeterinstallation: ElementFinder;
     public carryoutmeterinstallationY: ElementFinder;
 	public electricMeter: ElementFinder;
@@ -588,7 +588,67 @@ export class RemovePageObject {
 		this.removeNextbutton = element(by.id('btn_Next_rmv'));
 		this.carryoutmeterinstallationN = element(by.xpath('//input[@id="additionalworkfalse"]/following-sibling::span[@class="outer"]'));
         this.dummydiv = element(by.xpath('(//div/h4[text()="Scan Barcode Using Device Hardware Button"])[1]'));
+		//CGP added
+		this.currentMeterDetTRAD = element(by.id('Title_currentMeterDetails'));
+		this.randomClickEX23 = element(by.id('rb_UnReadMet_y'));
+        this.randomClickTRAD = element(by.xpath('//div[@class="checkLabel"]'));
+        this.currentMetDet = element(by.id('Title_CurrMe_Det'));
+        this.nonserealizedAssetDD = element(by.id('Cselect4'));
+		this.nonserealizedAssetInput = element(by.id('Cbar3'));
 		
+
+
+        //CGP TRAD changes Master Branch Update 22/09
+		this.smet2ihdppidN = element(by.xpath('//label[@id="currentIhdPpmid_assetOnSite_n"]'));
+		this.existelecmeterDtlY = element(by.id('rb_ExMetDetCorrt_y'));
+		this.meterReadingLabelTRAD = element(by.xpath('//input[@id="reg0"]'));
+		this.confirmElecMeterOnsupply = element(by.xpath('//input[@id="confirmelecsupplytrue"]/following-sibling::span[@class="outer"]'));
+        this.SMET2AssetInstalledN = element(by.xpath('//input[@id="smets2Installedfalse"]/following-sibling::span[@class="outer"]'));
+        this.exchangeAssetY = element(by.xpath('//input[@id="exchangeassettrue"]/following-sibling::span[@class="outer"]'));
+        this.equipmentRepositionRequired = element(by.id('repositionSelect'));
+        this.SMETSOffered = element(by.xpath('//input[@id="smets2offeredtrue"]/following-sibling::span[@class="outer"]'));
+        this.elecMeterRadio = element(by.xpath('//input[@id="elecmexdfa"]/following-sibling::span[@class="cr"]'));
+        this.gasMeterRadio = element(by.xpath('//input[@id="gasmexdfa"]/following-sibling::span[@class="cr"]'));
+        this.regulatorRadio = element(by.xpath('//input[@id="regexdfa"]/following-sibling::span[@class="cr"]'));
+        this.nextSecRem = element(by.id('btnNextEff'));
+        this.msgToDCCY = element(by.xpath('//input[@id="comms2MessageReqtrue"]/following-sibling::span[@class="outer"]'));
+        this.currentMeterDetTRAD = element(by.id('Title_currentMeterDetails'));
+		this.randomClickEX23 = element(by.id('rb_UnReadMet_y'));
+        this.removeMeter = element(by.xpath('//div/h4[text()="Remove Meter"]'));
+        this.assetRemovalElec = element(by.xpath('//input[@id ="CCHradio5"]/following-sibling::span[@class="outer"]'));
+        this.statusofAssetElec = element(by.xpath('//select[@id="cbx_StaAss_sel"]'));
+        this.elecRemoveNextSec = element(by.id('btn_Next_rmv'));
+        this.confirmElecAssetRemoval = element(by.xpath('//div/h4[text()="Confirm Electric Asset Removal"]'));
+        this.elecAssetRemoval = element(by.xpath('//select[@id="cbx_RAss_Status"]'));
+        this.elecAssetRemovalY = element(by.xpath('//*[@id="rb_CAssRem_y"]'));
+        this.elecAssetRemovalPopup = element(by.xpath('//*[text()="OK"]'));
+        this.commshubReqY = element(by.xpath('//*[@id="chubInstall_newChubRequired_y"]/span[@class="outer"]'));
+        this.commsHubConnectedYes = element(by.id('Cradionm1'));
+        this.commissioningNxtBtn = element(by.id('CbtnNextComm'));    
+		this.existelecmeterDtlY = element(by.id('rb_ExMetDetCorrt_y'));
+		
+		//To Be added to Master 22/09
+		// cgp added
+
+        this.existelecmeterDtlY = element(by.id('rb_ExMetDetCorrt_y'));
+
+        // CGP added
+
+        this.currentMeterDetTRAD = element(by.id('Title_currentMeterDetails'));
+        this.randomClick1 = element(by.xpath('(//div[@class="checkLabel"])[1]'));
+        this.randomClick2 =  element(by.xpath('(//div[@class="checkLabel"])[2]'));
+        this.currentMeterDetTRAD = element(by.id('Title_currentMeterDetails'));
+        this.randomClickEX23 = element(by.id('rb_UnReadMet_y'));
+        this.randomClickTRAD = element(by.xpath('//div[@class="checkLabel"]'));
+        this.currentMetDet = element(by.id('Title_CurrMe_Det'));
+        this.nonserealizedAssetDD = element(by.id('Cselect4'));
+        this.nonserealizedAssetInput = element(by.id('Cbar3'));
+
+        //CGP TRAD changes
+
+        this.smet2ihdppidN = element(by.xpath('//label[@id="currentIhdPpmid_assetOnSite_n"]'));
+
+
         
 	}
 
