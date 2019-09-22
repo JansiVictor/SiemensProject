@@ -413,6 +413,20 @@ export class RemovePageObject {
 		this.determinefaultActivityTitle = element(by.xpath('//*[contains(text(),"Determine Fault Activity")]'));
 		//#endregion
 
+		/*****Resolved Conflicts */
+		//#region Tst13 -Flty 20
+
+        this.smet2ihdppidN = element(by.xpath('//*[@id="currentIhdPpmid_assetOnSite_n"]/span[@class="outer"]'));
+        this.currentEleccap = element(by.xpath('//div[@id="Title_currentMeterDetails"]'));
+        this.smets2assetInstN = element(by.xpath('//input[@id="smets2Installedfalse"]/following-sibling::span[@class="outer"]'));
+
+        this.Equipmentreposel = element(by.xpath('//select[@id="repositionSelect"]'));
+        this.Equipmentreposition = element(by.xpath('(//select[@id="repositionSelect"])'));
+        this.smets2Declined = element(by.xpath('//input[@id="smets2offeredfalse"]/following-sibling::span[@class="outer"]'));
+
+        this.RemoveElecAssetrplacedorremoved1 = element(by.xpath('(//*[@id="CCHradio5"])/following-sibling::span[@class="outer"]'));
+        //#endregion
+
 		//#region Determine Faulty Activity
 		this.confirmgasmeterText = element(by.xpath('//*[contains(text(),"Confirm if Gas meter is On Supply or Off Supply")]'));
 		this.confirmgasmeterOnsupply = element(by.xpath('//input[@id="confirmgassupplytrue"]/following-sibling::span[@class="outer"]'));
@@ -557,6 +571,7 @@ export class RemovePageObject {
 		this.Confirmcommhubassetremove = element(by.xpath('//*[@id="removeChubAsset_confirmAssetRemoved"]/following-sibling::span[@class="outer"]'));
 		this.ConfirmCommsHubRemovalPopup = element(by.xpath('//*[text()="OK"]'));
 		this.ConfirmCommsHubNxtBtnRmv = element(by.xpath('(//button[@id="btn1"])'));
+		//****Resolved Conflicts */
 		this.ConfirmCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])[2]'));
 		this.finalphotocommshubEvidence = element(by.id('removeChubAsset_photoButton'));
 		this.XCHUBRemovalsuccessfulBtn = element(by.id('xchub_nextButton'));
@@ -1590,11 +1605,16 @@ public async fillElectricAssetRemovalSection(){
 		if (await this.ConfirmCommsHubRemovalPopup.isDisplayed()) {
 			await this.ConfirmCommsHubRemovalPopup.click();
 		}
+
 /**Conflict changes */
+
+	/****Resolve Conflicts */
+
 		// await utility.wait(utility.very_low);
 		// if (await this.finalphotocommshubEvidence.isDisplayed()) {
 		// 	await this.finalphotocommshubEvidence.click();
 		// }
+
 /** Conflicts changes not required */
 	}
 
@@ -1607,6 +1627,8 @@ public async fillElectricAssetRemovalSection(){
 		if (await this.finalphotocommshubEvidence.isDisplayed()) {
 			await this.finalphotocommshubEvidence.click();
 		}
+
+	/****Resolve Conflicts */
 	}
 
 	public async clickonokcaptureFinalPhotoEvidence() {
@@ -1700,8 +1722,9 @@ public async fillElectricAssetRemovalSection(){
 		if (await this.removedmeterReading.isDisplayed()) {
 			await this.removedmeterReading.clear();
 			await this.removedmeterReading.sendKeys('12345');
-			await this.removemeterText.click();
-			await this.unabletoReadGasYes.click();
+		/****Resolving Conflicts */	
+			// await this.removemeterText.click();
+			// await this.unabletoReadGasYes.click();
 		}
 	}
 
@@ -1779,8 +1802,10 @@ public async fillElectricAssetRemovalSection(){
 
 			await this.meterReadingduelen.click();
 		}
-        await utility.wait(utility.very_low);
-			await this.rmvihdppmidNxtBtn.click();
+/****Resolve Conflicts */		
+      //  await utility.wait(utility.very_low);
+	  //		await this.rmvihdppmidNxtBtn.click();
+/****Resolve Conflicts */
 		
     }
    

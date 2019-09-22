@@ -310,7 +310,19 @@ export class JobCompletionPageObject {
 		this.gasMeterPairedYes = element(by.id('rb_GasElecMPairSuc_y'));
 		this.nextButtonWAN = element(by.id('btnNextEff'));
 		this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobNCG3")]'));
-    	this.energyEfficiencyTxt = element(by.xpath('//div/h4[text()="Energy Efficiency Information"]'));
+		this.energyEfficiencyTxt = element(by.xpath('//div/h4[text()="Energy Efficiency Information"]'));
+		
+		//Master Update
+
+		this.smartLtionsiteN = element(by.xpath('//*[@id="radiose4"]/span[@class="outer"]'));
+        this.custaddnlhelpinfoN = element(by.xpath('//*[@id="smicopAddInfoCheckboxNo"]/span[@class="outer"]'));
+		this.IsCDemoofequipmentcompN = element(by.xpath('//*[@id="radiose8"]/span[@class="outer"]'));
+		this.TST01jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 20 SMETS2")]'));
+		this.TST12jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 18 SMETS2")]'));
+		this.TST13jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedFAULTY 20 Non S2")]'));
+		this.TST15jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedFAULTY 18 Non S2")]'));
+		this.TST22jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobEXCHANGE 24")]'));
+		this.TST28jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobRMVE7 ")]'));
 	}
 
 	public async sendPPMIDmessageSection(){
@@ -389,8 +401,6 @@ export class JobCompletionPageObject {
 	}
 
    
-    
-
     //TST13 FLTY20
 
     public async Tst13fillfield55duelsmartedu() {
