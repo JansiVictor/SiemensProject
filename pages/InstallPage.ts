@@ -274,9 +274,15 @@ export class InstallPageObject {
 	public selectValidAssettoInstTRAD: ElementFinder;
     //CGP for INst16
 	public regulatorTxt:ElementFinder;
- // CGP added for EX23
+ // CGP added for EX23 // added 22/09
 
  public newCommsHubReqN: ElementFinder;
+
+//CGP added for Master
+     public EUIenableOKTRAD1: ElementFinder;
+
+
+ 
 	constructor() {
 
 			//#region TST22
@@ -566,6 +572,10 @@ export class InstallPageObject {
 		  this.PPMIDinstallDDList = element(by.xpath('(//select[@id="ihdscan2_assetSelect"]/option)[2]'));
 		  this.randomEUDevicePPMID = element(by.xpath('//div[text()="EUI Device ID:"]'));
   
+		  //CGP added for MASter 22/09
+		  this.EUIenableOKTRAD1 = element(by.xpath('(//*[contains(text(),"EUI Device ID:")])[2]'));
+
+		  
 	  
 	}
 
@@ -2471,8 +2481,8 @@ public async Tst15fillthefieldsforperformpostinst() {
 			await this.SerialNoText.sendKeys(options);
 		}
 		await utility.wait(utility.Avg_low);
-		if (await this.EUIenableOKTRAD.isDisplayed()) {
-			await this.EUIenableOKTRAD.click();
+		if (await this.EUIenableOKTRAD1.isDisplayed()) {
+			await this.EUIenableOKTRAD1.click();
 		}
 		await utility.wait(utility.Avg_low);
 		if (await this.AssetsuccessOKclk.isDisplayed()) {

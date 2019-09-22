@@ -186,6 +186,10 @@ export class GASPageObject {
 	 public gtResolveIssueYES: ElementFinder;
 	 public polNxtBtnGasMeter:ElementFinder;
 
+	 //CGP added for Master Branch
+
+	 public selectNewMeterGasOptnIn16: ElementFinder;
+
 
 
 	constructor() {
@@ -319,7 +323,11 @@ export class GASPageObject {
 		this.workingpressure = element(by.id('gaspostworkingpressure'));
 		this.wpCapture = element(by.xpath('(//div[@id="btn_CapStPr"])[2]'));
 		this.finalMeterCapture = element(by.xpath('//button[@id="btn2"]'));
-		this.polNxtBtn = element(by.xpath('(//div/button[@id="btnNextPol"])'));
+		/***************Reverting to CGP changes */
+		//this.polNxtBtn = element(by.xpath('(//div/button[@id="btnNextPol"])'));
+		this.polNxtBtn = element(by.xpath('(//div/button[@id="btnNextPol"])[2]'));
+
+		/************************* End of change**************8 */
 		this.polNxtBtnGasMeter = element(by.xpath('(//div/button[@id="btnNextPol"])[2]'));
 		this.gicomSendMessage = element(by.id('gicom_sendMessageButton'));
 		this.successfulBtn = element(by.id('gicom_nextButton'));
@@ -366,7 +374,13 @@ export class GASPageObject {
         this.gtResolveIssueYES = element(by.xpath('//input[@id="gtp9"]/following-sibling::span[@class="outer"]'));
         this.GAStightnessTestYes = element(by.xpath('//input[@id="gtp11"]/following-sibling::span[@class="outer"]'));
         this.replacedGasMeterYes = element(by.xpath('//input[@id="gtp13"]/following-sibling::span[@class="outer"]'));
-    }
+   
+		//CGP added for Master Branch
+
+		this.selectNewMeterGasOptnIn16 = element(by.xpath('(//select[@id="newMeter_assetSelect"]/option)[2]'));
+	
+	
+	}
 
 
 	public async riskAssessmentGASDisplayed() {
@@ -1126,8 +1140,9 @@ public async fillNewMeterDetailsGASInst16(index:number) {
         await this.newMeterDD.element(by.css("option:nth-child("+index+")")).click()
         await utility.wait(3000);
         //await this.commshubPopup.click();        
-        await expect(await this.inputMeterSerialNum.isPresent());
-        var options=this.selectNewMeterGasOptn.getAttribute('value');
+        await expect(await this.inputMeterSerialNum.isDisplayed());
+		var options=this.selectNewMeterGasOptnIn16.getAttribute('value');
+		await utility.wait(3000);
         await this.inputMeterSerialNum.sendKeys(options);
     await this.randomEUDevice.click();
     let ale: Alert = browser.switchTo().alert();
@@ -1160,7 +1175,8 @@ public async fillNewMeterDetailsGASInst16(index:number) {
 public async fillPostInstallationGasDetailsInst16() {
     //cgp adding
     await utility.wait(3000);
-    await this.contactGTYES.click();    
+	await this.contactGTYES.click();   
+	await utility.wait(1000); 
     await this.nationalGTRefInput.sendKeys('1');
     await utility.wait(utility.low);
     await this.reportedIncidentYES.click();

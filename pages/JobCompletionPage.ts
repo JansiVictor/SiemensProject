@@ -306,6 +306,13 @@ export class JobCompletionPageObject {
 		this.nextButtonWAN = element(by.id('btnNextEff'));
 		this.jobcompletion = element(by.xpath('//*[starts-with(@id,"CompletedJobNCG3")]'));
     	this.energyEfficiencyTxt = element(by.xpath('//div/h4[text()="Energy Efficiency Information"]'));
+	
+	  //CGP install 16 Changes Added to Master 22/09
+	  
+	  this.configAllMeterTextin16 = element(by.xpath('//div/h4[text()="Configure All Meters Installed (Includes Gas & Elec)"]'));    
+	  
+	
+	
 	}
 
 	public async sendPPMIDmessageSection(){
