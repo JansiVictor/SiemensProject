@@ -64,7 +64,6 @@ export class HomePageObject {
 	public Installation16: ElementArrayFinder;
 	public Installaton16completedLink: ElementArrayFinder;
 
-	
 	public DFFLTY20NonSMETS2SelectLink: ElementArrayFinder;
 	public SFGasFLTY18NonSMETS2SelectLink: ElementArrayFinder;
 	public DFFLTY20SMETS2SelectLink: ElementArrayFinder;
@@ -106,7 +105,7 @@ export class HomePageObject {
 		this.SFGASINST14 = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest1 INST14 DF SMETS")]'));
 		this.DF17SmartCreditselectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobNMEX17")]'));
 		this.SFEFLTY19selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobFAULTY 19 SMETS2")]'));
-		this.SFEFLTY19TRADselectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobFAULTY 19 Non S2")]'));
+		this.SFEFLTY19TRADselectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobCGP FAULTY 19 Non S2")]'));
 		this.SFEINST15selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobINST15")]'));
 		this.SFENMEX16selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobNMEX16")]'));
 		this.SFGFLTY18TRADselectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobFAULTY 18")]'));
@@ -144,6 +143,16 @@ export class HomePageObject {
 		this.password = element(by.id("input2"));
 		this.loginbtn = element(by.id("submitbutton"));
 		this.arriveBtn = element(by.id('btn_arrive'));
+
+		//CGP added for Master
+		this.Installation16 = element.all(by.xpath('//*[starts-with(@id,"SelectJobINST16 DF SMETS")]'));
+		this.Installaton16completedLink = element.all(by.xpath('//*[starts-with(@id,"CompletedJobINST16")]'));
+		
+		//CGP added for SFElecEXCH23
+
+		this.SFElecEXCH23Select = element.all(by.xpath('//*[starts-with(@id,"SelectJobEXCHANGE 23")]'));
+		this.SFElecEXCH23Completed = element.all(by.xpath('//*[starts-with(@id,"CompletedJobINST16")]'));
+
 
 
 	}
@@ -259,7 +268,7 @@ export class HomePageObject {
 				console.log('Fieldname:', selectLinkName);
 				break;
 			case ('SFEFLTY19TRAD'):
-				this.clickOnTheSelectLink(this.SFEFLTY19TRADselectLink,'SelectJobFAULTY 19 Non S2');
+				this.clickOnTheSelectLink(this.SFEFLTY19TRADselectLink,'SelectJobCGP FAULTY 19 Non S2');
 				console.log('Fieldname:', selectLinkName);
 				break;
 			case ('SFEINST15'):

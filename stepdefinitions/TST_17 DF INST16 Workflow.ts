@@ -625,4 +625,5 @@ Then('see Job Completed screen for INST16', async function () {
   //await job.JobCompletedScreen();
 
   await home.verifyCompletedStatus('DFINST16');
+
 });

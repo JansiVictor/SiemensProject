@@ -200,3 +200,4 @@ Scenario: Going through "INITIAL RISK ASSESSMENT GAS section for INST16"
 		When I write signature in Customer Signature for INST16
 		And I fill the field57 and Job Complete for INST16
 		Then see Job Completed screen for INST16
+

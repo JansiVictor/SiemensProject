@@ -57,9 +57,7 @@ Given('the Appointment List window for EXCH23', async function () {
 When('I click on select button for EXCH23', async function () {
 
   await utility.wait(2000);
-  //await home.continueLink.click();
-  await home.selectLink.click();
-  //await home.clickOnTheSelectLink();
+  await home.clickCorrectSelectLink('SFElecEXCH23');
   await utility.wait(5000);
 
 });
@@ -103,9 +101,7 @@ Given('the {string} page for EXCH23', async function (string) {
 });
 
 
-When('I fill the fields with the value for EXCH23', async function () {
-
-  // await applist.clickOnCallForwardBtn();
+When('I fill the fields with the value for EXCH23', async function () {  
   await applist.clickOnContactMadeOtion();
   await applist.appointmentConfirmationYes();
   await applist.additionalDetails();
@@ -212,25 +208,6 @@ When('I fill the initialRisk field with the values for EXCH23', async function (
 Then('I should see INFO window for EXCH23', async function () {
   await riskassess.infoTextPopUp();
 });
-
-// Given('the INFO window with the text for EXCH23', async function () {
-//   await riskassess.infoOKButton.isDisplayed();
-//   await riskassess.infoOKButton.click();
-//   await utility.wait(10000);
-//   if (riskassess.NeedtoWorkYES.isDisplayed()) {
-
-//     var element = riskassess.NeedtoWorkYES;
-
-//     browser.executeScript("arguments[0].click()", element);
-
-//     await utility.wait(5000);
-
-//   }
-
-// });
-// Then('I should see RISK ASSESSMENT ELEC section for EXCH23', async function () {
-//   await riskassess.verifyriskElecText();
-// });
 
 Given('the RISK ASSESSMENT - ELEC section for EXCH23', async function () {
   await riskassess.verifyriskElecText();
@@ -905,5 +882,5 @@ await job.DeviceBinding();
   });
   
   Then('see Job Completed screen for EXCH23', async function () {
-      await job.JobCompletedScreen();  
+    await home.verifyCompletedStatus('SFElecEXCH23');
   });
