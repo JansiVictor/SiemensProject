@@ -9,7 +9,6 @@ import { config } from "../config/config";
 import { Utility } from "../support/utility";
 import { when } from "q";
 import { InstallPageObject } from "../pages/InstallPage";
-import { RemoveTRADPageObject } from "../pages/RemoveTRAD";
 import { ElectricPageObject } from "../pages/ElectricPage";
 import { GASPageObject } from "../pages/GASPage";
 import { JobCompletionPageObject } from "../pages/JobCompletionPage";
