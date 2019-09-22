@@ -7,7 +7,8 @@ import {
     by,
     ElementFinder,
     ElementArrayFinder,
-    browser
+	browser,
+	ExpectedConditions
 } from "protractor";
 const {
     Given,
@@ -306,12 +307,50 @@ export class RemovePageObject {
     public existelecmeterDtlY: ElementFinder;
     public confirmElecMeterOnsupply: ElementFinder;
      
-    public elecMeterRadio: ElementFinder;
+	public elecMeterRadio: ElementFinder;
+	private unableToReadMeterTrueRadioBtn: ElementFinder;
+	private unabeToReadMeterTrueRadioBtn2: ElementFinder;
+	private meterReadingElectricTextfield: ElementFinder;
+	private areSMETS2AssetInstalledFalseRadioOption: ElementFinder;
+	private smet2IHDPPIdFalse: ElementFinder;
+	private doYouNeedToExchangeAnAssetFalseRadioOption: ElementFinder;
+	private doYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption: ElementFinder;
+	private captureMeterReadingText: ElementFinder;
+	private confirmgasmeterOnsupply1: ElementFinder;
+	private confirmgasmeterOnsupply2: ElementFinder;
+	private determineFaultActivityNextBtn: ElementFinder;
+	private capturePhotoOfUGaugeAttachedToGasMeterBtn: ElementFinder;
+	private preInstallationGasTightnessTestSubmitBtn: ElementFinder;
+	public ConfirmCommsHubNxtBtnRmv:ElementFinder;
+	public ConfirmElecCommsHubSubmit:ElementFinder;
    
 
 	
 
 	constructor() {
+
+//Master updates
+		this.ConfirmCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])'));
+        this.randomClick2 =  element(by.xpath('(//div[@class="checkLabel"])[2]'));
+        this.randomClickTRAD = element(by.xpath('//div[@class="checkLabel"]'));
+        this.currentMetDet = element(by.id('Title_CurrMe_Det'));
+        this.nonserealizedAssetDD = element(by.id('Cselect4'));
+        this.nonserealizedAssetInput = element(by.id('Cbar3'));
+//Master updates
+		this.unableToReadMeterTrueRadioBtn = element(by.xpath("//div[contains(@class,'radioInput ng-scope')]/div[2]"));
+		this.unabeToReadMeterTrueRadioBtn2 = element(by.xpath("//reading[@name='currentmeter']//label[text()='YES']"));
+		this.meterReadingElectricTextfield = element(by.xpath("//reading[@name='currentmeter']//input[@id='reg0']"));
+		this.areSMETS2AssetInstalledFalseRadioOption = element(by.xpath("//radiobutton[@id='smets2Installed']//label[text()='NO']"));
+		this.smet2IHDPPIdFalse = element(by.xpath("//label[@id='currentIhdPpmid_assetOnSite_n']"));
+		this.doYouNeedToExchangeAnAssetFalseRadioOption = element(by.xpath("//radiobutton[@id='exchangeasset']//label[text()='NO']"));
+		this.doYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption = element(by.xpath("//radiobutton[@id='additionalwork']//label[text()='YES']"));
+		this.captureMeterReadingText = element(by.xpath('//*[contains(text(),"Capture Meter Reading - Register")]'));
+		this.confirmgasmeterOnsupply1 = element(by.xpath("//radiobutton[@id='confirmelecsupply']//label[text()='On Supply']"));
+		this.confirmgasmeterOnsupply2 = element(by.xpath("//radiobutton[@id='confirmgassupply']//label[text()='On Supply']"));
+		this.determineFaultActivityNextBtn = element(by.xpath("//button[@id='btnNextComm']"));
+		this.capturePhotoOfUGaugeAttachedToGasMeterBtn = element(by.xpath("//button[contains(text(),'CAPTURE PHOTO OF U-GAUGE ATTACHED TO GAS METER, SH')]"));
+		this.preInstallationGasTightnessTestSubmitBtn = element(by.xpath("//button[contains(text(),'SUBMIT')]"));
+		
 		this.remvSuccessfulERemove = element(by.xpath('(//div/button[contains(text(),"Removal Successful")])[3]'));
 		this.remvSuccessfulFInal = element(by.xpath('(//div/button[contains(text(),"Removal Successful")])[3]'));
 		this.remvSuccessful = element(by.xpath('//*[@id="xchub_nextButton"]'));
@@ -517,10 +556,47 @@ export class RemovePageObject {
 		this.ConfirmCommsHubRemovalSelect = element(by.xpath('//select[@id="removeChubAsset_assetStatusSelect"]'));
 		this.Confirmcommhubassetremove = element(by.xpath('//*[@id="removeChubAsset_confirmAssetRemoved"]/following-sibling::span[@class="outer"]'));
 		this.ConfirmCommsHubRemovalPopup = element(by.xpath('//*[text()="OK"]'));
-		this.ConfirmCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])'));
+		this.ConfirmCommsHubNxtBtnRmv = element(by.xpath('(//button[@id="btn1"])'));
+		this.ConfirmCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])[2]'));
 		this.finalphotocommshubEvidence = element(by.id('removeChubAsset_photoButton'));
 		this.XCHUBRemovalsuccessfulBtn = element(by.id('xchub_nextButton'));
 		//#endregion
+
+		
+
+        //CGP TRAD changes Master Branch Update 22/09
+		this.smet2ihdppidN = element(by.xpath('//label[@id="currentIhdPpmid_assetOnSite_n"]'));
+		this.existelecmeterDtlY = element(by.id('rb_ExMetDetCorrt_y'));
+		this.meterReadingLabelTRAD = element(by.xpath('//input[@id="reg0"]'));
+		this.confirmElecMeterOnsupply = element(by.xpath('//input[@id="confirmelecsupplytrue"]/following-sibling::span[@class="outer"]'));
+        this.SMET2AssetInstalledN = element(by.xpath('//input[@id="smets2Installedfalse"]/following-sibling::span[@class="outer"]'));
+        this.exchangeAssetY = element(by.xpath('//input[@id="exchangeassettrue"]/following-sibling::span[@class="outer"]'));
+        this.equipmentRepositionRequired = element(by.id('repositionSelect'));
+        this.SMETSOffered = element(by.xpath('//input[@id="smets2offeredtrue"]/following-sibling::span[@class="outer"]'));
+        this.elecMeterRadio = element(by.xpath('//input[@id="elecmexdfa"]/following-sibling::span[@class="cr"]'));
+        this.gasMeterRadio = element(by.xpath('//input[@id="gasmexdfa"]/following-sibling::span[@class="cr"]'));
+        this.regulatorRadio = element(by.xpath('//input[@id="regexdfa"]/following-sibling::span[@class="cr"]'));
+        this.nextSecRem = element(by.id('btnNextEff'));
+        this.msgToDCCY = element(by.xpath('//input[@id="comms2MessageReqtrue"]/following-sibling::span[@class="outer"]'));
+        this.currentMeterDetTRAD = element(by.id('Title_currentMeterDetails'));
+		this.randomClickEX23 = element(by.id('rb_UnReadMet_y'));
+        this.removeMeter = element(by.xpath('//div/h4[text()="Remove Meter"]'));
+        this.assetRemovalElec = element(by.xpath('//input[@id ="CCHradio5"]/following-sibling::span[@class="outer"]'));
+        this.statusofAssetElec = element(by.xpath('//select[@id="cbx_StaAss_sel"]'));
+        this.elecRemoveNextSec = element(by.id('btn_Next_rmv'));
+        this.confirmElecAssetRemoval = element(by.xpath('//div/h4[text()="Confirm Electric Asset Removal"]'));
+        this.elecAssetRemoval = element(by.xpath('//select[@id="cbx_RAss_Status"]'));
+        this.elecAssetRemovalY = element(by.xpath('//*[@id="rb_CAssRem_y"]'));
+        this.elecAssetRemovalPopup = element(by.xpath('//*[text()="OK"]'));
+        this.commshubReqY = element(by.xpath('//*[@id="chubInstall_newChubRequired_y"]/span[@class="outer"]'));
+        this.commsHubConnectedYes = element(by.id('Cradionm1'));
+        this.commissioningNxtBtn = element(by.id('CbtnNextComm'));    
+		this.existelecmeterDtlY = element(by.id('rb_ExMetDetCorrt_y'));
+		
+		//To Be added to Master 22/09
+		// cgp added
+
+        this.existelecmeterDtlY = element(by.id('rb_ExMetDetCorrt_y'));
 
 		//#region Elec fields
 		this.existingelecmeterdtls = element(by.xpath('//*[@id="rb_ExMetDetCorrt_y"]/span[@class="outer"]'));
@@ -546,7 +622,8 @@ export class RemovePageObject {
 		this.ElecAssetRemoval = element(by.xpath('//select[@id="cbx_RAss_Status"]'));
 		this.ElecAssetRemovalY = element(by.xpath('//*[@id="rb_CAssRem_y"]/span[@class="outer"]'));
 		this.ElecAssetRemovalPopup = element(by.xpath('//*[text()="OK"]'));
-		this.ConfirmElecCommsHubNxtBtn = element(by.xpath('(//button[text()="SUBMIT"])'));
+		this.ConfirmElecCommsHubNxtBtn = element(by.xpath('(//button[text()="btn1"])'));
+		this.ConfirmElecCommsHubSubmit = element(by.xpath('(//button[text()="SUBMIT"])'));
 		this.SendElMREMBtnCap = element(by.xpath('//*[@id="Title_emrem"]'));
 		this.SendElMREMBtn = element(by.xpath('//*[@id="emrem_sendMessageButton"]'));
 
@@ -1513,6 +1590,19 @@ public async fillElectricAssetRemovalSection(){
 		if (await this.ConfirmCommsHubRemovalPopup.isDisplayed()) {
 			await this.ConfirmCommsHubRemovalPopup.click();
 		}
+/**Conflict changes */
+		// await utility.wait(utility.very_low);
+		// if (await this.finalphotocommshubEvidence.isDisplayed()) {
+		// 	await this.finalphotocommshubEvidence.click();
+		// }
+/** Conflicts changes not required */
+	}
+
+	public async clickonokconfrimremovalpopupRemove() {
+		await utility.wait(utility.very_low);
+		if (await this.ConfirmCommsHubRemovalPopup.isDisplayed()) {
+			await this.ConfirmCommsHubRemovalPopup.click();
+		}
 		await utility.wait(utility.very_low);
 		if (await this.finalphotocommshubEvidence.isDisplayed()) {
 			await this.finalphotocommshubEvidence.click();
@@ -1538,6 +1628,12 @@ public async fillElectricAssetRemovalSection(){
 		await utility.wait(utility.very_low);
 		if (await this.ConfirmCommsHubNxtBtn.isDisplayed()) {
 			await this.ConfirmCommsHubNxtBtn.click();
+		}
+	}
+	public async clickonsubmitforRemovalGrmv() {
+		await utility.wait(utility.very_low);
+		if (await this.ConfirmCommsHubNxtBtnRmv.isDisplayed()) {
+			await this.ConfirmCommsHubNxtBtnRmv.click();
 		}
 	}
 
@@ -1685,6 +1781,21 @@ public async fillElectricAssetRemovalSection(){
 		}
         await utility.wait(utility.very_low);
 			await this.rmvihdppmidNxtBtn.click();
+		
+    }
+   
+	public async fillcurrentElecduelmeterNoex() {
+		await utility.wait(utility.very_low);
+		if (await this.existingelecmeterdtls.isDisplayed()) {
+			await this.existingelecmeterdtls.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.meterReadingduel.isDisplayed()) {
+			await this.meterReadingduel.clear();
+			await this.meterReadingduel.sendKeys("12345");
+
+			await this.meterReadingduelen.click();
+		}
 		
     }
    
@@ -2459,15 +2570,29 @@ public async clickonokElecAssetRemovalEX23() {
 
 }
 
-public async clickonElecsubmitforRemoval() {
+public async clickonElecsubmitfor() {
 
-    await utility.wait(1000);
+ 
+	await utility.wait(utility.very_low);
+	
+	 
+	if (await this.ConfirmElecCommsHubSubmit.isDisplayed()) {
+	
+	 
+	await this.ConfirmElecCommsHubSubmit.click();
+	
+	 
+	}
+	
+	 
+	}
+	public async clickonElecsubmitforRemoval() {
 
-    if (await this.ConfirmElecCommsHubNxtBtn.isDisplayed()) {
-
-        await this.ConfirmElecCommsHubNxtBtn.click();
-
-    }
+	await utility.wait(utility.very_low);
+	if (await this.ConfirmElecCommsHubNxtBtn.isDisplayed()) {
+	await this.ConfirmElecCommsHubNxtBtn.click();
+ 
+	}
 
 }
 
@@ -2652,6 +2777,112 @@ public async fill23GasmeterRemovalTC4() {
     //     await this.removedmeterReading.clear();
     //     //await this.removedmeterReading.sendKeys('1234');
     // }
+}
+
+public async capturePhotoOfUGaugeAttachedToGasMeter() {
+	await utility.wait(1000);
+	if (await this.capturePhotoOfUGaugeAttachedToGasMeterBtn.isDisplayed()) {
+		await this.capturePhotoOfUGaugeAttachedToGasMeterBtn.click();
+	}
+}
+
+public async clickOnPreInstallationGasTightnessTestSubmitBtn() {
+	if (this.preInstallationGasTightnessTestSubmitBtn.isDisplayed()) {
+		this.preInstallationGasTightnessTestSubmitBtn.click();
+	}
+	await utility.wait(4000);
+}
+
+public async populateIHDPPMIDDetailsOnSiteFalse() {
+	if (this.smet2ihdppidText.isDisplayed()) {
+		var until = ExpectedConditions;
+		browser.wait(until.elementToBeClickable(this.smet2IHDPPIdFalse), 5000);
+		await this.smet2IHDPPIdFalse.click();
+	}
+	await utility.wait(1000);
+	if (this.existgasmeterDtlText.isDisplayed()) {
+		browser.wait(until.elementToBeClickable(this.smet2IHDPPIdFalse), 5000);
+		await this.existgasmeterDtlY.click();
+		await this.meterReadingLabel.clear();
+		await this.meterReadingLabel.sendKeys("1234");
+		browser.wait(until.elementToBeClickable(this.unableToReadMeterTrueRadioBtn), 5000);
+		await this.unableToReadMeterTrueRadioBtn.click();
+	}
+	await utility.wait(1000);
+	if (this.existingelecmeterdtls.isDisplayed()) {
+		await this.existingelecmeterdtls.click();
+		await utility.wait(2000);
+		await this.meterReadingElectricTextfield.clear();
+		await this.meterReadingElectricTextfield.sendKeys("12345");
+		browser.wait(until.elementToBeClickable(this.unabeToReadMeterTrueRadioBtn2), 5000);
+		await this.unabeToReadMeterTrueRadioBtn2.click();
+	}
+}
+
+// public async setConfirmIfElecMeterIsOnSupplyOrOffSupplyTrueRadioOption() {
+// 	if (await this.confirmgasmeterOnsupply1.isDisplayed()) {
+// 		await this.confirmgasmeterOnsupply1.click();
+// 	}
+// }
+
+// public async setConfirmIfGasMeterIsOnSupplyOrOffSupplyTrueRadioOption() {
+// 	if (await this.confirmgasmeterOnsupply2.isDisplayed()) {
+// 		await this.confirmgasmeterOnsupply2.click();
+// 	}
+// 	await utility.wait(1000);
+// }
+
+// public async setAreSMETS2AssetInstalledFalseRadioOption() {
+// 	await utility.wait(1000);
+// 	if (await this.areSMETS2AssetInstalledFalseRadioOption.isDisplayed()) {
+// 		await this.areSMETS2AssetInstalledFalseRadioOption.click();
+// 	}
+// }
+
+// public async setDoYouNeedToExchangeAnAssetFalseRadioOption() {
+// 	await utility.wait(1000);
+// 	if (await this.doYouNeedToExchangeAnAssetFalseRadioOption.isDisplayed()) {
+// 		await this.doYouNeedToExchangeAnAssetFalseRadioOption.click();
+// 	}
+// }
+
+// public async setDoYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption() {
+// 	await utility.wait(1000);
+// 	if (await this.doYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption.isDisplayed()) {
+// 		await this.doYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption.click();
+// 	}
+// }
+
+// public async clickOnNextBtn() {
+// 	if (await this.btnnext.isDisplayed()) {
+// 		await this.btnnext.click();
+// 	}
+// 	await utility.wait(3000);
+// }
+
+public async flty20NoexDefaultActivity() {
+	if (await this.confirmgasmeterOnsupply1.isDisplayed()) {
+		await this.confirmgasmeterOnsupply1.click();
+	}
+	if (await this.confirmgasmeterOnsupply2.isDisplayed()) {
+		await this.confirmgasmeterOnsupply2.click();
+	}
+	await utility.wait(1000);
+	if (await this.areSMETS2AssetInstalledFalseRadioOption.isDisplayed()) {
+		await this.areSMETS2AssetInstalledFalseRadioOption.click();
+	}
+	await utility.wait(1000);
+	if (await this.doYouNeedToExchangeAnAssetFalseRadioOption.isDisplayed()) {
+		await this.doYouNeedToExchangeAnAssetFalseRadioOption.click();
+	}
+	await utility.wait(1000);
+	if (await this.doYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption.isDisplayed()) {
+		await this.doYouNeedToCarryOutWorkOnTheMeterInstallationTrueRadioOption.click();
+	}
+	if (await this.btnnext.isDisplayed()) {
+		await this.btnnext.click();
+	}
+	await utility.wait(3000);
 }
 }
 

@@ -185,10 +185,17 @@ export class GASPageObject {
  
 	 public gtResolveIssueYES: ElementFinder;
 	 public polNxtBtnGasMeter:ElementFinder;
+	private currentGasPhotoFullMeterButton: ElementFinder;
+	 //CGP added for Master Branch
 
+	 public selectNewMeterGasOptnIn16: ElementFinder;
 
 
 	constructor() {
+		//CGP added for Master Branch
+
+		this.selectNewMeterGasOptnIn16 = element(by.xpath('(//select[@id="newMeter_assetSelect"]/option)[2]'));
+        this.currentGasPhotoFullMeterButton = element(by.xpath("//button[@id='gasbtn1']"));
 		this.riskAssessGas = element(by.id('Title_RiskAss_gas'));
 		this.commsHubConnectedYes = element(by.xpath('//input[@id="Cradionm1"]/following-sibling::span[@class="outer"]'));
         
@@ -908,6 +915,8 @@ public async fillCurrentMeterDetails() {
 		await this.wpCapture.click();
 		await this.finalMeterCapture.click();
 		await this.commshubconnectedtoWANYes.click();
+		await utility.wait(utility.low);
+		//changed to polNxtBtnGasMeter nt working chk polNxtBtn element
 		await this.polNxtBtnGasMeter.click();
 	}
 	/***
@@ -1126,8 +1135,9 @@ public async fillNewMeterDetailsGASInst16(index:number) {
         await this.newMeterDD.element(by.css("option:nth-child("+index+")")).click()
         await utility.wait(3000);
         //await this.commshubPopup.click();        
-        await expect(await this.inputMeterSerialNum.isPresent());
-        var options=this.selectNewMeterGasOptn.getAttribute('value');
+        await expect(await this.inputMeterSerialNum.isDisplayed());
+		var options=this.selectNewMeterGasOptnIn16.getAttribute('value');
+		await utility.wait(3000);
         await this.inputMeterSerialNum.sendKeys(options);
     await this.randomEUDevice.click();
     let ale: Alert = browser.switchTo().alert();
@@ -1239,6 +1249,34 @@ public async fillGasSafety16(){
         await this.submitGas.click();
     }
 
+}
+
+//Marks update
+
+public async populateRiskAssessmentForGasWithoutPhotoEvidence() {
+	await utility.wait(utility.Avg_low);
+	await expect(this.meterPressureLow.isPresent());
+	await this.meterPressureLow.click();
+	await expect(this.voltStickYEs.isPresent());
+	await this.voltStickYEs.click();
+	await expect(this.theftOfGasYes.isPresent());
+	await this.theftOfGasYes.click();
+	await expect(this.ecvChksPAss.isPresent());
+	await this.ecvChksPAss.click();
+	await expect(this.workAreaSafetyYes.isPresent());
+	await this.workAreaSafetyYes.click();
+	await expect(this.captureEvidence.isPresent());
+	await this.additionalGASNote.sendKeys('Fault Checked');
+	await expect(await this.safeToContinueYEs.isPresent());
+	browser.executeScript("arguments[0].scrollIntoView();", this.safeToContinueYEs.getWebElement());
+	await this.safeToContinueYEs.click();
+	await utility.wait(utility.Avg_low);
+}
+
+public async captureInitialGasPhoto() {
+	if (this.currentGasPhotoFullMeterButton.isPresent()) {
+		await this.currentGasPhotoFullMeterButton.click();
+	}
 }
 
 }

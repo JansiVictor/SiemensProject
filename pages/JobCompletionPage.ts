@@ -172,6 +172,11 @@ export class JobCompletionPageObject {
 
 	constructor() {
 
+		//CGP install 16 Changes Added to Master 22/09
+	  
+		this.configAllMeterTextin16 = element(by.xpath('//div/h4[text()="Configure All Meters Installed (Includes Gas & Elec)"]'));    
+	  
+
 		//JANSI CHANGES
 
 		//#region Install Comms Hub

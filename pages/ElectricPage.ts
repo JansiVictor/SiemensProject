@@ -171,14 +171,14 @@ export class ElectricPageObject {
 	public nonserealizedAssetDD1: ElementFinder;
 	public nonserealizedAssetInput1: ElementFinder;
 	public hanAvailableN: ElementFinder;
-	
-
+	public currentElectricPhotoFullMeterButton: ElementFinder;
 	/***
 	 * @Author Aparna Das
 	 * @description Page Objects
 	 ***/
 
 	constructor() {
+		this.currentElectricPhotoFullMeterButton = element(by.xpath("//button[@id='btn_Init_Photo']"));
 		this.initialRiskAssesment = element(by.xpath('(//div/h4[text()="Initial Risk Assessment"])'));
 		this.riskAssesmentHEader = element(by.xpath('(//div[text()="Risk Assessment"])[1]'));
 		this.updateValuesBtn = element(by.xpath('//*[@id="CCHbtnUpdate"]'));
@@ -1633,4 +1633,10 @@ public async fillPostInstallationCheckINST16() {
 	} 
 
 	}
+
+	public async captureInitialElectricalPhoto() {
+        if (this.currentElectricPhotoFullMeterButton.isPresent()) {
+            await this.currentElectricPhotoFullMeterButton.click();
+        }
+    }
 }

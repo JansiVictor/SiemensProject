@@ -551,17 +551,17 @@ import {
       await remove.fill28ConfirmremovalCommsHub();
     });
     Then('I click on RmveGas OK button CONFIRM COMMS HUB REMOVAL Updated window with the text Asset successfully added to Returns list in the final step', async function () {
-      await remove.clickonokconfrimremovalpopup();
+      await remove.clickonokconfrimremovalpopupRemove();
     });
 
     Then('I click on RmveGas SUBMIT btn from confirm comms hub removal', async function () {
-      await remove.clickonsubmitforRemoval();
+      await remove.clickonsubmitforRemovalGrmv();
     });
     When('I fill the RmveGas Ins comms hub fields and capture photo EVIDENCE', async function () {
       await inst.fillfieldsInstallcommshub(2);
     });
     Then('I should see RmveGas Submit button in remove section', async function () {
-      await remove.clickonElecsubmitforRemoval();
+      await remove.clickonElecsubmitfor();
     });
 
     Given('the RmveGas Summary of Job and receive Customer Signature section',async function () {

@@ -549,7 +549,7 @@ When('I fill the RmveSix field028 with the Value028', async function () {
 	await remove.fill28ConfirmremovalCommsHub();
 });
 Then('I click OK RmveSix button in Updated window with the text Asset successfully added to Returns list in the final step', async function () {
-	await remove.clickonokconfrimremovalpopup();
+	await remove.clickonokconfrimremovalpopupRemove();
 
 });
 Then('I clk RmveSix SUBMIT', async function () {

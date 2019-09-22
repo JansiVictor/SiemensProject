@@ -59,8 +59,36 @@ export class HomePageObject {
 	public SFGASINST14:ElementArrayFinder;
 	public SFGASEx22:ElementArrayFinder;
 	public appointmentListLab:ElementFinder;
+	private allRelevantSelectLinks: ElementArrayFinder;
+	//CGP added for Master
+	public Installation16: ElementArrayFinder;
+	public Installaton16completedLink: ElementArrayFinder;
+
+	
+	public DFFLTY20NonSMETS2SelectLink: ElementArrayFinder;
+	public SFGasFLTY18NonSMETS2SelectLink: ElementArrayFinder;
+	public DFFLTY20SMETS2SelectLink: ElementArrayFinder;
+	public SFGasFLTY18SMETS2SelectLink: ElementArrayFinder;
+	public SFElecFLTY19SMETS2SelectLink: ElementArrayFinder;
+	public DFRMVE7SelectLink: ElementArrayFinder;
+
+	//CGP added for SF Elec EXCH23
+
+	public SFElecEXCH23Select: ElementArrayFinder;
+	public SFElecEXCH23Completed: ElementArrayFinder;
+
 
 	constructor() {
+
+		//CGP added for Master
+		this.Installation16 = element.all(by.xpath('//*[starts-with(@id,"SelectJobINST16 DF SMETS")]'));
+		this.Installaton16completedLink = element.all(by.xpath('//*[starts-with(@id,"CompletedJobINST16")]'));
+		//
+		//CGP added for SFElecEXCH23
+
+		this.SFElecEXCH23Select = element.all(by.xpath('//*[starts-with(@id,"SelectJobEXCHANGE 23")]'));
+		this.SFElecEXCH23Completed = element.all(by.xpath('//*[starts-with(@id,"CompletedJobINST16")]'));
+		//
 		this.jobcompletionFLTYTrads2NoExchange = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 19 Trad Non S2 site FLAT")]'));
 		this.jobcompletionFLTY18 = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 18")]'));
 		this.jobcompletionFLTY20 = element(by.xpath('//*[starts-with(@id,"CompletedJob1JFAULTY 20")]'));
@@ -82,7 +110,7 @@ export class HomePageObject {
 		this.SFGFLTY18TRADselectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobFAULTY 18")]'));
 		this.SFGNMEX15selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobNMEX15")]'));
 		this.appointmentListLab = element(by.xpath('//*[text()="Appointments List"]'));
-
+		this.allRelevantSelectLinks = element.all(by.xpath("//span[starts-with(@id,'SelectJobFAULTY 20 Non S2 site FLAT')]"));
 		this.SFEFLTY19completedLink = element.all(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 19")]'));
 		this.SFEFLTY19TRADcompletedLink = element.all(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 19 Non S2")]'));
 		this.SFEINST15completedLink = element.all(by.xpath('//*[starts-with(@id,"CompletedJobINST15")]'));
@@ -179,6 +207,14 @@ export class HomePageObject {
 				this.verifyCompletedTextAppointmentListPage(this.jobcompletionFLTY18);
 				console.log('Fieldname:', fieldName);
 				break;
+			case ('DFINST16'):
+					this.verifyCompletedTextAppointmentListPage(this.Installaton16completedLink);
+					console.log('Fieldname:', fieldName);
+					break;	
+			case ('SFElecEXCH23'):
+					this.verifyCompletedTextAppointmentListPage(this.SFElecEXCH23Completed);
+					console.log('Fieldname:', fieldName);
+					break;	
 			default:
 				break;
 		}
@@ -254,6 +290,19 @@ export class HomePageObject {
 				this.clickOnTheSelectLink(this.SFGASEx22,'SelectJobEXCHANGE 22 FLAT');
 				console.log('Fieldname:', selectLinkName);
 				break;
+
+			case ('DFFLTY20NoExch'):
+				this.clickOnTheSelectLink(this.allRelevantSelectLinks,'SelectJobFAULTY 20 Non S2 site FLAT');
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('DFINST16'):
+				this.clickOnTheSelectLink(this.Installation16,'SelectJobINST16 DF SMETS');
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('SFElecEXCH23'):
+			this.clickOnTheSelectLink(this.SFElecEXCH23Select,'SelectJobEXCHANGE 23');
+			console.log('Fieldname:', selectLinkName);
+			break;	
 			default:
 				break;
 		}
