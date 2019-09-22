@@ -55,9 +55,12 @@ Given('the Appointment List window for FLTY19 Trad', async function () {
 When('I click on select button for FLTY19 Trad', async function () {
   await utility.wait(2000);
   //await home.continueLink.click();
-  await home.selectLink.click();
+  await home.clickCorrectSelectLink('SFEFLTY19TRAD');
+ // await home.selectLink.click();
   //await home.clickOnTheSelectLink();
   await utility.wait(utility.medium_low);
+
+
 });
 
 Then('I should see Work Order window for FLTY19 Trad', async function () {
@@ -450,6 +453,12 @@ When('I fill the ADDITIONAL ELECTRICITY CHECKS details fields with values for FL
 	await riskassessTRAD.fillAdditionalElecCheckDetails();
 });
 
+Then('Initial Meter Reading of new meter for FLTY19 Trad', async function () {
+
+	await riskassessTRAD.initialMEterREadingTxtDisplayed();
+
+});
+
 //************************New Meter Reading ****************/
 
 Given('Initial Meter Reading of new meter depending on the number of Registers and dials section for FLTY19 Trad', async function () {
@@ -460,7 +469,7 @@ Given('Initial Meter Reading of new meter depending on the number of Registers a
 
 When('I fill the Initial Meter Reading of new meter details fields with values for FLTY19 Trad', async function () {
 
-	await riskassessTRAD.fillInitialElecMeterReading();
+  await riskassessTRAD.fillInitialElecMeterReadingEX23();
 
 });
 
@@ -652,7 +661,8 @@ Then('I fill the field57 and Job Complete for FLTY19 Trad', async function () {
   await job.fillfield57Capturecust();
 });
 Then('see Job Completed screen for FLTY19 Trad', async function () {
-  await job.JobCompletedScreen();
+ // await job.JobCompletedScreen();
+ await home.verifyCompletedStatus('SFEFLTY19TRAD');
 });
 
 
