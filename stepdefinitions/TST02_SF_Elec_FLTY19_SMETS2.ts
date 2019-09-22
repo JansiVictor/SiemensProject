@@ -47,7 +47,7 @@ Given('the fltynineteen Appointment List window', async function () {
 });
 
 When('I click on fltynineteen select button', async function () {
-    await home.clickCorrectSelectLink('SFElecFLTY19SMETS2');
+    await home.clickCorrectSelectLink('SFEFLTY19');
     await utility.wait(utility.medium_low);
 });
 

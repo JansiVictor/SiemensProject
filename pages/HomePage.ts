@@ -66,11 +66,13 @@ export class HomePageObject {
 	public SFGasFLTY18SMETS2SelectLink: ElementArrayFinder;
 	public SFElecFLTY19SMETS2SelectLink: ElementArrayFinder;
 	public DFRMVE7SelectLink: ElementArrayFinder;
+	public jobcompletionNonFLTY18: ElementFinder;
 
 	constructor() {
 		this.jobcompletionFLTYTrads2NoExchange = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 19 Trad Non S2 site FLAT")]'));
 		this.jobcompletionFLTY18 = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 18")]'));
 		this.jobcompletionFLTY20 = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 20 SMETS2")]'));
+		this.jobcompletionNonFLTY18 = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 18 Non S2")]'));
 		this.Ex20selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest1 EXCH20 SF SMETS2")]'));
 		this.Ex19selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJob1EXCHANGE 19 FLAT")]'));
 		this.Ex20continueLink = element.all(by.xpath('//span[starts-with(@id,"ContinueJobTest EXCH20 SF SMETS2"]'));
@@ -190,8 +192,12 @@ export class HomePageObject {
 				this.verifyCompletedTextAppointmentListPage(this.jobcompletionFLTY20);
 				console.log('Fieldname:', fieldName);
 				break;
-			case ('TST12'):
+			case ('SFGasFLTY18SMETS2'):
 				this.verifyCompletedTextAppointmentListPage(this.jobcompletionFLTY18);
+				console.log('Fieldname:', fieldName);
+				break;
+			case ('SFGasFLTY18NonSMETS2'):
+				this.verifyCompletedTextAppointmentListPage(this.jobcompletionNonFLTY18);
 				console.log('Fieldname:', fieldName);
 				break;
 			default:
@@ -271,6 +277,14 @@ export class HomePageObject {
 				break;
 			case ('DFFLTY20SMETS2'):
 				this.clickOnTheSelectLink(this.DFFLTY20SMETS2SelectLink,'SelectJobFAULTY 20 SMETS2');
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('SFGasFLTY18SMETS2'):
+				this.clickOnTheSelectLink(this.SFGasFLTY18SMETS2SelectLink,'SelectJobFAULTY 18 SMETS2');
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('SFGasFLTY18NonSMETS2'):
+				this.clickOnTheSelectLink(this.SFGasFLTY18NonSMETS2SelectLink,'SelectJobFAULTY 18 Non S2');
 				console.log('Fieldname:', selectLinkName);
 				break;
 			default:
