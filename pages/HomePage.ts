@@ -78,6 +78,8 @@ export class HomePageObject {
 
 	public jobcompletionNonFLTY18: ElementFinder;
 
+	public jobcompletionNonFLTY20: ElementArrayFinder;
+
 	constructor() {
 
 		//CGP added for Master
@@ -152,6 +154,10 @@ export class HomePageObject {
 
 		this.SFElecEXCH23Select = element.all(by.xpath('//*[starts-with(@id,"SelectJobEXCHANGE 23")]'));
 		this.SFElecEXCH23Completed = element.all(by.xpath('//*[starts-with(@id,"CompletedJobINST16")]'));
+
+		//Jansi Added
+		this.jobcompletionNonFLTY20 = element.all(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY Non S2")]'));
+		
 
 
 
@@ -241,6 +247,11 @@ export class HomePageObject {
 
 			case ('SFGasFLTY18NonSMETS2'):
 				this.verifyCompletedTextAppointmentListPage(this.jobcompletionNonFLTY18);
+				console.log('Fieldname:', fieldName);
+				break;
+
+			case ('DFFLTY20NonSMETS2'):
+				this.verifyCompletedTextAppointmentListPage(this.jobcompletionNonFLTY20);
 				console.log('Fieldname:', fieldName);
 				break;
 
@@ -343,6 +354,10 @@ export class HomePageObject {
 				break;
 			case ('SFGasFLTY18NonSMETS2'):
 				this.clickOnTheSelectLink(this.SFGasFLTY18NonSMETS2SelectLink,'SelectJobFAULTY 18 Non S2');
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('DFFLTY20NonSMETS2'):
+				this.clickOnTheSelectLink(this.DFFLTY20NonSMETS2SelectLink,'SelectJobFAULTY 20 Non S2');
 				console.log('Fieldname:', selectLinkName);
 				break;
 			default:

@@ -35,7 +35,7 @@ export const config: Config = {
     frameworkPath: require.resolve("protractor-cucumber-framework"),
 
     specs: [
-        "../../features/Exchange21.feature"
+        "../../features/TST13_DF_FLTY20_Non_SMETS2.feature"
     ],
 
     jasmineNodeOpts: {
