@@ -78,6 +78,11 @@ export class HomePageObject {
 
 	public jobcompletionNonFLTY18: ElementFinder;
 
+	public jobcompletionNonFLTY20: ElementArrayFinder;
+	public jobcompletionEXCH24: ElementArrayFinder;
+	public DFExchange24SelectLink: ElementArrayFinder;
+	public jobcompletionRMVE7: ElementArrayFinder;
+
 	//CGP added for FLTY20 TRAD 23/09
 
 	public DFFLTY20NonSMETS2SelectLinkCompleted: ElementArrayFinder;
@@ -168,6 +173,11 @@ export class HomePageObject {
 
 		this.DFFLTY20NonSMETS2SelectLinkCompleted = element.all(by.xpath('//span[starts-with(@id,"CompletedJobFAULTY 20 Non S2")]'));
 
+		//Jansi Added
+		this.jobcompletionNonFLTY20 = element.all(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY Non S2")]'));
+		this.jobcompletionEXCH24 = element.all(by.xpath('//*[starts-with(@id,"CompletedJobEXCHANGE 24")]'));
+		this.DFExchange24SelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobEXCHANGE 24")]'));
+		this.jobcompletionRMVE7 = element.all(by.xpath('//*[starts-with(@id,"CompletedJobRMVE7 ")]'));
 
 	}
 	/***
@@ -266,6 +276,20 @@ export class HomePageObject {
 
 					// End change*******************************//	
 
+			case ('DFFLTY20NonSMETS2'):
+				this.verifyCompletedTextAppointmentListPage(this.jobcompletionNonFLTY20);
+				console.log('Fieldname:', fieldName);
+				break;
+
+			case ('DFExchange24'):
+				this.verifyCompletedTextAppointmentListPage(this.jobcompletionEXCH24);
+				console.log('Fieldname:', fieldName);
+				break;
+
+			case ('DFRMVE7'):
+				this.verifyCompletedTextAppointmentListPage(this.jobcompletionRMVE7);
+				console.log('Fieldname:', fieldName);
+				break;
 			default:
 				break;
 		}
@@ -374,6 +398,18 @@ export class HomePageObject {
 					break;	
 
 					// End change*******************************//
+			case ('DFFLTY20NonSMETS2'):
+				this.clickOnTheSelectLink(this.DFFLTY20NonSMETS2SelectLink,'SelectJobFAULTY 20 Non S2');
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('DFExchange24'):
+				this.clickOnTheSelectLink(this.DFExchange24SelectLink,'SelectJobEXCHANGE 24');
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('DFRMVE7'):
+				this.clickOnTheSelectLink(this.DFRMVE7SelectLink,'SelectJobRMVE7 ');
+				console.log('Fieldname:', selectLinkName);
+				break;
 			default:
 				break;
 		}

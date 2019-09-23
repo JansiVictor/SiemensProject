@@ -140,11 +140,11 @@ Feature: TST15_SF_Gas_FLTY18_Non_SMETS2
 
     Scenario: Going through "GAS INITIAL METER READING" section
         Given TST15 the GAS INITIAL METER READING section
-        When I fill the fields with values Gas initial meter reading
-        Then I should see INSTALL KIT section
+        When TST15 I fill the fields with values Gas initial meter reading
+        Then TST15 I should see INSTALL KIT section
 
     Scenario: Going through "Install Kit " GAS section
-        Given the Gas Install Kit gas section
+        Given TST15 the Gas Install Kit gas section
         When TST15 I fill the Gas Install Kit gas section fields with values
         Then TST15 I should see Perform Post Installation GAS Checks sec
 
