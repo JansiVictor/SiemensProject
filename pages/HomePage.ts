@@ -59,12 +59,11 @@ export class HomePageObject {
 	public SFGASINST14:ElementArrayFinder;
 	public SFGASEx22:ElementArrayFinder;
 	public appointmentListLab:ElementFinder;
-
-	//CGP added for Master for Installation16
+	private allRelevantSelectLinks: ElementArrayFinder;
+	//CGP added for Master
 	public Installation16: ElementArrayFinder;
 	public Installaton16completedLink: ElementArrayFinder;
 
-	
 	public DFFLTY20NonSMETS2SelectLink: ElementArrayFinder;
 	public SFGasFLTY18NonSMETS2SelectLink: ElementArrayFinder;
 	public DFFLTY20SMETS2SelectLink: ElementArrayFinder;
@@ -77,12 +76,23 @@ export class HomePageObject {
 	public SFElecEXCH23Select: ElementArrayFinder;
 	public SFElecEXCH23Completed: ElementArrayFinder;
 
-
+	public jobcompletionNonFLTY18: ElementFinder;
 
 	constructor() {
+
+		//CGP added for Master
+		this.Installation16 = element.all(by.xpath('//*[starts-with(@id,"SelectJobINST16 DF SMETS")]'));
+		this.Installaton16completedLink = element.all(by.xpath('//*[starts-with(@id,"CompletedJobINST16")]'));
+		//
+		//CGP added for SFElecEXCH23
+
+		this.SFElecEXCH23Select = element.all(by.xpath('//*[starts-with(@id,"SelectJobEXCHANGE 23")]'));
+		this.SFElecEXCH23Completed = element.all(by.xpath('//*[starts-with(@id,"CompletedJobINST16")]'));
+		//
 		this.jobcompletionFLTYTrads2NoExchange = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 19 Trad Non S2 site FLAT")]'));
 		this.jobcompletionFLTY18 = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 18")]'));
 		this.jobcompletionFLTY20 = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 20 SMETS2")]'));
+		this.jobcompletionNonFLTY18 = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 18 Non S2")]'));
 		this.Ex20selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest1 EXCH20 SF SMETS2")]'));
 		this.Ex19selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJob1EXCHANGE 19 FLAT")]'));
 		this.Ex20continueLink = element.all(by.xpath('//span[starts-with(@id,"ContinueJobTest EXCH20 SF SMETS2"]'));
@@ -101,6 +111,9 @@ export class HomePageObject {
 		this.SFGFLTY18TRADselectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobFAULTY 18")]'));
 		this.SFGNMEX15selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobNMEX15")]'));
 		this.appointmentListLab = element(by.xpath('//*[text()="Appointments List"]'));
+
+		this.allRelevantSelectLinks = element.all(by.xpath("//span[starts-with(@id,'SelectJobFAULTY 20 Non S2 site FLAT')]"));
+
 
 		//FLTY Changes
 		this.DFFLTY20NonSMETS2SelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobFAULTY 20 Non S2")]'));
@@ -212,7 +225,7 @@ export class HomePageObject {
 				this.verifyCompletedTextAppointmentListPage(this.jobcompletionFLTY20);
 				console.log('Fieldname:', fieldName);
 				break;
-			case ('TST12'):
+			case ('SFGasFLTY18SMETS2'):
 				this.verifyCompletedTextAppointmentListPage(this.jobcompletionFLTY18);
 				console.log('Fieldname:', fieldName);
 				break;
@@ -221,11 +234,16 @@ export class HomePageObject {
 					this.verifyCompletedTextAppointmentListPage(this.Installaton16completedLink);
 					console.log('Fieldname:', fieldName);
 					break;	
-
 			case ('SFElecEXCH23'):
-						this.verifyCompletedTextAppointmentListPage(this.SFElecEXCH23Completed);
-						console.log('Fieldname:', fieldName);
-						break;			
+					this.verifyCompletedTextAppointmentListPage(this.SFElecEXCH23Completed);
+					console.log('Fieldname:', fieldName);
+					break;	
+
+			case ('SFGasFLTY18NonSMETS2'):
+				this.verifyCompletedTextAppointmentListPage(this.jobcompletionNonFLTY18);
+				console.log('Fieldname:', fieldName);
+				break;
+
 			default:
 				break;
 		}
@@ -302,19 +320,31 @@ export class HomePageObject {
 				console.log('Fieldname:', selectLinkName);
 				break;
 
+
+			case ('DFFLTY20NoExch'):
+				this.clickOnTheSelectLink(this.allRelevantSelectLinks,'SelectJobFAULTY 20 Non S2 site FLAT');
+				console.log('Fieldname:', selectLinkName);
+				break;
 			case ('DFINST16'):
-					this.clickOnTheSelectLink(this.Installation16,'SelectJobINST16 DF SMETS');
-					console.log('Fieldname:', selectLinkName);
-					break;	
+				this.clickOnTheSelectLink(this.Installation16,'SelectJobINST16 DF SMETS');
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('SFElecEXCH23'):
+			this.clickOnTheSelectLink(this.SFElecEXCH23Select,'SelectJobEXCHANGE 23');
+			console.log('Fieldname:', selectLinkName);
+			break;	
 			case ('DFFLTY20SMETS2'):
 				this.clickOnTheSelectLink(this.DFFLTY20SMETS2SelectLink,'SelectJobFAULTY 20 SMETS2');
 				console.log('Fieldname:', selectLinkName);
 				break;
-
-			case ('SFElecEXCH23'):
-					this.clickOnTheSelectLink(this.SFElecEXCH23Select,'SelectJobEXCHANGE 23');
-					console.log('Fieldname:', selectLinkName);
-					break;	
+			case ('SFGasFLTY18SMETS2'):
+				this.clickOnTheSelectLink(this.SFGasFLTY18SMETS2SelectLink,'SelectJobFAULTY 18 SMETS2');
+				console.log('Fieldname:', selectLinkName);
+				break;
+			case ('SFGasFLTY18NonSMETS2'):
+				this.clickOnTheSelectLink(this.SFGasFLTY18NonSMETS2SelectLink,'SelectJobFAULTY 18 Non S2');
+				console.log('Fieldname:', selectLinkName);
+				break;
 			default:
 				break;
 		}

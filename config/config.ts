@@ -22,6 +22,7 @@ export const config: Config = {
                 name: 'chrome',
                 version: '76'
             },
+            
             device: 'Automation PC',
             platform: {
                 name: 'Windows',

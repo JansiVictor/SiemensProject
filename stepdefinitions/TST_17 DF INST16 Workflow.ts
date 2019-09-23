@@ -622,5 +622,7 @@ Then('I fill the field57 and Job Complete for INST16', async function () {
   await job.fillfield57Capturecust();
 });
 Then('see Job Completed screen for INST16', async function () {
+
     await home.verifyCompletedStatus('DFINST16');
+
 });

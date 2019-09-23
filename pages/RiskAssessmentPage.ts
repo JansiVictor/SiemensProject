@@ -4,7 +4,8 @@ import {
 	element,
 	by,
 	ElementFinder,
-	ElementArrayFinder
+    ElementArrayFinder,
+    ExpectedConditions
 } from "protractor";
 const {
 	Given,
@@ -151,10 +152,14 @@ export class RiskAssessmentPageObject {
 
 	//cgp added
 	public CaptureInitialElecInstTab: ElementFinder;
-	 public clickSubmit_SFENMEX15: ElementFinder; 
-
+     public clickSubmit_SFENMEX15: ElementFinder; 
+     
+     //Marks Update
+     private riskAssesmentSubmitButton: ElementFinder;
+     private initialPolarityCheckMartindaleTestBtn: ElementFinder;
 
 	constructor() {
+        this.initialPolarityCheckMartindaleTestBtn = element(by.xpath("//div[@id='Title_InitPolMart_test']"))
 		this.initialRiskAssesment = element(by.xpath('//div/h4[text()="Initial Risk Assessment"]'));
 		this.initialRiskAssessmentTab = element(by.css('.down'));
 		this.RiskAssessmentTab = element(by.css('.ng-scope:nth-child(2) > .task-section .down'));
@@ -162,7 +167,7 @@ export class RiskAssessmentPageObject {
 		this.CaptureInitialGasInstTab = element(by.css('.ng-scope:nth-child(4) > .task-section .down'));
 		this.InitPolCheckMartindaleTab = element(by.css('#Title_InitPolMart_test > div.titleIcon.right.down'));
 		this.InitPCMTab = element(by.css('#Title_InitPCM > div.titleIcon.right.down'));
-
+        this.riskAssesmentSubmitButton = element(by.xpath("//button[@ng-click='submitRiskTask(wo)']"));
 		this.riskAssesmentHEader = element(by.xpath('(//div[text()="Risk Assessment"])[1]'));
 		this.canYouSmellText = element(by.xpath('//div[text()="Can you smell Gas?"]'));
 		this.canYouSmellYES = element(by.xpath('//label[@id="rb_SmelGas_y"]'));
@@ -405,6 +410,7 @@ export class RiskAssessmentPageObject {
             await this.riskAssessmentinput.sendKeys('Risk assessment notes');
         }
         await utility.wait(utility.very_low);
+       
     }
 
     public async capturePhotoBtnDisplayed() {
@@ -744,5 +750,68 @@ export class RiskAssessmentPageObject {
         }
     }
 
+    //Marks Changes
+
+    public async populateInitialPolarityCheckAtMeterAndCutOutSection() {
+		if (await this.InitPCMTab.isPresent()) {
+			await this.InitPCMTab.click();
+		}
+
+		var until = ExpectedConditions;
+		browser.wait(until.elementToBeClickable(this.polarityCheckCutOutYES), 6000);
+		browser.wait(until.elementToBeClickable(this.polarityCheckAtMeter), 6000);
+
+		try{
+			await this.polarityCheckCutOutYES.click();
+			await this.polarityCheckAtMeter.click();
+		}
+		catch (e) {
+			await this.polarityCheckCutOutYES.click();
+			await this.polarityCheckAtMeter.click();
+		}
+		await utility.wait(2000);
+    }
+    
+    public async clickOnRiskAssessmentPageSubmitButton() {
+		if (await this.riskAssesmentSubmitButton.isDisplayed()) {
+			this.riskAssesmentSubmitButton.click();
+		}
+	}
+    public async populatePolarityCheckMartinDaleWithCPAndRPF() {
+		if (await this.InitPolCheckMartindaleTab.isPresent()) {
+			await this.InitPolCheckMartindaleTab.click();
+		}
+		if (await this.polarityCheckDD.isDisplayed()) {
+			var select = this.polarityCheckDD;
+			await select.$('[value="true"]').click();
+		}
+		await utility.wait(1000);
+		if (await this.socketSafetyBtnYES.isPresent()) {
+			await this.socketSafetyBtnYES.click();
+		}
+		await utility.wait(1000);
+		if (await this.socketSetLocDD.isDisplayed()) {
+			var select = this.socketSetLocDD;
+			await select.$('[value="9"]').click();
+		}
+		if (await this.capturePreinsatllation.isPresent()) {
+			await this.capturePreinsatllation.click();
+		}
+		await utility.wait(1000);
+		if (await this.anySocketFoundNO.isPresent()) {
+			await this.anySocketFoundNO.click();
+		}
+		try {
+			if (await this.polarityMarindaleNxt.isPresent()) {
+				await this.polarityMarindaleNxt.click();
+			}
+		} catch (error) {
+			console.log("Polarity marindale next section is not available at this moment");
+		}
+    }
+    
+    public async verifyInitialPolarityCheckMartindaleTestBtnIsPresent() {
+        expect(this.initialPolarityCheckMartindaleTestBtn.isPresent());
+    }
 
 }

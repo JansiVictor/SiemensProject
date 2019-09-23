@@ -648,7 +648,7 @@ Given('the ExTwOne configuration of all meters installed  section',async functio
 
 
 When('I fill the ExTwOne configuration of all meters installed  fields with values',async function () {
-  await exchnge21Complete.fillConfigAllmeter();
+  await exchnge21Complete.fillConfigAllmeterInstall16();
   
 });
 

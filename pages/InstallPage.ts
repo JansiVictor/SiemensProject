@@ -18,6 +18,7 @@ const chai = require("chai");
 const expect = chai.expect;
 import { Utility } from "../support/utility";
 import { watchFile } from "fs";
+import * as assert from "assert";
 import {
 	Alert
 } from 'selenium-webdriver';
@@ -274,17 +275,182 @@ export class InstallPageObject {
 	public selectValidAssettoInstTRAD: ElementFinder;
     //CGP for INst16
 	public regulatorTxt:ElementFinder;
- // CGP added for EX23 // added 22/09
 
- public newCommsHubReqN: ElementFinder;
+	//CGP added for Master
+	public EUIenableOKTRAD1: ElementFinder;
+ // CGP added for EX23
 
-//CGP added for Master
-     public EUIenableOKTRAD1: ElementFinder;
+	public newCommsHubReqN: ElementFinder;
+	private pageHeaderText: ElementArrayFinder;
+	private terminalScrewTightnessCheckedTrueRadioOption: ElementFinder;
+	private allSealsIntactTrueRadioOption: ElementFinder
+    private allPortsSealedTrueRadioOption: ElementFinder
+    private approvedSiemensCableMarkersInstalledCorrectlyTrueRadioOption: ElementFinder
+    private replacementMeterBoardTrueRadioOption: ElementFinder
+    private meterTailsChangedFalseRadioOption: ElementFinder
+    private replacedMainFuseTrueRadioOption: ElementFinder
+    private emergencyJobTrueRadioOption: ElementFinder
+    private visualInspectionCompletedTrueRadioOption: ElementFinder
+    private cableMarkerDropdownMenu: ElementFinder
+    private earthTypeDropdownMenu: ElementFinder
+    private capturePhotosOfTerminalScrewsBtn: ElementFinder
+    private addElecTestsNextBtn: ElementFinder
+    private postInstallationChecksText: ElementFinder
+    private carryOutPolarityCheckAtMeterTrueRadioOption: ElementFinder
+    private carryOutPolarityCheckWithPlugInTestDeviceDropDownMenu: ElementFinder
+    private confirmSocketSafetyTestPassedTrueRadioOption: ElementFinder
+    private testWitnessNameTextfield: ElementFinder
+    private capturePhotoOfMartindaleTestBtn: ElementFinder
+    private capturePhotoOfFinalMeterInstallBtn: ElementFinder
+    private capturePhotoOfFinalMeterInstallBtn2: ElementFinder
+    private capturePhotoOfCloseUpOfMeterBtn: ElementFinder
+    private postInstallChecksNextBtn: ElementFinder
+    private commissioningText: ElementFinder
+    private postInstallChecksAdditionalNotesTextfield: ElementFinder
+    private installKitUsedTrueRadioOption: ElementFinder
+    private addAnotherAssetBtn: ElementFinder
+    private assetDropDownMenu1: ElementFinder
+    private assetDropDownMenu2: ElementFinder
+    private assetDropDownMenu3: ElementFinder
+    private assetDropDownMenu4: ElementFinder
+    private quantityTextfield1: ElementFinder
+    private quantityTextfield2: ElementFinder
+    private quantityTextfield3: ElementFinder
+    private quantityTextfield4: ElementFinder
+    private commissioningNextSectionBtn: ElementFinder
+    private postInstallationGasTightnessTestText: ElementFinder
+    private didYouHaveToContactGTTrueRadioOption: ElementFinder
+    private nationalGridGIJobRefTextfield: ElementFinder
+    private reportedIncidentToHAndSAIRLineTrueRadioOption: ElementFinder
+    private aIRLineRefTextfield: ElementFinder
+    private needToWaitForTheGTAttendanceOnSiteTrueRadioOption: ElementFinder
+    private gTResolveIssueTrueRadioOption: ElementFinder
+    private didYouCarryOutAnyExtraWorkToPassGasTightnessTestTrueRadioOption: ElementFinder
+    private additionalNotesTextfield: ElementFinder
+    private haveYouReplacedGasMeterTrueRadioOption: ElementFinder
+    private haveYouReplacedRegulatorTrueRadioOption: ElementFinder
+    private postInstallationGasTightnessTestPerformedTrueRadioOption: ElementFinder
+    private capturePhotoOfWitnessStickerAndUGaugeBtn: ElementFinder
+    private wasThereADropInPressureTrueRadioOption: ElementFinder
+    private enterDIPGasPressureDropDownMenu: ElementFinder
+    private selectMeterTypeDropDownMenu: ElementFinder
+    private gasTightnessTestPassedTrueRadioOption: ElementFinder
+    private testWitnessNameTxtfieldPostInstallGasTightnessForm: ElementFinder
+    private standingPressureTextfield: ElementFinder
+    private capturePhotoOfStandingPressureBtn: ElementFinder
+    private workingPressureTextfield: ElementFinder
+    private capturePhotoOfWorkingPressureBtn: ElementFinder
+    private postInstallGasTightnessTestNextBtn: ElementFinder
+    private installKitNextSectionBtn: ElementFinder
+    private addAnotherAssetBtnInstallKitSection: ElementFinder
+    private gasApplianceSafetyChecksSectionText: ElementFinder
+    private isEarthBondingInstalledTrueRadioOption: ElementFinder
+    private landlordPropertyTrueRadioOption: ElementFinder
+    private address1Textfield: ElementFinder
+    private address2Textfield: ElementFinder
+    private address3Textfield: ElementFinder
+    private address4Textfield: ElementFinder
+    private address5Textfield: ElementFinder
+    private address6Textfield: ElementFinder
+    private address7Textfield: ElementFinder
+    private addApplianceBtn: ElementFinder
+    private flueTypeDropDownMenu: ElementFinder
+    private ventilationSatisfactoryTrueRadioOption: ElementFinder
+    private carriedOutPurgeAndRelightGasApplianceTestTrueRadioOption: ElementFinder
+    private applianceTypeDropDownMenu: ElementFinder
+    private applianceLocationDropDownMenu: ElementFinder
+    private applianceConditionDropDownMenu: ElementFinder
+    private applianceSafeToUseTrueRadioOption: ElementFinder
+    private allAppliancesTestedBtn: ElementFinder
+	private installPageSubmitBtn: ElementFinder
 
-
- 
 	constructor() {
+  //CGP added for MASter 22/09
+  		this.EUIenableOKTRAD1 = element(by.xpath('(//*[contains(text(),"EUI Device ID:")])[2]'));
+		this.allSealsIntactTrueRadioOption = element(by.xpath("//label[@id='rb_SealsInt_y']"));
+        this.allPortsSealedTrueRadioOption = element(by.xpath("//label[@id='rb_PortsSealed_y']"));
+        this.approvedSiemensCableMarkersInstalledCorrectlyTrueRadioOption = element(by.xpath("//label[@id='rb_SieCMark_y']"));
+        this.visualInspectionCompletedTrueRadioOption = element(by.xpath("//label[@id='rb_VisInsCom_y']"));
+        this.replacementMeterBoardTrueRadioOption = element(by.xpath("//label[@id='rb_ReMetBoard_y']"));
+        this.meterTailsChangedFalseRadioOption = element(by.xpath("//label[@id='rb_MetTailChg_n']"));
+        this.replacedMainFuseTrueRadioOption = element(by.xpath("//label[@id='rb_ReMainFuse_y']"));
+        this.emergencyJobTrueRadioOption = element(by.xpath("//label[@id='rb_EmerJob_y']"));
+        this.cableMarkerDropdownMenu = element(by.xpath("//select[@id='cbx_CabMark_Sel']"));
+        this.earthTypeDropdownMenu = element(by.xpath("//select[@id='cbx_EarType_Sel']"));
+        this.capturePhotosOfTerminalScrewsBtn = element(by.xpath("//button[contains(text(),'CAPTURE PHOTO OF TERMINAL SCREWS')]"));
+        this.addElecTestsNextBtn = element(by.xpath("//button[@id='btn_Next_PostC']"));
+        this.postInstallationChecksText = element(by.xpath("//h4[contains(text(),'Post Installation Checks')]"));
+        this.carryOutPolarityCheckAtMeterTrueRadioOption = element(by.xpath("//label[@id='rb_CarOutPolCk_y']"));
+        this.carryOutPolarityCheckWithPlugInTestDeviceDropDownMenu = element(by.xpath("//select[@id='cbx_PolChkplg_sel']"));
+        this.confirmSocketSafetyTestPassedTrueRadioOption = element(by.xpath("//label[text()='PASS']"));
+        this.testWitnessNameTextfield = element(by.xpath("//input[@id='txt_TestWtn']"));
+        this.capturePhotoOfMartindaleTestBtn = element(by.xpath("//button[@id='btn_CapPhoMart_test']"));
+        this.capturePhotoOfFinalMeterInstallBtn = element(by.xpath("//button[@id='btn_CapPhoFinMet_inst']"));
+        this.capturePhotoOfFinalMeterInstallBtn2 = element(by.xpath("//div[@class='btn-container2line grey']//button[@id='btn2']"));
+        this.capturePhotoOfCloseUpOfMeterBtn = element(by.xpath("//button[@id='btn_CapPhoCloUp_met']"));
+        this.postInstallChecksNextBtn = element(by.xpath("//*[@id='btnNextComm']"));
+        this.commissioningText = element(by.xpath("//h4[contains(text(),'Commissioning')]"));
+        this.postInstallChecksAdditionalNotesTextfield = element(by.xpath("//textarea[@id='postpolnotes']"));
+        this.addAnotherAssetBtn = element(by.xpath("//button[@id='Cbtn1']"));
+        this.assetDropDownMenu1 = element(by.xpath("//select[@id='Cselect4']"));
+        this.assetDropDownMenu2 = element(by.xpath("//commissions2[@class='ng-scope ng-isolate-scope']//div[3]//div[1]//div[1]//select[1]"));
+        this.assetDropDownMenu3 = element(by.xpath("//select[@id='gasassetselect0']"));
+        this.assetDropDownMenu4 = element(by.xpath("//select[@id='gasassetselect1']"));
+        this.quantityTextfield1 = element(by.xpath("//commissions2[@class='ng-scope ng-isolate-scope']//div[@class='collapse in']//div[2]//div[1]//div[2]//input[1]"));
+        this.quantityTextfield2 = element(by.xpath("//commissions2[@class='ng-scope ng-isolate-scope']//div[3]//div[1]//div[2]//input[1]"));
+        this.quantityTextfield3 = element(by.xpath("//input[@id='gasassetinput0']"));
+        this.quantityTextfield4 = element(by.xpath(" //input[@id='gasassetinput1']"));
+        this.commissioningNextSectionBtn = element(by.xpath("//button[@id='CbtnNextComm']"));
+        this.installKitUsedTrueRadioOption = element(by.xpath("//label[@id='gasInstallPhoto_installKit_y']"));
+        this.postInstallationGasTightnessTestText = element(by.xpath("//h4[contains(text(),'Post Installation Gas Tightness Test')]"));
+        this.didYouHaveToContactGTTrueRadioOption = element(by.xpath("//*[@id='gtp1']/following-sibling::span[@class='outer']"));
+        this.nationalGridGIJobRefTextfield = element(by.id("input1"));
+        this.reportedIncidentToHAndSAIRLineTrueRadioOption = element(by.xpath("//*[@id='gtp3']/following-sibling::span[@class='outer']"));
+        this.aIRLineRefTextfield = element(by.xpath("//*[@id='input2'][1]"));
+        this.needToWaitForTheGTAttendanceOnSiteTrueRadioOption = element(by.xpath("//*[@id='gtp5']/following-sibling::span[@class='outer']"));
+        this.gTResolveIssueTrueRadioOption = element(by.xpath("//*[@id='gtp9']/following-sibling::span[@class='outer']"));
+        this.didYouCarryOutAnyExtraWorkToPassGasTightnessTestTrueRadioOption = element(by.xpath("//*[@id='gtp11']/following-sibling::span[@class='outer']"));
+        this.additionalNotesTextfield = element(by.id("text1"));
+        this.haveYouReplacedGasMeterTrueRadioOption = element(by.xpath("//*[@id='gtp13']/following-sibling::span[@class='outer']"));
+        this.haveYouReplacedRegulatorTrueRadioOption = element(by.xpath("//*[@id='gtp15']/following-sibling::span[@class='outer']"));
+        this.postInstallationGasTightnessTestPerformedTrueRadioOption = element(by.xpath("//*[@id='gtp17']/following-sibling::span[@class='outer']"));
+        this.capturePhotoOfWitnessStickerAndUGaugeBtn = element(by.xpath("//*[@id='btn_CapPoTi_test']/button"));
+        this.wasThereADropInPressureTrueRadioOption = element(by.xpath("//*[@id='gtp19']/following-sibling::span[@class='outer']"));
+        this.enterDIPGasPressureDropDownMenu = element(by.xpath("//select[@id='select1']"));
+        this.testWitnessNameTxtfieldPostInstallGasTightnessForm = element(by.xpath("//input[@id='input3']"));
+        this.selectMeterTypeDropDownMenu = element(by.xpath("//select[@id='select2'][1]"));
+        this.gasTightnessTestPassedTrueRadioOption = element(by.xpath("//*[@id='gtp21']/following-sibling::span[@class='outer']"));
+        this.standingPressureTextfield = element(by.id("gaspoststandingpressure"));
+        this.capturePhotoOfStandingPressureBtn = element(by.xpath("//*[@id='btn_CapStPr']/button"));
+        this.workingPressureTextfield = element(by.id("gaspostworkingpressure"));
+        this.capturePhotoOfWorkingPressureBtn = element(by.xpath("//div[@class='content-row ng-scope']//div[@class='content-row ng-scope']//div[@class='alignCenter']//button[@class='cameraBtn2line grey mandatoryWhite'][contains(text(),'CAPTURE')]"));
+        this.postInstallGasTightnessTestNextBtn = element(by.xpath("//button[@id='btnNextPol']"));
+        this.installKitNextSectionBtn = element(by.xpath("//button[@id='gasInstallPhoto_nextBtn']"));
+        this.addAnotherAssetBtnInstallKitSection = element(by.xpath("//button[@id='gasInstallPhoto_addAssetBtn']"));
+        this.gasApplianceSafetyChecksSectionText = element(by.xpath("//h4[contains(text(),'Gas Appliance Safety Checks')]"));
+        this.isEarthBondingInstalledTrueRadioOption = element(by.xpath("//*[@id='radioraa1a']/following-sibling::span[@class='outer']"));
+        this.landlordPropertyTrueRadioOption = element(by.xpath("//*[@id='radioraa3']/span[@class='outer']"));
+        this.address1Textfield = element(by.xpath("//div[@class='content-row clear ng-scope']//input[@id='input1']"));
+        this.address2Textfield = element(by.xpath("//div[@class='content-row clear ng-scope']//input[@id='input2']"));
+        this.address3Textfield = element(by.xpath("//div[@class='content-row clear ng-scope']//input[@id='input3']"));
+        this.address4Textfield = element(by.xpath("//div[@class='content-row clear ng-scope']//input[@id='input4']"));
+        this.address5Textfield = element(by.xpath("//div[@class='content-row clear ng-scope']//input[@id='input5']"));
+        this.address6Textfield = element(by.xpath("//div[@class='content-row clear ng-scope']//input[@id='input6']"));
+        this.address7Textfield = element(by.xpath("//div[@class='content-row clear ng-scope']//input[@id='input7']"));
+        this.addApplianceBtn = element(by.xpath("(//*[@id='btn1'])[1]"));
+        this.flueTypeDropDownMenu = element(by.xpath("(//select[@id='select1'])[2]"));
+        this.ventilationSatisfactoryTrueRadioOption = element(by.xpath("//*[@id='radioraa10']/following-sibling::span[@class='outer']"));
+        this.carriedOutPurgeAndRelightGasApplianceTestTrueRadioOption = element(by.xpath("//*[@id='radioraa5a0']/following-sibling::span[@class='outer']"));
+        this.applianceTypeDropDownMenu = element(by.xpath("(//select[@id='select2'])[2]"));
+        this.applianceLocationDropDownMenu = element(by.xpath("(//select[@id='select3'])"));
+        this.applianceConditionDropDownMenu = element(by.xpath("(//select[@id='select4'])"));
+        this.applianceSafeToUseTrueRadioOption = element(by.xpath("//*[@id='radioraa50']/following-sibling::span[@class='outer']"));
+        this.allAppliancesTestedBtn = element(by.xpath("//button[@id='btn_AllApp_tested']"));
+        this.installPageSubmitBtn = element(by.xpath("//button[contains(text(),'SUBMIT')]"));
+//End of MArk changes
 
+		this.pageHeaderText = element.all(by.xpath("//div[contains(@class,'header-text white tg ng-binding')]"));
+		this.terminalScrewTightnessCheckedTrueRadioOption = element(by.xpath("//label[@id='rb_TermSTi_y']"));
 			//#region TST22
 		this.EmergencyJobN = element(by.xpath('//*[@id="rb_EmerJob_n"]/span[@class="outer"]'));
 		this.regulatorTxt = element(by.xpath('//div[@id="lbl_SerNote"]'));
@@ -1917,9 +2083,10 @@ public async Tst15fillthefieldsforperformpostinst() {
 		await utility.wait(utility.very_low);
 		await expect(this.PostInstallationText.isDisplayed());
 		console.log("Post Installation Page Content Displayed")
+		await utility.wait(utility.very_low);
 	}
 	public async fill38PostInstallationChks() {
-		await utility.wait(utility.very_low);
+		await utility.wait(utility.Avg_low);
 		if (await this.carryoutPolChksPluginTestDev.isDisplayed()) {
 			var select = this.carryoutPolChksPluginTestDev;
 			select.$('[value="true"]').click();
@@ -2880,7 +3047,707 @@ public async PPMIDCommisioningdisplay(){
         await this.PPMIDCommText.getText().then(function (PPMIDCommText) {
             console.log("find PPMIDCommText Text  " + PPMIDCommText);
         });
-    }
+	}
 }
+	
+	//Marks Changes
 
+	public async isH1HeaderPresentInstallPage() {
+		this.pageHeaderText.count().then(function (pageHeaderCount) {
+			console.log("Arrived at : Install Page");
+		});
+	}
+
+	public async setTerminalScrewTightnessCheckedTrueRadioOption() {
+		await this.terminalScrewTightnessCheckedTrueRadioOption.click();
+		await utility.wait(1000);
+	}
+
+	public async clickOnCapturePhotosOfTerminalScrewsBtn() {
+		await utility.wait(1000);
+		if (this.capturePhotosOfTerminalScrewsBtn.isDisplayed()) {
+			this.capturePhotosOfTerminalScrewsBtn.click();
+		}
+	}
+
+	public async setAllSealsIntactTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.allSealsIntactTrueRadioOption.isDisplayed()) {
+			this.allSealsIntactTrueRadioOption.click();
+		}
+	}
+
+	public async setAllPortsSealedTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.allPortsSealedTrueRadioOption.isDisplayed()) {
+			this.allPortsSealedTrueRadioOption.click();
+		}
+	}
+
+	public async setApprovedSiemensCableMarkersInstalledCorrectlyTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.approvedSiemensCableMarkersInstalledCorrectlyTrueRadioOption.isDisplayed()) {
+			this.approvedSiemensCableMarkersInstalledCorrectlyTrueRadioOption.click();
+		}
+	}
+
+	public async setVisualInspectionCompletedTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.visualInspectionCompletedTrueRadioOption.isDisplayed()) {
+			this.visualInspectionCompletedTrueRadioOption.click();
+		}
+	}
+
+	public async setCableMarkerVal1LNNLDropDownMenu() {
+		await utility.wait(1000);
+		if (this.cableMarkerDropdownMenu.isDisplayed()) {
+			var select = this.cableMarkerDropdownMenu;
+			select.$("[value='1']").click();
+		}
+	}
+
+	public async setEarthTypeVal1DropDownMenu() {
+		await utility.wait(1000);
+		if (this.earthTypeDropdownMenu.isDisplayed()) {
+			var select = this.earthTypeDropdownMenu;
+			select.$("[value='1']").click();
+		}
+	}
+
+	public async setReplacementMeterBoardTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.replacementMeterBoardTrueRadioOption.isDisplayed()) {
+			this.replacementMeterBoardTrueRadioOption.click();
+		}
+	}
+
+	public async setMeterTailsChangedFalseRadioOption() {
+		await utility.wait(1000);
+		if (this.meterTailsChangedFalseRadioOption.isDisplayed()) {
+			this.meterTailsChangedFalseRadioOption.click();
+		}
+	}
+
+	public async setReplacedMainFuseTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.replacedMainFuseTrueRadioOption.isDisplayed()) {
+			this.replacedMainFuseTrueRadioOption.click();
+		}
+	}
+
+	public async setEmergencyJobTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.emergencyJobTrueRadioOption.isDisplayed()) {
+			this.emergencyJobTrueRadioOption.click();
+		}
+	}
+
+	public async clickOnAdditionalElectricityTestsNextBtn() {
+		await utility.wait(1000);
+		if (this.addElecTestsNextBtn.isDisplayed()) {
+			this.addElecTestsNextBtn.click();
+		}
+	}
+
+	public async validatePostInstallationChecksSectionIsVisible() {
+		await utility.wait(1000);
+		await this.postInstallationChecksText.getText().then(function (postInstallTxt) {
+			console.log("Arrived at : " + postInstallTxt);
+		});
+	}
+
+	public async setCarryOutPolarityCheckAtMeterTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.carryOutPolarityCheckAtMeterTrueRadioOption.isDisplayed()) {
+			this.carryOutPolarityCheckAtMeterTrueRadioOption.click();
+		}
+	}
+
+	public async setCarryOutPolarityCheckWithPlugInTestDeviceDropDownMenu() {
+		await utility.wait(1000);
+		if (this.carryOutPolarityCheckWithPlugInTestDeviceDropDownMenu.isDisplayed()) {
+			var select = this.carryOutPolarityCheckWithPlugInTestDeviceDropDownMenu;
+			select.$("[value='true']").click();
+		}
+	}
+
+	public async setConfirmSocketSafetyTestPassedTrueRadioOption() {
+		await this.postInstallChecksAdditionalNotesTextfield.sendKeys("Polarity tested with plug in test device");
+		await utility.wait(1000);
+		if (this.confirmSocketSafetyTestPassedTrueRadioOption.isDisplayed()) {
+			this.confirmSocketSafetyTestPassedTrueRadioOption.click();
+		}
+	}
+
+	public async clickOnCapturePhotoOfMartindaleTestBtn() {
+		await utility.wait(1000);
+		if (this.capturePhotoOfMartindaleTestBtn.isDisplayed()) {
+			this.capturePhotoOfMartindaleTestBtn.click();
+		}
+	}
+
+	public async clickOnCapturePhotoOfFinalMeterInstallBtn() {
+		await utility.wait(1000);
+		if (this.capturePhotoOfFinalMeterInstallBtn.isDisplayed()) {
+			this.capturePhotoOfFinalMeterInstallBtn.click();
+		}
+	}
+
+	public async clickOnCapturePhotoOfCloseUpOfMeterBtn() {
+		await utility.wait(1000);
+		if (this.capturePhotoOfCloseUpOfMeterBtn.isDisplayed()) {
+			this.capturePhotoOfCloseUpOfMeterBtn.click();
+		}
+	}
+
+	public async setTestWitnessNameTextfield() {
+		await utility.wait(1000);
+		if (this.testWitnessNameTextfield.isDisplayed()) {
+			this.testWitnessNameTextfield.sendKeys("Johny Vegas");
+		}
+	}
+
+	public async validateCommissioningSectionIsVisible() {
+		await utility.wait(1000);
+		if (await this.commissioningText.isDisplayed()) {
+			await this.commissioningText.getText().then(function (commissionTxt) {
+				console.log("Arrived at : " + commissionTxt);
+			});
+		}
+	}
+
+	public async setInstallKitUsedTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.installKitUsedTrueRadioOption.isDisplayed()) {
+			this.installKitUsedTrueRadioOption.click();
+		}
+	}
+
+	public async clickOnPostInstallGasTightnessTestNextBtn() {
+		await utility.wait(1000);
+		if (await this.postInstallGasTightnessTestNextBtn.isDisplayed()) {
+			await this.postInstallGasTightnessTestNextBtn.click();
+		}
+	}
+
+	public async setNonSerialisedAssetsValT1AerialDropDownMenu() {
+		await utility.wait(1000);
+		if (this.assetDropDownMenu1.isDisplayed()) {
+			var select = this.assetDropDownMenu1;
+			select.$("[value='1']").click();
+		}
+	}
+
+	public async setNonSerialisedAssetsValT1AerialDropDownMenuInstallKitForm() {
+		await utility.wait(1000);
+		if (this.assetDropDownMenu3.isDisplayed()) {
+			var select = this.assetDropDownMenu3;
+			select.$("[value='1']").click();
+		}
+	}
+
+	public async setNonSerialisedAssetsValMeterBoardDropDownMenu() {
+		await utility.wait(1000);
+		if (this.assetDropDownMenu4.isDisplayed()) {
+			var select = this.assetDropDownMenu4;
+			select.$("[value='3']").click();
+		}
+	}
+
+	public async clickOnInstallKitNextSectionBtn() {
+		await utility.wait(1000);
+		if (await this.installKitNextSectionBtn.isDisplayed()) {
+			await this.installKitNextSectionBtn.click();
+		}
+	}
+
+	public async setQuantityVal1Textfield() {
+		await utility.wait(1000);
+		if (this.quantityTextfield1.isDisplayed()) {
+			this.quantityTextfield1.sendKeys("1");
+		}
+	}
+
+	public async setQuantityVal1TextfieldInstallKitForm() {
+		await utility.wait(1000);
+		if (this.quantityTextfield3.isDisplayed()) {
+			this.quantityTextfield3.sendKeys("1");
+		}
+	}
+
+	public async clickOnAddAnotherAssetBtn() {
+		await utility.wait(1000);
+		if (await this.addAnotherAssetBtn.isDisplayed()) {
+			await this.addAnotherAssetBtn.click();
+		}
+	}
+
+	public async clickOnAddAnotherAssetBtnInstallKitSection() {
+		await utility.wait(1000);
+		if (await this.addAnotherAssetBtnInstallKitSection.isDisplayed()) {
+			await this.addAnotherAssetBtnInstallKitSection.click();
+		}
+	}
+
+	public async verifyThatANewRecordsetIsDynamicallyCreated() {
+		await utility.wait(1000);
+		assert(await this.assetDropDownMenu2.isDisplayed());
+		assert(await this.quantityTextfield2.isDisplayed());
+	}
+
+	public async setNonSerialisedAssetsValConnectorBlocksDropDownMenu() {
+		await utility.wait(1000);
+		if (this.assetDropDownMenu2.isDisplayed()) {
+			var select = this.assetDropDownMenu2;
+			select.$("[value='3']").click();
+		}
+	}
+
+	public async setQuantityVal2Textfield() {
+		await utility.wait(1000);
+		if (this.quantityTextfield2.isDisplayed()) {
+			this.quantityTextfield2.sendKeys("2");
+		}
+	}
+
+	public async setQuantityVal2TextfieldInstallKitForm() {
+		await utility.wait(1000);
+		if (this.quantityTextfield4.isDisplayed()) {
+			this.quantityTextfield4.sendKeys("2");
+		}
+	}
+
+	public async clickOnCommissioningNextSectionBtn() {
+		await utility.wait(1000);
+		if (await this.commissioningNextSectionBtn.isDisplayed()) {
+			await this.commissioningNextSectionBtn.click();
+		}
+	}
+
+	public async validatePostInstallGasTightnessTestSectionIsVisible() {
+		await utility.wait(1000);
+		if (await this.postInstallationGasTightnessTestText.isDisplayed()) {
+			await this.postInstallationGasTightnessTestText.getText().then(function (postInstGassTightTxt) {
+				console.log("Arrived at : " + postInstGassTightTxt);
+			});
+		}
+	}
+
+	public async setDidYouHaveToContactGTTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.didYouHaveToContactGTTrueRadioOption.isDisplayed()) {
+			this.didYouHaveToContactGTTrueRadioOption.click();
+		}
+	}
+
+	public async setNationalGridGIJobRefVal1Textfield() {
+		await utility.wait(1000);
+		if (this.nationalGridGIJobRefTextfield.isDisplayed()) {
+			this.nationalGridGIJobRefTextfield.sendKeys("2");
+		}
+	}
+
+	public async setReportedIncidentToHAndSAIRLineTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.reportedIncidentToHAndSAIRLineTrueRadioOption.isDisplayed()) {
+			this.reportedIncidentToHAndSAIRLineTrueRadioOption.click();
+		}
+	}
+
+	public async setAIRLineRefTextfieldVal2() {
+		await utility.wait(1000);
+		if (this.aIRLineRefTextfield.isDisplayed()) {
+			this.aIRLineRefTextfield.sendKeys("2");
+		}
+	}
+
+	public async setNeedToWaitForTheGTAttendanceOnSiteTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.needToWaitForTheGTAttendanceOnSiteTrueRadioOption.isDisplayed()) {
+			this.needToWaitForTheGTAttendanceOnSiteTrueRadioOption.click();
+		}
+	}
+
+	public async setGTResolveIssueTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.gTResolveIssueTrueRadioOption.isDisplayed()) {
+			this.gTResolveIssueTrueRadioOption.click();
+		}
+	}
+
+	public async setDidYouCarryOutAnyExtraWorkToPassGasTightnessTestTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.didYouCarryOutAnyExtraWorkToPassGasTightnessTestTrueRadioOption.isDisplayed()) {
+			this.didYouCarryOutAnyExtraWorkToPassGasTightnessTestTrueRadioOption.click();
+		}
+	}
+
+	public async setExtraNotesValGasNotesTextfield() {
+		await utility.wait(1000);
+		if (this.additionalNotesTextfield.isDisplayed()) {
+			this.additionalNotesTextfield.sendKeys("2");
+		}
+	}
+
+	public async setHaveYouReplacedGasMeterTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.haveYouReplacedGasMeterTrueRadioOption.isDisplayed()) {
+			this.haveYouReplacedGasMeterTrueRadioOption.click();
+		}
+	}
+
+	public async setHaveYouReplacedRegulatorTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.haveYouReplacedRegulatorTrueRadioOption.isDisplayed()) {
+			this.haveYouReplacedRegulatorTrueRadioOption.click();
+		}
+	}
+
+	public async setPostInstallationGasTightnessTestPerformedTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.postInstallationGasTightnessTestPerformedTrueRadioOption.isDisplayed()) {
+			this.postInstallationGasTightnessTestPerformedTrueRadioOption.click();
+		}
+	}
+
+	public async clickOnCapturePhotoOfWitnessStickerAndUGaugeBtn() {
+		await utility.wait(1000);
+		if (await this.capturePhotoOfWitnessStickerAndUGaugeBtn.isDisplayed()) {
+			await this.capturePhotoOfWitnessStickerAndUGaugeBtn.click();
+		}
+	}
+
+	public async setWasThereADropInPressureTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.wasThereADropInPressureTrueRadioOption.isDisplayed()) {
+			this.wasThereADropInPressureTrueRadioOption.click();
+		}
+	}
+
+	public async setDIPGasPressureDropDownMenu() {
+		await utility.wait(1000);
+		if (await this.enterDIPGasPressureDropDownMenu.isDisplayed()) {
+			var select = this.enterDIPGasPressureDropDownMenu;
+			select.$('[value="3"]').click();
+		}
+	}
+
+	public async setGasTightnessTestPassedTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.gasTightnessTestPassedTrueRadioOption.isDisplayed()) {
+			this.gasTightnessTestPassedTrueRadioOption.click();
+		}
+	}
+
+	public async setTestWitnessNameValEllieTaylorTextfield() {
+		await utility.wait(1000);
+		if (this.testWitnessNameTxtfieldPostInstallGasTightnessForm.isDisplayed()) {
+			this.testWitnessNameTxtfieldPostInstallGasTightnessForm.sendKeys("Ellie Taylor");
+		}
+	}
+
+	public async setStandingPressureVal11Textfield() {
+		await utility.wait(1000);
+		if (this.standingPressureTextfield.isDisplayed()) {
+			this.standingPressureTextfield.sendKeys("2");
+		}
+	}
+
+	public async clickOnCapturePhotoOfStandingPressureBtn() {
+		await utility.wait(1000);
+		if (await this.capturePhotoOfStandingPressureBtn.isDisplayed()) {
+			await this.capturePhotoOfStandingPressureBtn.click();
+		}
+	}
+
+	public async setWorkingPressureVal20Textfield() {
+		await utility.wait(1000);
+		if (this.workingPressureTextfield.isDisplayed()) {
+			this.workingPressureTextfield.sendKeys("2");
+		}
+	}
+
+	public async clickOnCapturePhotoOfWorkingPressureBtn() {
+		await utility.wait(1000);
+		if (await this.capturePhotoOfWorkingPressureBtn.isDisplayed()) {
+			await this.capturePhotoOfWorkingPressureBtn.click();
+		}
+	}
+
+	public async setSelectMeterTypValG4054DropDownMenu() {
+		await utility.wait(1000);
+		if (this.selectMeterTypeDropDownMenu.isDisplayed()) {
+			var select = this.selectMeterTypeDropDownMenu;
+			select.$("[value='3']").click();
+		}
+	}
+
+	public async clickOnCapturePhotoOfFinalMeterInstallButton() {
+		await utility.wait(1000);
+		if (await this.capturePhotoOfFinalMeterInstallBtn2.isDisplayed()) {
+			await this.capturePhotoOfFinalMeterInstallBtn2.click();
+		}
+	}
+
+	public async FillPostGAsInstallDetailsFLTY20NoEx() {
+		await utility.wait(1000);
+		if (this.didYouHaveToContactGTTrueRadioOption.isDisplayed()) {
+			this.didYouHaveToContactGTTrueRadioOption.click();
+		}
+	
+		await utility.wait(1000);
+		if (this.nationalGridGIJobRefTextfield.isDisplayed()) {
+			this.nationalGridGIJobRefTextfield.sendKeys("2");
+		}
+	
+		await utility.wait(1000);
+		if (this.reportedIncidentToHAndSAIRLineTrueRadioOption.isDisplayed()) {
+			this.reportedIncidentToHAndSAIRLineTrueRadioOption.click();
+		}
+
+	
+		await utility.wait(1000);
+		if (this.aIRLineRefTextfield.isDisplayed()) {
+			this.aIRLineRefTextfield.sendKeys("2");
+		}
+
+		await utility.wait(1000);
+		if (this.needToWaitForTheGTAttendanceOnSiteTrueRadioOption.isDisplayed()) {
+			this.needToWaitForTheGTAttendanceOnSiteTrueRadioOption.click();
+		}
+	
+		await utility.wait(1000);
+		if (this.gTResolveIssueTrueRadioOption.isDisplayed()) {
+			this.gTResolveIssueTrueRadioOption.click();
+	}
+		await utility.wait(1000);
+		if (this.didYouCarryOutAnyExtraWorkToPassGasTightnessTestTrueRadioOption.isDisplayed()) {
+			this.didYouCarryOutAnyExtraWorkToPassGasTightnessTestTrueRadioOption.click();
+		}
+	
+		await utility.wait(1000);
+		if (this.additionalNotesTextfield.isDisplayed()) {
+			this.additionalNotesTextfield.sendKeys("2");
+		}
+	
+		await utility.wait(1000);
+		if (this.haveYouReplacedGasMeterTrueRadioOption.isDisplayed()) {
+			this.haveYouReplacedGasMeterTrueRadioOption.click();
+		}
+	
+		await utility.wait(1000);
+		if (this.haveYouReplacedRegulatorTrueRadioOption.isDisplayed()) {
+			this.haveYouReplacedRegulatorTrueRadioOption.click();
+		}
+
+		await utility.wait(1000);
+		if (this.postInstallationGasTightnessTestPerformedTrueRadioOption.isDisplayed()) {
+			this.postInstallationGasTightnessTestPerformedTrueRadioOption.click();
+		}
+	
+		await utility.wait(1000);
+		if (await this.capturePhotoOfWitnessStickerAndUGaugeBtn.isDisplayed()) {
+			await this.capturePhotoOfWitnessStickerAndUGaugeBtn.click();
+		}
+	
+		await utility.wait(1000);
+		if (this.wasThereADropInPressureTrueRadioOption.isDisplayed()) {
+			this.wasThereADropInPressureTrueRadioOption.click();
+		}
+
+		await utility.wait(1000);
+		if (await this.enterDIPGasPressureDropDownMenu.isDisplayed()) {
+			var select = this.enterDIPGasPressureDropDownMenu;
+			select.$('[value="3"]').click();
+		}
+
+		if (this.selectMeterTypeDropDownMenu.isDisplayed()) {
+			var select = this.selectMeterTypeDropDownMenu;
+			select.$("[value='3']").click();
+		}
+	
+		await utility.wait(1000);
+		if (this.gasTightnessTestPassedTrueRadioOption.isDisplayed()) {
+			this.gasTightnessTestPassedTrueRadioOption.click();
+	}
+		await utility.wait(1000);
+		if (this.testWitnessNameTxtfieldPostInstallGasTightnessForm.isDisplayed()) {
+			this.testWitnessNameTxtfieldPostInstallGasTightnessForm.sendKeys("Ellie Taylor");
+		}
+	
+		await utility.wait(1000);
+		if (this.standingPressureTextfield.isDisplayed()) {
+			this.standingPressureTextfield.sendKeys("2");
+		}
+
+		await utility.wait(1000);
+		if (await this.capturePhotoOfStandingPressureBtn.isDisplayed()) {
+			await this.capturePhotoOfStandingPressureBtn.click();
+		}
+	
+		await utility.wait(1000);
+		if (this.workingPressureTextfield.isDisplayed()) {
+			this.workingPressureTextfield.sendKeys("2");
+		}
+	
+		await utility.wait(1000);
+		if (await this.capturePhotoOfWorkingPressureBtn.isDisplayed()) {
+			await this.capturePhotoOfWorkingPressureBtn.click();
+		}
+	
+		await utility.wait(1000);
+		if (await this.capturePhotoOfFinalMeterInstallBtn2.isDisplayed()) {
+			await this.capturePhotoOfFinalMeterInstallBtn2.click();
+		}
+
+		if (await this.postInstallGasTightnessTestNextBtn.isDisplayed()) {
+			await this.postInstallGasTightnessTestNextBtn.click();
+		}
+	}
+
+
+	public async validateGasApplianceSafetyChecksSectionIsVisible() {
+		await utility.wait(1000);
+		if (await this.gasApplianceSafetyChecksSectionText.isDisplayed()) {
+			await this.gasApplianceSafetyChecksSectionText.getText().then(function (gasApplianceSafetyTxt) {
+				console.log("Arrived at : " + gasApplianceSafetyTxt);
+			});
+		}
+	}
+
+	public async setIsEarthBondingInstalledTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.isEarthBondingInstalledTrueRadioOption.isDisplayed()) {
+			this.isEarthBondingInstalledTrueRadioOption.click();
+		}
+	}
+
+	public async setLandlordPropertyTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.landlordPropertyTrueRadioOption.isDisplayed()) {
+			this.landlordPropertyTrueRadioOption.click();
+		}
+	}
+
+	public async setAddress1ValTextfieldDetails() {
+		await utility.wait(1000);
+		if (this.address1Textfield.isDisplayed()) {
+			this.address1Textfield.sendKeys("Street or House No");
+		}
+	}
+
+	public async setAddress2ValTextfieldDetails() {
+		await utility.wait(1000);
+		if (this.address2Textfield.isDisplayed()) {
+			this.address2Textfield.sendKeys("Test Road");
+		}
+	}
+
+	public async setAddress3ValTextfieldDetails() {
+		await utility.wait(1000);
+		if (this.address3Textfield.isDisplayed()) {
+			this.address3Textfield.sendKeys("Test Place");
+		}
+	}
+
+	public async setAddress4ValTextfieldDetails() {
+		await utility.wait(1000);
+		if (this.address4Textfield.isDisplayed()) {
+			this.address4Textfield.sendKeys("Test Town");
+		}
+	}
+
+	public async setAddress5ValTextfieldDetails() {
+		await utility.wait(1000);
+		if (this.address5Textfield.isDisplayed()) {
+			this.address5Textfield.sendKeys("Test Postcode");
+		}
+	}
+
+	public async setAddress6ValTextfieldDetails() {
+		await utility.wait(1000);
+		if (this.address6Textfield.isDisplayed()) {
+			this.address6Textfield.sendKeys("Test County");
+		}
+	}
+
+	public async setAddress7ValTextfieldDetails() {
+		if (this.address7Textfield.isDisplayed()) {
+			this.address7Textfield.sendKeys("Test Region");
+		}
+	}
+
+	public async clickOnAddApplianceBtn() {
+		await utility.wait(1000);
+		if (await this.addApplianceBtn.isDisplayed()) {
+			await this.addApplianceBtn.click();
+		}
+		utility.wait(2000);
+	}
+
+	public async setFlueTypeValFluelessDropDownMenu() {
+		await utility.wait(1000);
+		if (this.flueTypeDropDownMenu.isDisplayed()) {
+			var select = this.flueTypeDropDownMenu;
+			select.$("[value='0']").click();
+		}
+	}
+
+	public async setVentilationSatisfactoryTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.ventilationSatisfactoryTrueRadioOption.isDisplayed()) {
+			this.ventilationSatisfactoryTrueRadioOption.click();
+		}
+	}
+
+	public async setCarriedOutPurgeAndRelightGasApplianceTestTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.carriedOutPurgeAndRelightGasApplianceTestTrueRadioOption.isDisplayed()) {
+			this.carriedOutPurgeAndRelightGasApplianceTestTrueRadioOption.click();
+		}
+	}
+
+	public async setApplianceTypeValGasCookerDropDownMenu() {
+		await utility.wait(1000);
+		if (this.applianceTypeDropDownMenu.isDisplayed()) {
+			var select = this.applianceTypeDropDownMenu;
+			select.$("[value='0']").click();
+		}
+	}
+
+	public async setApplianceLocationValKitchenDropDownMenu() {
+		await utility.wait(1000);
+		if (this.applianceLocationDropDownMenu.isDisplayed()) {
+			var select = this.applianceLocationDropDownMenu;
+			select.$("[value='1']").click();
+		}
+	}
+	public async setApplianceConditionValWorkingOrderDropDownMenu() {
+		await utility.wait(1000);
+		if (this.applianceConditionDropDownMenu.isDisplayed()) {
+			var select = this.applianceConditionDropDownMenu;
+			select.$("[value='2']").click();
+		}
+	}
+
+	public async setApplianceSafeToUseTrueRadioOption() {
+		await utility.wait(1000);
+		if (this.applianceSafeToUseTrueRadioOption.isDisplayed()) {
+			this.applianceSafeToUseTrueRadioOption.click();
+		}
+	}
+
+	public async clickOnAllAppliancesTestedBtn() {
+		await utility.wait(2000);
+		if (await this.allAppliancesTestedBtn.isDisplayed()) {
+			await this.allAppliancesTestedBtn.click();
+		}
+	}
+
+	public async clickOnInstallPageSubmitBtn() {
+		await utility.wait(2000);
+		if (await this.installPageSubmitBtn.isDisplayed()) {
+			await this.installPageSubmitBtn.click();
+		}
+	}
 }

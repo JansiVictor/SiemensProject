@@ -193,9 +193,6 @@ Given the RmveGas CONFIRM COMMS HUB REMOVAL section
 When I fill the RmveGas CONFIRM COMMS HUB REMOVAL field28 with the value28
 And I click on RmveGas OK button CONFIRM COMMS HUB REMOVAL Updated window with the text Asset successfully added to Returns list in the final step
 Then I click on RmveGas SUBMIT btn from confirm comms hub removal
-When I fill the RmveGas Ins comms hub fields and capture photo EVIDENCE
-Then I should see RmveGas Submit button in remove section
-#Then I should see RmveGas RmveSix JobCompletion Summary
 
 
 Scenario: Going through RmveGas RmveSix "Summary of Job and receive Customer Signature" GAS section 

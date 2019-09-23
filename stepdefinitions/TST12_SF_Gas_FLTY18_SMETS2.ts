@@ -48,7 +48,7 @@ Given('TST12 the Appointment List window', async function () {
     await home.verifyAppointmentListPage();
 });
 When('TST12 I click on select button', async function () {
-    await home.clickCorrectSelectLink('GasFLTY18SMETS2');
+    await home.clickCorrectSelectLink('SFGasFLTY18SMETS2');
     await utility.wait(utility.medium_low);
 });
 Then('TST12 I should see Work Order window', async function () {
@@ -441,5 +441,5 @@ Then('TST12 I fill the field57 and Job Complete', async function () {
     await job.fillfield57Capturecust();
 });
 Then('TST12 see Job Completed screen', async function () {
-    await home.verifyCompletedStatus('GasFLTY18SMETS2');
+    await home.verifyCompletedStatus('SFGasFLTY18SMETS2');
 });
