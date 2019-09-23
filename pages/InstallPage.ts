@@ -302,7 +302,27 @@ export class InstallPageObject {
 		this.instCommshubNext = element(by.xpath('//*[@id="chubInstall_nextSectionBtn"]'));
 		//#endregion
 
+		
+        this.selectValidAssettoInst1 = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[3]'));
+        this.gasmeterserialSendregList = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[3])/option)[2]'));
+        this.gasmeterserialSendregList1 = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[2])/option)[2]'));
 
+        this.CaptureMeterReadingenableok1 = element(by.xpath('(//*[contains(text(),"Capture Meter Reading - Register (null)")])[2]'));
+        this.EUIenableOK1 = element(by.xpath('(//*[contains(text(),"EUI Device ID:")])[3]'));
+        this.Tst13DummyHan = element(by.xpath('//*[@id="chnohanconnectedfalse"]/following-sibling::span[@class="outer"]'));
+
+        this.selectValidAssettoInst2 = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[2]'));
+       // this.gasmeterserialSendregList2 = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[3])/option)[2]'));
+        this.gasmeterserialSendregList2 = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[2])/option)[2]'));
+        this.AddAppliance = element(by.xpath('(//*[@id="btn1"])[1]'));
+        this.TightnessIssueN = element(by.xpath('//*[@id="gtp12"]/following-sibling::span[@class="outer"]'));
+        this.PPMIDofferedNo = element(by.xpath('//*[@id="ihdPpmidOfferedfalse"]/following-sibling::span[@class="outer"]'));
+        this.InstallPPMIDNotOfferedAddNote = element(by.xpath('(//*[@id="newihdppmid_textIhdPpmidNotOffered"])'));
+
+        //TST15 FLTY 18 Non SMETS2
+
+        this.Tst15selectValidAssettoInst = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[1]'));
+        this.Tst15gasmeterserialSendregList = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[1])/option)[2]'));
 		this.clksendMsgXCHUB = element(by.xpath('//div/h4[text()="SEND MESSAGE XCHUB"]'));
 		this.SendXCHUBbtn = element(by.xpath('//*[@id="xchub_sendMessageButton"]'));
 
