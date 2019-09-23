@@ -169,7 +169,7 @@ export class HomePageObject {
 		this.SFElecEXCH23Select = element.all(by.xpath('//*[starts-with(@id,"SelectJobEXCHANGE 23")]'));
 		this.SFElecEXCH23Completed = element.all(by.xpath('//*[starts-with(@id,"CompletedJobINST16")]'));
 
-		//CGP added to Master 28/09 for FLTY20 TRAD complete link
+		//CGP added to Master 23/09 for FLTY20 TRAD complete link
 
 		this.DFFLTY20NonSMETS2SelectLinkCompleted = element.all(by.xpath('//span[starts-with(@id,"CompletedJobFAULTY 20 Non S2")]'));
 
