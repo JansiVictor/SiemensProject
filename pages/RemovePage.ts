@@ -2361,30 +2361,27 @@ public async fillcurrentmeterdtlElecsecEX23() {
 }
 
 public async fillcurrentmeterdtlElecsec() {
-        await utility.wait(2000);
-        if (await this.currentMetDet.isDisplayed()) {
-            await utility.wait(2000);
-            console.log("Current meter details displayed");
-            await this.existelecmeterDtlY.click();
-            console.log("Electric section clciked");
-            
-        }
-        await utility.wait(2000);
-        if (await this.meterReading2.isDisplayed()) {
-            await this.meterReadingLabel2.clear();
-            await this.meterReadingLabel2.sendKeys("12345");
-            console.log("Text Enterd for elect 5 digits");
-            await this.randomClick2.click();
-            console.log("Random Click 2");
-            
-            await utility.wait(3000);
-            await this.elecRemoveNextSec.click();            
-            //await this.ctmeterdtlGasNxt.click();
-            console.log("Next Button clicked 2");
-            await utility.wait(3000);
-           // await this.meterReading.click();
-        }
-    }
+	await utility.wait(2000);
+	if (await this.currentMetDet.isDisplayed()) {
+		await utility.wait(2000);
+		console.log("Current meter details displayed");
+		await this.existelecmeterDtlY.click();
+		console.log("Electric section clciked");
+		
+	}
+	await utility.wait(2000);
+	if (await this.meterReading2.isDisplayed()) {
+		await this.meterReadingLabel2.clear();
+		await this.meterReadingLabel2.sendKeys("12345");
+		console.log("Text Enterd for elect 5 digits");
+		await this.randomClick2.click();
+		console.log("Random Click 2");
+		console.log("No Next Section Button");            
+		await utility.wait(3000);       
+	
+	   
+	}
+}
 
 //CGP added for FLTY20TRAD
 

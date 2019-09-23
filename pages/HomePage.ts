@@ -82,6 +82,9 @@ export class HomePageObject {
 	public jobcompletionEXCH24: ElementArrayFinder;
 	public DFExchange24SelectLink: ElementArrayFinder;
 	public jobcompletionRMVE7: ElementArrayFinder;
+	//CGP added for FLTY20 TRAD 23/09
+ 
+    public DFFLTY20NonSMETS2SelectLinkCompleted: ElementArrayFinder;
 
 	constructor() {
 
@@ -157,6 +160,10 @@ export class HomePageObject {
 
 		this.SFElecEXCH23Select = element.all(by.xpath('//*[starts-with(@id,"SelectJobEXCHANGE 23")]'));
 		this.SFElecEXCH23Completed = element.all(by.xpath('//*[starts-with(@id,"CompletedJobINST16")]'));
+
+		//CGP added to Master 23/09 for FLTY20 TRAD complete link
+
+		this.DFFLTY20NonSMETS2SelectLinkCompleted = element.all(by.xpath('//span[starts-with(@id,"CompletedJobFAULTY 20 Non S2")]'));
 
 		//Jansi Added
 		this.jobcompletionNonFLTY20 = element.all(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY Non S2")]'));
@@ -267,6 +274,13 @@ export class HomePageObject {
 				this.verifyCompletedTextAppointmentListPage(this.jobcompletionRMVE7);
 				console.log('Fieldname:', fieldName);
 				break;
+
+//********************* CGP Begin change Mater 23/09 */
+			case ('DFFLTY20NonSMETS2TRAD'):
+				this.verifyCompletedTextAppointmentListPage(this.DFFLTY20NonSMETS2SelectLinkCompleted);
+				console.log('Fieldname:', fieldName);
+				break;	
+// End change*******************************//	
 			default:
 				break;
 		}
@@ -380,6 +394,12 @@ export class HomePageObject {
 				this.clickOnTheSelectLink(this.DFRMVE7SelectLink,'SelectJobRMVE7 ');
 				console.log('Fieldname:', selectLinkName);
 				break;
+//********************* CGP Begin change Mater 23/09 */
+			case ('DFFLTY20NonSMETS2TRAD'):
+				this.clickOnTheSelectLink(this.DFFLTY20NonSMETS2SelectLink,'SelectJobFAULTY 20 Non S2');
+				console.log('Fieldname:', selectLinkName);
+				break;	
+// End change*******************************//
 			default:
 				break;
 		}

@@ -53,10 +53,8 @@ Given('the Appointment List window for FLTY19 Trad', async function () {
 });
 
 When('I click on select button for FLTY19 Trad', async function () {
-  await utility.wait(2000);
-  //await home.continueLink.click();
-  await home.selectLink.click();
-  //await home.clickOnTheSelectLink();
+  await utility.wait(2000); 
+  await home.clickCorrectSelectLink('SFEFLTY19TRAD');
   await utility.wait(utility.medium_low);
 });
 
@@ -652,8 +650,8 @@ Then('I fill the field57 and Job Complete for FLTY19 Trad', async function () {
   await job.fillfield57Capturecust();
 });
 Then('see Job Completed screen for FLTY19 Trad', async function () {
-  await job.JobCompletedScreen();
-});
+  await home.verifyCompletedStatus('SFEFLTY19TRAD');
+ });
 
 
 
