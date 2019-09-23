@@ -52,9 +52,7 @@ Given('the Appointment List window for FLTY20TRAD', async function () {
 
 When('I click on select button for FLTY20TRAD', async function () {
   await utility.wait(2000);
-  //await home.continueLink.click();
-  await home.selectLink.click();
-  //await home.clickOnTheSelectLink();
+  await home.clickCorrectSelectLink('DFFLTY20NonSMETS2TRAD');
   await utility.wait(5000);
 });
 
@@ -840,5 +838,5 @@ Then('I fill the field57 and Job Complete for FLTY20TRAD', async function () {
   await job.fillfield57Capturecust();
 });
 Then('see Job Completed screen for FLTY20TRAD', async function () {
-  await job.JobCompletedScreen();
+  await home.verifyCompletedStatus('DFFLTY20NonSMETS2TRAD');
 });

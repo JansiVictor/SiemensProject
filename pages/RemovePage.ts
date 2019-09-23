@@ -637,7 +637,8 @@ export class RemovePageObject {
 		this.ElecAssetRemoval = element(by.xpath('//select[@id="cbx_RAss_Status"]'));
 		this.ElecAssetRemovalY = element(by.xpath('//*[@id="rb_CAssRem_y"]/span[@class="outer"]'));
 		this.ElecAssetRemovalPopup = element(by.xpath('//*[text()="OK"]'));
-		this.ConfirmElecCommsHubNxtBtn = element(by.xpath('(//button[text()="btn1"])'));
+		//Resolved Conflicts Jansi
+		this.ConfirmElecCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])'));
 		this.ConfirmElecCommsHubSubmit = element(by.xpath('(//button[text()="SUBMIT"])'));
 		this.SendElMREMBtnCap = element(by.xpath('//*[@id="Title_emrem"]'));
 		this.SendElMREMBtn = element(by.xpath('//*[@id="emrem_sendMessageButton"]'));
@@ -738,10 +739,29 @@ export class RemovePageObject {
 
         //CGP TRAD changes
 
-        this.smet2ihdppidN = element(by.xpath('//label[@id="currentIhdPpmid_assetOnSite_n"]'));
+		this.smet2ihdppidN = element(by.xpath('//label[@id="currentIhdPpmid_assetOnSite_n"]'));
+		
+		//Resolved Conflicts for TST22
+		//#region Flty TST22 EXCH24
 
-
+        this.btnnext1 = element(by.xpath('(//*[@id="btnNextComm"])[1]'));
+        this.Tst22removedmeterReading = element(by.xpath('(//input[@id="input0"])[2]'));
+        this.Tst22removemeterText = element(by.xpath('(//div[text()="Removed Meter Reading(s):"])[2]'));
+        this.Tst22RemoveMeterEnNxt = element(by.xpath('(//div[@class = "checkLabel"])[5]'));
+        this.Tst22RemoveNxtEnable = element(by.css('.ng-scope > .ng-scope:nth-child(5) .checkLabel'));
         
+		//#endregion
+		//Resolved Conflicts for TST28
+
+		//#region Flty TST28 RMVE7
+        this.Tst28IhdAssetPhotEvidence = element(by.xpath('(//*[@id="removeIhdPpmidAsset_photoButton"])'));
+        this.Tst28GasAssetPhotEvidence = element(by.xpath('(//*[@id="removeGasAsset_photoButton"])'));
+        this.Tst28carryadditlwork = element(by.xpath('//input[@id="gtp11"]/following-sibling::span[@class="outer"]'));
+        this.Tst28cappedgascooker = element(by.xpath('(//*[@id="work[$index]"]/following-sibling::span[@class="outer"])[2]'));
+        this.confirmElecEvidence = element(by.xpath('(//*[@id="btn_CapFin_Pho"])'));
+        this.commshubevidence = element(by.xpath('(//*[@id="removeChubAsset_photoButton"])'));
+        //#endregion
+  
 	}
 
 	public async confirmelectricassetremovalSectiondispaly(){
@@ -2341,30 +2361,27 @@ public async fillcurrentmeterdtlElecsecEX23() {
 }
 
 public async fillcurrentmeterdtlElecsec() {
-        await utility.wait(2000);
-        if (await this.currentMetDet.isDisplayed()) {
-            await utility.wait(2000);
-            console.log("Current meter details displayed");
-            await this.existelecmeterDtlY.click();
-            console.log("Electric section clciked");
-            
-        }
-        await utility.wait(2000);
-        if (await this.meterReading2.isDisplayed()) {
-            await this.meterReadingLabel2.clear();
-            await this.meterReadingLabel2.sendKeys("12345");
-            console.log("Text Enterd for elect 5 digits");
-            await this.randomClick2.click();
-            console.log("Random Click 2");
-            
-            await utility.wait(3000);
-            await this.elecRemoveNextSec.click();            
-            //await this.ctmeterdtlGasNxt.click();
-            console.log("Next Button clicked 2");
-            await utility.wait(3000);
-           // await this.meterReading.click();
-        }
-    }
+	await utility.wait(2000);
+	if (await this.currentMetDet.isDisplayed()) {
+		await utility.wait(2000);
+		console.log("Current meter details displayed");
+		await this.existelecmeterDtlY.click();
+		console.log("Electric section clciked");
+		
+	}
+	await utility.wait(2000);
+	if (await this.meterReading2.isDisplayed()) {
+		await this.meterReadingLabel2.clear();
+		await this.meterReadingLabel2.sendKeys("12345");
+		console.log("Text Enterd for elect 5 digits");
+		await this.randomClick2.click();
+		console.log("Random Click 2");
+		console.log("No Next Section Button");            
+		await utility.wait(3000);       
+	
+	   
+	}
+}
 
 //CGP added for FLTY20TRAD
 
