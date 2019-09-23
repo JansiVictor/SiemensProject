@@ -2355,14 +2355,11 @@ public async fillcurrentmeterdtlElecsec() {
             await this.meterReadingLabel2.sendKeys("12345");
             console.log("Text Enterd for elect 5 digits");
             await this.randomClick2.click();
-            console.log("Random Click 2");
-            
-            await utility.wait(3000);
-            await this.elecRemoveNextSec.click();            
-            //await this.ctmeterdtlGasNxt.click();
-            console.log("Next Button clicked 2");
-            await utility.wait(3000);
-           // await this.meterReading.click();
+			console.log("Random Click 2");
+			console.log("No Next Section Button");            
+			await utility.wait(3000);		
+		
+		   
         }
     }
 

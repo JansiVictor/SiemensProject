@@ -52,9 +52,7 @@ Given('the Appointment List window for FLTY20TRAD', async function () {
 
 When('I click on select button for FLTY20TRAD', async function () {
   await utility.wait(2000);
-  //await home.continueLink.click();
-  await home.selectLink.click();
-  //await home.clickOnTheSelectLink();
+  await home.clickCorrectSelectLink('DFFLTY20NonSMETS2TRAD');
   await utility.wait(5000);
 });
 
@@ -344,7 +342,9 @@ Given('the CAPTURE CURRENT METER section for FLTY20TRAD', async function () {
   await remove.captureElecSection();
 });
 When('I fill capture current meter elec for FLTY20TRAD', async function () {
-  await remove.fillcurrentmeterdtlElecsec();
+ 
+ await remove.fillcurrentmeterdtlElecsec();
+
 });
 
 Then('I should see the DETERMINE FAULT ACTIVITY section for FLTY20TRAD', async function () {
@@ -450,7 +450,7 @@ When('I fill the values for elec removal FLTY20TRAD', async function () {
   await remove.fillElecmeterRemoval();
 });
 Then('I click on NEXT button in removing elec meter for FLTY20TRAD', async function () {
-  //await remove.clickonnxtBtnofElecmeterRemoval();
+  
   await remove.clickonnxtBtnofElecmeterRemovalTRAD();
   
 });
@@ -486,22 +486,19 @@ console.log("Submit Clicked")
  });
 
  Then('I should see INSTALL COMMS HUB section for FLTY20TRAD', async function () {
-  //await inst.dummy();
-  //await riskassessTRAD.CommHubDisplayed();
+ 
   await inst.InstallCommsHubSection();
 });
 
 /********** "INSTALL COMMS HUB"*/
 
 Given('the INSTALL COMMS HUB sec for FLTY20TRAD', async function () {
-    //await riskassessTRAD.CommHubDisplayed();
+   
   await inst.InstallCommsHubSection();
 });
 
 When('I fill the Ins comms hub fields and capture photo EVIDENCE for FLTY20TRAD', async function () {
- // await remove.fillCommsHubReqY();
-  //await utility.wait(4000);
- // await riskassessTRAD.fillCommsHubDetails(4);
+ 
  await inst.fillfieldsInstallcommshub(2);
 });
 
@@ -840,5 +837,6 @@ Then('I fill the field57 and Job Complete for FLTY20TRAD', async function () {
   await job.fillfield57Capturecust();
 });
 Then('see Job Completed screen for FLTY20TRAD', async function () {
-  await job.JobCompletedScreen();
+ 
+  await home.verifyCompletedStatus('DFFLTY20NonSMETS2TRAD');
 });

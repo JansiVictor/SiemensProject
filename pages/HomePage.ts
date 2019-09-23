@@ -78,6 +78,10 @@ export class HomePageObject {
 
 	public jobcompletionNonFLTY18: ElementFinder;
 
+	//CGP added for FLTY20 TRAD 23/09
+
+	public DFFLTY20NonSMETS2SelectLinkCompleted: ElementArrayFinder;
+
 	constructor() {
 
 		//CGP added for Master
@@ -108,7 +112,14 @@ export class HomePageObject {
 		this.SFEFLTY19TRADselectLink =  element.all(by.xpath('//*[starts-with(@id,"SelectJobFAULTY 19 Non S2")]'));
 		this.SFEINST15selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobINST15")]'));
 		this.SFENMEX16selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobNMEX16")]'));
-		this.SFGFLTY18TRADselectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobFAULTY 18")]'));
+		
+		// **************************Begin Change CGP modified in Master23/09 for Supriya and Priya changes
+		
+		this.SFGFLTY18TRADselectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobFAULTY 18 Non S2")]'));
+		
+		//End of change *******************************/
+
+
 		this.SFGNMEX15selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobNMEX15")]'));
 		this.appointmentListLab = element(by.xpath('//*[text()="Appointments List"]'));
 
@@ -153,6 +164,9 @@ export class HomePageObject {
 		this.SFElecEXCH23Select = element.all(by.xpath('//*[starts-with(@id,"SelectJobEXCHANGE 23")]'));
 		this.SFElecEXCH23Completed = element.all(by.xpath('//*[starts-with(@id,"CompletedJobINST16")]'));
 
+		//CGP added to Master 28/09 for FLTY20 TRAD complete link
+
+		this.DFFLTY20NonSMETS2SelectLinkCompleted = element.all(by.xpath('//span[starts-with(@id,"CompletedJobFAULTY 20 Non S2")]'));
 
 
 	}
@@ -243,6 +257,14 @@ export class HomePageObject {
 				this.verifyCompletedTextAppointmentListPage(this.jobcompletionNonFLTY18);
 				console.log('Fieldname:', fieldName);
 				break;
+
+			//********************* CGP Begin change Mater 23/09 */
+			case ('DFFLTY20NonSMETS2TRAD'):
+					this.verifyCompletedTextAppointmentListPage(this.DFFLTY20NonSMETS2SelectLinkCompleted);
+					console.log('Fieldname:', fieldName);
+					break;	
+
+					// End change*******************************//	
 
 			default:
 				break;
@@ -345,6 +367,13 @@ export class HomePageObject {
 				this.clickOnTheSelectLink(this.SFGasFLTY18NonSMETS2SelectLink,'SelectJobFAULTY 18 Non S2');
 				console.log('Fieldname:', selectLinkName);
 				break;
+//********************* CGP Begin change Mater 23/09 */
+			case ('DFFLTY20NonSMETS2TRAD'):
+					this.clickOnTheSelectLink(this.DFFLTY20NonSMETS2SelectLink,'SelectJobFAULTY 20 Non S2');
+					console.log('Fieldname:', selectLinkName);
+					break;	
+
+					// End change*******************************//
 			default:
 				break;
 		}

@@ -53,11 +53,8 @@ Given('the Appointment List window for FLTY19 Trad', async function () {
 });
 
 When('I click on select button for FLTY19 Trad', async function () {
-  await utility.wait(2000);
-  //await home.continueLink.click();
+  await utility.wait(2000); 
   await home.clickCorrectSelectLink('SFEFLTY19TRAD');
- // await home.selectLink.click();
-  //await home.clickOnTheSelectLink();
   await utility.wait(utility.medium_low);
 
 
@@ -315,7 +312,7 @@ Given('the CAPTURE CURRENT METER section for FLTY19 Trad', async function () {
   await remove.currentMeterDetailsHeader();
 });
 When('I fill capture current meter elec for FLTY19 Trad', async function () {
- // await remove.fillcurrentmeterdtlElecsec();
+ 
   await remove.fillcurrentmeterdtlElecsecTRAD();
   
 });
@@ -366,7 +363,7 @@ When('I fill the values for elec removal FLTY19 Trad', async function () {
   await remove.fillElecmeterRemoval();
 });
 Then('I click on NEXT button in removing elec meter for FLTY19 Trad', async function () {
- // await remove.clickonnxtBtnofElecmeterRemoval();
+ 
  await remove.clickonnxtBtnofElecmeterRemovalTRAD();
 
 });
@@ -396,7 +393,6 @@ Then('I should click on next section for FLTY19 Trad', async function () {
 });
 
 Then('I should click on submit button for FLTY19 Trad', async function () {
-//await remove.clickonsubmitforRemoval();
 
 await remove.clickSubmitRemElecSecTRAD();
 
@@ -405,22 +401,19 @@ console.log("Submit Clicked")
  });
 
  Then('I should see INSTALL COMMS HUB section for FLTY19 Trad', async function () {
-  //await inst.dummy();
-  //await riskassessTRAD.CommHubDisplayed();
+ 
   await inst.InstallCommsHubSection();
 });
 
 /********** "INSTALL COMMS HUB"*/
 
 Given('the INSTALL COMMS HUB sec for FLTY19 Trad', async function () {
-    //await riskassessTRAD.CommHubDisplayed();
+    
   await inst.InstallCommsHubSection();
 });
 
 When('I fill the Ins comms hub fields and capture photo EVIDENCE for FLTY19 Trad', async function () {
- // await remove.fillCommsHubReqY();
-  //await utility.wait(4000);
- // await riskassessTRAD.fillCommsHubDetails(4);
+
  await inst.fillfieldsInstallcommshub(2);
 });
 
@@ -540,7 +533,7 @@ Given('the Commissioning Successful button is displayed for FLTY19 Trad', async 
   await inst.Seecommisionsuccessbutton();
   });
   When('Commissioning Successful butn clk for FLTY19 Trad', async function () {
-  //await inst.clickonCommissioning();
+ 
   await inst.clickSeecommisionsuccessbutton();
   
   });  
@@ -554,8 +547,6 @@ await inst.seePPMIDsection();
 });
 When('I fill the fields for Install PPMID for FLTY19 Trad', async function () {
 await inst.filltheduelforseePPMIDsectionTRAD(2);
-//await inst.filltheduelforseePPMIDsection(2);
-
 });
 Then('I should see PPMID COMMISSIONING section for FLTY19 Trad', async function () {
 await inst.SeePPMIDcommisioning();
@@ -661,7 +652,7 @@ Then('I fill the field57 and Job Complete for FLTY19 Trad', async function () {
   await job.fillfield57Capturecust();
 });
 Then('see Job Completed screen for FLTY19 Trad', async function () {
- // await job.JobCompletedScreen();
+
  await home.verifyCompletedStatus('SFEFLTY19TRAD');
 });
 
