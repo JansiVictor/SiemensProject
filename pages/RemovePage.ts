@@ -330,7 +330,7 @@ export class RemovePageObject {
 	constructor() {
 
 //Master updates
-		this.ConfirmCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])'));
+		//this.ConfirmCommsHubNxtBtn = element(by.xpath('(//button[@id="btn1"])'));
         this.randomClick2 =  element(by.xpath('(//div[@class="checkLabel"])[2]'));
         this.randomClickTRAD = element(by.xpath('//div[@class="checkLabel"]'));
         this.currentMetDet = element(by.id('Title_CurrMe_Det'));
