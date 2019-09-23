@@ -407,7 +407,7 @@ Given('the ExchngNineteen Appointment List window', async function () {
 
 
    When('I fill the ExchngNineteen Post Installation GAS section fields with values',async function () {
-    await riskassessGAS.fillPostInstallationGasDetails();
+    await riskassessGAS.fillPostInstallationGasDetailsExchange19();
    });
 
 

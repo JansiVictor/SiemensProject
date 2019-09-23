@@ -137,9 +137,9 @@ index.html file within the reports folder contains the overall execution status 
 
 They can be customized according to user's specific needs.
 
-![cucumberreporterscreen](https://raw.githubusercontent.com/igniteram/protractor-cucumber-typescript/master/images/cucumberReporter.PNG)
-
-![cucumberreporterscreen](https://raw.githubusercontent.com/igniteram/protractor-cucumber-typescript/master/images/cucumberReporter_1.PNG)
+![cucumberreporterscreen](https://raw.githubusercontent.com/JansiVictor/SiemensProject/Updated/images/cucumberReporter.PNG)
+ 
+![cucumberreporterscreen1](https://raw.githubusercontent.com/JansiVictor/SiemensProject/Updated/images/cucumberReporter_1.png)
 
 #### Contributors
 * Aparna Das 

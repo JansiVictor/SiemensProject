@@ -185,6 +185,7 @@ export class GASPageObject {
  
 	 public gtResolveIssueYES: ElementFinder;
 	 public polNxtBtnGasMeter:ElementFinder;
+	 public polGasNxtBtn:ElementFinder
 	private currentGasPhotoFullMeterButton: ElementFinder;
 	 //CGP added for Master Branch
 
@@ -328,7 +329,9 @@ export class GASPageObject {
 		this.wpCapture = element(by.xpath('(//div[@id="btn_CapStPr"])[2]'));
 		this.finalMeterCapture = element(by.xpath('//button[@id="btn2"]'));
 		/***************Reverting to CGP changes */
-		//this.polNxtBtn = element(by.xpath('(//div/button[@id="btnNextPol"])'));
+		//Pol Element withoutIndex added
+		this.polGasNxtBtn = element(by.xpath('(//div/button[@id="btnNextPol"])'));
+		//##
 		this.polNxtBtn = element(by.xpath('(//div/button[@id="btnNextPol"])[2]'));
 
 		/************************* End of change**************8 */
@@ -882,8 +885,57 @@ public async fillCurrentMeterDetails() {
 		await this.wpCapture.click();
 		await this.finalMeterCapture.click();
 		await utility.wait(utility.low);
-		await this.polNxtBtnGasMeter.click();
+		await this.polNxtBtn.click();
 	}
+
+	/***
+	 * @Author Aparna Das 23.09
+	 * @description Fill Gas Post Installation Gas Tightness Test section Ex19
+	 ***/
+	public async fillPostInstallationGasDetailsExchange19() {
+		await utility.wait(utility.very_low);
+		await this.contactGTYEs.click();
+		await this.nationalGTRefInput.sendKeys('12345');
+		await this.reportedToHSYEsGas.click();
+		await this.inputAirLineRefGAS.sendKeys('12345');
+		await this.gtAttendanceOnSiteYes.click();
+		await this.gtResolveIssueGas.click();
+		await this.AdditionalWorktoPassYesGAS.click();
+		await this.additionalWork1.click();
+		await this.additionalWork2.click();
+		await this.additionalWork3.click();
+		await this.additionalWork4.click();
+		await this.additionalWork5.click();
+		await this.additionalWork6.click();
+		//await this.additionalSmartNote.click();
+		await this.replacedGasMeterYes.click();
+		await this.replacedGasRegulatorYes.click();
+		await this.GasTightnessTestPerformedYes.click();
+		await this.capturePostInstallationGas.click();
+		await this.DIPGASYes.click();
+		if (await this.dipSelectDD.isDisplayed()) {
+			var select3 = this.dipSelectDD;
+			select3.$('[value="1"]').click();
+		}
+		if (await this.meterTypeGASDD.isDisplayed()) {
+			var select3 = this.meterTypeGASDD;
+			select3.$('[value="1"]').click();
+		}
+		await utility.wait(utility.low);
+		await this.tightnessPassedYes.click();
+		await this.witnessName.sendKeys('Dennis');
+		await this.standingPressure.sendKeys('1');
+		await this.dipCaptureBtn.click();
+		await this.workingpressure.sendKeys('1');
+		await this.wpCapture.click();
+		await this.finalMeterCapture.click();
+		await this.commshubconnectedtoWANYes.click();
+		await utility.wait(utility.Avg_low);
+		//changed to polGasNxtBtn nt working chk polNxtBtn element
+		browser.executeScript('arguments[0].scrollIntoView()', this.polNxtBtn.getWebElement());
+		await this.polNxtBtn.click();
+	}
+
 	/***
 	 * @Author Aparna Das
 	 * @description Fill Gas Post Installation Gas Tightness Test section Ex20
@@ -926,9 +978,10 @@ public async fillCurrentMeterDetails() {
 		await this.wpCapture.click();
 		await this.finalMeterCapture.click();
 		await this.commshubconnectedtoWANYes.click();
-		await utility.wait(utility.low);
-		//changed to polNxtBtnGasMeter nt working chk polNxtBtn element
-		await this.polNxtBtnGasMeter.click();
+		await utility.wait(utility.Avg_low);
+		//changed to polGasNxtBtn nt working chk polNxtBtn element
+		browser.executeScript('arguments[0].scrollIntoView()', this.polGasNxtBtn.getWebElement());
+		await this.polGasNxtBtn.click();
 	}
 	/***
 	 * @Author Aparna Das

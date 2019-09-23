@@ -21,7 +21,7 @@ Given the ExchTwTwo "Work Order" window
 When i see ExchTwTwo Call Forward or Arrive Button
 Then I click on ExchTwTwo CALL FORWARD button
 Then I should see page ExchTwTwo contect display
-#And I should see the ExchTwTwo CUSTOMER CONTACT NUMBER
+And I should see the ExchTwTwo CUSTOMER CONTACT NUMBER
 And I should see ExchTwTwo Contact made field
 
 Scenario: Selecting ExchTwTwo job and setting to depart
@@ -59,7 +59,7 @@ Then I should see ExchTwTwo INFO window
 
  Scenario: Going through ExchTwTwo "INFO" window   
  Given the ExchTwTwo INFO window with the text
- #When I click on ExchTwTwo OK button 
+ When I click on ExchTwTwo OK button 
  Then I should see ExchTwTwo RISK ASSESSMENT ELEC section 
 
 Scenario: Going through ExchTwTwo "RISK ASSESSMENT - ELEC" section	
@@ -67,12 +67,12 @@ Given the ExchTwTwo RISK ASSESSMENT - ELEC section
 When I fill the ExchTwTwo RISK ASSESSMENT - ELEC fields with the values
 And I click on ExchTwTwo CAPTURE PHOTO OF HAZARD IDENTIFIED button
 And I click on ExchTwTwo NEXT SECTION button
-#Then I should see ExchTwTwo CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section 
+Then I should see ExchTwTwo CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section 
 
 Scenario: Going through ExchTwTwo "RISK ASSESSMENT - GAS" section	
 Given the ExchTwTwo RISK ASSESSMENT - GAS section
 When I fill the ExchTwTwo RISK ASSESSMENT - GAS fields with the values
-#Then I should see the Suitable for ExchTwTwo Smart Installation section
+Then I should see the Suitable for ExchTwTwo Smart Installation section
 
 Scenario: Going through ExchTwTwo "Suitable for Smart Installation GAS"
 Given the Suitable for ExchTwTwo Smart Installation GAS section
@@ -92,7 +92,7 @@ Then I should see ExchTwTwo INITIAL POLARITY CHECK AT METER AND CUT OUT section
 Scenario: Going through ExchTwTwo "INITIAL POLARITY CHECK - AT METER AND CUT OUT" section     	
 Given the ExchTwTwo INITIAL POLARITY CHECK - AT METER AND CUT OUT section  
 When I fill the ExchTwTwo METER AND CUT OUT fields with the values
-#for new WO this is not req, for existing one required
+for new WO this is not req, for existing one required
 And I click on ExchTwTwo SUBMIT button
 And I should see PRE INSTALLATION GAS TIGHTNESS TEST section
 
@@ -103,10 +103,10 @@ Then ExchTwTwo I click on CAPTURE PHOTO OF U-GAUGE ATTACHED TO GAS METER, SHOWIN
 And ExchTwTwo I fill the field18 with the value18
 And ExchTwTwo I see Gas Tightness Test Completed field as FAIL
 And ExchTwTwo I fill the field19 with the value19
-#And ExchTwTwo I should see REMOVE IHD-PPMID section
+And ExchTwTwo I should see REMOVE IHD-PPMID section
 
 Scenario: Going through "CURRENT IHD/PPMID DETAILS" section
-#Given ExchTwTwo the CURRENT IHD-PPMID DETAILS section
+Given ExchTwTwo the CURRENT IHD-PPMID DETAILS section
 When ExchTwTwo I fill the field010 with the value010
 And ExchTwTwo I should see CURRENT METER DETAILS - GAS section
 Then ExchTwTwo I should see the page contect display of current meter details
@@ -166,7 +166,7 @@ And ExchTwTwo I should see GMREM Request Sent Successfully txt message
 And ExchTwTwo I should see OK to Remove Asset text message
 
 Scenario: Confirming "Removal Successful"
-#Given ExchTwTwo the Removal Successful button is displayed
+Given ExchTwTwo the Removal Successful button is displayed
 When ExchTwTwo I click on Removal Successful button
 Then ExchTwTwo I should see CONFIRM GAS ASSET REMOVAL section
 
@@ -174,17 +174,17 @@ Scenario: Going through "CONFIRM GAS ASSET REMOVAL" section
 Given ExchTwTwo the CONFIRM GAS ASSET REMOVAL section
 When ExchTwTwo I fill the field24 with the value24
 Then ExchTwTwo I click on Submit Btn
-#And ExchTwTwo I should see INSTALL COMMS HUB section
+And ExchTwTwo I should see INSTALL COMMS HUB section
 
 Scenario: Going through "INSTALL COMMS HUB" section
 Given ExchTwTwo the INSTALL COMMS HUB sec
 When ExchTwTwo I fill the Ins comms hub fields and capture photo EVIDENCE
-#Then ExchTwTwo I should see NEW GAS METER DETAILS section
+Then ExchTwTwo I should see NEW GAS METER DETAILS section
 
 Scenario: Continuing "NEW GAS METER DETAILS" section
 Given ExchTwTwo the NEW GAS METER DETAILS section
 When ExchTwTwo I fill the fields and values for New GAS meter details
-#Then I should see ExchTwTwo New Regulator section
+Then I should see ExchTwTwo New Regulator section
 
 Scenario: Input the ExchTwTwo new Regulator S/N which transferres the Regulator from the Van List GAS section 
 Given the ExchTwTwo New Regulator section 

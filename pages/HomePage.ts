@@ -75,10 +75,32 @@ export class HomePageObject {
 
 	public SFElecEXCH23Select: ElementArrayFinder;
 	public SFElecEXCH23Completed: ElementArrayFinder;
-
+	
 	public jobcompletionNonFLTY18: ElementFinder;
 
-	constructor() {
+	//############ABORT Elements######
+	public ex21AbortStatus:ElementFinder
+	public ex20AbortStatus:ElementFinder
+	public remove5AbortStatus:ElementFinder
+	public ex21SuspendStatusLink:ElementFinder
+	public faulty19NonS2AbortStatus:ElementFinder;
+	//#############END################
+
+constructor() {
+
+	//############ABORT Elements######
+		
+	this.ex21AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobTest EXCH21")]'));
+	this.ex20AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobTest1 EXCH20 SF")]'));
+	this.remove5AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobRMVE5 FLAT")]'));
+	this.faulty19NonS2AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobFAULTY 19 Non S2")]'));
+	
+//Suspend Links
+	this.ex21SuspendStatusLink = element(by.xpath('//*[starts-with(@id,"SuspendJobTest EXCH21")]'));
+
+
+
+	//#############END################
 
 		//CGP added for Master
 		this.Installation16 = element.all(by.xpath('//*[starts-with(@id,"SelectJobINST16 DF SMETS")]'));
@@ -94,18 +116,18 @@ export class HomePageObject {
 		this.jobcompletionFLTY20 = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 20 SMETS2")]'));
 		this.jobcompletionNonFLTY18 = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 18 Non S2")]'));
 		this.Ex20selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest1 EXCH20 SF SMETS2")]'));
-		this.Ex19selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJob1EXCHANGE 19 FLAT")]'));
+		this.Ex19selectLink = element.all(by.xpath('(//span[starts-with(@id,"SelectJob1EXCHANGE 19 FLAT")])'));
 		this.Ex20continueLink = element.all(by.xpath('//span[starts-with(@id,"ContinueJobTest EXCH20 SF SMETS2"]'));
 		this.selectLinkEx21 = element.all(by.xpath('(//span[starts-with(@id,"SelectJobTest EXCH21 DF")])'));
 		this.selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest EXCH21 DF SMETS2"]'));
-		this.Remove6selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobRMVE6 FLAT")]'));
+		this.Remove6selectLink = element.all(by.xpath('(//span[starts-with(@id,"SelectJobRMVE6 FLAT")])'));
 		this.SFGASEx22 = element.all(by.xpath('//span[starts-with(@id,"SelectJobEXCHANGE 22 FLAT")]'));
 		this.RemoveGasSelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobRMVE5 FLAT")]'));
 		this.FLTYnoexchangeselectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobFAULTY 20 SMETS2 Site FLAT")]'));
 		this.SFGASINST14 = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest1 INST14 DF SMETS")]'));
 		this.DF17SmartCreditselectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobNMEX17")]'));
 		this.SFEFLTY19selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobFAULTY 19 SMETS2")]'));
-		this.SFEFLTY19TRADselectLink =  element.all(by.xpath('//*[starts-with(@id,"SelectJob FAULTY 19 Non S2")]'));
+		this.SFEFLTY19TRADselectLink =  element.all(by.xpath('//*[starts-with(@id,"SelectJobFAULTY 19 Non S2")]'));
 		this.SFEINST15selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobINST15")]'));
 		this.SFENMEX16selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobNMEX16")]'));
 		this.SFGFLTY18TRADselectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobFAULTY 18")]'));
@@ -135,7 +157,7 @@ export class HomePageObject {
 		this.Ex20completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobTest1 EXCH20 DF SMETS2"]'));
 		this.Ex21completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobTest1 EXCH21 DF SMETS2"]'));
 		this.DF17SmartCreditcompletedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobNMEX17")]'));
-		this.flty19noExTradSelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobFAULTY 19 Trad Non S2 site FLAT")]'));
+		this.flty19noExTradSelectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobFAULTY 19 Non S2")]'));
 		this.Ex19completedLink = element.all(by.xpath('//span[starts-with(@id,"CompletedJobEXCHANGE 19 FLAT"]'));
 		this.selectLink2 = element.all(by.xpath('//div[contains(@id,"SelectJobTest3 EXCH21 DF SMETS2")]'));
 		this.appointmentListLabel = element(by.xpath('//div[@id="btn_top"]/div[2]/div'));
@@ -268,7 +290,7 @@ export class HomePageObject {
 				console.log('Fieldname:', selectLinkName);
 				break;
 			case ('SFEFLTY19TRAD'):
-				this.clickOnTheSelectLink(this.SFEFLTY19TRADselectLink,'SelectJob FAULTY 19 Non S2');
+				this.clickOnTheSelectLink(this.SFEFLTY19TRADselectLink,'SelectJobFAULTY 19 Non S2');
 				console.log('Fieldname:', selectLinkName);
 				break;
 			case ('SFEINST15'):
@@ -307,8 +329,8 @@ export class HomePageObject {
 				this.clickOnTheSelectLink(this.selectLinkEx21,'SelectJobTest EXCH21 DF');
 				console.log('Fieldname:', selectLinkName);
 				break;
-			case ('SF _E_FLTY19TradNoExchange'):
-				this.clickOnTheSelectLink(this.flty19noExTradSelectLink,'SelectJobFAULTY 19 Trad Non S2');
+			case ('SF_E_FLTY19TradNoExchange'):
+				this.clickOnTheSelectLink(this.flty19noExTradSelectLink,'SelectJobFAULTY 19 Non S2');
 				console.log('Fieldname:', selectLinkName);
 				break;
 			case ('SFINST14'):
@@ -350,6 +372,52 @@ export class HomePageObject {
 		}
 	}
 
+
+	/***
+	 * @description Verify Aborted status is displayed
+	***/
+
+	public verifyAbortedStatus(fieldName) {
+		var fieldName;
+		switch (fieldName) {
+			case ('Exchange21'):
+				this.verifyAbortedTextAppointmentListPage(this.ex21AbortStatus);
+				console.log('Fieldname:', fieldName);
+				break;
+				case ('Exchange20'):
+				this.verifyAbortedTextAppointmentListPage(this.ex20AbortStatus);
+				console.log('Fieldname:', fieldName);
+				break;
+				case ('GRemove5'):
+				this.verifyAbortedTextAppointmentListPage(this.remove5AbortStatus);
+				console.log('Fieldname:', fieldName);
+				break;
+
+				
+
+			default:
+				break;
+		}
+	}
+
+	/***
+	 * @description Verify Aborted status is displayed
+	***/
+
+	public verifySuspendedStatus(SuspendedLinkName) {
+		var fieldName;
+		switch (fieldName) {
+				case ('Exchange21'):
+				this.clickOnTheSelectLink(this.ex21SuspendStatusLink,'SuspendJobTest EXCH21');
+				console.log('Fieldname:', SuspendedLinkName);
+				break;
+
+			default:
+				break;
+		}
+	}
+
+
 	//===============
 
 	//FLTY CHANGES
@@ -389,7 +457,21 @@ export class HomePageObject {
 		}
 	}
 
-	
+	public verifyAbortedTextAppointmentListPage(workorderAborted) {
+		if (workorderAborted != null) {
+			workorderAborted.getText().then(function (Aborted) {
+				console.log("find Abortedtext  " + Aborted);
+			});
+		}
+	}
+
+	public verifySuspendedTextAppointmentListPage(workorderSuspended) {
+		if (workorderSuspended != null) {
+			workorderSuspended.getText().then(function (Suspended) {
+				console.log("find SuspendedText  " + Suspended);
+			});
+		}
+	}
 	
 	/***
 	 * @Author Supriya Harikumar
@@ -398,6 +480,45 @@ export class HomePageObject {
 
 	public async clickOnTheSelectLink(workorderselectlink,xpathparam) {
 		var list = workorderselectlink;
+
+		await utility.wait(2000);
+		list.count().then(function (promiseResult) {
+			console.log("size is: " + promiseResult);
+			var size = promiseResult; //4
+			//Remove when there is one
+			//var actualSize = size -1;
+			console.log("size is: " + size);
+
+
+			var selectlatest = element(
+				by.xpath('((//span[starts-with(@id,"' + xpathparam + '")]))' + '[' + [size] + ']')
+			);
+
+			selectlatest.getText().then(function (selectText) {
+				console.log("find select link text  " + selectText);
+			});
+
+
+			console.log("link " + ('((//span[starts-with(@id,"' + xpathparam + '")]))' + '[' + [size] + ']'));
+			var selectMe = element(
+				by.xpath('((//span[starts-with(@id,"' + xpathparam + '")]))' + '[' + [size] + ']')
+			);
+			selectMe.getText().then(function (selectMeText) {
+				console.log("find select Me link text  " + selectMeText);
+			});
+			if (
+				selectMe.isDisplayed()
+
+			) {
+				selectMe.click();
+
+			};
+
+		});
+	};
+
+	public async clickOnTheSuspendLink(workordersuspendlink,xpathparam) {
+		var list = workordersuspendlink;
 
 		await utility.wait(2000);
 		list.count().then(function (promiseResult) {

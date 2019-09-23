@@ -553,7 +553,7 @@ Then('I click OK RmveSix button in Updated window with the text Asset successful
 
 });
 Then('I clk RmveSix SUBMIT', async function () {
-	await remove.clickonElecsubmitforRemoval();
+	await remove.clickonsubmitforRemovalGrmv();
 });
 Then('I should see RmveSix JobCompletion Summary', async function () {
 	await exchnge21Complete.summaryDisplay();

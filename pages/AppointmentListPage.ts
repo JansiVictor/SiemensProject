@@ -51,8 +51,9 @@ export class AppointmentListPageObject {
 
 	public continueLinkforEx21: ElementFinder;
 	public contactMadeNo: ElementFinder;
-	public appointmentconfirmationNo: ElementFinder;
-
+	
+	
+	
 	public custcontnumberTxt: ElementFinder;
 	public customercontactnumberdis: ElementFinder;
 
@@ -69,8 +70,8 @@ export class AppointmentListPageObject {
     private appointmentConfRadioOptionTrue: ElementFinder;
     private appointmentConfRadioOptionFalse: ElementFinder;
 	private additionalAccessDetailsTextLabel: ElementFinder;
-	
-    private departOkBtn: ElementFinder;
+	private departOkBtn: ElementFinder;
+
     
 
 	constructor() {
@@ -92,7 +93,6 @@ export class AppointmentListPageObject {
 		this.contactMadeNo = element(by.xpath('//label[@id="rb_contact_n"]'));
 		this.appointmentConfirmation = element(by.xpath('//div[text()="Appointment Confirm?"]'));
 		this.appointmentconfirmationYes = element(by.id('rb_app_conf_y'));
-		this.appointmentconfirmationNo = element(by.id('rb_app_conf_n'));
 		this.additionalAccessDetails = element(by.xpath('//div[text()="Additional Access Details"]'));
 		this.additionalAccessDetailsTextBox = element(by.id('call_fwd_notes'));
 		this.departBtn = element(by.id('btn_depart'));
@@ -363,8 +363,5 @@ export class AppointmentListPageObject {
 		await utility.wait(utility.medium);
 		await expect(this.arrivalTime.isPresent());
 	}
-
-	//Mark's Update
-
 
 }

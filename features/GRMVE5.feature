@@ -175,18 +175,6 @@ Scenario: Going through RmveGas "REMOVE COMMS HUB" section
 Given the RmveGas REMOVE COMMS HUB section
 When I fill the RmveGas REMOVE COMMS HUB field027 with the value27
 Then I click on RmveGas NEXT SEC button from Remove Comms Hub
-# Then I should see RmveGas SEND MSG XCHUB section
-
-# Scenario: Continuing RmveGas "SEND MESSAGE XCHUB" section
-# Given the RmveGas SEND MESSAGE XCHUB section
-# When I click on RmveGas Send Message XCHUB button
-# #Then I should see RmveGas XCHUB Awaiting Response butn
-
-# #Scenario: Waiting RmveGas "AWAITING RESPONSE"
-# #Given the RmveGas Awaiting Response butn XCHUB
-# # When I wait for the RmveGas butn to disappear XCHUB
-# # Then I should see RmveGas Removal Successful butn XCHUB
-# #And I should see RmveGas Request Sent Successfully text msg XCHUB
 
 Scenario: Going through RmveGas "CONFIRM COMMS HUB REMOVAL" section
 Given the RmveGas CONFIRM COMMS HUB REMOVAL section

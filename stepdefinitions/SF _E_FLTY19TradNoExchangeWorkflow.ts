@@ -80,7 +80,7 @@ import {
     
     
     When('I click on FLTYTTradNoExchange select button', async function () {
-      await home.clickCorrectSelectLink('SF _E_FLTY19TradNoExchange');
+      await home.clickCorrectSelectLink('SF_E_FLTY19TradNoExchange');
     //await home.clickFLTY19TradNoExSelectLink();
     //await home.clickOnTheContinueLink();
     await utility.wait(utility.medium_low);
@@ -344,7 +344,7 @@ import {
       });
     
       Then('FLTYTTradNoExchange I should see  Remove Submit section', async function () {
-        await remove.ConfirmCommsHubNxtBtn.click();
+        await remove.ConfirmElecCommsHubSubmit.click();
     });
 
     /**********"Energy Efficiency Information" */
@@ -373,6 +373,6 @@ import {
     await job.FinalSubmission();
   });
   Then('FLTYTTradNoExchange see Job Completed screen', async function () {
-    await job.JobCompletedFLTYTradS2NoExchangeScreen();
+    await home.seeAppList();
    
   });

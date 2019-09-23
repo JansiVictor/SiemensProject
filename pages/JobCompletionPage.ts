@@ -947,6 +947,8 @@ public async fillDeviceBindingSectionDF17(){
 		if (this.HelpandInfoYEs.isDisplayed()) {
 			await this.HelpandInfoYEs.click();
 		}
+		//Added Wait 23.09.19
+		await utility.wait(utility.very_low);
 		if (this.DemoOfEquipmentYes.isDisplayed()) {
 			await this.DemoOfEquipmentYes.click();
 		}

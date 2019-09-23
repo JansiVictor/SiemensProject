@@ -679,7 +679,7 @@ Given('the Perform ExTwOne Smart Meter Education and Demonstration section', asy
 
 
 When('I fill the Perform ExTwOne Smart Meter Education and Demonstration  fields with values', async function () {
-  await exchnge21Complete.fillSmartEducationDetails();
+  await exchnge21Complete.fillfield55duelsmartedu();
 });
 
 

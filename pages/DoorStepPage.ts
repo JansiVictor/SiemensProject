@@ -26,9 +26,9 @@ export class DoorStepPageObject {
 	public onSiteBtn: ElementFinder;
 	public initialRiskAssesment: ElementFinder;
 	private doorStepTextLabel: ElementFinder;
-    private arriveButton: ElementFinder;
+	private arriveButton: ElementFinder;
 	constructor() {
-
+		
 		this.beAware = element(by.xpath('//div/h4[text() =" Be aware of any danger!"]'));
 		this.selectInputField = element(by.id('selectInput'));
 		this.accessToSiteY = element(by.id('rb_Acc_y'));
