@@ -105,7 +105,7 @@ export class HomePageObject {
 		this.SFGASINST14 = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest1 INST14 DF SMETS")]'));
 		this.DF17SmartCreditselectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobNMEX17")]'));
 		this.SFEFLTY19selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobFAULTY 19 SMETS2")]'));
-		this.SFEFLTY19TRADselectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobCGP FAULTY 19 Non S2")]'));
+		this.SFEFLTY19TRADselectLink =  element.all(by.xpath('//*[starts-with(@id,"SelectJob FAULTY 19 Non S2")]'));
 		this.SFEINST15selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobINST15")]'));
 		this.SFENMEX16selectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobNMEX16")]'));
 		this.SFGFLTY18TRADselectLink = element.all(by.xpath('//*[starts-with(@id,"SelectJobFAULTY 18")]'));
@@ -268,7 +268,7 @@ export class HomePageObject {
 				console.log('Fieldname:', selectLinkName);
 				break;
 			case ('SFEFLTY19TRAD'):
-				this.clickOnTheSelectLink(this.SFEFLTY19TRADselectLink,'SelectJobCGP FAULTY 19 Non S2');
+				this.clickOnTheSelectLink(this.SFEFLTY19TRADselectLink,'SelectJob FAULTY 19 Non S2');
 				console.log('Fieldname:', selectLinkName);
 				break;
 			case ('SFEINST15'):
