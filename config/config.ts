@@ -22,6 +22,7 @@ export const config: Config = {
                 name: 'chrome',
                 version: '76'
             },
+            
             device: 'Automation PC',
             platform: {
                 name: 'Windows',
@@ -34,7 +35,7 @@ export const config: Config = {
     frameworkPath: require.resolve("protractor-cucumber-framework"),
 
     specs: [
-        "../../features/*.feature"
+        "../../features/Exchange21.feature"
     ],
 
     jasmineNodeOpts: {

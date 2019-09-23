@@ -55,8 +55,12 @@ Given('the Appointment List window for INST16', async function () {
 When('I click on select button for INST16', async function () {
   await utility.wait(2000);
   //await home.continueLink.click();
-  await home.selectLink.click();
+
+  await home.clickCorrectSelectLink('DFINST16');
+  //await home.selectLink.click();
   //await home.clickOnTheSelectLink();
+
+
   await utility.wait(5000);
 });
 Then('I should see Work Order window for INST16', async function () {
@@ -618,5 +622,8 @@ Then('I fill the field57 and Job Complete for INST16', async function () {
   await job.fillfield57Capturecust();
 });
 Then('see Job Completed screen for INST16', async function () {
-  await job.JobCompletedScreen();
+  //await job.JobCompletedScreen();
+
+  await home.verifyCompletedStatus('DFINST16');
+
 });

@@ -1051,5 +1051,5 @@ Given('ExchTwTwo the DEVICE BINDING & COMMISSIONING section', async function () 
     await job.fillfield57Capturecust();
   });
   Then('ExchTwTwo see Job Completed screen', async function () {
-    await job.JobCompletedScreen();
+    await home.seeAppList();
   });
