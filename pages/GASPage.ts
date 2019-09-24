@@ -510,12 +510,8 @@ public async fillCurrentMeterDetails() {
 	}
 
 	public async suitableForSmartInstallationGASTxt() {
-
-		if (this.suitableforSmartInstallationGASTxt.isDisplayed()) {
-			await this.suitableforSmartInstallationGASTxt.getText().then(function (suitableforSmartInstallation) {
-				console.log("find suitableforSmartInstallation GAS Text  " + suitableforSmartInstallation);
-			});
-		}
+		await utility.wait(utility.very_low);
+	await expect(this.suitableforSmartInstallationGASTxt.isDisplayed());
 
 	}
 
@@ -756,6 +752,8 @@ public async fillCurrentMeterDetails() {
 			await utility.wait(utility.low);
 		}
 	}
+
+	
 
 	/***
 	 * @Author Aparna Das
@@ -1343,5 +1341,45 @@ public async captureInitialGasPhoto() {
 		await this.currentGasPhotoFullMeterButton.click();
 	}
 }
+
+
+//** Aparna Changes 24/09- Adding new function for INST14(New Meter) */
+
+	public async fillNewMeterDetailsWomanufact(index: number) {
+		if (await this.newMeterDD.isDisplayed()) {
+			await utility.wait(utility.low);
+			// click the dropdown
+			this.newMeterDD.click()
+			browser.sleep(1000)
+			//index = index ;
+			console.log("Selecting element based index : " + index)
+			// select the option
+			await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
+			await utility.wait(utility.low);
+			//await this.commshubPopup.click();
+
+			await expect(await this.inputMeterSerialNum.isPresent());
+			var options = this.selectNewMeterGasOptn.getAttribute('value');
+			await this.inputMeterSerialNum.sendKeys(options);
+			await this.randomEUDevice.click();
+			let ale: Alert = browser.switchTo().alert();
+			// clicks 'OK' button
+			ale.accept();
+			await utility.wait(utility.low);
+			await this.commshubPopup.click();
+			
+			await utility.wait(utility.low);
+			if (await this.MeterTypeDD.isDisplayed()) {
+				var select2 = this.MeterTypeDD;
+				select2.$('[value="0"]').click();
+			}
+			await utility.wait(utility.low);
+			if (await this.meterLocDD.isDisplayed()) {
+				var select3 = this.meterLocDD;
+				select3.$('[value="02"]').click();
+			}
+			await utility.wait(utility.low);
+		}
+	}
 
 }

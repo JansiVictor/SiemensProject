@@ -70,7 +70,7 @@ And I click on ExchTwTwo NEXT SECTION button
 Then I should see ExchTwTwo CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section 
 
 Scenario: Going through ExchTwTwo "RISK ASSESSMENT - GAS" section	
-Given the ExchTwTwo RISK ASSESSMENT - GAS section
+#Given the ExchTwTwo RISK ASSESSMENT - GAS section
 When I fill the ExchTwTwo RISK ASSESSMENT - GAS fields with the values
 Then I should see the Suitable for ExchTwTwo Smart Installation section
 
@@ -80,7 +80,6 @@ When I fill ExchTwTwo Site Suitable for Smart Installation? GAS button
 
 Scenario: Going through ExchTwTwo "CAPTURE INITIAL PHOTO OF GAS and ELEC INSTALLATION"
 Given I should see ExchTwTwo Capture Photo of GAS Installation section
-Then I should see ExchTwTwo INITIAL POLARITY CHECK - MARTINDALE TEST section  
 
 Scenario: Going through ExchTwTwo "INITIAL POLARITY CHECK MARTINDALE TEST" section   	
 Given the ExchTwTwo INITIAL POLARITY CHECK MARTINDALE TEST section  
@@ -92,9 +91,7 @@ Then I should see ExchTwTwo INITIAL POLARITY CHECK AT METER AND CUT OUT section
 Scenario: Going through ExchTwTwo "INITIAL POLARITY CHECK - AT METER AND CUT OUT" section     	
 Given the ExchTwTwo INITIAL POLARITY CHECK - AT METER AND CUT OUT section  
 When I fill the ExchTwTwo METER AND CUT OUT fields with the values
-for new WO this is not req, for existing one required
 And I click on ExchTwTwo SUBMIT button
-And I should see PRE INSTALLATION GAS TIGHTNESS TEST section
 
 Scenario: Going through "PRE INSTALLATION GAS TIGHTNESS TEST" section
 Given ExchTwTwo the PRE INSTALLATION GAS TIGHTNESS TEST section
@@ -106,7 +103,6 @@ And ExchTwTwo I fill the field19 with the value19
 And ExchTwTwo I should see REMOVE IHD-PPMID section
 
 Scenario: Going through "CURRENT IHD/PPMID DETAILS" section
-Given ExchTwTwo the CURRENT IHD-PPMID DETAILS section
 When ExchTwTwo I fill the field010 with the value010
 And ExchTwTwo I should see CURRENT METER DETAILS - GAS section
 Then ExchTwTwo I should see the page contect display of current meter details
