@@ -367,7 +367,7 @@ Given('the INSTFrtn Appointment List window', async function () {
     await riskassess.newMeterDetailsDisplayed();
    });
 
-//** Aparna Changes 24/09- Adding new function for INST14(New Meter) */
+   //** Aparna Changes 24/09- Adding new function for INST14(New Meter) */
    When('I fill the INSTFrtn New Meter details fields with values Gas',async function () {
     await riskassessGAS.fillNewMeterDetailsWomanufact(3);
    });
