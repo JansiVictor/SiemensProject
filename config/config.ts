@@ -17,9 +17,6 @@ export const config: Config = {
         browserName:'chrome',
         shardTestFiles:true,
         maxInstances:1,
-        chromeOptions: {
-        args: ["--incognito"]
-                },
         metadata: {
         browser: {
         name:'chrome',
@@ -48,7 +45,6 @@ export const config: Config = {
     onPrepare: () => {
         browser.ignoreSynchronization = true;
         browser.manage().window().maximize();
-        browser.driver.manage().deleteAllCookies();
         
         //Reporter.createDirectory(htmlReports);
     },

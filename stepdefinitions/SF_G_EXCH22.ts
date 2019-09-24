@@ -70,12 +70,16 @@ Then('I click ExchTwTwo Login button', async function () {
 	await utility.wait(10000);
 });
 
+//** Aparna Changes 24/09- Adding new function for EXCH22 */
 Then('I should see the ExchTwTwo Appointment List', async function () {
-	await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
+    //await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
+    await home.seeAppList();
 });
 
+//** Aparna Changes 24/09- Adding new function for EXCH22 */
 Given('the ExchTwTwo Appointment List window', async function () {
-	await home.verifyAppointmentListPage();
+    //await home.verifyAppointmentListPage();
+    await home.seeAppList();
 });
 
 When('I click on ExchTwTwo select button', async function () {
