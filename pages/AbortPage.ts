@@ -102,8 +102,10 @@ export class AbortPageObject {
 	public async noAccessAbortContactMade() {
 		await applist.clickOnContactMadeOtion();
 		await utility.wait(utility.very_low);
+		if(this.appointmentconfirmationNo.isDisplayed()){
 		await expect(this.appointmentconfirmationNo.isPresent());
 		await this.appointmentconfirmationNo.click();
+		}
 		await utility.wait(utility.very_low);
 		await expect(this.appointmentRescheduledNo.isPresent());
 		await this.appointmentRescheduledNo.click();
