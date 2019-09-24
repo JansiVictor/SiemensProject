@@ -103,59 +103,70 @@ export class AbortPageObject {
 		await applist.clickOnContactMadeOtion();
 		await utility.wait(utility.very_low);
 		if(this.appointmentconfirmationNo.isDisplayed()){
-		await expect(this.appointmentconfirmationNo.isPresent());
 		await this.appointmentconfirmationNo.click();
 		}
 		await utility.wait(utility.very_low);
-		await expect(this.appointmentRescheduledNo.isPresent());
+		if(this.appointmentRescheduledNo.isDisplayed()){
 		await this.appointmentRescheduledNo.click();
+		}
 		await utility.wait(utility.very_low);
-		await expect(this.abortNoAccessContactMade.isPresent());
+		if(this.abortNoAccessContactMade.isDisplayed()){
 		await this.abortNoAccessContactMade.click();
+		}
 
 	}
 //Abort Options ################
 	public async notConvinientOptionAndAbort() {
 		await utility.wait(utility.very_low);
-		await expect(this.notConvinientRadioBtn.isPresent());
+		if(this.notConvinientRadioBtn.isDisplayed()){
 		await this.notConvinientRadioBtn.click();
+		}
         try{
-            await expect(this.abortNxtbtn.isPresent());
+            await expect(this.abortNxtbtn.isDisplayed());
             await this.abortNxtbtn.click();
-            } catch(err){
+            } catch(error){
                 console.log('No Next btn present Currently');
             }
 		await utility.wait(utility.very_low);
-		await expect(this.abortAddNotes.isPresent());
+		if(this.abortAddNotes.isDisplayed()){
 		await this.abortAddNotes.sendKeys('Not able to Call the customer');
+		}
 		await utility.wait(utility.very_low);
-		await expect(this.abortCapturePhoto.isPresent());
+		if(this.abortCapturePhoto.isDisplayed()){
 		await this.abortCapturePhoto.click();
+		}
 		await utility.wait(utility.very_low);
-		await expect(this.abortAppointment.isPresent());
+		if(this.abortAppointment.isDisplayed()){
 		await this.abortAppointment.click();
+		}
 		await utility.wait(utility.very_low);
     }
 
     public async unableToOffGasOptionAndAbort() {
 		await utility.wait(utility.very_low);
-		await expect(this.unabletoOffGasOption.isPresent());
-        await this.unabletoOffGasOption.click();
+		if(this.unabletoOffGasOption.isDisplayed()){
+		await this.unabletoOffGasOption.click();
+		}
         try{
-		await expect(this.abortNxtbtn.isPresent());
-        await this.abortNxtbtn.click();
-        } catch(err){
+			if(this.abortNxtbtn.isDisplayed()){
+				await this.abortNxtbtn.click();
+				}
+        } catch(error) {
             console.log('No Next btn present Currently');
         }
 		await utility.wait(utility.very_low);
-		await expect(this.abortAddNotes.isPresent());
-		await this.abortAddNotes.sendKeys('Leave Gass Off');
+
+		if(this.abortAddNotes.isDisplayed()){
+			await this.abortAddNotes.sendKeys('Leave Gass Off');
+			}
 		await utility.wait(utility.very_low);
-		await expect(this.abortCapturePhoto.isPresent());
-		await this.abortCapturePhoto.click();
+		if(this.abortCapturePhoto.isDisplayed()){
+			await this.abortCapturePhoto.click();
+			}
 		await utility.wait(utility.very_low);
-		await expect(this.abortAppointment.isPresent());
-		await this.abortAppointment.click();
+		if(this.abortAppointment.isDisplayed()){
+			await this.abortAppointment.click();
+			}
         await utility.wait(utility.very_low);
     }
 
@@ -164,8 +175,10 @@ export class AbortPageObject {
 
 // Abort Rescan Pop up ###################
 	public async reScanInfoPopup(){
-		await expect(this.reScanPopUpOK.isPresent());
-		await this.reScanPopUpOK.click();
+
+		if(this.reScanPopUpOK.isDisplayed()){
+			await this.reScanPopUpOK.click();
+		}
 		await utility.wait(utility.very_low);
     }
 
@@ -218,11 +231,10 @@ export class AbortPageObject {
 			await this.abortNoAcessBtn.click();
 		}
     }
-
+//updates
     public async abortJoboAfterInitialRisk() {
-        await expect(risk.initialRiskAssesment.isPresent());
         try {
-            if (risk.initialRiskAssessmentTab.isPresent()) {
+            if (risk.initialRiskAssessmentTab.isDisplayed()) {
                 await risk.initialRiskAssessmentTab.click();
             }
         } catch (error) {
