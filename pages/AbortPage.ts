@@ -30,11 +30,15 @@ import {
 import {
 	RiskAssessmentPageObject
 } from "../pages/RiskAssessmentPage";
+import {
+	ElectricPageObject
+} from "../pages/ElectricPage";
 
 
 const applist: AppointmentListPageObject = new AppointmentListPageObject();
 const door: DoorStepPageObject = new DoorStepPageObject();
 const risk: RiskAssessmentPageObject = new RiskAssessmentPageObject();
+const elec: ElectricPageObject = new ElectricPageObject();
 
 export class AbortPageObject {
 
@@ -61,7 +65,8 @@ export class AbortPageObject {
     //##############Risk Assessment Page ######
     public OKtoProceedEGPOutcomeN:ElementFinder;
     public riskAssessAbort:ElementFinder;
-    public unabletoOffGasOption:ElementFinder;
+	public unabletoOffGasOption:ElementFinder;
+	public captureabortElec:ElementFinder;
     
 
 	//#####END#######
@@ -92,9 +97,11 @@ export class AbortPageObject {
         this.OKtoProceedEGPOutcomeN = element(by.xpath('//label[@id="rb_OKProce_y"]'));
         this.riskAssessAbort = element(by.xpath('//button[text()="Abort"]'));
         this.unabletoOffGasOption = element(by.id('abdradio11'));
-
-
-       // ####################################
+	   // ####################################
+	   
+	   //###########Elec Risk Assess##########
+	   this.captureabortElec = element(by.xpath('//button[text()="CAPTURE PHOTO OF HAZARDS IDENTIFIED"]'));
+	   
         
 
     }
@@ -273,5 +280,21 @@ export class AbortPageObject {
             await this.riskAssessAbort.click();
             await utility.wait(utility.Avg_low);
         }
-    }
+	}
+	
+	public async abortJoboAfterElecRisk() {
+		if (await elec.performRiskText.isDisplayed()) {
+			await elec.performRiskYES.click();
+		}
+		if (await elec.selectRiskReasonDD.isDisplayed()) {
+			var select = elec.selectRiskReasonDD;
+			select.$('[value="5"]').click();
+		}
+		if (await elec.riskAssessmentinput.isDisplayed()) {
+			await elec.riskAssessmentinput.sendKeys('Testing Input');
+		}
+		if (await this.captureabortElec.isDisplayed()) {
+			await this.captureabortElec.click();
+		}
+	}
 }
