@@ -39,7 +39,7 @@ When('I fill the DoorStep Protocol Values fields to abort suspended job', async 
 });
 
 Then('I should click the AbortNoAccessSuspended status for the workorder {string}', async function (workorder) {
-	await home.clickCorrectSuspendedLink();
+	await home.clickCorrectSuspendedLink(workorder);
 	await utility.wait(utility.medium);
 });
 
@@ -60,7 +60,7 @@ When('I click the worknolongerrequired Reason and Abort the Job', async function
 });
 
 Then('I should see the Aborted status for the workorder {string} on the appointments page', async function (workorder) {
-	await utility.wait(utility.high);
+	await utility.wait(utility.medium);
 	await home.verifyAbortedStatus(workorder)
 	await utility.wait(utility.low);
 });
