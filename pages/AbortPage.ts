@@ -61,7 +61,23 @@ export class AbortPageObject {
     //##############Risk Assessment Page ######
     public OKtoProceedEGPOutcomeN:ElementFinder;
     public riskAssessAbort:ElementFinder;
-    public unabletoOffGasOption:ElementFinder;
+	public unabletoOffGasOption:ElementFinder;
+	
+	//################## Risk Assess Elec ##############
+	public capturePhotoAbortElec:ElementFinder;
+	public updatedHnSY: ElementFinder;
+	public airlineRefInput: ElementFinder;
+	public updateDNOY: ElementFinder;
+	public dnoInput: ElementFinder;
+	public workCanbeCompletedN:ElementFinder;
+	public addNotes:ElementFinder;
+	public elecAbortBtn:ElementFinder;
+	public reasonforAbort:ElementFinder;
+	public abortElecNxtBtn:ElementFinder;
+//################## Risk Assess Gas ##############
+	public capturemeterPressureMed:ElementFinder;
+	public medPressureNo:ElementFinder;
+	public abortGas:ElementFinder;
     
 
 	//#####END#######
@@ -89,71 +105,100 @@ export class AbortPageObject {
         //#############END#############
         
         //#################Risk Assessment Page#############
-        this.OKtoProceedEGPOutcomeN = element(by.xpath('//label[@id="rb_OKProce_y"]'));
+        this.OKtoProceedEGPOutcomeN = element(by.xpath('//label[@id="rb_OKProce_n"]'));
         this.riskAssessAbort = element(by.xpath('//button[text()="Abort"]'));
-        this.unabletoOffGasOption = element(by.id('abdradio11'));
+		this.unabletoOffGasOption = element(by.id('abdradio11'));
 
 
-       // ####################################
-        
+	   // #################################### Risk Assess Elec##########
+	   
+	   this.capturePhotoAbortElec =element(by.xpath('//button[text()="CAPTURE PHOTO OF HAZARDS IDENTIFIED"]'));
+		this.updatedHnSY = element(by.xpath('//input[@id="radiora11"]/following-sibling::span[@class="outer"]'));
+		this.airlineRefInput = element(by.xpath('//input[@id="input1"]'));
+		this.updateDNOY = element(by.xpath('//input[@id="radiora13"]/following-sibling::span[@class="outer"]'));
+		this.dnoInput = element(by.xpath('//input[@id="input2"]'));
+		this.workCanbeCompletedN = element(by.xpath('//input[@id="radiora18"]/following-sibling::span[@class="outer"]'));
+		this.addNotes = element(by.xpath('//input[@id="text3"]'));
+		this.elecAbortBtn = element(by.xpath('//button[text()="Abort"]'));
+		this.reasonforAbort = element(by.xpath('//div[@id="abdradio4"]'));
+		this.abortElecNxtBtn = element(by.xpath('//button[text()="NEXT"]'));
+	
+	   // #################################### Risk Assess Gas##########	
+		
+	   this.capturemeterPressureMed =element(by.xpath('//input[@id="radiorag2"]/following-sibling::span[@class="outer"]'));
+	   this.medPressureNo = element(by.xpath('//input[@id="radiorag4"]/following-sibling::span[@class="outer"]'));
+	   this.abortGas = element(by.xpath('//input[@id="btn_Gas_fail"]'));
 
     }
 
 	public async noAccessAbortContactMade() {
 		await applist.clickOnContactMadeOtion();
 		await utility.wait(utility.very_low);
-		await expect(this.appointmentconfirmationNo.isPresent());
+		if(this.appointmentconfirmationNo.isDisplayed()){
 		await this.appointmentconfirmationNo.click();
+		}
 		await utility.wait(utility.very_low);
-		await expect(this.appointmentRescheduledNo.isPresent());
+		if(this.appointmentRescheduledNo.isDisplayed()){
 		await this.appointmentRescheduledNo.click();
+		}
 		await utility.wait(utility.very_low);
-		await expect(this.abortNoAccessContactMade.isPresent());
+		if(this.abortNoAccessContactMade.isDisplayed()){
 		await this.abortNoAccessContactMade.click();
+		}
 
 	}
 //Abort Options ################
 	public async notConvinientOptionAndAbort() {
 		await utility.wait(utility.very_low);
-		await expect(this.notConvinientRadioBtn.isPresent());
+		if(this.notConvinientRadioBtn.isDisplayed()){
 		await this.notConvinientRadioBtn.click();
+		}
         try{
-            await expect(this.abortNxtbtn.isPresent());
+            await expect(this.abortNxtbtn.isDisplayed());
             await this.abortNxtbtn.click();
-            } catch(err){
+            } catch(error){
                 console.log('No Next btn present Currently');
             }
 		await utility.wait(utility.very_low);
-		await expect(this.abortAddNotes.isPresent());
+		if(this.abortAddNotes.isDisplayed()){
 		await this.abortAddNotes.sendKeys('Not able to Call the customer');
+		}
 		await utility.wait(utility.very_low);
-		await expect(this.abortCapturePhoto.isPresent());
+		if(this.abortCapturePhoto.isDisplayed()){
 		await this.abortCapturePhoto.click();
+		}
 		await utility.wait(utility.very_low);
-		await expect(this.abortAppointment.isPresent());
+		if(this.abortAppointment.isDisplayed()){
 		await this.abortAppointment.click();
+		}
 		await utility.wait(utility.very_low);
     }
 
     public async unableToOffGasOptionAndAbort() {
 		await utility.wait(utility.very_low);
-		await expect(this.unabletoOffGasOption.isPresent());
-        await this.unabletoOffGasOption.click();
+		if(this.unabletoOffGasOption.isDisplayed()){
+		await this.unabletoOffGasOption.click();
+		}
         try{
-		await expect(this.abortNxtbtn.isPresent());
-        await this.abortNxtbtn.click();
-        } catch(err){
+			if(this.abortNxtbtn.isDisplayed()){
+				await this.abortNxtbtn.click();
+				}
+        } catch(error) {
             console.log('No Next btn present Currently');
         }
 		await utility.wait(utility.very_low);
-		await expect(this.abortAddNotes.isPresent());
-		await this.abortAddNotes.sendKeys('Leave Gass Off');
+
+		if(this.abortAddNotes.isDisplayed()){
+			await this.abortAddNotes.sendKeys('Leave Gass Off');
+			}
 		await utility.wait(utility.very_low);
-		await expect(this.abortCapturePhoto.isPresent());
-		await this.abortCapturePhoto.click();
+		if(this.abortCapturePhoto.isDisplayed()){
+			await this.abortCapturePhoto.click();
+			}
 		await utility.wait(utility.very_low);
-		await expect(this.abortAppointment.isPresent());
-		await this.abortAppointment.click();
+		if(this.abortAppointment.isDisplayed()){
+			await this.abortAppointment.click();
+			}
         await utility.wait(utility.very_low);
     }
 
@@ -162,8 +207,10 @@ export class AbortPageObject {
 
 // Abort Rescan Pop up ###################
 	public async reScanInfoPopup(){
-		await expect(this.reScanPopUpOK.isPresent());
-		await this.reScanPopUpOK.click();
+
+		if(this.reScanPopUpOK.isDisplayed()){
+			await this.reScanPopUpOK.click();
+		}
 		await utility.wait(utility.very_low);
     }
 
@@ -216,11 +263,10 @@ export class AbortPageObject {
 			await this.abortNoAcessBtn.click();
 		}
     }
-
+//updates
     public async abortJoboAfterInitialRisk() {
-        await expect(risk.initialRiskAssesment.isPresent());
         try {
-            if (risk.initialRiskAssessmentTab.isPresent()) {
+            if (risk.initialRiskAssessmentTab.isDisplayed()) {
                 await risk.initialRiskAssessmentTab.click();
             }
         } catch (error) {
@@ -259,5 +305,92 @@ export class AbortPageObject {
             await this.riskAssessAbort.click();
             await utility.wait(utility.Avg_low);
         }
-    }
+	}
+	
+	/***
+	 * @Author Aparna Das
+	 * @description ABORT Fill Risk Elec page details
+	 ***/
+
+	public async fillRiskAssesmentElecFields() {
+		if (await risk.performRiskText.isDisplayed()) {
+			await risk.performRiskYES.click();
+		}
+		if (await risk.selectRiskReasonDD.isDisplayed()) {
+			var select = risk.selectRiskReasonDD;
+			select.$('[value="4"]').click();
+		}
+		if (await risk.riskAssessmentinput.isDisplayed()) {
+			await risk.riskAssessmentinput.sendKeys('A05 : Sign of DB equipment burning, smoking or arcing');
+		}
+		if (await this.capturePhotoAbortElec.isDisplayed()) {
+			await this.capturePhotoAbortElec.click();
+		}
+		if (await this.updatedHnSY.isDisplayed()) {
+			await this.updatedHnSY.click();
+		}
+		if (await this.airlineRefInput.isDisplayed()) {
+			await this.airlineRefInput.sendKeys('1');
+		}
+		if (await this.updateDNOY.isDisplayed()) {
+			await this.updateDNOY.click();
+		}
+		if (await this.dnoInput.isDisplayed()) {
+			await this.dnoInput.sendKeys('2');
+		}
+		if (await this.workCanbeCompletedN.isDisplayed()) {
+			await this.workCanbeCompletedN.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.elecAbortBtn.isDisplayed()) {
+			await this.elecAbortBtn.click();
+		}
+		if (await this.reasonforAbort.isDisplayed() && await this.reasonforAbort.isSelected() ) {
+			await this.reasonforAbort.click();
+		}
+		await utility.wait(utility.very_low);
+		if (await this.abortAddNotes.isDisplayed()) {
+			await this.abortAddNotes.sendKeys('Serious Issue');
+		}
+		await utility.wait(utility.very_low);
+		if(this.abortCapturePhoto.isDisplayed()){
+		await this.abortCapturePhoto.click();
+		}
+		await utility.wait(utility.very_low);
+		if(this.abortAppointment.isDisplayed()){
+		await this.abortAppointment.click();
+		}
+		await utility.wait(utility.very_low);
+	}
+
+	/***
+	 * @Author Aparna Das
+	 * @description ABORT Fill Risk Gas page details
+	 ***/
+
+	public async fillRiskAssesmentGasFields() {
+		if (await this.capturemeterPressureMed.isDisplayed()) {
+			await this.capturemeterPressureMed.click();
+		}
+		if (await this.medPressureNo.isDisplayed()) {
+			await this.medPressureNo.click();
+		}
+		if (await this.abortGas.isDisplayed()) {
+			await this.abortGas.click();
+		}
+		await utility.wait(utility.very_low);
+
+		if(this.abortAddNotes.isDisplayed()){
+			await this.abortAddNotes.sendKeys('Leave Gass Off');
+			}
+		await utility.wait(utility.very_low);
+		if(this.abortCapturePhoto.isDisplayed()){
+			await this.abortCapturePhoto.click();
+			}
+		await utility.wait(utility.very_low);
+		if(this.abortAppointment.isDisplayed()){
+			await this.abortAppointment.click();
+			}
+        await utility.wait(utility.very_low);
+	}
 }

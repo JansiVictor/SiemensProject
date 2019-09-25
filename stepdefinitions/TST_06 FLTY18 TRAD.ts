@@ -25,7 +25,7 @@ const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: RiskAssessmentPageObject = new RiskAssessmentPageObject();
 const riskassessTRAD: ElectricPageObject = new ElectricPageObject();
 const remove: RemovePageObject = new RemovePageObject();
-const inst: InstallPageObject =new InstallPageObject();
+const inst: InstallPageObject = new InstallPageObject();
 const riskassessGAS: GASPageObject = new GASPageObject();
 const job: JobCompletionPageObject = new JobCompletionPageObject();
 
@@ -51,10 +51,10 @@ Given('the Appointment List window for FLTY18TRAD', async function () {
   await home.verifyAppointmentListPage();
 });
 When('I click on select button for FLTY18TRAD', async function () {
+  //CGP-Deleted Old select Link and added new functions 25/09
+  //New Function
   await utility.wait(2000);
-  //await home.continueLink.click();
-  await home.selectLink.click();
-  //await home.clickOnTheSelectLink();
+  await home.clickCorrectSelectLink('SFGFLTY18TRAD');
   await utility.wait(5000);
 });
 Then('I should see Work Order window for FLTY18TRAD', async function () {
@@ -64,7 +64,7 @@ Then('I should see Work Order window for FLTY18TRAD', async function () {
 /* CALL FORWARD */
 
 Given('the {string} window for FLTY18TRAD', async function (string) {
-   await applist.verifyWorkOrderWindowText();
+  await applist.verifyWorkOrderWindowText();
 });
 When('i see Call Forward or Arrive Button for FLTY18TRAD', async function () {
   await applist.verifyWorkOrderWindowText();
@@ -76,8 +76,8 @@ Then('I should see page contect display for FLTY18TRAD', async function () {
   await applist.validateTheCallFrwdPageTextDisplay();
 });
 Then('I should see the CUSTOMER CONTACT NUMBER for FLTY18TRAD', async function () {
-    await applist.customercontactnumberavailable();
- });
+  await applist.customercontactnumberavailable();
+});
 Then('I should see Contact made field for FLTY18TRAD', async function () {
   await utility.wait(5000);
   await expect(await applist.contactMadeText.getText()).equal("Contact made?");
@@ -125,9 +125,6 @@ When('I click on ARRIVE button for FLTY18TRAD', async function () {
   await applist.clickArriveBtn();
 });
 Then('I should see Arrival Time details for FLTY18TRAD', async function () {
-  //comment these 2 lines when continue link is not displayed
-  // await utility.wait(5000);
-  //await applist.continueLink.click();
   await utility.wait(5000);
   await applist.arrivalTime.getText().then(function (arrivalTimeText) {
     console.log("find Arrival Time Text  " + arrivalTimeText);
@@ -170,7 +167,7 @@ Then('I should see INFO window for FLTY18TRAD', async function () {
 });
 
 When('I fill Need to work Yes for FLTY18TRAD', async function () {
-   if (riskassess.NeedtoWorkYES.isDisplayed()) {
+  if (riskassess.NeedtoWorkYES.isDisplayed()) {
     var element = riskassess.NeedtoWorkYES;
     browser.executeScript("arguments[0].click()", element);
     await utility.wait(5000);
@@ -293,7 +290,7 @@ When('I fill the field010 with the value010 for FLTY18TRAD', async function () {
 
 When('I should see CURRENT METER DETAILS - GAS section for FLTY18TRAD', async function () {
   await remove.capturecurrentmeterGasPageContent();
- });
+});
 
 Then('I should see the page contect display of current meter details for FLTY18TRAD', async function () {
   await remove.capturecurrentmeterGasPageContent();
@@ -306,12 +303,12 @@ Then('I should see the page contect display of current meter details for FLTY18T
 Given('the CURRENT METER DETAILS - GAS section for FLTY18TRAD', async function () {
   await remove.currentmeterGasPageContent();
 });
-When('I fill the field with the value gas for FLTY18TRAD',  async function () {
-  await remove.fillcapturecurrentmeterdtlGassecTRAD();  
+When('I fill the field with the value gas for FLTY18TRAD', async function () {
+  await remove.fillcapturecurrentmeterdtlGassecTRAD();
 });
 
 Then('I should see the DETERMINE FAULT ACTIVITY section for FLTY18TRAD', async function () {
-  
+
   await remove.determintfaultActivity();
 });
 
@@ -380,7 +377,7 @@ When('I fill the field23 with the value23 for FLTY18TRAD', async function () {
   await remove.fill23GasmeterRemoval();
 });
 Then('I click on NEXT button in removing gas meter for FLTY18TRAD', async function () {
-  
+
   await remove.clickonnxtBtnofgasmeterRemoval();
 });
 Then('I should see CONFIRM GAS ASSET REMOVAL section for FLTY18TRAD', async function () {
@@ -400,35 +397,35 @@ Then('I click on OK btn in Updated window with the text Asset successfully added
 });
 
 Then('I should click on next section for FLTY18TRAD', async function () {
-   await remove.clickonNextsectionRemoveTRAD();
+  await remove.clickonNextsectionRemoveTRAD();
   console.log("Next Sec  Clicked")
 });
 
 Then('I should click on submit button for FLTY18TRAD', async function () {
-await remove.clickonsubmitforRemoval();
-console.log("Submit Clicked")
+  await remove.clickonsubmitforRemoval();
+  console.log("Submit Clicked")
 
- });
+});
 
- Then('I should see INSTALL COMMS HUB section for FLTY18TRAD', async function () {
+Then('I should see INSTALL COMMS HUB section for FLTY18TRAD', async function () {
   await inst.InstallCommsHubSection();
 });
 
 /********** "INSTALL COMMS HUB"*/
 
 Given('the INSTALL COMMS HUB sec for FLTY18TRAD', async function () {
-    await inst.InstallCommsHubSection();
+  await inst.InstallCommsHubSection();
 });
 
 When('I fill the Ins comms hub fields and capture photo EVIDENCE for FLTY18TRAD', async function () {
 
- await inst.fillfieldsInstallcommshubTRAD(2);
+  await inst.fillfieldsInstallcommshubTRAD(2);
 
 });
 
 Then('I should see NEW GAS METER DETAILS section for FLTY18TRAD', async function () {
 
-	await inst.gasMeterdetails();
+  await inst.gasMeterdetails();
 
 });
 
@@ -440,11 +437,11 @@ Given('the NEW GAS METER DETAILS section for FLTY18TRAD', async function () {
 });
 When('I fill the fields and values for New gas meter details for FLTY18TRAD', async function () {
   await inst.fillthefieldsfornewgasmeterdtls(2);
-  
+
 });
 Then('I should see the NEW REGULATOR section for FLTY18TRAD', async function () {
   await inst.newregulatorTRAD();
- 
+
 });
 
 
@@ -454,7 +451,7 @@ Given('the NEW REGULATOR section for FLTY18TRAD', async function () {
   await inst.newregulatorTRAD();
 });
 When('I fill the fields and values for new regulator section for FLTY18TRAD', async function () {
-await inst.fillduelfornewregulatorTRAD(2);
+  await inst.fillduelfornewregulatorTRAD(2);
 });
 Then('I should see GAS INITIAL METER READING section for FLTY18TRAD', async function () {
   await inst.gasinitialmeterreading();
@@ -463,156 +460,156 @@ Then('I should see GAS INITIAL METER READING section for FLTY18TRAD', async func
 
 /**********"GAS INITIAL METER READING" */
 Given('the GAS INITIAL METER READING section for FLTY18TRAD', async function () {
-await inst.gasinitialmeterreading();
+  await inst.gasinitialmeterreading();
 });
 When('I fill the fields with values Gas initial meter reading for FLTY18TRAD', async function () {
-await inst.fillthefieldsforinitmeterReading();
+  await inst.fillthefieldsforinitmeterReading();
 });
 Then('I should see INSTALL KIT section for FLTY18TRAD', async function () {
-await inst.installkitSec();
+  await inst.installkitSec();
 });
 
 /**********"Install Kit " */
 Given('the Gas Install Kit gas section for FLTY18TRAD', async function () {
-await inst.installkitSec();
+  await inst.installkitSec();
 });
 When('I fill the Gas Install Kit gas section fields with values for FLTY18TRAD', async function () {
-await inst.fillthedetailsforinstallkit();
+  await inst.fillthedetailsforinstallkit();
 });
 Then('I should see Perform Post Installation GAS Checks sec for FLTY18TRAD', async function () {
-await inst.performpostinst();
+  await inst.performpostinst();
 });
 
 /**********"Post Installation GAS" */
 Given('the Post Installation GAS sec for FLTY18TRAD', async function () {
-await inst.performpostinst();
+  await inst.performpostinst();
 });
 When('I fill the Post Installation GAS sec fields with values for FLTY18TRAD', async function () {
-await inst.fillthefieldsforperformpostinst();
+  await inst.fillthefieldsforperformpostinst();
 
 });
 Then('I should see GICOM Message sec for FLTY18TRAD', async function () {
-await inst.gasInstallCommisioning();
+  await inst.gasInstallCommisioning();
 });
 
 /**********"GAS INSTALL & COMMISSIONING" */
 Given('the GAS INSTALL & COMMISSIONING sec for FLTY18TRAD', async function () {
-await inst.gasInstallCommisioning();
+  await inst.gasInstallCommisioning();
 });
 When('I click on Send Message GICOM butn for FLTY18TRAD', async function () {
-await inst.sendMesgGICOM();
+  await inst.sendMesgGICOM();
 });
 Then('I should see Awaiting Response butn for FLTY18TRAD', async function () {
-await inst.Awatingforgasinstallcommisioning();
+  await inst.Awatingforgasinstallcommisioning();
 });
 
 /**********"AWAITING RESPONSE" */
 Given('the Awaiting Response butn after gas install for FLTY18TRAD', async function () {
-await inst.Awatingforgasinstallcommisioning();
+  await inst.Awatingforgasinstallcommisioning();
 });
 When('I wait for the button to disappear after post install for FLTY18TRAD', async function () {
-await inst.waitforthebuttoDisappear();
+  await inst.waitforthebuttoDisappear();
 });
 Then('I should see Commissioning Successful button for FLTY18TRAD', async function () {
-await inst.commisioningsuccess();
+  await inst.commisioningsuccess();
 });
 Then('I should see Request Sent Successfully txt message for FLTY18TRAD', async function () {
-await inst.reqsentsuccess();
+  await inst.reqsentsuccess();
 });
 Then('I should see Pair Asset to Comms Hub text message for FLTY18TRAD', async function () {
-await inst.pairAsset();
+  await inst.pairAsset();
 });
 Then('I should see DCC Handover Requested text message for FLTY18TRAD', async function () {
-await inst.DCCHandoverText();
+  await inst.DCCHandoverText();
 });
 Then('I should see Device Clock Synchronised text message for FLTY18TRAD', async function () {
-await inst.DeviceClock();
+  await inst.DeviceClock();
 });
 Then('I should see MPRN Set, GSME Is Now Installed And Being Configured By DCC text message for FLTY18TRAD', async function () {
-await inst.MprnGSME();
+  await inst.MprnGSME();
 });
 Then('I should see DCC Handover Requested for GPF Device text message for FLTY18TRAD', async function () {
-await inst.DCCforGPFdevice();
+  await inst.DCCforGPFdevice();
 });
 Then('I should see Joins are being Initiated text message for FLTY18TRAD', async function () {
-await inst.joinsarebeingInit();
+  await inst.joinsarebeingInit();
 });
 
 /********** "Commissioning Successful"*/
 Given('the Commissioning Successful button is displayed for FLTY18TRAD', async function () {
-await inst.commisioningSuc();
+  await inst.commisioningSuc();
 });
 When('Commissioning Successful butn clk for FLTY18TRAD', async function () {
-await inst.clickonCommissioning();
+  await inst.clickonCommissioning();
 });
 Then('I should see GAS APPLIANCE SAFETY CHECKS section for FLTY18TRAD', async function () {
-await inst.gasApplicancesafety();
+  await inst.gasApplicancesafety();
 });
 
 /**********"Gas Appliance Safety Checks" */
 Given('Gas Appliance Safety Checks sec for FLTY18TRAD', async function () {
-await inst.gasApplicancesafety();
+  await inst.gasApplicancesafety();
 });
 When('I fill the Gas Appliance Safety Checks section fields with values and Sub for FLTY18TRAD', async function () {
-await inst.fillthefieldsforgasApplicancesafety();
+  await inst.fillthefieldsforgasApplicancesafety();
 });
 Then('I should see SMETS PPMID sec for FLTY18TRAD', async function () {
-await inst.seePPMIDsection();
+  await inst.seePPMIDsection();
 });
 
 /**********"INSTALL PPMID"*/
 Given('the "INSTALL PPMID" section for FLTY18TRAD', async function () {
-await inst.seePPMIDsection();
+  await inst.seePPMIDsection();
 });
 When('I fill the fields for Install PPMID for FLTY18TRAD', async function () {
-await inst.fillthefieldsforseePPMIDsection(2);
+  await inst.fillthefieldsforseePPMIDsection(2);
 
 });
 Then('I should see PPMID COMMISSIONING section for FLTY18TRAD', async function () {
-await inst.SeePPMIDcommisioning();
+  await inst.SeePPMIDcommisioning();
 });
 
 /**********"PPMID COMMISSIONING" */
 Given('the PPMID COMMISSIONING section for FLTY18TRAD', async function () {
-await inst.SeePPMIDcommisioning();
+  await inst.SeePPMIDcommisioning();
 });
 When('I click on Send Message IHD-PPMID butn for FLTY18TRAD', async function () {
-await inst.clickonIHDPPMID();
+  await inst.clickonIHDPPMID();
 });
 Then('I should see PPMID Awaiting Response butn for FLTY18TRAD', async function () {
-await inst.AwaitingrespaftPPMID();
+  await inst.AwaitingrespaftPPMID();
 });
 
 /********** "AWAITING RESPONSE"*/
 Given('the Awaiting Response butn after ppmid commisioning for FLTY18TRAD', async function () {
-await inst.AwaitingrespaftPPMID();
+  await inst.AwaitingrespaftPPMID();
 });
 When('I wait for the button to disappear after PPMID Commisioning for FLTY18TRAD', async function () {
-await inst.waitforthebuttontoDisappearafterppmid();
+  await inst.waitforthebuttontoDisappearafterppmid();
 });
 Then('I should see PPMID Commissioning Successful button for FLTY18TRAD', async function () {
-await inst.ppmidsuccessbtn();
+  await inst.ppmidsuccessbtn();
 });
 Then('I should see PPMID Request Sent Successfully txt message for FLTY18TRAD', async function () {
-await inst.reqsentsuctxt();
+  await inst.reqsentsuctxt();
 });
 Then('I should see PPMID Pair Asset to Comms Hub text message for FLTY18TRAD', async function () {
-await inst.pairAssettoComms();
+  await inst.pairAssettoComms();
 });
 Then('I should see Pairing Successful text message for FLTY18TRAD', async function () {
-await inst.pairingsuccessfulppmidcomm();
+  await inst.pairingsuccessfulppmidcomm();
 });
 
 /**********"PPMID Commissioning Successful" */
 
 Given('the PPMID Commissioning Successful button is displayed for FLTY18TRAD', async function () {
-await inst.pairingsuccessfulppmidcomm();
+  await inst.pairingsuccessfulppmidcomm();
 });
 When('I click on SUB button for FLTY18TRAD', async function () {
-await inst.clickonSUBbtn();
+  await inst.clickonSUBbtn();
 });
 Then('I should see DEVICE BINDING and COMMISSIONING sec for FLTY18TRAD', async function () {
-await job.DeviceBinding();
+  await job.DeviceBinding();
 });
 
 /**********"Device Binding & Commisioning" */
@@ -639,7 +636,7 @@ Then('I should see SMART EDUCATION section for FLTY18TRAD', async function () {
   await job.smartEducation();
 });
 
- /**********"SMART EDUCATION" */
+/**********"SMART EDUCATION" */
 Given('the SMART EDUCATION section for FLTY18TRAD', async function () {
   await job.smartEducation();
 });
@@ -661,7 +658,7 @@ Then('See CAPTURE CUSTOMER SIGNATURE sec for FLTY18TRAD', async function () {
   await job.captureCustSign();
 });
 
- /**********"Capture Customer Signature" */
+/**********"Capture Customer Signature" */
 Given('the CAPTURE CUSTOMER SIGNATURE section for FLTY18TRAD', async function () {
   await job.captureCustSign();
 });
@@ -672,5 +669,7 @@ Then('I fill the field57 and Job Complete for FLTY18TRAD', async function () {
   await job.fillfield57Capturecust();
 });
 Then('see Job Completed screen for FLTY18TRAD', async function () {
-  await job.JobCompletedScreen();
+  //CGP-Deleted await job.JobCompletedScreen();
+  //Added New function
+  await home.verifyCompletedStatus('SFGFLTY18TRAD');
 });

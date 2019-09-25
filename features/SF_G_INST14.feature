@@ -21,7 +21,6 @@ Given the INSTFrtn "Work Order" window
 When i see INSTFrtn Call Forward or Arrive Button
 Then I click on INSTFrtn CALL FORWARD button
 Then I should see INSTFrtn page contect display
-#And I should see the INSTFrtn CUSTOMER CONTACT NUMBER
 And I should see INSTFrtn Contact made field
 
 Scenario: Selecting INSTFrtn job and setting to depart
@@ -33,14 +32,14 @@ And I should see the INSTFrtn correct MPAN details
 And I should see the INSTFrtn correct Customer Name details
 And I should see the INSTFrtn correct PostCode details
 
+#######Aparna Das - Change 'And' to 'Given' on 25/09
 Scenario: Approving INSTFrtn "Depart for Appointment" job
-And "Appointment" INSTFrtn details
+Given "Appointment" INSTFrtn details
 When I click on INSTFrtn OK button  	
 And I should see INSTFrtn ARRIVE button
 And I should see INSTFrtn DOORSTEP PROTOCOL tab activated
 
 Scenario: Set INSTFrtn job to Arrived status
-//Given the INSTFrtn "WorkOrder" page
 When I click on INSTFrtn ARRIVE button  	
 Then I should see INSTFrtn Arrival Time details
 And I should seeINSTFrtn  BE AWARE OF ANY DANGER! section
@@ -49,7 +48,6 @@ Scenario: Going through INSTFrtn "BE AWARE OF ANY DANGER!" section
 Given the INSTFrtn BE AWARE OF ANY DANGER! section 
 When I fill the INSTFrtn DoorStep Protocol fields with the value
 And I click on INSTFrtn ON SITE button 	
-#Then I should see INSTFrtn RISK ASSESSMENT tab activated
 And I should see INSTFrtn Initial Risk Assessment for GAS section
 
 Scenario: Going through INSTFrtn "INITIAL RISK ASSESSMENT"
