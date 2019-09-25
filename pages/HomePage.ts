@@ -136,15 +136,15 @@ public DFFLTY20NonSMETS2SelectLinkCompleted: ElementArrayFinder;
 constructor() {
 
 //############ABORT Status######
-this.SFGEXCH19AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobEXCH19")]'));
-this.SFEEXCH20AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobEXCH20")]'));
-this.DFEXCH21AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobEXCH21")]'));
+this.SFGEXCH19AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobEXCHANGE 19")]'));
+this.SFEEXCH20AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobEXCHANGE 20")]'));
+this.DFEXCH21AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobEXCHANGE 21")]'));
 this.SFGINST14AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobINST14")]'));
 this.SFEINST15AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobINST15")]'));
 this.DFINST16AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobINST16")]'));
-this.SFGEXCH22AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobEXCH22")]'));
-this.SFEEXCH23AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobEXCH23")]'));
-this.DFEXCH24AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobEXCH24")]'));
+this.SFGEXCH22AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobEXCHANGE 22")]'));
+this.SFEEXCH23AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobEXCHANGE 23")]'));
+this.DFEXCH24AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobEXCHANGE 24")]'));
 this.SFGNMEX15AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobNMEX15")]'));
 this.SFENMEX16AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobNMEX16")]'));
 this.DF17SmartCreditAbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobNMEX17")]'));
@@ -159,15 +159,15 @@ this.DFFLTY20AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobFAUL
 this.DFFLTY20TRADAbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobFAULTY 20 Non S2")]'));
 
 //Suspend Links
-this.SFGEXCH19SuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobEXCH19")]'));
-this.SFEEXCH20SuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobEXCH20")]'));
-this.DFEXCH21SuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobEXCH21")]'));
+this.SFGEXCH19SuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobEXCHANGE 19")]'));
+this.SFEEXCH20SuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobEXCHANGE 20")]'));
+this.DFEXCH21SuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobEXCHANGE 21")]'));
 this.SFGINST14SuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobINST14")]'));
 this.SFEINST15SuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobINST15")]'));
 this.DFINST16SuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobINST16")]'));
-this.SFGEXCH22SuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobEXCH22")]'));
-this.SFEEXCH23SuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobEXCH23")]'));
-this.DFEXCH24SuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobEXCH24")]'));
+this.SFGEXCH22SuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobEXCHANGE 22")]'));
+this.SFEEXCH23SuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobEXCHANGE 23")]'));
+this.DFEXCH24SuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobEXCHANGE 24")]'));
 this.SFGNMEX15SuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobNMEX15")]'));
 this.SFENMEX16SuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobNMEX16")]'));
 this.DF17SmartCreditSuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"SuspendedJobNMEX17")]'));
@@ -195,7 +195,7 @@ this.DFFLTY20TRADSuspendStatusLink = element.all(by.xpath('//*[starts-with(@id,"
 	this.jobcompletionFLTY20 = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 20 SMETS2")]'));
 	this.jobcompletionNonFLTY18 = element(by.xpath('//*[starts-with(@id,"CompletedJobFAULTY 18 Non S2")]'));
 	this.Ex20selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest1 EXCH20 SF SMETS2")]'));
-	this.Ex19selectLink = element.all(by.xpath('(//span[starts-with(@id,"SelectJob1EXCHANGE 19 FLAT")])'));
+	this.Ex19selectLink = element.all(by.xpath('(//span[starts-with(@id,"SelectJobEXCHANGE 19")])'));
 	this.Ex20continueLink = element.all(by.xpath('//span[starts-with(@id,"ContinueJobTest EXCH20 SF SMETS2"]'));
 	this.selectLinkEx21 = element.all(by.xpath('(//span[starts-with(@id,"SelectJobTest EXCH21 DF")])'));
 	this.selectLink = element.all(by.xpath('//span[starts-with(@id,"SelectJobTest EXCH21 DF SMETS2"]'));
@@ -388,15 +388,15 @@ public async clickCorrectSuspendedLink(suspendedLinkName) {
 
 	switch (suspendedLinkName) {
 		case ('SFGEXCH19'):
-			this.clickOnTheSelectLink(this.SFGEXCH19SuspendStatusLink,'SuspendedJobEXCH19');
+			this.clickOnTheSelectLink(this.SFGEXCH19SuspendStatusLink,'SuspendedJobEXCHANGE 19');
 			console.log('Fieldname:', suspendedLinkName);
 			break;
 		case ('SFEEXCH20'):
-			this.clickOnTheSelectLink(this.SFEEXCH20SuspendStatusLink,'SuspendedJobEXCH20');
+			this.clickOnTheSelectLink(this.SFEEXCH20SuspendStatusLink,'SuspendedJobEXCHANGE 20');
 			console.log('Fieldname:', suspendedLinkName);
 			break;
 		case ('DFEXCH21'):
-			this.clickOnTheSelectLink(this.DFEXCH21SuspendStatusLink,'SuspendedJobEXCH21');
+			this.clickOnTheSelectLink(this.DFEXCH21SuspendStatusLink,'SuspendedJobEXCHANGE 21');
 			console.log('Fieldname:', suspendedLinkName);
 			break;
 		case ('SFGINST14'):
@@ -412,15 +412,15 @@ public async clickCorrectSuspendedLink(suspendedLinkName) {
 			console.log('Fieldname:', suspendedLinkName);
 			break;
 		case ('SFGEXCH22'):
-			this.clickOnTheSelectLink(this.SFGEXCH22SuspendStatusLink,'SuspendedJobEXCH22');
+			this.clickOnTheSelectLink(this.SFGEXCH22SuspendStatusLink,'SuspendedJobEXCHANGE 22');
 			console.log('Fieldname:', suspendedLinkName);
 			break;
 		case ('SFEEXCH23'):
-			this.clickOnTheSelectLink(this.SFEEXCH23SuspendStatusLink,'SuspendedJobEXCH23');
+			this.clickOnTheSelectLink(this.SFEEXCH23SuspendStatusLink,'SuspendedJobEXCHANGE 23');
 			console.log('Fieldname:', suspendedLinkName);
 			break;
 		case ('DFEXCH24'):
-			this.clickOnTheSelectLink(this.DFEXCH24SuspendStatusLink,'SuspendedJobEXCH24');
+			this.clickOnTheSelectLink(this.DFEXCH24SuspendStatusLink,'SuspendedJobEXCHANGE 24');
 			console.log('Fieldname:', suspendedLinkName);
 			break;
 		case ('SFGNMEX15'):
@@ -529,7 +529,7 @@ public clickCorrectSelectLink(selectLinkName) {
 			console.log('Fieldname:', selectLinkName);
 			break;
 		case ('Exchange19'):
-			this.clickOnTheSelectLink(this.Ex19selectLink,'SelectJob1EXCHANGE 19 FLAT');
+			this.clickOnTheSelectLink(this.Ex19selectLink,'SelectJobEXCHANGE 19');
 			console.log('Fieldname:', selectLinkName);
 			break;
 		case ('Exchange21'):
