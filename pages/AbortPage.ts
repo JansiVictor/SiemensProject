@@ -66,6 +66,10 @@ export class AbortPageObject {
 
 	//#####END#######
 
+	//###############Reason Popup Elemenst##########
+	public AbortNoAccessReasonCodes: ElementFinder;
+	public GenericReasonCodeSelect: ElementFinder;
+
     constructor(){
     //Abort Elements Appointment List########
 		this.appointmentRescheduledNo = element(by.id('rb_app_re_n'));
@@ -94,9 +98,50 @@ export class AbortPageObject {
         this.unabletoOffGasOption = element(by.id('abdradio11'));
 
 
-       // ####################################
+	   // ####################################
+	   
+	   //##################Reason Popup#####################
+	   this.AbortNoAccessReasonCodes = element(by.xpath('//*[text()="Abort: No Access Reason Codes"]'));
+
+	   //######################################
         
 
+	}
+	
+	public VerifyAbortReasonCodePopup() {
+		if (this.AbortNoAccessReasonCodes.isDisplayed) {
+			this.AbortNoAccessReasonCodes.getText().then(async function (abortreason) {
+				console.log("find Appointment Page Text  " + abortreason);
+			});
+		}
+	}
+
+	//Abort reason popup options - generic function ################
+	public async selectreasonOptionAndAbort(xpathparam, notesstring) {
+		this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
+		await utility.wait(utility.very_low);
+		if(this.GenericReasonCodeSelect.isDisplayed()){
+		await this.GenericReasonCodeSelect.click();
+		}
+        try{
+            await expect(this.abortNxtbtn.isDisplayed());
+            await this.abortNxtbtn.click();
+            } catch(error){
+                console.log('No Next btn present Currently');
+            }
+		await utility.wait(utility.very_low);
+		if(this.abortAddNotes.isDisplayed()){
+		await this.abortAddNotes.sendKeys(notesstring);
+		}
+		await utility.wait(utility.very_low);
+		if(this.abortCapturePhoto.isDisplayed()){
+		await this.abortCapturePhoto.click();
+		}
+		await utility.wait(utility.very_low);
+		if(this.abortAppointment.isDisplayed()){
+		await this.abortAppointment.click();
+		}
+		await utility.wait(utility.very_low);
     }
 
 	public async noAccessAbortContactMade() {
@@ -115,6 +160,7 @@ export class AbortPageObject {
 		}
 
 	}
+	
 //Abort Options ################
 	public async notConvinientOptionAndAbort() {
 		await utility.wait(utility.very_low);

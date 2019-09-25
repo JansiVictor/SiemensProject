@@ -83,6 +83,8 @@ public ex21AbortStatus:ElementFinder
 public ex20AbortStatus:ElementFinder
 public remove5AbortStatus:ElementFinder
 public ex21SuspendStatusLink:ElementFinder
+public SuspendStatusLink: ElementFinder;
+public SFEINST15AbortStatus: ElementFinder;
 public faulty19NonS2AbortStatus:ElementFinder;
 public jobcompletionNonFLTY20: ElementArrayFinder;
 public jobcompletionEXCH24: ElementArrayFinder;
@@ -99,11 +101,14 @@ constructor() {
 	
 this.ex21AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobTest EXCH21")]'));
 this.ex20AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobTest1 EXCH20 SF")]'));
+this.SFEINST15AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobINST15")]'));
 this.remove5AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobRMVE5 FLAT")]'));
 this.faulty19NonS2AbortStatus = element(by.xpath('//*[starts-with(@id,"AbortedJobFAULTY 19 Non S2")]'));
 
 //Suspend Links
 this.ex21SuspendStatusLink = element(by.xpath('//*[starts-with(@id,"SuspendJobTest EXCH21")]'));
+this.SuspendStatusLink = element(by.xpath("(//div[@ng-click='selectWorkOrder(wo)']/span[starts-with(@id,'SuspendedJobINST15')])[1]"));
+//this.SuspendStatusLink = element(by.xpath("//span[@ng-show='wo.data.STATUS=='Suspended'' and not(contains(@class,'ng-hide'))]"));
 	//CGP added for Master
 	this.Installation16 = element.all(by.xpath('//*[starts-with(@id,"SelectJobINST16 DF SMETS")]'));
 	this.Installaton16completedLink = element.all(by.xpath('//*[starts-with(@id,"CompletedJobINST16")]'));
@@ -302,6 +307,130 @@ public verifyCompletedStatus(fieldName) {
 	}
 }
 
+
+/***
+ * @description Correct Suspended Link clicked
+***/
+public async clickCorrectSuspendedLink() {
+	var suspendedLinkName;
+	this.SuspendStatusLink.click();
+
+// 	switch (suspendedLinkName) {
+// 		case ('Exchange20'):
+// 			this.clickOnTheSelectLink(this.Ex20selectLink,'SelectJobTest1 EXCH20 SF SMETS2');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('DF17SmartCredit'):
+// 			this.clickOnTheSelectLink(this.DF17SmartCreditselectLink,'SelectJobNMEX17');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('SFEFLTY19'):
+// 			this.clickOnTheSelectLink(this.SFEFLTY19selectLink,'SelectJobFAULTY 19 SMETS2');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('SFEFLTY19TRAD'):
+// 			this.clickOnTheSelectLink(this.SFEFLTY19TRADselectLink,'SelectJobFAULTY 19 Non S2');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('SFEINST15'):
+// 			this.clickOnTheSelectLink(this.SFEINST15SuspendStatusLink,'SuspendedJobINST15');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('SFENMEX16'):
+// 			this.clickOnTheSelectLink(this.SFENMEX16selectLink,'SelectJobNMEX16');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('SFGFLTY18TRAD'):
+// 			this.clickOnTheSelectLink(this.SFGFLTY18TRADselectLink,'SelectJobFAULTY 18 Non S2');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('SFGNMEX15'):
+// 			this.clickOnTheSelectLink(this.SFGNMEX15selectLink,'SelectJobNMEX15');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('DF_FLTY20_SMETS2NoExchange'):
+// 			this.clickOnTheSelectLink(this.FLTYnoexchangeselectLink,'SelectJobFAULTY 20 SMETS2 Site FLAT');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('ERemove6'):
+// 			this.clickOnTheSelectLink(this.Remove6selectLink,'SelectJobRMVE6 FLAT');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('GRemove5'):
+// 			this.clickOnTheSelectLink(this.RemoveGasSelectLink,'SelectJobRMVE5 FLAT');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('Exchange19'):
+// 			this.clickOnTheSelectLink(this.Ex19selectLink,'SelectJob1EXCHANGE 19 FLAT');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('Exchange21'):
+// 			this.clickOnTheSelectLink(this.selectLinkEx21,'SelectJobTest EXCH21 DF');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('SF_E_FLTY19TradNoExchange'):
+// 			this.clickOnTheSelectLink(this.flty19noExTradSelectLink,'SelectJobFAULTY 19 Non S2');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('SFINST14'):
+// 			this.clickOnTheSelectLink(this.SFGASINST14,'SelectJobTest1 INST14 DF SMETS');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('SFExchange22'):
+// 			this.clickOnTheSelectLink(this.SFGASEx22,'SelectJobEXCHANGE 22 FLAT');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+
+
+// 		case ('DFFLTY20NoExch'):
+// 			this.clickOnTheSelectLink(this.allRelevantSelectLinks,'SelectJobFAULTY 20 Non S2 site FLAT');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('DFINST16'):
+// 			this.clickOnTheSelectLink(this.Installation16,'SelectJobINST16 DF SMETS');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('SFElecEXCH23'):
+// 			this.clickOnTheSelectLink(this.SFElecEXCH23Select,'SelectJobEXCHANGE 23');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;	
+// 		case ('DFFLTY20SMETS2'):
+// 			this.clickOnTheSelectLink(this.DFFLTY20SMETS2SelectLink,'SelectJobFAULTY 20 SMETS2');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('SFGasFLTY18SMETS2'):
+// 			this.clickOnTheSelectLink(this.SFGasFLTY18SMETS2SelectLink,'SelectJobFAULTY 18 SMETS2');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('SFGasFLTY18NonSMETS2'):
+// 			this.clickOnTheSelectLink(this.SFGasFLTY18NonSMETS2SelectLink,'SelectJobFAULTY 18 Non S2');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('DFFLTY20NonSMETS2'):
+// 			this.clickOnTheSelectLink(this.DFFLTY20NonSMETS2SelectLink,'SelectJobFAULTY 20 Non S2');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('DFExchange24'):
+// 			this.clickOnTheSelectLink(this.DFExchange24SelectLink,'SelectJobEXCHANGE 24');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 		case ('DFRMVE7'):
+// 			this.clickOnTheSelectLink(this.DFRMVE7SelectLink,'SelectJobRMVE7 ');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// //********************* CGP Begin change Mater 23/09 */
+// 		case ('DFFLTY20NonSMETS2TRAD'):
+// 			this.clickOnTheSelectLink(this.DFFLTY20NonSMETS2SelectLink,'SelectJobFAULTY 20 Non S2');
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;	
+// // End change*******************************//
+// 		default:
+// 			console.log('Fieldname:', suspendedLinkName);
+// 			break;
+// 	}
+}
+
+
 /***
  * @description Correct Select Link clicked
 ***/
@@ -441,6 +570,10 @@ public verifyAbortedStatus(fieldName) {
 			this.verifyAbortedTextAppointmentListPage(this.remove5AbortStatus);
 			console.log('Fieldname:', fieldName);
 			break;
+			case ('SFEINST15'):
+			this.verifyAbortedTextAppointmentListPage(this.SFEINST15AbortStatus);
+			console.log('Fieldname:', fieldName);
+			break;
 
 			
 
@@ -453,13 +586,27 @@ public verifyAbortedStatus(fieldName) {
  * @description Verify Aborted status is displayed
 ***/
 
-public verifySuspendedStatus(SuspendedLinkName) {
+public verifySuspendedStatus(fieldName) {
 	var fieldName;
 	switch (fieldName) {
-			case ('Exchange21'):
-			this.clickOnTheSelectLink(this.ex21SuspendStatusLink,'SuspendJobTest EXCH21');
-			console.log('Fieldname:', SuspendedLinkName);
+		case ('Exchange21'):
+			this.verifySuspendedTextAppointmentListPage(this.ex21AbortStatus);
+			console.log('Fieldname:', fieldName);
 			break;
+			case ('Exchange20'):
+			this.verifySuspendedTextAppointmentListPage(this.ex20AbortStatus);
+			console.log('Fieldname:', fieldName);
+			break;
+			case ('GRemove5'):
+			this.verifySuspendedTextAppointmentListPage(this.remove5AbortStatus);
+			console.log('Fieldname:', fieldName);
+			break;
+			case ('SFEINST15'):
+			this.verifySuspendedTextAppointmentListPage(this.SuspendStatusLink);
+			console.log('Fieldname:', fieldName);
+			break;
+
+			
 
 		default:
 			break;
@@ -566,8 +713,8 @@ public async clickOnTheSelectLink(workorderselectlink,xpathparam) {
 	});
 };
 
-public async clickOnTheSuspendLink(workordersuspendlink,xpathparam) {
-	var list = workordersuspendlink;
+public async clickOnTheSuspendLink() {
+	var list = this.SuspendStatusLink;
 
 	await utility.wait(2000);
 	list.count().then(function (promiseResult) {
@@ -579,7 +726,7 @@ public async clickOnTheSuspendLink(workordersuspendlink,xpathparam) {
 
 
 		var selectlatest = element(
-			by.xpath('((//span[starts-with(@id,"' + xpathparam + '")]))' + '[' + [size] + ']')
+			by.xpath('//div[@ng-click="selectWorkOrder(wo)"]/span[starts-with(@id,"SuspendedJobINST15")]' + '[' + [size] + ']')
 		);
 
 		selectlatest.getText().then(function (selectText) {
@@ -587,9 +734,9 @@ public async clickOnTheSuspendLink(workordersuspendlink,xpathparam) {
 		});
 
 
-		console.log("link " + ('((//span[starts-with(@id,"' + xpathparam + '")]))' + '[' + [size] + ']'));
+		console.log("link " + ('//div[@ng-click="selectWorkOrder(wo)"]/span[starts-with(@id,"SuspendedJobINST15")]' + '[' + [size] + ']'));
 		var selectMe = element(
-			by.xpath('((//span[starts-with(@id,"' + xpathparam + '")]))' + '[' + [size] + ']')
+			by.xpath('//div[@ng-click="selectWorkOrder(wo)"]/span[starts-with(@id,"SuspendedJobINST15")]' + '[' + [size] + ']')
 		);
 		selectMe.getText().then(function (selectMeText) {
 			console.log("find select Me link text  " + selectMeText);

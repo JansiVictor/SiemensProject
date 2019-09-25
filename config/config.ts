@@ -35,7 +35,7 @@ export const config: Config = {
     frameworkPath: require.resolve("protractor-cucumber-framework"),
 
     specs: [
-        "../../features/SF_G_INST14.feature"
+        "../../features/Abort/AbortNoAccessSuspend/*.feature"
     ],
 
     jasmineNodeOpts: {
@@ -57,7 +57,9 @@ export const config: Config = {
     cucumberOpts: {
         compiler: "ts:ts-node/register",
         format: "json:./reports/html/cucumber_report.json",
-        require: ["../../typeScript/stepdefinitions/*.js", "../../typeScript/support/*.js"],
+        require: ["../../typeScript/stepdefinitions/*.js",
+        "../../typeScript/stepdefinitions/Abort/AbortNoAccessSuspend/*.js",
+         "../../typeScript/support/*.js"],
         strict: true
         //tags: "@CucumberScenario or @ProtractorScenario or @TypeScriptScenario or @OutlineScenario",
     },
