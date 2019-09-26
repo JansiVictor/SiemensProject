@@ -48,14 +48,11 @@ Feature: SF E FLTY19 Trad  - SMETS2 Workflow
 		Then I should see RISK ASSESSMENT tab activated for FLTY19 Trad
 		And I should see INITIAL RISK ASSESSMENT section for FLTY19 Trad
 
+###########Removed the Info-Pop up scenario on 25/09
+
 	Scenario: Going through "INITIAL RISK ASSESSMENT" for FLTY19 Trad
 		Given the INITIAL RISK ASSESSMENT section for FLTY19 Trad
 		When I fill the initialRisk field with the values for FLTY19 Trad
-		Then I should see INFO window for FLTY19 Trad
-
-	Scenario: Going through "INFO" window for FLTY19 Trad
-		Given the INFO window with the text for FLTY19 Trad
-		When I click on OK button for FLTY19 Trad
 		Then I should see RISK ASSESSMENT ELEC section for FLTY19 Trad
 
 	Scenario: Going through "RISK ASSESSMENT - ELEC" section for FLTY19 Trad
@@ -80,20 +77,16 @@ Feature: SF E FLTY19 Trad  - SMETS2 Workflow
 	Scenario: Going through "INITIAL POLARITY CHECK - AT METER AND CUT OUT" section for FLTY19 Trad
 		Given the INITIAL POLARITY CHECK - AT METER AND CUT OUT section for FLTY19 Trad
 		When I fill the METER AND CUT OUT fields with the values for FLTY19 Trad
-		#And I click on NEXT button for FLTY19 Trad
+		#####And I click on NEXT button for FLTY19 Trad
 		And I click on SUBMIT button for FLTY19 Trad
 		Then I should see the CURRENT IHD-PPMID DETAILS section in remove tab for FLTY19 Trad
 
 	Scenario: Going through "CURRENT IHD/PPMID DETAILS" section for FLTY19 Trad
 		Given the CURRENT IHD-PPMID DETAILS section for FLTY19 Trad
 		When I fill the field010 with the value010 for FLTY19 Trad
-		#And I should see CURRENT METER DETAILS section for FLTY19 Trad		
-       Then I should see the page contect display of current meter details for FLTY19 Trad
+		######And I should see CURRENT METER DETAILS section for FLTY19 Trad		
+        Then I should see the page contect display of current meter details for FLTY19 Trad
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 5a7df0aac8e3c6fa3a23695fd4eb733b1e19e201
     Scenario: Going through "CAPTURE CURRENT METER Elec" section for FLTY19 Trad
 		Given the CAPTURE CURRENT METER section for FLTY19 Trad
 		When I fill capture current meter elec for FLTY19 Trad

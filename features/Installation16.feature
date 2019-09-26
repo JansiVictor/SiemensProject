@@ -48,16 +48,16 @@ Scenario: Going through "BE AWARE OF ANY DANGER!" section for INST16
     And I should see INITIAL RISK ASSESSMENT section for INST16
 
 Scenario: Going through "INITIAL RISK ASSESSMENT" for INST16
-    Given the INITIAL RISK ASSESSMENT section for INST16
-    When I fill the initialRisk field with the values for INST16
-    And I fill Need to work Yes for INST16
-    Then I should see RISK ASSESSMENT ELEC section for INST16
+    Given for INST16 INITIAL RISK ASSESSMENT section
+    When for INST16 fill the initialRisk field with the values
+    And for INST16 fill Need to work Yes
+    Then for INST16 should see RISK ASSESSMENT ELEC section
 
 Scenario: Going through "RISK ASSESSMENT - ELEC" section for INST16
-    Given the RISK ASSESSMENT - ELEC section for INST16
-    When I fill the RISK ASSESSMENT - ELEC fields with the values for INST16
+    Given the RISK ASSESSMENT - INST16ELEC section
+    When I fill the RISK ASSESSMENT - INST16ELEC fields with the values
     And I click on CAPTURE PHOTO OF HAZARD IDENTIFIED button for INST16
-    Then I click on NEXT SECTION button for INST16
+    Then I click on NEXT SECTION INST16ELEC button
     
 Scenario: Going through "Suitable for Smart Installation" for INST16
     Given the Suitable for Smart Installation section for INST16
@@ -109,10 +109,10 @@ Scenario: Going through Perform DCC Message Creation for EICOM section for INST1
 
 
 
-Scenario: Going through "INITIAL RISK ASSESSMENT GAS section for INST16"
-    Given the INITIAL RISK ASSESSMENT section for INST16GAS
-    When I fill the initial Risk field with the values for INST16GAS
-    Then I should see RISK ASSESSMENT GAS section for INST16GAS
+Scenario: Going through "INITIAL RISK ASSESSMENT GAS section for INST16GAS"
+    Given the INITIAL RISK ASSESSMENT INST16GAS section
+    When I fill the initial Risk INST16GAS field with the values
+    Then I should see RISK ASSESSMENT INST16GAS section
 
 Scenario: Going through "RISK ASSESSMENT - GAS" section for INST16GAS
     Given the RISK ASSESSMENT - GAS section for INST16GAS
@@ -122,7 +122,6 @@ Scenario: Going through "RISK ASSESSMENT - GAS" section for INST16GAS
 Scenario: Going through Suitability for Smart Meter Installation section for INST16GAS
     Given the Suitability for Smart Meter Installation section for INST16GAS
     When I fill the Suitability for Smart Meter Installation fields with the values for INST16GAS
-    #Then I should see Capture Photo of GAS Installation section for INST16GAS
     Then I should see the New Regulator section for INST16GAS
 
 Scenario: Input the new Regulator S/N which transferres the Regulator from the Van List GAS section for INST16
