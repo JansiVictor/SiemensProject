@@ -7,7 +7,7 @@ Feature: TST02_SF_ELEC_FLTY19
         And I should see fltynineteen the Appointment List
 
         Examples:
-            | Username    | Password    |
+            | Username | Password    |
             | E0000022 | 000Password |
 
     Scenario: Select the Latest workOrder
@@ -53,12 +53,7 @@ Feature: TST02_SF_ELEC_FLTY19
 
     Scenario: Going through "INITIAL RISK ASSESSMENT"
         Given the fltynineteen INITIAL RISK ASSESSMENT section
-        When I fill the fltynineteen initialRisk field with the values
-        Then I should see fltynineteen INFO window
-
-    Scenario: Going through "INFO" window
-        Given the fltynineteen INFO window with the text
-        When pop-up ok click in fltynineteen Risk
-        Then I should see fltynineteen RISK ASSESSMENT ELEC section
+        When I click the Unabletoturnoff Reason and Abort the Job
+        Then I should see the Aborted status for the workorder "SFEFLTY19" on the appointments page
 
 

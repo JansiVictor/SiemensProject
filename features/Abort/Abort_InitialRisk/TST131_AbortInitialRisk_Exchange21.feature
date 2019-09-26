@@ -54,11 +54,6 @@ And I should see ExTwOne INITIAL RISK ASSESSMENT section
 
 Scenario: Going through ExTwOne "INITIAL RISK ASSESSMENT"
 Given the ExTwOne INITIAL RISK ASSESSMENT section
-When I fill the ExTwOne initialRisk field with the values
-Then I should see ExTwOne INFO window
-
-#Scenario: Going through ExTwOne "INFO" window   
-Given the ExTwOne INFO window with the text
-#When I click on ExTwOne OK button 
-#Then I should see ExTwOne RISK ASSESSMENT ELEC section 
+When I click the Unabletoturnoff Reason and Abort the Job
+Then I should see the Aborted status for the workorder "DFEXCH21" on the appointments page
 

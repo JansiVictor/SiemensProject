@@ -51,9 +51,5 @@ And TST03 I should see INITIAL RISK ASSESSMENT section
 
 Scenario: Going through "INITIAL RISK ASSESSMENT"
 Given TST03 the INITIAL RISK ASSESSMENT section
-When TST03 I fill the initialRisk field with the values
-Then TST03 I should see INFO window
-
-Scenario: Going through "INFO" window
-Given TST03 the INFO window with the text
-Then TST03 I should see RISK ASSESSMENT ELEC section
+When I click the Unabletoturnoff Reason and Abort the Job
+Then I should see the Aborted status for the workorder "SFGFLTY18" on the appointments page

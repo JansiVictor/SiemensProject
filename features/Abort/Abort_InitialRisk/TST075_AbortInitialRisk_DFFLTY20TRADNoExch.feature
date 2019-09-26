@@ -51,5 +51,5 @@ And FltytwTadNoEx I should see INITIAL RISK ASSESSMENT section
 
 Scenario: Going through "INITIAL RISK ASSESSMENT"
 Given FltytwTadNoEx the INITIAL RISK ASSESSMENT section
-When FltytwTadNoEx I fill the initialRisk field with the values
-Then FltytwTadNoEx I should see RISK ASSESSMENT ELEC section
+When I click the Unabletoturnoff Reason and Abort the Job
+Then I should see the Aborted status for the workorder "DFFLTY20TRAD" on the appointments page

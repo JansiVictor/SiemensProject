@@ -7,7 +7,7 @@ Feature: TST22_DF_EXCH24
         And I should see the TST22 Appointment List
 
         Examples:
-            | Username    | Password    |
+            | Username | Password    |
             | E0000022 | 000Password |
 
     Scenario: Select the Latest workOrder
@@ -48,10 +48,5 @@ Feature: TST22_DF_EXCH24
 
     Scenario: Going through "INITIAL RISK ASSESSMENT"
         Given the TST22 INITIAL RISK ASSESSMENT section
-        When I fill the TST22 initialRisk field with the values
-        Then I should see TST22 INFO window
-
-    Scenario: Going through "INFO" window
-        Given the TST22 INFO window with the text
-        When TST22 click infook
-        Then I should see TST22 RISK ASSESSMENT ELEC section
+        When I click the Unabletoturnoff Reason and Abort the Job
+        Then I should see the Aborted status for the workorder "DFEXCH24" on the appointments page

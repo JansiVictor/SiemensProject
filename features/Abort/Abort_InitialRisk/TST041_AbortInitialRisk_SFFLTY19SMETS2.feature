@@ -53,5 +53,5 @@ And I should see SFEFLTY19 INITIAL RISK ASSESSMENT section
 
 Scenario: Going through "INITIAL RISK ASSESSMENT"
 Given the SFEFLTY19 INITIAL RISK ASSESSMENT section
-When I fill the SFEFLTY19 initialRisk field with the values
-Then I should see SFEFLTY19 RISK ASSESSMENT ELEC section
+When I click the Unabletoturnoff Reason and Abort the Job
+Then I should see the Aborted status for the workorder "SFEFLTY19" on the appointments page

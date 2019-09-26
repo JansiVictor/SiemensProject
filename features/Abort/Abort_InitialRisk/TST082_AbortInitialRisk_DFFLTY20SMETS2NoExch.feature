@@ -53,10 +53,5 @@ And I should see FLTYTwntyNoExchange Initial Risk Assessment for GAS section
 
 Scenario: Going through FLTYTwntyNoExchange "INITIAL RISK ASSESSMENT"
 Given the FLTYTwntyNoExchange INITIAL RISK ASSESSMENT section
-When I fill the FLTYTwntyNoExchange initialRisk field with the values
-#Then I should see the FLTYTwntyNoExchange see INFO window
-
-Scenario: Going through FLTYTwntyNoExchange "INFO" window   
-Given the FLTYTwntyNoExchange INFO window with the text
-#When I click on FLTYTwntyNoExchange INFO OK button 
-#Then I should see FLTYTwntyNoExchange RISK ASSESSMENT ELEC section 
+When I click the Unabletoturnoff Reason and Abort the Job
+Then I should see the Aborted status for the workorder "DFFLTY20" on the appointments page

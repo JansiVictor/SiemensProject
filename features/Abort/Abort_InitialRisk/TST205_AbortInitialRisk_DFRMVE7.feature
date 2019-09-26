@@ -7,7 +7,7 @@ Feature: TST28_DF_FLTY20_SMETS2
         And TST28 I should see the Appointment List
 
         Examples:
-            | Username    | Password    |
+            | Username | Password    |
             | E0000022 | 000Password |
 
     Scenario: Select the Latest workOrder
@@ -50,10 +50,5 @@ Feature: TST28_DF_FLTY20_SMETS2
 
     Scenario: Going through "INITIAL RISK ASSESSMENT"
         Given TST28 the INITIAL RISK ASSESSMENT section
-        When TST28 I fill the initialRisk field with the values
-        Then TST28 I should see INFO window
-
-    Scenario: Going through "INFO" window
-        Given TST28 the INFO window with the text
-        When TST28I I click on OK button
-        Then TST28 I should see RISK ASSESSMENT ELEC section
+        When I click the Unabletoturnoff Reason and Abort the Job
+        Then I should see the Aborted status for the workorder "DFRMVE7" on the appointments page

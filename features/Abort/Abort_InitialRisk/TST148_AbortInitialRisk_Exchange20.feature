@@ -54,10 +54,5 @@ And I should see ExchangeTwnty INITIAL RISK ASSESSMENT section
 
 Scenario: Going through ExchangeTwnty "INITIAL RISK ASSESSMENT"
 Given the ExchangeTwnty INITIAL RISK ASSESSMENT section
-When I fill the ExchangeTwnty initialRisk field with the values
-Then I should see ExchangeTwnty INFO window
-
-Scenario: Going through ExchangeTwnty "INFO" window   
-Given the ExchangeTwnty INFO window with the text
-#When I click on OK button
-Then I should see ExchangeTwnty RISK ASSESSMENT ELEC section 
+When I click the Unabletoturnoff Reason and Abort the Job
+Then I should see the Aborted status for the workorder "SFEEXCH20" on the appointments page

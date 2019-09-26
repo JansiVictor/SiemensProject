@@ -53,5 +53,5 @@ And I should see DF17SmartCredit INITIAL RISK ASSESSMENT section
 
 Scenario: Going through "INITIAL RISK ASSESSMENT"
 Given the DF17SmartCredit INITIAL RISK ASSESSMENT section
-When I fill the DF17SmartCredit initialRisk field with the values
-Then I should see DF17SmartCredit RISK ASSESSMENT ELEC section
+When I click the Unabletoturnoff Reason and Abort the Job
+Then I should see the Aborted status for the workorder "DF17SmartCredit" on the appointments page

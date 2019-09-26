@@ -53,5 +53,5 @@ And I should see SFENMEX15 INITIAL RISK ASSESSMENT section
 
 Scenario: Going through "INITIAL RISK ASSESSMENT"
 Given the SFENMEX15 INITIAL RISK ASSESSMENT section
-When I fill the SFENMEX15 initialRisk field with the values
-Then I should see SFENMEX15 RISK ASSESSMENT ELEC section
+When I click the Unabletoturnoff Reason and Abort the Job
+Then I should see the Aborted status for the workorder "SFGNMEX15" on the appointments page

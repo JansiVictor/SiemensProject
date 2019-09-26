@@ -7,7 +7,7 @@ Feature: TST15_SF_Gas_FLTY18_Non_SMETS2
         And TST15 I should see the Appointment List
 
         Examples:
-            | Username    | Password    |
+            | Username | Password    |
             | E0000022 | 000Password |
 
     Scenario: Select the Latest workOrder
@@ -50,5 +50,5 @@ Feature: TST15_SF_Gas_FLTY18_Non_SMETS2
 
     Scenario: Going through "INITIAL RISK ASSESSMENT"
         Given TST15 the INITIAL RISK ASSESSMENT section
-        When TST15 I fill the initialRisk field with the values
-        Then TST15 I should see RISK ASSESSMENT ELEC section
+        When I click the Unabletoturnoff Reason and Abort the Job
+        Then I should see the Aborted status for the workorder "SFGFLTY18TRAD" on the appointments page

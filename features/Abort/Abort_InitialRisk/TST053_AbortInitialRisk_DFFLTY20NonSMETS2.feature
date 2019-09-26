@@ -7,7 +7,7 @@ Feature: TST13_DF_FLTY20_Non_SMETS2
         And TST13 I should see the Appointment List
 
         Examples:
-            | Username    | Password    |
+            | Username | Password    |
             | E0000022 | 000Password |
 
     Scenario: Select the Latest workOrder
@@ -50,5 +50,5 @@ Feature: TST13_DF_FLTY20_Non_SMETS2
 
     Scenario: Going through "INITIAL RISK ASSESSMENT"
         Given TST13 the INITIAL RISK ASSESSMENT section
-        When TST13 I fill the initialRisk field with the values
-        Then TST13 I should see RISK ASSESSMENT ELEC section
+        When I click the Unabletoturnoff Reason and Abort the Job
+        Then I should see the Aborted status for the workorder "DFFLTY20TRAD" on the appointments page

@@ -7,7 +7,7 @@ Feature: SF E FLTY19 Trad  - SMETS2 Workflow
 		And I should see the Appointment List for FLTY19 Trad
 
 		Examples:
-			| Username    | Password    |
+			| Username | Password    |
 			| E0000022 | 000Password |
 
 	Scenario: Select the Latest workOrder for FLTY19 Trad
@@ -50,10 +50,5 @@ Feature: SF E FLTY19 Trad  - SMETS2 Workflow
 
 	Scenario: Going through "INITIAL RISK ASSESSMENT" for FLTY19 Trad
 		Given the INITIAL RISK ASSESSMENT section for FLTY19 Trad
-		When I fill the initialRisk field with the values for FLTY19 Trad
-		Then I should see INFO window for FLTY19 Trad
-
-	Scenario: Going through "INFO" window for FLTY19 Trad
-		Given the INFO window with the text for FLTY19 Trad
-		When I click on OK button for FLTY19 Trad
-		Then I should see RISK ASSESSMENT ELEC section for FLTY19 Trad
+		When I click the Unabletoturnoff Reason and Abort the Job
+		Then I should see the Aborted status for the workorder "SFEFLTY19TRAD" on the appointments page

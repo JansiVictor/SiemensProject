@@ -53,10 +53,5 @@ And I should see RmveSix Initial Risk Assessment for GAS section
 
 Scenario: Going through RmveSix "INITIAL RISK ASSESSMENT"
 Given the RmveSix INITIAL RISK ASSESSMENT section
-When I fill the RmveSix initialRisk field with the values
-#Then I should see the RmveSix RISK ASSESSMENT - GAS section
-
-Scenario: Going through RmveSix "INFO" window   
-Given the RmveSix INFO window with the text
-#When I click on RmveSix OK button 
-Then I should see RmveSix RISK ASSESSMENT ELEC section 
+When I click the Unabletoturnoff Reason and Abort the Job
+Then I should see the Aborted status for the workorder "SFERMVE6" on the appointments page
