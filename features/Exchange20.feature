@@ -21,7 +21,6 @@ Given the ExchangeTwnty "Work Order" window
 When i see ExchangeTwnty Call Forward or Arrive Button
 Then I click on ExchangeTwnty CALL FORWARD button
 Then I should see ExchangeTwnty page contect display
-#And I should see the ExchangeTwnty CUSTOMER CONTACT NUMBER
 And I should see ExchangeTwnty Contact made field
 
 Scenario: Selecting ExchangeTwnty job and setting to depart
@@ -40,7 +39,6 @@ And I should see ExchangeTwnty ARRIVE button
 Then I should see ExchangeTwnty DOORSTEP PROTOCOL tab activated
 
 Scenario: Set ExchangeTwnty job to Arrived status
-#Given the ExchangeTwnty "WorkOrder" page
 When I click on ExchangeTwnty ARRIVE button  	
 Then I should see ExchangeTwnty Arrival Time details
 And I should see ExchangeTwnty BE AWARE OF ANY DANGER! section
@@ -57,18 +55,16 @@ Given the ExchangeTwnty INITIAL RISK ASSESSMENT section
 When I fill the ExchangeTwnty initialRisk field with the values
 Then I should see ExchangeTwnty INFO window
 
-Scenario: Going through ExchangeTwnty "INFO" window   
-Given the ExchangeTwnty INFO window with the text
-#When I click on OK button
-Then I should see ExchangeTwnty RISK ASSESSMENT ELEC section 
+# Scenario: Going through ExchangeTwnty "INFO" window   
+# Given the ExchangeTwnty INFO window with the text
+# When I click on OK button
+# Then I should see ExchangeTwnty RISK ASSESSMENT ELEC section 
  
-
 Scenario: Going through ExchangeTwnty "RISK ASSESSMENT - ELEC" section	
 Given the ExchangeTwnty RISK ASSESSMENT - ELEC section
 When I fill the ExchangeTwnty RISK ASSESSMENT - ELEC fields with the values
 And I click on ExchangeTwnty CAPTURE PHOTO OF HAZARD IDENTIFIED button
 And I click on ExchangeTwnty NEXT SECTION button
-#Then I should see ExchangeTwnty CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section 
 
 
 Scenario: Going through ExchangeTwnty "Suitable for Smart Installation"
@@ -76,8 +72,7 @@ Given the Suitable for ExchangeTwnty Smart Installation section
 When I click on ExchangeTwnty Is Site Suitable for Smart Installation? button
 And I click on ExchangeTwnty Equipment Reposition Required?
 And I enter ExchangeTwnty Additional Notes for Smart installation Check
-And I click on ExchangeTwnty smart installation NEXT SECTION button
-#Then I should see INITIAL POLARITY CHECK - MARTINDALE TEST section 
+And I click on ExchangeTwnty smart installation NEXT SECTION button 
 
 Scenario: Going through ExchangeTwnty "CAPTURE INITIAL PHOTO OF ELEC INSTALLATION"
 Given the ExchangeTwnty CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section
@@ -94,8 +89,6 @@ Then I should see ExchangeTwnty INITIAL POLARITY CHECK AT METER AND CUT OUT sect
 Scenario: Going through ExchangeTwnty "INITIAL POLARITY CHECK - AT METER AND CUT OUT" section     	
 Given the ExchangeTwnty INITIAL POLARITY CHECK - AT METER AND CUT OUT section  
 When I fill the ExchangeTwnty METER AND CUT OUT fields with the values
-#for new WO this is not req, for existing one required
-#And I click on ExchangeTwnty SUBMIT button
 Then I should see ExchangeTwnty CURRENT METER DETAILS section
 
 Scenario: Going through ExchangeTwnty "Check the current meter details" section     	

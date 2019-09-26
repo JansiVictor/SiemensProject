@@ -40,7 +40,7 @@ And I should see INSTFrtn ARRIVE button
 And I should see INSTFrtn DOORSTEP PROTOCOL tab activated
 
 Scenario: Set INSTFrtn job to Arrived status
-//Given the INSTFrtn "WorkOrder" page
+Given the INSTFrtn "WorkOrder" page
 When I click on INSTFrtn ARRIVE button  	
 Then I should see INSTFrtn Arrival Time details
 And I should seeINSTFrtn  BE AWARE OF ANY DANGER! section

@@ -857,21 +857,24 @@ export class ElectricPageObject {
 			var options = this.selectinstallMeterOption.getAttribute('value');
 			await utility.wait(3000);
 			await this.inputelecSerialNum.sendKeys(options);
-		
+			//wait added 23.09
+			await utility.wait(utility.low);
 		await this.randomEUDevice.click();
-		let ale: Alert = browser.switchTo().alert();
-		// clicks 'OK' button
-		ale.accept();
-		await utility.wait(utility.low);
+		// let ale: Alert = browser.switchTo().alert();
+		// // clicks 'OK' button
+		// ale.accept();
+		// await utility.wait(utility.low);
 
 		await this.commshubPopup.click();
-		await utility.wait(utility.low);
+		await utility.wait(utility.Avg_low);
 
 		// if (await this.manufactureLetterDD.isDisplayed()) {
 		// 	var select1 = this.manufactureLetterDD;
 		// 	select1.$('[value="2"]').click();
+		// 	await utility.wait(utility.low);
 		// }
 		//cgp added
+		
 		if (await this.MeterTypeDD.isDisplayed()) {
 			await utility.wait(utility.low);
 			var select2 = this.MeterTypeDD;

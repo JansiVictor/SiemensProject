@@ -228,7 +228,7 @@ Then('I should see ExchTwTwo INFO window', async function () {
 
 
 Given('the ExchTwTwo INFO window with the text', async function () {
-	//await riskassess.infoOKButton.isDisplayed();
+	await riskassess.infoOKButton.isDisplayed();
 	await riskassess.infoOKButton.click();
 
 	//await riskassess.performanceRiskNextBtn.click();
@@ -994,7 +994,7 @@ Given('ExchTwTwo the PPMID Commissioning Successful button is displayed', async 
   await inst.pairingsuccessfulppmidcomm();
 });
 When('ExchTwTwo I click on SUB button', async function () {
-  await inst.clickonSUBbtn();
+  await inst.clickonSUBbtnEx22();
 });
 Then('ExchTwTwo I should see DEVICE BINDING and COMMISSIONING sec', async function () {
   await job.DeviceBinding();

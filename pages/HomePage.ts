@@ -309,7 +309,7 @@ public clickCorrectSelectLink(selectLinkName) {
 	var selectLinkName;
 	switch (selectLinkName) {
 		case ('Exchange20'):
-			this.clickOnTheSelectLink(this.Ex20selectLink,'SelectJobTest1 EXCH20 SF SMETS2');
+			this.clickOnTheSelectLink(this.Ex20selectLink,'SelectJobEXCH20 SF SMETS2');
 			console.log('Fieldname:', selectLinkName);
 			break;
 		case ('DF17SmartCredit'):
@@ -353,7 +353,7 @@ public clickCorrectSelectLink(selectLinkName) {
 			console.log('Fieldname:', selectLinkName);
 			break;
 		case ('Exchange19'):
-			this.clickOnTheSelectLink(this.Ex19selectLink,'SelectJob1EXCHANGE 19 FLAT');
+			this.clickOnTheSelectLink(this.Ex19selectLink,'SelectJobEXCHANGE 19 FLAT');
 			console.log('Fieldname:', selectLinkName);
 			break;
 		case ('Exchange21'):
@@ -365,7 +365,7 @@ public clickCorrectSelectLink(selectLinkName) {
 			console.log('Fieldname:', selectLinkName);
 			break;
 		case ('SFINST14'):
-			this.clickOnTheSelectLink(this.SFGASINST14,'SelectJobTest1 INST14 DF SMETS');
+			this.clickOnTheSelectLink(this.SFGASINST14,'SelectJobINST14 DF SMETS');
 			console.log('Fieldname:', selectLinkName);
 			break;
 		case ('SFExchange22'):

@@ -366,7 +366,7 @@ Given('the ExchngNineteen Appointment List window', async function () {
 
 
    When('I fill the ExchngNineteen New Meter details fields with values Gas',async function () {
-    await riskassessGAS.fillNewMeterDetailsGAS(3);
+    await riskassessGAS.fillNewMeterDetailsWomanufact(3);
    });
 
    Then('I should see ExchngNineteen Gas Initial Meter Reading section',async function () {

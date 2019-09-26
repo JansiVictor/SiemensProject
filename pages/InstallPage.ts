@@ -1893,6 +1893,20 @@ public async Tst15fillthefieldsforperformpostinst() {
 			await this.PPMIDSubmit.click();
 		}
 	}
+
+	public async clickonSUBbtnEx22() {
+
+		await utility.wait(utility.Avg_low);
+		if (await this.PPMIDcommsuccessfulbtn.isDisplayed()) {
+			await this.PPMIDcommsuccessfulbtn.click();
+		}
+		await utility.wait(utility.Avg_low);
+
+		if (await this.installPageSubmitBtn.isDisplayed()) {
+			await this.installPageSubmitBtn.click();
+		}
+	}
+
 	public async deviceBindingandCommisioning() {
 		await utility.wait(utility.Avg_low);
 		if (await this.DeviceBinding.isDisplayed()) {
