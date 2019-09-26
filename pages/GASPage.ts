@@ -1210,12 +1210,12 @@ public async fillNewMeterDetailsGASInst16(index:number) {
     await utility.wait(utility.low);
     await this.commshubPopup.click();
     await utility.wait(utility.low);
-
-    if (await this.manufactureLetterDD.isDisplayed()) {
-        var select1 = this.manufactureLetterDD;
-            select1.$('[value="34"]').click();
-        }
-        await utility.wait(utility.low);
+/****CGP Removed the manufacturer Drop Down on 26/09 */
+    // if (await this.manufactureLetterDD.isDisplayed()) {
+    //     var select1 = this.manufactureLetterDD;
+    //         select1.$('[value="34"]').click();
+    //     }
+    //     await utility.wait(utility.low);
 
     if (await this.MeterTypeDD.isDisplayed()) {
         var select2 = this.MeterTypeDD;
