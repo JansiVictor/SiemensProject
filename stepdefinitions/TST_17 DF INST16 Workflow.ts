@@ -54,13 +54,7 @@ Given('the Appointment List window for INST16', async function () {
 });
 When('I click on select button for INST16', async function () {
   await utility.wait(2000);
-  //await home.continueLink.click();
-
   await home.clickCorrectSelectLink('DFINST16');
-  //await home.selectLink.click();
-  //await home.clickOnTheSelectLink();
-
-
   await utility.wait(5000);
 });
 Then('I should see Work Order window for INST16', async function () {
@@ -131,9 +125,6 @@ When('I click on ARRIVE button for INST16', async function () {
   await applist.clickArriveBtn();
 });
 Then('I should see Arrival Time details for INST16', async function () {
-  //comment these 2 lines when continue link is not displayed
-  // await utility.wait(5000);
-  //await applist.continueLink.click();
   await utility.wait(5000);
   await applist.arrivalTime.getText().then(function (arrivalTimeText) {
     console.log("find Arrival Time Text  " + arrivalTimeText);
@@ -161,19 +152,17 @@ Then('I should see INITIAL RISK ASSESSMENT section for INST16', async function (
 
 /***INITIAL RISK ASSESSMENT section */
 
-Given('the INITIAL RISK ASSESSMENT section for INST16', async function () {
+Given('for INST16 INITIAL RISK ASSESSMENT section', async function () {
   await riskassess.verifyInitialRiskAssessmentPage();
 });
 
-When('I fill the initialRisk field with the values for INST16', async function () {
+When('for INST16 fill the initialRisk field with the values', async function () {
   await riskassess.inputInitialRiskAssessmentDetails();
 });
 
-Then('I should see INFO window for INST16', async function () {
-  await riskassess.infoTextPopUp();
-});
 
-When('I fill Need to work Yes for INST16', async function () {
+
+When('for INST16 fill Need to work Yes', async function () {
    if (riskassess.NeedtoWorkYES.isDisplayed()) {
     var element = riskassess.NeedtoWorkYES;
     browser.executeScript("arguments[0].click()", element);
@@ -181,16 +170,16 @@ When('I fill Need to work Yes for INST16', async function () {
   }
 });
 
-Then('I should see RISK ASSESSMENT ELEC section for INST16', async function () {
+Then('for INST16 should see RISK ASSESSMENT ELEC section', async function () {
   await riskassess.verifyriskElecText();
 });
 
 /***RISK ASSESSMENT - ELEC */
-Given('the RISK ASSESSMENT - ELEC section for INST16', async function () {
+Given('the RISK ASSESSMENT - INST16ELEC section', async function () {
   await riskassess.verifyriskElecText();
 });
 
-When('I fill the RISK ASSESSMENT - ELEC fields with the values for INST16', async function () {
+When('I fill the RISK ASSESSMENT - INST16ELEC fields with the values', async function () {
   await riskassess.fillRiskAssesmentElecFields();
 });
 
@@ -199,7 +188,7 @@ When('I click on CAPTURE PHOTO OF HAZARD IDENTIFIED button for INST16', async fu
   await riskassess.capturePhotoBtnDisplayed();
 });
 
-Then('I click on NEXT SECTION button for INST16', async function () {
+Then('I click on NEXT SECTION INST16ELEC button', async function () {
   await riskassess.clickNextSectionBtn();
 });
 
@@ -239,10 +228,6 @@ When('I fill the METER AND CUT OUT fields with the values for INST16', async fun
 	await riskassessElecInst16.fillthePolarityCheckMeterOutINST16();
 });
 
-// Then ('I click on SUBMIT button for INST16', async function () {
-// 	await riskassessInst16.meterCutOutnextSection();
-// });
-
 Then('I should see the Comms Hub details section for INST16', async function () {
 	await inst.InstallCommsHubSection();
 });
@@ -257,7 +242,6 @@ Given('the INSTALL COMMS HUB sec for INST16', async function () {
 
 When('I fill the Ins comms hub fields and capture photo EVIDENCE for INST16', async function () {
 
-//await inst.fillfieldsInstallcommshubTRAD(2);
 await riskassessElecInst16.fillCommsHubDetails(4);
 
 });
@@ -276,7 +260,7 @@ Given('the  New Meter details section for INST16', async function () {
 
 When('I fill the New Meter details fields with values for INST16', async function () {
 
-  //await inst.fillDuelNewMeterDetails(2);
+
 
   await riskassessElecInst16.fillNewMeterDetailsTRAD();
 
@@ -284,7 +268,6 @@ When('I fill the New Meter details fields with values for INST16', async functio
 
 Then('I should see ADDITIONAL ELECTRICITY CHECKS section for INST16', async function () {
 
-  //await riskassessTRAD.additionalElecCheckDisplayed();
   
   await riskassessElecInst16.additionalElecCheckDisplayed();
 
@@ -363,15 +346,15 @@ Then('I should see Initial Risk Assessment for GAS section for INST16', async fu
 
 /****************************Initial Risk Assessment Gas***************************/
 
-Given('the INITIAL RISK ASSESSMENT section for INST16GAS', async function () {
+Given('the INITIAL RISK ASSESSMENT INST16GAS section', async function () {
 	await riskassess.verifyInitialRiskAssessmentPage();
 });
 
-When('I fill the initial Risk field with the values for INST16GAS', async function () {
+When('I fill the initial Risk INST16GAS field with the values', async function () {
 	await riskassess.inputInitialRiskAssessmentDetails();
 });
 
-Then('I should see RISK ASSESSMENT GAS section for INST16GAS', async function () {
+Then('I should see RISK ASSESSMENT INST16GAS section', async function () {
 	await riskassessGAS.riskAssessmentGASDisplayed();
 });
 
