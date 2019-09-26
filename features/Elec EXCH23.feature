@@ -24,8 +24,6 @@ Scenario: Going through Call Forward for EXCH23
     When i see Call Forward or Arrive Button for EXCH23
     Then I click on CALL FORWARD button for EXCH23
     Then I should see page contect display for EXCH23
-    #And I should see the CUSTOMER CONTACT NUMBER for EXCH23
-    #And I should see Contact made field for EXCH23
 
 Scenario: Selecting job and setting to depart for EXCH23
     Given the "Work Order" page for EXCH23
@@ -59,11 +57,6 @@ Scenario: Going through "INITIAL RISK ASSESSMENT" for EXCH23
     Given the INITIAL RISK ASSESSMENT section for EXCH23
     When I fill the initialRisk field with the values for EXCH23
     Then I should see INFO window for EXCH23
-
-# Scenario: Going through "INFO" window for EXCH23
-#     Given the INFO window with the text for EXCH23
-#     When I click on OK button for EXCH23
-#     Then I should see RISK ASSESSMENT ELEC section for EXCH23
 
 Scenario: Going through "RISK ASSESSMENT - ELEC" section for EXCH23
     Given the RISK ASSESSMENT - ELEC section for EXCH23
@@ -146,8 +139,8 @@ Scenario: Going through "CONFIRM IHD / PPMID ASSET REMOVAL" section for EXCH23
 Scenario: Going through "REMOVE METER" section for EXCH23
     Given the REMOVE METER section for EXCH23
     When I fill the field023 with the Value023 for EXCH23
-    # Can be used if button is available
-    #And I clk remove meter NEXT SECTION button for EXCH23
+    #### Can be used if button is available
+    ####And I clk remove meter NEXT SECTION button for EXCH23
     Then I should see SEND MESSAGE EMREM section for EXCH23
 
 Scenario: Going through "SEND MESSAGE EMREM" section for EXCH23

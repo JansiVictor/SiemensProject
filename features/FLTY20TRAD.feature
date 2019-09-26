@@ -96,9 +96,7 @@ Feature: DF FLTY20 Trad  - SMETS2 Workflow
 	Scenario: Going through "CURRENT IHD/PPMID DETAILS" section for FLTY20TRAD
 		Given the CURRENT IHD-PPMID DETAILS section for FLTY20TRAD
 		When I fill the field010 with the value010 for FLTY20TRAD
-		#And I should see CURRENT METER DETAILS - GAS section for FLTY20TRAD
 		Then I should see the page contect display of current meter details for FLTY20TRAD
-
 
 
 	Scenario: Going through "CURRENT METER DETAILS - GAS" section for FLTY20TRAD
@@ -110,15 +108,6 @@ Feature: DF FLTY20 Trad  - SMETS2 Workflow
 		Given the CAPTURE CURRENT METER section for FLTY20TRAD
 		When I fill capture current meter elec for FLTY20TRAD
 		Then I should see the DETERMINE FAULT ACTIVITY section for FLTY20TRAD
-
-
-
-	# 	Scenario: Going through "CURRENT METER DETAILS - GAS" section for FLTY20TRAD
-	# 		Given the CURRENT METER DETAILS - GAS section for FLTY20TRAD
-	# 		When I fill the field with the value for FLTY20TRAD
-	# 		Then I should see CURRENT COMMS HUB DETAILS section for FLTY20TRAD
-	# 		And I should see the page contect display for FLTY20TRAD
-
 
 
 	Scenario: Going through "DETERMINE FAULT ACTIVITY" section for FLTY20TRAD
