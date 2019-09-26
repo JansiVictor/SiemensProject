@@ -35,7 +35,7 @@ export const config: Config = {
     frameworkPath: require.resolve("protractor-cucumber-framework"),
 
     specs: [
-        "../../features/Abort/AbortNoAccessSuspend/TST123*.feature"
+        "../../features/Abort/AbortContactMade/TST129*.feature"
     ],
 
     jasmineNodeOpts: {

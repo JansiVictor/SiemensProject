@@ -21,7 +21,7 @@ const abort: AbortPageObject = new AbortPageObject();
 const abortnoaccesssuspend: AbortPageObject = new AbortPageObject();
 
 
-When('I fill the fields with the value for Abort Scenario', async function () {  
+When('I fill the fields with the value for Contact Made Abort', async function () {  
   await applist.clickOnContactMadeOtion();
   await abort.noAccessAbortContactMade();
 
@@ -32,7 +32,7 @@ Then('I should see the Abort Reason Code Pop Up', async function () {
 });
 
 
-Given('the AbortReasonCodespopup', async function () {
+Given('the AbortReasonCodespopup for Contact Made Abort', async function () {
 	await abortnoaccesssuspend.VerifyAbortReasonCodePopup();
 });
 

@@ -29,11 +29,11 @@ Feature: SF gas Exchange21 - Abort No Contact
         Given the ExTwOne "Work Order" page
 
 
-        When I fill the fields with the value for Abort Scenario
+        When I fill the fields with the value for Contact Made Abort
         Then I should see the Abort Reason Code Pop Up
 
     Scenario: Going through the Reason codes popup
-        Given the AbortReasonCodespopup
+        Given the AbortReasonCodespopup for Contact Made Abort
         When I click the Not Convenient with Customer Reason and Abort the Job
         Then I should see the Aborted status for the workorder "DFEXCH21" on the appointments page
 

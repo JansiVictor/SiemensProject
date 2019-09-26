@@ -27,11 +27,11 @@ Feature: SF Gas Exchange19- Abort No Contact
 
     Scenario: Selecting ExchngNineteen job and setting to depart
         Given the ExchngNineteen "Work Order" page
-        When I fill the fields with the value for Abort Scenario
+        When I fill the fields with the value for Contact Made Abort
         Then I should see the Abort Reason Code Pop Up
 
     Scenario: Going through the Reason codes popup
-        Given the AbortReasonCodespopup
+        Given the AbortReasonCodespopup for Contact Made Abort
         When I click the Not Convenient with Customer Reason and Abort the Job
         Then I should see the Aborted status for the workorder "SFGEXCH19" on the appointments page
 

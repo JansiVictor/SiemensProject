@@ -28,13 +28,12 @@ Scenario: Going through Call Forward for INST16
 
 Scenario: Selecting job and setting to depart for INST16
     Given the "Work Order" page for INST16
+    When I fill the fields with the value for Contact Made Abort        
+    Then I should see the Abort Reason Code Pop Up
 
-   When I fill the fields with the value for Abort Scenario         
-        Then I should see the Abort Reason Code Pop Up
-
-    Scenario: Going through the Reason codes popup
-        Given the AbortReasonCodespopup
-        When I click the Not Convenient with Customer Reason and Abort the Job 
+Scenario: Going through the Reason codes popup
+    Given the AbortReasonCodespopup for Contact Made Abort 
+    When I click the Not Convenient with Customer Reason and Abort the Job 
     Then I should see the Aborted status for the workorder "DFINST16" on the appointments page
 
  

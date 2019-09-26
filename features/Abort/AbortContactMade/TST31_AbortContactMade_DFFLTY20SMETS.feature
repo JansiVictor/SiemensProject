@@ -29,19 +29,6 @@ Feature: DF FLTY20 SMETS
         When I fill the fields with the value for Abort Scenario
         Then I should see the Abort Reason Code Pop Up
 
-# Scenario: Aborting with the Abort Reason
-#     Given The Abort Reason Code Pop up
-#     When I should select the Abort Reason From the List
-#     And Enter Additional Note
-#     And Click on photo Capture
-#     And Click on Abort Appointment
-#     Then I should see appointment List Window for FLTY20 SMETS
-
-
-# Scenario: Going through the Reason codes popup
-# Given the AbortReasonCodespopup
-# When I click the worknolongerrequired Reason and Abort the Job
-# Then I should see the Aborted status for the workorder "SFElecEXCH23" on the appointments page
 
 
 
