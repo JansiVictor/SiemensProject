@@ -74,6 +74,8 @@ export class AbortPageObject {
 	public elecAbortBtn:ElementFinder;
 	public reasonforAbort:ElementFinder;
 	public abortElecNxtBtn:ElementFinder;
+	public AbortElecNotes:ElementFinder;
+	public stayOnSiteN:ElementFinder;
 //################## Risk Assess Gas ##############
 	public capturemeterPressureMed:ElementFinder;
 	public medPressureNo:ElementFinder;
@@ -91,6 +93,7 @@ export class AbortPageObject {
 	public fullHanDeviceNo:ElementFinder;
 	public fullWanAllmeterNo:ElementFinder;
 	public fullconfigElecApplyNo:ElementFinder;
+	public AbortElecMeter:ElementFinder;
 
 	
 	//###############Reason Popup Elemenst##########
@@ -134,12 +137,15 @@ export class AbortPageObject {
 		this.updatedHnSY = element(by.xpath('//input[@id="radiora11"]/following-sibling::span[@class="outer"]'));
 		this.airlineRefInput = element(by.xpath('//input[@id="input1"]'));
 		this.updateDNOY = element(by.xpath('//input[@id="radiora13"]/following-sibling::span[@class="outer"]'));
-		this.dnoInput = element(by.xpath('//input[@id="input2"]'));
+		this.dnoInput = element(by.xpath('(//input[@name="formra3"])'));
 		this.workCanbeCompletedN = element(by.xpath('//input[@id="radiora18"]/following-sibling::span[@class="outer"]'));
+		this.stayOnSiteN = element(by.xpath('//input[@id="radiora16"]/following-sibling::span[@class="outer"]'));
 		this.addNotes = element(by.xpath('//input[@id="text3"]'));
 		this.elecAbortBtn = element(by.xpath('//button[text()="Abort"]'));
 		this.reasonforAbort = element(by.xpath('//div[@id="abdradio4"]'));
 		this.abortElecNxtBtn = element(by.xpath('//button[text()="NEXT"]'));
+		this.AbortElecNotes = element(by.model('scp.riskAssessFailNotes'));
+		this.AbortElecMeter = element(by.xpath('//button[text()="ABORT ELEC METER"]'));
 	
 	   // #################################### Risk Assess Gas##########	
 		
@@ -226,12 +232,14 @@ export class AbortPageObject {
 		if(this.notConvinientRadioBtn.isDisplayed()){
 		await this.notConvinientRadioBtn.click();
 		}
-        try{
-            await expect(this.abortNxtbtn.isDisplayed());
-            await this.abortNxtbtn.click();
-            } catch(error){
-                console.log('No Next btn present Currently');
-            }
+       // try{
+		if
+            (await expect(this.abortNxtbtn.isDisplayed())){
+			await this.abortNxtbtn.click();
+		}
+            // } catch(error){
+            //     console.log('No Next btn present Currently');
+            // }
 		await utility.wait(utility.very_low);
 		if(this.abortAddNotes.isDisplayed()){
 		await this.abortAddNotes.sendKeys('Not able to Call the customer');
@@ -277,26 +285,56 @@ export class AbortPageObject {
 	}
 
 // No Meter Onsite Option##########
-	public async noMeterOnSiteOptionAndAbort() {
+	public async elecRiskOptionAndAbortElecMeter(xpathparam,notesstring) {
+	this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
 		await utility.wait(utility.very_low);
 	if (await this.reasonforAbort.isDisplayed() && await this.reasonforAbort.isSelected() ) {
-		await this.reasonforAbort.click();
 	}
 	await utility.wait(utility.very_low);
-	if (await this.abortAddNotes.isDisplayed()) {
-		await this.abortAddNotes.sendKeys('Serious Issue');
+	if(this.abortElecNxtBtn.isDisplayed()){
+		await this.abortElecNxtBtn.click();
 	}
 	await utility.wait(utility.very_low);
+	if(this.abortAddNotes.isDisplayed()){
+		await this.abortAddNotes.sendKeys(notesstring);
+	await utility.wait(utility.very_low);
+	}
 	if(this.abortCapturePhoto.isDisplayed()){
 	await this.abortCapturePhoto.click();
 	}
 	await utility.wait(utility.very_low);
-	if(this.abortAppointment.isDisplayed()){
-	await this.abortAppointment.click();
+	if(this.AbortElecMeter.isDisplayed()){
+	await this.AbortElecMeter.click();
 	}
 	await utility.wait(utility.very_low);
 
 	}
+
+
+	public async elecRiskOptionAndAbortAppointment(xpathparam,notesstring) {
+		this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
+			await utility.wait(utility.very_low);
+		if (await this.reasonforAbort.isDisplayed() && await this.reasonforAbort.isSelected() ) {
+		}
+		await utility.wait(utility.very_low);
+		if(this.abortElecNxtBtn.isDisplayed()){
+			await this.abortElecNxtBtn.click();
+		}
+		await utility.wait(utility.very_low);
+		if(this.abortAddNotes.isDisplayed()){
+			await this.abortAddNotes.sendKeys(notesstring);
+		await utility.wait(utility.very_low);
+		}
+		if(this.abortCapturePhoto.isDisplayed()){
+		await this.abortCapturePhoto.click();
+		}
+		await utility.wait(utility.very_low);
+		if(this.abortAppointment.isDisplayed()){
+		await this.abortAppointment.click();
+		}
+		await utility.wait(utility.very_low);
+	
+		}
     
 
 // Abort Rescan Pop up ###################
@@ -422,10 +460,11 @@ export class AbortPageObject {
 		}
 		if (await risk.selectRiskReasonDD.isDisplayed()) {
 			var select = risk.selectRiskReasonDD;
-			select.$('[value="4"]').click();
+			select.$('[value="6"]').click();
+			await utility.wait(utility.very_low);
 		}
-		if (await risk.riskAssessmentinput.isDisplayed()) {
-			await risk.riskAssessmentinput.sendKeys('A05 : Sign of DB equipment burning, smoking or arcing');
+		if (await this.AbortElecNotes.isDisplayed()) {
+			await this.AbortElecNotes.sendKeys('A10 : DB Earthing issues at existing installations which present an immediate risk to consumer/MO');
 		}
 		if (await this.capturePhotoAbortElec.isDisplayed()) {
 			await this.capturePhotoAbortElec.click();
@@ -433,19 +472,24 @@ export class AbortPageObject {
 		if (await this.updatedHnSY.isDisplayed()) {
 			await this.updatedHnSY.click();
 		}
+		await utility.wait(utility.very_low);
 		if (await this.airlineRefInput.isDisplayed()) {
 			await this.airlineRefInput.sendKeys('1');
 		}
+		await utility.wait(utility.very_low);
 		if (await this.updateDNOY.isDisplayed()) {
 			await this.updateDNOY.click();
 		}
+		await utility.wait(utility.very_low);
 		if (await this.dnoInput.isDisplayed()) {
 			await this.dnoInput.sendKeys('2');
+			await utility.wait(utility.Avg_low);
 		}
+		await utility.wait(utility.medium_low);
 		if (await this.workCanbeCompletedN.isDisplayed()) {
 			await this.workCanbeCompletedN.click();
 		}
-		await utility.wait(utility.very_low);
+		await utility.wait(utility.medium_low);
 		if (await this.elecAbortBtn.isDisplayed()) {
 			await this.elecAbortBtn.click();
 		}
