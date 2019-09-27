@@ -313,13 +313,6 @@ export class AbortPageObject {
     }
 //updates
     public async abortJoboAfterInitialRisk() {
-        try {
-            if (risk.initialRiskAssessmentTab.isDisplayed()) {
-                await risk.initialRiskAssessmentTab.click();
-            }
-        } catch (error) {
-            console.log("continue with next step");
-        }
         if (risk.canYouSmellText.isDisplayed()) {
             await risk.canYouSmellYES.click();
         }

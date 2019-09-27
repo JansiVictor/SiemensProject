@@ -21,8 +21,3 @@ When('I click the Unabletoturnoff Reason and Abort the Job', async function () {
 	await abortIR.reScanInfoPopup();
 	await utility.wait(utility.medium);
 });
-Then('I should see the Aborted status for the workorder {string} on the appointments page', async function (workorder) {
-	await utility.wait(utility.medium);
-	await home.verifyAbortedStatus(workorder);
-	await utility.wait(utility.low);
-});
