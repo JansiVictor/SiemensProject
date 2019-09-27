@@ -1,4 +1,4 @@
-Feature: SF gas Exchange21 - Abort No Contact
+Feature: TST_129 DF EXCH21 Workflow - Contact made Abort No Access
 
 
     Scenario Outline: Logging in to job's ExTwOne "Work Order" window
@@ -25,7 +25,7 @@ Feature: SF gas Exchange21 - Abort No Contact
 
         And I should see ExTwOne Contact made field
 
-    Scenario: Selecting ExTwOne job and setting to depart
+    Scenario: Going through abort scenario
         Given the ExTwOne "Work Order" page
 
 

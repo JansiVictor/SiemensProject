@@ -1,4 +1,4 @@
-Feature: SF Elec  WorkFLow - Abort No Contact
+Feature: TST_174 SF Elec EXCH23 Workflow - Contact made Abort No Access
 
     Scenario Outline: Logging in to job's "Work Order" window for EXCH23
 
@@ -23,7 +23,7 @@ Feature: SF Elec  WorkFLow - Abort No Contact
         Then I click on CALL FORWARD button for EXCH23
         Then I should see page contect display for EXCH23
 
-    Scenario: Selecting job and setting to depart for EXCH23
+    Scenario: Going through abort scenario
         Given the "Work Order" page for EXCH23
         When I fill the fields with the value for Contact Made Abort       
         Then I should see the Abort Reason Code Pop Up

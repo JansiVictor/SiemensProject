@@ -1,4 +1,4 @@
-Feature: SF Elec Inst15  WorkFLow - Abort No Contact
+Feature: TST_151 SF E INST15 Workflow - Contact made Abort No Access
 
     Scenario Outline: Logging in to job's "Work Order" window
         Given the Login Page For SFEINST15

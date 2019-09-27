@@ -1,4 +1,4 @@
-Feature: DF Install - Abort No Contact
+Feature: TST_138 DF INST16 Workflow - Contact made Abort No Access
 
 
 Scenario Outline: Logging in to job's "Work Order" window for INST16
@@ -26,7 +26,7 @@ Scenario: Going through Call Forward for INST16
     And I should see the CUSTOMER CONTACT NUMBER for INST16
     And I should see Contact made field for INST16
 
-Scenario: Selecting job and setting to depart for INST16
+Scenario: Going through abort scenario
     Given the "Work Order" page for INST16
     When I fill the fields with the value for Contact Made Abort        
     Then I should see the Abort Reason Code Pop Up

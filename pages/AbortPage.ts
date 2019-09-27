@@ -312,14 +312,10 @@ export class AbortPageObject {
 		}
     }
 //updates
-    public async abortJoboAfterInitialRisk() {
-        try {
-            if (risk.initialRiskAssessmentTab.isDisplayed()) {
-                await risk.initialRiskAssessmentTab.click();
-            }
-        } catch (error) {
-            console.log("continue with next step");
-        }
+    public async abortJoboAfterInitialRisk() {    
+		
+		// Removed the try catch block as per Jansi on 27/09
+		
         if (risk.canYouSmellText.isDisplayed()) {
             await risk.canYouSmellYES.click();
         }

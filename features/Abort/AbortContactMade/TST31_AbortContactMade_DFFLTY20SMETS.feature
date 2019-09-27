@@ -1,37 +1,34 @@
-Feature: DF FLTY20 SMETS
+Feature: TST_031 DF FLTY20 SMETS2 - SMETS2 Workflow - Contact made Abort No Access
 
-    Scenario Outline: Logging in to job's "Work Order" window for
-
-        Given the Login Page for Abort Scenario
-        When I pass "<Username>" and "<Password>" for Abort Scenario
-        Then I click Login button for Abort Scenario
-        And I should see the Appointment List for Abort Scenario
+    Scenario Outline: Logging in to job's "Work Order" window
+        Given FTwenty the Login Page
+        When FTwenty I pass "<Username>" and "<Password>"
+        Then FTwenty I click Login button
+        And FTwenty I should see the Appointment List
 
         Examples:
+            | Username    | Password    |
+            | Automation2 | Aut0m4t1on2 |
 
-            | Username | Password    |
-            | E0000022 | 000Password |
+    Scenario: Select the Latest workOrder
+        Given FTwenty the Appointment List window
+        When FTwenty I click on select button
+        Then FTwenty I should see Work Order window
 
+    Scenario: Going through Call Forward
+        Given FTwenty the "Work Order" window
+        When FTwenty i see Call Forward or Arrive Button
+        Then FTwenty I click on CALL FORWARD button
+        Then FTwenty I should see page contect display
+        And FTwenty I should see the CUSTOMER CONTACT NUMBER
+        And FTwenty I should see Contact made field
 
-    Scenario: Select the Latest workOrder for Abort Scenario
-        Given the Appointment List window for Abort Scenario
-        When I click on select button for FLTY20 SMETS Abort Scenario
-        Then I should see Work Order window for Abort Scenario
-
-    Scenario: Going through Call Forward for Abort Scenario
-        Given the "Work Order" window for Abort Scenario
-        When i see Call Forward or Arrive Button for Abort Scenario
-        Then I click on CALL FORWARD button for Abort Scenario
-        Then I should see page contect display for Abort Scenario
-
-    Scenario: Selecting job and setting to depart for Abort Scenario
-        Given the "Work Order" page for Abort Scenario
-        When I fill the fields with the value for Abort Scenario
+    Scenario: Going through abort scenario
+		Given FTwenty the "Work Order" page
+        When I fill the fields with the value     
         Then I should see the Abort Reason Code Pop Up
 
-
-
-
-
-
-
+    Scenario: Going through the Reason codes popup
+        Given the AbortReasonCodespopup
+        When I click the Not Convenient with Customer Reason and Abort the Job 
+        Then I should see the Aborted status for the workorder "DFFLTY20" on the appointments page
