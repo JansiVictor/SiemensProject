@@ -1,4 +1,4 @@
-Feature: TST02_SF_ELEC_FLTY19
+Feature: TST100_AbortInitialRisk_SFFLTY19SMETS2
 
     Scenario Outline: Logging in to job's "Work Order" window
         Given the fltynineteen Login Page
@@ -53,6 +53,7 @@ Feature: TST02_SF_ELEC_FLTY19
 
     Scenario: Going through "INITIAL RISK ASSESSMENT"
         Given the fltynineteen INITIAL RISK ASSESSMENT section
+        When I fill the Abort Initial Risk Fields with Values
         When I click the Unabletoturnoff Reason and Abort the Job
         Then I should see the Aborted status for the workorder "SFEFLTY19" on the appointments page
 

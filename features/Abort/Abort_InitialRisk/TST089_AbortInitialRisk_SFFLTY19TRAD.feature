@@ -1,4 +1,4 @@
-Feature: SFEFLTY19TRAD Workflow
+Feature: TST089_AbortInitialRisk_SFFLTY19TRAD
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given the Login Page For SFEFLTY19TRAD
@@ -53,5 +53,6 @@ And I should see SFEFLTY19TRAD INITIAL RISK ASSESSMENT section
 
 Scenario: Going through "INITIAL RISK ASSESSMENT"
 Given the SFEFLTY19TRAD INITIAL RISK ASSESSMENT section
+When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFEFLTY19TRAD" on the appointments page

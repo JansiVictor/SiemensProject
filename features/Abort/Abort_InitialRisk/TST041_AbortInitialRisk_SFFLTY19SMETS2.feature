@@ -1,4 +1,4 @@
-Feature: SFEFLTY19 Workflow
+Feature: TST041_AbortInitialRisk_SFFLTY19SMETS2
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given the Login Page For SFEFLTY19
@@ -53,5 +53,6 @@ And I should see SFEFLTY19 INITIAL RISK ASSESSMENT section
 
 Scenario: Going through "INITIAL RISK ASSESSMENT"
 Given the SFEFLTY19 INITIAL RISK ASSESSMENT section
+When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFEFLTY19" on the appointments page

@@ -1,4 +1,4 @@
-Feature: ERMVE6 Work Flow
+Feature: TST210_AbortInitialRisk_RMVE6
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given the RmveSix Login Page
@@ -20,7 +20,6 @@ Given the RmveSix "Work Order" window
 When i see RmveSix Call Forward or Arrive Button
 Then I click on RmveSix CALL FORWARD button
 Then I should see RmveSix page contect display
-#And I should see the RmveSix CUSTOMER CONTACT NUMBER
 And I should see RmveSix Contact made field
 
 Scenario: Selecting RmveSix job and setting to depart
@@ -53,5 +52,6 @@ And I should see RmveSix Initial Risk Assessment for GAS section
 
 Scenario: Going through RmveSix "INITIAL RISK ASSESSMENT"
 Given the RmveSix INITIAL RISK ASSESSMENT section
+When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFERMVE6" on the appointments page

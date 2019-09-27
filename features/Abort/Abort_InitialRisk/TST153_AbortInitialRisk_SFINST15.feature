@@ -1,4 +1,4 @@
-Feature: SFEINST15 Workflow
+Feature: TST153_AbortInitialRisk_SFINST15
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given the Login Page For SFEINST15
@@ -53,5 +53,6 @@ And I should see SFEINST15 INITIAL RISK ASSESSMENT section
 
 Scenario: Going through "INITIAL RISK ASSESSMENT"
 Given the SFEINST15 INITIAL RISK ASSESSMENT section
+When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFEINST15" on the appointments page

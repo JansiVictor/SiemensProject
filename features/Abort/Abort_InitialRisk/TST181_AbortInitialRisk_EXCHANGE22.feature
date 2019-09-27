@@ -1,4 +1,4 @@
-Feature: SF_G_EXCH22 Workflow
+Feature: TST181_AbortInitialRisk_EXCHANGE22
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given the ExchTwTwo Login Page
@@ -21,7 +21,6 @@ Given the ExchTwTwo "Work Order" window
 When i see ExchTwTwo Call Forward or Arrive Button
 Then I click on ExchTwTwo CALL FORWARD button
 Then I should see page ExchTwTwo contect display
-#######And I should see the ExchTwTwo CUSTOMER CONTACT NUMBER
 And I should see ExchTwTwo Contact made field
 
 Scenario: Selecting ExchTwTwo job and setting to depart
@@ -54,5 +53,6 @@ And I should see ExchTwTwo INITIAL RISK ASSESSMENT section
 
 Scenario: Going through ExchTwTwo "INITIAL RISK ASSESSMENT"
 Given the ExchTwTwo INITIAL RISK ASSESSMENT section
+When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFGEXCH22" on the appointments page

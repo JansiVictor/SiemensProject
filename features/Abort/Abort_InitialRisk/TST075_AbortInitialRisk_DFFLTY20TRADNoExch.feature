@@ -1,6 +1,5 @@
-Feature: DF FLTY20 Trad No Exchange Workflow
+Feature: TST075_AbortInitialRisk_DFFLTY20TRADNoExch
 
-@TypeScriptScenario
 Scenario Outline: Logging in to job's "Work Order" window
 Given FltytwTadNoEx the Login Page
 When FltytwTadNoEx I pass "<Username>" and "<Password>"
@@ -51,5 +50,6 @@ And FltytwTadNoEx I should see INITIAL RISK ASSESSMENT section
 
 Scenario: Going through "INITIAL RISK ASSESSMENT"
 Given FltytwTadNoEx the INITIAL RISK ASSESSMENT section
+When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "DFFLTY20TRAD" on the appointments page

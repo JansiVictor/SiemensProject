@@ -1,4 +1,4 @@
-Feature: INSTALLATION16 WORKFLOW
+Feature: TST140_AbortInitialRisk_INST16SMETS2
 
     Scenario Outline: Logging in to job's "Work Order" window for INST16
         Given the Login Page for INST16
@@ -49,5 +49,6 @@ Feature: INSTALLATION16 WORKFLOW
 
     Scenario: Going through "INITIAL RISK ASSESSMENT" for INST16
         Given for INST16 INITIAL RISK ASSESSMENT section
+        When I fill the Abort Initial Risk Fields with Values
         When I click the Unabletoturnoff Reason and Abort the Job
         Then I should see the Aborted status for the workorder "DFINST16" on the appointments page

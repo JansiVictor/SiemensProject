@@ -1,4 +1,4 @@
-Feature: SF G FLTY18 Trad  - SMETS2 Workflow
+Feature: TST068_AbortInitialRisk_SFEFLTY18Trad
 
 	Scenario Outline: Logging in to job's "Work Order" window for FLTY18TRAD
 		Given the Login Page for FLTY18TRAD
@@ -50,5 +50,6 @@ Feature: SF G FLTY18 Trad  - SMETS2 Workflow
 
 	Scenario: Going through "INITIAL RISK ASSESSMENT" for FLTY18TRAD
 		Given the INITIAL RISK ASSESSMENT section for FLTY18TRAD
+		When I fill the Abort Initial Risk Fields with Values
 		When I click the Unabletoturnoff Reason and Abort the Job
 		Then I should see the Aborted status for the workorder "SFGFLTY18TRAD" on the appointments page

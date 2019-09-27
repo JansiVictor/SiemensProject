@@ -1,4 +1,4 @@
-Feature: Exchange 21 Workflow
+Feature: TST131_AbortInitialRisk_Exchange21
 
 Scenario Outline: Logging in to job's ExTwOne "Work Order" window
 Given the ExTwOne Login Page
@@ -21,7 +21,6 @@ Given the ExTwOne "Work Order" window
 When i see ExTwOne Call Forward or Arrive Button
 Then I click on ExTwOne CALL FORWARD button
 Then I should see ExTwOne page contect display
-#And I should see the ExTwOne CUSTOMER CONTACT NUMBER
 And I should see ExTwOne Contact made field
 
 Scenario: Selecting ExTwOne job and setting to depart
@@ -54,6 +53,7 @@ And I should see ExTwOne INITIAL RISK ASSESSMENT section
 
 Scenario: Going through ExTwOne "INITIAL RISK ASSESSMENT"
 Given the ExTwOne INITIAL RISK ASSESSMENT section
+When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "DFEXCH21" on the appointments page
 

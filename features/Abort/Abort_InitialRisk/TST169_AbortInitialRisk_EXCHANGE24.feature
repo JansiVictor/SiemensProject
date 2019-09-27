@@ -1,4 +1,4 @@
-Feature: TST22_DF_EXCH24
+Feature: TST169_AbortInitialRisk_EXCHANGE24
 
     Scenario Outline: Logging in to job's "Work Order" window
         Given the TST22 Login Page
@@ -48,5 +48,6 @@ Feature: TST22_DF_EXCH24
 
     Scenario: Going through "INITIAL RISK ASSESSMENT"
         Given the TST22 INITIAL RISK ASSESSMENT section
+        When I fill the Abort Initial Risk Fields with Values
         When I click the Unabletoturnoff Reason and Abort the Job
         Then I should see the Aborted status for the workorder "DFEXCH24" on the appointments page

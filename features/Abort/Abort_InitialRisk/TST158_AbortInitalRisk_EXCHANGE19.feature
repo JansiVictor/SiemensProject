@@ -1,4 +1,4 @@
-Feature: Exchange19 Workflow
+Feature: TST158_AbortInitalRisk_EXCHANGE19
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given the ExchngNineteen Login Page
@@ -50,5 +50,6 @@ And I should see ExchngNineteen Initial Risk Assessment for GAS section
 
 Scenario: Going through ExchngNineteen "INITIAL RISK ASSESSMENT"
 Given the ExchngNineteen INITIAL RISK ASSESSMENT section
+When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFGEXCH19" on the appointments page

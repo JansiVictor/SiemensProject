@@ -1,10 +1,9 @@
-Feature: SF_G_INST14 WorkFlow
+Feature: TST064_AbortInitialRisk_INST14SMETS2
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given the INSTFrtn Login Page
 When I pass INSTFrtn "<Username>" and "<Password>"
 Then I click INSTFrtn Login button
-#And I should see the INSTFrtn Appointment List 
 
 Examples:
 | Username 		| Password      |
@@ -32,7 +31,6 @@ And I should see the INSTFrtn correct MPAN details
 And I should see the INSTFrtn correct Customer Name details
 And I should see the INSTFrtn correct PostCode details
 
-#######Aparna Das - Change 'And' to 'Given' on 25/09
 Scenario: Approving INSTFrtn "Depart for Appointment" job
 Given "Appointment" INSTFrtn details
 When I click on INSTFrtn OK button  	
@@ -52,5 +50,6 @@ And I should see INSTFrtn Initial Risk Assessment for GAS section
 
 Scenario: Going through INSTFrtn "INITIAL RISK ASSESSMENT"
 Given the INSTFrtn INITIAL RISK ASSESSMENT section
+When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFGINST14" on the appointments page

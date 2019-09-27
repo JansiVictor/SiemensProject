@@ -1,4 +1,4 @@
-Feature: TST13_DF_FLTY20_Non_SMETS2
+Feature: TST053_AbortInitialRisk_DFFLTY20NonSMETS2
 
     Scenario Outline: Logging in to job's "Work Order" window
         Given TST13 the Login Page
@@ -50,5 +50,6 @@ Feature: TST13_DF_FLTY20_Non_SMETS2
 
     Scenario: Going through "INITIAL RISK ASSESSMENT"
         Given TST13 the INITIAL RISK ASSESSMENT section
+        When I fill the Abort Initial Risk Fields with Values
         When I click the Unabletoturnoff Reason and Abort the Job
         Then I should see the Aborted status for the workorder "DFFLTY20TRAD" on the appointments page

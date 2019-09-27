@@ -1,6 +1,4 @@
-Feature: Exchange 23 Work Flow
-
-
+Feature: TST176_AbortInitialRisk_EXCHANGE23
 
     Scenario Outline: Logging in to job's "Work Order" window for EXCH23
 
@@ -24,8 +22,6 @@ Feature: Exchange 23 Work Flow
         When i see Call Forward or Arrive Button for EXCH23
         Then I click on CALL FORWARD button for EXCH23
         Then I should see page contect display for EXCH23
-    #And I should see the CUSTOMER CONTACT NUMBER for EXCH23
-    #And I should see Contact made field for EXCH23
 
     Scenario: Selecting job and setting to depart for EXCH23
         Given the "Work Order" page for EXCH23
@@ -57,5 +53,6 @@ Feature: Exchange 23 Work Flow
 
     Scenario: Going through "INITIAL RISK ASSESSMENT" for EXCH23
         Given the INITIAL RISK ASSESSMENT section for EXCH23
+        When I fill the Abort Initial Risk Fields with Values
         When I click the Unabletoturnoff Reason and Abort the Job
         Then I should see the Aborted status for the workorder "SFEEXCH23" on the appointments page

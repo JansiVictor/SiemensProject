@@ -1,4 +1,4 @@
-Feature: DF_FLTY20_SMETS2NoExchange
+Feature: TST082_AbortInitialRisk_DFFLTY20SMETS2NoExch
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given the FLTYTwntyNoExchange Login Page
@@ -53,5 +53,6 @@ And I should see FLTYTwntyNoExchange Initial Risk Assessment for GAS section
 
 Scenario: Going through FLTYTwntyNoExchange "INITIAL RISK ASSESSMENT"
 Given the FLTYTwntyNoExchange INITIAL RISK ASSESSMENT section
+When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "DFFLTY20" on the appointments page

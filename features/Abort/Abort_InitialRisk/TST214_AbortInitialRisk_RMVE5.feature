@@ -1,4 +1,4 @@
-Feature: GRMVE5 Workflow
+Feature: TST214_AbortInitialRisk_RMVE5
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given the RmveGas Login Page
@@ -36,7 +36,6 @@ And I should see RmveGas ARRIVE button
 And I should see RmveGas DOORSTEP PROTOCOL tab activated
 
 Scenario: Set RmveGas job to Arrived status
-//Given the RmveGas "WorkOrder" page
 When I click on RmveGas ARRIVE button  	
 Then I should see RmveGas Arrival Time details
 And I should see RmveGas  BE AWARE OF ANY DANGER! section
@@ -50,5 +49,6 @@ And I should see RmveGas Initial Risk Assessment for GAS section
 
 Scenario: Going through RmveGas "INITIAL RISK ASSESSMENT"
 Given the RmveGas INITIAL RISK ASSESSMENT section
+When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFGRMVE5" on the appointments page

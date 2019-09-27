@@ -1,4 +1,4 @@
-Feature: TST03_SF_Gas_FLTY18_SMETS2
+Feature: TST047_AbortInitialRisk_SFFLTY18SMETS2
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given TST03 the Login Page
@@ -51,5 +51,6 @@ And TST03 I should see INITIAL RISK ASSESSMENT section
 
 Scenario: Going through "INITIAL RISK ASSESSMENT"
 Given TST03 the INITIAL RISK ASSESSMENT section
+When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFGFLTY18" on the appointments page
