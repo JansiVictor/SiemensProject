@@ -463,7 +463,7 @@ public async clickCorrectSuspendedLink(suspendedLinkName) {
 			this.clickOnTheSelectLink(this.SFGFLTY18TRADSuspendStatusLink,'SuspendedJobFAULTY 18 Non S2');
 			console.log('Fieldname:', suspendedLinkName);
 			break;
-		case ('SFGFLTY19'):
+		case ('SFEFLTY19'):
 			this.clickOnTheSelectLink(this.SFEFLTY19SuspendStatusLink,'SuspendedJobFAULTY 19');
 			console.log('Fieldname:', suspendedLinkName);
 			break;

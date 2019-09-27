@@ -1,4 +1,4 @@
-Feature: Exchange19 Workflow
+Feature: SFGEXCH19- AbortNoAccessSuspend Workflow
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given the ExchngNineteen Login Page
