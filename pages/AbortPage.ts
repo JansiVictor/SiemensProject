@@ -30,12 +30,15 @@ import {
 import {
 	RiskAssessmentPageObject
 } from "../pages/RiskAssessmentPage";
+import {
+	InstallPageObject
+} from "../pages/InstallPage";
 
 
 const applist: AppointmentListPageObject = new AppointmentListPageObject();
 const door: DoorStepPageObject = new DoorStepPageObject();
 const risk: RiskAssessmentPageObject = new RiskAssessmentPageObject();
-
+const inst: InstallPageObject = new InstallPageObject();
 export class AbortPageObject {
 
     
@@ -575,5 +578,224 @@ export class AbortPageObject {
 
 	}
 
+		//Post Installation for Abort ######################
+
+		public async filltheforPostinstAbort() {
+			await utility.wait(utility.Avg_low);
+			if (await inst.ContactGTY.isDisplayed()) {
+				await inst.ContactGTY.click();
+			}
+			await utility.wait(utility.very_low);
+			if (await inst.NationalGridSend.isDisplayed()) {
+				await inst.NationalGridSend.clear();
+				await inst.NationalGridSend.sendKeys("1");
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.HandSAirline.isDisplayed()) {
+				await inst.HandSAirline.click();
+			}
+			await utility.wait(utility.very_low);
+			if (await inst.Airlineref1.isDisplayed()) {
+				await inst.Airlineref1.clear();
+				await inst.Airlineref1.sendKeys("2");
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.GTAttendenceOnsiteY.isDisplayed()) {
+				await inst.GTAttendenceOnsiteY.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.GTresolveIssueY.isDisplayed()) {
+				await inst.GTresolveIssueY.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.TightnessIssueY.isDisplayed()) {
+				await inst.TightnessIssueY.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.cappedgascooker.isDisplayed()) {
+				await inst.cappedgascooker.click();
+			}
+			await utility.wait(utility.very_low);
+			if (await inst.addnlnote.isDisplayed()) {
+				await inst.addnlnote.clear();
+				await inst.addnlnote.sendKeys("Gas Notes");
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.ReplacedGasMeterY.isDisplayed()) {
+				await inst.ReplacedGasMeterY.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.ReplacedGasregulatorY.isDisplayed()) {
+				await inst.ReplacedGasregulatorY.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.TightnessperformedY.isDisplayed()) {
+				await inst.TightnessperformedY.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.cappostinstallation.isDisplayed()) {
+				await inst.cappostinstallation.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.Dropinpressure.isDisplayed()) {
+				await inst.Dropinpressure.click();
+			}
+			await utility.wait(utility.very_low);
+			if (await inst.dropinpressureselect.isDisplayed()) {
+				var select = inst.dropinpressureselect;
+				select.$('[value="2"]').click();
+			}
+			await utility.wait(utility.very_low);
+			if (await inst.selectMeterType.isDisplayed()) {
+				var select = inst.selectMeterType;
+				select.$('[value="2"]').click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.GasTightnessPassed.isDisplayed()) {
+				await inst.GasTightnessPassed.click();
+			}
+			await utility.wait(utility.very_low);
+			if (await inst.TestWitness.isDisplayed()) {
+				await inst.TestWitness.clear();
+				await inst.TestWitness.sendKeys("Ellie Taylor");
+			}
+			await utility.wait(utility.very_low);
+			if (await inst.standingPressure.isDisplayed()) {
+				await inst.standingPressure.clear();
+				await inst.standingPressure.sendKeys("1.1");
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.cappostinstallationpressure.isDisplayed()) {
+				await inst.cappostinstallationpressure.click();
+			}
+			await utility.wait(utility.very_low);
+			if (await inst.workingPressure.isDisplayed()) {
+				await inst.workingPressure.clear();
+				await inst.workingPressure.sendKeys("1.5");
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.captureworkingPressure.isDisplayed()) {
+				await inst.captureworkingPressure.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.captureFinalMeterInstall.isDisplayed()) {
+				await inst.captureFinalMeterInstall.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.MsgreqDCC.isDisplayed()) {
+				await inst.MsgreqDCC.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.PostinstallNext.isDisplayed()) {
+				await inst.PostinstallNext.click();
+			}
+		}
+
+		public async fillperformpostinstAbortNonS2() {
+			await utility.wait(utility.Avg_low);
+			if (await inst.ContactGTY.isDisplayed()) {
+				await inst.ContactGTY.click();
+			}
+			await utility.wait(utility.very_low);
+			if (await inst.NationalGridSend.isDisplayed()) {
+				await inst.NationalGridSend.clear();
+				await inst.NationalGridSend.sendKeys("1");
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.HandSAirline.isDisplayed()) {
+				await inst.HandSAirline.click();
+			}
+			await utility.wait(utility.very_low);
+			if (await inst.Airlineref1.isDisplayed()) {
+				await inst.Airlineref1.clear();
+				await inst.Airlineref1.sendKeys("2");
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.GTAttendenceOnsiteY.isDisplayed()) {
+				await inst.GTAttendenceOnsiteY.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.GTresolveIssueY.isDisplayed()) {
+				await inst.GTresolveIssueY.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.TightnessIssueY.isDisplayed()) {
+				await inst.TightnessIssueY.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.cappedgascooker.isDisplayed()) {
+				await inst.cappedgascooker.click();
+			}
+			await utility.wait(utility.very_low);
+			if (await inst.addnlnote.isDisplayed()) {
+				await inst.addnlnote.clear();
+				await inst.addnlnote.sendKeys("Gas Notes");
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.ReplacedGasMeterY.isDisplayed()) {
+				await inst.ReplacedGasMeterY.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.ReplacedGasregulatorY.isDisplayed()) {
+				await inst.ReplacedGasregulatorY.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.TightnessperformedY.isDisplayed()) {
+				await inst.TightnessperformedY.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.cappostinstallation.isDisplayed()) {
+				await inst.cappostinstallation.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.Dropinpressure.isDisplayed()) {
+				await inst.Dropinpressure.click();
+			}
+			await utility.wait(utility.very_low);
+			if (await inst.dropinpressureselect.isDisplayed()) {
+				var select = inst.dropinpressureselect;
+				select.$('[value="2"]').click();
+			}
+			await utility.wait(utility.very_low);
+			if (await inst.selectMeterType.isDisplayed()) {
+				var select = inst.selectMeterType;
+				select.$('[value="2"]').click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.GasTightnessPassed.isDisplayed()) {
+				await inst.GasTightnessPassed.click();
+			}
+			await utility.wait(utility.very_low);
+			if (await inst.TestWitness.isDisplayed()) {
+				await inst.TestWitness.clear();
+				await inst.TestWitness.sendKeys("Ellie Taylor");
+			}
+			await utility.wait(utility.very_low);
+			if (await inst.standingPressure.isDisplayed()) {
+				await inst.standingPressure.clear();
+				await inst.standingPressure.sendKeys("1.1");
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.cappostinstallationpressure.isDisplayed()) {
+				await inst.cappostinstallationpressure.click();
+			}
+			await utility.wait(utility.very_low);
+			if (await inst.workingPressure.isDisplayed()) {
+				await inst.workingPressure.clear();
+				await inst.workingPressure.sendKeys("1.5");
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.captureworkingPressure.isDisplayed()) {
+				await inst.captureworkingPressure.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.captureFinalMeterInstall.isDisplayed()) {
+				await inst.captureFinalMeterInstall.click();
+			}
+			await utility.wait(utility.Avg_low);
+			if (await inst.PostinstallNext.isDisplayed()) {
+				await inst.PostinstallNext.click();
+			}
+		}
 
 }
