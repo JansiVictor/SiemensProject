@@ -21,7 +21,6 @@ Given the ExchangeTwnty "Work Order" window
 When i see ExchangeTwnty Call Forward or Arrive Button
 Then I click on ExchangeTwnty CALL FORWARD button
 Then I should see ExchangeTwnty page contect display
-#And I should see the ExchangeTwnty CUSTOMER CONTACT NUMBER
 And I should see ExchangeTwnty Contact made field
 
 Scenario: Selecting ExchangeTwnty job and setting to depart
@@ -40,7 +39,6 @@ And I should see ExchangeTwnty ARRIVE button
 Then I should see ExchangeTwnty DOORSTEP PROTOCOL tab activated
 
 Scenario: Set ExchangeTwnty job to Arrived status
-#Given the ExchangeTwnty "WorkOrder" page
 When I click on ExchangeTwnty ARRIVE button  	
 Then I should see ExchangeTwnty Arrival Time details
 And I should see ExchangeTwnty BE AWARE OF ANY DANGER! section
@@ -59,7 +57,6 @@ Then I should see ExchangeTwnty INFO window
 
 Scenario: Going through ExchangeTwnty "INFO" window   
 Given the ExchangeTwnty INFO window with the text
-#When I click on OK button
 Then I should see ExchangeTwnty RISK ASSESSMENT ELEC section 
  
 

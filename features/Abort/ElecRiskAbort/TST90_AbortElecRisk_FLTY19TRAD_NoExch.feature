@@ -20,7 +20,6 @@ Given the FLTYTTradNoExchange "Work Order" window
 When i see FLTYTTradNoExchange Call Forward or Arrive Button
 Then I click on FLTYTTradNoExchange CALL FORWARD button
 Then I should see FLTYTTradNoExchange page contect display
-#And I should see the FLTYTTradNoExchange CUSTOMER CONTACT NUMBER
 And I should see FLTYTTradNoExchange Contact made field
 
 Scenario: Selecting FLTYTTradNoExchange job and setting to depart
@@ -54,12 +53,6 @@ And I should see FLTYTTradNoExchange Initial Risk Assessment for GAS section
 Scenario: Going through FLTYTTradNoExchange "INITIAL RISK ASSESSMENT"
 Given the FLTYTTradNoExchange INITIAL RISK ASSESSMENT section
 When I fill the FLTYTTradNoExchange initialRisk field with the values
-#Then I should see the FLTYTTradNoExchange see INFO window
-
-# Scenario: Going through FLTYTTradNoExchange "INFO" window   
-# Given the FLTYTTradNoExchange INFO window with the text
-# #When I click on FLTYTTradNoExchange INFO OK button 
-# #Then I should see FLTYTTradNoExchange RISK ASSESSMENT ELEC section 
 
 Scenario: Going through FLTYTTradNoExchange "RISK ASSESSMENT - ELEC" section
 Given the FLTYTTradNoExchange RISK ASSESSMENT - ELEC section

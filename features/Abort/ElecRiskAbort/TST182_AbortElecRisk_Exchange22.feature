@@ -21,7 +21,6 @@ Given the ExchTwTwo "Work Order" window
 When i see ExchTwTwo Call Forward or Arrive Button
 Then I click on ExchTwTwo CALL FORWARD button
 Then I should see page ExchTwTwo contect display
-#######And I should see the ExchTwTwo CUSTOMER CONTACT NUMBER
 And I should see ExchTwTwo Contact made field
 
 Scenario: Selecting ExchTwTwo job and setting to depart
@@ -59,7 +58,6 @@ Then I should see ExchTwTwo INFO window
 
  Scenario: Going through ExchTwTwo "INFO" window   
  Given the ExchTwTwo INFO window with the text
- #####When I click on ExchTwTwo OK button 
  Then I should see ExchTwTwo RISK ASSESSMENT ELEC section 
 
 Scenario: Going through ExchTwTwo "RISK ASSESSMENT - ELEC" section	

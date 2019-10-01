@@ -21,7 +21,6 @@ Given the ExTwOne "Work Order" window
 When i see ExTwOne Call Forward or Arrive Button
 Then I click on ExTwOne CALL FORWARD button
 Then I should see ExTwOne page contect display
-#And I should see the ExTwOne CUSTOMER CONTACT NUMBER
 And I should see ExTwOne Contact made field
 
 Scenario: Selecting ExTwOne job and setting to depart
@@ -57,10 +56,8 @@ Given the ExTwOne INITIAL RISK ASSESSMENT section
 When I fill the ExTwOne initialRisk field with the values
 Then I should see ExTwOne INFO window
 
-#Scenario: Going through ExTwOne "INFO" window   
+Scenario: Going through ExTwOne "INFO" window   
 Given the ExTwOne INFO window with the text
-#When I click on ExTwOne OK button 
-#Then I should see ExTwOne RISK ASSESSMENT ELEC section 
 
 Scenario: Going through ExTwOne "RISK ASSESSMENT - ELEC" section	
 Given the ExTwOne RISK ASSESSMENT - ELEC section

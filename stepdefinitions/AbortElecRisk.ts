@@ -86,6 +86,11 @@ Given('the ELEC Risk AbortReasonCodespopup', async function () {
 	await abortElecRisk.VerifyAbortReasonCodePopup();
 });
 
+Then('I should see AbortElec SMETS Install SUBMIT', async function (workorder) {
+	await inst.submitInstall.click();
+	await utility.wait(utility.low);
+});
+
 When('I click the ELEC Risk  Reason and Abort the Job', async function () {
 	await abortElecRisk.elecRiskOptionAndAbortElecMeter('abdradio6', 'A10 : DB Earthing issues at existing installations which present an immediate risk to consumer/MO');
 	await utility.wait(utility.medium);
