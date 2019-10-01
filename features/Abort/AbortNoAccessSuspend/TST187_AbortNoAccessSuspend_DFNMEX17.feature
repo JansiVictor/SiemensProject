@@ -1,4 +1,4 @@
-Feature: DF17SmartCredit Workflow 
+Feature: DF17SmartCredit- AbortNoAccessSuspend Workflow
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given the Login Page For DF17SmartCredit

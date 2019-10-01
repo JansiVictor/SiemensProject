@@ -1,4 +1,4 @@
-Feature: SFGFLTY18TRAD Workflow
+Feature: SFGFLTY18TRADNOEXCH- AbortNoAccessSuspend Workflow
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given the Login Page For SFGFLTY18TRAD
@@ -52,7 +52,7 @@ Then I should see the Appointment List For SFGFLTY18TRAD
 Scenario: Going through Aborting Suspended Job
 Given the Appointment List window For SFGFLTY18TRAD
 When I should click the AbortNoAccessSuspended status for the workorder "SFGFLTY18TRAD"
-Then I should see SFEINST15 BE AWARE OF ANY DANGER! section
+Then I should see SFGFLTY18TRAD BE AWARE OF ANY DANGER! section
 And I fill the DoorStep Protocol Values fields to abort suspended job
 
 Scenario: Going through the Reason codes popup
