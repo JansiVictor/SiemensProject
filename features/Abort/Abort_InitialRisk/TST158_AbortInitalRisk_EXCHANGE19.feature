@@ -1,15 +1,13 @@
-Feature: SFGEXCH19- AbortNoAccessSuspend Workflow
+Feature: TST158_AbortInitalRisk_EXCHANGE19
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given the ExchngNineteen Login Page
 When I pass ExchngNineteen "<Username>" and "<Password>"
 Then I click ExchngNineteen Login button
-#And I should see the ExchngNineteen Appointment List 
 
 Examples:
 | Username 		| Password      |
 |  E0000022  |  000Password  |
-
 
 Scenario: Select the Latest ExchngNineteen workOrder
 Given the ExchngNineteen Appointment List window
@@ -21,7 +19,6 @@ Given the ExchngNineteen "Work Order" window
 When i see ExchngNineteen Call Forward or Arrive Button
 Then I click on ExchngNineteen CALL FORWARD button
 Then I should see ExchngNineteen page contect display
-#And I should see the ExchngNineteen CUSTOMER CONTACT NUMBER
 And I should see ExchngNineteen Contact made field
 
 Scenario: Selecting ExchngNineteen job and setting to depart
@@ -47,16 +44,12 @@ And I should seeExchngNineteen  BE AWARE OF ANY DANGER! section
 
 Scenario: Going through ExchngNineteen "BE AWARE OF ANY DANGER!" section
 Given the ExchngNineteen BE AWARE OF ANY DANGER! section 
-When I fill the AbortNoAccessSuspend DoorStep Protocol fields with the values
-#And I should see the ExchngNineteen Appointment List
+When I fill the ExchngNineteen DoorStep Protocol fields with the value
+And I click on ExchngNineteen ON SITE button 	
+And I should see ExchngNineteen Initial Risk Assessment for GAS section
 
-Scenario: Going through Aborting Suspended Job
-Given the ExchngNineteen Appointment List window
-When I should click the AbortNoAccessSuspended status for the workorder "SFGEXCH19"
-Then I should seeExchngNineteen  BE AWARE OF ANY DANGER! section
-And I fill the DoorStep Protocol Values fields to abort suspended job
-
-Scenario: Going through the Reason codes popup
-Given the AbortReasonCodespopup
-When I click the worknolongerrequired Reason and Abort the Job
+Scenario: Going through ExchngNineteen "INITIAL RISK ASSESSMENT"
+Given the ExchngNineteen INITIAL RISK ASSESSMENT section
+When I fill the Abort Initial Risk Fields with Values
+When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFGEXCH19" on the appointments page

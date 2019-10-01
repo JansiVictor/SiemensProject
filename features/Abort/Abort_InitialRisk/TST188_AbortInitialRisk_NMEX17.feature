@@ -1,4 +1,4 @@
-Feature: DF17SmartCredit- AbortNoAccessSuspend Workflow
+Feature: TST188_AbortInitialRisk_NMEX17 
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given the Login Page For DF17SmartCredit
@@ -46,16 +46,13 @@ And I should see DF17SmartCredit BE AWARE OF ANY DANGER! section
 
 Scenario: Going through "BE AWARE OF ANY DANGER!" section
 Given the DF17SmartCredit BE AWARE OF ANY DANGER! section 
-When I fill the AbortNoAccessSuspend DoorStep Protocol fields with the values
-And I should see the Appointment List For DF17SmartCredit
+When I fill the DF17SmartCredit DoorStep Protocol fields with the value
+And I click on DF17SmartCredit ON SITE button 	
+Then I should see DF17SmartCredit RISK ASSESSMENT tab activated
+And I should see DF17SmartCredit INITIAL RISK ASSESSMENT section
 
-Scenario: Going through Aborting Suspended Job
-Given the Appointment List window For DF17SmartCredit
-When I should click the AbortNoAccessSuspended status for the workorder "DF17SmartCredit"
-Then I should see DF17SmartCredit BE AWARE OF ANY DANGER! section
-And I fill the DoorStep Protocol Values fields to abort suspended job
-
-Scenario: Going through the Reason codes popup
-Given the AbortReasonCodespopup
-When I click the worknolongerrequired Reason and Abort the Job
+Scenario: Going through "INITIAL RISK ASSESSMENT"
+Given the DF17SmartCredit INITIAL RISK ASSESSMENT section
+When I fill the Abort Initial Risk Fields with Values
+When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "DF17SmartCredit" on the appointments page
