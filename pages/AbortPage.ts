@@ -325,6 +325,7 @@ export class AbortPageObject {
 * @description ABORT Fill Risk Elec page details
 ***/
     public async abortJoboAfterInitialRisk() {
+
         if (risk.canYouSmellText.isDisplayed()) {
             await risk.canYouSmellYES.click();
         }
