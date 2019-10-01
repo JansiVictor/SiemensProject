@@ -65,6 +65,7 @@ Scenario: Going through "RISK ASSESSMENT - GAS"
     When FTwenty I fill the field05 with the value05
     Then FTwentyAbort I click on CAPTURE PHOTOGRAPHIC EVIDENCE button
     And FTwenty I fill the field06 with the value06
+	##
 
 Scenario: Going through "CAPTURE INITIAL PHOTO OF GAS INSTALLATION"
     Then FTwentyE the CAPTURE INITIAL PHOTO OF GAS INSTALLATION section
