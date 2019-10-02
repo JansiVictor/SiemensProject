@@ -32,7 +32,7 @@ Scenario: Going through abort scenario
     Then I should see the Abort Reason Code Pop Up
 
 Scenario: Going through the Reason codes popup
-    Given the AbortReasonCodespopup for Contact Made Abort 
+    Given the AbortReasonCodespopup
     When I click the Not Convenient with Customer Reason and Abort the Job 
     Then I should see the Aborted status for the workorder "DFINST16" on the appointments page
 
