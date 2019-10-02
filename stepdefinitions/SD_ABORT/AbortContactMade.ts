@@ -31,11 +31,6 @@ Then('I should see the Abort Reason Code Pop Up', async function () {
   await abortnoaccesssuspend.VerifyAbortReasonCodePopup();
 });
 
-
-Given('the AbortReasonCodespopup', async function () {
-	await abortnoaccesssuspend.VerifyAbortReasonCodePopup();
-});
-
 When('I click the Not Convenient with Customer Reason and Abort the Job', async function () {
 	await abortnoaccesssuspend.selectreasonOptionAndAbort('abdradio1', 'Not Convenient with Customer');
 	await utility.wait(utility.medium);
