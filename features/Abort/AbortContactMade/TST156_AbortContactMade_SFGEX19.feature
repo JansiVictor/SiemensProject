@@ -27,7 +27,7 @@ Feature: TST_156 SF G EXCH19 Workflow - Contact made Abort No Access
 
     Scenario: Selecting ExchngNineteen job and setting to depart
         Given the ExchngNineteen "Work Order" page
-        When I fill the fields with the value for Contact Made Abort
+        When I fill the fields with the value
         Then I should see the Abort Reason Code Pop Up
 
     Scenario: Going through the Reason codes popup

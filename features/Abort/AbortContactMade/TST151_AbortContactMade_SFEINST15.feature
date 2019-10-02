@@ -27,7 +27,7 @@ Feature: TST_151 SF E INST15 Workflow - Contact made Abort No Access
 
     Scenario: Selecting job and setting to depart
         Given the SFEINST15 WorkOrder Page
-       When I fill the fields with the value for Contact Made Abort        
+       When I fill the fields with the value       
         Then I should see the Abort Reason Code Pop Up
 
     Scenario: Going through the Reason codes popup

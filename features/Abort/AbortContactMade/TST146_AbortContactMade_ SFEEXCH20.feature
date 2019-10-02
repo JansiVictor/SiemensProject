@@ -30,7 +30,7 @@ Feature: Exchange20 Workflow
 
     Scenario: Selecting ExchangeTwnty job and setting to depart
         Given the ExchangeTwnty Work Order page
-        When I fill the fields with the value for Contact Made Abort       
+        When I fill the fields with the value     
         Then I should see the Abort Reason Code Pop Up
 
     Scenario: Going through the Reason codes popup

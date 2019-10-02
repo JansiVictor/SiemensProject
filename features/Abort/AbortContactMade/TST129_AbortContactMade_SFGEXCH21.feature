@@ -29,7 +29,7 @@ Feature: TST_129 DF EXCH21 Workflow - Contact made Abort No Access
         Given the ExTwOne "Work Order" page
 
 
-        When I fill the fields with the value for Contact Made Abort
+        When I fill the fields with the value
         Then I should see the Abort Reason Code Pop Up
 
     Scenario: Going through the Reason codes popup

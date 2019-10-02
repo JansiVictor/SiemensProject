@@ -24,7 +24,7 @@ Feature: TST_162 SF G INST14 Workflow - Contact made Abort No Access
 
     Scenario: Going through abort scenario
         Given the INSTFrtn "Work Order" page
-        When I fill the fields with the value for Contact Made Abort
+        When I fill the fields with the value
         Then I should see the Abort Reason Code Pop Up
 
     Scenario: Going through the Reason codes popup

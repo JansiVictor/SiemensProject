@@ -28,7 +28,7 @@ Scenario: Going through Call Forward for INST16
 
 Scenario: Going through abort scenario
     Given the "Work Order" page for INST16
-    When I fill the fields with the value for Contact Made Abort        
+    When I fill the fields with the value      
     Then I should see the Abort Reason Code Pop Up
 
 Scenario: Going through the Reason codes popup

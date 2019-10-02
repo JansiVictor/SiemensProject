@@ -25,7 +25,7 @@ Feature: TST_174 SF Elec EXCH23 Workflow - Contact made Abort No Access
 
     Scenario: Going through abort scenario
         Given the "Work Order" page for EXCH23
-        When I fill the fields with the value for Contact Made Abort       
+        When I fill the fields with the value     
         Then I should see the Abort Reason Code Pop Up
 
     Scenario: Going through the Reason codes popup
