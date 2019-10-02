@@ -12,7 +12,6 @@ import { InstallPageObject } from "../pages/InstallPage";
 import { ElectricPageObject } from "../pages/ElectricPage";
 import { GASPageObject } from "../pages/GASPage";
 import { JobCompletionPageObject } from "../pages/JobCompletionPage";
-import { Installation16JobCompletionPageObject } from "../pages/Installation16JobCompletion";
 const { Given, When, Then } = require("cucumber");
 const chai = require("chai");
 const expect = chai.expect;
@@ -28,7 +27,6 @@ const riskassessElec: ElectricPageObject = new ElectricPageObject();
 const inst: InstallPageObject = new InstallPageObject();
 const riskassessGAS: GASPageObject = new GASPageObject();
 const job: JobCompletionPageObject = new JobCompletionPageObject();
-const installation16Complete: Installation16JobCompletionPageObject = new Installation16JobCompletionPageObject();
 //const remove: RemoveTRADPageObject = new RemoveTRADPageObject();
 const remove1: RemovePageObject = new RemovePageObject();
 
