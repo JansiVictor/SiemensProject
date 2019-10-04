@@ -79,6 +79,7 @@ export class AbortPageObject {
 	public abortElecNxtBtn:ElementFinder;
 	public AbortElecNotes:ElementFinder;
 	public stayOnSiteN:ElementFinder;
+	public submitRisk:ElementFinder;
 //################## Risk Assess Gas ##############
 	public capturemeterPressureMed:ElementFinder;
 	public medPressureNo:ElementFinder;
@@ -86,6 +87,7 @@ export class AbortPageObject {
 	public gasabortAppointment: ElementFinder;
 	public abortbtnfail: ElementFinder;
 	public gasabortApp: ElementFinder;
+
     
 
 	//############# PRE GAS Abort###########
@@ -153,7 +155,7 @@ export class AbortPageObject {
 		this.abortElecNxtBtn = element(by.xpath('//button[text()="NEXT"]'));
 		this.AbortElecNotes = element(by.model('scp.riskAssessFailNotes'));
 		this.AbortElecMeter = element(by.xpath('//button[text()="ABORT ELEC METER"]'));
-	
+		this.submitRisk = element(by.xpath('//button[text()="SUBMIT"]'));
 	   // #################################### Risk Assess Gas##########	
 		
 	   this.capturemeterPressureMed =element(by.xpath('//input[@id="radiorag2"]/following-sibling::span[@class="outer"]'));
@@ -531,36 +533,47 @@ export class AbortPageObject {
 		}
 	}
 	
-	/***
-	 * @Author Jansi Victor
-	 * @description ABORT GAS Click
-	 ***/
-	public async selectreasonOptionAndAbortforgas(xpathparam, notesstring) {
-			this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
-			await utility.wait(utility.very_low);
-			if(this.GenericReasonCodeSelect.isDisplayed()){
-			await this.GenericReasonCodeSelect.click();
-			}
-			try{
-				await expect(this.abortNxtbtn.isDisplayed());
-				await this.abortNxtbtn.click();
-				} catch(error){
-					console.log('No Next btn present Currently');
-				}
-			await utility.wait(utility.very_low);
-			if(this.abortAddNotes.isDisplayed()){
-			await this.abortAddNotes.sendKeys(notesstring);
-			}
-			await utility.wait(utility.very_low);
-			if(this.abortCapturePhoto.isDisplayed()){
-			await this.abortCapturePhoto.click();
-			}
-			await utility.wait(utility.very_low);
-			if(this.gasabortApp.isDisplayed()){
-			await this.gasabortApp.click();
-			}
-			await utility.wait(utility.very_low);
-		}
+	 /***
+     * @Author Jansi Victor
+     * @description ABORT GAS Click
+     ***/
+    public async selectreasonOptionAndAbortforgas(xpathparam, notesstring) {
+            this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
+            await utility.wait(utility.very_low);
+            if(this.GenericReasonCodeSelect.isDisplayed()){
+            await this.GenericReasonCodeSelect.click();
+            }
+            try{
+                await expect(this.abortNxtbtn.isDisplayed());
+                await this.abortNxtbtn.click();
+                } catch(error){
+                    console.log('No Next btn present Currently');
+                }
+            await utility.wait(utility.very_low);
+            if(this.abortAddNotes.isDisplayed()){
+            await this.abortAddNotes.sendKeys(notesstring);
+            }
+            await utility.wait(utility.very_low);
+            if(this.abortCapturePhoto.isDisplayed()){
+            await this.abortCapturePhoto.click();
+            }
+        }
+ 
+    public async GasabortApp(){
+        await utility.wait(utility.very_low);
+            if(this.gasabortApp.isDisplayed()){
+            await this.gasabortApp.click();
+            }
+            await utility.wait(utility.very_low);
+    }   
+ 
+    public async AbortGasbtncall(){
+        await utility.wait(utility.very_low);
+            if(this.gasabortAppointment.isDisplayed()){
+            await this.gasabortAppointment.click();
+            }
+            await utility.wait(utility.very_low);
+    }  
  
 	/***
 	 * @Author Aparna Das

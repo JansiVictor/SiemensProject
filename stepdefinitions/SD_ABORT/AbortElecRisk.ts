@@ -73,10 +73,14 @@ When('I fill the Abort Post Installation GAS sec fields with values for FLTY18TR
 		await abortElecRisk.fillperformpostinstAbortNonS2();
 	});
 
-Then('FTwentyAbort I click on SUBMIT button', async function () {
-    await riskassess.meterCutOutnextSectionfrmElec();
-});
-
+	Then('FTwentyAbort I click on SUBMIT button', async function () {
+		await abortElecRisk.submitRisk.click();
+	});
+	
+	Then('FTwentyAbort I click on GAS Asset remval SUBMIT button', async function () {
+		await abortElecRisk.submitRisk.click();
+	});
+	
 Then('I should see the AbortReasonCodespopup', async function (workorder) {
 	await abortElecRisk.VerifyAbortReasonCodePopup();
 	await utility.wait(utility.low);
