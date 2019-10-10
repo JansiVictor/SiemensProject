@@ -21,3 +21,7 @@ When('I click the Unabletoturnoff Reason and Abort the Job', async function () {
 	await abortIR.reScanInfoPopup();
 	await utility.wait(utility.medium);
 });
+When('I click the Unabletoturnoff Reason and Abort the GASJob', async function () {
+	await abortIR.selectreasonOptionAndAbortGas('abdradio11', 'Leave Gass Off');
+	await utility.wait(utility.medium);
+});

@@ -1,7 +1,11 @@
-const { BeforeAll, After, AfterAll, Status } = require("cucumber");
+const { BeforeAll, After, Before, AfterAll, Status } = require("cucumber");
 //import * as fs from "fs";
 import { browser } from "protractor";
 import { config } from "../config/config";
+import { loginPageObject } from "../pages/loginPage";
+import { Utility } from "./utility";
+const login: loginPageObject = new loginPageObject();
+const utility: Utility = new Utility();
 
 var {setDefaultTimeout} = require('cucumber');
 setDefaultTimeout(600 * 1000);
@@ -9,6 +13,11 @@ setDefaultTimeout(600 * 1000);
 BeforeAll({timeout: 1000 * 1000}, async () => {
     //await browser.get(config.baseUrl);
     browser.sleep(5000);
+});
+
+Before({ tags: '@LoginScenario' }, async function(scenario) {
+    console.log('Name:', scenario.Name);
+    await login.performLogin();    
 });
 
 After(async function(scenario) {
