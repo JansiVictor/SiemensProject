@@ -70,11 +70,11 @@ Feature: TST_160 SF G EXCH19 Workflow - Abort Pre Gas Test
 
     Scenario: Going through ExchngNineteen Pre Installation Gas Tightness section
         Given the ExchngNineteen Pre Installation Gas Tightness section
-        When I fill Pre Installtion Tighness Check NO and click abort button
+        When I fill Pre Installtion Tighness Check NO and click abort button2
         Then I should see the Abort Reason Code Pop Up PreGas
 
     Scenario: Going through the Reason codes popup
         Given the AbortReasonCodespopup PreGas
-        When I click the Tampering Identified Reason and Abort the Job EX19
+        When I click the Reason and Abort Appointment Button
         Then I should see the Aborted status for the workorder "SFGEXCH19" on the appointments page
 

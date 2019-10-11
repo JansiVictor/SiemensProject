@@ -29,7 +29,7 @@ Feature: TST_174 SF Elec EXCH23 Workflow - Contact made Abort No Access
         Then I should see the Abort Reason Code Pop Up
 
     Scenario: Going through the Reason codes popup
-        Given the AbortReasonCodespopup for Contact Made Abort
+        Given the AbortReasonCodespopup
         When I click the Not Convenient with Customer Reason and Abort the Job 
         Then I should see the Aborted status for the workorder "SFElecEXCH23" on the appointments page
 

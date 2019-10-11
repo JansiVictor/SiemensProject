@@ -1,12 +1,13 @@
 import { browser, protractor, element, by } from "protractor";
-import { loginPageObject } from "../pages/loginPage";
-import { HomePageObject } from "../pages/HomePage";
-import { AppointmentListPageObject } from "../pages/AppointmentListPage";
+import { loginPageObject } from "../../pages/loginPage";
+import { HomePageObject } from "../../pages/HomePage";
+import { AppointmentListPageObject } from "../../pages/AppointmentListPage";
 
-import { config } from "../config/config";
-import { Utility } from "../support/utility";
-import { AbortPageObject } from "../pages/AbortPage";
-import { JobCompletionPageObjectAbort } from "../pages/JobCompletionPageAbort";
+import { config } from "../../config/config";
+import { Utility } from "../../support/utility";
+import { AbortPageObject } from "../../pages/AbortPage";
+import { RemovePageObject } from "../../pages/RemovePage";
+
 
 
 const { Given, When, Then } = require("cucumber");
@@ -20,17 +21,19 @@ const home: HomePageObject = new HomePageObject();
 const applist: AppointmentListPageObject = new AppointmentListPageObject();
 const abort: AbortPageObject = new AbortPageObject();
 const abortnoaccesssuspend: AbortPageObject = new AbortPageObject();
-const jobcompleteabort: JobCompletionPageObjectAbort = new JobCompletionPageObjectAbort();
+const remove: RemovePageObject = new RemovePageObject();
 
-Then('I fill Pre Installtion Tighness Check NO and click abort button', async function () {  
-	
-	 //await abortnoaccesssuspend.fillPreGasAbortTST35();
-
-	await abortnoaccesssuspend.fillPreGasAbortTST136();
+Then('I fill Pre Installtion Tighness Check NO and click abort button1', async function () {  
+		  
+	 await abortnoaccesssuspend.fillPreGasAbortTST35();
 	
   });
 
-
+  Then('I fill Pre Installtion Tighness Check NO and click abort button2', async function () {  
+		
+   await abortnoaccesssuspend.fillPreGasAbortTST136();
+   
+ });
 
 Then('I should see the Abort Reason Code Pop Up PreGas', async function () {  
   await abortnoaccesssuspend.VerifyPreGasAbortReasonCodePopup();
@@ -44,15 +47,15 @@ Given('the AbortReasonCodespopup PreGas', async function () {
 	
 });
 
-When('I click the Tampering Identified Reason and Abort the Job EXCH21', async function () {
+When('I click the Reason and Click Abort Gas Button', async function () {
 	console.log('Entering abort pop up');	
-	await abortnoaccesssuspend.selectreasonOptionAndAbortCGP('abdradio2', 'Tampering Identified','btnCall1');
+	await abortnoaccesssuspend.selectreasonOptionAndAbortPreGas('abdradio2', 'Tampering Identified','btnCall1');
 	await utility.wait(utility.low);	
 });
 
-When('I click the Tampering Identified Reason and Abort the Job EX19', async function () {
+When('I click the Reason and Abort Appointment Button', async function () {
 	console.log('Entering abort pop up');
-	await abortnoaccesssuspend.selectreasonOptionAndAbortCGP('abdradio2', 'Tampering Identified','btnCallabr2')
+	await abortnoaccesssuspend.selectreasonOptionAndAbortPreGas('abdradio2', 'Test Data','btnCallabr2')
 	await utility.wait(utility.low);
 	await abortnoaccesssuspend.reScanAssetPopupclick();	
 });
@@ -61,3 +64,29 @@ When('I fill the configuration for abort', async function () {
 	await abortnoaccesssuspend.fillConfigAllmeterAbort();
 	
 });
+
+
+When('I fill the field023 with the Value023 PreGas', async function () {	
+	await abortnoaccesssuspend.Tst22fillElecmeterrem();
+	
+});
+
+When('I should click Submit button for pre gas', async function () {	
+	await utility.wait(utility.medium);
+	await remove.clickonElecsubmitforRemoval();	
+});
+
+When('Abort Button for Double abort', async function () {	
+	await utility.wait(utility.medium);
+	await abortnoaccesssuspend.abortBtn.isDisplayed();
+	console.log("Double Abort");
+	
+});
+When('I click on the Abort Button', async function () {	
+	await utility.wait(utility.medium);
+	await abortnoaccesssuspend.abortBtn.click();
+	console.log("Double Abort Clicked");
+	
+});
+
+

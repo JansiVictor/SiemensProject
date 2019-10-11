@@ -164,12 +164,12 @@ Feature: TST_136 DF EXCH21 Workflow - Abort Pre Gas Test
 
     Scenario: Going through ExTwOne Pre Installation Gas Tightness section
         Given the ExTwOne Pre Installation Gas Tightness section
-        When I fill Pre Installtion Tighness Check NO and click abort button
+        When I fill Pre Installtion Tighness Check NO and click abort button2
         Then I should see the Abort Reason Code Pop Up PreGas
 
     Scenario: Going through the Reason codes popup
         Given the AbortReasonCodespopup PreGas
-        When I click the Tampering Identified Reason and Abort the Job EXCH21
+        When I click the Reason and Click Abort Gas Button
         Then I should see ExTwOne SMETS PPMID section
 
     Scenario: Going through ExTwOne "SMETS PPMID" GAS section

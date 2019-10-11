@@ -105,10 +105,36 @@ export class AbortPageObject {
 	
 	//###############Reason Popup Elemenst##########
 	public AbortNoAccessReasonCodes: ElementFinder;
-	public GenericReasonCodeSelect: ElementFinder;
-    
+	public GenericReasonCodeSelect: ElementFinder;    
 
 	//#####END#######
+
+	//########################## CGP added for Pre gas test#############
+	public abortBtn: ElementFinder;
+	public abortApntButton: ElementFinder;
+	public abortPreGas: ElementFinder;
+	public buttonTextVal: ElementFinder;
+	public AbortGasMeterReasonCodes:ElementFinder;
+	public RescanAssetPopUp:ElementFinder;
+	public checkDetails:ElementFinder;
+	public fullConfigAppliedPPMIDYesAbort:ElementFinder;
+	public FullWANYes: ElementFinder;
+	public FullCOnfigAppliedElecYes: ElementFinder;
+	public fullConfigAppliedGasYes: ElementFinder;
+	public fullConfigAppliedPPMIDYes: ElementFinder;
+	public capturePPMIDBtn: ElementFinder;
+	public PPMIDNxtBtn: ElementFinder;
+	public nextButtonWAN:ElementFinder;
+	public btnnext1: ElementFinder;
+    public Tst22removedmeterReading: ElementFinder;
+    public Tst22removemeterText: ElementFinder;
+    public Tst22RemoveMeterEnNxt: ElementFinder;
+	public Tst22RemoveNxtEnable: ElementFinder;
+	public RemoveElecAssetrplacedorremoved: ElementFinder;
+	public statusofElecAssetSelect: ElementFinder;
+	public randomClickEX23: ElementFinder;
+	
+
 
     constructor(){
     //Abort Elements Appointment List########
@@ -182,7 +208,33 @@ export class AbortPageObject {
 //##################Reason Popup#####################
 	   this.AbortNoAccessReasonCodes = element(by.xpath('//*[text()="Abort: No Access Reason Codes"]'));
 	   
+				// ########################CGP added For PreGas Test################
+				this.abortBtn = element(by.xpath('//button[@id="btn2"]'));	
+				this.abortApntButton = element(by.id("btnCallabr2"));
+				this.abortPreGas = element(by.id("btn_Gas_fail"));
+				
+				this.AbortGasMeterReasonCodes = element(by.xpath('//*[text()="Abort: Gas Meter Reason Codes"]'));
+				this.RescanAssetPopUp = element(by.xpath('//button[@class="confirm"]'));
+				this.FullWANYes = element(by.id('rb_FulWANEst_y'));
+				this.FullCOnfigAppliedElecYes = element(by.id('rb_FullCFigE_y'));
+				this.fullConfigAppliedGasYes = element(by.xpath('(//input[@id="rcfg5"]/following-sibling::span[@class="cr"])[1]'));
+			
+				this.fullConfigAppliedPPMIDYes = element(by.xpath('(//input[@id="rcfg5"]/following-sibling::span[@class="cr"])[2]'));
+				this.capturePPMIDBtn = element(by.xpath('//div/button[@class="cameraBtn2line grey mandatoryWhite"]'));
+				this.PPMIDNxtBtn = element(by.xpath('//div/button[@id="btnNextEff"]'));
+				this.checkDetails = element (by.xpath('//button[@class="confirm"]'));
+				this.fullConfigAppliedPPMIDYesAbort = element(by.xpath('(//input[@id="rcfg5"])'));
+				this.nextButtonWAN = element(by.id('btnNextEff'));
+				this.btnnext1 = element(by.xpath('(//*[@id="btnNextComm"])[1]'));
+        this.Tst22removedmeterReading = element(by.xpath('//input[@id="input0"]'));
+        this.Tst22removemeterText = element(by.xpath('(//div[text()="Removed Meter Reading(s):"])[2]'));
+        this.Tst22RemoveMeterEnNxt = element(by.xpath('(//div[@class = "checkLabel"])[5]'));
+        this.Tst22RemoveNxtEnable = element(by.css('.ng-scope > .ng-scope:nth-child(5) .checkLabel'));
+		this.RemoveElecAssetrplacedorremoved = element(by.xpath('((//*[@id="CCHradio5"])[2])/following-sibling::span[@class="outer"]'));
+	
+		this.statusofElecAssetSelect = element(by.xpath('//select[@id="cbx_StaAss_sel"]'));
 
+		this.randomClickEX23 = element(by.id('rb_UnReadMet_y'));
 	}
 	
 
@@ -842,5 +894,131 @@ export class AbortPageObject {
 				await inst.PostinstallNext.click();
 			}
 		}
+
+//###########################CGP ADDED FOR PRE GAS ABORT#####################
+
+public async fillPreGasAbortTST136() {
+
+	if (await this.preGASinstallN.isDisplayed()) {
+		await this.preGASinstallN.click();
+	}	
+	await utility.wait(utility.very_low);
+	if (await this.abortPreGas.isDisplayed()) {
+		await this.abortPreGas.click();
+	}
+	await utility.wait(utility.very_low);
+
+}
+
+public VerifyPreGasAbortReasonCodePopup() {
+	if (this.AbortGasMeterReasonCodes.isDisplayed) {
+		this.AbortGasMeterReasonCodes.getText().then(async function (abortgasreason) {
+			console.log("Abort Reason Code Pop up Header" + abortgasreason);
+		});
+	}
+}
+
+public async selectreasonOptionAndAbortPreGas(xpathparam, notesstring,buttonText) {
+	this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
+	await utility.wait(utility.low);
+	if (this.GenericReasonCodeSelect.isDisplayed()) {
+		await this.GenericReasonCodeSelect.click();
+	}
+	await utility.wait(utility.very_low);
+	if (this.abortAddNotes.isDisplayed()) {
+		await this.abortAddNotes.sendKeys(notesstring);
+		
+	}
+	await utility.wait(utility.very_low);
+	if (this.abortCapturePhoto.isDisplayed()) {
+		await this.abortCapturePhoto.click();
+	}
+this.buttonTextVal = element(by.xpath('//button[@id ="' + buttonText +'"]'));
+
+	await utility.wait(utility.very_low);
+	if (this.buttonTextVal.isDisplayed()) {
+		await this.buttonTextVal.click();
+	}
+	await utility.wait(utility.very_low);
+}
+
+public async reScanAssetPopupclick() {
+
+	if (await this.RescanAssetPopUp.isDisplayed()) {
+		await this.RescanAssetPopUp.click();
+	}
+}
+
+public async fillConfigAllmeterAbort(){
+	await utility.wait(utility.medium);
+	if (this.FullWANYes.isDisplayed()) {
+		await this.FullWANYes.click();
+	}
+	if (this.FullCOnfigAppliedElecYes.isDisplayed()) {
+		await this.FullCOnfigAppliedElecYes.click();
+	}	
+	await utility.wait(utility.low);	
+	if (this.checkDetails.isDisplayed()) {
+		await this.checkDetails.click();
+	}
+	await utility.wait(utility.low);	
+	if (this.fullConfigAppliedPPMIDYesAbort.isDisplayed()) {
+		await this.fullConfigAppliedPPMIDYesAbort.click();
+	}
+	if (this.capturePPMIDBtn.isDisplayed()) {
+		await this.capturePPMIDBtn.click();
+	}
+	await utility.wait(utility.low); 
+	if (this.nextButtonWAN.isDisplayed()) {
+	  await this.nextButtonWAN.click();
+   }
+}
+
+public async fillPreGasAbortTST35() {
+	if (await this.preGASinstallN.isDisplayed()) {
+		await this.preGASinstallN.click();
+	}
+	await utility.wait(utility.medium);
+	if (await this.abortBtn.isDisplayed()) {
+		console.log('Abort Button');
+		await this.abortBtn.click();
+		console.log('Abort Button Clicked');
+
+	}
+	await utility.wait(utility.very_low);
+
+}
+
+public async Tst22fillElecmeterrem() {
+	await utility.wait(utility.low);
+	if (await this.RemoveElecAssetrplacedorremoved.isDisplayed()) {
+		await this.RemoveElecAssetrplacedorremoved.click();
+	}
+	await utility.wait(utility.low);
+	if (await this.statusofElecAssetSelect.isDisplayed()) {
+		var select = this.statusofElecAssetSelect;
+		await select.$('[label = "No Fault Found"]').click();
+	}
+	await utility.wait(utility.very_low);
+	if (await this.Tst22removedmeterReading.isDisplayed()) {
+		await this.Tst22removedmeterReading.clear();
+		await this.Tst22removedmeterReading.sendKeys('12345');
+		
+	}
+
+	await utility.wait(utility.low);
+	
+	if (await this.statusofElecAssetSelect.isDisplayed()) {
+		await this.statusofElecAssetSelect.click();
+		console.log("clicked");
+	}
+	await utility.wait(utility.very_low);	
+}
+
+
+
+
+
+
 
 }
