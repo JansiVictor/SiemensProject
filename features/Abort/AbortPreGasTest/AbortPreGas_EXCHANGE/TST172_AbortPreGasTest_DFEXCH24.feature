@@ -261,7 +261,8 @@ Feature: TST_172 DF EXCH24 Workflow - Pre Gas Abort
     Scenario: Confirming "Commissioning Successful"
         Given TST22 the Commissioning Successful button is displayed
         When TST22 I click on Commissioning Successful button
-       ###################### Known issue.. Should not have the gas section for this flow 
+    ###################### Known issue - Issue 019.. Should not have the gas section for this flow 
+    ############ Needs to be revised after the fix  
        Then TST22 I should see NEW GAS METER DETAILS section
 
     Scenario: Going through "NEW GAS METER DETAILS" section
@@ -315,7 +316,7 @@ Feature: TST_172 DF EXCH24 Workflow - Pre Gas Abort
         Given TST22 the Gas Appliance Safety Checks sec
         When TST22 I fill the Gas Appliance Safety Checks section fields with values and Sub
         Then TST22 I should see SMETS PPMID sec
-
+#############################################
     Scenario: Going through "INSTALL PPMID" section
         Given TST22 the INSTALL PPMID section
         When TST22 I fill the fields for Install PPMID
