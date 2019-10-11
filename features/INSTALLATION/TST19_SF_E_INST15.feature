@@ -1,5 +1,8 @@
 Feature: SFEINST15 Workflow
 
+Scenario: Post SFEINST15 SOAP Request
+        Given I post workorder using "xmlrequest/SFEINST15.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the Login Page For SFEINST15
 When I pass "<Username>" and "<Password>" For SFEINST15
@@ -148,3 +151,7 @@ Given the SFEINST15 Smart literature left onsite section
 When I fill the SFEINST15 smart literature fields with values
 Then I should finally submit SFEINST15 job
 And I should see the Appointment List For SFEINST15
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

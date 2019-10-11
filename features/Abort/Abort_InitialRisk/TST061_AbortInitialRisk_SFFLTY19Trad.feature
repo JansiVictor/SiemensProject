@@ -1,5 +1,8 @@
 Feature: TST061_AbortInitialRisk_SFFLTY19Trad
 
+Scenario: Post SFEFLTY19TRAD SOAP Request
+        Given I post workorder using "xmlrequest/SFEFLTY19TRAD.XML"
+
 	Scenario Outline: Logging in to job's "Work Order" window for FLTY19 Trad
 		Given the Login Page for FLTY19 Trad
 		When I pass "<Username>" and "<Password>" for FLTY19 Trad
@@ -53,3 +56,7 @@ Feature: TST061_AbortInitialRisk_SFFLTY19Trad
 		When I fill the Abort Initial Risk Fields with Values
 		When I click the Unabletoturnoff Reason and Abort the Job
 		Then I should see the Aborted status for the workorder "SFEFLTY19TRAD" on the appointments page
+
+	Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

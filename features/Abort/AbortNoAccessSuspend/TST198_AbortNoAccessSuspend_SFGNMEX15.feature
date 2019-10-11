@@ -1,5 +1,8 @@
 Feature: SFGNMEX15 - AbortNoAccessSuspend Workflow
 
+Scenario: Post SFGNMEX15 SOAP Request
+Given I post workorder using "xmlrequest/SFGNMEX15.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the Login Page For SFENMEX15
 When I pass "<Username>" and "<Password>" For SFENMEX15
@@ -59,3 +62,7 @@ Scenario: Going through the Reason codes popup
 Given the AbortReasonCodespopup
 When I click the worknolongerrequired Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFGNMEX15" on the appointments page
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist 

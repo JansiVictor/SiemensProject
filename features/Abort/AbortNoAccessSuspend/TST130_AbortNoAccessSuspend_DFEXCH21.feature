@@ -1,5 +1,8 @@
 Feature: DFEXCH21 - AbortNoAccessSuspend Workflow
 
+Scenario: Post DFEXCH21 SOAP Request
+Given I post workorder using "xmlrequest/DFEXCH21.XML"
+
 Scenario Outline: Logging in to job's ExTwOne "Work Order" window
 Given the ExTwOne Login Page
 When I pass ExTwOne "<Username>" and "<Password>"
@@ -61,3 +64,6 @@ Given the AbortReasonCodespopup
 When I click the worknolongerrequired Reason and Abort the Job
 Then I should see the Aborted status for the workorder "DFEXCH21" on the appointments page
 
+Scenario: Going through deleting the work order after use 
+When I delete workorder after use
+Then workorder should no longer exist

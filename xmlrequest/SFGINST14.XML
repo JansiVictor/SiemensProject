@@ -1,0 +1,125 @@
+<soapenv:Envelope>
+	<soapenv:Header>
+		<wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+			<wsse:UsernameToken wsu:Id="UsernameToken-0EEF7B8B4923B4A11214398935927103">
+				<wsse:Username>user</wsse:Username>
+				<wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest">7mH/MD+s0FntnLZQz7priqFpBbc=</wsse:Password>
+				<wsse:Nonce EncodingType="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-soap-message-security-1.0#Base64Binary">UQ0FAmPIB2Ky5yVn6sbWOw==</wsse:Nonce>
+				<wsu:Created>2017-10-23T10:26:32.710Z</wsu:Created>
+			</wsse:UsernameToken>
+		</wsse:Security>
+	</soapenv:Header>
+	<soapenv:Body>
+
+		<ns0:createWORequest xmlns:ns0="http://wfm.feedhenry.com/1.0">
+			<ns0:WORequests>
+				<ns0:WORequest>
+					<ns0:appointment>
+						<APPOINTMENT_ID></APPOINTMENT_ID>
+						<APPT_TYPE>S</APPT_TYPE>
+						<APPNT_REMARKS>SSC:0393~FWD Call 07733420312~Dog~Source: SIEM~PM~06/10/2017 08:24. Additional tasks: 1) Install IHD</APPNT_REMARKS>
+						<ACCESS_DETAILS>Parking:Y FreeParking Animals:Y</ACCESS_DETAILS>
+						<CONTACT_TEL>07733420312</CONTACT_TEL>
+						<CUSTOMER_NAME>TEST</CUSTOMER_NAME>
+						<CARE_DETAILS/>
+						<RESP_NAME/>
+						<CUSTOMER_REF>9999999999991</CUSTOMER_REF>
+						<CUSTOMER_TYPE>Q</CUSTOMER_TYPE>
+						<DEPOT/>
+						<DS_PASSWORD_PLAIN/>
+						<DS_PASSWORD_CIPHERTEXT/>
+						<SPECIAL_NEEDS/>
+						<SPECIAL_INSTRUCTIONS/>
+						<SPECIAL_EQUIPMENT/>
+						<PREVIOUS_RISK_ASSESSMENT_OUTCOME/>
+						<PREVIOUS_COMPLETION_COMMENTS/>
+						<ESTATE_AGENT>N</ESTATE_AGENT>
+						<ESTI_TRAVEL_TIME>0</ESTI_TRAVEL_TIME>
+						<EXCP_PROCESSING>N</EXCP_PROCESSING>
+						<EXCP_PROCESSING_REQ>REGE</EXCP_PROCESSING_REQ>
+						<FORWARD_ADDRESS1/>
+						<IDLE_TIME>0</IDLE_TIME>
+						<APPNT_END></APPNT_END>
+						<APPNT_START></APPNT_START>
+						<KEY_COLLECT>N</KEY_COLLECT>
+						<LAST_METER_WO/>
+						<ORIGINAL_ETA></ORIGINAL_ETA>
+						<LAST_BILL_DATE/>
+						<STAFF_NUMBER></STAFF_NUMBER>
+						<SITE_CONTACT/>
+						<SHIFT_END>20:00:00</SHIFT_END>
+						<SHIFT_START>08:00:00</SHIFT_START>
+						<SUPPLIER>REGE</SUPPLIER>
+						<WORKPHONE/>
+						<CONTACT_DET>Mr Test1 Name</CONTACT_DET>
+						<CON_NOTIFICATIONS_NAME/>
+						<CON_NOTIFICATIONS_TYPE/>
+						<VULNERABILITY_INFO>N</VULNERABILITY_INFO>
+						<IHD_REQ/>
+						<CAD_REQ/>
+						<GAS_MSN/>
+						<JOB_REFERENCE/>
+						<JOB_CROSS_REFERENCE/>
+						<ns0:SITE>
+							<ADDRESS1>INST14 DF SMETS2</ADDRESS1>
+							<ADDRESS2>Test1 ROAD</ADDRESS2>
+							<ADDRESS3>Test1 Area</ADDRESS3>
+							<ADDRESS4>Test1 Town</ADDRESS4>
+							<POSTCODE>SA5 9EH</POSTCODE>
+							<ADDRESS_TYPE>C</ADDRESS_TYPE>
+							<BUILDING_NO/>
+							<BUILDING_NAME/>
+							<BUILDING_NAME_SUB/>
+							<ADDRESS_COMMENT/>
+							<COMMENT/>
+						</ns0:SITE>
+						<ns0:JOBS>
+							<ns0:JOB>
+								<APPOINTMENT_NO>G</APPOINTMENT_NO>
+								<ENQ_NO>33015</ENQ_NO>
+								<JOB_TYPE_ID>G4</JOB_TYPE_ID>
+								<TRAD_PREPAYMENT_FLAG>false</TRAD_PREPAYMENT_FLAG>
+								<SMART_FLAG>true</SMART_FLAG>
+								<INST_SMART_FLAG>true</INST_SMART_FLAG>
+								<JOB_DESCRIPTION>Install New DF Credit Meter System 1PH SMART</JOB_DESCRIPTION>
+								<JOB_ID/>
+								<MODEL/>
+								<NEW_METER_TYPE/>
+								<ns0:METER_POINT>
+									<SPR>9999999991</SPR>
+								</ns0:METER_POINT>
+								<NO_OF_METERS>1</NO_OF_METERS>
+								<ns0:ASSETS>
+									<ns0:ASSET>
+										<SUPPLIER_MPID>REGE</SUPPLIER_MPID>
+										<IMPORT_MPAN></IMPORT_MPAN>
+										<IMPORT_MPRN>9999999991</IMPORT_MPRN>
+										<CHF_DEVICE_ID></CHF_DEVICE_ID>
+										<SERIAL_NO></SERIAL_NO>
+										<GPF_DEVICE_ID></GPF_DEVICE_ID>
+										<CSP_REGION>CENTRAL</CSP_REGION>
+										<COMMS_HUB_TYPE>CELLULAR+MESH</COMMS_HUB_TYPE>
+										<SIGNAL_STRENGTH>HIGH</SIGNAL_STRENGTH>
+										<AUXILIARY_EQUIPMENT_REQUIRED>T1 AERIAL</AUXILIARY_EQUIPMENT_REQUIRED>
+										<EXPECTED_COMMS_HUB_TYPE>Cellular+Mesh</EXPECTED_COMMS_HUB_TYPE>
+										<WARNING_COMMS_HUB_TYPE>Cellular</WARNING_COMMS_HUB_TYPE>
+										<COMMS_HUB_TEXT>WARNING - SELECTED DEVICE IS BELOW LEVEL OF CURRENT COMMS HUB</COMMS_HUB_TEXT>
+										<PRODUCT_CLASS_ID>E_COMMSHUB</PRODUCT_CLASS_ID>
+									</ns0:ASSET>
+								</ns0:ASSETS>
+								<METER_LOCATION/>
+								<NEW_MAP_ID/>
+								<NEW_OWNER_ID>BGAS</NEW_OWNER_ID>
+								<SECTOR/>
+								<SYSTEM_ID>BSMT</SYSTEM_ID>
+								<WORKFLOW_TYPE>INST14</WORKFLOW_TYPE>
+								<SOURCE_ID>G</SOURCE_ID>
+								<TRUE_SMETS2>false</TRUE_SMETS2>
+							</ns0:JOB>
+						</ns0:JOBS>
+					</ns0:appointment>
+				</ns0:WORequest>
+			</ns0:WORequests>
+		</ns0:createWORequest>
+	</soapenv:Body>
+</soapenv:Envelope>

@@ -1,5 +1,8 @@
 Feature: TST01_DF_FLTY20_SMETS2
 
+    Scenario: Post DFFLTY20 SOAP Request
+        Given I post workorder using "xmlrequest/DFFLTY20.XML"
+
     Scenario Outline: Logging in to job's "Work Order" window
         Given FTwenty the Login Page
         When FTwenty I pass "<Username>" and "<Password>"
@@ -433,3 +436,7 @@ Feature: TST01_DF_FLTY20_SMETS2
         When FTwenty I write signature in Customer Signature
         And FTwenty I fill the field57 and Job Complete
         Then FTwenty see Job Completed screen
+
+        Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

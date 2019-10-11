@@ -1,5 +1,8 @@
 Feature: TST143_AbortInitialRisk_INST16SMETS2
 
+Scenario: Post DFINST16 SOAP Request
+        Given I post workorder using "xmlrequest/DFINST16.XML"
+
     Scenario Outline: Logging in to job's "Work Order" window for INST16
         Given the Login Page for INST16
         When I pass "<Username>" and "<Password>" for INST16
@@ -52,3 +55,7 @@ Feature: TST143_AbortInitialRisk_INST16SMETS2
         When I fill the Abort Initial Risk Fields with Values
         When I click the Unabletoturnoff Reason and Abort the Job
         Then I should see the Aborted status for the workorder "DFINST16" on the appointments page
+
+    Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

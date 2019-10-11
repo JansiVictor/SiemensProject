@@ -1,5 +1,8 @@
 Feature: ERMVE6 Work Flow
 
+Scenario: Post SFERMVE6 SOAP Request
+        Given I post workorder using "xmlrequest/SFERMVE6.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the RmveSix Login Page
 When I pass RmveSix "<Username>" and "<Password>"
@@ -190,3 +193,7 @@ Scenario: Going through RmveSix "Summary of Job and receive Customer Signature" 
 Given the RmveSix Summary of Job and receive Customer Signature section 
 When I fill the RmveSix Summary of Job and receive Customer Signaturefields with values
 Then I should see RmveSix Submit button to complete the job section
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

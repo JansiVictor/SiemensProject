@@ -1,5 +1,8 @@
 Feature: SFENMEX16 Workflow
 
+Scenario: Post SFENMEX16 SOAP Request
+        Given I post workorder using "xmlrequest/SFENMEX16.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the Login Page For SFENMEX16
 When I pass "<Username>" and "<Password>" For SFENMEX16
@@ -142,3 +145,7 @@ Given the SFENMEX16 Smart literature left onsite section
 When I fill the SFENMEX16 smart literature fields with values
 Then I should finally submit SFENMEX16 job
 And I should see the Appointment List For SFENMEX16
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

@@ -1,5 +1,8 @@
 Feature: TST_098 SF E FLTY19 SMETS2 No Exchange Workflow - Contact made Abort No Access
 
+Scenario: Post SFEFLTY19 SOAP Request
+        Given I post workorder using "xmlrequest/SFEFLTY19.XML"
+
     Scenario Outline: Logging in to job's "Work Order" window
         Given the Login Page For SFEFLTY19
         When I pass "<Username>" and "<Password>" For SFEFLTY19
@@ -32,3 +35,8 @@ Feature: TST_098 SF E FLTY19 SMETS2 No Exchange Workflow - Contact made Abort No
         Given the AbortReasonCodespopup
         When I click the Not Convenient with Customer Reason and Abort the Job
         Then I should see the Aborted status for the workorder "SFEFLTY19" on the appointments page
+
+    
+		Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

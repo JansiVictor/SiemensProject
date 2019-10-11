@@ -1,5 +1,8 @@
 Feature: TST194_AbortInitialRisk_NMEX16
 
+Scenario: Post SFENMEX16 SOAP Request
+        Given I post workorder using "xmlrequest/SFENMEX16.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the Login Page For SFENMEX16
 When I pass "<Username>" and "<Password>" For SFENMEX16
@@ -56,3 +59,7 @@ Given the SFENMEX16 INITIAL RISK ASSESSMENT section
 When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFENMEX16" on the appointments page
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

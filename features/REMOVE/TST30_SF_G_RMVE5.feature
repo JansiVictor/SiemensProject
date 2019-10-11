@@ -1,5 +1,9 @@
 Feature: GRMVE5 Workflow
 
+Scenario: Post SFGRMVE5 SOAP Request
+        Given I post workorder using "xmlrequest/SFGRMVE5.XML"
+
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the RmveGas Login Page
 When I pass RmveGas "<Username>" and "<Password>"
@@ -188,5 +192,8 @@ Given the RmveGas Summary of Job and receive Customer Signature section
 When I fill the RmveGas Summary of Job and receive Customer Signaturefields with values
 Then I should see RmveGas Submit button to complete the job section
 
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist
 
 

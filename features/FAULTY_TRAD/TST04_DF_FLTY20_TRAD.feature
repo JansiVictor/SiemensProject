@@ -1,5 +1,9 @@
 Feature: DF FLTY20 Trad  - SMETS2 Workflow
 
+	
+    Scenario: Post DFFLTY20TRAD SOAP Request
+        Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"
+
 	Scenario Outline: Logging in to job's "Work Order" window for FLTY20TRAD
 		Given the Login Page for FLTY20TRAD
 		When I pass "<Username>" and "<Password>" for FLTY20TRAD
@@ -339,7 +343,9 @@ Feature: DF FLTY20 Trad  - SMETS2 Workflow
 
 
 
-
+	Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist
 
 
 # 	#-----------------------------------------------------------------------

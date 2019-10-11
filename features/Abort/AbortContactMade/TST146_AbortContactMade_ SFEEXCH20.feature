@@ -1,5 +1,7 @@
 Feature: TST_146 SF E EXCH20 Workflow - Contact made Abort No Access
 
+Scenario: Post SFEEXCH20 SOAP Request
+        Given I post workorder using "xmlrequest/SFEEXCH20.XML"
 
 Feature: Exchange20 Workflow
 
@@ -38,3 +40,7 @@ Feature: Exchange20 Workflow
         When I click the Not Convenient with Customer Reason and Abort the Job
         Then I should see the Aborted status for the workorder "SFEEXCH20" on the appointments page
 
+
+ 	Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

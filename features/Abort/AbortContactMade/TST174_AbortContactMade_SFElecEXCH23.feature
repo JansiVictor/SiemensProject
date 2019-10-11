@@ -1,5 +1,8 @@
 Feature: TST_174 SF Elec EXCH23 Workflow - Contact made Abort No Access
 
+Scenario: Post SFEEXCH23 SOAP Request
+        Given I post workorder using "xmlrequest/SFEEXCH23.XML"
+
     Scenario Outline: Logging in to job's "Work Order" window for EXCH23
 
         Given the Login Page for EXCH23
@@ -34,7 +37,9 @@ Feature: TST_174 SF Elec EXCH23 Workflow - Contact made Abort No Access
         Then I should see the Aborted status for the workorder "SFElecEXCH23" on the appointments page
 
 
-
+    Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist
 
 
 

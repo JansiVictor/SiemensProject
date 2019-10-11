@@ -1,5 +1,8 @@
 Feature: TST03_SF_Gas_FLTY18_SMETS2
 
+Scenario: Post SFGFLTY18 SOAP Request
+        Given I post workorder using "xmlrequest/SFGFLTY18.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given TST03 the Login Page
 When TST03 I pass "<Username>" and "<Password>"
@@ -304,3 +307,7 @@ Scenario: Confirming "PPMID Commissioning Successful"
 Given TST03 the PPMID Commissioning Successful button is displayed
 When TST03 I click on SUB button
 Then TST03 I should see DEVICE BINDING and COMMISSIONING sec
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

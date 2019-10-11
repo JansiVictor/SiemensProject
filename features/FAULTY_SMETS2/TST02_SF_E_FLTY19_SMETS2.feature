@@ -1,5 +1,8 @@
 Feature: TST02_SF_ELEC_FLTY19
 
+    Scenario: Post SFEFLTY19 SOAP Request
+        Given I post workorder using "xmlrequest/SFEFLTY19.XML"
+
     Scenario Outline: Logging in to job's "Work Order" window
         Given the fltynineteen Login Page
         When I pass fltynineteen "<Username>" and "<Password>"
@@ -194,3 +197,6 @@ Feature: TST02_SF_ELEC_FLTY19
         When I fill the fltynineteen field029 with the Valuek029
         Then I should see fltynineteen send message xchub
 
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

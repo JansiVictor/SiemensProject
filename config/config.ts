@@ -11,8 +11,9 @@ export const config: Config = {
 
     SELENIUM_PROMISE_MANAGER: false,
 
-    baseUrl: "https://siemens-og-bykrw4fz56yr6nyvlskmwpwq-sdg1-test.mbaas1.sdg.feedhenry.com/",
+    SOAPUSER: "AUTOTEST2",
 
+    baseUrl: "https://siemens-og-bykrw4fz56yr6nyvlskmwpwq-sdg1-test.mbaas1.sdg.feedhenry.com/",
     capabilities: {
         browserName:'chrome',
         shardTestFiles:true,
@@ -35,8 +36,10 @@ export const config: Config = {
     frameworkPath: require.resolve("protractor-cucumber-framework"),
 
     specs: [
-       "../../features/*.feature",
-       // "../../features/Abort/Abort_InitialRisk/*.feature",
+       "../../features/Abort/InstallAndLeave/*.feature",
+       //"../../features/Abort/AbortNoAccessSuspend/TST204*.feature",
+       //"../../features/Abort/InstallAndLeave/TST166*.feature",
+    
     ],
 
     jasmineNodeOpts: {
@@ -58,7 +61,8 @@ export const config: Config = {
     cucumberOpts: {
         compiler: "ts:ts-node/register",
         format: "json:./reports/html/cucumber_report.json",
-        require: ["../../typeScript/stepdefinitions/SD_EXCHANGE/*.js",
+        require: ["../../typeScript/stepdefinitions/SD_WO_TRIGGER/*.js",
+        "../../typeScript/stepdefinitions/SD_EXCHANGE/*.js",
         "../../typeScript/stepdefinitions/SD_ABORT/*.js",
         "../../typeScript/stepdefinitions/SD_FAULTY_SMETS2/*.js",
         "../../typeScript/stepdefinitions/SD_FAULTY_TRAD/*.js",

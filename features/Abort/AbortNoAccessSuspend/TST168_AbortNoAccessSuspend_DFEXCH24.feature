@@ -1,5 +1,8 @@
 Feature: DFEXCH24 - AbortNoAccessSuspend Workflow
 
+Scenario: Post DFEXCH24 SOAP Request
+Given I post workorder using "xmlrequest/DFEXCH24.XML"
+
     Scenario Outline: Logging in to job's "Work Order" window
         Given the TST22 Login Page
         When I pass TST22 "<Username>" and "<Password>"
@@ -54,3 +57,7 @@ Feature: DFEXCH24 - AbortNoAccessSuspend Workflow
         Given the AbortReasonCodespopup
         When I click the worknolongerrequired Reason and Abort the Job
         Then I should see the Aborted status for the workorder "DFEXCH24" on the appointments page
+
+        Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist   

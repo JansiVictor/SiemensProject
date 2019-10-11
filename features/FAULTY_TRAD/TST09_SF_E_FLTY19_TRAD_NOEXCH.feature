@@ -1,5 +1,8 @@
 Feature: SF_E_FLTY19 TRAD NoExchange Workflow
 
+Scenario: Post SFEFLTY19TRAD SOAP Request
+        Given I post workorder using "xmlrequest/SFEFLTY19TRAD.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the FLTYTTradNoExchange Login Page
 When I pass FLTYTTradNoExchange "<Username>" and "<Password>"
@@ -111,3 +114,7 @@ Given FLTYTTradNoExchange the CAPTURE CUSTOMER SIGNATURE section
 When FLTYTTradNoExchange I write signature in Customer Signature
 And FLTYTTradNoExchange I fill the CAPTURE CUSTOMER SIGNATURE fields and Job Complete
 Then FLTYTTradNoExchange see Job Completed screen
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

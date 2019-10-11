@@ -1,5 +1,8 @@
 Feature: TST214_AbortInitialRisk_RMVE5
 
+Scenario: Post SFGRMVE5 SOAP Request
+        Given I post workorder using "xmlrequest/SFGRMVE5.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the RmveGas Login Page
 When I pass RmveGas "<Username>" and "<Password>"
@@ -52,3 +55,7 @@ Given the RmveGas INITIAL RISK ASSESSMENT section
 When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFGRMVE5" on the appointments page
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

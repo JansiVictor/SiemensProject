@@ -1,5 +1,8 @@
 Feature: TST22_DF_EXCH24
 
+Scenario: Post DFEXCH24 SOAP Request
+        Given I post workorder using "xmlrequest/DFEXCH24.XML"
+
     Scenario Outline: Logging in to job's "Work Order" window
         Given the TST22 Login Page
         When I pass TST22 "<Username>" and "<Password>"
@@ -396,3 +399,6 @@ Feature: TST22_DF_EXCH24
         Then TST22 I fill the field57 and Job Complete
         Then TST22 see Job Completed screen
 
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

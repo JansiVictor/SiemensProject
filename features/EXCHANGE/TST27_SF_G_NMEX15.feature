@@ -1,5 +1,8 @@
 Feature: SFGNMEX15 Workflow
 
+Scenario: Post SFGNMEX15 SOAP Request
+        Given I post workorder using "xmlrequest/SFGNMEX15.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the Login Page For SFENMEX15
 When I pass "<Username>" and "<Password>" For SFENMEX15
@@ -137,3 +140,7 @@ Given the SFENMEX15 Smart literature left onsite section
 When I fill the SFENMEX15 smart literature fields with values
 Then I should finally submit SFENMEX15 job
 And I should see the Appointment List For SFENMEX15
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

@@ -1,5 +1,8 @@
 Feature: DFFLTY20 - AbortNoAccessSuspend Workflow
 
+Scenario: Post DFFLTY20 SOAP Request
+Given I post workorder using "xmlrequest/DFFLTY20.XML"
+
     Scenario Outline: Logging in to job's "Work Order" window
         Given FTwenty the Login Page
         When FTwenty I pass "<Username>" and "<Password>"
@@ -56,3 +59,7 @@ Feature: DFFLTY20 - AbortNoAccessSuspend Workflow
         Given the AbortReasonCodespopup
         When I click the worknolongerrequired Reason and Abort the Job
         Then I should see the Aborted status for the workorder "DFFLTY20" on the appointments page
+
+Scenario: Going through deleting the work order after use 
+When I delete workorder after use
+Then workorder should no longer exist

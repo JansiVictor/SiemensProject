@@ -1,6 +1,9 @@
-TST_212 SF G RMVE5
+
 
 Feature: TST_212 SF G RMVE5 Workflow - Contact made Abort No Access
+
+Scenario: Post SFGRMVE5 SOAP Request
+        Given I post workorder using "xmlrequest/SFGRMVE5.XML"
 
     Scenario Outline: Logging in to job's "Work Order" window
         Given the RmveGas Login Page
@@ -34,3 +37,7 @@ Feature: TST_212 SF G RMVE5 Workflow - Contact made Abort No Access
         Given the AbortReasonCodespopup
         When I click the Not Convenient with Customer Reason and Abort the Job
         Then I should see the Aborted status for the workorder "SFGRMVE5" on the appointments page
+
+    Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

@@ -1,5 +1,7 @@
 Feature: TST_138 DF INST16 Workflow - Contact made Abort No Access
 
+Scenario: Post DFINST16 SOAP Request
+        Given I post workorder using "xmlrequest/DFINST16.XML"
 
 Scenario Outline: Logging in to job's "Work Order" window for INST16
     Given the Login Page for INST16
@@ -36,4 +38,6 @@ Scenario: Going through the Reason codes popup
     When I click the Not Convenient with Customer Reason and Abort the Job 
     Then I should see the Aborted status for the workorder "DFINST16" on the appointments page
 
- 
+ 	Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

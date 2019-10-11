@@ -1,5 +1,8 @@
 Feature: TST210_AbortInitialRisk_RMVE6
 
+Scenario: Post SFERMVE6 SOAP Request
+        Given I post workorder using "xmlrequest/SFERMVE6.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the RmveSix Login Page
 When I pass RmveSix "<Username>" and "<Password>"
@@ -55,3 +58,7 @@ Given the RmveSix INITIAL RISK ASSESSMENT section
 When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFERMVE6" on the appointments page
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

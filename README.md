@@ -56,6 +56,12 @@ npm install protractor-multiple-cucumber-html-reporter-plugin
 npm install unlink
 ```
 
+* Run the below commands to install API dependencies used within the project 
+```
+npm install easy-soap-request
+npm install xmlhttprequest
+```
+
 * The below command would create an output folder named 'typeScript' and transpile the .ts files to .js.
 ```
 npm run build

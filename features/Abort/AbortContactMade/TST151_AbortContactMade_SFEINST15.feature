@@ -1,5 +1,8 @@
 Feature: TST_151 SF E INST15 Workflow - Contact made Abort No Access
 
+Scenario: Post SFEINST15 SOAP Request
+        Given I post workorder using "xmlrequest/SFEINST15.XML"
+
     Scenario Outline: Logging in to job's "Work Order" window
         Given the Login Page For SFEINST15
         When I pass "<Username>" and "<Password>" For SFEINST15
@@ -37,5 +40,8 @@ Feature: TST_151 SF E INST15 Workflow - Contact made Abort No Access
 
 
 
+ 	Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist
 
 

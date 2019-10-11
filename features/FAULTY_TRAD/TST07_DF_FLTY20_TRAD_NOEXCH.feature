@@ -1,5 +1,8 @@
 Feature: DF FLTY20 Trad No Exchange Workflow
 
+Scenario: Post DFFLTY20TRAD SOAP Request
+        Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"
+
 @TypeScriptScenario
 Scenario Outline: Logging in to job's "Work Order" window
 Given FltytwTadNoEx the Login Page
@@ -181,3 +184,7 @@ Scenario: Going through RmveSix "Summary of Job and receive Customer Signature" 
 Given the FltytwTadNoEx Summary of Job and receive Customer Signature section 
 When I fill the FltytwTadNoEx Summary of Job and receive Customer Signaturefields with values
 Then I should see FltytwTadNoEx Submit button to complete the job section
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist
