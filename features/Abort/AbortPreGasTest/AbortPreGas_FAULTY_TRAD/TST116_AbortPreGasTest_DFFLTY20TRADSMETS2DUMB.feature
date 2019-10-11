@@ -1,15 +1,9 @@
-Feature: TST_184 SF G EXCH22 Workflow - Pre Gas Abort
+Feature: TST116_AbortPreGasTest_DFFLTY20TRADSMETS2DUMB
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given TST13 the Login Page
-        When TST13 I pass "<Username>" and "<Password>"
-        Then TST13 I click Login button
-        And TST13 I should see the Appointment List
+    Scenario: Post DFFLTY20TRAD SOAP Request
+        Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"
 
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given TST13 the Appointment List window
         When TST13 I click on select button
@@ -133,7 +127,7 @@ Feature: TST_184 SF G EXCH22 Workflow - Pre Gas Abort
     ######### The below flow is copied from the Original test Case TST013   ###########
     ######### Steps need to be revised based on the changes from the fix  ###########
 
-     Scenario: Going through "REMOVE GAS METER" section
+    Scenario: Going through "REMOVE GAS METER" section
         Given TST13 the REMOVE GAS METER section
         When TST13 I fill the field23 with the value23
         Then TST13 I click on NEXT button in removing gas meter
@@ -254,5 +248,9 @@ Feature: TST_184 SF G EXCH22 Workflow - Pre Gas Abort
         When TST13 I write signature in Customer Signature
         And TST13 I fill the field57 and Job Complete
         Then TST13 see Job Completed screen
+
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist
 
 

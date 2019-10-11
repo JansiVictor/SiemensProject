@@ -1,15 +1,9 @@
 Feature: TST62_AbortElecRisk_FLTY19TRAD Workflow
 
-Scenario Outline: Logging in to job's "Work Order" window for FLTY19 Trad
-		Given the Login Page for FLTY19 Trad
-		When I pass "<Username>" and "<Password>" for FLTY19 Trad
-		Then I click Login button for FLTY19 Trad
-		And I should see the Appointment List for FLTY19 Trad
+	Scenario: Post SFEFLTY19TRAD SOAP Request
+		Given I post workorder using "xmlrequest/SFEFLTY19TRAD.XML"
 
-		Examples:
-			| Username    | Password    |
-			| Automation2 | Aut0m4t1on2 |
-
+	@LoginScenario
 	Scenario: Select the Latest workOrder for FLTY19 Trad
 		Given the Appointment List window for FLTY19 Trad
 		When I click on select button for FLTY19 Trad
@@ -48,7 +42,7 @@ Scenario Outline: Logging in to job's "Work Order" window for FLTY19 Trad
 		Then I should see RISK ASSESSMENT tab activated for FLTY19 Trad
 		And I should see INITIAL RISK ASSESSMENT section for FLTY19 Trad
 
-###########Removed the Info-Pop up scenario on 25/09
+	###########Removed the Info-Pop up scenario on 25/09
 
 	Scenario: Going through "INITIAL RISK ASSESSMENT" for FLTY19 Trad
 		Given the INITIAL RISK ASSESSMENT section for FLTY19 Trad
@@ -57,9 +51,13 @@ Scenario Outline: Logging in to job's "Work Order" window for FLTY19 Trad
 
 	Scenario: Going through "RISK ASSESSMENT - ELEC" section for FLTY19 Trad
 		Given the RISK ASSESSMENT - ELEC section for FLTY19 Trad
-When I fill the RISK ASSESSMENT - Abort ELEC fields with the values
+		When I fill the RISK ASSESSMENT - Abort ELEC fields with the values
 
-Scenario: Going through the Reason codes popup
-Given the ELEC Risk AbortReasonCodespopup
-When I click the ELEC Reason and Abort Appointment Job
-Then I should see the ELEC Risk Aborted status for the workorder "SFEFLTY19TRAD" on the appointments page
+	Scenario: Going through the Reason codes popup
+		Given the ELEC Risk AbortReasonCodespopup
+		When I click the ELEC Reason and Abort Appointment Job
+		Then I should see the ELEC Risk Aborted status for the workorder "SFEFLTY19TRAD" on the appointments page
+
+	Scenario: Going through deleting the work order after use
+		When I delete workorder after use
+		Then workorder should no longer exist

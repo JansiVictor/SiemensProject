@@ -1,18 +1,9 @@
 Feature: TST140_AbortInitialRisk_INST16SMETS2
 
-Scenario: Post DFINST16 SOAP Request
+    Scenario: Post DFINST16 SOAP Request
         Given I post workorder using "xmlrequest/DFINST16.XML"
 
-    Scenario Outline: Logging in to job's "Work Order" window for INST16
-        Given the Login Page for INST16
-        When I pass "<Username>" and "<Password>" for INST16
-        Then I click Login button for INST16
-        And I should see the Appointment List for INST16
-
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder for INST16
         Given the Appointment List window for INST16
         When I click on select button for INST16
@@ -56,6 +47,6 @@ Scenario: Post DFINST16 SOAP Request
         When I click the Unabletoturnoff Reason and Abort the Job
         Then I should see the Aborted status for the workorder "DFINST16" on the appointments page
 
-    Scenario: Going through deleting the work order after use 
+    Scenario: Going through deleting the work order after use
         When I delete workorder after use
         Then workorder should no longer exist

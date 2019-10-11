@@ -1,16 +1,10 @@
 
 Feature: TST76_AbortElecRisk_DF FLTY20_Trad_NoExchange Workflow
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given FltytwTadNoEx the Login Page
-        When FltytwTadNoEx I pass "<Username>" and "<Password>"
-        Then FltytwTadNoEx I click Login button
-        And FltytwTadNoEx I should see the Appointment List
+    Scenario: Post DFFLTY20TRAD SOAP Request
+        Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"
 
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given FltytwTadNoEx the Appointment List window
         When FltytwTadNoEx I click on select button
@@ -161,3 +155,7 @@ Feature: TST76_AbortElecRisk_DF FLTY20_Trad_NoExchange Workflow
         Given the FltytwTadNoEx Summary of Job and receive Customer Signature section
         When I fill the FltytwTadNoEx Summary of Job and receive Customer Signaturefields with values
         Then I should see FltytwTadNoEx Submit button to complete the job section
+
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist

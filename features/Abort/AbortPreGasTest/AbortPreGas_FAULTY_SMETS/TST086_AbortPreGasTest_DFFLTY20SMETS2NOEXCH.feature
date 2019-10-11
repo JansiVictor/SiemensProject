@@ -1,15 +1,9 @@
 Feature: TST_086 DF FLTY20 SMETS2 No Exchange Workflow - Pre Gas Abort
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given the FLTYTwntyNoExchange Login Page
-        When I pass FLTYTwntyNoExchange "<Username>" and "<Password>"
-        Then I click FLTYTwntyNoExchange Login button
-        And I should see the FLTYTwntyNoExchange Appointment List
+    Scenario: Post DFFLTY20 SOAP Request
+        Given I post workorder using "xmlrequest/DFFLTY20.XML"
 
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest FLTYTwntyNoExchange workOrder
         Given the FLTYTwntyNoExchange Appointment List window
         When I click on FLTYTwntyNoExchange select button
@@ -54,12 +48,9 @@ Feature: TST_086 DF FLTY20 SMETS2 No Exchange Workflow - Pre Gas Abort
     Scenario: Going through FLTYTwntyNoExchange "INITIAL RISK ASSESSMENT"
         Given the FLTYTwntyNoExchange INITIAL RISK ASSESSMENT section
         When I fill the FLTYTwntyNoExchange initialRisk field with the values
-    #Then I should see the FLTYTwntyNoExchange see INFO window
 
     Scenario: Going through FLTYTwntyNoExchange "INFO" window
         Given the FLTYTwntyNoExchange INFO window with the text
-    #When I click on FLTYTwntyNoExchange INFO OK button
-    #Then I should see FLTYTwntyNoExchange RISK ASSESSMENT ELEC section
 
     Scenario: Going through FLTYTwntyNoExchange "RISK ASSESSMENT - ELEC" section
         Given the FLTYTwntyNoExchange RISK ASSESSMENT - ELEC section
@@ -71,15 +62,12 @@ Feature: TST_086 DF FLTY20 SMETS2 No Exchange Workflow - Pre Gas Abort
     Scenario: Going through FLTYTwntyNoExchange "RISK ASSESSMENT - GAS"
         Given the FLTYTwntyNoExchange RISK ASSESSMENT - GAS section
         When I fill the FLTYTwntyNoExchange RISK ASSESSMENT fields with the values
-        # Then I click on FLTYTwntyNoExchange CAPTURE PHOTOGRAPHIC EVIDENCE button
-        # And I fill the FLTYTwntyNoExchange CAPTURE PHOTOGRAPHIC EVIDENCE fields with the values
         And I should see FLTYTwntyNoExchange CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section
 
     Scenario: Going through FLTYTwntyNoExchange "CAPTURE INITIAL PHOTO OF GAS INSTALLATION" section
         Given the FLTYTwntyNoExchange Click CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section
         Then I should see FLTYTwntyNoExchange CAPTURE INITIAL PHOTO OF GAS INSTALLATION section
         Then the FLTYTwntyNoExchange Click CAPTURE INITIAL PHOTO OF GAS INSTALLATION section
-        #When I click on FLTYTwntyNoExchange CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button
         Then I should see FLTYTwntyNoExchange INITIAL POLARITY CHECK - MARTINDALE TEST section
 
     Scenario: Going through FLTYTwntyNoExchange "INITIAL POLARITY CHECK MARTINDALE TEST" section
@@ -93,13 +81,11 @@ Feature: TST_086 DF FLTY20 SMETS2 No Exchange Workflow - Pre Gas Abort
         Given the FLTYTwntyNoExchange INITIAL POLARITY CHECK - AT METER AND CUT OUT section
         When I fill the FLTYTwntyNoExchange METER AND CUT OUT fields with the values
         And I click on FLTYTwntyNoExchange SUBMIT button
-    #Then I should see the FLTYTwntyNoExchange CURRENT IHD-PPMID DETAILS section in remove tab
 
     Scenario: Going through FLTYTwntyNoExchange "CURRENT IHD/PPMID DETAILS" section
         Given the FLTYTwntyNoExchange CURRENT IHD-PPMID DETAILS section
         When I fill the FLTYTwntyNoExchange CURRENT IHD-PPMID fields with the values
         Then I should see the FLTYTwntyNoExchange CURRENT METER DETAILS - GAS section
-    #Then I should see the page FLTYTwntyNoExchange contect display of current meter details
 
     Scenario: Going through "CURRENT METER DETAILS - GAS" section
         Given the FLTYTwntyNoExchange CURRENT METER DETAILS - GAS section
@@ -148,7 +134,6 @@ Feature: TST_086 DF FLTY20 SMETS2 No Exchange Workflow - Pre Gas Abort
         Given FLTYTwntyNoExchange the COMMISSIONING section
         When FLTYTwntyNoExchange I fill the COMMISSIONING FldNames with the Values
         And FLTYTwntyNoExchange I click on ADD ANOTHER ASSET button
-        #And FLTYTwntyNoExchange I fill the FldName40 with the Value40
         And FLTYTwntyNoExchange I clk commisioning on NEXT button
         Then FLTYTwntyNoExchange I should see INSTALL KIT section
 
@@ -156,7 +141,6 @@ Feature: TST_086 DF FLTY20 SMETS2 No Exchange Workflow - Pre Gas Abort
         Given FLTYTwntyNoExchange the Gas Install Kit gas section
         When FLTYTwntyNoExchange I fill the Gas Install Kit gas section fields with values
         Then FLTYTwntyNoExchange I should see Perform Post Installation GAS Checks sec
-
 
     Scenario: Going through "Post Installation GAS" GAS Tightness Test section
         Given FLTYTwntyNoExchange the Post Installation GAS Tightness Test sec
@@ -176,7 +160,6 @@ Feature: TST_086 DF FLTY20 SMETS2 No Exchange Workflow - Pre Gas Abort
     Scenario: Going through "ENERGY EFFICIENCY INFORMATION" section
         Given FLTYTwntyNoExchange the ENERGY EFFICIENCY INFORMATION section
         When FLTYTwntyNoExchange I fill the ENERGY EFFICIENCY fieldss and click next
-        #Then FLTYTwntyNoExchange I should see SMART EDUCATION section
 
     Scenario: Going through "CAPTURE CUSTOMER SIGNATURE" section
         Given FLTYTwntyNoExchange the CAPTURE CUSTOMER SIGNATURE section
@@ -184,11 +167,6 @@ Feature: TST_086 DF FLTY20 SMETS2 No Exchange Workflow - Pre Gas Abort
         And FLTYTwntyNoExchange I fill the CAPTURE CUSTOMER SIGNATURE fields and Job Complete
         Then FLTYTwntyNoExchange see Job Completed screen
 
-
-
-
-
-
-
-
-
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist

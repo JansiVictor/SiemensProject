@@ -3,16 +3,7 @@ Feature: TST02_SF_ELEC_FLTY19
     Scenario: Post SFEFLTY19 SOAP Request
         Given I post workorder using "xmlrequest/SFEFLTY19.XML"
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given the fltynineteen Login Page
-        When I pass fltynineteen "<Username>" and "<Password>"
-        Then I click fltynineteen Login button
-        And I should see fltynineteen the Appointment List
-
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given the fltynineteen Appointment List window
         When I click on fltynineteen select button
@@ -197,6 +188,6 @@ Feature: TST02_SF_ELEC_FLTY19
         When I fill the fltynineteen field029 with the Valuek029
         Then I should see fltynineteen send message xchub
 
-Scenario: Going through deleting the work order after use 
+    Scenario: Going through deleting the work order after use
         When I delete workorder after use
         Then workorder should no longer exist

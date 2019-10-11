@@ -1,18 +1,9 @@
 Feature: SF G FLTY18 Trad  - SMETS2 Workflow
 
 	Scenario: Post SFGFLTY18TRAD SOAP Request
-        Given I post workorder using "xmlrequest/SFGFLTY18TRAD.XML"
+		Given I post workorder using "xmlrequest/SFGFLTY18TRAD.XML"
 
-	Scenario Outline: Logging in to job's "Work Order" window for FLTY18TRAD
-		Given the Login Page for FLTY18TRAD
-		When I pass "<Username>" and "<Password>" for FLTY18TRAD
-		Then I click Login button for FLTY18TRAD
-		And I should see the Appointment List for FLTY18TRAD
-
-		Examples:
-			| Username    | Password    |
-			| Automation2 | Aut0m4t1on2 |
-
+	@LoginScenario
 	Scenario: Select the Latest workOrder for FLTY18TRAD
 		Given the Appointment List window for FLTY18TRAD
 		When I click on select button for FLTY18TRAD
@@ -68,7 +59,7 @@ Feature: SF G FLTY18 Trad  - SMETS2 Workflow
 		Given the RISK ASSESSMENT - GAS section for FLTY18TRAD
 		When I fill the field05 with the value05 for FLTY18TRAD
 		Then I click on CAPTURE PHOTOGRAPHIC EVIDENCE button for FLTY18TRAD
-		And I fill the field06 with the value06 for FLTY18TRAD		
+		And I fill the field06 with the value06 for FLTY18TRAD
 		Then I should see CAPTURE INITIAL PHOTO OF GAS INSTALLATION section for FLTY18TRAD
 
 	Scenario: Going through "CAPTURE INITIAL PHOTO OF GAS INSTALLATION" section for FLTY18TRAD
@@ -90,9 +81,9 @@ Feature: SF G FLTY18 Trad  - SMETS2 Workflow
 		And I click on SUBMIT button for FLTY18TRAD
 		Then I should see the CURRENT IHD-PPMID DETAILS section in remove tab for FLTY18TRAD
 
-Scenario: Going through "CURRENT IHD/PPMID DETAILS" section for FLTY18TRAD
+	Scenario: Going through "CURRENT IHD/PPMID DETAILS" section for FLTY18TRAD
 		Given the CURRENT IHD-PPMID DETAILS section for FLTY18TRAD
-		When I fill the field010 with the value010 for FLTY18TRAD		
+		When I fill the field010 with the value010 for FLTY18TRAD
 		Then I should see the page contect display of current meter details for FLTY18TRAD
 
 	Scenario: Going through "CURRENT METER DETAILS - GAS" section for FLTY18TRAD
@@ -130,7 +121,7 @@ Scenario: Going through "CURRENT IHD/PPMID DETAILS" section for FLTY18TRAD
 		Given the CONFIRM GAS ASSET REMOVAL section for FLTY18TRAD
 		When I fill the field24 with the value24 for FLTY18TRAD
 		Then I click on OK btn in Updated window with the text Asset successfully added to Returns list for FLTY18TRAD
- 		And I should click on next section for FLTY18TRAD
+		And I should click on next section for FLTY18TRAD
 		And I should click on submit button for FLTY18TRAD
 		And I should see INSTALL COMMS HUB section for FLTY18TRAD
 
@@ -139,9 +130,9 @@ Scenario: Going through "CURRENT IHD/PPMID DETAILS" section for FLTY18TRAD
 		When I fill the Ins comms hub fields and capture photo EVIDENCE for FLTY18TRAD
 		Then I should see NEW GAS METER DETAILS section for FLTY18TRAD
 
-	Scenario: Going through "NEW GAS METER DETAILS" section	
+	Scenario: Going through "NEW GAS METER DETAILS" section
 		Given the NEW GAS METER DETAILS section for FLTY18TRAD
-		When I fill the fields and values for New gas meter details for FLTY18TRAD	
+		When I fill the fields and values for New gas meter details for FLTY18TRAD
 		Then I should see the NEW REGULATOR section for FLTY18TRAD
 
 	Scenario: Going through "NEW REGULATOR" section
@@ -240,10 +231,10 @@ Scenario: Going through "CURRENT IHD/PPMID DETAILS" section for FLTY18TRAD
 		And I fill the field57 and Job Complete for FLTY18TRAD
 		Then see Job Completed screen for FLTY18TRAD
 
-	Scenario: Going through deleting the work order after use 
-        When I delete workorder after use
-        Then workorder should no longer exist
+	Scenario: Going through deleting the work order after use
+		When I delete workorder after use
+		Then workorder should no longer exist
 
-	Scenario: Going through deleting the work order after use 
-        When I delete workorder after use
-        Then workorder should no longer exist
+	Scenario: Going through deleting the work order after use
+		When I delete workorder after use
+		Then workorder should no longer exist

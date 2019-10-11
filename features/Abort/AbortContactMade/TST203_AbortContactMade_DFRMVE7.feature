@@ -1,19 +1,10 @@
 
 Feature: TST_203 DF RMVE7 Workflow - Contact made Abort No Access
 
-Scenario: Post DFRMVE7 SOAP Request
+    Scenario: Post DFRMVE7 SOAP Request
         Given I post workorder using "xmlrequest/DFRMVE7.XML"
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given TST28 the Login Page
-        When TST28 I pass "<Username>" and "<Password>"
-        Then TST28 I click Login button
-        And TST28 I should see the Appointment List
-
-        Examples:
-            | Username    | Password    |
-            |  E0000022  |  000Password  |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given TST28 the Appointment List window
         When TST28 I click on select button
@@ -37,6 +28,6 @@ Scenario: Post DFRMVE7 SOAP Request
         When I click the Not Convenient with Customer Reason and Abort the Job
         Then I should see the Aborted status for the workorder "DFRMVE7" on the appointments page
 
-    Scenario: Going through deleting the work order after use 
+    Scenario: Going through deleting the work order after use
         When I delete workorder after use
         Then workorder should no longer exist

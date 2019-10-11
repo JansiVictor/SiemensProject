@@ -1,15 +1,9 @@
 Feature:TST_072 SF G FLTY18 Trad  - SMETS2 Workflow - Pre Gas Abort
 
-    Scenario Outline: Logging in to job's "Work Order" window for FLTY18TRAD
-        Given the Login Page for FLTY18TRAD
-        When I pass "<Username>" and "<Password>" for FLTY18TRAD
-        Then I click Login button for FLTY18TRAD
-        And I should see the Appointment List for FLTY18TRAD
+    Scenario: Post SFGFLTY18TRAD SOAP Request
+        Given I post workorder using "xmlrequest/SFGFLTY18TRAD.XML"
 
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder for FLTY18TRAD
         Given the Appointment List window for FLTY18TRAD
         When I click on select button for FLTY18TRAD
@@ -118,14 +112,6 @@ Feature:TST_072 SF G FLTY18 Trad  - SMETS2 Workflow - Pre Gas Abort
         When I click the Reason and Abort Appointment Button
         Then I should see the Aborted status for the workorder "SFGFLTY18TRAD" on the appointments page
 
-
-
-
-
-
-
-
-
-
-
-
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist

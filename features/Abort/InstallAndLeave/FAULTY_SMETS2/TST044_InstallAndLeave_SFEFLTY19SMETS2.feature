@@ -3,16 +3,7 @@ Feature: SFEFLTY19- SMETS2 - InstallAndLeave Workflow
     Scenario: Post SFEFLTY19 SOAP Request
         Given I post workorder using "xmlrequest/SFEFLTY19.XML"
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given the fltynineteen Login Page
-        When I pass fltynineteen "<Username>" and "<Password>"
-        Then I click fltynineteen Login button
-        And I should see fltynineteen the Appointment List
-
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given the fltynineteen Appointment List window
         When I click on fltynineteen select button
@@ -259,9 +250,9 @@ Feature: SFEFLTY19- SMETS2 - InstallAndLeave Workflow
         And I should see InstallLeave Replace CommsHubNoWan section
 
     Scenario: Going through Replace CommsHubNoWan section
-    Given InstallLeave Replace CommsHubNoWan section
-    When I fill the InstallLeave Replace CommshubNoWan details fields with values
-    Then I click the Gas NMEX Install Submit Button
+        Given InstallLeave Replace CommsHubNoWan section
+        When I fill the InstallLeave Replace CommshubNoWan details fields with values
+        Then I click the Gas NMEX Install Submit Button
 
     # Scenario: Going through "INSTALL PPMID" section
     # Given TST03 the "INSTALL PPMID" section
@@ -269,31 +260,31 @@ Feature: SFEFLTY19- SMETS2 - InstallAndLeave Workflow
     # Then I click the Gas Install Submit Button
 
     Scenario: Going through "DEVICE BINDING & COMMISSIONING" section
-    Given TST12 the DEVICE BINDING & COMMISSIONING section
-    When I fill the EXCH23 InstallLeave Binding and commissioning of PPMID fields with values
-    Then TST12 I should see ENERGY EFFICIENCY INFORMATION section
+        Given TST12 the DEVICE BINDING & COMMISSIONING section
+        When I fill the EXCH23 InstallLeave Binding and commissioning of PPMID fields with values
+        Then TST12 I should see ENERGY EFFICIENCY INFORMATION section
 
     Scenario: Going through "ENERGY EFFICIENCY INFORMATION" section
-    Given TST12 the ENERGY EFFICIENCY INFORMATION section
-    When TST12 I fill the fields54 and click next
-    Then I should see InstallAndLeave SMART EDUCATION section
+        Given TST12 the ENERGY EFFICIENCY INFORMATION section
+        When TST12 I fill the fields54 and click next
+        Then I should see InstallAndLeave SMART EDUCATION section
 
     Scenario: Going through "SMART EDUCATION" section
-    Given ExchTwTwo the SMART EDUCATION section
-    When I fill the Perform InstallLeave Smart Meter Education and Demonstration  fields with values
-    Then I should see InstallLeave Summary of Job and Smart literature left onsite section
+        Given ExchTwTwo the SMART EDUCATION section
+        When I fill the Perform InstallLeave Smart Meter Education and Demonstration  fields with values
+        Then I should see InstallLeave Summary of Job and Smart literature left onsite section
 
     Scenario: Going through "SMART LITERATURE LEFT ON SITE" section
-    Given the InstallLeave Smart No literature left onsite section
-    When ExchTwTwo I fill the fields56 and click next
-    Then ExchTwTwo See CAPTURE CUSTOMER SIGNATURE sec
+        Given the InstallLeave Smart No literature left onsite section
+        When ExchTwTwo I fill the fields56 and click next
+        Then ExchTwTwo See CAPTURE CUSTOMER SIGNATURE sec
 
     Scenario: Going through "CAPTURE CUSTOMER SIGNATURE" section
-    Given TST12 the CAPTURE CUSTOMER SIGNATURE section
-    When TST12 I write signature in Customer Signature
-    And TST12 I fill the field57 and Job Complete
-    Then TST12 see Job Completed screen
+        Given TST12 the CAPTURE CUSTOMER SIGNATURE section
+        When TST12 I write signature in Customer Signature
+        And TST12 I fill the field57 and Job Complete
+        Then TST12 see Job Completed screen
 
-    Scenario: Going through deleting the work order after use 
+    Scenario: Going through deleting the work order after use
         When I delete workorder after use
         Then workorder should no longer exist

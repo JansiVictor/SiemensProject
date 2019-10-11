@@ -3,17 +3,7 @@ Feature: SFGINST14 - AbortNoAccessSuspend WorkFlow
 Scenario: Post SFGINST14 SOAP Request
 Given I post workorder using "xmlrequest/SFGINST14.XML"
 
-Scenario Outline: Logging in to job's "Work Order" window
-Given the INSTFrtn Login Page
-When I pass INSTFrtn "<Username>" and "<Password>"
-Then I click INSTFrtn Login button
-#And I should see the INSTFrtn Appointment List 
-
-Examples:
-| Username 		| Password      |
-|  E0000022  |  000Password  |
-
-
+@LoginScenario
 Scenario: Select the Latest INSTFrtn workOrder
 Given the INSTFrtn Appointment List window
 When I click on INSTFrtn select button
@@ -50,7 +40,6 @@ And I should seeINSTFrtn  BE AWARE OF ANY DANGER! section
 Scenario: Going through INSTFrtn "BE AWARE OF ANY DANGER!" section
 Given the INSTFrtn BE AWARE OF ANY DANGER! section 
 When I fill the AbortNoAccessSuspend DoorStep Protocol fields with the values
-#Then I should see the Appointment List For SFEINST15
 
 Scenario: Going through Aborting Suspended Job
 Given the INSTFrtn Appointment List window

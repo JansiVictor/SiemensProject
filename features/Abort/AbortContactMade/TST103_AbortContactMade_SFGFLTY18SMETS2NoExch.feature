@@ -1,18 +1,9 @@
 Feature: TST_103 SF G FLTY18 SMETS2 No Exchange Workflow - Contact made Abort No Access
 
-Scenario: Post SFGFLTY18 SOAP Request
+    Scenario: Post SFGFLTY18 SOAP Request
         Given I post workorder using "xmlrequest/SFGFLTY18.XML"
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given TST03 the Login Page
-        When TST03 I pass "<Username>" and "<Password>"
-        Then TST03 I click Login button
-        And TST03 I should see the Appointment List
-
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given TST03 the Appointment List window
         When TST03 I click on select button
@@ -36,6 +27,6 @@ Scenario: Post SFGFLTY18 SOAP Request
         When I click the Not Convenient with Customer Reason and Abort the Job
         Then I should see the Aborted status for the workorder "SFGFLTY18" on the appointments page
 
-    Scenario: Going through deleting the work order after use 
+    Scenario: Going through deleting the work order after use
         When I delete workorder after use
         Then workorder should no longer exist

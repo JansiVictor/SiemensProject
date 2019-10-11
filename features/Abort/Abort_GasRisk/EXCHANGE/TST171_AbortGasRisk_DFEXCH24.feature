@@ -1,15 +1,9 @@
 Feature: TST171_AbortGasRisk_DFEXCH24
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given the TST22 Login Page
-        When I pass TST22 "<Username>" and "<Password>"
-        Then I click TST22 Login button
-        And I should see the TST22 Appointment List
+    Scenario: Post DFEXCH24 SOAP Request
+        Given I post workorder using "xmlrequest/DFEXCH24.XML"
 
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given the TST22 Appointment List window
         When I click on TST22 select button
@@ -80,7 +74,7 @@ Feature: TST171_AbortGasRisk_DFEXCH24
     Scenario: Going through "CAPTURE INITIAL PHOTO OF ELEC INSTALLATION"
         Given the TST22 CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section
         When I click on TST22 CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button
-         Then I should see TST22 INITIAL POLARITY CHECK - MARTINDALE TEST section
+        Then I should see TST22 INITIAL POLARITY CHECK - MARTINDALE TEST section
 
     Scenario: Going through "INITIAL POLARITY CHECK MARTINDALE TEST" section
         Given the TST22 INITIAL POLARITY CHECK MARTINDALE TEST section
@@ -386,4 +380,8 @@ Feature: TST171_AbortGasRisk_DFEXCH24
         When TST22 I write signature in Customer Signature
         Then TST22 I fill the field57 and Job Complete
         Then TST22 see Job Completed screen
+
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist
 

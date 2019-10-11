@@ -1,15 +1,9 @@
 Feature: TST206_AbortElec_Remove7 Workflow
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given TST28 the Login Page
-        When TST28 I pass "<Username>" and "<Password>"
-        Then TST28 I click Login button
-        And TST28 I should see the Appointment List
+    Scenario: Post DFRMVE7 SOAP Request
+        Given I post workorder using "xmlrequest/DFRMVE7.XML"
 
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given TST28 the Appointment List window
         When TST28 I click on select button
@@ -62,7 +56,11 @@ Feature: TST206_AbortElec_Remove7 Workflow
         Given TST28 the RISK ASSESSMENT - ELEC section
         When I fill the RISK ASSESSMENT - Abort ELEC fields with the values
 
-Scenario: Going through the Reason codes popup
-Given the ELEC Risk AbortReasonCodespopup
-When I click the ELEC Reason and Abort Appointment Job
-Then I should see the ELEC Risk Aborted status for the workorder "DFRMVE7" on the appointments page
+    Scenario: Going through the Reason codes popup
+        Given the ELEC Risk AbortReasonCodespopup
+        When I click the ELEC Reason and Abort Appointment Job
+        Then I should see the ELEC Risk Aborted status for the workorder "DFRMVE7" on the appointments page
+
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist

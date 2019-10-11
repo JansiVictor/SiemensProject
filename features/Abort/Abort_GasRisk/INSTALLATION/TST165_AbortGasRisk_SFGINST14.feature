@@ -1,16 +1,9 @@
 Feature: SF_G_INST14 WorkFlow
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given the INSTFrtn Login Page
-        When I pass INSTFrtn "<Username>" and "<Password>"
-        Then I click INSTFrtn Login button
-        #And I should see the INSTFrtn Appointment List
+    Scenario: Post SFGINST14 SOAP Request
+        Given I post workorder using "xmlrequest/SFGINST14.XML"
 
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
-
+    @LoginScenario
     Scenario: Select the Latest INSTFrtn workOrder
         Given the INSTFrtn Appointment List window
         When I click on INSTFrtn select button
@@ -59,3 +52,7 @@ Feature: SF_G_INST14 WorkFlow
         And I fill the GasRisk btnfail abort fields with values
         And I select Reason and Gas Abort Job
         Then I should see the Aborted status for the workorder "SFGINST14" on the appointments page
+
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist

@@ -1,18 +1,9 @@
 Feature: DFFLTY20TRADNOEXCH - AbortNoAccessSuspenf Workflow
 
-Scenario: Post DFFLTY20TRAD SOAP Request
-Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"
+    Scenario: Post DFFLTY20TRAD SOAP Request
+        Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given TST13 the Login Page
-        When TST13 I pass "<Username>" and "<Password>"
-        Then TST13 I click Login button
-        And TST13 I should see the Appointment List
-
-        Examples:
-            | Username    | Password    |
-            |  E0000022  |  000Password  |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given TST13 the Appointment List window
         When TST13 I click on select button
@@ -60,6 +51,6 @@ Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"
         When I click the worknolongerrequired Reason and Abort the Job
         Then I should see the Aborted status for the workorder "DFFLTY20TRAD" on the appointments page
 
-Scenario: Going through deleting the work order after use 
-When I delete workorder after use
-Then workorder should no longer exist
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist

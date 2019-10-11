@@ -1,18 +1,9 @@
 Feature: DFFLTY20Trad  - TRAD - InstallAndLeave GAS Workflow
 
-Scenario: Post DFFLTY20TRAD SOAP Request
-        Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"
+	Scenario: Post DFFLTY20TRAD SOAP Request
+		Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"
 
-	Scenario Outline: Logging in to job's "Work Order" window for FLTY20TRAD
-		Given the Login Page for FLTY20TRAD
-		When I pass "<Username>" and "<Password>" for FLTY20TRAD
-		Then I click Login button for FLTY20TRAD
-		And I should see the Appointment List for FLTY20TRAD
-
-		Examples:
-			| Username    | Password    |
-			| Automation2 | Aut0m4t1on2 |
-
+	@LoginScenario
 	Scenario: Select the Latest workOrder for FLTY20TRAD
 		Given the Appointment List window for FLTY20TRAD
 		When I click on select button for FLTY20TRAD
@@ -115,15 +106,15 @@ Scenario: Post DFFLTY20TRAD SOAP Request
 
 	Scenario: Going through "DETERMINE FAULT ACTIVITY" section for FLTY20TRAD
 		Given FTwenty the DETERMINE FAULT ACTIVITY section
-        When FTwenty I fill the field14 with the value014
-        Then FTwenty I click on CAPTURE PHOTOGRAPHIC EVIDENCE-SUSPECTED TAMPERING button
-        And FTwenty I fill the field15 with the value15
-        And FTwenty I click on OK in INFO window with the text Remove Comms Hub from Supply and wait 5 minutes before reconnecting
-        And I should fill InstallAndLeave field16 with the value16
-        And FTwenty I select Gas Meter field
-        And FTwenty I select Regulator field
-        And FTwenty I click on NEXT SECT button
-        And FTwenty I should see PRE INSTALLATION GAS TIGHTNESS TEST section
+		When FTwenty I fill the field14 with the value014
+		Then FTwenty I click on CAPTURE PHOTOGRAPHIC EVIDENCE-SUSPECTED TAMPERING button
+		And FTwenty I fill the field15 with the value15
+		And FTwenty I click on OK in INFO window with the text Remove Comms Hub from Supply and wait 5 minutes before reconnecting
+		And I should fill InstallAndLeave field16 with the value16
+		And FTwenty I select Gas Meter field
+		And FTwenty I select Regulator field
+		And FTwenty I click on NEXT SECT button
+		And FTwenty I should see PRE INSTALLATION GAS TIGHTNESS TEST section
 
 	Scenario: Going through "PRE INSTALLATION GAS TIGHTNESS TEST" section for FLTY20TRAD
 		Given the PRE INSTALLATION GAS TIGHTNESS TEST section for FLTY20TRAD
@@ -145,9 +136,9 @@ Scenario: Post DFFLTY20TRAD SOAP Request
 		When I fill the field24 with the value24 for FLTY20TRAD
 		Then I click on OK btn in Updated window with the text Asset successfully added to Returns list for FLTY20TRAD
 		And I click the Gas Install Submit Button
-    
 
-	Scenario: Going through "NEW GAS METER DETAILS" section	
+
+	Scenario: Going through "NEW GAS METER DETAILS" section
 		Given the NEW GAS METER DETAILS section for FLTY20TRAD
 		When I fill the fields and values for New gas meter details for FLTY20TRAD
 		Then I should see NEW REGULATOR section for FLTY20TRAD
@@ -179,12 +170,12 @@ Scenario: Post DFFLTY20TRAD SOAP Request
 
 		Given the Post Installation GAS sec for FLTY20TRAD
 		When I fill the InstallAndLeave Post Installation Tightness Test Values
-    	Then I should see InstallLeave Replace CommsHubNoWan section
+		Then I should see InstallLeave Replace CommsHubNoWan section
 
-    Scenario: Going through Replace CommsHubNoWan section
-    Given InstallLeave Replace CommsHubNoWan section
-    When I fill the FLTYTRAD InstallLeave Replace CommshubNoWan details fields with values
-    Then TST03 I should see GAS APPLIANCE SAFETY CHECKS section
+	Scenario: Going through Replace CommsHubNoWan section
+		Given InstallLeave Replace CommsHubNoWan section
+		When I fill the FLTYTRAD InstallLeave Replace CommshubNoWan details fields with values
+		Then TST03 I should see GAS APPLIANCE SAFETY CHECKS section
 
 
 	Scenario: Going through "Gas Appliance Safety Checks" GAS section for FLTY20TRAD
@@ -211,7 +202,7 @@ Scenario: Post DFFLTY20TRAD SOAP Request
 	Scenario: Going through "SMART EDUCATION" section
 		Given the SMART EDUCATION section for FLTY20TRAD
 		When I fill the Perform InstallLeave Smart Meter Education and Demonstration  fields with values
-        Then I should see InstallLeave Summary of Job and Smart literature left onsite section
+		Then I should see InstallLeave Summary of Job and Smart literature left onsite section
 
 
 
@@ -228,6 +219,6 @@ Scenario: Post DFFLTY20TRAD SOAP Request
 		And I fill the field57 and Job Complete for FLTY20TRAD
 		Then see Job Completed screen for FLTY20TRAD
 
-		Scenario: Going through deleting the work order after use 
-        When I delete workorder after use
-        Then workorder should no longer exist
+	Scenario: Going through deleting the work order after use
+		When I delete workorder after use
+		Then workorder should no longer exist

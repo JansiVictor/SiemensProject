@@ -1,15 +1,9 @@
 Feature: Exchange19 Workflow
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given the ExchngNineteen Login Page
-        When I pass ExchngNineteen "<Username>" and "<Password>"
-        Then I click ExchngNineteen Login button
+    Scenario: Post SFGEXCH19 SOAP Request
+        Given I post workorder using "xmlrequest/SFGEXCH19.XML"
 
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
-
+    @LoginScenario
     Scenario: Select the Latest ExchngNineteen workOrder
         Given the ExchngNineteen Appointment List window
         When I click on ExchngNineteen select button
@@ -59,3 +53,7 @@ Feature: Exchange19 Workflow
         And I fill the GasRisk btnfail abort fields with values
         And I select Reason and Gas Abort Job
         Then I should see the Aborted status for the workorder "SFGEXCH19" on the appointments page
+
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist

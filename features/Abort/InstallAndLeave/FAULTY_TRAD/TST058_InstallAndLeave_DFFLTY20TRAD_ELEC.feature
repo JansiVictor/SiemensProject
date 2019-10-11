@@ -1,18 +1,9 @@
 Feature: DFFLTY20 - TRAD - InstallAndLeave - ELEC Workflow
 
 	Scenario: Post DFFLTY20TRAD SOAP Request
-        Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"
+		Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"
 
-	Scenario Outline: Logging in to job's "Work Order" window for FLTY20TRAD
-		Given the Login Page for FLTY20TRAD
-		When I pass "<Username>" and "<Password>" for FLTY20TRAD
-		Then I click Login button for FLTY20TRAD
-		And I should see the Appointment List for FLTY20TRAD
-
-		Examples:
-			| Username    | Password    |
-			| Automation2 | Aut0m4t1on2 |
-
+	@LoginScenario
 	Scenario: Select the Latest workOrder for FLTY20TRAD
 		Given the Appointment List window for FLTY20TRAD
 		When I click on select button for FLTY20TRAD
@@ -115,25 +106,25 @@ Feature: DFFLTY20 - TRAD - InstallAndLeave - ELEC Workflow
 
 	Scenario: Going through "DETERMINE FAULT ACTIVITY" section for FLTY20TRAD
 		Given FTwenty the DETERMINE FAULT ACTIVITY section
-        When FTwenty I fill the field14 with the value014
-        Then FTwenty I click on CAPTURE PHOTOGRAPHIC EVIDENCE-SUSPECTED TAMPERING button
-        And FTwenty I fill the field15 with the value15
-        And FTwenty I click on OK in INFO window with the text Remove Comms Hub from Supply and wait 5 minutes before reconnecting
-        And I should fill InstallAndLeave field16 with the value16
-        And FTwenty I select Elec Meter field
-        And FTwenty I click on NEXT SECT button
-        And I should see fltynineteen REMOVE METER section
+		When FTwenty I fill the field14 with the value014
+		Then FTwenty I click on CAPTURE PHOTOGRAPHIC EVIDENCE-SUSPECTED TAMPERING button
+		And FTwenty I fill the field15 with the value15
+		And FTwenty I click on OK in INFO window with the text Remove Comms Hub from Supply and wait 5 minutes before reconnecting
+		And I should fill InstallAndLeave field16 with the value16
+		And FTwenty I select Elec Meter field
+		And FTwenty I click on NEXT SECT button
+		And I should see fltynineteen REMOVE METER section
 
 	Scenario: Going through "REMOVE METER" section
-        Given the fltynineteen REMOVE METER section
-        When I fill the FLTY InstallAndLeave Remove meter values
-        And I clk fltynineteen remove meter NEXT SECTION button
-        Then I should see fltynineteen CONFIRM ELECTRIC ASSET REMOVAL section
+		Given the fltynineteen REMOVE METER section
+		When I fill the FLTY InstallAndLeave Remove meter values
+		And I clk fltynineteen remove meter NEXT SECTION button
+		Then I should see fltynineteen CONFIRM ELECTRIC ASSET REMOVAL section
 
-    Scenario: Going through "CONFIRM ELECTRIC ASSET REMOVAL" section
-        Given the fltynineteen CONFIRM ELEC ASSET REMOVAL section
-        When I fill the fltynineteen field024 with the Value024
-        And Click ok on asset removal
+	Scenario: Going through "CONFIRM ELECTRIC ASSET REMOVAL" section
+		Given the fltynineteen CONFIRM ELEC ASSET REMOVAL section
+		When I fill the fltynineteen field024 with the Value024
+		And Click ok on asset removal
 		Then I click the Gas NMEX Install Submit Button
 		And I should see New Meter Details section for for FLTY20TRAD
 
@@ -161,10 +152,10 @@ Feature: DFFLTY20 - TRAD - InstallAndLeave - ELEC Workflow
 		When I should fill InstallAndLeave FLTY Commissioning Values
 		And I should see InstallLeave Replace CommsHubNoWan section
 
-    Scenario: Going through Replace CommsHubNoWan section
-        Given InstallLeave Replace CommsHubNoWan section
-        When I fill the EXCH23 InstallLeave Replace CommshubNoWan details fields with values
-        Then I click the Gas NMEX Install Submit Button
+	Scenario: Going through Replace CommsHubNoWan section
+		Given InstallLeave Replace CommsHubNoWan section
+		When I fill the EXCH23 InstallLeave Replace CommshubNoWan details fields with values
+		Then I click the Gas NMEX Install Submit Button
 
 	Scenario: Going through "DEVICE BINDING & COMMISSIONING" section
 
@@ -172,26 +163,20 @@ Feature: DFFLTY20 - TRAD - InstallAndLeave - ELEC Workflow
 		When I fill the EXCH23 InstallLeave Binding and commissioning of PPMID fields with values
 		Then I should see ENERGY EFFICIENCY INFORMATION section for FLTY20TRAD
 
-
-
 	Scenario: Going through "ENERGY EFFICIENCY INFORMATION" section
 		Given the ENERGY EFFICIENCY INFORMATION section for FLTY20TRAD
 		When I fill the fields54 and click next for FLTY20TRAD
 		Then I should see SMART EDUCATION section for FLTY20TRAD
 
-
-
 	Scenario: Going through "SMART EDUCATION" section
 		Given the SMART EDUCATION section for FLTY20TRAD
 		When I fill the Perform InstallLeave Smart Meter Education and Demonstration  fields with values
-        Then I should see InstallLeave Summary of Job and Smart literature left onsite section
+		Then I should see InstallLeave Summary of Job and Smart literature left onsite section
 
-    Scenario: Going through "SMART LITERATURE LEFT ON SITE" section
-        Given the InstallLeave Smart No literature left onsite section
+	Scenario: Going through "SMART LITERATURE LEFT ON SITE" section
+		Given the InstallLeave Smart No literature left onsite section
 		When I fill the fields56 and click next for FLTY20TRAD
 		Then See CAPTURE CUSTOMER SIGNATURE sec for FLTY20TRAD
-
-
 
 	Scenario: Going through "CAPTURE CUSTOMER SIGNATURE" section
 		Given the CAPTURE CUSTOMER SIGNATURE section for FLTY20TRAD
@@ -199,13 +184,8 @@ Feature: DFFLTY20 - TRAD - InstallAndLeave - ELEC Workflow
 		And I fill the field57 and Job Complete for FLTY20TRAD
 		Then see Job Completed screen for FLTY20TRAD
 
-	Scenario: Going through deleting the work order after use 
-        When I delete workorder after use
-        Then workorder should no longer exist
-
-
-
-
-
+	Scenario: Going through deleting the work order after use
+		When I delete workorder after use
+		Then workorder should no longer exist
 
 # 	#-----------------------------------------------------------------------

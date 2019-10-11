@@ -1,18 +1,9 @@
 Feature:TST_087 SF E FLTY19 Trad No Exchange Workflow- Contact made Abort No Access
 
-Scenario: Post SFEFLTY19TRAD SOAP Request
-        Given I post workorder using "xmlrequest/SFEFLTY19TRAD.XML"
+	Scenario: Post SFEFLTY19TRAD SOAP Request
+		Given I post workorder using "xmlrequest/SFEFLTY19TRAD.XML"
 
-    Scenario Outline: Logging in to job's "Work Order" window for FLTY19 Trad
-		Given the Login Page for FLTY19 Trad
-		When I pass "<Username>" and "<Password>" for FLTY19 Trad
-		Then I click Login button for FLTY19 Trad
-		And I should see the Appointment List for FLTY19 Trad
-
-		Examples:
-			| Username    | Password    |
-			| Automation2 | Aut0m4t1on2 |
-
+	@LoginScenario
 	Scenario: Select the Latest workOrder for FLTY19 Trad
 		Given the Appointment List window for FLTY19 Trad
 		When I click on select button for FLTY19 Trad
@@ -28,14 +19,14 @@ Scenario: Post SFEFLTY19TRAD SOAP Request
 
 	Scenario: Going through abort scenario
 		Given the "Work Order" page for FLTY19 Trad
-        When I fill the fields with the value     
-        Then I should see the Abort Reason Code Pop Up
+		When I fill the fields with the value
+		Then I should see the Abort Reason Code Pop Up
 
-    Scenario: Going through the Reason codes popup
-        Given the AbortReasonCodespopup
-        When I click the Not Convenient with Customer Reason and Abort the Job 
-        Then I should see the Aborted status for the workorder "SFEFLTY19TRAD" on the appointments page
+	Scenario: Going through the Reason codes popup
+		Given the AbortReasonCodespopup
+		When I click the Not Convenient with Customer Reason and Abort the Job
+		Then I should see the Aborted status for the workorder "SFEFLTY19TRAD" on the appointments page
 
-		Scenario: Going through deleting the work order after use 
-        When I delete workorder after use
-        Then workorder should no longer exist
+	Scenario: Going through deleting the work order after use
+		When I delete workorder after use
+		Then workorder should no longer exist

@@ -1,15 +1,9 @@
 Feature: TST_109 SF G FLTY18 SMETS2 No Exchange Workflo - Pre Gas Abort
 
-        Scenario Outline: Logging in to job's "Work Order" window
-        Given TST12 the Login Page
-        When TST12 I pass "<Username>" and "<Password>"
-        Then TST12 I click Login button
-        And TST12 I should see the Appointment List
+    Scenario: Post SFGFLTY18 SOAP Request
+        Given I post workorder using "xmlrequest/SFGFLTY18.XML"
 
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given TST12 the Appointment List window
         When TST12 I click on select button
@@ -128,14 +122,6 @@ Feature: TST_109 SF G FLTY18 SMETS2 No Exchange Workflo - Pre Gas Abort
         When I click the Reason and Abort Appointment Button
         Then I should see the Aborted status for the workorder "SFGFLTY18" on the appointments page
 
-
-
-
-
-
-
-
-
-
-
-
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist

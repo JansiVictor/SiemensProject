@@ -1,20 +1,9 @@
 Feature: TST_156 SF G EXCH19 Workflow - Contact made Abort No Access
 
-Scenario: Post SFGEXCH19 SOAP Request
+    Scenario: Post SFGEXCH19 SOAP Request
         Given I post workorder using "xmlrequest/SFGEXCH19.XML"
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given the ExchngNineteen Login Page
-        When I pass ExchngNineteen "<Username>" and "<Password>"
-        Then I click ExchngNineteen Login button
-
-        Examples:
-
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
-
-
+    @LoginScenario
     Scenario: Select the Latest ExchngNineteen workOrder
         Given the ExchngNineteen Appointment List window
         When I click on ExchngNineteen select button
@@ -38,6 +27,6 @@ Scenario: Post SFGEXCH19 SOAP Request
         Then I should see the Aborted status for the workorder "SFGEXCH19" on the appointments page
 
 
- 	Scenario: Going through deleting the work order after use 
+    Scenario: Going through deleting the work order after use
         When I delete workorder after use
         Then workorder should no longer exist

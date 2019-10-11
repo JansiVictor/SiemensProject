@@ -1,15 +1,9 @@
 Feature: TST_037 DF FLTY20 SMETS2 - SMETS2 Workflow - Abort Pre Gas Test
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given FTwenty the Login Page
-        When FTwenty I pass "<Username>" and "<Password>"
-        Then FTwenty I click Login button
-        And FTwenty I should see the Appointment List
+    Scenario: Post DFFLTY20 SOAP Request
+        Given I post workorder using "xmlrequest/DFFLTY20.XML"
 
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given FTwenty the Appointment List window
         When FTwenty I click on select button
@@ -145,7 +139,7 @@ Feature: TST_037 DF FLTY20 SMETS2 - SMETS2 Workflow - Abort Pre Gas Test
     ############## ISSUE 018 BUTTON APPEARS as ABORT ELEC METER##########
     ############## Feature File and Implementation has to be revisited after the fix#######
 
-       # Then I should see REMOVE IHD-PPMID section
+    # Then I should see REMOVE IHD-PPMID section
 
     ######### The below flow is copied from the Original test Case TST001   ###########
     ######### Steps need to be revised based on the changes from the fix  ###########
@@ -442,3 +436,6 @@ Feature: TST_037 DF FLTY20 SMETS2 - SMETS2 Workflow - Abort Pre Gas Test
         And FTwenty I fill the field57 and Job Complete
         Then FTwenty see Job Completed screen
 
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist

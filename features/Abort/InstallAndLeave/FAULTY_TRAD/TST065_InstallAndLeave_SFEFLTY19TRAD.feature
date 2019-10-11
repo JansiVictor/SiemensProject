@@ -1,18 +1,9 @@
 Feature: SFEFLTY19Trad  - InstallAndLeave Workflow
 
 	Scenario: Post SFEFLTY19TRAD SOAP Request
-        Given I post workorder using "xmlrequest/SFEFLTY19TRAD.XML"
+		Given I post workorder using "xmlrequest/SFEFLTY19TRAD.XML"
 
-	Scenario Outline: Logging in to job's "Work Order" window for FLTY19 Trad
-		Given the Login Page for FLTY19 Trad
-		When I pass "<Username>" and "<Password>" for FLTY19 Trad
-		Then I click Login button for FLTY19 Trad
-		And I should see the Appointment List for FLTY19 Trad
-
-		Examples:
-			| Username    | Password    |
-			| Automation2 | Aut0m4t1on2 |
-
+	@LoginScenario
 	Scenario: Select the Latest workOrder for FLTY19 Trad
 		Given the Appointment List window for FLTY19 Trad
 		When I click on select button for FLTY19 Trad
@@ -51,7 +42,7 @@ Feature: SFEFLTY19Trad  - InstallAndLeave Workflow
 		Then I should see RISK ASSESSMENT tab activated for FLTY19 Trad
 		And I should see INITIAL RISK ASSESSMENT section for FLTY19 Trad
 
-###########Removed the Info-Pop up scenario on 25/09
+	###########Removed the Info-Pop up scenario on 25/09
 
 	Scenario: Going through "INITIAL RISK ASSESSMENT" for FLTY19 Trad
 		Given the INITIAL RISK ASSESSMENT section for FLTY19 Trad
@@ -87,24 +78,24 @@ Feature: SFEFLTY19Trad  - InstallAndLeave Workflow
 	Scenario: Going through "CURRENT IHD/PPMID DETAILS" section for FLTY19 Trad
 		Given the CURRENT IHD-PPMID DETAILS section for FLTY19 Trad
 		When I fill the field010 with the value010 for FLTY19 Trad
-		######And I should see CURRENT METER DETAILS section for FLTY19 Trad		
-        Then I should see the page contect display of current meter details for FLTY19 Trad
+		######And I should see CURRENT METER DETAILS section for FLTY19 Trad
+		Then I should see the page contect display of current meter details for FLTY19 Trad
 
-    Scenario: Going through "CAPTURE CURRENT METER Elec" section for FLTY19 Trad
+	Scenario: Going through "CAPTURE CURRENT METER Elec" section for FLTY19 Trad
 		Given the CAPTURE CURRENT METER section for FLTY19 Trad
 		When I fill capture current meter elec for FLTY19 Trad
 		Then I should see the DETERMINE FAULT ACTIVITY section for FLTY19 Trad
 
 	Scenario: Going through "DETERMINE FAULT ACTIVITY" section for FLTY19 Trad
 		Given the fltynineteen DETERMINE FAULT ACTIVITY section
-        When I fill the fltynineteen field014 with the Value014
-        Then I click on fltynineteen CAPTURE PHOTOGRAPHIC EVIDENCE SUSPECTED TAMPERING button
-        And I fill the fltynineteen field015 with the Value015
-        And I click on fltynineteen OK in Info window with the text Remove Comms Hub from Supply and wait 5 minutes before reconnecting
-        And I should fill InstallAndLeave field16 with the value16
-        And I select fltynineteen Elec Meter field
-        Then I click on fltynineteen NEXT SECTION butn in determine faulty activity
-        And I should see fltynineteen REMOVE METER section
+		When I fill the fltynineteen field014 with the Value014
+		Then I click on fltynineteen CAPTURE PHOTOGRAPHIC EVIDENCE SUSPECTED TAMPERING button
+		And I fill the fltynineteen field015 with the Value015
+		And I click on fltynineteen OK in Info window with the text Remove Comms Hub from Supply and wait 5 minutes before reconnecting
+		And I should fill InstallAndLeave field16 with the value16
+		And I select fltynineteen Elec Meter field
+		Then I click on fltynineteen NEXT SECTION butn in determine faulty activity
+		And I should see fltynineteen REMOVE METER section
 
 	Scenario: Going through "REMOVE ELEC METER" section for FLTY19 Trad
 		Given the REMOVE ELEC ASSET REMOVAL section for FLTY19 Trad
@@ -144,10 +135,10 @@ Feature: SFEFLTY19Trad  - InstallAndLeave Workflow
 		When I should fill InstallAndLeave FLTY Commissioning Values
 		And I should see InstallLeave Replace CommsHubNoWan section
 
-    Scenario: Going through Replace CommsHubNoWan section
-        Given InstallLeave Replace CommsHubNoWan section
-        When I fill the EXCH23 InstallLeave Replace CommshubNoWan details fields with values
-        Then I click the Gas NMEX Install Submit Button
+	Scenario: Going through Replace CommsHubNoWan section
+		Given InstallLeave Replace CommsHubNoWan section
+		When I fill the EXCH23 InstallLeave Replace CommshubNoWan details fields with values
+		Then I click the Gas NMEX Install Submit Button
 		Then I should see DEVICE BINDING and COMMISSIONING sec for FLTY19 Trad
 
 	Scenario: Going through "DEVICE BINDING & COMMISSIONING" section FLTY19 Trad
@@ -165,8 +156,8 @@ Feature: SFEFLTY19Trad  - InstallAndLeave Workflow
 		When I fill the Perform InstallLeave Smart Meter Education and Demonstration  fields with values
 		Then I should see InstallLeave Summary of Job and Smart literature left onsite section
 
-    Scenario: Going through "SMART LITERATURE LEFT ON SITE" section
-        Given the InstallLeave Smart No literature left onsite section
+	Scenario: Going through "SMART LITERATURE LEFT ON SITE" section
+		Given the InstallLeave Smart No literature left onsite section
 		When I fill the fields56 and click next for FLTY19 Trad
 		Then See CAPTURE CUSTOMER SIGNATURE sec for FLTY19 Trad
 
@@ -176,6 +167,6 @@ Feature: SFEFLTY19Trad  - InstallAndLeave Workflow
 		And I fill the field57 and Job Complete for FLTY19 Trad
 		Then see Job Completed screen for FLTY19 Trad
 
-Scenario: Going through deleting the work order after use 
-        When I delete workorder after use
-        Then workorder should no longer exist
+	Scenario: Going through deleting the work order after use
+		When I delete workorder after use
+		Then workorder should no longer exist

@@ -1,15 +1,9 @@
 Feature: TST135_AbortGasRisk_DFEXCH21
 
-    Scenario Outline: Logging in to job's ExTwOne "Work Order" window
-        Given the ExTwOne Login Page
-        When I pass ExTwOne "<Username>" and "<Password>"
-        Then I click ExTwOne Login button
-        And I should see the ExTwOne Appointment List
+    Scenario: Post DFEXCH21 SOAP Request
+        Given I post workorder using "xmlrequest/DFEXCH21.XML"
 
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the ExTwOne Latest workOrder
         Given the ExTwOne Appointment List window
         When I click on ExTwOne select button
@@ -178,3 +172,7 @@ Feature: TST135_AbortGasRisk_DFEXCH21
         Given the ExTwOne Summary of Job and receive Customer Signature section
         When I fill the ExTwOne Summary of Job and receive Customer Signaturefields with values
         Then I should see ExTwOne Submit button to complete the job section
+
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist

@@ -1,14 +1,9 @@
 Feature: GRMVE5 Workflow
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given the RmveGas Login Page
-        When I pass RmveGas "<Username>" and "<Password>"
-        Then I click RmveGas Login button
+    Scenario: Post SFGRMVE5 SOAP Request
+        Given I post workorder using "xmlrequest/SFGRMVE5.XML"
 
-        Examples:
-            | Username | Password    |
-            | E0000022 | 000Password |
-
+    @LoginScenario
     Scenario: Select the Latest RmveGas workOrder
         Given the RmveGas Appointment List window
         When I click on RmveGas select button
@@ -66,3 +61,7 @@ Feature: GRMVE5 Workflow
         And I fill the GasRisk abort fields with values
         And I select Reason and Gas Abort Job
         Then I should see the Aborted status for the workorder "SFGRMVE5" on the appointments page
+
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist

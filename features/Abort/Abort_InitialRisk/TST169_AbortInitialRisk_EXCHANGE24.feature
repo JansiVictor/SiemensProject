@@ -1,18 +1,9 @@
 Feature: TST169_AbortInitialRisk_EXCHANGE24
 
-Scenario: Post DFEXCH24 SOAP Request
+    Scenario: Post DFEXCH24 SOAP Request
         Given I post workorder using "xmlrequest/DFEXCH24.XML"
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given the TST22 Login Page
-        When I pass TST22 "<Username>" and "<Password>"
-        Then I click TST22 Login button
-        And I should see the TST22 Appointment List
-
-        Examples:
-            | Username | Password    |
-            | E0000022 | 000Password |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given the TST22 Appointment List window
         When I click on TST22 select button
@@ -55,6 +46,6 @@ Scenario: Post DFEXCH24 SOAP Request
         When I click the Unabletoturnoff Reason and Abort the Job
         Then I should see the Aborted status for the workorder "DFEXCH24" on the appointments page
 
-Scenario: Going through deleting the work order after use 
+    Scenario: Going through deleting the work order after use
         When I delete workorder after use
         Then workorder should no longer exist

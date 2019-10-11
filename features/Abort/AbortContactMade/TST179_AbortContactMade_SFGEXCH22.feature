@@ -1,19 +1,9 @@
 Feature: TST_179 SF G EXCH22 Workflow - Contact made Abort No Access
 
-Scenario: Post SFGEXCH22 SOAP Request
+    Scenario: Post SFGEXCH22 SOAP Request
         Given I post workorder using "xmlrequest/SFGEXCH22.XML"
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given the ExchTwTwo Login Page
-        When I pass ExchTwTwo "<Username>" and "<Password>"
-        Then I click ExchTwTwo Login button
-        And I should see the ExchTwTwo Appointment List
-
-        Examples:
-            | Username    | Password    |
-            |  E0000022  |  000Password  |
-
-
+    @LoginScenario
     Scenario: Select the ExchTwTwo Latest workOrder
         Given the ExchTwTwo Appointment List window
         When I click on ExchTwTwo select button
@@ -24,7 +14,6 @@ Scenario: Post SFGEXCH22 SOAP Request
         When i see ExchTwTwo Call Forward or Arrive Button
         Then I click on ExchTwTwo CALL FORWARD button
         Then I should see page ExchTwTwo contect display
-        #######And I should see the ExchTwTwo CUSTOMER CONTACT NUMBER
         And I should see ExchTwTwo Contact made field
 
     Scenario: Going through abort scenario
@@ -37,6 +26,6 @@ Scenario: Post SFGEXCH22 SOAP Request
         When I click the Not Convenient with Customer Reason and Abort the Job
         Then I should see the Aborted status for the workorder "SFGEXCH22" on the appointments page
 
-Scenario: Going through deleting the work order after use 
+    Scenario: Going through deleting the work order after use
         When I delete workorder after use
         Then workorder should no longer exist

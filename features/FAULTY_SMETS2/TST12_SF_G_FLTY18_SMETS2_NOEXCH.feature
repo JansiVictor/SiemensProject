@@ -4,16 +4,7 @@ Feature: TST12_SF_Gas_FLTY18_SMETS2
     Scenario: Post SFGFLTY18 SOAP Request
         Given I post workorder using "xmlrequest/SFGFLTY18.XML"
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given TST12 the Login Page
-        When TST12 I pass "<Username>" and "<Password>"
-        Then TST12 I click Login button
-        And TST12 I should see the Appointment List
-
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given TST12 the Appointment List window
         When TST12 I click on select button
@@ -146,7 +137,7 @@ Feature: TST12_SF_Gas_FLTY18_SMETS2
         Given TST12 the Gas Appliance Safety Checks sec
         When TST12 I fill the Gas Appliance Safety Checks section fields with values and Sub
         Then TST12 I should see DEVICE BINDING and COMMISSIONING sec
-    
+
     Scenario: Going through "DEVICE BINDING & COMMISSIONING" section
         Given TST12 the DEVICE BINDING & COMMISSIONING section
         When TST12 I fill the fields53 and click next
@@ -168,6 +159,6 @@ Feature: TST12_SF_Gas_FLTY18_SMETS2
         And TST12 I fill the field57 and Job Complete
         Then TST12 see Job Completed screen
 
-    Scenario: Going through deleting the work order after use 
+    Scenario: Going through deleting the work order after use
         When I delete workorder after use
         Then workorder should no longer exist

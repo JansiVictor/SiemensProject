@@ -1,18 +1,9 @@
 Feature: DFFLTY20 - SMETS2 - ELEC Workflow
 
-Scenario: Post DFFLTY20 SOAP Request
-Given I post workorder using "xmlrequest/DFFLTY20.XML"
+    Scenario: Post DFFLTY20 SOAP Request
+        Given I post workorder using "xmlrequest/DFFLTY20.XML"
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given FTwenty the Login Page
-        When FTwenty I pass "<Username>" and "<Password>"
-        Then FTwenty I click Login button
-        And FTwenty I should see the Appointment List
-
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given FTwenty the Appointment List window
         When FTwenty I click on select button
@@ -167,13 +158,13 @@ Given I post workorder using "xmlrequest/DFFLTY20.XML"
         When I fill the fltynineteen field027 with the Value027
         And I click on fltynineteen NEXT SEC button from Remove Comms Hub
         Then I should see fltynineteen CONFIRM COMMS HUB REMOVAL section
-    
+
     Scenario: Going through "CONFIRM COMMS HUB REMOVAL" section
         Given the fltynineteen CONFIRM COMMS HUB REMOVAL section
         When I fill the fltynineteen field028 with the Value028
         And I click OK fltynineteen button in Updated window with the text Asset successfully added to Returns list in the final step
         And I clk fltynineteen SUBMIT to Install
-        #Then I click the Gas NMEX Install Submit Button
+    #Then I click the Gas NMEX Install Submit Button
 
     Scenario: Going through "INSTALL COMMS HUB" section
         Given FTwenty the INSTALL COMMS HUB sec
@@ -272,6 +263,6 @@ Given I post workorder using "xmlrequest/DFFLTY20.XML"
         And FTwenty I fill the field57 and Job Complete
         Then FTwenty see Job Completed screen
 
-    Scenario: Going through deleting the work order after use 
+    Scenario: Going through deleting the work order after use
         When I delete workorder after use
         Then workorder should no longer exist

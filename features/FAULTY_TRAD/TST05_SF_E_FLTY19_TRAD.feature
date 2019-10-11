@@ -1,19 +1,10 @@
 Feature: SF E FLTY19 Trad  - SMETS2 Workflow
 
 
-    Scenario: Post SFEFLTY19TRAD SOAP Request
-        Given I post workorder using "xmlrequest/SFEFLTY19TRAD.XML"
+	Scenario: Post SFEFLTY19TRAD SOAP Request
+		Given I post workorder using "xmlrequest/SFEFLTY19TRAD.XML"
 
-	Scenario Outline: Logging in to job's "Work Order" window for FLTY19 Trad
-		Given the Login Page for FLTY19 Trad
-		When I pass "<Username>" and "<Password>" for FLTY19 Trad
-		Then I click Login button for FLTY19 Trad
-		And I should see the Appointment List for FLTY19 Trad
-
-		Examples:
-			| Username    | Password    |
-			| Automation2 | Aut0m4t1on2 |
-
+	@LoginScenario
 	Scenario: Select the Latest workOrder for FLTY19 Trad
 		Given the Appointment List window for FLTY19 Trad
 		When I click on select button for FLTY19 Trad
@@ -52,7 +43,7 @@ Feature: SF E FLTY19 Trad  - SMETS2 Workflow
 		Then I should see RISK ASSESSMENT tab activated for FLTY19 Trad
 		And I should see INITIAL RISK ASSESSMENT section for FLTY19 Trad
 
-###########Removed the Info-Pop up scenario on 25/09
+	###########Removed the Info-Pop up scenario on 25/09
 
 	Scenario: Going through "INITIAL RISK ASSESSMENT" for FLTY19 Trad
 		Given the INITIAL RISK ASSESSMENT section for FLTY19 Trad
@@ -88,10 +79,10 @@ Feature: SF E FLTY19 Trad  - SMETS2 Workflow
 	Scenario: Going through "CURRENT IHD/PPMID DETAILS" section for FLTY19 Trad
 		Given the CURRENT IHD-PPMID DETAILS section for FLTY19 Trad
 		When I fill the field010 with the value010 for FLTY19 Trad
-		######And I should see CURRENT METER DETAILS section for FLTY19 Trad		
-        Then I should see the page contect display of current meter details for FLTY19 Trad
+		######And I should see CURRENT METER DETAILS section for FLTY19 Trad
+		Then I should see the page contect display of current meter details for FLTY19 Trad
 
-    Scenario: Going through "CAPTURE CURRENT METER Elec" section for FLTY19 Trad
+	Scenario: Going through "CAPTURE CURRENT METER Elec" section for FLTY19 Trad
 		Given the CAPTURE CURRENT METER section for FLTY19 Trad
 		When I fill capture current meter elec for FLTY19 Trad
 		Then I should see the DETERMINE FAULT ACTIVITY section for FLTY19 Trad
@@ -159,7 +150,7 @@ Feature: SF E FLTY19 Trad  - SMETS2 Workflow
 		Given the Commissioning Successful button is displayed for FLTY19 Trad
 		When Commissioning Successful butn clk for FLTY19 Trad
 		Then I should see the "INSTALL PPMID" section for FLTY19 Trad
-		
+
 	Scenario: Going through "INSTALL PPMID" section FLTY19 Trad
 		Given the "INSTALL PPMID" section for FLTY19 Trad
 		When I fill the fields for Install PPMID for FLTY19 Trad
@@ -209,7 +200,7 @@ Feature: SF E FLTY19 Trad  - SMETS2 Workflow
 		And I fill the field57 and Job Complete for FLTY19 Trad
 		Then see Job Completed screen for FLTY19 Trad
 
-	Scenario: Going through deleting the work order after use 
-        When I delete workorder after use
-        Then workorder should no longer exist
+	Scenario: Going through deleting the work order after use
+		When I delete workorder after use
+		Then workorder should no longer exist
 

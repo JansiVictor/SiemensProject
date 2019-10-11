@@ -1,18 +1,9 @@
 Feature: TST094_AbortInitialRisk_SFFLTY18NonSMETS2
 
-Scenario: Post SFGFLTY18TRAD SOAP Request
+    Scenario: Post SFGFLTY18TRAD SOAP Request
         Given I post workorder using "xmlrequest/SFGFLTY18TRAD.XML"
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given TST15 the Login Page
-        When TST15 I pass "<Username>" and "<Password>"
-        Then TST15 I click Login button
-        And TST15 I should see the Appointment List
-
-        Examples:
-            | Username | Password    |
-            | E0000022 | 000Password |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given TST15 the Appointment List window
         When TST15 I click on select button
@@ -57,6 +48,6 @@ Scenario: Post SFGFLTY18TRAD SOAP Request
         When I click the Unabletoturnoff Reason and Abort the Job
         Then I should see the Aborted status for the workorder "SFGFLTY18TRAD" on the appointments page
 
-Scenario: Going through deleting the work order after use 
+    Scenario: Going through deleting the work order after use
         When I delete workorder after use
         Then workorder should no longer exist

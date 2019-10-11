@@ -1,16 +1,9 @@
 Feature: TST_136 DF EXCH21 Workflow - Abort Pre Gas Test
 
-    Scenario Outline: Logging in to job's ExTwOne "Work Order" window
-        Given the ExTwOne Login Page
-        When I pass ExTwOne "<Username>" and "<Password>"
-        Then I click ExTwOne Login button
-        And I should see the ExTwOne Appointment List
+    Scenario: Post DFEXCH21 SOAP Request
+        Given I post workorder using "xmlrequest/DFEXCH21.XML"
 
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
-
+    @LoginScenario
     Scenario: Select the ExTwOne Latest workOrder
         Given the ExTwOne Appointment List window
         When I click on ExTwOne select button
@@ -21,7 +14,6 @@ Feature: TST_136 DF EXCH21 Workflow - Abort Pre Gas Test
         When i see ExTwOne Call Forward or Arrive Button
         Then I click on ExTwOne CALL FORWARD button
         Then I should see ExTwOne page contect display
-        #And I should see the ExTwOne CUSTOMER CONTACT NUMBER
         And I should see ExTwOne Contact made field
 
     Scenario: Selecting ExTwOne job and setting to depart
@@ -57,26 +49,20 @@ Feature: TST_136 DF EXCH21 Workflow - Abort Pre Gas Test
         When I fill the ExTwOne initialRisk field with the values
         Then I should see ExTwOne INFO window
 
-        #Scenario: Going through ExTwOne "INFO" window
+    Scenario: Going through ExTwOne "INFO" window
         Given the ExTwOne INFO window with the text
-    #When I click on ExTwOne OK button
-    #Then I should see ExTwOne RISK ASSESSMENT ELEC section
 
     Scenario: Going through ExTwOne "RISK ASSESSMENT - ELEC" section
         Given the ExTwOne RISK ASSESSMENT - ELEC section
         When I fill the ExTwOne RISK ASSESSMENT - ELEC fields with the values
         And I click on ExTwOne CAPTURE PHOTO OF HAZARD IDENTIFIED button
         And I click on ExTwOne NEXT SECTION button
-    #Then I should see ExTwOne CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section
-
 
     Scenario: Going through ExTwOne "Suitable for Smart Installation"
-        #Given the Suitable for ExTwOne Smart Installation section
         When I click on Is ExTwOne Site Suitable for Smart Installation? button
         And I click on ExTwOne Equipment Reposition Required?
         And I enter ExTwOne Additional Notes for Smart installation Check
         And I click on ExTwOne smart installation NEXT SECTION button
-    #Then I should see ExTwOne INITIAL POLARITY CHECK - MARTINDALE TEST section
 
     Scenario: Going through ExTwOne "CAPTURE INITIAL PHOTO OF ELEC INSTALLATION"
         Given the ExTwOne CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section
@@ -93,12 +79,8 @@ Feature: TST_136 DF EXCH21 Workflow - Abort Pre Gas Test
     Scenario: Going through ExTwOne "INITIAL POLARITY CHECK - AT METER AND CUT OUT" section
         Given the ExTwOne INITIAL POLARITY CHECK - AT METER AND CUT OUT section
         When I fill the ExTwOne METER AND CUT OUT fields with the values
-    #for new WO this is not req, for existing one required
-    #And I click on ExTwOne SUBMIT button
-    #Then I should see ExTwOne CURRENT METER DETAILS section
 
     Scenario: Going through ExTwOne "Check the current meter details" section
-        #Given the Check the ExTwOne current meter detailssection
         When I fill the ExTwOne current meter details fields with the values
         Then I should see the ExTwOne REMOVE tab activated
 
@@ -145,7 +127,6 @@ Feature: TST_136 DF EXCH21 Workflow - Abort Pre Gas Test
     Scenario: Going through Perform DCC Message Creation for EICOM section
         Given Perform ExTwOne DCC Message Creation for EICOM section
         When I fill the ExTwOne Perform DCC Message Creation for EICOM details fields with values
-    #Then I should see ExTwOne Initial Risk Assessment for GAS section
 
     Scenario: Going through ExTwOne "INITIAL RISK ASSESSMENT"
         Given the ExTwOne INITIAL RISK ASSESSMENT section
@@ -206,3 +187,7 @@ Feature: TST_136 DF EXCH21 Workflow - Abort Pre Gas Test
         Given the ExTwOne Summary of Job and receive Customer Signature section
         When I fill the ExTwOne Summary of Job and receive Customer Signaturefields with values
         Then I should see ExTwOne Submit button to complete the job section
+
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist

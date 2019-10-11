@@ -1,15 +1,9 @@
 Feature: TST28_DF_FLTY20_SMETS2
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given TST28 the Login Page
-        When TST28 I pass "<Username>" and "<Password>"
-        Then TST28 I click Login button
-        And TST28 I should see the Appointment List
+    Scenario: Post DFRMVE7 SOAP Request
+        Given I post workorder using "xmlrequest/DFRMVE7.XML"
 
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given TST28 the Appointment List window
         When TST28 I click on select button
@@ -76,7 +70,7 @@ Feature: TST28_DF_FLTY20_SMETS2
         When TST28E I click on CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button
         Then TST28 I should see INITIAL POLARITY CHECK-MARTINDALE TEST section
 
-        Scenario: Going through "INITIAL POLARITY CHECK MARTINDALE TEST" section
+    Scenario: Going through "INITIAL POLARITY CHECK MARTINDALE TEST" section
         Given TST28 the INITIAL POLARITY CHECK MARTINDALE TEST section
         When TST28 I fill the INITIAL POLARITY CHECK field with the values
         Then TST28 I click on CAPTURE PHOTO OF PRE INSTALLATION MARTINDALE TEST button
@@ -244,7 +238,6 @@ Feature: TST28_DF_FLTY20_SMETS2
         Then TST28 I fill the field57 and Job Complete
         Then TST28 see Job Completed screen
 
-
-
-
-
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist

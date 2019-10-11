@@ -38,7 +38,7 @@ export class loginPageObject {
   public async performLogin() {
     await browser.get(config.baseUrl);
     await utility.wait(utility.medium_low);
-    await this.setUsernamePassword(utility.username, utility.password);
+    await this.setUsernamePassword(config.USERNAME, config.PASSWORD);
     await utility.wait(500);
     await this.clickLogin();
     await utility.wait(utility.medium);

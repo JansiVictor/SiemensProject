@@ -1,16 +1,9 @@
 Feature: TST_184 SF G EXCH22 Workflow - Pre Gas Abort
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given the ExchTwTwo Login Page
-        When I pass ExchTwTwo "<Username>" and "<Password>"
-        Then I click ExchTwTwo Login button
-        And I should see the ExchTwTwo Appointment List
+    Scenario: Post SFGEXCH22 SOAP Request
+        Given I post workorder using "xmlrequest/SFGEXCH22.XML"
 
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
-
+    @LoginScenario
     Scenario: Select the ExchTwTwo Latest workOrder
         Given the ExchTwTwo Appointment List window
         When I click on ExchTwTwo select button
@@ -21,7 +14,6 @@ Feature: TST_184 SF G EXCH22 Workflow - Pre Gas Abort
         When i see ExchTwTwo Call Forward or Arrive Button
         Then I click on ExchTwTwo CALL FORWARD button
         Then I should see page ExchTwTwo contect display
-        #######And I should see the ExchTwTwo CUSTOMER CONTACT NUMBER
         And I should see ExchTwTwo Contact made field
 
     Scenario: Selecting ExchTwTwo job and setting to depart
@@ -104,14 +96,6 @@ Feature: TST_184 SF G EXCH22 Workflow - Pre Gas Abort
         When I click the Reason and Abort Appointment Button
         Then I should see the Aborted status for the workorder "SFGEXCH22" on the appointments page
 
-
-
-
-
-
-
-
-
-
-
-
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist

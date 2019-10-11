@@ -1,18 +1,9 @@
 Feature: TST13_DF_FLTY20_Non_SMETS2
 
-Scenario: Post DFFLTY20TRAD SOAP Request
+    Scenario: Post DFFLTY20TRAD SOAP Request
         Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given TST13 the Login Page
-        When TST13 I pass "<Username>" and "<Password>"
-        Then TST13 I click Login button
-        And TST13 I should see the Appointment List
-
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given TST13 the Appointment List window
         When TST13 I click on select button
@@ -252,6 +243,6 @@ Scenario: Post DFFLTY20TRAD SOAP Request
         And TST13 I fill the field57 and Job Complete
         Then TST13 see Job Completed screen
 
-    Scenario: Going through deleting the work order after use 
+    Scenario: Going through deleting the work order after use
         When I delete workorder after use
         Then workorder should no longer exist

@@ -1,7 +1,7 @@
 Feature: TST_031 DF FLTY20 SMETS2 - SMETS2 Workflow - Contact made Abort No Access
-    
 
-Scenario: Post DFFLTY20 SOAP Request
+
+    Scenario: Post DFFLTY20 SOAP Request
         Given I post workorder using "xmlrequest/DFFLTY20.XML"
 
     @LoginScenario
@@ -9,7 +9,7 @@ Scenario: Post DFFLTY20 SOAP Request
         Given FTwenty the Appointment List window
         When FTwenty I click on select button
         Then FTwenty I should see Work Order window
-    
+
     Scenario: Going through Call Forward
         Given FTwenty the "Work Order" window
         When FTwenty i see Call Forward or Arrive Button
@@ -28,6 +28,6 @@ Scenario: Post DFFLTY20 SOAP Request
         When I click the Not Convenient with Customer Reason and Abort the Job
         Then I should see the Aborted status for the workorder "DFFLTY20" on the appointments page
 
-        Scenario: Going through deleting the work order after use 
+    Scenario: Going through deleting the work order after use
         When I delete workorder after use
         Then workorder should no longer exist

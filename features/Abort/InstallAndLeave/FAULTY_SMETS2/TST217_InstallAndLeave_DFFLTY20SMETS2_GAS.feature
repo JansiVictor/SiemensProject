@@ -1,18 +1,9 @@
 Feature: DFFLTY20 - InstallAndLeave GAS Workflow
 
-Scenario: Post DFFLTY20 SOAP Request
+    Scenario: Post DFFLTY20 SOAP Request
         Given I post workorder using "xmlrequest/DFFLTY20.XML"
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given FTwenty the Login Page
-        When FTwenty I pass "<Username>" and "<Password>"
-        Then FTwenty I click Login button
-        And FTwenty I should see the Appointment List
-
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given FTwenty the Appointment List window
         When FTwenty I click on select button
@@ -248,24 +239,24 @@ Scenario: Post DFFLTY20 SOAP Request
         Then TST03 I should see GAS INITIAL METER READING section
 
     Scenario: Going through "GAS INITIAL METER READING" section
-    Given TST03 the GAS INITIAL METER READING section
-    When TST03 I fill the fields with values Gas initial meter reading
-    Then TST03 I should see INSTALL KIT section
+        Given TST03 the GAS INITIAL METER READING section
+        When TST03 I fill the fields with values Gas initial meter reading
+        Then TST03 I should see INSTALL KIT section
 
     Scenario: Going through "Install Kit " GAS section
-    Given TST03 the Gas Install Kit gas section
-    When TST03 I fill the Gas Install Kit gas section fields with values
-    Then TST03 I should see Perform Post Installation GAS Checks sec
+        Given TST03 the Gas Install Kit gas section
+        When TST03 I fill the Gas Install Kit gas section fields with values
+        Then TST03 I should see Perform Post Installation GAS Checks sec
 
     Scenario: Going through "Post Installation GAS" GAS section
-    Given TST03 the Post Installation GAS sec
-    When I fill the InstallAndLeave Post Installation Tightness Test Values
-    Then I should see InstallLeave Replace CommsHubNoWan section
+        Given TST03 the Post Installation GAS sec
+        When I fill the InstallAndLeave Post Installation Tightness Test Values
+        Then I should see InstallLeave Replace CommsHubNoWan section
 
     Scenario: Going through Replace CommsHubNoWan section
-    Given InstallLeave Replace CommsHubNoWan section
-    When I fill the FLTY InstallLeave Replace CommshubNoWan details fields with values
-    Then TST03 I should see GAS APPLIANCE SAFETY CHECKS section
+        Given InstallLeave Replace CommsHubNoWan section
+        When I fill the FLTY InstallLeave Replace CommshubNoWan details fields with values
+        Then TST03 I should see GAS APPLIANCE SAFETY CHECKS section
 
     Scenario: Going through "Gas Appliance Safety Checks" GAS section
         Given FTwenty the Gas Appliance Safety Checks sec
@@ -303,6 +294,6 @@ Scenario: Post DFFLTY20 SOAP Request
         And FTwenty I fill the field57 and Job Complete
         Then FTwenty see Job Completed screen
 
-Scenario: Going through deleting the work order after use 
+    Scenario: Going through deleting the work order after use
         When I delete workorder after use
         Then workorder should no longer exist

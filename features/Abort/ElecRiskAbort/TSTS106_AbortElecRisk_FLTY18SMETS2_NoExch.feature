@@ -1,15 +1,9 @@
 Feature: TST106_AbortElecRisk_FLTY18SMETS2_NoExch Workflow
 
-Scenario Outline: Logging in to job's "Work Order" window
-        Given TST12 the Login Page
-        When TST12 I pass "<Username>" and "<Password>"
-        Then TST12 I click Login button
-        And TST12 I should see the Appointment List
+    Scenario: Post SFGFLTY18 SOAP Request
+        Given I post workorder using "xmlrequest/SFGFLTY18.XML"
 
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given TST12 the Appointment List window
         When TST12 I click on select button
@@ -60,9 +54,13 @@ Scenario Outline: Logging in to job's "Work Order" window
 
     Scenario: Going through "RISK ASSESSMENT - ELEC" section
         Given TST12 the RISK ASSESSMENT - ELEC section
-When I fill the RISK ASSESSMENT - Abort ELEC fields with the values
+        When I fill the RISK ASSESSMENT - Abort ELEC fields with the values
 
-Scenario: Going through the Reason codes popup
-Given the ELEC Risk AbortReasonCodespopup
-When I click the ELEC Reason and Abort Appointment Job
-Then I should see the ELEC Risk Aborted status for the workorder "SFGFLTY18" on the appointments page
+    Scenario: Going through the Reason codes popup
+        Given the ELEC Risk AbortReasonCodespopup
+        When I click the ELEC Reason and Abort Appointment Job
+        Then I should see the ELEC Risk Aborted status for the workorder "SFGFLTY18" on the appointments page
+
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist

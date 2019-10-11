@@ -1,18 +1,9 @@
 Feature: TST_162 SF G INST14 Workflow - Contact made Abort No Access
 
-Scenario: Post SFGINST14 SOAP Request
+    Scenario: Post SFGINST14 SOAP Request
         Given I post workorder using "xmlrequest/SFGINST14.XML"
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given the INSTFrtn Login Page
-        When I pass INSTFrtn "<Username>" and "<Password>"
-        Then I click INSTFrtn Login button
-
-        Examples:
-
-            | Username | Password    |
-            | E0000022 | 000Password |
-
+    @LoginScenario
     Scenario: Select the Latest INSTFrtn workOrder
         Given the INSTFrtn Appointment List window
         When I click on INSTFrtn select button
@@ -35,12 +26,6 @@ Scenario: Post SFGINST14 SOAP Request
         When I click the Not Convenient with Customer Reason and Abort the Job
         Then I should see the Aborted status for the workorder "SFGINST14" on the appointments page
 
-
- 	Scenario: Going through deleting the work order after use 
+    Scenario: Going through deleting the work order after use
         When I delete workorder after use
         Then workorder should no longer exist
-
-
-
-
-

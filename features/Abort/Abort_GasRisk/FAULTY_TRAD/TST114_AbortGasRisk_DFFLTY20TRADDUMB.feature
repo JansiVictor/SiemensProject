@@ -1,15 +1,9 @@
 Feature: TST114_AbortGasRisk_DFFLTY20TRADDUMB
 
-    Scenario Outline: Logging in to job's "Work Order" window for FLTY20TRAD
-        Given the Login Page for FLTY20TRAD
-        When I pass "<Username>" and "<Password>" for FLTY20TRAD
-        Then I click Login button for FLTY20TRAD
-        And I should see the Appointment List for FLTY20TRAD
+    Scenario: Post DFFLTY20TRAD SOAP Request
+        Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"
 
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder for FLTY20TRAD
         Given the Appointment List window for FLTY20TRAD
         When I click on select button for FLTY20TRAD
@@ -215,3 +209,7 @@ Feature: TST114_AbortGasRisk_DFFLTY20TRADDUMB
         When I write signature in Customer Signature for FLTY20TRAD
         And I fill the field57 and Job Complete for FLTY20TRAD
         Then see Job Completed screen for FLTY20TRAD
+
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist

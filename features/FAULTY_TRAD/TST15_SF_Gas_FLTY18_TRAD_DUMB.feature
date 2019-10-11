@@ -3,16 +3,7 @@ Feature: TST15_SF_Gas_FLTY18_Non_SMETS2
     Scenario: Post SFGFLTY18TRAD SOAP Request
         Given I post workorder using "xmlrequest/SFGFLTY18TRAD.XML"
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given TST15 the Login Page
-        When TST15 I pass "<Username>" and "<Password>"
-        Then TST15 I click Login button
-        And TST15 I should see the Appointment List
-
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
+    @LoginScenario
     Scenario: Select the Latest workOrder
         Given TST15 the Appointment List window
         When TST15 I click on select button
@@ -183,6 +174,6 @@ Feature: TST15_SF_Gas_FLTY18_Non_SMETS2
         And TST15 I fill the field57 and Job Complete
         Then TST15 see Job Completed screen
 
-    Scenario: Going through deleting the work order after use 
+    Scenario: Going through deleting the work order after use
         When I delete workorder after use
         Then workorder should no longer exist

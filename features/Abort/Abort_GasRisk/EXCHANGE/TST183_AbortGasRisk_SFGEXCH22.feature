@@ -1,16 +1,9 @@
 Feature: TST183_AbortGasRisk_SFGEXCH22
 
-    Scenario Outline: Logging in to job's "Work Order" window
-        Given the ExchTwTwo Login Page
-        When I pass ExchTwTwo "<Username>" and "<Password>"
-        Then I click ExchTwTwo Login button
-        And I should see the ExchTwTwo Appointment List
+    Scenario: Post SFGEXCH22 SOAP Request
+        Given I post workorder using "xmlrequest/SFGEXCH22.XML"
 
-        Examples:
-            | Username    | Password    |
-            | Automation2 | Aut0m4t1on2 |
-
-
+    @LoginScenario
     Scenario: Select the ExchTwTwo Latest workOrder
         Given the ExchTwTwo Appointment List window
         When I click on ExchTwTwo select button
@@ -71,3 +64,7 @@ Feature: TST183_AbortGasRisk_SFGEXCH22
         And I fill the GasRisk btn1 abort fields with values
         And I select Reason and Gas Abort Job
         Then I should see the Aborted status for the workorder "SFGEXCH22" on the appointments page
+
+    Scenario: Going through deleting the work order after use
+        When I delete workorder after use
+        Then workorder should no longer exist
