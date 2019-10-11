@@ -43,7 +43,6 @@ And I should see RmveGas ARRIVE button
 And I should see RmveGas DOORSTEP PROTOCOL tab activated
 
 Scenario: Set RmveGas job to Arrived status
-//Given the RmveGas "WorkOrder" page
 When I click on RmveGas ARRIVE button  	
 Then I should see RmveGas Arrival Time details
 And I should see RmveGas  BE AWARE OF ANY DANGER! section

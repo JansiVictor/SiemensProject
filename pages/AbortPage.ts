@@ -81,20 +81,23 @@ export class AbortPageObject {
 	public airlineRefInput: ElementFinder;
 	public updateDNOY: ElementFinder;
 	public dnoInput: ElementFinder;
-	public workCanbeCompletedN: ElementFinder;
-	public addNotes: ElementFinder;
-	public elecAbortBtn: ElementFinder;
-	public reasonforAbort: ElementFinder;
-	public abortElecNxtBtn: ElementFinder;
-	public AbortElecNotes: ElementFinder;
-	public stayOnSiteN: ElementFinder;
-	//################## Risk Assess Gas ##############
-	public capturemeterPressureMed: ElementFinder;
-	public medPressureNo: ElementFinder;
-	public abortGas: ElementFinder;
+	public workCanbeCompletedN:ElementFinder;
+	public addNotes:ElementFinder;
+	public elecAbortBtn:ElementFinder;
+	public reasonforAbort:ElementFinder;
+	public abortElecNxtBtn:ElementFinder;
+	public AbortElecNotes:ElementFinder;
+	public stayOnSiteN:ElementFinder;
+	public submitRisk:ElementFinder;
+//################## Risk Assess Gas ##############
+	public capturemeterPressureMed:ElementFinder;
+	public medPressureNo:ElementFinder;
+	public abortGas:ElementFinder;
 	public gasabortAppointment: ElementFinder;
 	public abortbtnfail: ElementFinder;
 	public gasabortApp: ElementFinder;
+
+    
 
 
 
@@ -460,6 +463,7 @@ export class AbortPageObject {
 		this.polNxtBtn = element(by.xpath('(//div/button[@id="btnNextPol"])[2]'));
 		this.polNxtBtn_1 = element(by.xpath('(//div/button[@id="btnNextPol"])[1]'));
 		//
+		this.submitRisk = element(by.xpath('//button[text()="SUBMIT"]'));
 
 		//I & L Remove Page Elements
 		this.statusofElecAssetSelect = element(by.xpath('//select[@id="cbx_StaAss_sel"]'));

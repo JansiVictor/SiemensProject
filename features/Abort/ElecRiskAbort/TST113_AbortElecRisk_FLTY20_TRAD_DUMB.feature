@@ -1,4 +1,4 @@
-Feature: TST54_AbortElecRisk_FLTY20NonSMETS2
+Feature: TST113_AbortElecRisk_FLTY20_TRAD_DUMB
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given TST13 the Login Page
