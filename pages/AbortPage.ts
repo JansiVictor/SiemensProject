@@ -252,9 +252,6 @@ export class AbortPageObject {
 	public assetInput1: ElementFinder;
 	public installKitNxtBtn1: ElementFinder;
 	//
-	//###############Reason Popup Elemenst##########
-	public AbortNoAccessReasonCodes: ElementFinder;
-	public GenericReasonCodeSelect: ElementFinder;
 
 	// I & L FLTY Elements
 	public commshubconnectedtoSupply: ElementFinder;
