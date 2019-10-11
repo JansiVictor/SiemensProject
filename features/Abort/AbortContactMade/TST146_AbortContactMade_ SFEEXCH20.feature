@@ -32,11 +32,11 @@ Feature: Exchange20 Workflow
 
     Scenario: Selecting ExchangeTwnty job and setting to depart
         Given the ExchangeTwnty Work Order page
-        When I fill the fields with the value for Contact Made Abort       
+        When I fill the fields with the value     
         Then I should see the Abort Reason Code Pop Up
 
     Scenario: Going through the Reason codes popup
-        Given the AbortReasonCodespopup for Contact Made Abort
+        Given the AbortReasonCodespopup
         When I click the Not Convenient with Customer Reason and Abort the Job
         Then I should see the Aborted status for the workorder "SFEEXCH20" on the appointments page
 

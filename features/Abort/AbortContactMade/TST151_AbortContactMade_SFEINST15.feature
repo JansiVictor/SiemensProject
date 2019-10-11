@@ -30,11 +30,11 @@ Scenario: Post SFEINST15 SOAP Request
 
     Scenario: Selecting job and setting to depart
         Given the SFEINST15 WorkOrder Page
-       When I fill the fields with the value for Contact Made Abort        
+       When I fill the fields with the value       
         Then I should see the Abort Reason Code Pop Up
 
     Scenario: Going through the Reason codes popup
-        Given the AbortReasonCodespopup for Contact Made Abort
+        Given the AbortReasonCodespopup
         When I click the Not Convenient with Customer Reason and Abort the Job 
         Then I should see the Aborted status for the workorder "SFEINST15" on the appointments page
 

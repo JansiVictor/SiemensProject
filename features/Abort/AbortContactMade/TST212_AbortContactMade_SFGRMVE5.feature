@@ -1,5 +1,4 @@
 
-
 Feature: TST_212 SF G RMVE5 Workflow - Contact made Abort No Access
 
 Scenario: Post SFGRMVE5 SOAP Request
