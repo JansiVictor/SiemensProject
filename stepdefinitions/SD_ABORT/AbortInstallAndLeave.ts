@@ -173,6 +173,14 @@ When('I fill the InstallAndLeave Remove meter values for EXCH23', async function
 	
   });
 
+  When('I fill the InstallAndLeave Remove meter values for EXCH24', async function () {
+
+	await installleave.fillElecmeterremEX24();
+	
+  });
+
+
+
   When('I fill the FLTY InstallAndLeave Remove meter values', async function () {
 
 	await installleave.fillElecmeterrem_FLTY();

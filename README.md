@@ -67,6 +67,44 @@ npm install xmlhttprequest
 npm run build
 ```
 
+* Uncomment the required Spec on the config file based on the batch of testcases to be run.
+```
+AbortGasRisk-EXCH cases: "../../features/Abort/Abort_GasRisk/EXCHANGE/*.feature",
+AbortGasRisk-FLTY cases: "../../features/Abort/Abort_GasRisk/FAULTY_SMETS2/*.feature",
+AbortGasRisk-FALTYTRAD cases: "../../features/Abort/Abort_GasRisk/FAULTY_TRAD/*.feature",
+AbortGasRisk-INST cases: "../../features/Abort/Abort_GasRisk/INSTALLATION/*.feature",
+AbortGasRisk-REMOVE cases: "../../features/Abort/Abort_GasRisk/REMOVE/*.feature",
+AbortInitialRisk-EXCH cases: "../../features/Abort/Abort_InitialRisk/EXCHANGE/*.feature",
+AbortInitialRisk-FLTY cases: "../../features/Abort/Abort_InitialRisk/FAULTY_SMETS2/*.feature",
+AbortInitialRisk-FLTYTRAD cases: "../../features/Abort/Abort_InitialRisk/FAULTY_TRAD/*.feature",
+AbortInitialRisk-INST cases: "../../features/Abort/Abort_InitialRisk/INSTALLATION/*.feature",
+AbortInitialRisk-REMOVE cases: "../../features/Abort/Abort_InitialRisk/REMOVE/*.feature",
+AbortContactMade-EXCH cases: "../../features/Abort/AbortContactMade/EXCHANGE/*.feature",
+AbortContactMade-FLTY cases: "../../features/Abort/AbortContactMade/FAULTY_SMETS2/*.feature",
+AbortContactMade-FLTYTRAD cases: "../../features/Abort/AbortContactMade/FAULTY_TRAD/*.feature",
+AbortContactMade-INST cases: "../../features/Abort/AbortContactMade/INSTALLATION/*.feature",
+AbortContactMade-REMOVE cases: "../../features/Abort/AbortContactMade/REMOVE/*.feature",
+AbortNoAccessSuspend-EXCH cases: "../../features/Abort/AbortNoAccessSuspend/EXCHANGE/*.feature",
+AbortNoAccessSuspend-FLTY cases: "../../features/Abort/AbortNoAccessSuspend/FAULTY_SMETS2/*.feature",
+AbortNoAccessSuspend-FLTYTRAD cases: "../../features/Abort/AbortNoAccessSuspend/FAULTY_TRAD/*.feature",
+AbortNoAccessSuspend-INST cases: "../../features/Abort/AbortNoAccessSuspend/INSTALLATION/*.feature",
+AbortNoAccessSuspend-REMOVE cases: "../../features/Abort/AbortNoAccessSuspend/REMOVE/*.feature",
+AbortElecRisk-EXCH cases: "../../features/Abort/Abort_ElecRisk/EXCHANGE/*.feature",
+AbortElecRisk-FLTY cases: "../../features/Abort/Abort_ElecRisk/FAULTY_SMETS2/*.feature",
+AbortElecRisk-FLTYTRAD cases: "../../features/Abort/Abort_ElecRisk/FAULTY_TRAD/*.feature",
+AbortElecRisk-INST cases: "../../features/Abort/Abort_ElecRisk/INSTALLATION/*.feature",
+AbortElecRisk-REMOVE cases: "../../features/Abort/Abort_ElecRisk/REMOVE/*.feature",
+InstallAndLeave-EXCH cases: "../../features/Abort/InstallAndLeave/EXCHANGE/*.feature",
+InstallAndLeave-FLTY cases: "../../features/Abort/InstallAndLeave/FAULTY_SMETS2/*.feature",
+InstallAndLeave-FLTYTRAD cases: "../../features/Abort/InstallAndLeave/FAULTY_TRAD/*.feature",
+InstallAndLeave-INST cases: "../../features/Abort/InstallAndLeave/INSTALLATION/*.feature",
+EXCH-E2E cases:  "../../features/EXCHANGE/*.feature",
+FLTY-E2E cases:  "../../features/FAULTY_SMETS2/*.feature",
+FLTYTRAD-E2E cases: "../../features/FAULTY_TRAD/*.feature",
+INST-E2E cases:  "../../features/INSTALLATION/*.feature",
+REMOVE-E2E cases: "../../features/REMOVE/*.feature",
+```
+
 * Now just run the test command which launches the Chrome Browser and runs the scripts.
 ```
 npm run test

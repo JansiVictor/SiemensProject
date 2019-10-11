@@ -4,7 +4,7 @@
  */
 
 import {
-	element,browser,
+	element, browser,
 	by,
 	ElementFinder,
 	ElementArrayFinder
@@ -42,52 +42,52 @@ const inst: InstallPageObject = new InstallPageObject();
 
 export class AbortPageObject {
 
-    
+
 	//Abort ElementFinder Appointment List#######
-	public abortNoAccessContactMade:ElementFinder;
-	public notConvinientRadioBtn:ElementFinder;
-	public abortNxtbtn:ElementFinder;
-	public abortAddNotes:ElementFinder;
-	public abortCapturePhoto:ElementFinder;
-	public abortAppointment:ElementFinder;
-    public reScanPopUpOK:ElementFinder;
-    public appointmentRescheduledNo:ElementFinder;
-    public appointmentconfirmationNo: ElementFinder;
-    //###########ABORT Doorstep#############
+	public abortNoAccessContactMade: ElementFinder;
+	public notConvinientRadioBtn: ElementFinder;
+	public abortNxtbtn: ElementFinder;
+	public abortAddNotes: ElementFinder;
+	public abortCapturePhoto: ElementFinder;
+	public abortAppointment: ElementFinder;
+	public reScanPopUpOK: ElementFinder;
+	public appointmentRescheduledNo: ElementFinder;
+	public appointmentconfirmationNo: ElementFinder;
+	//###########ABORT Doorstep#############
 	public accessToSiteN: ElementFinder;
 	public captureNoAcess: ElementFinder;
 	public suspendJobYes: ElementFinder;
 	public suspendJobNo: ElementFinder;
-	public AddNotesSuspend:ElementFinder;
-	public suspendJobBtn:ElementFinder;
-	public reScheduleAppointNo:ElementFinder;
-    public abortNoAcessBtn:ElementFinder;
-    //##############Risk Assessment Page ######
-    public OKtoProceedEGPOutcomeN:ElementFinder;
-    public riskAssessAbort:ElementFinder;
-	public unabletoOffGasOption:ElementFinder;
-	
+	public AddNotesSuspend: ElementFinder;
+	public suspendJobBtn: ElementFinder;
+	public reScheduleAppointNo: ElementFinder;
+	public abortNoAcessBtn: ElementFinder;
+	//##############Risk Assessment Page ######
+	public OKtoProceedEGPOutcomeN: ElementFinder;
+	public riskAssessAbort: ElementFinder;
+	public unabletoOffGasOption: ElementFinder;
+
 	//################## Risk Assess Elec ##############
-	public capturePhotoAbortElec:ElementFinder;
+	public capturePhotoAbortElec: ElementFinder;
 	public updatedHnSY: ElementFinder;
 	public airlineRefInput: ElementFinder;
 	public updateDNOY: ElementFinder;
 	public dnoInput: ElementFinder;
-	public workCanbeCompletedN:ElementFinder;
-	public addNotes:ElementFinder;
-	public elecAbortBtn:ElementFinder;
-	public reasonforAbort:ElementFinder;
-	public abortElecNxtBtn:ElementFinder;
-//################## Risk Assess Gas ##############
-	public capturemeterPressureMed:ElementFinder;
-	public medPressureNo:ElementFinder;
-	public abortGas:ElementFinder;
-    public gasabortAppointment: ElementFinder;
+	public workCanbeCompletedN: ElementFinder;
+	public addNotes: ElementFinder;
+	public elecAbortBtn: ElementFinder;
+	public reasonforAbort: ElementFinder;
+	public abortElecNxtBtn: ElementFinder;
+	//################## Risk Assess Gas ##############
+	public capturemeterPressureMed: ElementFinder;
+	public medPressureNo: ElementFinder;
+	public abortGas: ElementFinder;
+	public gasabortAppointment: ElementFinder;
 	public abortbtnfail: ElementFinder;
 	public gasabortApp: ElementFinder;
-	
 
-    public AssetaddedtowallNewReg: ElementFinder;
+
+	public AssetaddedtowallNewReg: ElementFinder;
 	public nextSecnewRegulator: ElementFinder;
 	public gasmeterserialSendreg: ElementFinder;
 	public selectValidAssettoInst1: ElementFinder;
@@ -95,8 +95,8 @@ export class AbortPageObject {
 
 	//#####END#######
 	//############# PRE GAS Abort###########
-	public preGASinstallN:ElementFinder;
-	public abortGASMeterBtn:ElementFinder;
+	public preGASinstallN: ElementFinder;
+	public abortGASMeterBtn: ElementFinder;
 
 	// I&L Post Installation Gas Tightness
 	public contactGTYEs: ElementFinder;
@@ -198,15 +198,15 @@ export class AbortPageObject {
 	//
 	//####Abrt for I&L Job completion page####################
 
-	public PPMIDOfferedNo:ElementFinder;
-	public PPMIDOfferedNo_1:ElementFinder;
-	public PPMIDAddNotes:ElementFinder;
-	public PPMIDAddNotes_1:ElementFinder;
-	public gasAndElecMeterN:ElementFinder;
-	public fullHanDeviceNo:ElementFinder;
-	public fullWanAllmeterNo:ElementFinder;
-	public fullconfigElecApplyNo:ElementFinder;
-	public AbortElecMeter:ElementFinder;
+	public PPMIDOfferedNo: ElementFinder;
+	public PPMIDOfferedNo_1: ElementFinder;
+	public PPMIDAddNotes: ElementFinder;
+	public PPMIDAddNotes_1: ElementFinder;
+	public gasAndElecMeterN: ElementFinder;
+	public fullHanDeviceNo: ElementFinder;
+	public fullWanAllmeterNo: ElementFinder;
+	public fullconfigElecApplyNo: ElementFinder;
+	public AbortElecMeter: ElementFinder;
 	public smartLitLeftNo: ElementFinder;
 	public additionalInfo: ElementFinder;
 	public demoEquipment: ElementFinder;
@@ -226,7 +226,7 @@ export class AbortPageObject {
 	public RemoveGasAssetrplacedorremoved: ElementFinder;
 	public removedgasmeterreading: ElementFinder;
 	public captureMeterReadingSend2: ElementFinder;
-    public captureFinalMeterInstall1: ElementFinder;
+	public captureFinalMeterInstall1: ElementFinder;
 	//
 
 	// I & L Install Page Elements
@@ -251,41 +251,41 @@ export class AbortPageObject {
 	public NationalGridSend: ElementFinder;
 	public HandSAirline: ElementFinder;
 	public GTAttendenceOnsiteY: ElementFinder;
-    public GTresolveIssueY: ElementFinder;
-    public TightnessIssueY: ElementFinder;
+	public GTresolveIssueY: ElementFinder;
+	public TightnessIssueY: ElementFinder;
 	public cappedgascooker: ElementFinder;
 	public addnlnote: ElementFinder;
 	public ReplacedGasMeterY: ElementFinder;
-    public ReplacedGasregulatorY: ElementFinder;
-    public Airlineref1: ElementFinder;
+	public ReplacedGasregulatorY: ElementFinder;
+	public Airlineref1: ElementFinder;
 	public TightnessperformedY: ElementFinder;
-    public cappostinstallation: ElementFinder;
-    public Dropinpressure: ElementFinder;
-    public dropinpressureselect: ElementFinder;
+	public cappostinstallation: ElementFinder;
+	public Dropinpressure: ElementFinder;
+	public dropinpressureselect: ElementFinder;
 	public GasTightnessPassed: ElementFinder;
-    public TestWitness: ElementFinder;
-    public standingPressure1: ElementFinder;
-    public cappostinstallationpressure: ElementFinder;
-    public workingPressure: ElementFinder;
-    public captureworkingPressure: ElementFinder;
-    public captureFinalMeterInstall: ElementFinder;
+	public TestWitness: ElementFinder;
+	public standingPressure1: ElementFinder;
+	public cappostinstallationpressure: ElementFinder;
+	public workingPressure: ElementFinder;
+	public captureworkingPressure: ElementFinder;
+	public captureFinalMeterInstall: ElementFinder;
 	public MsgreqDCC: ElementFinder;
 	public hubconnectdtoWAN: ElementFinder;
 	public PostinstallNext: ElementFinder;
 	public selectMeterType: ElementFinder;
 	//
 
-    constructor(){
-    //Abort Elements Appointment List########
+	constructor() {
+		//Abort Elements Appointment List########
 		this.appointmentRescheduledNo = element(by.id('rb_app_re_n'));
 		this.abortNoAccessContactMade = element(by.id('btn_call_fwd_abort'));
 		this.notConvinientRadioBtn = element(by.xpath('//label/div[@id="abdradio1"]'));
 		this.abortNxtbtn = element(by.id('btnCallNext'));
-		this.abortAddNotes= element(by.id('txt_addNotAbort'));
-		this.abortCapturePhoto= element(by.id('cameraBtn1'));
+		this.abortAddNotes = element(by.id('txt_addNotAbort'));
+		this.abortCapturePhoto = element(by.id('cameraBtn1'));
 		this.abortAppointment = element(by.xpath('//button[text()="ABORT APPOINTMENT"]'));
-        this.reScanPopUpOK=element(by.xpath('//button[text()="OK"]'));
-        this.appointmentconfirmationNo = element(by.id('rb_app_conf_n'));
+		this.reScanPopUpOK = element(by.xpath('//button[text()="OK"]'));
+		this.appointmentconfirmationNo = element(by.id('rb_app_conf_n'));
 		//###########ABORT Door Step#############
 		this.accessToSiteN = element(by.id('rb_access_n'));
 		this.captureNoAcess = element(by.id('btn_NoAccCusPre'));
@@ -295,64 +295,64 @@ export class AbortPageObject {
 		this.suspendJobBtn = element(by.id('btn_drstp_suspend'));
 		this.reScheduleAppointNo = element(by.id('rb_ReschAppRq_n'));
 		this.abortNoAcessBtn = element(by.id('btn_drstp_abort'));
-        //#############END#############
-        
-        //#################Risk Assessment Page#############
-        this.OKtoProceedEGPOutcomeN = element(by.xpath('//label[@id="rb_OKProce_n"]'));
-        this.riskAssessAbort = element(by.xpath('//button[text()="Abort"]'));
+		//#############END#############
+
+		//#################Risk Assessment Page#############
+		this.OKtoProceedEGPOutcomeN = element(by.xpath('//label[@id="rb_OKProce_n"]'));
+		this.riskAssessAbort = element(by.xpath('//button[text()="Abort"]'));
 		this.unabletoOffGasOption = element(by.id('abdradio11'));
 
 
-	   // ####################################
-	   // I & L FLTY Elements
-	   this.captureMeterReadingSend2 = element(by.xpath('//*[@id="reg0"]'));
-	   this.captureFinalMeterInstall1 = element(by.xpath('//*[@id="btn_Next_read"]'));
-	   this.commshubconnectedtoSupply = element(by.xpath('//*[contains(text(),"Comms Hub Connected to Supply?")]'));
+		// ####################################
+		// I & L FLTY Elements
+		this.captureMeterReadingSend2 = element(by.xpath('//*[@id="reg0"]'));
+		this.captureFinalMeterInstall1 = element(by.xpath('//*[@id="btn_Next_read"]'));
+		this.commshubconnectedtoSupply = element(by.xpath('//*[contains(text(),"Comms Hub Connected to Supply?")]'));
 		this.commshubconnectedtoSupplyY = element(by.xpath('//input[@id="commshubconnectedtrue"]/following-sibling::span[@class="outer"]'));
 		this.commshubconnectedtoSWan = element(by.xpath('//*[contains(text(),"Comms Hub Connected to WAN?")]'));
 		this.commshubconnectedtoWanY = element(by.xpath('//input[@id="commhubwanfalse"]/following-sibling::span[@class="outer"]'));
 		this.commshubconnectedtoAsset = element(by.xpath('//*[contains(text(),"Do you need to exchange an asset?")]'));
 		this.commshubconnectedtoAssetY = element(by.xpath('//input[@id="exchangeassettrue"]/following-sibling::span[@class="outer"]'));
-		
 
-	   this.ContactGTY = element(by.xpath('//*[@id="gtp1"]/following-sibling::span[@class="outer"]'));
-	   this.NationalGridSend = element(by.id('input1'));
-	   //this.NationalGridSend2 = element(by.xpath('(//*[@id="input1"])[2]'));
-	   this.HandSAirline = element(by.xpath('//*[@id="gtp3"]/following-sibling::span[@class="outer"]'));
-	   this.Airlineref1 = element(by.xpath('(//*[@id="input2"])[1]'));
-	   this.GTAttendenceOnsiteY = element(by.xpath('//*[@id="gtp5"]/following-sibling::span[@class="outer"]'));
-	   this.GTresolveIssueY = element(by.xpath('//*[@id="gtp9"]/following-sibling::span[@class="outer"]'));
-	   this.TightnessIssueY = element(by.xpath('//*[@id="gtp11"]/following-sibling::span[@class="outer"]'));
-	   this.cappedgascooker = element(by.xpath('(//*[@id="work[$index]"]/following-sibling::span[@class="outer"])[2]'));
-	   this.addnlnote = element(by.id('text1'));
-	   this.ReplacedGasMeterY = element(by.xpath('//*[@id="gtp13"]/following-sibling::span[@class="outer"]'));
-	   this.ReplacedGasregulatorY = element(by.xpath('//*[@id="gtp15"]/following-sibling::span[@class="outer"]'));
-	   this.TightnessperformedY = element(by.xpath('//*[@id="gtp17"]/following-sibling::span[@class="outer"]'));
-	   this.cappostinstallation = element(by.xpath('//*[@id="btn_CapPoTi_test"]/button'));
-	   this.Dropinpressure = element(by.xpath('//*[@id="gtp19"]/following-sibling::span[@class="outer"]'));
 
-	   this.dropinpressureselect = element(by.xpath('(//select[@id="select1"])[1]'));
-	   this.selectMeterType = element(by.xpath('(//select[@id="select2"])[1]'));
-	   this.GasTightnessPassed = element(by.xpath('//*[@id="gtp21"]/following-sibling::span[@class="outer"]'));
-	   this.TestWitness = element(by.id('input3'));
-	   this.standingPressure1 = element(by.id('gaspoststandingpressure'));
-	   this.cappostinstallationpressure = element(by.xpath('(//*[@id="btn_CapStPr"]/button)[1]'));
-	   this.workingPressure = element(by.id('gaspostworkingpressure'));
-	   this.captureworkingPressure = element(by.xpath('(//*[@id="btn_CapStPr"]/button)[2]'));
-	   this.captureFinalMeterInstall = element(by.xpath('(//*[@id="btn2"])[1]'));
-	   this.MsgreqDCC = element(by.xpath('//*[@id="comms2MessageReqtrue"]/following-sibling::span[@class="outer"]'));
-	   this.hubconnectdtoWAN = element(by.xpath('//*[@id="Cradionm2"]/following-sibling::span[@class="outer"]'));
-	   this.PostinstallNext = element(by.xpath('//*[@id="btnNextPol"]'));
-	   //
-	   
-	   //##################Reason Popup#####################
-	   this.AbortNoAccessReasonCodes = element(by.xpath('//*[text()="Abort: No Access Reason Codes"]'));
+		this.ContactGTY = element(by.xpath('//*[@id="gtp1"]/following-sibling::span[@class="outer"]'));
+		this.NationalGridSend = element(by.id('input1'));
+		//this.NationalGridSend2 = element(by.xpath('(//*[@id="input1"])[2]'));
+		this.HandSAirline = element(by.xpath('//*[@id="gtp3"]/following-sibling::span[@class="outer"]'));
+		this.Airlineref1 = element(by.xpath('(//*[@id="input2"])[1]'));
+		this.GTAttendenceOnsiteY = element(by.xpath('//*[@id="gtp5"]/following-sibling::span[@class="outer"]'));
+		this.GTresolveIssueY = element(by.xpath('//*[@id="gtp9"]/following-sibling::span[@class="outer"]'));
+		this.TightnessIssueY = element(by.xpath('//*[@id="gtp11"]/following-sibling::span[@class="outer"]'));
+		this.cappedgascooker = element(by.xpath('(//*[@id="work[$index]"]/following-sibling::span[@class="outer"])[2]'));
+		this.addnlnote = element(by.id('text1'));
+		this.ReplacedGasMeterY = element(by.xpath('//*[@id="gtp13"]/following-sibling::span[@class="outer"]'));
+		this.ReplacedGasregulatorY = element(by.xpath('//*[@id="gtp15"]/following-sibling::span[@class="outer"]'));
+		this.TightnessperformedY = element(by.xpath('//*[@id="gtp17"]/following-sibling::span[@class="outer"]'));
+		this.cappostinstallation = element(by.xpath('//*[@id="btn_CapPoTi_test"]/button'));
+		this.Dropinpressure = element(by.xpath('//*[@id="gtp19"]/following-sibling::span[@class="outer"]'));
 
-	   //######################################
-        
-	   // #################################### Risk Assess Elec##########
-	   
-	   this.capturePhotoAbortElec =element(by.xpath('//button[text()="CAPTURE PHOTO OF HAZARDS IDENTIFIED"]'));
+		this.dropinpressureselect = element(by.xpath('(//select[@id="select1"])[1]'));
+		this.selectMeterType = element(by.xpath('(//select[@id="select2"])[1]'));
+		this.GasTightnessPassed = element(by.xpath('//*[@id="gtp21"]/following-sibling::span[@class="outer"]'));
+		this.TestWitness = element(by.id('input3'));
+		this.standingPressure1 = element(by.id('gaspoststandingpressure'));
+		this.cappostinstallationpressure = element(by.xpath('(//*[@id="btn_CapStPr"]/button)[1]'));
+		this.workingPressure = element(by.id('gaspostworkingpressure'));
+		this.captureworkingPressure = element(by.xpath('(//*[@id="btn_CapStPr"]/button)[2]'));
+		this.captureFinalMeterInstall = element(by.xpath('(//*[@id="btn2"])[1]'));
+		this.MsgreqDCC = element(by.xpath('//*[@id="comms2MessageReqtrue"]/following-sibling::span[@class="outer"]'));
+		this.hubconnectdtoWAN = element(by.xpath('//*[@id="Cradionm2"]/following-sibling::span[@class="outer"]'));
+		this.PostinstallNext = element(by.xpath('//*[@id="btnNextPol"]'));
+		//
+
+		//##################Reason Popup#####################
+		this.AbortNoAccessReasonCodes = element(by.xpath('//*[text()="Abort: No Access Reason Codes"]'));
+
+		//######################################
+
+		// #################################### Risk Assess Elec##########
+
+		this.capturePhotoAbortElec = element(by.xpath('//button[text()="CAPTURE PHOTO OF HAZARDS IDENTIFIED"]'));
 		this.updatedHnSY = element(by.xpath('//input[@id="radiora11"]/following-sibling::span[@class="outer"]'));
 		this.newregulatorReplaced = element(by.xpath('//input[@id="regulator_replacedtrue"]/following-sibling::span[@class="outer"]'));
 		this.airlineRefInput = element(by.xpath('//input[@id="input1"]'));
@@ -363,26 +363,26 @@ export class AbortPageObject {
 		this.elecAbortBtn = element(by.xpath('//button[text()="Abort"]'));
 		this.reasonforAbort = element(by.xpath('//div[@id="abdradio4"]'));
 		this.abortElecNxtBtn = element(by.xpath('//button[text()="NEXT"]'));
-	
-	   // #################################### Risk Assess Gas##########	
-		
-	   this.capturemeterPressureMed =element(by.xpath('//input[@id="radiorag2"]/following-sibling::span[@class="outer"]'));
-	   this.medPressureNo = element(by.xpath('//input[@id="radiorag4"]/following-sibling::span[@class="outer"]'));
-	   this.abortGas = element(by.xpath('//input[@id="btn_Gas_fail"]'));
-	   this.selectValidAssettoInst1 = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[4]'));
-	   this.selectValidAssettoInst2 = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[1]'));
-	   this.gasmeterserialSendreg = element(by.xpath('//*[@id="btn_RegSNum1"]'));
-	   this.nextSecnewRegulator = element(by.xpath('//*[@id="newRegulator_nextButton"]'));
+
+		// #################################### Risk Assess Gas##########	
+
+		this.capturemeterPressureMed = element(by.xpath('//input[@id="radiorag2"]/following-sibling::span[@class="outer"]'));
+		this.medPressureNo = element(by.xpath('//input[@id="radiorag4"]/following-sibling::span[@class="outer"]'));
+		this.abortGas = element(by.xpath('//input[@id="btn_Gas_fail"]'));
+		this.selectValidAssettoInst1 = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[4]'));
+		this.selectValidAssettoInst2 = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[1]'));
+		this.gasmeterserialSendreg = element(by.xpath('//*[@id="btn_RegSNum1"]'));
+		this.nextSecnewRegulator = element(by.xpath('//*[@id="newRegulator_nextButton"]'));
 		//################ PRE GAS Abort########
 
-	   this.preGASinstallN = element(by.id('rb_PreGasTigTCarOut_n'));
-	   this.abortGASMeterBtn = element(by.xpath('//button[text()="ABORT  METER"]'));
-	   // I&L Post Gas Installation 
-	    this.reportedToHSYEsGas = element(by.xpath('//input[@id="gtp3"]/following-sibling::span[@class="outer"]'));
-	    this.inputAirLineRefGAS = element(by.xpath('//div/input[@id="input2"]'));
-	    this.gtResolveIssueGas = element(by.xpath('//input[@id="gtp9"]/following-sibling::span[@class="outer"]'));
-	    this.gtAttendanceOnSiteYes = element(by.xpath('//input[@id="gtp5"]/following-sibling::span[@class="outer"]'));
-	    this.contactGTYEs = element(by.xpath('//input[@id="gtp1"]/following-sibling::span[@class="outer"]'));
+		this.preGASinstallN = element(by.id('rb_PreGasTigTCarOut_n'));
+		this.abortGASMeterBtn = element(by.xpath('//button[text()="ABORT  METER"]'));
+		// I&L Post Gas Installation 
+		this.reportedToHSYEsGas = element(by.xpath('//input[@id="gtp3"]/following-sibling::span[@class="outer"]'));
+		this.inputAirLineRefGAS = element(by.xpath('//div/input[@id="input2"]'));
+		this.gtResolveIssueGas = element(by.xpath('//input[@id="gtp9"]/following-sibling::span[@class="outer"]'));
+		this.gtAttendanceOnSiteYes = element(by.xpath('//input[@id="gtp5"]/following-sibling::span[@class="outer"]'));
+		this.contactGTYEs = element(by.xpath('//input[@id="gtp1"]/following-sibling::span[@class="outer"]'));
 		this.GAStightnessTestYes = element(by.xpath('//input[@id="gtp11"]/following-sibling::span[@class="outer"]'));
 		this.GasTightnessTestPerformedYes = element(by.xpath('//input[@id="gtp17"]/following-sibling::span[@class="outer"]'));
 		this.nationalGTRefInput = element(by.id('input1'));
@@ -412,111 +412,111 @@ export class AbortPageObject {
 		this.gasNMEXbuttonSubmit = element(by.xpath('//*[@id="btn1"]'));
 		this.polNxtBtn = element(by.xpath('(//div/button[@id="btnNextPol"])[2]'));
 		this.polNxtBtn_1 = element(by.xpath('(//div/button[@id="btnNextPol"])[1]'));
-	   //
+		//
 
-	   //I & L Remove Page Elements
-	   this.statusofElecAssetSelect = element(by.xpath('//select[@id="cbx_StaAss_sel"]'));
-	   this.statusofAssetSelect = element(by.xpath('//select[@id="removeGasMeter_assetStatusSelect"]'));
-	   this.removedmeterReading = element(by.xpath('//input[@id="input0"]'));
-	   this.RemoveElecAssetrplacedorremoved = element(by.xpath('((//*[@id="CCHradio5"])[2])/following-sibling::span[@class="outer"]'));
-	   this.RemoveElecAssetrplacedorremoved1 = element(by.xpath('(//*[@id="CCHradio5"])/following-sibling::span[@class="outer"]'));
-	   this.randomClick = element(by.xpath('//*[@id="removeGasMeter_unableToRead"]/following-sibling::span[@class="outer"]'));  
-	   this.randomClick2 = element(by.xpath('//*[@id="rb_UnReadMet_y"]/following-sibling::span[@class="outer"]'));  
-	   this.RemoveGasAssetrplacedorremoved = element(by.xpath('//*[@id="removeGasMeter_assetRemovedReplaced_y"]/span'));  
-	   this.removedgasmeterreading = element(by.xpath('(//*[@id="input0"])[2]'));  
-	   this.AssetaddedtowallNewReg = element(by.xpath('//*[text()="OK"]'));
-	   //
+		//I & L Remove Page Elements
+		this.statusofElecAssetSelect = element(by.xpath('//select[@id="cbx_StaAss_sel"]'));
+		this.statusofAssetSelect = element(by.xpath('//select[@id="removeGasMeter_assetStatusSelect"]'));
+		this.removedmeterReading = element(by.xpath('//input[@id="input0"]'));
+		this.RemoveElecAssetrplacedorremoved = element(by.xpath('((//*[@id="CCHradio5"])[2])/following-sibling::span[@class="outer"]'));
+		this.RemoveElecAssetrplacedorremoved1 = element(by.xpath('(//*[@id="CCHradio5"])/following-sibling::span[@class="outer"]'));
+		this.randomClick = element(by.xpath('//*[@id="removeGasMeter_unableToRead"]/following-sibling::span[@class="outer"]'));
+		this.randomClick2 = element(by.xpath('//*[@id="rb_UnReadMet_y"]/following-sibling::span[@class="outer"]'));
+		this.RemoveGasAssetrplacedorremoved = element(by.xpath('//*[@id="removeGasMeter_assetRemovedReplaced_y"]/span'));
+		this.removedgasmeterreading = element(by.xpath('(//*[@id="input0"])[2]'));
+		this.AssetaddedtowallNewReg = element(by.xpath('//*[text()="OK"]'));
+		//
 
-	   // I & L Install page elements
-	   this.assetInput1 = element(by.id('gasassetinput0'));
-	   this.installKitNxtBtn1 = element(by.id('gasInstallPhoto_nextBtn'));
-	   this.nonSerialisedAsssetsDD1 = element(by.id('gasassetselect0'));
-	   this.installKitUsedYes1 = element(by.xpath('//*[@id="gasInstallPhoto_installKit_y"]'));
-	   //
-	   // I&L Commisioning elements
-	   this.nonserealizedAssetDD = element(by.id('Cselect4'));
-	   this.nonserealizedAssetInput = element(by.id('Cbar3'));
-	   this.commissioningNxtBtn_FLTY = element(by.xpath('//*[@id="CbtnNextComm"]'));
-	   this.dccmsgRequired = element(by.xpath('//input[@id="comms2MessageReqtrue"]/following-sibling::span[@class="outer"]'));
-	   this.commsHubConnectedNo = element(by.id('Cradionm2'));
-	   this.commHubConnected_FLTY = element(by.xpath('//*[@id="Cradionm2"]/span'));  
-	   this.commsHubConnectedNo_1 = element(by.xpath('//input[@id="Cradionm2"]/following-sibling::span[@class="outer"]'));
-	   this.commissioningNxtBtn = element(by.id('CbtnNextComm'));
-	   this.replacecommsNextButton = element(by.id('replacechnowan_nextButton'));
-	   this.replacecommsNextButton_1 = element(by.id('replacechnowan2_nextButton'));
-	   this.replacecommshubNowan = element(by.xpath('(//div/h4[text()="Replace Comms Hub No WAN"])'));
-	   this.infoOKButton = element(by.xpath('//div/button[@class="confirm"]'));
-	   this.commshubReplacedyes = element(by.xpath('//*[@id="replacechnowan_ICHreplacedRadioTrue"]/span'));
-	   this.commshubReplacedyes_1 = element(by.id('replacechnowan2_ICHreplacedRadioTrue'));
-	   this.commshubToInstall_1 = element(by.id('replacechnowan2_assetList'));
-	   this.CHFID_1 = element(by.id('replacechnowan2_chfId'));  
-	   this.commshubLocation_1 = element(by.id('replacechnowan2_chubLocationSelect'));
-	   this.aerialInstalled_1 = element(by.id('replacechnowan2_aerialInstalled_y'));
-	   this.commshubConnectionMethod_1 = element(by.id('replacechnowan2_connectionMethod'));
-	   this.cradleSerialNo_1 = element(by.xpath('//*[@id="replacechnowan2_cradleSerialNumber"]'));
-	   this.replacecommsCapturePhoto_1 = element(by.id('replacechnowan2_photoButton'));
-	   this.replacecommshubNowan_1 = element(by.xpath('//*[@id="replacechnowan2_chnowanconnectedfalse"]/span'));
-	   this.replacecommsPremiseType_1 = element(by.id('replacechnowan2_PremTypeDropdownRepNoWan'));
-	   this.replacecommsPremiseTypeOption = element(by.xpath('//select[@id="replacechnowan_PremTypeDropdownRepNoWan"]/option[2]'));
-	   this.metalObstructionYes_1 = element(by.xpath('//*[@id="replacechnowan2_metalObsTrue"]/span'));
-	   this.sharedObstructionNo_1 = element(by.xpath('//*[@id="replacechnowan2_sharedObsFalse"]/span'));
-	   this.connectivityObstructionNo_1 = element(by.xpath('//*[@id="replacechnowan2_connectObsFalse"]/span'));
-	   this.confirmInstallAndLeaveYes_1 = element(by.xpath('//*[@id="replacechnowan2_CanLeave1RTrue"]/span'));
-	   this.smartNoLitLeftOnsiteTxt = element(by.xpath('//h4[contains(text(),"Smart Literature Not Left on Site")]'));
-	   this.commshubToInstall = element(by.id('replacechnowan_assetList'));
-	   this.CHFID = element(by.id('replacechnowan_chfId'));
-	   this.commshubPopup = element(by.xpath('//div/button[text()="OK"]'));
-	   this.selectinstallAssetOption = element(by.xpath('(//select[@id="replacechnowan_assetList"]/option)[4]'));
-	   this.selectinstallAssetOption_1 = element(by.xpath('(//select[@id="replacechnowan2_assetList"]/option)[4]'));
-	   this.dummydiv1 = element(by.xpath('(//div/h4[text()="Scan Barcode Using Device Hardware Button"])[5]')); 
-	   this.dummydiv2 = element(by.xpath('(//div/h4[text()="Scan Barcode Using Device Hardware Button"])[3]')); 
-	   this.dummydiv = element(by.xpath('(//div/h4[text()="Scan Barcode Using Device Hardware Button"])[4]'));
-	   this.dummydiv3 = element(by.xpath('(//div/h4[text()="Scan Barcode Using Device Hardware Button"])[1]'));  
-	   this.commshubLocation = element(by.id('replacechnowan_chubLocationSelect'));
-	   this.aerialInstalled = element(by.id('replacechnowan_aerialInstalled_y'));
-	   this.commshubConnectionMethod = element(by.id('replacechnowan_connectionMethod'));
-	   this.replacecommsCapturePhoto = element(by.id('replacechnowan_photoButton'));
-	   this.replacecommshubNowan = element(by.xpath('//*[@id="replacechnowan_chnowanconnectedfalse"]/span'));
-	   this.replacecommsPremiseType = element(by.id('replacechnowan_PremTypeDropdownRepNoWan'));
-	   this.replacecommsPremiseTypeOption = element(by.xpath('//select[@id="replacechnowan_PremTypeDropdownRepNoWan"]/option[2]'));
-	   this.metalObstructionYes = element(by.xpath('//*[@id="replacechnowan_metalObsTrue"]/span'));
-	   this.sharedObstructionNo = element(by.xpath('//*[@id="replacechnowan_sharedObsFalse"]/span'));
-	   this.connectivityObstructionNo = element(by.xpath('//*[@id="replacechnowan_connectObsFalse"]/span'));
-	   this.confirmInstallAndLeaveYes = element(by.xpath('//*[@id="replacechnowan_CanLeave1RTrue"]/span'));
-	   this.assetsUnaffectedYes = element(by.xpath('//*[@id="replacechnowan_InstallLeaveConfirmedTrue"]/span'));
-	   this.elecMeterSubmit = element(by.xpath('//*[@id="btn_Submit_elec"]'));
-	   this.elecInstallSubmit = element(by.xpath('(//*[@id="btn1"])[1]'));
-	   this.gasMeterSubmit = element(by.xpath('//*[@id="btn_Subm_gas"]'));
-	   this.cradleSerialNo = element(by.xpath('//*[@id="replacechnowan_cradleSerialNumber"]'));
-	   
-	   //
+		// I & L Install page elements
+		this.assetInput1 = element(by.id('gasassetinput0'));
+		this.installKitNxtBtn1 = element(by.id('gasInstallPhoto_nextBtn'));
+		this.nonSerialisedAsssetsDD1 = element(by.id('gasassetselect0'));
+		this.installKitUsedYes1 = element(by.xpath('//*[@id="gasInstallPhoto_installKit_y"]'));
+		//
+		// I&L Commisioning elements
+		this.nonserealizedAssetDD = element(by.id('Cselect4'));
+		this.nonserealizedAssetInput = element(by.id('Cbar3'));
+		this.commissioningNxtBtn_FLTY = element(by.xpath('//*[@id="CbtnNextComm"]'));
+		this.dccmsgRequired = element(by.xpath('//input[@id="comms2MessageReqtrue"]/following-sibling::span[@class="outer"]'));
+		this.commsHubConnectedNo = element(by.id('Cradionm2'));
+		this.commHubConnected_FLTY = element(by.xpath('//*[@id="Cradionm2"]/span'));
+		this.commsHubConnectedNo_1 = element(by.xpath('//input[@id="Cradionm2"]/following-sibling::span[@class="outer"]'));
+		this.commissioningNxtBtn = element(by.id('CbtnNextComm'));
+		this.replacecommsNextButton = element(by.id('replacechnowan_nextButton'));
+		this.replacecommsNextButton_1 = element(by.id('replacechnowan2_nextButton'));
+		this.replacecommshubNowan = element(by.xpath('(//div/h4[text()="Replace Comms Hub No WAN"])'));
+		this.infoOKButton = element(by.xpath('//div/button[@class="confirm"]'));
+		this.commshubReplacedyes = element(by.xpath('//*[@id="replacechnowan_ICHreplacedRadioTrue"]/span'));
+		this.commshubReplacedyes_1 = element(by.id('replacechnowan2_ICHreplacedRadioTrue'));
+		this.commshubToInstall_1 = element(by.id('replacechnowan2_assetList'));
+		this.CHFID_1 = element(by.id('replacechnowan2_chfId'));
+		this.commshubLocation_1 = element(by.id('replacechnowan2_chubLocationSelect'));
+		this.aerialInstalled_1 = element(by.id('replacechnowan2_aerialInstalled_y'));
+		this.commshubConnectionMethod_1 = element(by.id('replacechnowan2_connectionMethod'));
+		this.cradleSerialNo_1 = element(by.xpath('//*[@id="replacechnowan2_cradleSerialNumber"]'));
+		this.replacecommsCapturePhoto_1 = element(by.id('replacechnowan2_photoButton'));
+		this.replacecommshubNowan_1 = element(by.xpath('//*[@id="replacechnowan2_chnowanconnectedfalse"]/span'));
+		this.replacecommsPremiseType_1 = element(by.id('replacechnowan2_PremTypeDropdownRepNoWan'));
+		this.replacecommsPremiseTypeOption = element(by.xpath('//select[@id="replacechnowan_PremTypeDropdownRepNoWan"]/option[2]'));
+		this.metalObstructionYes_1 = element(by.xpath('//*[@id="replacechnowan2_metalObsTrue"]/span'));
+		this.sharedObstructionNo_1 = element(by.xpath('//*[@id="replacechnowan2_sharedObsFalse"]/span'));
+		this.connectivityObstructionNo_1 = element(by.xpath('//*[@id="replacechnowan2_connectObsFalse"]/span'));
+		this.confirmInstallAndLeaveYes_1 = element(by.xpath('//*[@id="replacechnowan2_CanLeave1RTrue"]/span'));
+		this.smartNoLitLeftOnsiteTxt = element(by.xpath('//h4[contains(text(),"Smart Literature Not Left on Site")]'));
+		this.commshubToInstall = element(by.id('replacechnowan_assetList'));
+		this.CHFID = element(by.id('replacechnowan_chfId'));
+		this.commshubPopup = element(by.xpath('//div/button[text()="OK"]'));
+		this.selectinstallAssetOption = element(by.xpath('(//select[@id="replacechnowan_assetList"]/option)[4]'));
+		this.selectinstallAssetOption_1 = element(by.xpath('(//select[@id="replacechnowan2_assetList"]/option)[4]'));
+		this.dummydiv1 = element(by.xpath('(//div/h4[text()="Scan Barcode Using Device Hardware Button"])[5]'));
+		this.dummydiv2 = element(by.xpath('(//div/h4[text()="Scan Barcode Using Device Hardware Button"])[3]'));
+		this.dummydiv = element(by.xpath('(//div/h4[text()="Scan Barcode Using Device Hardware Button"])[4]'));
+		this.dummydiv3 = element(by.xpath('(//div/h4[text()="Scan Barcode Using Device Hardware Button"])[1]'));
+		this.commshubLocation = element(by.id('replacechnowan_chubLocationSelect'));
+		this.aerialInstalled = element(by.id('replacechnowan_aerialInstalled_y'));
+		this.commshubConnectionMethod = element(by.id('replacechnowan_connectionMethod'));
+		this.replacecommsCapturePhoto = element(by.id('replacechnowan_photoButton'));
+		this.replacecommshubNowan = element(by.xpath('//*[@id="replacechnowan_chnowanconnectedfalse"]/span'));
+		this.replacecommsPremiseType = element(by.id('replacechnowan_PremTypeDropdownRepNoWan'));
+		this.replacecommsPremiseTypeOption = element(by.xpath('//select[@id="replacechnowan_PremTypeDropdownRepNoWan"]/option[2]'));
+		this.metalObstructionYes = element(by.xpath('//*[@id="replacechnowan_metalObsTrue"]/span'));
+		this.sharedObstructionNo = element(by.xpath('//*[@id="replacechnowan_sharedObsFalse"]/span'));
+		this.connectivityObstructionNo = element(by.xpath('//*[@id="replacechnowan_connectObsFalse"]/span'));
+		this.confirmInstallAndLeaveYes = element(by.xpath('//*[@id="replacechnowan_CanLeave1RTrue"]/span'));
+		this.assetsUnaffectedYes = element(by.xpath('//*[@id="replacechnowan_InstallLeaveConfirmedTrue"]/span'));
+		this.elecMeterSubmit = element(by.xpath('//*[@id="btn_Submit_elec"]'));
+		this.elecInstallSubmit = element(by.xpath('(//*[@id="btn1"])[1]'));
+		this.gasMeterSubmit = element(by.xpath('//*[@id="btn_Subm_gas"]'));
+		this.cradleSerialNo = element(by.xpath('//*[@id="replacechnowan_cradleSerialNumber"]'));
 
-	   //############## I&L Abort Job completion page ##############
-	   this.PPMIDOfferedNo = element(by.id('ihdscan2_ihdPpmidOfferedfalse'));
-	   this.PPMIDAddNotes = element(by.id('ihdscan2_textIhdPpmidNotOffered'));
-	   this.PPMIDOfferedNo = element(by.id('ihdscan2_ihdPpmidOfferedfalse'));
-	   this.PPMIDAddNotes_1 = element(by.id('newihdppmid_textIhdPpmidNotOffered'));
-	   this.PPMIDOfferedNo_1 = element(by.xpath('//*[@id="newihdppmid_ihdPpmidOfferedfalse"]/span'));
-	   this.gasAndElecMeterN = element(by.id('rb_GasElecMPairSuc_n'));
-	   this.fullHanDeviceNo = element(by.id('rb_FulHANEst_n'));
-	   this.fullWanAllmeterNo = element(by.id('rb_FulWANEst_n'));
-	   this.fullconfigElecApplyNo = element(by.xpath('//*[@id="rb_FullCFigE_n"]/label/span'));
+		//
 
-	   this.ppmidNXTBtn = element(by.id('ihdscan2_nextButton'));
-	   this.ppmidNXTBtn_1 = element(by.id('newihdppmid_nextButton'));
-	   this.devicebindingNextSection = element(by.id('dbc2_trad_btnNextEff'));
-	   this.configureallmetersNextSection = element(by.id('btnNextEff'));
-	   this.smartLitLeftNo = element(by.id('radiose4'));
-	   this.additionalInfo = element(by.id('smicopAddInfoCheckboxNo'));
-	   this.demoEquipment = element(by.id('radiose8'));
-	   this.gsmeJoinedYes = element(by.id('dbc2_gsme_joined_y'));
-	   this.esmeJoinedNo = element(by.id('dbc2_esme_joined_n'));
-	   this.devicebindnext = element(by.xpath('//*[@id="dbc2_btnNextEff"]'));
+		//############## I&L Abort Job completion page ##############
+		this.PPMIDOfferedNo = element(by.id('ihdscan2_ihdPpmidOfferedfalse'));
+		this.PPMIDAddNotes = element(by.id('ihdscan2_textIhdPpmidNotOffered'));
+		this.PPMIDOfferedNo = element(by.id('ihdscan2_ihdPpmidOfferedfalse'));
+		this.PPMIDAddNotes_1 = element(by.id('newihdppmid_textIhdPpmidNotOffered'));
+		this.PPMIDOfferedNo_1 = element(by.xpath('//*[@id="newihdppmid_ihdPpmidOfferedfalse"]/span'));
+		this.gasAndElecMeterN = element(by.id('rb_GasElecMPairSuc_n'));
+		this.fullHanDeviceNo = element(by.id('rb_FulHANEst_n'));
+		this.fullWanAllmeterNo = element(by.id('rb_FulWANEst_n'));
+		this.fullconfigElecApplyNo = element(by.xpath('//*[@id="rb_FullCFigE_n"]/label/span'));
+
+		this.ppmidNXTBtn = element(by.id('ihdscan2_nextButton'));
+		this.ppmidNXTBtn_1 = element(by.id('newihdppmid_nextButton'));
+		this.devicebindingNextSection = element(by.id('dbc2_trad_btnNextEff'));
+		this.configureallmetersNextSection = element(by.id('btnNextEff'));
+		this.smartLitLeftNo = element(by.id('radiose4'));
+		this.additionalInfo = element(by.id('smicopAddInfoCheckboxNo'));
+		this.demoEquipment = element(by.id('radiose8'));
+		this.gsmeJoinedYes = element(by.id('dbc2_gsme_joined_y'));
+		this.esmeJoinedNo = element(by.id('dbc2_esme_joined_n'));
+		this.devicebindnext = element(by.xpath('//*[@id="dbc2_btnNextEff"]'));
 
 
 
 	}
-	
+
 	public VerifyAbortReasonCodePopup() {
 		if (this.AbortNoAccessReasonCodes.isDisplayed) {
 			this.AbortNoAccessReasonCodes.getText().then(async function (abortreason) {
@@ -529,164 +529,164 @@ export class AbortPageObject {
 	public async selectreasonOptionAndAbort(xpathparam, notesstring) {
 		this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
 		await utility.wait(utility.very_low);
-		if(this.GenericReasonCodeSelect.isDisplayed()){
-		await this.GenericReasonCodeSelect.click();
+		if (this.GenericReasonCodeSelect.isDisplayed()) {
+			await this.GenericReasonCodeSelect.click();
 		}
-        try{
-            await expect(this.abortNxtbtn.isDisplayed());
-            await this.abortNxtbtn.click();
-            } catch(error){
-                console.log('No Next btn present Currently');
-            }
-		await utility.wait(utility.very_low);
-		if(this.abortAddNotes.isDisplayed()){
-		await this.abortAddNotes.sendKeys(notesstring);
+		try {
+			await expect(this.abortNxtbtn.isDisplayed());
+			await this.abortNxtbtn.click();
+		} catch (error) {
+			console.log('No Next btn present Currently');
 		}
 		await utility.wait(utility.very_low);
-		if(this.abortCapturePhoto.isDisplayed()){
-		await this.abortCapturePhoto.click();
+		if (this.abortAddNotes.isDisplayed()) {
+			await this.abortAddNotes.sendKeys(notesstring);
 		}
 		await utility.wait(utility.very_low);
-		if(this.abortAppointment.isDisplayed()){
-		await this.abortAppointment.click();
+		if (this.abortCapturePhoto.isDisplayed()) {
+			await this.abortCapturePhoto.click();
 		}
 		await utility.wait(utility.very_low);
-    }
+		if (this.abortAppointment.isDisplayed()) {
+			await this.abortAppointment.click();
+		}
+		await utility.wait(utility.very_low);
+	}
 
 	public async noAccessAbortContactMade() {
 		await applist.clickOnContactMadeOtion();
 		await utility.wait(utility.very_low);
-		if(this.appointmentconfirmationNo.isDisplayed()){
-		await this.appointmentconfirmationNo.click();
+		if (this.appointmentconfirmationNo.isDisplayed()) {
+			await this.appointmentconfirmationNo.click();
 		}
 		await utility.wait(utility.very_low);
-		if(this.appointmentRescheduledNo.isDisplayed()){
-		await this.appointmentRescheduledNo.click();
+		if (this.appointmentRescheduledNo.isDisplayed()) {
+			await this.appointmentRescheduledNo.click();
 		}
 		await utility.wait(utility.very_low);
-		if(this.abortNoAccessContactMade.isDisplayed()){
-		await this.abortNoAccessContactMade.click();
+		if (this.abortNoAccessContactMade.isDisplayed()) {
+			await this.abortNoAccessContactMade.click();
 		}
 
 	}
-	
-//Abort Options ################
+
+	//Abort Options ################
 	public async notConvinientOptionAndAbort() {
 		await utility.wait(utility.very_low);
-		if(this.notConvinientRadioBtn.isDisplayed()){
-		await this.notConvinientRadioBtn.click();
+		if (this.notConvinientRadioBtn.isDisplayed()) {
+			await this.notConvinientRadioBtn.click();
 		}
-        try{
-            await expect(this.abortNxtbtn.isDisplayed());
-            await this.abortNxtbtn.click();
-            } catch(error){
-                console.log('No Next btn present Currently');
-            }
-		await utility.wait(utility.very_low);
-		if(this.abortAddNotes.isDisplayed()){
-		await this.abortAddNotes.sendKeys('Not able to Call the customer');
+		try {
+			await expect(this.abortNxtbtn.isDisplayed());
+			await this.abortNxtbtn.click();
+		} catch (error) {
+			console.log('No Next btn present Currently');
 		}
 		await utility.wait(utility.very_low);
-		if(this.abortCapturePhoto.isDisplayed()){
-		await this.abortCapturePhoto.click();
+		if (this.abortAddNotes.isDisplayed()) {
+			await this.abortAddNotes.sendKeys('Not able to Call the customer');
 		}
 		await utility.wait(utility.very_low);
-		if(this.abortAppointment.isDisplayed()){
-		await this.abortAppointment.click();
-		}
-		await utility.wait(utility.very_low);
-    }
-
-
-    public async unableToOffGasOptionAndAbort() {
-		await utility.wait(utility.very_low);
-		if(this.unabletoOffGasOption.isDisplayed()){
-		await this.unabletoOffGasOption.click();
-		}
-        try{
-			if(this.abortNxtbtn.isDisplayed()){
-				await this.abortNxtbtn.click();
-				}
-        } catch(error) {
-            console.log('No Next btn present Currently');
-        }
-		await utility.wait(utility.very_low);
-
-		if(this.abortAddNotes.isDisplayed()){
-			await this.abortAddNotes.sendKeys('Leave Gass Off');
-			}
-		await utility.wait(utility.very_low);
-		if(this.abortCapturePhoto.isDisplayed()){
+		if (this.abortCapturePhoto.isDisplayed()) {
 			await this.abortCapturePhoto.click();
-			}
+		}
 		await utility.wait(utility.very_low);
-		if(this.abortAppointment.isDisplayed()){
+		if (this.abortAppointment.isDisplayed()) {
 			await this.abortAppointment.click();
+		}
+		await utility.wait(utility.very_low);
+	}
+
+
+	public async unableToOffGasOptionAndAbort() {
+		await utility.wait(utility.very_low);
+		if (this.unabletoOffGasOption.isDisplayed()) {
+			await this.unabletoOffGasOption.click();
+		}
+		try {
+			if (this.abortNxtbtn.isDisplayed()) {
+				await this.abortNxtbtn.click();
 			}
-        await utility.wait(utility.very_low);
-    }
+		} catch (error) {
+			console.log('No Next btn present Currently');
+		}
+		await utility.wait(utility.very_low);
+
+		if (this.abortAddNotes.isDisplayed()) {
+			await this.abortAddNotes.sendKeys('Leave Gass Off');
+		}
+		await utility.wait(utility.very_low);
+		if (this.abortCapturePhoto.isDisplayed()) {
+			await this.abortCapturePhoto.click();
+		}
+		await utility.wait(utility.very_low);
+		if (this.abortAppointment.isDisplayed()) {
+			await this.abortAppointment.click();
+		}
+		await utility.wait(utility.very_low);
+	}
 
 	// No Meter Onsite Option##########
-	public async elecRiskOptionAndAbortElecMeter(xpathparam,notesstring) {
+	public async elecRiskOptionAndAbortElecMeter(xpathparam, notesstring) {
 		this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
-			await utility.wait(utility.very_low);
-		if (await this.reasonforAbort.isDisplayed() && await this.reasonforAbort.isSelected() ) {
+		await utility.wait(utility.very_low);
+		if (await this.reasonforAbort.isDisplayed() && await this.reasonforAbort.isSelected()) {
 		}
 		await utility.wait(utility.very_low);
-		if(this.abortElecNxtBtn.isDisplayed()){
+		if (this.abortElecNxtBtn.isDisplayed()) {
 			await this.abortElecNxtBtn.click();
 		}
 		await utility.wait(utility.very_low);
-		if(this.abortAddNotes.isDisplayed()){
+		if (this.abortAddNotes.isDisplayed()) {
 			await this.abortAddNotes.sendKeys(notesstring);
-		await utility.wait(utility.very_low);
-		}
-		if(this.abortCapturePhoto.isDisplayed()){
-		await this.abortCapturePhoto.click();
-		}
-		await utility.wait(utility.very_low);
-		if(this.AbortElecMeter.isDisplayed()){
-		await this.AbortElecMeter.click();
-		}
-		await utility.wait(utility.very_low);
-	
-		}
-	
-	
-		public async elecRiskOptionAndAbortAppointment(xpathparam,notesstring) {
-			this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
-				await utility.wait(utility.very_low);
-			if (await this.reasonforAbort.isDisplayed() && await this.reasonforAbort.isSelected() ) {
-			}
 			await utility.wait(utility.very_low);
-			if(this.abortElecNxtBtn.isDisplayed()){
-				await this.abortElecNxtBtn.click();
-			}
-			await utility.wait(utility.very_low);
-			if(this.abortAddNotes.isDisplayed()){
-				await this.abortAddNotes.sendKeys(notesstring);
-			await utility.wait(utility.very_low);
-			}
-			if(this.abortCapturePhoto.isDisplayed()){
+		}
+		if (this.abortCapturePhoto.isDisplayed()) {
 			await this.abortCapturePhoto.click();
-			}
+		}
+		await utility.wait(utility.very_low);
+		if (this.AbortElecMeter.isDisplayed()) {
+			await this.AbortElecMeter.click();
+		}
+		await utility.wait(utility.very_low);
+
+	}
+
+
+	public async elecRiskOptionAndAbortAppointment(xpathparam, notesstring) {
+		this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
+		await utility.wait(utility.very_low);
+		if (await this.reasonforAbort.isDisplayed() && await this.reasonforAbort.isSelected()) {
+		}
+		await utility.wait(utility.very_low);
+		if (this.abortElecNxtBtn.isDisplayed()) {
+			await this.abortElecNxtBtn.click();
+		}
+		await utility.wait(utility.very_low);
+		if (this.abortAddNotes.isDisplayed()) {
+			await this.abortAddNotes.sendKeys(notesstring);
 			await utility.wait(utility.very_low);
-			if(this.abortAppointment.isDisplayed()){
+		}
+		if (this.abortCapturePhoto.isDisplayed()) {
+			await this.abortCapturePhoto.click();
+		}
+		await utility.wait(utility.very_low);
+		if (this.abortAppointment.isDisplayed()) {
 			await this.abortAppointment.click();
-			}
-			await utility.wait(utility.very_low);
-		
-			}
-    
+		}
+		await utility.wait(utility.very_low);
 
-// Abort Rescan Pop up ###################
-	public async reScanInfoPopup(){
+	}
 
-		if(this.reScanPopUpOK.isDisplayed()){
+
+	// Abort Rescan Pop up ###################
+	public async reScanInfoPopup() {
+
+		if (this.reScanPopUpOK.isDisplayed()) {
 			await this.reScanPopUpOK.click();
 		}
 		await utility.wait(utility.very_low);
-    }
+	}
 
 	public async suspendJobonTheDoorStepDetails() {
 		await utility.wait(utility.low);
@@ -720,8 +720,8 @@ export class AbortPageObject {
 			await utility.wait(utility.very_low);
 			await this.suspendJobBtn.click();
 		}
-    }
-    
+	}
+
 	public async abortJoboAfterSuspend() {
 		await utility.wait(utility.very_low);
 		if (this.suspendJobNo.isDisplayed()) {
@@ -736,44 +736,44 @@ export class AbortPageObject {
 			await utility.wait(utility.very_low);
 			await this.abortNoAcessBtn.click();
 		}
-    }
-//updates
-    public async abortJoboAfterInitialRisk() {
-        if (risk.canYouSmellText.isDisplayed()) {
-            await risk.canYouSmellYES.click();
-        }
-        if (risk.turnedOffGasYES.isDisplayed()) {
-            await risk.turnedOffGasYES.click();
-        }
-        if (risk.callEGPYES.isDisplayed()) {
-            await risk.callEGPYES.click();
-        }
-        if (risk.inputEGPRef.isDisplayed()) {
-            await utility.wait(utility.Avg_low);
-            await risk.inputEGPRef.clear();
-            await risk.inputEGPRef.sendKeys('123456');
-        }
-        if (risk.reportToHS.isDisplayed()) {
-            await utility.wait(utility.Avg_low);
-            await risk.reportToHS.click();
-        }
-        if (risk.airLineRefInput.isDisplayed()) {
-            await utility.wait(utility.Avg_low);
-            await risk.airLineRefInput.clear();
-            await risk.airLineRefInput.sendKeys('5678910');
-        }
-        if (this.OKtoProceedEGPOutcomeN.isDisplayed()) {
-            await utility.wait(utility.Avg_low);
-            await this.OKtoProceedEGPOutcomeN.click();
-            await utility.wait(utility.medium_low);
-        }
-        if (this.riskAssessAbort.isDisplayed()) {
-            await utility.wait(utility.very_low);
-            await this.riskAssessAbort.click();
-            await utility.wait(utility.Avg_low);
-        }
 	}
-	
+	//updates
+	public async abortJoboAfterInitialRisk() {
+		if (risk.canYouSmellText.isDisplayed()) {
+			await risk.canYouSmellYES.click();
+		}
+		if (risk.turnedOffGasYES.isDisplayed()) {
+			await risk.turnedOffGasYES.click();
+		}
+		if (risk.callEGPYES.isDisplayed()) {
+			await risk.callEGPYES.click();
+		}
+		if (risk.inputEGPRef.isDisplayed()) {
+			await utility.wait(utility.Avg_low);
+			await risk.inputEGPRef.clear();
+			await risk.inputEGPRef.sendKeys('123456');
+		}
+		if (risk.reportToHS.isDisplayed()) {
+			await utility.wait(utility.Avg_low);
+			await risk.reportToHS.click();
+		}
+		if (risk.airLineRefInput.isDisplayed()) {
+			await utility.wait(utility.Avg_low);
+			await risk.airLineRefInput.clear();
+			await risk.airLineRefInput.sendKeys('5678910');
+		}
+		if (this.OKtoProceedEGPOutcomeN.isDisplayed()) {
+			await utility.wait(utility.Avg_low);
+			await this.OKtoProceedEGPOutcomeN.click();
+			await utility.wait(utility.medium_low);
+		}
+		if (this.riskAssessAbort.isDisplayed()) {
+			await utility.wait(utility.very_low);
+			await this.riskAssessAbort.click();
+			await utility.wait(utility.Avg_low);
+		}
+	}
+
 	/***
 	 * @Author Aparna Das
 	 * @description ABORT Fill Risk Elec page details
@@ -812,7 +812,7 @@ export class AbortPageObject {
 		if (await this.elecAbortBtn.isDisplayed()) {
 			await this.elecAbortBtn.click();
 		}
-		if (await this.reasonforAbort.isDisplayed() && await this.reasonforAbort.isSelected() ) {
+		if (await this.reasonforAbort.isDisplayed() && await this.reasonforAbort.isSelected()) {
 			await this.reasonforAbort.click();
 		}
 		await utility.wait(utility.very_low);
@@ -820,12 +820,12 @@ export class AbortPageObject {
 			await this.abortAddNotes.sendKeys('Serious Issue');
 		}
 		await utility.wait(utility.very_low);
-		if(this.abortCapturePhoto.isDisplayed()){
-		await this.abortCapturePhoto.click();
+		if (this.abortCapturePhoto.isDisplayed()) {
+			await this.abortCapturePhoto.click();
 		}
 		await utility.wait(utility.very_low);
-		if(this.abortAppointment.isDisplayed()){
-		await this.abortAppointment.click();
+		if (this.abortAppointment.isDisplayed()) {
+			await this.abortAppointment.click();
 		}
 		await utility.wait(utility.very_low);
 	}
@@ -847,18 +847,18 @@ export class AbortPageObject {
 		}
 		await utility.wait(utility.very_low);
 
-		if(this.abortAddNotes.isDisplayed()){
+		if (this.abortAddNotes.isDisplayed()) {
 			await this.abortAddNotes.sendKeys('Leave Gass Off');
-			}
+		}
 		await utility.wait(utility.very_low);
-		if(this.abortCapturePhoto.isDisplayed()){
+		if (this.abortCapturePhoto.isDisplayed()) {
 			await this.abortCapturePhoto.click();
-			}
+		}
 		await utility.wait(utility.very_low);
-		if(this.abortAppointment.isDisplayed()){
+		if (this.abortAppointment.isDisplayed()) {
 			await this.abortAppointment.click();
-			}
-        await utility.wait(utility.very_low);
+		}
+		await utility.wait(utility.very_low);
 	}
 
 	/***
@@ -878,38 +878,38 @@ export class AbortPageObject {
 			await this.abortbtnfail.click();
 		}
 	}
-	
+
 	/***
 	 * @Author Jansi Victor
 	 * @description ABORT GAS Click
 	 ***/
 	public async selectreasonOptionAndAbortforgas(xpathparam, notesstring) {
-			this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
-			await utility.wait(utility.very_low);
-			if(this.GenericReasonCodeSelect.isDisplayed()){
+		this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
+		await utility.wait(utility.very_low);
+		if (this.GenericReasonCodeSelect.isDisplayed()) {
 			await this.GenericReasonCodeSelect.click();
-			}
-			try{
-				await expect(this.abortNxtbtn.isDisplayed());
-				await this.abortNxtbtn.click();
-				} catch(error){
-					console.log('No Next btn present Currently');
-				}
-			await utility.wait(utility.very_low);
-			if(this.abortAddNotes.isDisplayed()){
-			await this.abortAddNotes.sendKeys(notesstring);
-			}
-			await utility.wait(utility.very_low);
-			if(this.abortCapturePhoto.isDisplayed()){
-			await this.abortCapturePhoto.click();
-			}
-			await utility.wait(utility.very_low);
-			if(this.gasabortApp.isDisplayed()){
-			await this.gasabortApp.click();
-			}
-			await utility.wait(utility.very_low);
 		}
- 
+		try {
+			await expect(this.abortNxtbtn.isDisplayed());
+			await this.abortNxtbtn.click();
+		} catch (error) {
+			console.log('No Next btn present Currently');
+		}
+		await utility.wait(utility.very_low);
+		if (this.abortAddNotes.isDisplayed()) {
+			await this.abortAddNotes.sendKeys(notesstring);
+		}
+		await utility.wait(utility.very_low);
+		if (this.abortCapturePhoto.isDisplayed()) {
+			await this.abortCapturePhoto.click();
+		}
+		await utility.wait(utility.very_low);
+		if (this.gasabortApp.isDisplayed()) {
+			await this.gasabortApp.click();
+		}
+		await utility.wait(utility.very_low);
+	}
+
 	/***
 	 * @Author Aparna Das
 	 * @description ABORT pre GAs Test details
@@ -930,7 +930,7 @@ export class AbortPageObject {
 	 * Functions altered per flow
 	 ***/
 
-	public async fillPPMIDSection(){
+	public async fillPPMIDSection() {
 		if (this.PPMIDOfferedNo.isDisplayed()) {
 			await this.PPMIDOfferedNo.click();
 		}
@@ -945,7 +945,7 @@ export class AbortPageObject {
 
 	}
 
-	public async fillPPMIDSection_EXCH22(){
+	public async fillPPMIDSection_EXCH22() {
 		if (this.PPMIDOfferedNo_1.isDisplayed()) {
 			await this.PPMIDOfferedNo_1.click();
 		}
@@ -960,7 +960,7 @@ export class AbortPageObject {
 
 	}
 
-	public async fillDeviceBindingSection(){
+	public async fillDeviceBindingSection() {
 		if (this.gasAndElecMeterN.isDisplayed()) {
 			await this.gasAndElecMeterN.click();
 		}
@@ -969,19 +969,19 @@ export class AbortPageObject {
 			await utility.wait(utility.very_low);
 			await this.fullHanDeviceNo.click();
 		}
-		if(this.devicebindingNextSection.isDisplayed()){
+		if (this.devicebindingNextSection.isDisplayed()) {
 			await this.devicebindingNextSection.click()
 		}
 
 	}
 
-	public async fillDeviceBindingSection_Installremove(){
+	public async fillDeviceBindingSection_Installremove() {
 		if (this.gsmeJoinedYes.isDisplayed()) {
 			await this.gsmeJoinedYes.click();
 		}
 
 		await utility.wait(utility.low);
-		if(this.devicebindnext.isDisplayed()){
+		if (this.devicebindnext.isDisplayed()) {
 			await this.devicebindnext.click()
 		}
 
@@ -991,81 +991,120 @@ export class AbortPageObject {
 	public async fillElecmeterremEX23() {
 
 		await utility.wait(3000);
-	
+
 		if (await this.RemoveElecAssetrplacedorremoved.isDisplayed()) {
-	
+
 			await this.RemoveElecAssetrplacedorremoved.click();
-	
+
 		}
-	
+
 		await utility.wait(3000);
-	
+
 		if (await this.statusofElecAssetSelect.isDisplayed()) {
-	
+
 			var select = this.statusofElecAssetSelect;
-	
+
 			await select.$('[label="No Fault Found"]').click();
-	
+
 		}
-	
+
 		await utility.wait(1000);
-	
+
 		if (await this.removedmeterReading.isDisplayed()) {
-	
+
 			await this.removedmeterReading.clear();
-	
+
 			await this.removedmeterReading.sendKeys('12345');
-	
+
 			await utility.wait(5000);
-	
+
 			await this.randomClick2.click();
-				console.log("Random Click EX23");
-	
+			console.log("Random Click EX23");
+
 		}
-	
+
+	}
+
+
+	public async fillElecmeterremEX24() {
+
+		await utility.wait(3000);
+
+		if (await this.RemoveElecAssetrplacedorremoved.isDisplayed()) {
+
+			await this.RemoveElecAssetrplacedorremoved.click();
+
+		}
+
+		await utility.wait(3000);
+
+		if (await this.statusofElecAssetSelect.isDisplayed()) {
+
+			var select = this.statusofElecAssetSelect;
+
+			await select.$('[label="No Fault Found"]').click();
+
+		}
+
+		await utility.wait(1000);
+
+		if (await this.removedgasmeterreading.isDisplayed()) {
+
+			await this.removedgasmeterreading.clear();
+
+			await this.removedgasmeterreading.sendKeys('12345');
+
+			await utility.wait(5000);
+
+			await this.randomClick2.click();
+			console.log("Random Click EX24");
+
+		}
+
 	}
 
 	public async fillGasmeterremEX24() {
 
 		await utility.wait(3000);
-	
+
 		if (await this.RemoveGasAssetrplacedorremoved.isDisplayed()) {
-	
+
 			await this.RemoveGasAssetrplacedorremoved.click();
-	
+
 		}
-	
+
 		await utility.wait(3000);
-	
-		 if (await this.statusofAssetSelect.isDisplayed()) {
-	
-		 	var select = this.statusofAssetSelect;
-	
+
+		if (await this.statusofAssetSelect.isDisplayed()) {
+
+			var select = this.statusofAssetSelect;
+
 			await select.$('[label="No Fault Found"]').click();
-	
-		 }
-	
-		await utility.wait(1000);
-	
-		if (await this.removedmeterReading.isDisplayed()) {
-	
-			await this.removedmeterReading.clear();
-	
-			await this.removedmeterReading.sendKeys('12345');
-	
-			await utility.wait(5000);
-	
-			await this.randomClick.click();
-				console.log("Random Click EX24");
-	
+
 		}
-	
+
+		await utility.wait(1000);
+
+		if (await this.removedmeterReading.isDisplayed()) {
+
+			await this.removedmeterReading.clear();
+
+			await this.removedmeterReading.sendKeys('12345');
+
+			await utility.wait(5000);
+
+			await this.randomClick.click();
+			console.log("Random Click EX24");
+
+		}
+
 	}
 
-	public async newregulatorsection_EXCH24(){ {
+	public async newregulatorsection_EXCH24() {
+		{
 			await utility.wait(utility.very_low);
 			if (await this.newregulatorReplaced.isDisplayed()) {
-			await this.newregulatorReplaced.click();
+				await this.newregulatorReplaced.click();
 			}
 			await utility.wait(utility.very_low);
 			if (await this.selectValidAssettoInst1.isDisplayed()) {
@@ -1090,60 +1129,61 @@ export class AbortPageObject {
 				await this.nextSecnewRegulator.click();
 			}
 		}
-	
+
 
 	}
 
-	public async newregulatorsection_FLTYTRAD(){ {
-		await utility.wait(utility.very_low);
-		if (await this.newregulatorReplaced.isDisplayed()) {
-		await this.newregulatorReplaced.click();
+	public async newregulatorsection_FLTYTRAD() {
+		{
+			await utility.wait(utility.very_low);
+			if (await this.newregulatorReplaced.isDisplayed()) {
+				await this.newregulatorReplaced.click();
+			}
+			await utility.wait(utility.very_low);
+			if (await this.selectValidAssettoInst2.isDisplayed()) {
+				var select = this.selectValidAssettoInst2;
+				select.$('[value="MA6NC181323805"]').click();
+			}
+			await utility.wait(utility.very_low);
+			if (await this.gasmeterserialSendreg.isDisplayed()) {
+				await this.gasmeterserialSendreg.clear();
+				await this.gasmeterserialSendreg.sendKeys("MA6NC181323805");
+			}
+			await utility.wait(utility.very_low);
+			if (await this.dummydiv3.isDisplayed()) {
+				await this.dummydiv3.click();
+			}
+			await utility.wait(utility.very_low);
+			if (await this.AssetaddedtowallNewReg.isDisplayed()) {
+				await this.AssetaddedtowallNewReg.click();
+			}
+			await utility.wait(utility.very_low);
+			if (await this.nextSecnewRegulator.isDisplayed()) {
+				await this.nextSecnewRegulator.click();
+			}
 		}
-		await utility.wait(utility.very_low);
-		if (await this.selectValidAssettoInst2.isDisplayed()) {
-			var select = this.selectValidAssettoInst2;
-			select.$('[value="MA6NC181323805"]').click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.gasmeterserialSendreg.isDisplayed()) {
-			await this.gasmeterserialSendreg.clear();
-			await this.gasmeterserialSendreg.sendKeys("MA6NC181323805");
-		}
-		await utility.wait(utility.very_low);
-		if (await this.dummydiv3.isDisplayed()) {
-			await this.dummydiv3.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.AssetaddedtowallNewReg.isDisplayed()) {
-			await this.AssetaddedtowallNewReg.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.nextSecnewRegulator.isDisplayed()) {
-			await this.nextSecnewRegulator.click();
-		}
+
+
 	}
-
-
-}
 
 	public async fillGasInstallKitDetails_InstallLeave() {
 
-        await this.installKitUsedYes1.click();
-        await utility.wait(utility.low);
-        
-        if (await this.nonSerialisedAsssetsDD1.isDisplayed()) {
-            var select3 = this.nonSerialisedAsssetsDD1;
-            select3.$('[value="1"]').click();
-        }
-        
-        await utility.wait(utility.low);
-        await this.assetInput1.sendKeys('1');
-        await utility.wait(utility.medium_low);
-        //browser.executeScript('arguments[0].scrollIntoView()', this.commsHubConnectedYes.getWebElement());
-        await this.commsHubConnectedNo_1.click();
+		await this.installKitUsedYes1.click();
+		await utility.wait(utility.low);
+
+		if (await this.nonSerialisedAsssetsDD1.isDisplayed()) {
+			var select3 = this.nonSerialisedAsssetsDD1;
+			select3.$('[value="1"]').click();
+		}
+
+		await utility.wait(utility.low);
+		await this.assetInput1.sendKeys('1');
 		await utility.wait(utility.medium_low);
-        await this.installKitNxtBtn1.click();
-    }
+		//browser.executeScript('arguments[0].scrollIntoView()', this.commsHubConnectedYes.getWebElement());
+		await this.commsHubConnectedNo_1.click();
+		await utility.wait(utility.medium_low);
+		await this.installKitNxtBtn1.click();
+	}
 
 	public async fillthefieldsforperformpost_InstallAndLeave() {
 		await utility.wait(utility.Avg_low);
@@ -1274,34 +1314,34 @@ export class AbortPageObject {
 		if (await this.removedmeterReading.isDisplayed()) {
 			await this.removedmeterReading.clear();
 			await this.removedmeterReading.sendKeys('12345');
-	
+
 		}
 	}
 
-	public async fillDeviceBindingSection_InstallEXCH23(){
+	public async fillDeviceBindingSection_InstallEXCH23() {
 		if (this.esmeJoinedNo.isDisplayed()) {
 			await this.esmeJoinedNo.click();
 		}
 
 		await utility.wait(utility.low);
-		if(this.devicebindnext.isDisplayed()){
+		if (this.devicebindnext.isDisplayed()) {
 			await this.devicebindnext.click()
 		}
 
 	}
 
-	public async fillDeviceBindingSection_EXCH19(){
+	public async fillDeviceBindingSection_EXCH19() {
 		if (this.fullHanDeviceNo.isDisplayed()) {
 			await utility.wait(utility.very_low);
 			await this.fullHanDeviceNo.click();
 		}
-		if(this.devicebindingNextSection.isDisplayed()){
+		if (this.devicebindingNextSection.isDisplayed()) {
 			await this.devicebindingNextSection.click()
 		}
 
 	}
 
-	public async fillSmartLiteratureEducationSection(){
+	public async fillSmartLiteratureEducationSection() {
 		if (this.smartLitLeftNo.isDisplayed()) {
 			await this.smartLitLeftNo.click();
 		}
@@ -1316,12 +1356,12 @@ export class AbortPageObject {
 		await utility.wait(utility.low);
 	}
 
-	public async fillConfigAllMetersSection_EXCH19(){
+	public async fillConfigAllMetersSection_EXCH19() {
 		if (this.fullWanAllmeterNo.isDisplayed()) {
 			await this.fullWanAllmeterNo.click();
 		}
 		await utility.wait(utility.low);
-		if(this.configureallmetersNextSection.isDisplayed()){
+		if (this.configureallmetersNextSection.isDisplayed()) {
 			await this.configureallmetersNextSection.click();
 			await utility.wait(utility.very_low);
 		}
@@ -1340,7 +1380,7 @@ export class AbortPageObject {
 		}
 	}
 
-	public async fillConfigAllMetersSection(){
+	public async fillConfigAllMetersSection() {
 		if (this.fullWanAllmeterNo.isDisplayed()) {
 			await this.fullWanAllmeterNo.click();
 		}
@@ -1355,7 +1395,7 @@ export class AbortPageObject {
 		// 	await utility.wait(utility.very_low);
 		// }
 		await utility.wait(utility.low);
-		if(this.configureallmetersNextSection.isDisplayed()){
+		if (this.configureallmetersNextSection.isDisplayed()) {
 			await this.configureallmetersNextSection.click();
 			await utility.wait(utility.very_low);
 		}
@@ -1469,62 +1509,62 @@ export class AbortPageObject {
 		await this.polNxtBtn_1.click();
 	}
 
-	public async clickGasInstallSubmitButton(){
+	public async clickGasInstallSubmitButton() {
 		if (await this.gasbuttonSubmit.isDisplayed()) {
 			await utility.wait(utility.low);
 			// click the dropdown
 			this.gasbuttonSubmit.click()
+		}
 	}
-}
 
-public async clickNMEXInstallSubmitButton(){
-	if (await this.gasNMEXbuttonSubmit.isDisplayed()) {
-		await utility.wait(utility.low);
-		// click the dropdown
-		this.gasNMEXbuttonSubmit.click()
-}
-}
-	public async clickElecSubmitButton(){
+	public async clickNMEXInstallSubmitButton() {
+		if (await this.gasNMEXbuttonSubmit.isDisplayed()) {
+			await utility.wait(utility.low);
+			// click the dropdown
+			this.gasNMEXbuttonSubmit.click()
+		}
+	}
+	public async clickElecSubmitButton() {
 		if (await this.elecMeterSubmit.isDisplayed()) {
 			await utility.wait(utility.low);
 			// click the dropdown
 			this.elecMeterSubmit.click()
+		}
 	}
-}
 
-public async clickElecInstallSubmitButton(){
-	if (await this.elecInstallSubmit.isDisplayed()) {
-		await utility.wait(utility.low);
-		// click the dropdown
-		this.elecInstallSubmit.click()
-}
-}
+	public async clickElecInstallSubmitButton() {
+		if (await this.elecInstallSubmit.isDisplayed()) {
+			await utility.wait(utility.low);
+			// click the dropdown
+			this.elecInstallSubmit.click()
+		}
+	}
 
-public async clickGasSubmitButton(){
-	if (await this.gasMeterSubmit.isDisplayed()) {
-		await utility.wait(utility.low);
-		// click the dropdown
-		this.gasMeterSubmit.click()
-}
-}
+	public async clickGasSubmitButton() {
+		if (await this.gasMeterSubmit.isDisplayed()) {
+			await utility.wait(utility.low);
+			// click the dropdown
+			this.gasMeterSubmit.click()
+		}
+	}
 
-	
 
-	public async fillReplaceCommshubdetails(index:number) {
+
+	public async fillReplaceCommshubdetails(index: number) {
 
 		if (await this.commshubReplacedyes.isDisplayed()) {
 			await utility.wait(utility.low);
 			// click the dropdown
 			this.commshubReplacedyes.click()
 			browser.sleep(1000)
-		//index = index ;
-		console.log("Selecting element based index : "+index)
-		// select the option
-		await utility.wait(utility.low);
-		await this.commshubToInstall.element(by.css("option:nth-child("+index+")")).click()
-		await utility.wait(utility.low);
-				await this.commshubPopup.click();
-			
+			//index = index ;
+			console.log("Selecting element based index : " + index)
+			// select the option
+			await utility.wait(utility.low);
+			await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
+			await utility.wait(utility.low);
+			await this.commshubPopup.click();
+
 			await expect(await this.CHFID.isPresent());
 			var options = this.selectinstallAssetOption.getAttribute('value');
 			console.log(options);
@@ -1537,13 +1577,13 @@ public async clickGasSubmitButton(){
 			await utility.wait(4000);
 			await this.commshubPopup.click();
 			await utility.wait(utility.low);
-	
+
 			if (await this.commshubLocation.isDisplayed()) {
 				var select = this.commshubLocation;
 				select.$('[value="A"]').click();
 			}
 			await utility.wait(utility.low);
-	
+
 			if (await this.aerialInstalled.isDisplayed()) {
 				await this.aerialInstalled.click();
 				await utility.wait(utility.very_low);
@@ -1616,21 +1656,21 @@ public async clickGasSubmitButton(){
 
 
 
-	public async fillReplaceCommshubdetails_EXCH23(index:number) {
+	public async fillReplaceCommshubdetails_EXCH23(index: number) {
 
 		if (await this.commshubReplacedyes.isDisplayed()) {
 			await utility.wait(utility.low);
 			// click the dropdown
 			this.commshubReplacedyes.click()
 			browser.sleep(1000)
-		//index = index ;
-		console.log("Selecting element based index : "+index)
-		// select the option
-		await utility.wait(utility.low);
-		await this.commshubToInstall.element(by.css("option:nth-child("+index+")")).click()
-		await utility.wait(utility.low);
-				await this.commshubPopup.click();
-			
+			//index = index ;
+			console.log("Selecting element based index : " + index)
+			// select the option
+			await utility.wait(utility.low);
+			await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
+			await utility.wait(utility.low);
+			await this.commshubPopup.click();
+
 			await expect(await this.CHFID.isPresent());
 			var options = this.selectinstallAssetOption.getAttribute('value');
 			console.log(options);
@@ -1643,13 +1683,13 @@ public async clickGasSubmitButton(){
 			await utility.wait(4000);
 			await this.commshubPopup.click();
 			await utility.wait(utility.low);
-	
+
 			if (await this.commshubLocation.isDisplayed()) {
 				var select = this.commshubLocation;
 				select.$('[value="A"]').click();
 			}
 			await utility.wait(utility.low);
-	
+
 			if (await this.aerialInstalled.isDisplayed()) {
 				await this.aerialInstalled.click();
 				await utility.wait(utility.very_low);
@@ -1698,7 +1738,7 @@ public async clickGasSubmitButton(){
 				await this.assetsUnaffectedYes.click();
 				await utility.wait(utility.very_low);
 			}
-			
+
 			if (await this.replacecommsNextButton.isDisplayed()) {
 				await this.replacecommsNextButton.click();
 				await utility.wait(utility.very_low);
@@ -1707,21 +1747,21 @@ public async clickGasSubmitButton(){
 	}
 
 
-	public async fillReplaceCommshubdetails_ENMEX(index:number) {
+	public async fillReplaceCommshubdetails_ENMEX(index: number) {
 
 		if (await this.commshubReplacedyes.isDisplayed()) {
 			await utility.wait(utility.low);
 			// click the dropdown
 			this.commshubReplacedyes.click()
 			browser.sleep(1000)
-		//index = index ;
-		console.log("Selecting element based index : "+index)
-		// select the option
-		await utility.wait(utility.low);
-		await this.commshubToInstall.element(by.css("option:nth-child("+index+")")).click()
-		await utility.wait(utility.low);
-				await this.commshubPopup.click();
-			
+			//index = index ;
+			console.log("Selecting element based index : " + index)
+			// select the option
+			await utility.wait(utility.low);
+			await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
+			await utility.wait(utility.low);
+			await this.commshubPopup.click();
+
 			await expect(await this.CHFID.isPresent());
 			var options = this.selectinstallAssetOption.getAttribute('value');
 			console.log(options);
@@ -1734,13 +1774,13 @@ public async clickGasSubmitButton(){
 			await utility.wait(4000);
 			await this.commshubPopup.click();
 			await utility.wait(utility.low);
-	
+
 			if (await this.commshubLocation.isDisplayed()) {
 				var select = this.commshubLocation;
 				select.$('[value="A"]').click();
 			}
 			await utility.wait(utility.low);
-	
+
 			if (await this.aerialInstalled.isDisplayed()) {
 				await this.aerialInstalled.click();
 				await utility.wait(utility.very_low);
@@ -1789,7 +1829,7 @@ public async clickGasSubmitButton(){
 				await this.assetsUnaffectedYes.click();
 				await utility.wait(utility.very_low);
 			}
-			
+
 			if (await this.replacecommsNextButton.isDisplayed()) {
 				await this.replacecommsNextButton.click();
 				await utility.wait(utility.very_low);
@@ -1797,21 +1837,21 @@ public async clickGasSubmitButton(){
 		}
 	}
 
-	public async fillReplaceCommshubdetails_EXCH19(index:number) {
+	public async fillReplaceCommshubdetails_EXCH19(index: number) {
 
 		if (await this.commshubReplacedyes_1.isDisplayed()) {
 			await utility.wait(utility.low);
 			// click the dropdown
 			this.commshubReplacedyes_1.click()
 			browser.sleep(1000)
-		//index = index ;
-		console.log("Selecting element based index : "+index)
-		// select the option
-		await utility.wait(utility.low);
-		await this.commshubToInstall_1.element(by.css("option:nth-child("+index+")")).click()
-		await utility.wait(utility.low);
-				await this.commshubPopup.click();
-			
+			//index = index ;
+			console.log("Selecting element based index : " + index)
+			// select the option
+			await utility.wait(utility.low);
+			await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
+			await utility.wait(utility.low);
+			await this.commshubPopup.click();
+
 			await expect(await this.CHFID_1.isPresent());
 			var options = this.selectinstallAssetOption_1.getAttribute('value');
 			console.log(options);
@@ -1824,13 +1864,13 @@ public async clickGasSubmitButton(){
 			await utility.wait(4000);
 			await this.commshubPopup.click();
 			await utility.wait(utility.low);
-	
+
 			if (await this.commshubLocation_1.isDisplayed()) {
 				var select = this.commshubLocation_1;
 				select.$('[value="A"]').click();
 			}
 			await utility.wait(utility.low);
-	
+
 			if (await this.aerialInstalled_1.isDisplayed()) {
 				await this.aerialInstalled_1.click();
 				await utility.wait(utility.very_low);
@@ -1875,7 +1915,7 @@ public async clickGasSubmitButton(){
 				await this.confirmInstallAndLeaveYes_1.click();
 				await utility.wait(utility.very_low);
 			}
-			
+
 			if (await this.replacecommsNextButton_1.isDisplayed()) {
 				await this.replacecommsNextButton_1.click();
 				await utility.wait(utility.very_low);
@@ -1883,21 +1923,21 @@ public async clickGasSubmitButton(){
 		}
 	}
 
-	public async fillReplaceCommshubdetails_GNMEX(index:number) {
+	public async fillReplaceCommshubdetails_GNMEX(index: number) {
 
 		if (await this.commshubReplacedyes_1.isDisplayed()) {
 			await utility.wait(utility.low);
 			// click the dropdown
 			this.commshubReplacedyes_1.click()
 			browser.sleep(1000)
-		//index = index ;
-		console.log("Selecting element based index : "+index)
-		// select the option
-		await utility.wait(utility.low);
-		await this.commshubToInstall_1.element(by.css("option:nth-child("+index+")")).click()
-		await utility.wait(utility.low);
-				await this.commshubPopup.click();
-			
+			//index = index ;
+			console.log("Selecting element based index : " + index)
+			// select the option
+			await utility.wait(utility.low);
+			await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
+			await utility.wait(utility.low);
+			await this.commshubPopup.click();
+
 			await expect(await this.CHFID_1.isPresent());
 			var options = this.selectinstallAssetOption_1.getAttribute('value');
 			console.log(options);
@@ -1910,13 +1950,13 @@ public async clickGasSubmitButton(){
 			await utility.wait(4000);
 			await this.commshubPopup.click();
 			await utility.wait(utility.low);
-	
+
 			if (await this.commshubLocation_1.isDisplayed()) {
 				var select = this.commshubLocation_1;
 				select.$('[value="A"]').click();
 			}
 			await utility.wait(utility.low);
-	
+
 			if (await this.aerialInstalled_1.isDisplayed()) {
 				await this.aerialInstalled_1.click();
 				await utility.wait(utility.very_low);
@@ -1961,7 +2001,7 @@ public async clickGasSubmitButton(){
 				await this.confirmInstallAndLeaveYes_1.click();
 				await utility.wait(utility.very_low);
 			}
-			
+
 			if (await this.replacecommsNextButton_1.isDisplayed()) {
 				await this.replacecommsNextButton_1.click();
 				await utility.wait(utility.very_low);
@@ -1969,21 +2009,21 @@ public async clickGasSubmitButton(){
 		}
 	}
 
-	public async fillReplaceCommshubdetails_EXCH22(index:number) {
+	public async fillReplaceCommshubdetails_EXCH22(index: number) {
 
 		if (await this.commshubReplacedyes_1.isDisplayed()) {
 			await utility.wait(utility.low);
 			// click the dropdown
 			this.commshubReplacedyes_1.click()
 			browser.sleep(1000)
-		//index = index ;
-		console.log("Selecting element based index : "+index)
-		// select the option
-		await utility.wait(utility.low);
-		await this.commshubToInstall_1.element(by.css("option:nth-child("+index+")")).click()
-		await utility.wait(utility.low);
-				await this.commshubPopup.click();
-			
+			//index = index ;
+			console.log("Selecting element based index : " + index)
+			// select the option
+			await utility.wait(utility.low);
+			await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
+			await utility.wait(utility.low);
+			await this.commshubPopup.click();
+
 			await expect(await this.CHFID_1.isPresent());
 			var options = this.selectinstallAssetOption_1.getAttribute('value');
 			console.log(options);
@@ -1996,13 +2036,13 @@ public async clickGasSubmitButton(){
 			await utility.wait(4000);
 			await this.commshubPopup.click();
 			await utility.wait(utility.low);
-	
+
 			if (await this.commshubLocation_1.isDisplayed()) {
 				var select = this.commshubLocation_1;
 				select.$('[value="A"]').click();
 			}
 			await utility.wait(utility.low);
-	
+
 			if (await this.aerialInstalled_1.isDisplayed()) {
 				await this.aerialInstalled_1.click();
 				await utility.wait(utility.very_low);
@@ -2047,7 +2087,7 @@ public async clickGasSubmitButton(){
 				await this.confirmInstallAndLeaveYes_1.click();
 				await utility.wait(utility.very_low);
 			}
-			
+
 			if (await this.replacecommsNextButton_1.isDisplayed()) {
 				await this.replacecommsNextButton_1.click();
 				await utility.wait(utility.very_low);
@@ -2055,21 +2095,21 @@ public async clickGasSubmitButton(){
 		}
 	}
 
-	public async fillReplaceCommshubdetails_FLTY20(index:number) {
+	public async fillReplaceCommshubdetails_FLTY20(index: number) {
 
 		if (await this.commshubReplacedyes_1.isDisplayed()) {
 			await utility.wait(utility.low);
 			// click the dropdown
 			this.commshubReplacedyes_1.click()
 			browser.sleep(1000)
-		//index = index ;
-		console.log("Selecting element based index : "+index)
-		// select the option
-		await utility.wait(utility.low);
-		await this.commshubToInstall_1.element(by.css("option:nth-child("+index+")")).click()
-		await utility.wait(utility.low);
-				await this.commshubPopup.click();
-			
+			//index = index ;
+			console.log("Selecting element based index : " + index)
+			// select the option
+			await utility.wait(utility.low);
+			await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
+			await utility.wait(utility.low);
+			await this.commshubPopup.click();
+
 			await expect(await this.CHFID_1.isPresent());
 			var options = this.selectinstallAssetOption_1.getAttribute('value');
 			console.log(options);
@@ -2082,13 +2122,13 @@ public async clickGasSubmitButton(){
 			await utility.wait(4000);
 			await this.commshubPopup.click();
 			await utility.wait(utility.low);
-	
+
 			if (await this.commshubLocation_1.isDisplayed()) {
 				var select = this.commshubLocation_1;
 				select.$('[value="A"]').click();
 			}
 			await utility.wait(utility.low);
-	
+
 			if (await this.aerialInstalled_1.isDisplayed()) {
 				await this.aerialInstalled_1.click();
 				await utility.wait(utility.very_low);
@@ -2133,7 +2173,7 @@ public async clickGasSubmitButton(){
 				await this.confirmInstallAndLeaveYes_1.click();
 				await utility.wait(utility.very_low);
 			}
-			
+
 			if (await this.replacecommsNextButton_1.isDisplayed()) {
 				await this.replacecommsNextButton_1.click();
 				await utility.wait(utility.very_low);
@@ -2141,21 +2181,21 @@ public async clickGasSubmitButton(){
 		}
 	}
 
-	public async fillReplaceCommshubdetails_FLTYTRAD(index:number) {
+	public async fillReplaceCommshubdetails_FLTYTRAD(index: number) {
 
 		if (await this.commshubReplacedyes_1.isDisplayed()) {
 			await utility.wait(utility.low);
 			// click the dropdown
 			this.commshubReplacedyes_1.click()
 			browser.sleep(1000)
-		//index = index ;
-		console.log("Selecting element based index : "+index)
-		// select the option
-		await utility.wait(utility.low);
-		await this.commshubToInstall_1.element(by.css("option:nth-child("+index+")")).click()
-		await utility.wait(utility.low);
-				await this.commshubPopup.click();
-			
+			//index = index ;
+			console.log("Selecting element based index : " + index)
+			// select the option
+			await utility.wait(utility.low);
+			await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
+			await utility.wait(utility.low);
+			await this.commshubPopup.click();
+
 			await expect(await this.CHFID_1.isPresent());
 			var options = this.selectinstallAssetOption_1.getAttribute('value');
 			console.log(options);
@@ -2168,13 +2208,13 @@ public async clickGasSubmitButton(){
 			await utility.wait(4000);
 			await this.commshubPopup.click();
 			await utility.wait(utility.low);
-	
+
 			if (await this.commshubLocation_1.isDisplayed()) {
 				var select = this.commshubLocation_1;
 				select.$('[value="A"]').click();
 			}
 			await utility.wait(utility.low);
-	
+
 			if (await this.aerialInstalled_1.isDisplayed()) {
 				await this.aerialInstalled_1.click();
 				await utility.wait(utility.very_low);
@@ -2219,7 +2259,7 @@ public async clickGasSubmitButton(){
 				await this.confirmInstallAndLeaveYes_1.click();
 				await utility.wait(utility.very_low);
 			}
-			
+
 			if (await this.replacecommsNextButton_1.isDisplayed()) {
 				await this.replacecommsNextButton_1.click();
 				await utility.wait(utility.very_low);

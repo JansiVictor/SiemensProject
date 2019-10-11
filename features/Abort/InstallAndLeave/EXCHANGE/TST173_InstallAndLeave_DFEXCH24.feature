@@ -201,7 +201,7 @@ Scenario: Post DFEXCH24 SOAP Request
 
     Scenario: Going through "REMOVE METER-Elec" section
         Given TST22 the REMOVE METER section
-        When TST22 I fill the field023 with the Value023
+        When I fill the InstallAndLeave Remove meter values for EXCH24
         Then TST22 I should see SEND MESSAGE EMREM section
 
     Scenario: Going through "SEND MESSAGE EMREM" section
