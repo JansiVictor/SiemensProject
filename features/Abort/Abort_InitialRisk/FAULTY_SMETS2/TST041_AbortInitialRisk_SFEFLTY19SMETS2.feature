@@ -1,4 +1,4 @@
-Feature: TST041_AbortInitialRisk_SFFLTY19SMETS2
+Feature: TST041_AbortInitialRisk_SFEFLTY19SMETS2
 
         Scenario: Post SFEFLTY19 SOAP Request
                 Given I post workorder using "xmlrequest/SFEFLTY19.XML"

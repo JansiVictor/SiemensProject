@@ -1,4 +1,4 @@
-Feature: TST068_AbortInitialRisk_SFEFLTY18Trad
+Feature: TST068_AbortInitialRisk_SFGFLTY18Trad
 
 	Scenario: Post SFGFLTY18TRAD SOAP Request
 		Given I post workorder using "xmlrequest/SFGFLTY18TRAD.XML"
