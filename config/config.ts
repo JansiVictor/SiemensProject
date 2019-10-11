@@ -11,8 +11,14 @@ export const config: Config = {
 
     SELENIUM_PROMISE_MANAGER: false,
 
-    baseUrl: "https://siemens-og-bykrw4fz56yr6nyvlskmwpwq-sdg1-test.mbaas1.sdg.feedhenry.com/",
+    SOAPUSER: "AUTOTEST2",
+ 
+    USERNAME: "Automation2",
+    PASSWORD: "Aut0m4t1on2",
 
+
+
+    baseUrl: "https://siemens-og-bykrw4fz56yr6nyvlskmwpwq-sdg1-test.mbaas1.sdg.feedhenry.com/",
     capabilities: {
         browserName:'chrome',
         shardTestFiles:true,
@@ -35,8 +41,48 @@ export const config: Config = {
     frameworkPath: require.resolve("protractor-cucumber-framework"),
 
     specs: [
-       "../../features/*.feature",
-       // "../../features/Abort/Abort_InitialRisk/*.feature",
+         "../../features/Abort/Abort_GasRisk/EXCHANGE/*.feature",
+    //     "../../features/Abort/Abort_GasRisk/FAULTY_SMETS2/*.feature",
+    //     "../../features/Abort/Abort_GasRisk/FAULTY_TRAD/*.feature",
+    //     "../../features/Abort/Abort_GasRisk/INSTALLATION/*.feature",
+    //     "../../features/Abort/Abort_GasRisk/REMOVE/*.feature",
+
+    //     "../../features/Abort/Abort_InitialRisk/EXCHANGE/*.feature",
+    //     "../../features/Abort/Abort_InitialRisk/FAULTY_SMETS2/*.feature",
+    //     "../../features/Abort/Abort_InitialRisk/FAULTY_TRAD/*.feature",
+    //     "../../features/Abort/Abort_InitialRisk/INSTALLATION/*.feature",
+    //     "../../features/Abort/Abort_InitialRisk/REMOVE/*.feature",
+
+    //     "../../features/Abort/AbortContactMade/EXCHANGE/*.feature",
+    //     "../../features/Abort/AbortContactMade/FAULTY_SMETS2/*.feature",
+    //     "../../features/Abort/AbortContactMade/FAULTY_TRAD/*.feature",
+    //     "../../features/Abort/AbortContactMade/INSTALLATION/*.feature",
+    //     "../../features/Abort/AbortContactMade/REMOVE/*.feature",
+
+    //     "../../features/Abort/AbortNoAccessSuspend/EXCHANGE/*.feature",
+    //     "../../features/Abort/AbortNoAccessSuspend/FAULTY_SMETS2/*.feature",
+    //     "../../features/Abort/AbortNoAccessSuspend/FAULTY_TRAD/*.feature",
+    //     "../../features/Abort/AbortNoAccessSuspend/INSTALLATION/*.feature",
+    //     "../../features/Abort/AbortNoAccessSuspend/REMOVE/*.feature",
+
+    //     "../../features/Abort/Abort_ElecRisk/EXCHANGE/*.feature",
+    //     "../../features/Abort/Abort_ElecRisk/FAULTY_SMETS2/*.feature",
+    //     "../../features/Abort/Abort_ElecRisk/FAULTY_TRAD/*.feature",
+    //     "../../features/Abort/Abort_ElecRisk/INSTALLATION/*.feature",
+    //     "../../features/Abort/Abort_ElecRisk/REMOVE/*.feature",
+
+    //    "../../features/Abort/InstallAndLeave/EXCHANGE/*.feature",
+    //    "../../features/Abort/InstallAndLeave/FAULTY_SMETS2/*.feature",
+    //    "../../features/Abort/InstallAndLeave/FAULTY_TRAD/*.feature",
+    //    "../../features/Abort/InstallAndLeave/INSTALLATION/*.feature",
+    //    "../../features/Abort/InstallAndLeave/REMOVE/*.feature",
+
+    //    "../../features/EXCHANGE/*.feature",
+    //    "../../features/FAULTY_SMETS2/*.feature",
+    //    "../../features/FAULTY_TRAD/*.feature",
+    //    "../../features/INSTALLATION/*.feature",
+    //    "../../features/REMOVE/*.feature",
+    
     ],
 
     jasmineNodeOpts: {
@@ -47,7 +93,7 @@ export const config: Config = {
         browser.ignoreSynchronization = true;
         browser.manage().window().maximize();
         
-        //Reporter.createDirectory(htmlReports);
+        
     },
 
     beforeLaunch: () => {
@@ -58,7 +104,8 @@ export const config: Config = {
     cucumberOpts: {
         compiler: "ts:ts-node/register",
         format: "json:./reports/html/cucumber_report.json",
-        require: ["../../typeScript/stepdefinitions/SD_EXCHANGE/*.js",
+        require: ["../../typeScript/stepdefinitions/SD_WO_TRIGGER/*.js",
+        "../../typeScript/stepdefinitions/SD_EXCHANGE/*.js",
         "../../typeScript/stepdefinitions/SD_ABORT/*.js",
         "../../typeScript/stepdefinitions/SD_FAULTY_SMETS2/*.js",
         "../../typeScript/stepdefinitions/SD_FAULTY_TRAD/*.js",
@@ -79,16 +126,4 @@ export const config: Config = {
         }
     }]
 
-    // onComplete: () => {
-    //     for(let s of config.specs)
-    //     {
-    //         console.log(s);
-    //         var s1= s.split('/');
-    //         console.log(s1);
-    //         var s2= s1[3].split('.');
-    //         console.log(s2);
-    //         Reporter.createHTMLReport(s2[0]);
-    //     }
-    //     //Reporter.createHTMLReport();
-    // },
 };

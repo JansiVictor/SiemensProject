@@ -1,6 +1,7 @@
 Feature: Exchange 23 Work Flow
 
-
+Scenario: Post SFEEXCH23 SOAP Request
+        Given I post workorder using "xmlrequest/SFEEXCH23.XML"
 
 Scenario Outline: Logging in to job's "Work Order" window for EXCH23
 
@@ -251,6 +252,10 @@ Scenario: Going through "CAPTURE CUSTOMER SIGNATURE" section
     When I write signature in Customer Signature for EXCH23
     And I fill the field57 and Job Complete for EXCH23
     Then see Job Completed screen for EXCH23
+
+    Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist
 
 
 

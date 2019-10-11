@@ -1,5 +1,8 @@
 Feature: TST_162 SF G INST14 Workflow - Contact made Abort No Access
 
+Scenario: Post SFGINST14 SOAP Request
+        Given I post workorder using "xmlrequest/SFGINST14.XML"
+
     Scenario Outline: Logging in to job's "Work Order" window
         Given the INSTFrtn Login Page
         When I pass INSTFrtn "<Username>" and "<Password>"
@@ -33,6 +36,9 @@ Feature: TST_162 SF G INST14 Workflow - Contact made Abort No Access
         Then I should see the Aborted status for the workorder "SFGINST14" on the appointments page
 
 
+ 	Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist
 
 
 

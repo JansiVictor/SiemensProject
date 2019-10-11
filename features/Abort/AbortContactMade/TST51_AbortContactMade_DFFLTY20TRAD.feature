@@ -1,5 +1,8 @@
 Feature: TST_051 DF FLTY20 Trad - SMETS2 Workflow - Contact made Abort No Access
 
+Scenario: Post DFFLTY20TRAD SOAP Request
+        Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"
+
 	Scenario Outline: Logging in to job's "Work Order" window for FLTY20TRAD
 		Given the Login Page for FLTY20TRAD
 		When I pass "<Username>" and "<Password>" for FLTY20TRAD
@@ -32,3 +35,7 @@ Feature: TST_051 DF FLTY20 Trad - SMETS2 Workflow - Contact made Abort No Access
         Given the AbortReasonCodespopup
         When I click the Not Convenient with Customer Reason and Abort the Job 
         Then I should see the Aborted status for the workorder "DFFLTY20TRAD" on the appointments page
+
+	    Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

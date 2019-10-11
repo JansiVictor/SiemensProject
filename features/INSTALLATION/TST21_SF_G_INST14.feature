@@ -1,5 +1,8 @@
 Feature: SF_G_INST14 WorkFlow
 
+Scenario: Post SFGINST14 SOAP Request
+        Given I post workorder using "xmlrequest/SFGINST14.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the INSTFrtn Login Page
 When I pass INSTFrtn "<Username>" and "<Password>"
@@ -141,3 +144,7 @@ Scenario: Going through INSTFrtn "Summary of Job and receive Customer Signature"
 Given the INSTFrtn Summary of Job and receive Customer Signature section 
 When I fill the INSTFrtn Summary of Job and receive Customer Signaturefields with values
 Then I should see INSTFrtn Submit button to complete the job section
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

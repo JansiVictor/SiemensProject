@@ -1,5 +1,8 @@
 Feature: SFGFLTY18TRAD Workflow
 
+Scenario: Post SFGFLTY18TRAD SOAP Request
+        Given I post workorder using "xmlrequest/SFGFLTY18TRAD.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the Login Page For SFGFLTY18TRAD
 When I pass "<Username>" and "<Password>" For SFGFLTY18TRAD
@@ -113,3 +116,7 @@ Given the SFGFLTY18TRAD Summary of Job section
 When I fill the SFGFLTY18TRAD summary fields with values
 Then I should finally submit SFGFLTY18TRAD job
 And I should see the Appointment List For SFGFLTY18TRAD
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

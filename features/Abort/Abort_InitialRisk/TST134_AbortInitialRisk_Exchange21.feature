@@ -1,5 +1,8 @@
 Feature: TST134_AbortInitialRisk_Exchange21
 
+Scenario: Post DFEXCH21 SOAP Request
+        Given I post workorder using "xmlrequest/DFEXCH21.XML"
+
 Scenario Outline: Logging in to job's ExTwOne "Work Order" window
 Given the ExTwOne Login Page
 When I pass ExTwOne "<Username>" and "<Password>"

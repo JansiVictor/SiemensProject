@@ -1,6 +1,9 @@
 
 Feature: TST_208 SF E RMVE6 Workflow - Contact made Abort No Access
 
+Scenario: Post SFERMVE6 SOAP Request
+        Given I post workorder using "xmlrequest/SFERMVE6.XML"
+
     Scenario Outline: Logging in to job's "Work Order" window
         Given the RmveSix Login Page
         When I pass RmveSix "<Username>" and "<Password>"
@@ -33,3 +36,7 @@ Feature: TST_208 SF E RMVE6 Workflow - Contact made Abort No Access
         Given the AbortReasonCodespopup
         When I click the Not Convenient with Customer Reason and Abort the Job
         Then I should see the Aborted status for the workorder "SFERMVE6" on the appointments page
+
+      Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

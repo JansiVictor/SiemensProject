@@ -1,5 +1,8 @@
 Feature: SFGRMVE5 - AbortNoAccessSuspend Workflow
 
+Scenario: Post SFGRMVE5 SOAP Request
+Given I post workorder using "xmlrequest/SFGRMVE5.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the RmveGas Login Page
 When I pass RmveGas "<Username>" and "<Password>"
@@ -59,3 +62,7 @@ Scenario: Going through the Reason codes popup
 Given the AbortReasonCodespopup
 When I click the worknolongerrequired Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFGRMVE5" on the appointments page
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

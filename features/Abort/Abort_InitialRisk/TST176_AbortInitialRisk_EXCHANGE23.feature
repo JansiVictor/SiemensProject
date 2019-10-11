@@ -1,5 +1,8 @@
 Feature: TST176_AbortInitialRisk_EXCHANGE23
 
+Scenario: Post SFEEXCH23 SOAP Request
+        Given I post workorder using "xmlrequest/SFEEXCH23.XML"
+
     Scenario Outline: Logging in to job's "Work Order" window for EXCH23
 
         Given the Login Page for EXCH23
@@ -56,3 +59,7 @@ Feature: TST176_AbortInitialRisk_EXCHANGE23
         When I fill the Abort Initial Risk Fields with Values
         When I click the Unabletoturnoff Reason and Abort the Job
         Then I should see the Aborted status for the workorder "SFEEXCH23" on the appointments page
+
+        Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

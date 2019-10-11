@@ -1,5 +1,8 @@
 Feature: TST181_AbortInitialRisk_EXCHANGE22
 
+Scenario: Post SFGEXCH22 SOAP Request
+        Given I post workorder using "xmlrequest/SFGEXCH22.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the ExchTwTwo Login Page
 When I pass ExchTwTwo "<Username>" and "<Password>"
@@ -56,3 +59,7 @@ Given the ExchTwTwo INITIAL RISK ASSESSMENT section
 When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFGEXCH22" on the appointments page
+
+  Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

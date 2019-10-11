@@ -1,5 +1,8 @@
 Feature: TST_129 DF EXCH21 Workflow - Contact made Abort No Access
 
+Scenario: Post SFGEXCH21 SOAP Request
+        Given I post workorder using "xmlrequest/SFGEXCH21.XML"
+
 
     Scenario Outline: Logging in to job's ExTwOne "Work Order" window
         Given the ExTwOne Login Page
@@ -37,3 +40,6 @@ Feature: TST_129 DF EXCH21 Workflow - Contact made Abort No Access
         When I click the Not Convenient with Customer Reason and Abort the Job
         Then I should see the Aborted status for the workorder "DFEXCH21" on the appointments page
 
+	Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

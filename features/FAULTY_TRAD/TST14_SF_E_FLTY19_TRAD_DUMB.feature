@@ -1,5 +1,8 @@
 Feature: SFEFLTY19TRAD Workflow
 
+Scenario: Post SFEFLTY19TRAD SOAP Request
+        Given I post workorder using "xmlrequest/SFEFLTY19TRAD.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the Login Page For SFEFLTY19TRAD
 When I pass "<Username>" and "<Password>" For SFEFLTY19TRAD
@@ -152,3 +155,7 @@ Given the SFEFLTY19TRAD Smart literature left onsite section
 When I fill the SFEFLTY19TRAD smart literature fields with values
 Then I should finally submit SFEFLTY19TRAD job
 And I should see the Appointment List For SFEFLTY19TRAD
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

@@ -1,5 +1,8 @@
 Feature: TST188_AbortInitialRisk_NMEX17 
 
+Scenario: Post DFNMEX17 SOAP Request
+        Given I post workorder using "xmlrequest/DFNMEX17.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the Login Page For DF17SmartCredit
 When I pass "<Username>" and "<Password>" For DF17SmartCredit
@@ -56,3 +59,7 @@ Given the DF17SmartCredit INITIAL RISK ASSESSMENT section
 When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "DF17SmartCredit" on the appointments page
+
+  Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

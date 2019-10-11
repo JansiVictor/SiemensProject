@@ -1,5 +1,8 @@
 Feature: SFGFLTY18NOEXCH - AbortNoAccessSuspend Workflow
 
+Scenario: Post SFGFLTY18 SOAP Request
+Given I post workorder using "xmlrequest/SFGFLTY18.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given TST03 the Login Page
 When TST03 I pass "<Username>" and "<Password>"
@@ -56,3 +59,7 @@ Scenario: Going through the Reason codes popup
 Given the AbortReasonCodespopup
 When I click the worknolongerrequired Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFGFLTY18" on the appointments page
+
+Scenario: Going through deleting the work order after use 
+When I delete workorder after use
+Then workorder should no longer exist

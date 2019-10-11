@@ -1,5 +1,8 @@
 Feature: TST169_AbortInitialRisk_EXCHANGE24
 
+Scenario: Post DFEXCH24 SOAP Request
+        Given I post workorder using "xmlrequest/DFEXCH24.XML"
+
     Scenario Outline: Logging in to job's "Work Order" window
         Given the TST22 Login Page
         When I pass TST22 "<Username>" and "<Password>"
@@ -51,3 +54,7 @@ Feature: TST169_AbortInitialRisk_EXCHANGE24
         When I fill the Abort Initial Risk Fields with Values
         When I click the Unabletoturnoff Reason and Abort the Job
         Then I should see the Aborted status for the workorder "DFEXCH24" on the appointments page
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

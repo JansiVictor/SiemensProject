@@ -1,5 +1,8 @@
 Feature: TST_122 SF G FLTY18 Trad Dumb Workflow - Contact made Abort No Access
 
+Scenario: Post SFGFLTY18TRAD SOAP Request
+        Given I post workorder using "xmlrequest/SFGFLTY18TRAD.XML"
+
 	Scenario Outline: Logging in to job's "Work Order" window for FLTY18TRAD
 		Given the Login Page for FLTY18TRAD
 		When I pass "<Username>" and "<Password>" for FLTY18TRAD
@@ -32,3 +35,7 @@ Feature: TST_122 SF G FLTY18 Trad Dumb Workflow - Contact made Abort No Access
         Given the AbortReasonCodespopup
         When I click the Not Convenient with Customer Reason and Abort the Job 
         Then I should see the Aborted status for the workorder "SFGFLTY18TRAD" on the appointments page
+
+		Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

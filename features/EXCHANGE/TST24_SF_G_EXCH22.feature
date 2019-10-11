@@ -1,5 +1,8 @@
 Feature: SF_G_EXCH22 Workflow
 
+Scenario: Post SFGEXCH22 SOAP Request
+        Given I post workorder using "xmlrequest/SFGEXCH22.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the ExchTwTwo Login Page
 When I pass ExchTwTwo "<Username>" and "<Password>"
@@ -276,3 +279,7 @@ Given ExchTwTwo the CAPTURE CUSTOMER SIGNATURE section
 When ExchTwTwo I write signature in Customer Signature
 And ExchTwTwo I fill the field57 and Job Complete
 Then ExchTwTwo see Job Completed screen
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

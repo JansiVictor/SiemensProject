@@ -1,4 +1,7 @@
-Feature: Exchange20 Workflow
+Feature: Exchange20 Workflow#
+
+Scenario: Post SFEEXCH20 SOAP Request
+        Given I post workorder using "xmlrequest/SFEEXCH20.XML"
 
 Scenario Outline: Logging in to job's "Work Order" window
 Given the ExTwnty Login Page
@@ -177,3 +180,7 @@ Scenario: Going through ExchangeTwnty "Summary of Job and receive Customer Signa
 Given the ExchangeTwnty Summary of Job and receive Customer Signature section 
 When I fill the ExchangeTwnty Summary of Job and receive Customer Signaturefields with values
 Then I should see ExchangeTwnty Submit button to complete the job section
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

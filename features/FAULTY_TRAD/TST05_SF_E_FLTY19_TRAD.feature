@@ -1,5 +1,9 @@
 Feature: SF E FLTY19 Trad  - SMETS2 Workflow
 
+
+    Scenario: Post SFEFLTY19TRAD SOAP Request
+        Given I post workorder using "xmlrequest/SFEFLTY19TRAD.XML"
+
 	Scenario Outline: Logging in to job's "Work Order" window for FLTY19 Trad
 		Given the Login Page for FLTY19 Trad
 		When I pass "<Username>" and "<Password>" for FLTY19 Trad
@@ -204,4 +208,8 @@ Feature: SF E FLTY19 Trad  - SMETS2 Workflow
 		When I write signature in Customer Signature for FLTY19 Trad
 		And I fill the field57 and Job Complete for FLTY19 Trad
 		Then see Job Completed screen for FLTY19 Trad
+
+	Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist
 

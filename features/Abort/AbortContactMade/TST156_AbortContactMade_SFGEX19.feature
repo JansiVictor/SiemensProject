@@ -1,5 +1,7 @@
 Feature: TST_156 SF G EXCH19 Workflow - Contact made Abort No Access
 
+Scenario: Post SFGEXCH19 SOAP Request
+        Given I post workorder using "xmlrequest/SFGEXCH19.XML"
 
     Scenario Outline: Logging in to job's "Work Order" window
         Given the ExchngNineteen Login Page
@@ -35,3 +37,7 @@ Feature: TST_156 SF G EXCH19 Workflow - Contact made Abort No Access
         When I click the Not Convenient with Customer Reason and Abort the Job
         Then I should see the Aborted status for the workorder "SFGEXCH19" on the appointments page
 
+
+ 	Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

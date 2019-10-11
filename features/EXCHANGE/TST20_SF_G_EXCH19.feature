@@ -1,5 +1,8 @@
 Feature: Exchange19 Workflow
 
+Scenario: Post SFGEXCH19 SOAP Request
+        Given I post workorder using "xmlrequest/SFGEXCH19.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the ExchngNineteen Login Page
 When I pass ExchngNineteen "<Username>" and "<Password>"
@@ -167,3 +170,7 @@ Scenario: Going through ExchngNineteen "Summary of Job and receive Customer Sign
 Given the ExchngNineteen Summary of Job and receive Customer Signature section 
 When I fill the ExchngNineteen Summary of Job and receive Customer Signaturefields with values
 Then I should see ExchngNineteen Submit button to complete the job section
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

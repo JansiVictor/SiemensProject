@@ -1,5 +1,8 @@
 Feature: TST148_AbortInitialRisk_Exchange20
 
+Scenario: Post SFEEXCH20 SOAP Request
+        Given I post workorder using "xmlrequest/SFEEXCH20.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the ExTwnty Login Page
 When I pass ExTwnty "<Username>" and "<Password>"
@@ -55,3 +58,7 @@ Given the ExchangeTwnty INITIAL RISK ASSESSMENT section
 When I fill the Abort Initial Risk Fields with Values
 When I click the Unabletoturnoff Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFEEXCH20" on the appointments page
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

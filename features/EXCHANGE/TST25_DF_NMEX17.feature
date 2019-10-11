@@ -1,5 +1,8 @@
 Feature: DF17SmartCredit Workflow 
 
+Scenario: Post DFNMEX17 SOAP Request
+        Given I post workorder using "xmlrequest/DFNMEX17.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the Login Page For DF17SmartCredit
 When I pass "<Username>" and "<Password>" For DF17SmartCredit
@@ -161,3 +164,7 @@ Given the DF17SmartCredit Smart literature left onsite section
 When I fill the DF17SmartCredit smart literature fields with values
 Then I should finally submit DF17SmartCredit job
 And I should see the Appointment List For DF17SmartCredit
+
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

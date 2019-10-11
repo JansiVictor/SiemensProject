@@ -1,5 +1,8 @@
 Feature: TST15_SF_Gas_FLTY18_Non_SMETS2
 
+    Scenario: Post SFGFLTY18TRAD SOAP Request
+        Given I post workorder using "xmlrequest/SFGFLTY18TRAD.XML"
+
     Scenario Outline: Logging in to job's "Work Order" window
         Given TST15 the Login Page
         When TST15 I pass "<Username>" and "<Password>"
@@ -179,3 +182,7 @@ Feature: TST15_SF_Gas_FLTY18_Non_SMETS2
         When TST15 I write signature in Customer Signature
         And TST15 I fill the field57 and Job Complete
         Then TST15 see Job Completed screen
+
+    Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

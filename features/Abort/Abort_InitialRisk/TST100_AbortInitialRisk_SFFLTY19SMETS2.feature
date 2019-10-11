@@ -1,5 +1,8 @@
 Feature: TST100_AbortInitialRisk_SFFLTY19SMETS2
 
+Scenario: Post SFEFLTY19 SOAP Request
+        Given I post workorder using "xmlrequest/SFEFLTY19.XML"
+
     Scenario Outline: Logging in to job's "Work Order" window
         Given the fltynineteen Login Page
         When I pass fltynineteen "<Username>" and "<Password>"
@@ -58,3 +61,6 @@ Feature: TST100_AbortInitialRisk_SFFLTY19SMETS2
         Then I should see the Aborted status for the workorder "SFEFLTY19" on the appointments page
 
 
+Scenario: Going through deleting the work order after use 
+        When I delete workorder after use
+        Then workorder should no longer exist

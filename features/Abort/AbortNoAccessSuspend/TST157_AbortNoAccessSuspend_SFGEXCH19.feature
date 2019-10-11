@@ -1,5 +1,8 @@
 Feature: SFGEXCH19- AbortNoAccessSuspend Workflow
 
+Scenario: Post SFGEXCH19 SOAP Request
+Given I post workorder using "xmlrequest/SFGEXCH19.XML"
+
 Scenario Outline: Logging in to job's "Work Order" window
 Given the ExchngNineteen Login Page
 When I pass ExchngNineteen "<Username>" and "<Password>"
@@ -60,3 +63,7 @@ Scenario: Going through the Reason codes popup
 Given the AbortReasonCodespopup
 When I click the worknolongerrequired Reason and Abort the Job
 Then I should see the Aborted status for the workorder "SFGEXCH19" on the appointments page
+
+Scenario: Going through deleting the work order after use 
+When I delete workorder after use
+Then workorder should no longer exist
