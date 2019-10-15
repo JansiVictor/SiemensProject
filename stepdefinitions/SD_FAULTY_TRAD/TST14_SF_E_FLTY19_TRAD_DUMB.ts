@@ -66,7 +66,7 @@ Given('the Login Page For SFEFLTY19TRAD', async function () {
 
 When('I pass {string} and {string} For SFEFLTY19TRAD', async function (username, password) {
 	await login.setUsernamePassword(username, password);
-	await utility.wait(500);
+	await utility.wait(utility.very_low);
 });
 
 Then('I click Login button For SFEFLTY19TRAD', async function () {
@@ -276,7 +276,7 @@ Given('the SFEFLTY19TRAD INITIAL RISK ASSESSMENT section', async function () {
 });
 
 When('I fill the SFEFLTY19TRAD initialRisk field with the values', async function () {
-	await utility.wait(4000);
+	await utility.wait(utility.medium_low);
 	await riskassess.inputInitialRiskAssessmentDetails();
 });
 
@@ -338,17 +338,17 @@ When('I fill the SFEFLTY19TRAD Socket Found field with the values', async functi
 });
 
 Then('I should see SFEFLTY19TRAD INITIAL POLARITY CHECK AT METER AND CUT OUT section', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.verifyMeterAndCutOut();
 });
 
 Given('the SFEFLTY19TRAD INITIAL POLARITY CHECK - AT METER AND CUT OUT section', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.verifyMeterAndCutOut();
 });
 
 When('I fill the SFEFLTY19TRAD METER AND CUT OUT fields with the values', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.fillthePolarityCheckMeterOut();
 });
 
@@ -390,7 +390,7 @@ Given('the SFEFLTY19TRAD ADDITIONAL ELECTRICITY CHECKS details section', async f
 });
 
 When('I fill the SFEFLTY19TRAD ADDITIONAL ELECTRICITY CHECKS details fields with values', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.fillAdditionalElecCheckDetails();
 });
 

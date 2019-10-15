@@ -41,17 +41,27 @@ export const config: Config = {
     frameworkPath: require.resolve("protractor-cucumber-framework"),
 
     specs: [
-         "../../features/Abort/Abort_GasRisk/EXCHANGE/*.feature",
-    //     "../../features/Abort/Abort_GasRisk/FAULTY_SMETS2/*.feature",
-    //     "../../features/Abort/Abort_GasRisk/FAULTY_TRAD/*.feature",
-    //     "../../features/Abort/Abort_GasRisk/INSTALLATION/*.feature",
-    //     "../../features/Abort/Abort_GasRisk/REMOVE/*.feature",
+    // ********************* PHASE A END TO END SCENARIOS**********************************
 
-    //     "../../features/Abort/Abort_InitialRisk/EXCHANGE/*.feature",
-    //     "../../features/Abort/Abort_InitialRisk/FAULTY_SMETS2/*.feature",
-    //     "../../features/Abort/Abort_InitialRisk/FAULTY_TRAD/*.feature",
-    //     "../../features/Abort/Abort_InitialRisk/INSTALLATION/*.feature",
-    //     "../../features/Abort/Abort_InitialRisk/REMOVE/*.feature",
+        "../../features/PHASE-A/EXCHANGE/*.feature",
+    //    "../../features/PHASE-A/FAULTY_SMETS2/*.feature",
+    //    "../../features/PHASE-A/FAULTY_TRAD/*.feature",
+    //    "../../features/PHASE-A/INSTALLATION/*.feature",
+    //    "../../features/PHASE-A/REMOVE/*.feature",
+
+    // ********************* PHASE B ABORT SCENARIOS**********************************
+
+         "../../features/Abort/AbortGasRisk/EXCHANGE/*.feature",
+    //     "../../features/Abort/AbortGasRisk/FAULTY_SMETS2/*.feature",
+    //     "../../features/Abort/AbortGasRisk/FAULTY_TRAD/*.feature",
+    //     "../../features/Abort/AbortGasRisk/INSTALLATION/*.feature",
+    //     "../../features/Abort/AbortGasRisk/REMOVE/*.feature",
+
+    //     "../../features/Abort/AbortInitialRisk/EXCHANGE/*.feature",
+    //     "../../features/Abort/AbortInitialRisk/FAULTY_SMETS2/*.feature",
+    //     "../../features/Abort/AbortInitialRisk/FAULTY_TRAD/*.feature",
+    //     "../../features/Abort/AbortInitialRisk/INSTALLATION/*.feature",
+    //     "../../features/Abort/AbortInitialRisk/REMOVE/*.feature",
 
     //     "../../features/Abort/AbortContactMade/EXCHANGE/*.feature",
     //     "../../features/Abort/AbortContactMade/FAULTY_SMETS2/*.feature",
@@ -65,23 +75,20 @@ export const config: Config = {
     //     "../../features/Abort/AbortNoAccessSuspend/INSTALLATION/*.feature",
     //     "../../features/Abort/AbortNoAccessSuspend/REMOVE/*.feature",
 
-    //     "../../features/Abort/Abort_ElecRisk/EXCHANGE/*.feature",
-    //     "../../features/Abort/Abort_ElecRisk/FAULTY_SMETS2/*.feature",
-    //     "../../features/Abort/Abort_ElecRisk/FAULTY_TRAD/*.feature",
-    //     "../../features/Abort/Abort_ElecRisk/INSTALLATION/*.feature",
-    //     "../../features/Abort/Abort_ElecRisk/REMOVE/*.feature",
+    //     "../../features/Abort/AbortElecRisk/EXCHANGE/*.feature",
+    //     "../../features/Abort/AbortElecRisk/FAULTY_SMETS2/*.feature",
+    //     "../../features/Abort/AbortElecRisk/FAULTY_TRAD/*.feature",
+    //     "../../features/Abort/AbortElecRisk/INSTALLATION/*.feature",
+    //     "../../features/Abort/AbortElecRisk/REMOVE/*.feature",
 
-    //    "../../features/Abort/InstallAndLeave/EXCHANGE/*.feature",
-    //    "../../features/Abort/InstallAndLeave/FAULTY_SMETS2/*.feature",
-    //    "../../features/Abort/InstallAndLeave/FAULTY_TRAD/*.feature",
-    //    "../../features/Abort/InstallAndLeave/INSTALLATION/*.feature",
-    //    "../../features/Abort/InstallAndLeave/REMOVE/*.feature",
+    //    "../../features/Abort/AbortInstallAndLeave/EXCHANGE/*.feature",
+    //    "../../features/Abort/AbortInstallAndLeave/FAULTY_SMETS2/*.feature",
+    //    "../../features/Abort/AbortInstallAndLeave/FAULTY_TRAD/*.feature",
+    //    "../../features/Abort/AbortInstallAndLeave/INSTALLATION/*.feature",
 
-    //    "../../features/EXCHANGE/*.feature",
-    //    "../../features/FAULTY_SMETS2/*.feature",
-    //    "../../features/FAULTY_TRAD/*.feature",
-    //    "../../features/INSTALLATION/*.feature",
-    //    "../../features/REMOVE/*.feature",
+    //      "../../features/Abort/AbortPreGasTest/EXCHANGE/*.feature",
+    //      "../../features/Abort/AbortPreGasTest/FAULTY_SMETS2/*.feature",
+    //      "../../features/Abort/AbortPreGasTest/FAULTY_TRAD/*.feature"
     
     ],
 

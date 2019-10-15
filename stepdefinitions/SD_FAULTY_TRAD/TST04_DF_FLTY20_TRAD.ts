@@ -29,17 +29,17 @@ const job: JobCompletionPageObject = new JobCompletionPageObject();
 
 Given('the Login Page for FLTY20TRAD', async function () {
   await browser.get(config.baseUrl);
-  await utility.wait(5000);
+  await utility.wait(utility.medium_low);
 });
 
 When('I pass {string} and {string} for FLTY20TRAD', async function (username, password) {
   await login.setUsernamePassword(username, password);
-  await utility.wait(500);
+  await utility.wait(utility.very_low);
 });
 
 Then('I click Login button for FLTY20TRAD', async function () {
   await login.clickLogin();
-  await utility.wait(10000);
+  await utility.wait(utility.medium);
 });
 
 Then('I should see the Appointment List for FLTY20TRAD', async function () {
@@ -51,9 +51,9 @@ Given('the Appointment List window for FLTY20TRAD', async function () {
 });
 
 When('I click on select button for FLTY20TRAD', async function () {
-  await utility.wait(2000);
+  await utility.wait(utility.Avg_low);
   await home.clickCorrectSelectLink('DFFLTY20NonSMETS2TRAD');
-  await utility.wait(5000);
+  await utility.wait(utility.medium_low);
 });
 
 Then('I should see Work Order window for FLTY20TRAD', async function () {
@@ -81,7 +81,7 @@ Then('I should see the CUSTOMER CONTACT NUMBER for FLTY20TRAD', async function (
  });
 
 Then('I should see Contact made field for FLTY20TRAD', async function () {
-  await utility.wait(5000);
+  await utility.wait(utility.medium_low);
   await expect(await applist.contactMadeText.getText()).equal("Contact made?");
   await expect(applist.contactMadeYes.isPresent());
 });
@@ -117,14 +117,14 @@ When('I click on OK button for FLTY20TRAD', async function () {
 });
 
 Then('I should see ARRIVE button for FLTY20TRAD', async function () {
-  await utility.wait(10000);
+  await utility.wait(utility.medium);
   await applist.arriveBtn.getText().then(function (arriveBtnText) {
     console.log("find Arrive Btn Text  " + arriveBtnText);
   });
 });
 
 Then('I should see DOORSTEP PROTOCOL tab activated for FLTY20TRAD', async function () {
-  await utility.wait(5000);
+  await utility.wait(utility.medium_low);
   await applist.doorStepPROText.getText().then(function (doorStepPROText) {
     console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
   });
@@ -136,9 +136,9 @@ When('I click on ARRIVE button for FLTY20TRAD', async function () {
 
 Then('I should see Arrival Time details for FLTY20TRAD', async function () {
   //comment these 2 lines when continue link is not displayed
-  // await utility.wait(5000);
+  // await utility.wait(utility.medium_low);
   //await applist.continueLink.click();
-  await utility.wait(5000);
+  await utility.wait(utility.medium_low);
   await applist.arrivalTime.getText().then(function (arrivalTimeText) {
     console.log("find Arrival Time Text  " + arrivalTimeText);
   });
@@ -469,7 +469,7 @@ When('I fill values for FLTY20TRAD', async function () {
 });
 Then('I click on OK btn in Updated window with the text Elec Asset successfully added to Returns list for FLTY20TRAD', async function () {
   await remove.clickonokElecAssetRemoval();
-  await utility.wait(2000);
+  await utility.wait(utility.Avg_low);
 });
 
 Then('I should click on next section for FLTY20TRAD', async function () {
@@ -498,7 +498,7 @@ Given('the INSTALL COMMS HUB sec for FLTY20TRAD', async function () {
 
 When('I fill the Ins comms hub fields and capture photo EVIDENCE for FLTY20TRAD', async function () {
  // await remove.fillCommsHubReqY();
-  //await utility.wait(4000);
+  //await utility.wait(utility.medium_low);
  // await riskassessTRAD.fillCommsHubDetails(4);
  await inst.fillfieldsInstallcommshub(2);
 });
@@ -515,7 +515,7 @@ Given('the  New Meter details section for FLTY20TRAD', async function () {
 });
 
 When('I fill the New Meter details fields with values for FLTY20TRAD', async function () {
-  await riskassessTRAD.fillNewMeterDetailsTRAD(); 
+  await riskassessTRAD.fillNewMeterDetailsTRAD(4); 
 });
 
 Then('I should see ADDITIONAL ELECTRICITY CHECKS section for FLTY20TRAD', async function () {

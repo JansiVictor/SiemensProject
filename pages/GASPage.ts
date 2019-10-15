@@ -415,15 +415,15 @@ export class GASPageObject {
 		if (await this.currentMeterNxtbtn.isDisplayed()) {
 			await this.currentMeterNxtbtn.click();
 		}
-		await utility.wait(6000);
+		await utility.wait(utility.medium_low);
 		await this.currentMeterDetailsHeader.click();
 		await expect(this.existingElecMeterYes.isPresent());
-		await utility.wait(6000);
+		await utility.wait(utility.medium_low);
 		await this.existingElecMeterYes.click();
-		await utility.wait(6000);
+		await utility.wait(utility.medium_low);
 		if (await this.unableToReadMeterYes_SFENMEX15.isDisplayed()) {
 			await this.unableToReadMeterYes_SFENMEX15.click();
-			await utility.wait(6000);
+			await utility.wait(utility.medium_low);
         }
         
 		await this.SFENMEX15currentNxtbtn.click();
@@ -463,15 +463,15 @@ public async verifyDF17CurrentMeterDetails() {
 	if (await this.currentMeterNxtbtn.isDisplayed()) {
 		await this.currentMeterNxtbtn.click();
 	}
-	await utility.wait(6000);
+	await utility.wait(utility.medium_low);
 	await this.currentMeterDetailsHeader.click();
 	await expect(this.existingElecMeterYes.isPresent());
-	await utility.wait(6000);
+	await utility.wait(utility.medium_low);
 	await this.existingElecMeterYes.click();
-	await utility.wait(6000);
+	await utility.wait(utility.medium_low);
 	if (await this.unableToReadMeterYes.isDisplayed()) {
 		await this.unableToReadMeterYes.click();
-		await utility.wait(6000);
+		await utility.wait(utility.medium_low);
 	}
 	
 	await this.DF17currentMeterNxtbtn.click();
@@ -1197,11 +1197,11 @@ public async fillNewMeterDetailsGASInst16(index:number) {
         console.log("Selecting element based index : "+index)
         // select the option
         await this.newMeterDD.element(by.css("option:nth-child("+index+")")).click()
-        await utility.wait(3000);
+        await utility.wait(utility.low);
         //await this.commshubPopup.click();        
         await expect(await this.inputMeterSerialNum.isDisplayed());
 		var options=this.selectNewMeterGasOptnIn16.getAttribute('value');
-		await utility.wait(3000);
+		await utility.wait(utility.low);
         await this.inputMeterSerialNum.sendKeys(options);
     await this.randomEUDevice.click();
     let ale: Alert = browser.switchTo().alert();
@@ -1233,9 +1233,9 @@ public async fillNewMeterDetailsGASInst16(index:number) {
 
 public async fillPostInstallationGasDetailsInst16() {
     //cgp adding
-    await utility.wait(3000);
+    await utility.wait(utility.low);
 	await this.contactGTYES.click();   
-	await utility.wait(1000); 
+	await utility.wait(utility.very_low); 
     await this.nationalGTRefInput.sendKeys('1');
     await utility.wait(utility.low);
     await this.reportedIncidentYES.click();

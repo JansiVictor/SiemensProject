@@ -42,7 +42,7 @@ export class DoorStepPageObject {
 
     public async clickOnSiteButton() {
         this.onSiteBtn.click();
-        await utility.wait(5000);
+        await utility.wait(utility.medium_low);
         await expect(this.initialRiskAssesment.isPresent());
 	}
 	

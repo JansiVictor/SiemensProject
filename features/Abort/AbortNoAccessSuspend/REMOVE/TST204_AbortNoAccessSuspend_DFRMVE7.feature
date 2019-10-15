@@ -1,4 +1,4 @@
-Feature: DFRMVE7 - AbortNoAccessSuspend Workflow
+Feature: TST204_AbortNoAccessSuspend_DFRMVE7
 
     Scenario: Post DFRMVE7 SOAP Request
         Given I post workorder using "xmlrequest/DFRMVE7.XML"

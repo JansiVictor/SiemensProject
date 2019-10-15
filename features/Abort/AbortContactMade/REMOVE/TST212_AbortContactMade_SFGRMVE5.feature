@@ -1,5 +1,5 @@
 
-Feature: TST_212 SF G RMVE5 Workflow - Contact made Abort No Access
+Feature: TST212_AbortContactMade_SFGRMVE5
 
     Scenario: Post SFGRMVE5 SOAP Request
         Given I post workorder using "xmlrequest/SFGRMVE5.XML"

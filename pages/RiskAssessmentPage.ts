@@ -769,7 +769,7 @@ export class RiskAssessmentPageObject {
 			await this.polarityCheckCutOutYES.click();
 			await this.polarityCheckAtMeter.click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
     }
     
     public async clickOnRiskAssessmentPageSubmitButton() {
@@ -785,11 +785,11 @@ export class RiskAssessmentPageObject {
 			var select = this.polarityCheckDD;
 			await select.$('[value="true"]').click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.socketSafetyBtnYES.isPresent()) {
 			await this.socketSafetyBtnYES.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.socketSetLocDD.isDisplayed()) {
 			var select = this.socketSetLocDD;
 			await select.$('[value="9"]').click();
@@ -797,7 +797,7 @@ export class RiskAssessmentPageObject {
 		if (await this.capturePreinsatllation.isPresent()) {
 			await this.capturePreinsatllation.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.anySocketFoundNO.isPresent()) {
 			await this.anySocketFoundNO.click();
 		}

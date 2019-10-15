@@ -477,7 +477,7 @@ export class JobCompletionPageObject {
 			await this.inputPPMIDSerialNum.sendKeys(options);
 			await utility.wait(utility.low);
 			await this.dummydiv1.click();
-			await utility.wait(4000);
+			await utility.wait(utility.medium_low);
 			await this.infoOKButton.click();
 		}
 	  
@@ -565,11 +565,11 @@ export class JobCompletionPageObject {
 		//if (this.infoOKButton.isPresent()) {
 		  //  await this.infoOKButton.click();
 		//}
-		await utility.wait(4000);
+		await utility.wait(utility.medium_low);
 			await expect(await this.inputPPMIDSerialNum1.isPresent());
 			var options = this.PPMIDinstallDDList1.getAttribute('value');
 			await this.inputPPMIDSerialNum1.sendKeys(options);
-			await utility.wait(8000);
+			await utility.wait(utility.medium);
 			if (this.ppmidNXTBtn1.isDisplayed()) {
 				await this.ppmidNXTBtn1.click();
 			}
@@ -1293,19 +1293,19 @@ public async PPMIDMessage() {
         await this.PPMIDSendMessageButton.click();
         console.log("find PPMID comm SendMsg Text Button clicked  " );
 
-        await utility.wait(80000);
+        await utility.wait(utility.high);
         //commented below
         // await this.awaitingResponseTxt.getText().then(function (awaitingResponseTxt) {
         // 	console.log("find awaitingResponseTxt Text  " + awaitingResponseTxt);
         // });
-    //	await utility.wait(60000);
+    //	await utility.wait(utility.high);
         if (this.PPMIDComSuccessButton.isDisplayed()) {
             await this.PPMIDComSuccessButton.click();
-            await utility.wait(3000);
+            await utility.wait(utility.low);
         }
 
         //await this.submitBtn.click(); remove later
-        await utility.wait(3000);
+        await utility.wait(utility.low);
     }
 
 }
@@ -1313,21 +1313,21 @@ public async PPMIDMessage() {
 
 
 public async fillDeviceBindingSectionInst16(){
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
 
    
    if (this.gasMeterPairedYes.isDisplayed()) {
       await this.gasMeterPairedYes.click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (this.IHDPairedYes.isDisplayed()) {
         await this.IHDPairedYes.click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (this.FUlHANYes.isDisplayed()) {
         await this.FUlHANYes.click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (this.deviceBindingNextSecButton.isDisplayed()) {
         await this.deviceBindingNextSecButton.click();
     }
@@ -1336,7 +1336,7 @@ public async fillDeviceBindingSectionInst16(){
 }
 
 public async fillConfigAllmeterInstall16(){
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
     if (this.FullWANYes.isDisplayed()) {
         await this.FullWANYes.click();
     }
@@ -1347,7 +1347,7 @@ public async fillConfigAllmeterInstall16(){
 		// clicks 'OK' button
 		await this.checkDetailsAlertButton.click();
 
-        await utility.wait(3000);    
+        await utility.wait(utility.low);    
     if (this.fullConfigAppliedGasYes.isDisplayed()) {
         await this.fullConfigAppliedGasYes.click();
     }
@@ -1358,7 +1358,7 @@ public async fillConfigAllmeterInstall16(){
         await this.capturePPMIDBtn.click();
     }
 
-    await utility.wait(3000); 
+    await utility.wait(utility.low); 
     //----------------------------------------------------------------
     if (this.nextButtonWAN.isDisplayed()) {
       await this.nextButtonWAN.click();
@@ -1381,27 +1381,27 @@ public async fillDeviceBindingSection_NMEX16(){
     if (this.esmeJoinedYes.isDisplayed()) {
         await this.esmeJoinedYes.click();
     }
-    await utility.wait(2000);
+    await utility.wait(utility.Avg_low);
     if (this.infoOKButton.isDisplayed()) {
         await this.infoOKButton.click();
     }
-    await utility.wait(2000);
+    await utility.wait(utility.Avg_low);
     if (this.esmeJoinedYes.isDisplayed()) {
         await this.esmeJoinedYes.click();
     }
-    await utility.wait(2000);
+    await utility.wait(utility.Avg_low);
     if (this.fullconfigAppliedYes.isDisplayed()) {
         await this.fullconfigAppliedYes.click();
     }
-    await utility.wait(2000);
+    await utility.wait(utility.Avg_low);
     if(this.capturePhotoAsset.isDisplayed()){
         await this.capturePhotoAsset.click();
     }
-    await utility.wait(2000);
+    await utility.wait(utility.Avg_low);
     if(this.nextButtonEff.isDisplayed()){
         await this.nextButtonEff.click();
     }
-    await utility.wait(2000);
+    await utility.wait(utility.Avg_low);
 }
 
 }

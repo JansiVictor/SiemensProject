@@ -56,7 +56,7 @@ Given('the Login Page For DF17SmartCredit', async function () {
 
 When('I pass {string} and {string} For DF17SmartCredit', async function (username, password) {
 	await login.setUsernamePassword(username, password);
-	await utility.wait(500);
+	await utility.wait(utility.very_low);
 });
 
 Then('I click Login button For DF17SmartCredit', async function () {
@@ -326,17 +326,17 @@ When('I click on DF17SmartCredit smart installation NEXT SECTION button', async 
 });
 
 Then('I should see DF17SmartCredit INITIAL POLARITY CHECK AT METER AND CUT OUT section', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.verifyMeterAndCutOut();
 });
 
 Given('the DF17SmartCredit INITIAL POLARITY CHECK - AT METER AND CUT OUT section', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.verifyMeterAndCutOut();
 });
 
 When('I fill the DF17SmartCredit METER AND CUT OUT fields with the values', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.fillthePolarityCheckMeterOut();
 });
 

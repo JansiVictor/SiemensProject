@@ -1,4 +1,4 @@
-Feature: SFEFLTY19 - AbortNoAccessSuspend Workflow
+Feature: TST040_AbortNoAccessSuspend_SFEFLTY19SMETS2
 
     Scenario: Post SFEFLTY19 SOAP Request
         Given I post workorder using "xmlrequest/SFEFLTY19.XML"

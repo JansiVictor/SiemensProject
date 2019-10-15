@@ -66,7 +66,7 @@ Given('the Login Page For SFEINST15', async function () {
 
 When('I pass {string} and {string} For SFEINST15', async function (username, password) {
 	await login.setUsernamePassword(username, password);
-	await utility.wait(500);
+	await utility.wait(utility.very_low);
 });
 
 Then('I click Login button For SFEINST15', async function () {
@@ -340,17 +340,17 @@ When('I click on smart installation NEXT SECTION button for SFEINST15', async fu
 });
 
 Then('I should see SFEINST15 INITIAL POLARITY CHECK AT METER AND CUT OUT section', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.verifyMeterAndCutOut();
 });
 
 Given('the SFEINST15 INITIAL POLARITY CHECK - AT METER AND CUT OUT section', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.verifyMeterAndCutOut();
 });
 
 When('I fill the SFEINST15 METER AND CUT OUT fields with the values', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.fillthePolarityCheckMeterOut_INST15();
 });
 

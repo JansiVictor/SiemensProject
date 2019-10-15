@@ -68,7 +68,7 @@ Given('the Login Page For SFEFLTY19', async function () {
 
 When('I pass {string} and {string} For SFEFLTY19', async function (username, password) {
 	await login.setUsernamePassword(username, password);
-	await utility.wait(500);
+	await utility.wait(utility.very_low);
 });
 
 Then('I click Login button For SFEFLTY19', async function () {
@@ -238,7 +238,7 @@ Given('the SFEFLTY19 INITIAL RISK ASSESSMENT section', async function () {
 });
 
 When('I fill the SFEFLTY19 initialRisk field with the values', async function () {
-	await utility.wait(4000);
+	await utility.wait(utility.medium_low);
 	await riskassess.inputInitialRiskAssessmentDetails_SFEFLTY19();
 });
 
@@ -300,17 +300,17 @@ When('I fill the SFEFLTY19 Socket Found field with the values', async function (
 });
 
 Then('I should see SFEFLTY19 INITIAL POLARITY CHECK AT METER AND CUT OUT section', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.verifyMeterAndCutOut();
 });
 
 Given('the SFEFLTY19 INITIAL POLARITY CHECK - AT METER AND CUT OUT section', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.verifyMeterAndCutOut();
 });
 
 When('I fill the SFEFLTY19 METER AND CUT OUT fields with the values', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.fillthePolarityCheckMeterOut();
 });
 

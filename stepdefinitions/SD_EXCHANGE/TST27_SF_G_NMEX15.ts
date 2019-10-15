@@ -67,7 +67,7 @@ Given('the Login Page For SFENMEX15', async function () {
 
 When('I pass {string} and {string} For SFENMEX15', async function (username, password) {
 	await login.setUsernamePassword(username, password);
-	await utility.wait(500);
+	await utility.wait(utility.very_low);
 });
 
 Then('I click Login button For SFENMEX15', async function () {
@@ -337,17 +337,17 @@ When('I click on SFENMEX15 smart installation NEXT SECTION button', async functi
 });
 
 Then('I should see SFENMEX15 INITIAL POLARITY CHECK AT METER AND CUT OUT section', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.verifyMeterAndCutOut();
 });
 
 Given('the SFENMEX15 INITIAL POLARITY CHECK - AT METER AND CUT OUT section', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.verifyMeterAndCutOut();
 });
 
 When('I fill the SFENMEX15 METER AND CUT OUT fields with the values', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.fillthePolarityCheckMeterOut();
 });
 

@@ -1,4 +1,4 @@
-Feature: SFGFLTY18NOEXCH - AbortNoAccessSuspend Workflow
+Feature: TST104_AbortNoAccessSuspend_SFGFLTY18SMETS2NOEXCH
 
 	Scenario: Post SFGFLTY18 SOAP Request
 		Given I post workorder using "xmlrequest/SFGFLTY18.XML"

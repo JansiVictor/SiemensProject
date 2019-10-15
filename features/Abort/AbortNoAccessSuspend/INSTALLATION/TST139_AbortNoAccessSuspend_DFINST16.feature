@@ -1,4 +1,4 @@
-Feature: DFINST16 - AbortNoAccessSuspend Workflow
+Feature: TST139_AbortNoAccessSuspend_DFINST16
 
     Scenario: Post DFINST16 SOAP Request
         Given I post workorder using "xmlrequest/DFINST16.XML"

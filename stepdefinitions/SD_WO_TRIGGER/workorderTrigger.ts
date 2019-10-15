@@ -27,10 +27,10 @@ Given('I post workorder using {string}', async function (filename) {
 
 When('I delete workorder after use', async function () {
   await utility.deletesoaprequest(appointmentid);
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 Then('workorder should no longer exist', async function () {
 	await utility.checkusingGET(appointmentid);
-	  await utility.wait(500);
+	  await utility.wait(utility.very_low);
   });

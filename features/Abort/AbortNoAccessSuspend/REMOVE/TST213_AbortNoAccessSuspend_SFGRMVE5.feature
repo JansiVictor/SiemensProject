@@ -1,4 +1,4 @@
-Feature: SFGRMVE5 - AbortNoAccessSuspend Workflow
+Feature: TST213_AbortNoAccessSuspend_SFGRMVE5
 
         Scenario: Post SFGRMVE5 SOAP Request
                 Given I post workorder using "xmlrequest/SFGRMVE5.XML"

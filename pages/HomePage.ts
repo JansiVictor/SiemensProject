@@ -766,7 +766,7 @@ public verifyAbortedTextAppointmentListPage(workorderAborted) {
 public async clickOnTheSelectLink(workorderselectlink,xpathparam) {
 	var list = workorderselectlink;
 
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	list.count().then(function (promiseResult) {
 		console.log("size is: " + promiseResult);
 		var size = promiseResult; //4

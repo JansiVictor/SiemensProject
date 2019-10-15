@@ -33,15 +33,15 @@ const remove1: RemovePageObject = new RemovePageObject();
 
 Given('the Login Page for EXCH23', async function () {
   await browser.get(config.baseUrl);
-  await utility.wait(5000);
+  await utility.wait(utility.medium_low);
 });
 When('I pass {string} and {string} for EXCH23', async function (username, password) {
   await login.setUsernamePassword(username, password);
-  await utility.wait(500);
+  await utility.wait(utility.very_low);
 });
 Then('I click Login button for EXCH23', async function () {
   await login.clickLogin();
-  await utility.wait(10000);
+  await utility.wait(utility.medium);
 });
 
 Then('I should see the Appointment List for EXCH23', async function () {
@@ -55,9 +55,9 @@ Given('the Appointment List window for EXCH23', async function () {
 
 When('I click on select button for EXCH23', async function () {
 
-  await utility.wait(2000);
+  await utility.wait(utility.Avg_low);
   await home.clickCorrectSelectLink('SFElecEXCH23');
-  await utility.wait(5000);
+  await utility.wait(utility.medium_low);
 
 });
 
@@ -84,12 +84,12 @@ Then('I should see page contect display for EXCH23', async function () {
 });
 
 Then('I should see the CUSTOMER CONTACT NUMBER for EXCH23', async function () {
-  await utility.wait(5000);
+  await utility.wait(utility.medium_low);
   await expect(await applist.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
 });
 
 Then('I should see Contact made field for EXCH23', async function () {
-  await utility.wait(5000);
+  await utility.wait(utility.medium_low);
   await expect(await applist.contactMadeText.getText()).equal("Contact made?");
   await expect(applist.contactMadeYes.isPresent());
 
@@ -136,7 +136,7 @@ When('I click on OK button for EXCH23', async function () {
 });
 
 Then('I should see ARRIVE button for EXCH23', async function () {
-  await utility.wait(10000);
+  await utility.wait(utility.medium);
   await applist.arriveBtn.getText().then(function (arriveBtnText) {
     console.log("find Arrive Btn Text  " + arriveBtnText);
 
@@ -145,7 +145,7 @@ Then('I should see ARRIVE button for EXCH23', async function () {
 });
 
 Then('I should see DOORSTEP PROTOCOL tab activated for EXCH23', async function () {
-  await utility.wait(5000);
+  await utility.wait(utility.medium_low);
   await applist.doorStepPROText.getText().then(function (doorStepPROText) {
     console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
   });
@@ -160,11 +160,11 @@ Then('I should see Arrival Time details for EXCH23', async function () {
 
   //comment these 2 lines when continue link is not displayed
 
-  // await utility.wait(5000);
+  // await utility.wait(utility.medium_low);
 
   // await applist.continueLink.click();
 
-  await utility.wait(5000);
+  await utility.wait(utility.medium_low);
   await applist.arrivalTime.getText().then(function (arrivalTimeText) {
     console.log("find Arrival Time Text  " + arrivalTimeText);
 
@@ -336,12 +336,12 @@ When('I fill the Current PPMID  fields with the values for EXCH23', async functi
  });
 
 Then('I should see Current Meter Details section for EXCH23', async function () {
-  await utility.wait(2000);
+  await utility.wait(utility.Avg_low);
 	await remove1.currentMeterDetailsHeader();
 
 });
 Given('the Current Meter Details section for EXCH23', async function () {
-  await utility.wait(2000);
+  await utility.wait(utility.Avg_low);
 	await remove1.currentMeterDetailsHeader();
 
 });
@@ -655,7 +655,7 @@ Given('the New Meter Details Section for EXCH23', async function () {
 await riskassessElec.newMeterDetailsDisplayed();
 });
 When('I fill values for New Meter Details Section for EXCH23', async function () {
-await riskassessElec.fillNewMeterDetailsTRAD(); 
+await riskassessElec.fillNewMeterDetailsTRAD(4); 
 });
 Then('I should see Additional Electricity Tests & Checks for EXCH23', async function () {
 await riskassessElec.additionalElecCheckDisplayed();
@@ -690,7 +690,7 @@ await riskassessElec.fillInitialElecMeterReadingEX23();
 
 Then('I should see Post Installation Check Section for EXCH23', async function () {
 
-  await utility.wait(5000);
+  await utility.wait(utility.medium_low);
 await riskassessElec.postInstallationCheckDisplayed();
 });
 

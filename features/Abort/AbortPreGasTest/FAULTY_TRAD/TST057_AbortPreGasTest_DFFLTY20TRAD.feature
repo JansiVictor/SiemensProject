@@ -1,4 +1,10 @@
-Feature: TST_057 DF FLTY20 Trad  - SMETS2 Workflow - Abort Pre Gas
+Feature: TST057_AbortPreGasTest_DFFLTY20TRAD
+
+	############## ISSUE 018 BUTTON APPEARS as ABORT ELEC METER##########
+	############## Feature File and Implementation has to be revisited after the fix#######
+
+	######### The below flow is copied from the Original test Case TST004  ###########
+	######### Steps need to be revised based on the changes from the fix  ###########
 
 	Scenario: Post DFFLTY20TRAD SOAP Request
 		Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"
@@ -123,15 +129,6 @@ Feature: TST_057 DF FLTY20 Trad  - SMETS2 Workflow - Abort Pre Gas
 		Given the AbortReasonCodespopup PreGas
 		When I click the Reason and Click Abort Gas Button
 
-	############## ISSUE 018 BUTTON APPEARS as ABORT ELEC METER##########
-	############## Feature File and Implementation has to be revisited after the fix#######
-
-
-	######### The below flow is copied from the Original test Case TST004  ###########
-	######### Steps need to be revised based on the changes from the fix  ###########
-
-	# # Elect meter removal
-
 	Scenario: Going through "REMOVE ELEC METER" section for FLTY20TRAD
 		Given the REMOVE ELEC ASSET REMOVAL section for FLTY20TRAD
 		When I fill the values for elec removal FLTY20TRAD
@@ -179,9 +176,6 @@ Feature: TST_057 DF FLTY20 Trad  - SMETS2 Workflow - Abort Pre Gas
 	Scenario: Going through Perform DCC Message Creation for EICOM section for FLTY20TRAD
 		Given Perform DCC Message Creation for EICOM section for FLTY20TRAD
 		When I fill the Perform DCC Message Creation for EICOM details fields with values for FLTY20TRAD
-
-
-	#------------------------------------------
 
 	Scenario: Going through "NEW GAS METER DETAILS" section
 		Given the NEW GAS METER DETAILS section for FLTY20TRAD

@@ -57,17 +57,17 @@ const inst: InstallPageObject = new InstallPageObject();
 
 Given('the ExchTwTwo Login Page', async function () {
 	await browser.get(config.baseUrl);
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 When('I pass ExchTwTwo {string} and {string}', async function (username, password) {
 	await login.setUsernamePassword(username, password);
-	await utility.wait(500);
+	await utility.wait(utility.very_low);
 });
 
 Then('I click ExchTwTwo Login button', async function () {
 	await login.clickLogin();
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 });
 
 
@@ -86,7 +86,7 @@ Given('the ExchTwTwo Appointment List window', async function () {
 
 When('I click on ExchTwTwo select button', async function () {
 	await home.clickCorrectSelectLink('SFExchange22');
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 Then('I should see ExchTwTwo Work Order window', async function () {
@@ -110,13 +110,13 @@ Then('I should see page ExchTwTwo contect display', async function () {
 });
 
 Then('I should see the ExchTwTwo CUSTOMER CONTACT NUMBER', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await expect(await applist.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
 
 });
 
 Then('I should see ExchTwTwo Contact made field', async function () {
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
 	await expect(applist.contactMadeYes.isPresent());
 });
@@ -161,14 +161,14 @@ When('I click on ExchTwTwo MPRNOK button', async function () {
 });
 
 Then('I should see ExchTwTwo ARRIVE button', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await applist.arriveBtn.getText().then(function (arriveBtnText) {
 		console.log("find Arrive Btn Text  " + arriveBtnText);
 	});
 });
 
 Then('I should see ExchTwTwo DOORSTEP PROTOCOL tab activated', async function () {
-	await utility.wait(3000);
+	await utility.wait(utility.low);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});
@@ -181,9 +181,9 @@ When('I click on ExchTwTwo ARRIVE button', async function () {
 
 Then('I should see ExchTwTwo Arrival Time details', async function () {
 	//comment these 2 lines when continue link is not displayed
-	// await utility.wait(5000);
+	// await utility.wait(utility.medium_low);
 	// await applist.continueLink.click();
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
 	});
@@ -234,11 +234,11 @@ Given('the ExchTwTwo INFO window with the text', async function () {
 	//await riskassess.performanceRiskNextBtn.click();
 
 
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 	if (riskassess.NeedtoWorkYES.isDisplayed()) {
 		var element = riskassess.NeedtoWorkYES;
 		browser.executeScript("arguments[0].click()", element);
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 	}
 });
 
@@ -563,7 +563,7 @@ When('ExchTwTwo I fill the field24 with the value24', async function () {
     await remove.removePPMIDOK.click();
 });
 Then('ExchTwTwo I click on Submit Btn', async function () {
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     await remove.submitRemovebtn.click();
 });
 

@@ -1,4 +1,4 @@
-Feature: TST_186 DF NMEX17 Workflow - Contact made Abort No Access
+Feature: TST186_AbortContactMade_DFNMEX17
 
     Scenario: Post DFNMEX17 SOAP Request
         Given I post workorder using "xmlrequest/DFNMEX17.XML"

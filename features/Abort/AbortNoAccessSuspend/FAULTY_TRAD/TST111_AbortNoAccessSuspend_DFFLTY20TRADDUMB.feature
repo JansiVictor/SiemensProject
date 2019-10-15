@@ -1,4 +1,4 @@
-Feature: DFFLTY20TRADDUMB - AbortNoAccessSuspenf Workflow
+Feature:TST111_AbortNoAccessSuspend_DFFLTY20TRADDUMB
 
     Scenario: Post DFFLTY20TRAD SOAP Request
         Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"

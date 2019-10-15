@@ -32,7 +32,7 @@ Given('FltytwTadNoEx the Login Page', async function () {
 
 When('FltytwTadNoEx I pass {string} and {string}', async function (username, password) {
     await login.setUsernamePassword(username, password);
-    await utility.wait(500);
+    await utility.wait(utility.very_low);
 });
 
 Then('FltytwTadNoEx I click Login button', async function () {

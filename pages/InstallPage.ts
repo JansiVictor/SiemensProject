@@ -767,7 +767,7 @@ export class InstallPageObject {
 
 	public async fillElecNewMeterDetails(index: number){
 		if (await this.elecNewmeterselect.isDisplayed()) {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		this.elecNewmeterselect.click();
 		browser.sleep(1000);
 		console.log("Selecting element based index : " + index);
@@ -776,9 +776,9 @@ export class InstallPageObject {
 		await expect(await this.elecNewmeterserial.isPresent());
 		var options = this.elecNewmeterserialList.getAttribute('value');
 		await this.elecNewmeterserial.sendKeys(options);
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		this.dummydiv.click();
-		await utility.wait(4000);
+		await utility.wait(utility.medium_low);
 		if (await this.infoOkButton.isDisplayed()) {
 			this.infoOkButton.click();
 	}}
@@ -795,7 +795,7 @@ export class InstallPageObject {
 			await this.certYearMonth.clear();
 			await this.certYearMonth.sendKeys("16/12");
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.ElecNewmeterNext.isDisplayed()) {
 			await this.ElecNewmeterNext.click();
 		}
@@ -803,51 +803,51 @@ export class InstallPageObject {
 	}
 
 	public async fillinitmeterReadingGAS() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.captureMeterReadingSend.isDisplayed()) {
 			await this.captureMeterReadingSend.clear();
 			await this.captureMeterReadingSend.sendKeys("12345");
 			await this.readingText.click();
-			await utility.wait(1000);
+			await utility.wait(utility.very_low);
 		}
 	}
 
 	public async filltheduelforPPMIDsection(index: number) {
-        await utility.wait(2000);
+        await utility.wait(utility.Avg_low);
         if (await this.PPMIDoffered.isDisplayed()) {
             await this.PPMIDoffered.click();
         }
-        await utility.wait(2000);
+        await utility.wait(utility.Avg_low);
         if (await this.PPMIDaccepted.isDisplayed()) {
             await this.PPMIDaccepted.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.PPMIDLocsel.isDisplayed()) {
             var select = this.PPMIDLocsel;
             select.$('[value="A"]').click();
         }
-        await utility.wait(2000);
+        await utility.wait(utility.Avg_low);
         if (await this.PPMIDtoInstallsel.isDisplayed()) {
-            await utility.wait(2000);
+            await utility.wait(utility.Avg_low);
             this.PPMIDtoInstallsel.click();
             browser.sleep(1000);
             console.log("Selecting element based index : " + index);
             // select the option
             await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
-            await utility.wait(3000);
+            await utility.wait(utility.low);
             await expect(await this.SerialNoText.isPresent());
             var options = this.PPMIDtoInstallselList.getAttribute('value');
             await this.SerialNoText.sendKeys(options);
         }
-        await utility.wait(2000);
+        await utility.wait(utility.Avg_low);
         if (await this.selectppmidtext.isDisplayed()) {
             await this.selectppmidtext.click();
         }
-        await utility.wait(2000);
+        await utility.wait(utility.Avg_low);
         if (await this.AssetsuccessOKclk.isDisplayed()) {
             await this.AssetsuccessOKclk.click();
         }
-        await utility.wait(2000);
+        await utility.wait(utility.Avg_low);
         if (await this.InstallPPMIDNextSection.isDisplayed()) {
             await this.InstallPPMIDNextSection.click();
         }
@@ -855,50 +855,50 @@ export class InstallPageObject {
 
 	// CGP added
     public async fillfieldsInstallcommshubTRAD(index: number) {
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.commshubReqY.isDisplayed()) {
             await this.commshubReqY.click();
         }
         if (await this.selectValid.isDisplayed()) {
-            await utility.wait(2000);
+            await utility.wait(utility.Avg_low);
             this.selectValid.click();
             browser.sleep(1000);
             console.log("Selecting element based index : " + index);
             await this.selectValid.element(by.css("option:nth-child(" + index + ")")).click();
-            await utility.wait(3000);
+            await utility.wait(utility.low);
             await this.commshubWarning.click();
-            await utility.wait(3000);
+            await utility.wait(utility.low);
             await expect(await this.CHFIDText.isPresent());
             var options = this.CHFIDTextList.getAttribute('value');
             await this.CHFIDText.sendKeys(options);
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.chfIDokenable.isDisplayed()) {
             await this.chfIDokenable.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.assetSuccessAdded.isDisplayed()) {
             await this.assetSuccessAdded.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.commsHubLocation.isDisplayed()) {
             var select = this.commsHubLocation;
             select.$('[value="A"]').click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.aerialY.isDisplayed()) {
             await this.aerialY.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.commshubconnmethodselect.isDisplayed()) {
             var select = this.commshubconnmethodselect;
             select.$('[label="ESME"]').click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.commshubPhoto.isDisplayed()) {
             await this.commshubPhoto.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.instCommshubNext.isDisplayed()) {
             await this.instCommshubNext.click();
         }
@@ -907,7 +907,7 @@ export class InstallPageObject {
 	
 	 //CGP added
 	 public async newregulatorTRAD() {
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         await this.newRegulatorHeader.getText().then(function (newRegulator1Txt) {
             console.log("New Regulator: " + newRegulator1Txt);
         });
@@ -919,7 +919,7 @@ export class InstallPageObject {
 	 */
 
 	public async gasMeterDetailsText() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.newGasmeterText.getText().then(function (GAsmeterTxt) {
 			console.log("New Gas MEter Text" + GAsmeterTxt);
 		});
@@ -932,27 +932,27 @@ export class InstallPageObject {
 	public async fillGasMeterDetails(index:number) {
 
 		if (await this.selectValidnewgas.isDisplayed()) {
-			await utility.wait(2000);
+			await utility.wait(utility.Avg_low);
 			this.selectValidnewgas.click();
 			browser.sleep(1000);
 			console.log("Selecting element based index : " + index);
 			await this.selectValidnewgas.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(3000);
+			await utility.wait(utility.low);
 		//	await this.commshubWarning.click();
-		//	await utility.wait(3000);
+		//	await utility.wait(utility.low);
 			await expect(await this.gasmeterSereal.isPresent());
 			var options = this.gasmeterSerealList.getAttribute('value');
 			await this.gasmeterSereal.sendKeys(options);
 			await this.euDivText.click();
 			await this.commshubWarning.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		
 		if (await this.GasnewMeterSelect.isDisplayed()) {
 			var select = this.GasnewMeterSelect;
 			select.$('[value="0"]').click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.GasnewMeternewLocation.isDisplayed()) {
 			var select = this.GasnewMeternewLocation;
 			select.$('[value="12"]').click();
@@ -1314,17 +1314,17 @@ public async Tst15fillthefieldsforperformpostinst() {
 		var select = this.selectValidAssettoInst1;
 		select.$('[value="MA6NC181323805"]').click();
 	}
-	await utility.wait(1000);
+	await utility.wait(utility.very_low);
 	if (await this.gasmeterserialSendreg.isDisplayed()) {
 		await this.gasmeterserialSendreg.clear();
 		await this.gasmeterserialSendreg.sendKeys("MA6NC181323805");
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.RegularclickenableOK.click();
 	}
 	if (await this.AssetaddedtowallNewReg.isDisplayed()) {
 		await this.AssetaddedtowallNewReg.click();
 	}
-	await utility.wait(1000);
+	await utility.wait(utility.very_low);
 	if (await this.nextSecnewRegulator.isDisplayed()) {
 		await this.nextSecnewRegulator.click();
 	}
@@ -2684,72 +2684,72 @@ public async Tst15fillthefieldsforperformpostinst() {
 	//CGP added
 
     public async fillduelfornewregulatorTRAD(index: number) {
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.HasGasRegulatorReplacedY.isDisplayed()) {
             await this.HasGasRegulatorReplacedY.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.selectValidAssettoInstTRAD.isDisplayed()) {
             var select = this.selectValidAssettoInstTRAD;
             select.$('[value="MA6NC181323805"]').click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.gasmeterserialSendregTRAD.isDisplayed()) {
             await this.gasmeterserialSendregTRAD.clear();
             await this.gasmeterserialSendregTRAD.sendKeys("MA6NC181323805");
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.randomClickRegulator.isDisplayed()) {
             await this.randomClickRegulator.click();
             console.log("Random Click");
             
         }
-        await utility.wait(3000);
+        await utility.wait(utility.low);
         if (await this.AssetaddedtowallNewReg.isDisplayed()) {
             await this.AssetaddedtowallNewReg.click();
             console.log("Pop up ok clicked");
         }
-        await utility.wait(2000);
+        await utility.wait(utility.Avg_low);
         if (await this.nextSecnewRegulator.isDisplayed()) {
             await this.nextSecnewRegulator.click();
         }
     }
     public async filltheduelforseePPMIDsection(index: number) {
-        await utility.wait(2000);
+        await utility.wait(utility.Avg_low);
         if (await this.PPMIDoffered.isDisplayed()) {
             await this.PPMIDoffered.click();
         }
-        await utility.wait(2000);
+        await utility.wait(utility.Avg_low);
         if (await this.PPMIDaccepted.isDisplayed()) {
             await this.PPMIDaccepted.click();
         }
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
         if (await this.PPMIDLocsel.isDisplayed()) {
             var select = this.PPMIDLocsel;
             select.$('[value="A"]').click();
         }
-        await utility.wait(2000);
+        await utility.wait(utility.Avg_low);
         if (await this.PPMIDtoInstallsel.isDisplayed()) {
-            await utility.wait(2000);
+            await utility.wait(utility.Avg_low);
             this.PPMIDtoInstallsel.click();
             browser.sleep(1000);
             console.log("Selecting element based index : " + index);
             // select the option
             await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
-            await utility.wait(3000);
+            await utility.wait(utility.low);
             await expect(await this.SerialNoText.isPresent());
             var options = this.PPMIDtoInstallselList.getAttribute('value');
             await this.SerialNoText.sendKeys(options);
         }
-        await utility.wait(2000);
+        await utility.wait(utility.Avg_low);
         if (await this.EUIenableOK1.isDisplayed()) {
             await this.EUIenableOK1.click();
         }
-        await utility.wait(2000);
+        await utility.wait(utility.Avg_low);
         if (await this.AssetsuccessOKclk.isDisplayed()) {
             await this.AssetsuccessOKclk.click();
         }
-        await utility.wait(2000);
+        await utility.wait(utility.Avg_low);
         if (await this.InstallPPMIDNextSection.isDisplayed()) {
             await this.InstallPPMIDNextSection.click();
         }
@@ -2757,18 +2757,18 @@ public async Tst15fillthefieldsforperformpostinst() {
 
 
 public async clickonSUBbtnTRAD() {
-    await utility.wait(2000);
+    await utility.wait(utility.Avg_low);
     if (await this.PPMIDcommsuccessfulbtn.isDisplayed()) {
         await this.PPMIDcommsuccessfulbtn.click();
     }
-    await utility.wait(2000);
+    await utility.wait(utility.Avg_low);
     if (await this.PPMIDSubmitTRAD.isDisplayed()) {
         await this.PPMIDSubmitTRAD.click();
     }
 }
 
 public async clickonCommissioningTRAD() {
-    await utility.wait(2000);
+    await utility.wait(utility.Avg_low);
     if (await this.EICOMcommsuccess.isDisplayed()) {
         await this.EICOMcommsuccess.click();
     }
@@ -2778,57 +2778,57 @@ public async clickonCommissioningTRAD() {
 
 public async fillAdditionalElecCheckDetailsINST16() 
 {
-    await utility.wait(3000);
+    await utility.wait(utility.low);
     if (await this.visualCheckPMEBonding.isDisplayed())
     {
         await this.visualCheckPMEBonding.click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (await this.TerminalscrewTightness.isDisplayed()) {
         await this.TerminalscrewTightness.click();
     }
 }
 
 public async fillAdditionalElecTestandChecksInst16() {
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (await this.SealsIntactBlocks.isDisplayed()) {
         await this.SealsIntactBlocks.click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (await this.AllPortsSealed.isDisplayed()) {
         await this.AllPortsSealed.click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (await this.SiemenscableMarkersInsTxt.isDisplayed()) {
         await this.SiemenscableMarkersIns.click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (await this.VisualInspectionCompleted.isDisplayed()) {
         await this.VisualInspectionCompleted.click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (await this.cableMarkerSelect.isDisplayed()) {
         var select = this.cableMarkerSelect;
         select.$('[value="1"]').click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (await this.EarthTypeSelect.isDisplayed()) {
         var select = this.EarthTypeSelect;
         select.$('[value="1"]').click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (await this.ReplacementMeterBoardY.isDisplayed()) {
         await this.ReplacementMeterBoardY.click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (await this.MeterTailsChangedN.isDisplayed()) {
         await this.MeterTailsChangedN.click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (await this.ReplacementmainFuseY.isDisplayed()) {
         await this.ReplacementmainFuseY.click();
     }
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (await this.emerJobNo.isDisplayed()) {
         await this.emerJobNo.click();
     } 
@@ -3006,12 +3006,12 @@ public async fillAdditionalElecTestandChecksInst16() {
 //CGP added for EX23
 
 public async fillfieldsInstallcommshubEX23() {
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
     if (await this.newCommsHubReqN.isDisplayed()) {
         await this.newCommsHubReqN.click();
     }
     // Next Section Button
-    await utility.wait(1000);
+    await utility.wait(utility.very_low);
         if (await this.instCommshubNext.isDisplayed()) {
             await this.instCommshubNext.click();
         }
@@ -3030,10 +3030,10 @@ public async fillPPMIDSectionInst16(index:number){
     if (await this.PPMIDLOCDD.isDisplayed()) {
         var select = this.PPMIDLOCDD;
         select.$('[value="A"]').click();
-        await utility.wait(1000);
+        await utility.wait(utility.very_low);
     }
     if (await this.PPMIDToInstall.isDisplayed()) {
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 		// click the dropdown
 		this.PPMIDToInstall.click()
 		browser.sleep(5000)
@@ -3041,7 +3041,7 @@ public async fillPPMIDSectionInst16(index:number){
 	console.log("Selecting element based index : "+index)
 	// select the option
 	await this.PPMIDToInstall.element(by.css("option:nth-child("+index+")")).click()
-	await utility.wait(8000);
+	await utility.wait(utility.medium);
 		await expect(await this.inputPPMIDSerialNum.isPresent());
 		var options = this.PPMIDinstallDDList.getAttribute('value');
         await this.inputPPMIDSerialNum.sendKeys(options);
@@ -3049,7 +3049,7 @@ public async fillPPMIDSectionInst16(index:number){
 		let ale: Alert = browser.switchTo().alert();
 		// clicks 'OK' button
 		ale.accept();
-		//await utility.wait(2000);
+		//await utility.wait(utility.Avg_low);
         await this.infoOKButton.click();
     }
   
@@ -3080,46 +3080,46 @@ public async PPMIDCommisioningdisplay(){
 
 	public async setTerminalScrewTightnessCheckedTrueRadioOption() {
 		await this.terminalScrewTightnessCheckedTrueRadioOption.click();
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 	}
 
 	public async clickOnCapturePhotosOfTerminalScrewsBtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.capturePhotosOfTerminalScrewsBtn.isDisplayed()) {
 			this.capturePhotosOfTerminalScrewsBtn.click();
 		}
 	}
 
 	public async setAllSealsIntactTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.allSealsIntactTrueRadioOption.isDisplayed()) {
 			this.allSealsIntactTrueRadioOption.click();
 		}
 	}
 
 	public async setAllPortsSealedTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.allPortsSealedTrueRadioOption.isDisplayed()) {
 			this.allPortsSealedTrueRadioOption.click();
 		}
 	}
 
 	public async setApprovedSiemensCableMarkersInstalledCorrectlyTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.approvedSiemensCableMarkersInstalledCorrectlyTrueRadioOption.isDisplayed()) {
 			this.approvedSiemensCableMarkersInstalledCorrectlyTrueRadioOption.click();
 		}
 	}
 
 	public async setVisualInspectionCompletedTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.visualInspectionCompletedTrueRadioOption.isDisplayed()) {
 			this.visualInspectionCompletedTrueRadioOption.click();
 		}
 	}
 
 	public async setCableMarkerVal1LNNLDropDownMenu() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.cableMarkerDropdownMenu.isDisplayed()) {
 			var select = this.cableMarkerDropdownMenu;
 			select.$("[value='1']").click();
@@ -3127,7 +3127,7 @@ public async PPMIDCommisioningdisplay(){
 	}
 
 	public async setEarthTypeVal1DropDownMenu() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.earthTypeDropdownMenu.isDisplayed()) {
 			var select = this.earthTypeDropdownMenu;
 			select.$("[value='1']").click();
@@ -3135,56 +3135,56 @@ public async PPMIDCommisioningdisplay(){
 	}
 
 	public async setReplacementMeterBoardTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.replacementMeterBoardTrueRadioOption.isDisplayed()) {
 			this.replacementMeterBoardTrueRadioOption.click();
 		}
 	}
 
 	public async setMeterTailsChangedFalseRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.meterTailsChangedFalseRadioOption.isDisplayed()) {
 			this.meterTailsChangedFalseRadioOption.click();
 		}
 	}
 
 	public async setReplacedMainFuseTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.replacedMainFuseTrueRadioOption.isDisplayed()) {
 			this.replacedMainFuseTrueRadioOption.click();
 		}
 	}
 
 	public async setEmergencyJobTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.emergencyJobTrueRadioOption.isDisplayed()) {
 			this.emergencyJobTrueRadioOption.click();
 		}
 	}
 
 	public async clickOnAdditionalElectricityTestsNextBtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.addElecTestsNextBtn.isDisplayed()) {
 			this.addElecTestsNextBtn.click();
 		}
 	}
 
 	public async validatePostInstallationChecksSectionIsVisible() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		await this.postInstallationChecksText.getText().then(function (postInstallTxt) {
 			console.log("Arrived at : " + postInstallTxt);
 		});
 	}
 
 	public async setCarryOutPolarityCheckAtMeterTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.carryOutPolarityCheckAtMeterTrueRadioOption.isDisplayed()) {
 			this.carryOutPolarityCheckAtMeterTrueRadioOption.click();
 		}
 	}
 
 	public async setCarryOutPolarityCheckWithPlugInTestDeviceDropDownMenu() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.carryOutPolarityCheckWithPlugInTestDeviceDropDownMenu.isDisplayed()) {
 			var select = this.carryOutPolarityCheckWithPlugInTestDeviceDropDownMenu;
 			select.$("[value='true']").click();
@@ -3193,42 +3193,42 @@ public async PPMIDCommisioningdisplay(){
 
 	public async setConfirmSocketSafetyTestPassedTrueRadioOption() {
 		await this.postInstallChecksAdditionalNotesTextfield.sendKeys("Polarity tested with plug in test device");
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.confirmSocketSafetyTestPassedTrueRadioOption.isDisplayed()) {
 			this.confirmSocketSafetyTestPassedTrueRadioOption.click();
 		}
 	}
 
 	public async clickOnCapturePhotoOfMartindaleTestBtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.capturePhotoOfMartindaleTestBtn.isDisplayed()) {
 			this.capturePhotoOfMartindaleTestBtn.click();
 		}
 	}
 
 	public async clickOnCapturePhotoOfFinalMeterInstallBtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.capturePhotoOfFinalMeterInstallBtn.isDisplayed()) {
 			this.capturePhotoOfFinalMeterInstallBtn.click();
 		}
 	}
 
 	public async clickOnCapturePhotoOfCloseUpOfMeterBtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.capturePhotoOfCloseUpOfMeterBtn.isDisplayed()) {
 			this.capturePhotoOfCloseUpOfMeterBtn.click();
 		}
 	}
 
 	public async setTestWitnessNameTextfield() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.testWitnessNameTextfield.isDisplayed()) {
 			this.testWitnessNameTextfield.sendKeys("Johny Vegas");
 		}
 	}
 
 	public async validateCommissioningSectionIsVisible() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.commissioningText.isDisplayed()) {
 			await this.commissioningText.getText().then(function (commissionTxt) {
 				console.log("Arrived at : " + commissionTxt);
@@ -3237,21 +3237,21 @@ public async PPMIDCommisioningdisplay(){
 	}
 
 	public async setInstallKitUsedTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.installKitUsedTrueRadioOption.isDisplayed()) {
 			this.installKitUsedTrueRadioOption.click();
 		}
 	}
 
 	public async clickOnPostInstallGasTightnessTestNextBtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.postInstallGasTightnessTestNextBtn.isDisplayed()) {
 			await this.postInstallGasTightnessTestNextBtn.click();
 		}
 	}
 
 	public async setNonSerialisedAssetsValT1AerialDropDownMenu() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.assetDropDownMenu1.isDisplayed()) {
 			var select = this.assetDropDownMenu1;
 			select.$("[value='1']").click();
@@ -3259,7 +3259,7 @@ public async PPMIDCommisioningdisplay(){
 	}
 
 	public async setNonSerialisedAssetsValT1AerialDropDownMenuInstallKitForm() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.assetDropDownMenu3.isDisplayed()) {
 			var select = this.assetDropDownMenu3;
 			select.$("[value='1']").click();
@@ -3267,7 +3267,7 @@ public async PPMIDCommisioningdisplay(){
 	}
 
 	public async setNonSerialisedAssetsValMeterBoardDropDownMenu() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.assetDropDownMenu4.isDisplayed()) {
 			var select = this.assetDropDownMenu4;
 			select.$("[value='3']").click();
@@ -3275,48 +3275,48 @@ public async PPMIDCommisioningdisplay(){
 	}
 
 	public async clickOnInstallKitNextSectionBtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.installKitNextSectionBtn.isDisplayed()) {
 			await this.installKitNextSectionBtn.click();
 		}
 	}
 
 	public async setQuantityVal1Textfield() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.quantityTextfield1.isDisplayed()) {
 			this.quantityTextfield1.sendKeys("1");
 		}
 	}
 
 	public async setQuantityVal1TextfieldInstallKitForm() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.quantityTextfield3.isDisplayed()) {
 			this.quantityTextfield3.sendKeys("1");
 		}
 	}
 
 	public async clickOnAddAnotherAssetBtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.addAnotherAssetBtn.isDisplayed()) {
 			await this.addAnotherAssetBtn.click();
 		}
 	}
 
 	public async clickOnAddAnotherAssetBtnInstallKitSection() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.addAnotherAssetBtnInstallKitSection.isDisplayed()) {
 			await this.addAnotherAssetBtnInstallKitSection.click();
 		}
 	}
 
 	public async verifyThatANewRecordsetIsDynamicallyCreated() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		assert(await this.assetDropDownMenu2.isDisplayed());
 		assert(await this.quantityTextfield2.isDisplayed());
 	}
 
 	public async setNonSerialisedAssetsValConnectorBlocksDropDownMenu() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.assetDropDownMenu2.isDisplayed()) {
 			var select = this.assetDropDownMenu2;
 			select.$("[value='3']").click();
@@ -3324,28 +3324,28 @@ public async PPMIDCommisioningdisplay(){
 	}
 
 	public async setQuantityVal2Textfield() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.quantityTextfield2.isDisplayed()) {
 			this.quantityTextfield2.sendKeys("2");
 		}
 	}
 
 	public async setQuantityVal2TextfieldInstallKitForm() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.quantityTextfield4.isDisplayed()) {
 			this.quantityTextfield4.sendKeys("2");
 		}
 	}
 
 	public async clickOnCommissioningNextSectionBtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.commissioningNextSectionBtn.isDisplayed()) {
 			await this.commissioningNextSectionBtn.click();
 		}
 	}
 
 	public async validatePostInstallGasTightnessTestSectionIsVisible() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.postInstallationGasTightnessTestText.isDisplayed()) {
 			await this.postInstallationGasTightnessTestText.getText().then(function (postInstGassTightTxt) {
 				console.log("Arrived at : " + postInstGassTightTxt);
@@ -3354,98 +3354,98 @@ public async PPMIDCommisioningdisplay(){
 	}
 
 	public async setDidYouHaveToContactGTTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.didYouHaveToContactGTTrueRadioOption.isDisplayed()) {
 			this.didYouHaveToContactGTTrueRadioOption.click();
 		}
 	}
 
 	public async setNationalGridGIJobRefVal1Textfield() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.nationalGridGIJobRefTextfield.isDisplayed()) {
 			this.nationalGridGIJobRefTextfield.sendKeys("2");
 		}
 	}
 
 	public async setReportedIncidentToHAndSAIRLineTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.reportedIncidentToHAndSAIRLineTrueRadioOption.isDisplayed()) {
 			this.reportedIncidentToHAndSAIRLineTrueRadioOption.click();
 		}
 	}
 
 	public async setAIRLineRefTextfieldVal2() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.aIRLineRefTextfield.isDisplayed()) {
 			this.aIRLineRefTextfield.sendKeys("2");
 		}
 	}
 
 	public async setNeedToWaitForTheGTAttendanceOnSiteTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.needToWaitForTheGTAttendanceOnSiteTrueRadioOption.isDisplayed()) {
 			this.needToWaitForTheGTAttendanceOnSiteTrueRadioOption.click();
 		}
 	}
 
 	public async setGTResolveIssueTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.gTResolveIssueTrueRadioOption.isDisplayed()) {
 			this.gTResolveIssueTrueRadioOption.click();
 		}
 	}
 
 	public async setDidYouCarryOutAnyExtraWorkToPassGasTightnessTestTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.didYouCarryOutAnyExtraWorkToPassGasTightnessTestTrueRadioOption.isDisplayed()) {
 			this.didYouCarryOutAnyExtraWorkToPassGasTightnessTestTrueRadioOption.click();
 		}
 	}
 
 	public async setExtraNotesValGasNotesTextfield() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.additionalNotesTextfield.isDisplayed()) {
 			this.additionalNotesTextfield.sendKeys("2");
 		}
 	}
 
 	public async setHaveYouReplacedGasMeterTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.haveYouReplacedGasMeterTrueRadioOption.isDisplayed()) {
 			this.haveYouReplacedGasMeterTrueRadioOption.click();
 		}
 	}
 
 	public async setHaveYouReplacedRegulatorTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.haveYouReplacedRegulatorTrueRadioOption.isDisplayed()) {
 			this.haveYouReplacedRegulatorTrueRadioOption.click();
 		}
 	}
 
 	public async setPostInstallationGasTightnessTestPerformedTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.postInstallationGasTightnessTestPerformedTrueRadioOption.isDisplayed()) {
 			this.postInstallationGasTightnessTestPerformedTrueRadioOption.click();
 		}
 	}
 
 	public async clickOnCapturePhotoOfWitnessStickerAndUGaugeBtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.capturePhotoOfWitnessStickerAndUGaugeBtn.isDisplayed()) {
 			await this.capturePhotoOfWitnessStickerAndUGaugeBtn.click();
 		}
 	}
 
 	public async setWasThereADropInPressureTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.wasThereADropInPressureTrueRadioOption.isDisplayed()) {
 			this.wasThereADropInPressureTrueRadioOption.click();
 		}
 	}
 
 	public async setDIPGasPressureDropDownMenu() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.enterDIPGasPressureDropDownMenu.isDisplayed()) {
 			var select = this.enterDIPGasPressureDropDownMenu;
 			select.$('[value="3"]').click();
@@ -3453,49 +3453,49 @@ public async PPMIDCommisioningdisplay(){
 	}
 
 	public async setGasTightnessTestPassedTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.gasTightnessTestPassedTrueRadioOption.isDisplayed()) {
 			this.gasTightnessTestPassedTrueRadioOption.click();
 		}
 	}
 
 	public async setTestWitnessNameValEllieTaylorTextfield() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.testWitnessNameTxtfieldPostInstallGasTightnessForm.isDisplayed()) {
 			this.testWitnessNameTxtfieldPostInstallGasTightnessForm.sendKeys("Ellie Taylor");
 		}
 	}
 
 	public async setStandingPressureVal11Textfield() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.standingPressureTextfield.isDisplayed()) {
 			this.standingPressureTextfield.sendKeys("2");
 		}
 	}
 
 	public async clickOnCapturePhotoOfStandingPressureBtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.capturePhotoOfStandingPressureBtn.isDisplayed()) {
 			await this.capturePhotoOfStandingPressureBtn.click();
 		}
 	}
 
 	public async setWorkingPressureVal20Textfield() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.workingPressureTextfield.isDisplayed()) {
 			this.workingPressureTextfield.sendKeys("2");
 		}
 	}
 
 	public async clickOnCapturePhotoOfWorkingPressureBtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.capturePhotoOfWorkingPressureBtn.isDisplayed()) {
 			await this.capturePhotoOfWorkingPressureBtn.click();
 		}
 	}
 
 	public async setSelectMeterTypValG4054DropDownMenu() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.selectMeterTypeDropDownMenu.isDisplayed()) {
 			var select = this.selectMeterTypeDropDownMenu;
 			select.$("[value='3']").click();
@@ -3503,79 +3503,79 @@ public async PPMIDCommisioningdisplay(){
 	}
 
 	public async clickOnCapturePhotoOfFinalMeterInstallButton() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.capturePhotoOfFinalMeterInstallBtn2.isDisplayed()) {
 			await this.capturePhotoOfFinalMeterInstallBtn2.click();
 		}
 	}
 
 	public async FillPostGAsInstallDetailsFLTY20NoEx() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.didYouHaveToContactGTTrueRadioOption.isDisplayed()) {
 			this.didYouHaveToContactGTTrueRadioOption.click();
 		}
 	
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.nationalGridGIJobRefTextfield.isDisplayed()) {
 			this.nationalGridGIJobRefTextfield.sendKeys("2");
 		}
 	
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.reportedIncidentToHAndSAIRLineTrueRadioOption.isDisplayed()) {
 			this.reportedIncidentToHAndSAIRLineTrueRadioOption.click();
 		}
 
 	
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.aIRLineRefTextfield.isDisplayed()) {
 			this.aIRLineRefTextfield.sendKeys("2");
 		}
 
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.needToWaitForTheGTAttendanceOnSiteTrueRadioOption.isDisplayed()) {
 			this.needToWaitForTheGTAttendanceOnSiteTrueRadioOption.click();
 		}
 	
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.gTResolveIssueTrueRadioOption.isDisplayed()) {
 			this.gTResolveIssueTrueRadioOption.click();
 	}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.didYouCarryOutAnyExtraWorkToPassGasTightnessTestTrueRadioOption.isDisplayed()) {
 			this.didYouCarryOutAnyExtraWorkToPassGasTightnessTestTrueRadioOption.click();
 		}
 	
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.additionalNotesTextfield.isDisplayed()) {
 			this.additionalNotesTextfield.sendKeys("2");
 		}
 	
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.haveYouReplacedGasMeterTrueRadioOption.isDisplayed()) {
 			this.haveYouReplacedGasMeterTrueRadioOption.click();
 		}
 	
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.haveYouReplacedRegulatorTrueRadioOption.isDisplayed()) {
 			this.haveYouReplacedRegulatorTrueRadioOption.click();
 		}
 
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.postInstallationGasTightnessTestPerformedTrueRadioOption.isDisplayed()) {
 			this.postInstallationGasTightnessTestPerformedTrueRadioOption.click();
 		}
 	
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.capturePhotoOfWitnessStickerAndUGaugeBtn.isDisplayed()) {
 			await this.capturePhotoOfWitnessStickerAndUGaugeBtn.click();
 		}
 	
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.wasThereADropInPressureTrueRadioOption.isDisplayed()) {
 			this.wasThereADropInPressureTrueRadioOption.click();
 		}
 
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.enterDIPGasPressureDropDownMenu.isDisplayed()) {
 			var select = this.enterDIPGasPressureDropDownMenu;
 			select.$('[value="3"]').click();
@@ -3586,36 +3586,36 @@ public async PPMIDCommisioningdisplay(){
 			select.$("[value='3']").click();
 		}
 	
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.gasTightnessTestPassedTrueRadioOption.isDisplayed()) {
 			this.gasTightnessTestPassedTrueRadioOption.click();
 	}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.testWitnessNameTxtfieldPostInstallGasTightnessForm.isDisplayed()) {
 			this.testWitnessNameTxtfieldPostInstallGasTightnessForm.sendKeys("Ellie Taylor");
 		}
 	
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.standingPressureTextfield.isDisplayed()) {
 			this.standingPressureTextfield.sendKeys("2");
 		}
 
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.capturePhotoOfStandingPressureBtn.isDisplayed()) {
 			await this.capturePhotoOfStandingPressureBtn.click();
 		}
 	
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.workingPressureTextfield.isDisplayed()) {
 			this.workingPressureTextfield.sendKeys("2");
 		}
 	
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.capturePhotoOfWorkingPressureBtn.isDisplayed()) {
 			await this.capturePhotoOfWorkingPressureBtn.click();
 		}
 	
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.capturePhotoOfFinalMeterInstallBtn2.isDisplayed()) {
 			await this.capturePhotoOfFinalMeterInstallBtn2.click();
 		}
@@ -3627,7 +3627,7 @@ public async PPMIDCommisioningdisplay(){
 
 
 	public async validateGasApplianceSafetyChecksSectionIsVisible() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.gasApplianceSafetyChecksSectionText.isDisplayed()) {
 			await this.gasApplianceSafetyChecksSectionText.getText().then(function (gasApplianceSafetyTxt) {
 				console.log("Arrived at : " + gasApplianceSafetyTxt);
@@ -3636,56 +3636,56 @@ public async PPMIDCommisioningdisplay(){
 	}
 
 	public async setIsEarthBondingInstalledTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.isEarthBondingInstalledTrueRadioOption.isDisplayed()) {
 			this.isEarthBondingInstalledTrueRadioOption.click();
 		}
 	}
 
 	public async setLandlordPropertyTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.landlordPropertyTrueRadioOption.isDisplayed()) {
 			this.landlordPropertyTrueRadioOption.click();
 		}
 	}
 
 	public async setAddress1ValTextfieldDetails() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.address1Textfield.isDisplayed()) {
 			this.address1Textfield.sendKeys("Street or House No");
 		}
 	}
 
 	public async setAddress2ValTextfieldDetails() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.address2Textfield.isDisplayed()) {
 			this.address2Textfield.sendKeys("Test Road");
 		}
 	}
 
 	public async setAddress3ValTextfieldDetails() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.address3Textfield.isDisplayed()) {
 			this.address3Textfield.sendKeys("Test Place");
 		}
 	}
 
 	public async setAddress4ValTextfieldDetails() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.address4Textfield.isDisplayed()) {
 			this.address4Textfield.sendKeys("Test Town");
 		}
 	}
 
 	public async setAddress5ValTextfieldDetails() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.address5Textfield.isDisplayed()) {
 			this.address5Textfield.sendKeys("Test Postcode");
 		}
 	}
 
 	public async setAddress6ValTextfieldDetails() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.address6Textfield.isDisplayed()) {
 			this.address6Textfield.sendKeys("Test County");
 		}
@@ -3698,15 +3698,15 @@ public async PPMIDCommisioningdisplay(){
 	}
 
 	public async clickOnAddApplianceBtn() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (await this.addApplianceBtn.isDisplayed()) {
 			await this.addApplianceBtn.click();
 		}
-		utility.wait(2000);
+		utility.wait(utility.Avg_low);
 	}
 
 	public async setFlueTypeValFluelessDropDownMenu() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.flueTypeDropDownMenu.isDisplayed()) {
 			var select = this.flueTypeDropDownMenu;
 			select.$("[value='0']").click();
@@ -3714,21 +3714,21 @@ public async PPMIDCommisioningdisplay(){
 	}
 
 	public async setVentilationSatisfactoryTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.ventilationSatisfactoryTrueRadioOption.isDisplayed()) {
 			this.ventilationSatisfactoryTrueRadioOption.click();
 		}
 	}
 
 	public async setCarriedOutPurgeAndRelightGasApplianceTestTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.carriedOutPurgeAndRelightGasApplianceTestTrueRadioOption.isDisplayed()) {
 			this.carriedOutPurgeAndRelightGasApplianceTestTrueRadioOption.click();
 		}
 	}
 
 	public async setApplianceTypeValGasCookerDropDownMenu() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.applianceTypeDropDownMenu.isDisplayed()) {
 			var select = this.applianceTypeDropDownMenu;
 			select.$("[value='0']").click();
@@ -3736,14 +3736,14 @@ public async PPMIDCommisioningdisplay(){
 	}
 
 	public async setApplianceLocationValKitchenDropDownMenu() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.applianceLocationDropDownMenu.isDisplayed()) {
 			var select = this.applianceLocationDropDownMenu;
 			select.$("[value='1']").click();
 		}
 	}
 	public async setApplianceConditionValWorkingOrderDropDownMenu() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.applianceConditionDropDownMenu.isDisplayed()) {
 			var select = this.applianceConditionDropDownMenu;
 			select.$("[value='2']").click();
@@ -3751,21 +3751,21 @@ public async PPMIDCommisioningdisplay(){
 	}
 
 	public async setApplianceSafeToUseTrueRadioOption() {
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (this.applianceSafeToUseTrueRadioOption.isDisplayed()) {
 			this.applianceSafeToUseTrueRadioOption.click();
 		}
 	}
 
 	public async clickOnAllAppliancesTestedBtn() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.allAppliancesTestedBtn.isDisplayed()) {
 			await this.allAppliancesTestedBtn.click();
 		}
 	}
 
 	public async clickOnInstallPageSubmitBtn() {
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.installPageSubmitBtn.isDisplayed()) {
 			await this.installPageSubmitBtn.click();
 		}

@@ -423,9 +423,6 @@ export class AbortPageObject {
 		this.abortbtnfail = element(by.xpath('//*[@id="btn_Gas_fail"]'));
 		this.gasabortApp = element(by.xpath('//*[@id="btnCallabr2"]'))
 
-
-
-		this.abortGas = element(by.xpath('//input[@id="btn_Gas_fail"]'));
 		this.selectValidAssettoInst1 = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[4]'));
 		this.selectValidAssettoInst2 = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[1]'));
 		this.gasmeterserialSendreg = element(by.xpath('//*[@id="btn_RegSNum1"]'));
@@ -927,18 +924,18 @@ export class AbortPageObject {
 
 	//TST135
 	public async TST135fillConfigAllmeter() {
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 		if (job.FullWANYes.isDisplayed()) {
 			await job.FullWANYes.click();
 		}
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 		if (job.FullCOnfigAppliedElecYes.isDisplayed()) {
 			await job.FullCOnfigAppliedElecYes.click();
 		}
 		if (job.deviceOK.isDisplayed()) {
 			await job.deviceOK.click();
 		}
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		// if (job.fullConfigAppliedGasYes.isDisplayed()) {
 		// 	await job.fullConfigAppliedGasYes.click();
 		// }
@@ -948,7 +945,7 @@ export class AbortPageObject {
 		if (job.capturePPMIDBtn.isDisplayed()) {
 			await job.capturePPMIDBtn.click();
 		}
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 		if (job.nextButtonWAN.isDisplayed()) {
 			await job.nextButtonWAN.click();
 		}
@@ -1011,10 +1008,11 @@ export class AbortPageObject {
 		}
 		if (await risk.selectRiskReasonDD.isDisplayed()) {
 			var select = risk.selectRiskReasonDD;
-			select.$('[value="4"]').click();
+			select.$('[value="6"]').click();
+			await utility.wait(utility.very_low);
 		}
-		if (await risk.riskAssessmentinput.isDisplayed()) {
-			await risk.riskAssessmentinput.sendKeys('A05 : Sign of DB equipment burning, smoking or arcing');
+		if (await this.AbortElecNotes.isDisplayed()) {
+			await this.AbortElecNotes.sendKeys('A10 : DB Earthing issues at existing installations which present an immediate risk to consumer/MO');
 		}
 		if (await this.capturePhotoAbortElec.isDisplayed()) {
 			await this.capturePhotoAbortElec.click();
@@ -1046,28 +1044,15 @@ export class AbortPageObject {
 	 ***/
 
 	public async fillRiskAssesmentGasFields() {
+		await utility.wait(utility.very_low);
 		if (await this.capturemeterPressureMed.isDisplayed()) {
 			await this.capturemeterPressureMed.click();
 		}
+		await utility.wait(utility.very_low);
 		if (await this.medPressureNo.isDisplayed()) {
 			await this.medPressureNo.click();
 		}
-		if (await this.abortGas.isDisplayed()) {
-			await this.abortGas.click();
-		}
-		await utility.wait(utility.very_low);
-
-		if (this.abortAddNotes.isDisplayed()) {
-			await this.abortAddNotes.sendKeys('Leave Gass Off');
-		}
-		await utility.wait(utility.very_low);
-		if (this.abortCapturePhoto.isDisplayed()) {
-			await this.abortCapturePhoto.click();
-		}
-		await utility.wait(utility.very_low);
-		if (this.abortAppointment.isDisplayed()) {
-			await this.abortAppointment.click();
-		}
+		
 		await utility.wait(utility.very_low);
 	}
 
@@ -1210,7 +1195,7 @@ export class AbortPageObject {
 
 	public async fillElecmeterremEX23() {
 
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 
 		if (await this.RemoveElecAssetrplacedorremoved.isDisplayed()) {
 
@@ -1218,7 +1203,7 @@ export class AbortPageObject {
 
 		}
 
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 
 		if (await this.statusofElecAssetSelect.isDisplayed()) {
 
@@ -1228,7 +1213,7 @@ export class AbortPageObject {
 
 		}
 
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 
 		if (await this.removedmeterReading.isDisplayed()) {
 
@@ -1236,7 +1221,7 @@ export class AbortPageObject {
 
 			await this.removedmeterReading.sendKeys('12345');
 
-			await utility.wait(5000);
+			await utility.wait(utility.medium_low);
 
 			await this.randomClick2.click();
 			console.log("Random Click EX23");
@@ -1361,7 +1346,7 @@ export class AbortPageObject {
 
 	public async fillElecmeterremEX24() {
 
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 
 		if (await this.RemoveElecAssetrplacedorremoved.isDisplayed()) {
 
@@ -1369,7 +1354,7 @@ export class AbortPageObject {
 
 		}
 
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 
 		if (await this.statusofElecAssetSelect.isDisplayed()) {
 
@@ -1379,7 +1364,7 @@ export class AbortPageObject {
 
 		}
 
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 
 		if (await this.removedgasmeterreading.isDisplayed()) {
 
@@ -1387,7 +1372,7 @@ export class AbortPageObject {
 
 			await this.removedgasmeterreading.sendKeys('12345');
 
-			await utility.wait(5000);
+			await utility.wait(utility.medium_low);
 
 			await this.randomClick2.click();
 			console.log("Random Click EX24");
@@ -1398,7 +1383,7 @@ export class AbortPageObject {
 
 	public async fillGasmeterremEX24() {
 
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 
 		if (await this.RemoveGasAssetrplacedorremoved.isDisplayed()) {
 
@@ -1406,7 +1391,7 @@ export class AbortPageObject {
 
 		}
 
-		await utility.wait(3000);
+		await utility.wait(utility.low);
 
 		if (await this.statusofAssetSelect.isDisplayed()) {
 
@@ -1416,7 +1401,7 @@ export class AbortPageObject {
 
 		}
 
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
 
 		if (await this.removedmeterReading.isDisplayed()) {
 
@@ -1424,7 +1409,7 @@ export class AbortPageObject {
 
 			await this.removedmeterReading.sendKeys('12345');
 
-			await utility.wait(5000);
+			await utility.wait(utility.medium_low);
 
 			await this.randomClick.click();
 			console.log("Random Click EX24");
@@ -1910,7 +1895,7 @@ export class AbortPageObject {
 			await this.CHFID.sendKeys(options);
 			await utility.wait(utility.low);
 			await this.dummydiv.click();
-			await utility.wait(4000);
+			await utility.wait(utility.medium_low);
 			await this.commshubPopup.click();
 			await utility.wait(utility.low);
 
@@ -2016,7 +2001,7 @@ export class AbortPageObject {
 			await this.CHFID.sendKeys(options);
 			await utility.wait(utility.low);
 			await this.dummydiv2.click();
-			await utility.wait(4000);
+			await utility.wait(utility.medium_low);
 			await this.commshubPopup.click();
 			await utility.wait(utility.low);
 
@@ -2107,7 +2092,7 @@ export class AbortPageObject {
 			await this.CHFID.sendKeys(options);
 			await utility.wait(utility.low);
 			await this.dummydiv3.click();
-			await utility.wait(4000);
+			await utility.wait(utility.medium_low);
 			await this.commshubPopup.click();
 			await utility.wait(utility.low);
 
@@ -2197,7 +2182,7 @@ export class AbortPageObject {
 			await this.CHFID_1.sendKeys(options);
 			await utility.wait(utility.low);
 			await this.dummydiv1.click();
-			await utility.wait(4000);
+			await utility.wait(utility.medium_low);
 			await this.commshubPopup.click();
 			await utility.wait(utility.low);
 
@@ -2283,7 +2268,7 @@ export class AbortPageObject {
 			await this.CHFID_1.sendKeys(options);
 			await utility.wait(utility.low);
 			await this.dummydiv3.click();
-			await utility.wait(4000);
+			await utility.wait(utility.medium_low);
 			await this.commshubPopup.click();
 			await utility.wait(utility.low);
 
@@ -2369,7 +2354,7 @@ export class AbortPageObject {
 			await this.CHFID_1.sendKeys(options);
 			await utility.wait(utility.low);
 			await this.dummydiv.click();
-			await utility.wait(4000);
+			await utility.wait(utility.medium_low);
 			await this.commshubPopup.click();
 			await utility.wait(utility.low);
 
@@ -2455,7 +2440,7 @@ export class AbortPageObject {
 			await this.CHFID_1.sendKeys(options);
 			await utility.wait(utility.low);
 			await this.dummydiv.click();
-			await utility.wait(4000);
+			await utility.wait(utility.medium_low);
 			await this.commshubPopup.click();
 			await utility.wait(utility.low);
 
@@ -2541,7 +2526,7 @@ export class AbortPageObject {
 			await this.CHFID_1.sendKeys(options);
 			await utility.wait(utility.low);
 			await this.dummydiv2.click();
-			await utility.wait(4000);
+			await utility.wait(utility.medium_low);
 			await this.commshubPopup.click();
 			await utility.wait(utility.low);
 

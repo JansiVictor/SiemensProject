@@ -13,7 +13,7 @@ const delay = ms => new Promise(res => setTimeout(res, ms));
 
 When('I fill the Abort Initial Risk Fields with Values', async function () {
 	await abortIR.abortJoboAfterInitialRisk();
-	await utility.wait(500);
+	await utility.wait(utility.very_low);
 });
 When('I click the Unabletoturnoff Reason and Abort the Job', async function () {
 	await abortIR.selectreasonOptionAndAbort('abdradio11', 'Leave Gass Off');

@@ -1,4 +1,4 @@
-Feature: SFEINST15- AbortNoAccessSuspend Workflow
+Feature: TST152_AbortNoAccessSuspend_SFEINST15
 
     Scenario: Post SFEINST15 SOAP Request
         Given I post workorder using "xmlrequest/SFEINST15.XML"

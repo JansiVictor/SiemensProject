@@ -1,4 +1,4 @@
-Feature: TST_184 SF G EXCH22 Workflow - Pre Gas Abort
+Feature: TST184_AbortPreGasTest SFGEXCH22
 
     Scenario: Post SFGEXCH22 SOAP Request
         Given I post workorder using "xmlrequest/SFGEXCH22.XML"
@@ -51,7 +51,6 @@ Feature: TST_184 SF G EXCH22 Workflow - Pre Gas Abort
 
     Scenario: Going through ExchTwTwo "INFO" window
         Given the ExchTwTwo INFO window with the text
-        #####When I click on ExchTwTwo OK button
         Then I should see ExchTwTwo RISK ASSESSMENT ELEC section
 
     Scenario: Going through ExchTwTwo "RISK ASSESSMENT - ELEC" section
@@ -59,13 +58,10 @@ Feature: TST_184 SF G EXCH22 Workflow - Pre Gas Abort
         When I fill the ExchTwTwo RISK ASSESSMENT - ELEC fields with the values
         And I click on ExchTwTwo CAPTURE PHOTO OF HAZARD IDENTIFIED button
         And I click on ExchTwTwo NEXT SECTION button
-    ######Then I should see ExchTwTwo CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section
 
     Scenario: Going through ExchTwTwo "RISK ASSESSMENT - GAS" section
-        #Given the ExchTwTwo RISK ASSESSMENT - GAS section
         When I fill the ExchTwTwo RISK ASSESSMENT - GAS fields with the values
-    ########Then I should see the Suitable for ExchTwTwo Smart Installation section
-
+    
     Scenario: Going through ExchTwTwo "Suitable for Smart Installation GAS"
         Given the Suitable for ExchTwTwo Smart Installation GAS section
         When I fill ExchTwTwo Site Suitable for Smart Installation? GAS button
@@ -84,7 +80,6 @@ Feature: TST_184 SF G EXCH22 Workflow - Pre Gas Abort
         Given the ExchTwTwo INITIAL POLARITY CHECK - AT METER AND CUT OUT section
         When I fill the ExchTwTwo METER AND CUT OUT fields with the values
         And I click on ExchTwTwo SUBMIT button
-    ######And ExchTwTwo I should see PRE INSTALLATION GAS TIGHTNESS TEST section
 
     Scenario: Going through "PRE INSTALLATION GAS TIGHTNESS TEST" section
         Given ExchTwTwo the PRE INSTALLATION GAS TIGHTNESS TEST section

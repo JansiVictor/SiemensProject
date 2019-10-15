@@ -39,7 +39,7 @@ export class loginPageObject {
     await browser.get(config.baseUrl);
     await utility.wait(utility.medium_low);
     await this.setUsernamePassword(config.USERNAME, config.PASSWORD);
-    await utility.wait(500);
+    await utility.wait(utility.very_low);
     await this.clickLogin();
     await utility.wait(utility.medium);
   }

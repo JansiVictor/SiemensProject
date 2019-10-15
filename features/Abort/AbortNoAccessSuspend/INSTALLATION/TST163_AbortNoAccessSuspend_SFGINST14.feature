@@ -1,4 +1,4 @@
-Feature: SFGINST14 - AbortNoAccessSuspend WorkFlow
+Feature: TST163_AbortNoAccessSuspend_SFGINST14
 
 Scenario: Post SFGINST14 SOAP Request
 Given I post workorder using "xmlrequest/SFGINST14.XML"

@@ -1,5 +1,11 @@
 Feature: TST116_AbortPreGasTest_DFFLTY20TRADSMETS2DUMB
 
+    ############## ISSUE 018 BUTTON APPEARS as ABORT ELEC METER##########
+    ############## Feature File and Implementation has to be revisited after the fix#######
+    
+    ########## The below flow is copied from the Original test Case TST013   ###########
+    ######### Steps need to be revised based on the changes from the fix  ###########
+
     Scenario: Post DFFLTY20TRAD SOAP Request
         Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"
 
@@ -120,13 +126,7 @@ Feature: TST116_AbortPreGasTest_DFFLTY20TRADSMETS2DUMB
     Scenario: Going through the Reason codes popup
         Given the AbortReasonCodespopup PreGas
         When I click the Reason and Click Abort Gas Button
-    ############## ISSUE 018 BUTTON APPEARS as ABORT ELEC METER##########
-    ############## Feature File and Implementation has to be revisited after the fix#######
-
-
-    ######### The below flow is copied from the Original test Case TST013   ###########
-    ######### Steps need to be revised based on the changes from the fix  ###########
-
+    
     Scenario: Going through "REMOVE GAS METER" section
         Given TST13 the REMOVE GAS METER section
         When TST13 I fill the field23 with the value23

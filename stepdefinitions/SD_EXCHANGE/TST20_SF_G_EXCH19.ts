@@ -54,7 +54,7 @@ Given('the ExchngNineteen Login Page', async function () {
 
 When('I pass ExchngNineteen {string} and {string}', async function (username, password) {
 	await login.setUsernamePassword(username, password);
-	await utility.wait(500);
+	await utility.wait(utility.very_low);
 });
 
 Then('I click ExchngNineteen Login button', async function () {

@@ -1,5 +1,5 @@
 
-Feature: TST_203 DF RMVE7 Workflow - Contact made Abort No Access
+Feature: TST203_AbortContactMade_DFRMVE7
 
     Scenario: Post DFRMVE7 SOAP Request
         Given I post workorder using "xmlrequest/DFRMVE7.XML"

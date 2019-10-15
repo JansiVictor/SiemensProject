@@ -1,4 +1,11 @@
-Feature: TST_086 DF FLTY20 SMETS2 No Exchange Workflow - Pre Gas Abort
+Feature: TST086_AbortPreGasTest_DFFLTY20SMETS2NOEXCH
+
+    ############## ISSUE 018 BUTTON APPEARS as ABORT ELEC METER##########
+    ############## Feature File and Implementation has to be revisited after the fix#######
+
+    ######### The below flow is copied from the Original test Case TST008   ###########
+    ######### Steps need to be revised based on the changes from the fix  ###########
+
 
     Scenario: Post DFFLTY20 SOAP Request
         Given I post workorder using "xmlrequest/DFFLTY20.XML"
@@ -112,13 +119,6 @@ Feature: TST_086 DF FLTY20 SMETS2 No Exchange Workflow - Pre Gas Abort
     Scenario: Going through the Reason codes popup
         Given the AbortReasonCodespopup PreGas
         When I click the Reason and Click Abort Gas Button
-
-    ############## ISSUE 018 BUTTON APPEARS as ABORT ELEC METER##########
-    ############## Feature File and Implementation has to be revisited after the fix#######
-
-
-    ######### The below flow is copied from the Original test Case TST008   ###########
-    ######### Steps need to be revised based on the changes from the fix  ###########
 
     Scenario: Going through "ADDITIONAL ELECTRICITY TESTS & CHECKS" section
         Given FLTYTwntyNoExchange the ADDITIONAL ELECTRICITY TESTS & CHECKS section

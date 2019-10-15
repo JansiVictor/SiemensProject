@@ -1,4 +1,4 @@
-Feature: SFEEXCH23 - AbortNoAccessSuspend Workflow
+Feature: TST175_AbortNoAccessSuspend_SFEEXCH23
 
     Scenario: Post SFEEXCH23 SOAP Request
         Given I post workorder using "xmlrequest/SFEEXCH23.XML"

@@ -31,15 +31,15 @@ const job: JobCompletionPageObject = new JobCompletionPageObject();
 
 Given('the Login Page for FLTY18TRAD', async function () {
   await browser.get(config.baseUrl);
-  await utility.wait(5000);
+  await utility.wait(utility.medium_low);
 });
 When('I pass {string} and {string} for FLTY18TRAD', async function (username, password) {
   await login.setUsernamePassword(username, password);
-  await utility.wait(500);
+  await utility.wait(utility.very_low);
 });
 Then('I click Login button for FLTY18TRAD', async function () {
   await login.clickLogin();
-  await utility.wait(10000);
+  await utility.wait(utility.medium);
 });
 Then('I should see the Appointment List for FLTY18TRAD', async function () {
   await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
@@ -53,9 +53,9 @@ Given('the Appointment List window for FLTY18TRAD', async function () {
 When('I click on select button for FLTY18TRAD', async function () {
   //CGP-Deleted Old select Link and added new functions 25/09
   //New Function
-  await utility.wait(2000);
+  await utility.wait(utility.Avg_low);
   await home.clickCorrectSelectLink('SFGFLTY18TRAD');
-  await utility.wait(5000);
+  await utility.wait(utility.medium_low);
 });
 Then('I should see Work Order window for FLTY18TRAD', async function () {
   await applist.verifyWorkOrderWindowText();
@@ -79,7 +79,7 @@ Then('I should see the CUSTOMER CONTACT NUMBER for FLTY18TRAD', async function (
   await applist.customercontactnumberavailable();
 });
 Then('I should see Contact made field for FLTY18TRAD', async function () {
-  await utility.wait(5000);
+  await utility.wait(utility.medium_low);
   await expect(await applist.contactMadeText.getText()).equal("Contact made?");
   await expect(applist.contactMadeYes.isPresent());
 });
@@ -110,13 +110,13 @@ When('I click on OK button for FLTY18TRAD', async function () {
   await applist.mprnOKbtn();
 });
 Then('I should see ARRIVE button for FLTY18TRAD', async function () {
-  await utility.wait(10000);
+  await utility.wait(utility.medium);
   await applist.arriveBtn.getText().then(function (arriveBtnText) {
     console.log("find Arrive Btn Text  " + arriveBtnText);
   });
 });
 Then('I should see DOORSTEP PROTOCOL tab activated for FLTY18TRAD', async function () {
-  await utility.wait(5000);
+  await utility.wait(utility.medium_low);
   await applist.doorStepPROText.getText().then(function (doorStepPROText) {
     console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
   });
@@ -125,7 +125,7 @@ When('I click on ARRIVE button for FLTY18TRAD', async function () {
   await applist.clickArriveBtn();
 });
 Then('I should see Arrival Time details for FLTY18TRAD', async function () {
-  await utility.wait(5000);
+  await utility.wait(utility.medium_low);
   await applist.arrivalTime.getText().then(function (arrivalTimeText) {
     console.log("find Arrival Time Text  " + arrivalTimeText);
   });
@@ -170,7 +170,7 @@ When('I fill Need to work Yes for FLTY18TRAD', async function () {
   if (riskassess.NeedtoWorkYES.isDisplayed()) {
     var element = riskassess.NeedtoWorkYES;
     browser.executeScript("arguments[0].click()", element);
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
   }
 });
 

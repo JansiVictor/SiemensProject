@@ -1,4 +1,4 @@
-Feature: SFENMEX16 - AbortNoAccessSuspend Workflow
+Feature: TST193_AbortNoAccessSuspend_SFENMEX16
 
         Scenario: Post SFENMEX16 SOAP Request
                 Given I post workorder using "xmlrequest/SFENMEX16.XML"

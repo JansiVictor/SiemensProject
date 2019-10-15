@@ -1,4 +1,4 @@
-Feature: TST_103 SF G FLTY18 SMETS2 No Exchange Workflow - Contact made Abort No Access
+Feature: TST103_AbortContactMade_SFGFLTY18SMETS2NOEXCH
 
     Scenario: Post SFGFLTY18 SOAP Request
         Given I post workorder using "xmlrequest/SFGFLTY18.XML"

@@ -1,4 +1,4 @@
-Feature: TST_174 SF Elec EXCH23 Workflow - Contact made Abort No Access
+Feature: TST174_AbortContactMade_SFEEXCH23
 
     Scenario: Post SFEEXCH23 SOAP Request
         Given I post workorder using "xmlrequest/SFEEXCH23.XML"

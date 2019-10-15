@@ -1,4 +1,4 @@
-Feature: TST_109 SF G FLTY18 SMETS2 No Exchange Workflo - Pre Gas Abort
+Feature: TST109_AbortPreGasTest_SFGFLTY18SMETS2NOEXCH
 
     Scenario: Post SFGFLTY18 SOAP Request
         Given I post workorder using "xmlrequest/SFGFLTY18.XML"

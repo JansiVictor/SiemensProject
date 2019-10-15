@@ -1,4 +1,4 @@
-Feature: TST_151 SF E INST15 Workflow - Contact made Abort No Access
+Feature: TST162_AbortContactMade_SFGINST14
 
     Scenario: Post SFEINST15 SOAP Request
         Given I post workorder using "xmlrequest/SFEINST15.XML"

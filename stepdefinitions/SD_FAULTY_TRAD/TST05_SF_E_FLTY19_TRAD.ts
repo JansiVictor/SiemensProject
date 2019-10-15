@@ -36,7 +36,7 @@ Given('the Login Page for FLTY19 Trad', async function () {
 
 When('I pass {string} and {string} for FLTY19 Trad', async function (username, password) {
   await login.setUsernamePassword(username, password);
-  await utility.wait(500);
+  await utility.wait(utility.very_low);
 });
 
 Then('I click Login button for FLTY19 Trad', async function () {
@@ -53,7 +53,7 @@ Given('the Appointment List window for FLTY19 Trad', async function () {
 });
 
 When('I click on select button for FLTY19 Trad', async function () {
-  await utility.wait(2000); 
+  await utility.wait(utility.Avg_low); 
   await home.clickCorrectSelectLink('SFEFLTY19TRAD');
   await utility.wait(utility.medium_low);
 });
@@ -382,7 +382,7 @@ When('I fill values for FLTY19 Trad', async function () {
 });
 Then('I click on OK btn in Updated window with the text Elec Asset successfully added to Returns list for FLTY19 Trad', async function () {
   await remove.clickonokElecAssetRemoval();
-  await utility.wait(2000);
+  await utility.wait(utility.Avg_low);
 });
 
 Then('I should click on next section for FLTY19 Trad', async function () {
@@ -414,7 +414,7 @@ Given('the INSTALL COMMS HUB sec for FLTY19 Trad', async function () {
 
 When('I fill the Ins comms hub fields and capture photo EVIDENCE for FLTY19 Trad', async function () {
  // await remove.fillCommsHubReqY();
-  //await utility.wait(4000);
+  //await utility.wait(utility.medium_low);
  // await riskassessTRAD.fillCommsHubDetails(4);
  await inst.fillfieldsInstallcommshub(2);
 });
@@ -431,7 +431,7 @@ Given('the  New Meter details section for FLTY19 Trad', async function () {
 });
 
 When('I fill the New Meter details fields with values for FLTY19 Trad', async function () {
-  await riskassessTRAD.fillNewMeterDetailsTRAD(); 
+  await riskassessTRAD.fillNewMeterDetailsTRAD(4); 
 });
 
 Then('I should see ADDITIONAL ELECTRICITY CHECKS section for FLTY19 Trad', async function () {

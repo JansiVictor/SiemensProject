@@ -1,4 +1,4 @@
-Feature: TST_128 SF G FLTY18 Trad - SMETS2 Dumb Workflow - Pre Gas Abort
+Feature: TST128_AbortPreGasTest_SFGFLTY18TRADSMETS2DUMB
 
     Scenario: Post SFGFLTY18TRAD SOAP Request
         Given I post workorder using "xmlrequest/SFGFLTY18TRAD.XML"

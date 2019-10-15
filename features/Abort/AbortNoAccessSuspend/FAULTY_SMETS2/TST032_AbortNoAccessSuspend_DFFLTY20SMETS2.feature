@@ -1,4 +1,4 @@
-Feature: DFFLTY20 - AbortNoAccessSuspend Workflow
+Feature: TST032_AbortNoAccessSuspend_DFFLTY20SMETS2
 
     Scenario: Post DFFLTY20 SOAP Request
         Given I post workorder using "xmlrequest/DFFLTY20.XML"

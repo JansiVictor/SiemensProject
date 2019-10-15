@@ -776,7 +776,7 @@ export class ElectricPageObject {
 			await this.chfIDInput.sendKeys(options);
 			await utility.wait(utility.low);
 			await this.dummydiv.click();
-			await utility.wait(4000);
+			await utility.wait(utility.medium_low);
 			await this.commshubPopup.click();
 			await utility.wait(utility.low);
 	
@@ -855,7 +855,7 @@ export class ElectricPageObject {
 			await expect(await this.inputelecSerialNum.isPresent());
 			await utility.wait(utility.medium_low);
 			var options = this.selectinstallMeterOption.getAttribute('value');
-			await utility.wait(3000);
+			await utility.wait(utility.low);
 			await this.inputelecSerialNum.sendKeys(options);
 		
 		await this.randomEUDevice.click();
@@ -924,10 +924,10 @@ public async verifyDF17CurrentMeterDetails() {
 	if (await this.currentMeterNxtbtn.isDisplayed()) {
 		await this.currentMeterNxtbtn.click();
 	}
-	await utility.wait(6000);
+	await utility.wait(utility.medium_low);
 	await this.currentMeterDetailsHeader1.click();
 	await expect(this.existingElecMeterYes.isPresent());
-	await utility.wait(6000);
+	await utility.wait(utility.medium_low);
 	await this.existingElecMeterYes.click();
 	await utility.wait(utility.low);
 	if (await this.unableToReadMeterYes.isDisplayed()) {
@@ -1049,7 +1049,7 @@ public async fillCommsHubDetails_DF17SmartCredit() {
         if (await this.updateValuesBtn.isDisplayed()) {
 			await this.updateValuesBtn.click();
 		}
-        await utility.wait(4000);
+        await utility.wait(utility.medium_low);
 		// // click the dropdown
 		// this.commHubLocDD.click()
 		browser.sleep(1000);
@@ -1075,7 +1075,7 @@ public async fillCommsHubDetails_DF17SmartCredit() {
 
 		if (await this.captureCommsHub1.isDisplayed()) {
 			await this.captureCommsHub1.click();
-			await utility.wait(6000);
+			await utility.wait(utility.medium_low);
 		}
 		if (await this.commHubLocNxtBtn1.isDisplayed()) {
 			await this.commHubLocNxtBtn1.click();
@@ -1171,19 +1171,20 @@ public async fillCommsHubDetails_DF17SmartCredit() {
 		}
 	}
 
-	public async fillNewMeterDetailsTRAD() {
+	public async fillNewMeterDetailsTRAD(index:number) {
 
 
 		await utility.wait(utility.low);
 		if (await this.newMeterDD.isDisplayed()) {
-			var select = this.newMeterDD;
-			select.$('[value="E9E00000000012"]').click();
+			await this.newMeterDD.element(by.css("option:nth-child("+index+")")).click()
+            await utility.wait(utility.low);
 		}
 
 		await utility.wait(utility.low);
 		if (await this.inputelecSerialNum.isDisplayed()) {
 			await this.inputelecSerialNum.clear();
-			await this.inputelecSerialNum.sendKeys("E9E00000000012");
+			var options = this.selectinstallMeterOption.getAttribute('value');
+            await this.inputelecSerialNum.sendKeys(options);
 		}
 
 
@@ -1244,7 +1245,7 @@ public async fillCommsHubDetails_DF17SmartCredit() {
 		await this.captureMeterReadingInput.clear();
 		await this.captureMeterReadingInput.sendKeys('12345');
 		
-		await utility.wait(5000);
+		await utility.wait(utility.medium_low);
 		await this.initialElctext.click();
 		console.log("Clicked");
 
@@ -1253,14 +1254,14 @@ public async fillCommsHubDetails_DF17SmartCredit() {
 		// if (await this.unableToReadMeterYes.isDisplayed()) {
         //     await this.unableToReadMeterYes.click();
 		// }    
-		// await utility.wait(1000);	 
+		// await utility.wait(utility.very_low);	 
 		
 		// if (await this.meterReadingNxtBtn.isDisplayed()) {
         //     await this.meterReadingNxtBtn.click();
 		// }   
 		
 		
-		await utility.wait(1000);
+		await utility.wait(utility.very_low);
     }
 
 
@@ -1382,7 +1383,7 @@ public async fillPostInstallationCheckINST16() {
 			// await this.awaitingResponseTxt.getText().then(function (awaitingResponseTxt) {
 			// 	console.log("find awaitingResponseTxt Text  " + awaitingResponseTxt);
 			// });
-		//	await utility.wait(60000);
+		//	await utility.wait(utility.high);
 			if (this.commSuccess.isDisplayed()) {
 				await this.commSuccess.click();
 				await utility.wait(utility.low);
@@ -1399,12 +1400,12 @@ public async fillPostInstallationCheckINST16() {
 					console.log("find eicomSendMsg Text  " + eicomSend);
 				});
 				await this.eicomSendMsg.click();
-				await utility.wait(60000);
+				await utility.wait(utility.high);
 				//commented below
 				// await this.awaitingResponseTxt.getText().then(function (awaitingResponseTxt) {
 				// 	console.log("find awaitingResponseTxt Text  " + awaitingResponseTxt);
 				// });
-			//	await utility.wait(60000);
+			//	await utility.wait(utility.high);
 				if (this.hanAvailableText.isDisplayed()) {
 					await this.hanAvailableN.click();
 					await utility.wait(utility.low);
@@ -1429,7 +1430,7 @@ public async fillPostInstallationCheckINST16() {
 			// await this.awaitingResponseTxt.getText().then(function (awaitingResponseTxt) {
 			// 	console.log("find awaitingResponseTxt Text  " + awaitingResponseTxt);
 			// });
-			//	await utility.wait(60000);
+			//	await utility.wait(utility.high);
 			if (this.commSuccess.isDisplayed()) {
 				await this.commSuccess.click();
 				await utility.wait(utility.low);
@@ -1549,7 +1550,7 @@ public async fillPostInstallationCheckINST16() {
 			// await this.awaitingResponseTxt.getText().then(function (awaitingResponseTxt) {
 			// 	console.log("find awaitingResponseTxt Text  " + awaitingResponseTxt);
 			// });
-			//	await utility.wait(60000);
+			//	await utility.wait(utility.high);
 			if (this.commSuccess.isDisplayed()) {
 				await this.commSuccess.click();
 				await utility.wait(utility.low);
@@ -1567,24 +1568,24 @@ public async fillPostInstallationCheckINST16() {
 				console.log("find eicomSendMsg Text  " + eicomSend);
 			});
 			await this.eicomSendMsg.click();
-			await utility.wait(80000);
+			await utility.wait(utility.high);
 			//commented below
 			// await this.awaitingResponseTxt.getText().then(function (awaitingResponseTxt) {
 			// 	console.log("find awaitingResponseTxt Text  " + awaitingResponseTxt);
 			// });
-		//	await utility.wait(60000);
+		//	await utility.wait(utility.high);
 			if (this.commSuccess.isDisplayed()) {
 				await this.commSuccess.click();
-				await utility.wait(3000);
+				await utility.wait(utility.low);
 			}
 		}
 
 	}
 
 	public async fillNewMeterDetails_INST15(index:number) {
-		// await utility.wait(2000);
+		// await utility.wait(utility.Avg_low);
 		if (await this.newMeterDD.isDisplayed()) {
-			await utility.wait(2000);
+			await utility.wait(utility.Avg_low);
 			// click the dropdown
 			this.newMeterDD.click()
 			browser.sleep(1000)
@@ -1603,32 +1604,32 @@ public async fillPostInstallationCheckINST16() {
 		// let ale: Alert = browser.switchTo().alert();
 		// // clicks 'OK' button
 		// ale.accept();
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 
 		await this.commshubPopup.click();
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 
 		// if (await this.manufactureLetterDD.isDisplayed()) {
 		// 	var select1 = this.manufactureLetterDD;
 		// 	select1.$('[value="2"]').click();
 		// }
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.MeterTypeDD.isDisplayed()) {
 			var select2 = this.MeterTypeDD;
 			select2.$('[value="0"]').click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 		if (await this.meterLocDD.isDisplayed()) {
 			var select3 = this.meterLocDD;
 			select3.$('[value="D"]').click();
 		}
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 
 		await expect(await this.inputDate.isPresent());
 		await this.inputDate.sendKeys('90/01');
 
 		await this.newMeterNxtBtn.click();
-		await utility.wait(2000);
+		await utility.wait(utility.Avg_low);
 
 	} 
 

@@ -1,5 +1,4 @@
-
-Feature: TST_160 SF G EXCH19 Workflow - Abort Pre Gas Test
+Feature: TST160_AbortPreGasTest_SFGEXCH19
 
     Scenario: Post SFGEXCH19 SOAP Request
         Given I post workorder using "xmlrequest/SFGEXCH19.XML"
@@ -42,7 +41,6 @@ Feature: TST_160 SF G EXCH19 Workflow - Abort Pre Gas Test
         Given the ExchngNineteen BE AWARE OF ANY DANGER! section
         When I fill the ExchngNineteen DoorStep Protocol fields with the value
         And I click on ExchngNineteen ON SITE button
-        #Then I should see ExchngNineteen RISK ASSESSMENT tab activated
         And I should see ExchngNineteen Initial Risk Assessment for GAS section
 
     Scenario: Going through ExchngNineteen "INITIAL RISK ASSESSMENT"

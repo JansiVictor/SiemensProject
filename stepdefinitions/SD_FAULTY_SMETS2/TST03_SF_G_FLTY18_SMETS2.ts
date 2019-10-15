@@ -30,7 +30,7 @@ Given('TST03 the Login Page', async function () {
 
 When('TST03 I pass {string} and {string}', async function (username, password) {
   await login.setUsernamePassword(username, password);
-  await utility.wait(500);
+  await utility.wait(utility.very_low);
 });
 
 Then('TST03 I click Login button', async function () {

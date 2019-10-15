@@ -1,4 +1,4 @@
-Feature: SFERMVE6 - AbortNoAccessSuspend Workflow
+Feature: TST209_AbortNoAccessSuspend_SFERMVE6
 
         Scenario: Post SFERMVE6 SOAP Request
                 Given I post workorder using "xmlrequest/SFERMVE6.XML"

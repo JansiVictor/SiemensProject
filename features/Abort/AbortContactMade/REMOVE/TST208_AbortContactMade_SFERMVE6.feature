@@ -1,5 +1,5 @@
 
-Feature: TST_208 SF E RMVE6 Workflow - Contact made Abort No Access
+Feature: TST208_AbortContactMade_SFERMVE6
 
     Scenario: Post SFERMVE6 SOAP Request
         Given I post workorder using "xmlrequest/SFERMVE6.XML"

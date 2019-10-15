@@ -1,4 +1,4 @@
-Feature: TST_167 DF EXCH24 Workflow - Contact made Abort No Access
+Feature: TST167_AbortContactMade_DFEXCH24
 
     Scenario: Post DFEXCH24 SOAP Request
         Given I post workorder using "xmlrequest/DFEXCH24.XML"

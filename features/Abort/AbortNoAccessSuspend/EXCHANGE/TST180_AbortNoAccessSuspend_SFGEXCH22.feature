@@ -1,4 +1,4 @@
-Feature: SFGEXCH22 - NoAbortAccessSuspend Workflow
+Feature: TST180_AbortNoAccessSuspend_SFGEXCH22
 
        Scenario: Post SFGEXCH22 SOAP Request
               Given I post workorder using "xmlrequest/SFGEXCH22.XML"

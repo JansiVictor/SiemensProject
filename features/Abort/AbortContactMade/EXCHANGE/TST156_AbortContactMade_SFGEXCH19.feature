@@ -1,4 +1,4 @@
-Feature: TST_156 SF G EXCH19 Workflow - Contact made Abort No Access
+Feature: TST156_AbortContactMade_SFGEXCH19
 
     Scenario: Post SFGEXCH19 SOAP Request
         Given I post workorder using "xmlrequest/SFGEXCH19.XML"

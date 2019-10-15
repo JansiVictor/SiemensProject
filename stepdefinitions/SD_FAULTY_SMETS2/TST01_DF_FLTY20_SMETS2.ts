@@ -33,7 +33,7 @@ Given('FTwenty the Login Page', async function () {
 
 When('FTwenty I pass {string} and {string}', async function (username, password) {
     await login.setUsernamePassword(username, password);
-    await utility.wait(500);
+    await utility.wait(utility.very_low);
 });
 
 Then('FTwenty I click Login button', async function () {

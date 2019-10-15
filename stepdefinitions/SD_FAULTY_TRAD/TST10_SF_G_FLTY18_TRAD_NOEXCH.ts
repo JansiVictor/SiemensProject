@@ -67,7 +67,7 @@ Given('the Login Page For SFGFLTY18TRAD', async function () {
 
 When('I pass {string} and {string} For SFGFLTY18TRAD', async function (username, password) {
 	await login.setUsernamePassword(username, password);
-	await utility.wait(500);
+	await utility.wait(utility.very_low);
 });
 
 Then('I click Login button For SFGFLTY18TRAD', async function () {
@@ -76,7 +76,7 @@ Then('I click Login button For SFGFLTY18TRAD', async function () {
 });
 
 Then('I should see the Appointment List For SFGFLTY18TRAD', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
 });
 
@@ -354,17 +354,17 @@ When('I click on SFGFLTY18TRAD smart installation NEXT SECTION button', async fu
 });
 
 Then('I should see SFGFLTY18TRAD INITIAL POLARITY CHECK AT METER AND CUT OUT section', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.verifyMeterAndCutOut();
 });
 
 Given('the SFGFLTY18TRAD INITIAL POLARITY CHECK - AT METER AND CUT OUT section', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.verifyMeterAndCutOut();
 });
 
 When('I fill the SFGFLTY18TRAD METER AND CUT OUT fields with the values', async function () {
-	await utility.wait(2000);
+	await utility.wait(utility.Avg_low);
 	await riskassess.fillthePolarityCheckMeterOut();
 });
 

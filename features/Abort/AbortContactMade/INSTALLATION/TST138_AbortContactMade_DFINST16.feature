@@ -1,4 +1,4 @@
-Feature: TST_138 DF INST16 Workflow - Contact made Abort No Access
+Feature: TST138_AbortContactMade_DFINST16
 
     Scenario: Post DFINST16 SOAP Request
         Given I post workorder using "xmlrequest/DFINST16.XML"

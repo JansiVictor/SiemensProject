@@ -49,17 +49,17 @@ const exchnge21Complete: JobCompletionPageObject = new JobCompletionPageObject()
 
 Given('the INSTFrtn Login Page', async function () {
 	await browser.get(config.baseUrl);
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
 });
 
 When('I pass INSTFrtn {string} and {string}', async function (username, password) {
 	await login.setUsernamePassword(username, password);
-	await utility.wait(500);
+	await utility.wait(utility.very_low);
 });
 
 Then('I click INSTFrtn Login button', async function () {
 	await login.clickLogin();
-	await utility.wait(10000);
+	await utility.wait(utility.medium);
 });
 
 Given('the INSTFrtn Appointment List window', async function () {
@@ -69,7 +69,7 @@ Given('the INSTFrtn Appointment List window', async function () {
 
   When('I click on INSTFrtn select button', async function () {
     await home.clickCorrectSelectLink('SFINST14');
-	await utility.wait(5000);
+	await utility.wait(utility.medium_low);
   });
 
   Then('I should see INSTFrtn Work Order window', async function () {
@@ -97,14 +97,14 @@ Given('the INSTFrtn Appointment List window', async function () {
 
 
   Then('I should see the INSTFrtn CUSTOMER CONTACT NUMBER', async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
 	await expect(await applist.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
     await expect(applist.customerContactNumberText.isPresent());
   });
 
 
   Then('I should see INSTFrtn Contact made field',async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
 	await expect(applist.contactMadeYes.isPresent());
   });
@@ -156,14 +156,14 @@ Given('the INSTFrtn Appointment List window', async function () {
 
 
   When('I should see INSTFrtn ARRIVE button',async function () {
-    await utility.wait(10000);
+    await utility.wait(utility.medium);
 	await applist.arriveBtn.getText().then(function (arriveBtnText) {
 		console.log("find Arrive Btn Text  " + arriveBtnText);
 	});
   });
 
   When('I should see INSTFrtn DOORSTEP PROTOCOL tab activated',async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});
@@ -180,7 +180,7 @@ Given('the INSTFrtn Appointment List window', async function () {
 
 
   Then('I should see INSTFrtn Arrival Time details',async function () {
-    await utility.wait(5000);
+    await utility.wait(utility.medium_low);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
 	});
@@ -259,7 +259,7 @@ Given('the INSTFrtn Appointment List window', async function () {
   Then('I should see INSTFrtn Capture Photo of GAS Installation section', async function () {
     await riskassessGAS.captureInitialPhotoTxt();
 	await riskassessGAS.captureInitialPhotogasbtn.click();
-	await utility.wait(1000);
+	await utility.wait(utility.very_low);
   });
 
 

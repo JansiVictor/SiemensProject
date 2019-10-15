@@ -1,4 +1,6 @@
-Feature: TST_172 DF EXCH24 Workflow - Pre Gas Abort
+Feature: TST172_AbortPreGasTest_DFEXCH24
+        ############## Known issue - Issue 019.. Should not have the gas section for this flow
+        ############ Needs to be revised after the fix
 
     Scenario: Post DFEXCH24 SOAP Request
         Given I post workorder using "xmlrequest/DFEXCH24.XML"
@@ -110,8 +112,7 @@ Feature: TST_172 DF EXCH24 Workflow - Pre Gas Abort
     Scenario: Going through "CURRENT IHD/PPMID DETAILS" section
         Given TST22 the CURRENT IHD-PPMID DETAILS section
         When TST22 I fill the field010 with the value010
-    #When TST22 I should see CURRENT METER DETAILS - GAS section
-    #Then TST22 I should see the page contect display of current meter details
+  
 
     Scenario: Going through "CURRENT METER DETAILS - ELEC" section
         Given the TST22 CURRENT METER DETAILS section
@@ -155,7 +156,6 @@ Feature: TST_172 DF EXCH24 Workflow - Pre Gas Abort
         Given the TST22 CONFIRM IHD-PPMID ASSET REMOVAL section
         When I fill the TST22 field22 with the Value22
         Then I clk TST22 OK button in Updated window with the text Asset successfully added to Returns list
-    #Then I should see TST22 REMOVE METER section
 
     Scenario: Going through "REMOVE METER-Elec" section
         Given TST22 the REMOVE METER section
@@ -255,8 +255,6 @@ Feature: TST_172 DF EXCH24 Workflow - Pre Gas Abort
     Scenario: Confirming "Commissioning Successful"
         Given TST22 the Commissioning Successful button is displayed
         When TST22 I click on Commissioning Successful button
-        ###################### Known issue - Issue 019.. Should not have the gas section for this flow
-        ############ Needs to be revised after the fix
         Then TST22 I should see NEW GAS METER DETAILS section
 
     Scenario: Going through "NEW GAS METER DETAILS" section
@@ -310,7 +308,7 @@ Feature: TST_172 DF EXCH24 Workflow - Pre Gas Abort
         Given TST22 the Gas Appliance Safety Checks sec
         When TST22 I fill the Gas Appliance Safety Checks section fields with values and Sub
         Then TST22 I should see SMETS PPMID sec
-    #############################################
+    
     Scenario: Going through "INSTALL PPMID" section
         Given TST22 the INSTALL PPMID section
         When TST22 I fill the fields for Install PPMID

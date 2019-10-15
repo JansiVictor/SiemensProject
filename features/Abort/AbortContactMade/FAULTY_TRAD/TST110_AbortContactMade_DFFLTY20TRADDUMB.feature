@@ -1,4 +1,4 @@
-Feature: TST_110 DF FLTY20 Trad - SMETS2 Dumb Workflow - Contact made Abort No Access
+Feature: TST110_AbortContactMade_DFFLTY20TRADDUMB
 
 	Scenario: Post DFFLTY20TRAD SOAP Request
 		Given I post workorder using "xmlrequest/DFFLTY20TRAD.XML"

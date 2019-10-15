@@ -1,4 +1,4 @@
-Feature: TST_197 SF G NMEX15 Workflow - Contact made Abort No Access
+Feature: TST197_AbortContactMade_SFGNMEX15
 
     Scenario: Post SFGNMEX15 SOAP Request
         Given I post workorder using "xmlrequest/SFGNMEX15.XML"

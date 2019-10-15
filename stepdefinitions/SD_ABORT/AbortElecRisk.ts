@@ -42,6 +42,11 @@ When('I fill the RISK ASSESSMENT - Abort ELEC fields with the values', async fun
 	await utility.wait(utility.medium);
 });
 
+Then('I should see AbortElec SMETS Install SUBMIT', async function (workorder) {
+	await inst.submitInstall.click();
+	await utility.wait(utility.low);
+});
+
 Then('FTwentyAbort I click on CAPTURE PHOTOGRAPHIC EVIDENCE button', async function () {
 	await riskassess.capturePhotoBtnDisplayed();
 });

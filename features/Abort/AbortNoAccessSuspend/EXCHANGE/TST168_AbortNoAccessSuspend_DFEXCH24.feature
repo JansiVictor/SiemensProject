@@ -1,4 +1,4 @@
-Feature: DFEXCH24 - AbortNoAccessSuspend Workflow
+Feature: TST168_AbortNoAccessSuspend_DFEXCH24
 
     Scenario: Post DFEXCH24 SOAP Request
         Given I post workorder using "xmlrequest/DFEXCH24.XML"

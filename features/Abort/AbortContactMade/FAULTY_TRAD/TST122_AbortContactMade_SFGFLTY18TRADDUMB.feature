@@ -1,4 +1,4 @@
-Feature: TST_122 SF G FLTY18 Trad Dumb Workflow - Contact made Abort No Access
+Feature: TST122_AbortContactMade_SFGFLTY18TRADDUMB
 
 	Scenario: Post SFGFLTY18TRAD SOAP Request
 		Given I post workorder using "xmlrequest/SFGFLTY18TRAD.XML"

@@ -1,4 +1,4 @@
-Feature: DFNMEX17- AbortNoAccessSuspend Workflow
+Feature: TST187_AbortNoAccessSuspend_DFNMEX17
 
     Scenario: Post DFNMEX17 SOAP Request
         Given I post workorder using "xmlrequest/DFNMEX17.XML"

@@ -1,4 +1,4 @@
-Feature: DFEXCH21 - AbortNoAccessSuspend Workflow
+Feature: TST130_AbortNoAccessSuspend_DFEXCH21
 
     Scenario: Post DFEXCH21 SOAP Request
         Given I post workorder using "xmlrequest/DFEXCH21.XML"
@@ -14,7 +14,6 @@ Feature: DFEXCH21 - AbortNoAccessSuspend Workflow
         When i see ExTwOne Call Forward or Arrive Button
         Then I click on ExTwOne CALL FORWARD button
         Then I should see ExTwOne page contect display
-        #And I should see the ExTwOne CUSTOMER CONTACT NUMBER
         And I should see ExTwOne Contact made field
 
     Scenario: Selecting ExTwOne job and setting to depart

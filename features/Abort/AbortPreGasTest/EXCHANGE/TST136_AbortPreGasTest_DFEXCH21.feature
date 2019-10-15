@@ -1,4 +1,4 @@
-Feature: TST_136 DF EXCH21 Workflow - Abort Pre Gas Test
+Feature: TST136_AbortPreGasTest_DFEXCH21
 
     Scenario: Post DFEXCH21 SOAP Request
         Given I post workorder using "xmlrequest/DFEXCH21.XML"
