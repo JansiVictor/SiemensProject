@@ -1,7 +1,7 @@
 Feature: SFENMEX16 - AbortNoAccessSuspend Workflow
 
         Scenario: Post SFENMEX16 SOAP Request
-                Given I post workorder using "xmlrequest/SFEMEX16.XML"
+                Given I post workorder using "xmlrequest/SFENMEX16.XML"
 
         @LoginScenario
         Scenario: Select the Latest workOrder

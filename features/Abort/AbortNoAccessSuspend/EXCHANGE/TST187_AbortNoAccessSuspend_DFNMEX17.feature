@@ -1,4 +1,4 @@
-Feature: DF17SmartCredit- AbortNoAccessSuspend Workflow
+Feature: DFNMEX17- AbortNoAccessSuspend Workflow
 
     Scenario: Post DFNMEX17 SOAP Request
         Given I post workorder using "xmlrequest/DFNMEX17.XML"

@@ -50,6 +50,12 @@ Given('InstallLeave Replace CommsHubNoWan section', async function () {
 	await installleave.verifyReplaceCommshubNoWANSection();
 });
 
+
+When('I fill the InstallLeave Gas Appliance Safety Checks section', async function (){
+	await installleave.fillGasSafety_InstallLeave();
+});
+
+
 When('I fill the InstallLeave Replace CommshubNoWan details fields with values', async function (){
 	await installleave.fillReplaceCommshubdetails(4);
 });

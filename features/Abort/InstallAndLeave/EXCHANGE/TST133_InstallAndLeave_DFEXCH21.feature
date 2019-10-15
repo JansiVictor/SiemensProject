@@ -190,7 +190,7 @@ Feature: DFEXCH21 - InstallAndLeave Workflow
 
         Scenario: Going through ExTwOne "Gas Appliance Safety Checks" GAS section
                 Given the ExTwOne Gas Appliance Safety Checks section
-                When I fill the ExTwOne Gas Appliance Safety Checks section fields with values and Submit
+                When I fill the InstallLeave Gas Appliance Safety Checks section
                 Then I should see ExTwOne SMETS PPMID section
 
         Scenario: Going through ExTwOne "SMETS PPMID" GAS section

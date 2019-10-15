@@ -1,7 +1,7 @@
 Feature: DFINST16 - InstallAndLeave Workflow
 
     Scenario: Post DFINST16 SOAP Request
-        Given I post workorder using "xmlrequest/DFISNT16.XML"
+        Given I post workorder using "xmlrequest/DFINST16.XML"
 
     @LoginScenario
     Scenario: Select the Latest workOrder for INST16

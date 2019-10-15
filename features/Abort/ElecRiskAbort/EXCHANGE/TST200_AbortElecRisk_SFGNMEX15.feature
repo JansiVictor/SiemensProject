@@ -1,7 +1,7 @@
 Feature: TST200_AbortElecRisk_NMEX15 Workflow
 
     Scenario: Post SFENMEX15 SOAP Request
-        Given I post workorder using "xmlrequest/SFENMEX15.XML"
+        Given I post workorder using "xmlrequest/SFGNMEX15.XML"
 
     @LoginScenario
     Scenario: Select the Latest workOrder

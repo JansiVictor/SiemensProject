@@ -1,7 +1,7 @@
 Feature: SFEFLTY19TRADNOEXCH - AbortNoAccessSuspend Workflow
 
     Scenario: Post SFEFLTY19TRAD SOAP Request
-        Given I post workorder using "xmlrequest/SFFLTY19TRAD.XML"
+        Given I post workorder using "xmlrequest/SFEFLTY19TRAD.XML"
 
     @LoginScenario
     Scenario: Select the Latest workOrder

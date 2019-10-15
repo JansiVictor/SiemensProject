@@ -264,6 +264,13 @@ export class AbortPageObject {
 	public commshubconnectedtoAsset: ElementFinder;
 	public commshubconnectedtoAssetY: ElementFinder;
 
+	// I & L Fill Gas Safety 
+	public earthBondingYEs: ElementFinder;
+	public landLordPropertyNo: ElementFinder;
+	public allAppliTestedBtn: ElementFinder;
+	public submitGas: ElementFinder;
+	//
+
 	public ContactGTY: ElementFinder;
 	public NationalGridSend: ElementFinder;
 	public HandSAirline: ElementFinder;
@@ -478,6 +485,11 @@ export class AbortPageObject {
 		this.AssetaddedtowallNewReg = element(by.xpath('//*[text()="OK"]'));
 		//
 
+		// I & L Gas safety elements
+		this.earthBondingYEs = element(by.xpath('//input[@id="radioraa1a"]/following-sibling::span[@class="outer"]'));
+		this.landLordPropertyNo = element(by.id('radioraa4'));this.allAppliTestedBtn = element(by.id('btn_AllApp_tested'));
+		this.submitGas = element(by.id('btn_Subm_gas'));
+		//
 		// I & L Install page elements
 		this.assetInput1 = element(by.id('gasassetinput0'));
 		this.installKitNxtBtn1 = element(by.id('gasInstallPhoto_nextBtn'));
@@ -549,23 +561,21 @@ export class AbortPageObject {
 
 		this.gasAndElecMeterN = element(by.id('rb_GasElecMPairSuc_n'));
 		this.fullHanDeviceNo = element(by.id('rb_FulHANEst_n'));
-		this.fullWanAllmeterNo = element(by.id('rb_FulWANEst_n'));
-		this.fullconfigElecApplyNo = element(by.id('rb_FullCFigE_n'));
+		this.fullWanAllmeterNo = element(by.xpath('//*[@id="rb_FulWANEst_n"]/span[@class="outer"]'));
+		this.fullconfigElecApplyNo = element(by.xpath('//*[@id="rb_FullCFigE_n"]/label/span[@class="outer"]'));
 
 		this.PPMIDAddNotes_1 = element(by.id('newihdppmid_textIhdPpmidNotOffered'));
 		this.PPMIDOfferedNo_1 = element(by.xpath('//*[@id="newihdppmid_ihdPpmidOfferedfalse"]/span'));
 		this.gasAndElecMeterN = element(by.id('rb_GasElecMPairSuc_n'));
 		this.fullHanDeviceNo = element(by.id('rb_FulHANEst_n'));
-		this.fullWanAllmeterNo = element(by.id('rb_FulWANEst_n'));
-		this.fullconfigElecApplyNo = element(by.xpath('//*[@id="rb_FullCFigE_n"]/label/span'));
-
+		
 		this.ppmidNXTBtn = element(by.id('ihdscan2_nextButton'));
 		this.ppmidNXTBtn_1 = element(by.id('newihdppmid_nextButton'));
 		this.devicebindingNextSection = element(by.id('dbc2_trad_btnNextEff'));
 		this.configureallmetersNextSection = element(by.id('btnNextEff'));
-		this.smartLitLeftNo = element(by.id('radiose4'));
-		this.additionalInfo = element(by.id('smicopAddInfoCheckboxNo'));
-		this.demoEquipment = element(by.id('radiose8'));
+		this.smartLitLeftNo = element(by.xpath('//*[@id="radiose4"]/span[@class="outer"]'));
+		this.additionalInfo = element(by.xpath('//*[@id="smicopAddInfoCheckboxNo"]/span[@class="outer"]'));
+		this.demoEquipment = element(by.xpath('//*[@id="radiose8"]/span[@class="outer"]'));
 		this.gsmeJoinedYes = element(by.id('dbc2_gsme_joined_y'));
 		this.esmeJoinedNo = element(by.id('dbc2_esme_joined_n'));
 		this.devicebindnext = element(by.xpath('//*[@id="dbc2_btnNextEff"]'));
@@ -889,6 +899,31 @@ export class AbortPageObject {
 		await utility.wait(utility.very_low);
 	}
 
+	/***
+	 * @Author Supriya Harikumar
+	 * @description Fill Gas Safety check section
+	 ***/
+	public async fillGasSafety_InstallLeave() {
+		if (this.earthBondingYEs.isDisplayed()) {
+			await this.earthBondingYEs.click();
+		}
+		await utility.wait(utility.medium);
+		if (this.landLordPropertyNo.isDisplayed()) {
+			await this.landLordPropertyNo.click();
+		}
+		await utility.wait(utility.medium);
+		// if (this.gasAddressinput.isDisplayed()) {
+		//     await this.landLordPropertyYes.sendKeys('UB22GT');
+		// }
+		if (this.allAppliTestedBtn.isDisplayed()) {
+			await this.allAppliTestedBtn.click();
+		}
+		await utility.wait(utility.very_low);
+		if (this.submitGas.isDisplayed()) {
+			await this.submitGas.click();
+		}
+
+	}
 
 	//TST135
 	public async TST135fillConfigAllmeter() {
@@ -1640,28 +1675,30 @@ export class AbortPageObject {
 	}
 
 	public async fillSmartLiteratureEducationSection() {
+		await utility.wait(utility.medium);
 		if (this.smartLitLeftNo.isDisplayed()) {
 			await this.smartLitLeftNo.click();
 		}
-		await utility.wait(utility.low);
+		await utility.wait(utility.medium_low);
 		if (this.additionalInfo.isDisplayed()) {
 			await this.additionalInfo.click();
 		}
-		await utility.wait(utility.low);
+		await utility.wait(utility.medium_low);
 		if (this.demoEquipment.isDisplayed()) {
 			await this.demoEquipment.click();
 		}
-		await utility.wait(utility.low);
+		await utility.wait(utility.medium_low);
 	}
 
 	public async fillConfigAllMetersSection_EXCH19() {
+		await utility.wait(utility.medium_low);
 		if (this.fullWanAllmeterNo.isDisplayed()) {
 			await this.fullWanAllmeterNo.click();
 		}
-		await utility.wait(utility.low);
+		await utility.wait(utility.medium_low);
 		if (this.configureallmetersNextSection.isDisplayed()) {
 			await this.configureallmetersNextSection.click();
-			await utility.wait(utility.very_low);
+			await utility.wait(utility.medium_low);
 		}
 
 	}
@@ -1679,20 +1716,21 @@ export class AbortPageObject {
 	}
 
 	public async fillConfigAllMetersSection() {
+		await utility.wait(utility.medium);
 		if (this.fullWanAllmeterNo.isDisplayed()) {
 			await this.fullWanAllmeterNo.click();
 		}
-
+		await utility.wait(utility.medium);
 		if (this.fullconfigElecApplyNo.isDisplayed()) {
 			await utility.wait(utility.very_low);
 			await this.fullconfigElecApplyNo.click();
 		}
-
+		await utility.wait(utility.medium);
 		// if (this.fullconfigElecApplyNo.isDisplayed()) {
 		// 	await this.fullconfigElecApplyNo.click();
 		// 	await utility.wait(utility.very_low);
 		// }
-		await utility.wait(utility.low);
+		await utility.wait(utility.medium_low);
 		if (this.configureallmetersNextSection.isDisplayed()) {
 			await this.configureallmetersNextSection.click();
 			await utility.wait(utility.very_low);

@@ -1,4 +1,4 @@
-Feature: SFEFLTY19TRADNOEXCH - AbortNoAccessSuspend Workflow
+Feature: SFEFLTY19TRADDUMB - AbortNoAccessSuspend Workflow
 
     Scenario: Post SFEFLTY19TRAD SOAP Request
         Given I post workorder using "xmlrequest/SFEFLTY19TRAD.XML"
