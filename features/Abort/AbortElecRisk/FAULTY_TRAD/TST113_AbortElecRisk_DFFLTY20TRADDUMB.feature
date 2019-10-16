@@ -117,18 +117,15 @@ Feature: TST113_AbortElecRisk_DFFLTY20TRADDUMB
         Then TST13 I click OK btn in Updated window with the text Asset successfully added to Returns list
         And TST13 I click SUB button
 
-
     Scenario: Going through "NEW GAS METER DETAILS" section
         Given the NEW GAS METER DETAILS section for FLTY20TRAD
         When I fill the fields and values for New gas meter details for FLTY20TRAD
         Then I should see NEW REGULATOR section for FLTY20TRAD
 
-
     Scenario: Going through "NEW REGULATOR" section
         Given the NEW REGULATOR section for FLTY18TRAD
         When TST15 I fill the fields and values for new regulator section
         Then I should see GAS INITIAL METER READING section for FLTY18TRAD
-
 
     Scenario: Going through "GAS INITIAL METER READING" section
         Given the GAS INITIAL METER READING section for FLTY20TRAD
@@ -140,77 +137,30 @@ Feature: TST113_AbortElecRisk_DFFLTY20TRADDUMB
         When I fill the Gas Install Kit gas section fields with values for FLTY20TRAD
         Then I should see Perform Post Installation GAS Checks sec for FLTY20TRAD
 
-
-
     Scenario: Going through "Post Installation GAS" GAS section
-
         Given the Post Installation GAS sec for FLTY20TRAD
         When TSTAbort I fill the Post Installation GAS sec fields with values
         Then I should see GAS APPLIANCE SAFETY CHECKS section for FLTY20TRAD
-
-
 
     Scenario: Going through "Gas Appliance Safety Checks" GAS section for FLTY20TRAD
         Given Gas Appliance Safety Checks sec for FLTY20TRAD
         When I fill the Gas Appliance Safety Checks section fields with values and Sub for FLTY20TRAD
         Then I should see AbortElec SMETS Install SUBMIT
-        Then I should see SMETS PPMID sec for FLTY20TRAD
-
-
-
-    Scenario: Going through "INSTALL PPMID" section
-        Given the "INSTALL PPMID" section for FLTY20TRAD
-        When I fill the fields for Install PPMID for FLTY20TRAD
-        Then I should see PPMID COMMISSIONING section for FLTY20TRAD
-
-
-
-    Scenario: Going through "PPMID COMMISSIONING" section
-        Given the PPMID COMMISSIONING section for FLTY20TRAD
-        When I click on Send Message IHD-PPMID butn for FLTY20TRAD
-        Then I should see PPMID Awaiting Response butn for FLTY20TRAD
-
-
-
-    Scenario: Waiting "AWAITING RESPONSE"
-
-        Given the Awaiting Response butn after ppmid commisioning for FLTY20TRAD
-        When I wait for the button to disappear after PPMID Commisioning for FLTY20TRAD
-        Then I should see PPMID Commissioning Successful button for FLTY20TRAD
-        And I should see PPMID Request Sent Successfully txt message for FLTY20TRAD
-        And I should see PPMID Pair Asset to Comms Hub text message for FLTY20TRAD
-        And I should see Pairing Successful text message for FLTY20TRAD
-
-
-
-    Scenario: Confirming "PPMID Commissioning Successful"
-
-        Given the PPMID Commissioning Successful button is displayed for FLTY20TRAD
-        When I click on SUB button for FLTY20TRAD
-        Then I should see ENERGY EFFICIENCY INFORMATION section for FLTY20TRAD
-
-
-
+  
     Scenario: Going through "ENERGY EFFICIENCY INFORMATION" section
         Given the ENERGY EFFICIENCY INFORMATION section for FLTY20TRAD
         When I fill the fields54 and click next for FLTY20TRAD
         Then I should see SMART EDUCATION section for FLTY20TRAD
-
-
 
     Scenario: Going through "SMART EDUCATION" section
         Given the SMART EDUCATION section for FLTY20TRAD
         When I fill the fields55 and click next for FLTY20TRAD
         Then I should see SMART LITERATURE LEFT ON SITE section for FLTY20TRAD
 
-
-
     Scenario: Going through "SMART LITERATURE LEFT ON SITE" section
         Given the SMART LITERATURE LEFT ON SITE section for FLTY20TRAD
         When I fill the fields56 and click next for FLTY20TRAD
         Then See CAPTURE CUSTOMER SIGNATURE sec for FLTY20TRAD
-
-
 
     Scenario: Going through "CAPTURE CUSTOMER SIGNATURE" section
         Given the CAPTURE CUSTOMER SIGNATURE section for FLTY20TRAD
