@@ -20,12 +20,12 @@ export const config: Config = {
 
     baseUrl: "https://siemens-og-bykrw4fz56yr6nyvlskmwpwq-sdg1-test.mbaas1.sdg.feedhenry.com/",
     capabilities: {
-        browserName:'chrome',
+        browserName:'internet explorer',
         shardTestFiles:true,
         maxInstances:1,
         metadata: {
         browser: {
-        name:'chrome',
+        name:'internet explorer',
         version:'76'
                     },
         
@@ -51,7 +51,7 @@ export const config: Config = {
 
     // ********************* PHASE B ABORT SCENARIOS**********************************
 
-         "../../features/Abort/AbortGasRisk/EXCHANGE/*.feature",
+    //     "../../features/Abort/AbortGasRisk/EXCHANGE/*.feature",
     //     "../../features/Abort/AbortGasRisk/FAULTY_SMETS2/*.feature",
     //     "../../features/Abort/AbortGasRisk/FAULTY_TRAD/*.feature",
     //     "../../features/Abort/AbortGasRisk/INSTALLATION/*.feature",
@@ -63,7 +63,7 @@ export const config: Config = {
     //     "../../features/Abort/AbortInitialRisk/INSTALLATION/*.feature",
     //     "../../features/Abort/AbortInitialRisk/REMOVE/*.feature",
 
-    //     "../../features/Abort/AbortContactMade/EXCHANGE/*.feature",
+    //     "../../features/Abort/AbortContactMade/EXCHANGE/TST146*.feature",
     //     "../../features/Abort/AbortContactMade/FAULTY_SMETS2/*.feature",
     //     "../../features/Abort/AbortContactMade/FAULTY_TRAD/*.feature",
     //     "../../features/Abort/AbortContactMade/INSTALLATION/*.feature",

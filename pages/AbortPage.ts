@@ -25,6 +25,9 @@ import {
 	AppointmentListPageObject
 } from "../pages/AppointmentListPage";
 import {
+	GenericPageObject
+} from "../pages/GenericPage"
+import {
 	DoorStepPageObject
 } from "../pages/DoorStepPage";
 import {
@@ -47,6 +50,7 @@ const risk: RiskAssessmentPageObject = new RiskAssessmentPageObject();
 const inst: InstallPageObject = new InstallPageObject();
 const remove: RemovePageObject = new RemovePageObject();
 const job: JobCompletionPageObject = new JobCompletionPageObject();
+const Gen: GenericPageObject = new GenericPageObject();
 
 export class AbortPageObject {
 
@@ -325,7 +329,7 @@ export class AbortPageObject {
 
 	constructor() {
 		//Abort Elements Appointment List########
-		this.appointmentRescheduledNo = element(by.id('rb_app_re_n'));
+		this.appointmentRescheduledNo = element(by.xpath('//*[@id="rb_app_re_n"]/span'));
 		this.abortNoAccessContactMade = element(by.id('btn_call_fwd_abort'));
 		this.notConvinientRadioBtn = element(by.xpath('//label/div[@id="abdradio1"]'));
 		this.abortNxtbtn = element(by.id('btnCallNext'));
@@ -333,7 +337,7 @@ export class AbortPageObject {
 		this.abortCapturePhoto = element(by.id('cameraBtn1'));
 		this.abortAppointment = element(by.xpath('//button[text()="ABORT APPOINTMENT"]'));
 		this.reScanPopUpOK = element(by.xpath('//button[text()="OK"]'));
-		this.appointmentconfirmationNo = element(by.id('rb_app_conf_n'));
+		this.appointmentconfirmationNo = element(by.xpath('//*[@id="rb_app_conf_n"]/span'));
 		//###########ABORT Door Step#############
 		this.accessToSiteN = element(by.id('rb_access_n'));
 		this.captureNoAcess = element(by.id('btn_NoAccCusPre'));
@@ -616,45 +620,32 @@ export class AbortPageObject {
 	//Abort reason popup options - generic function ################
 	public async selectreasonOptionAndAbort(xpathparam, notesstring) {
 		this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
-		await utility.wait(utility.very_low);
-		if (this.GenericReasonCodeSelect.isDisplayed()) {
-			await this.GenericReasonCodeSelect.click();
-		}
-		try {
-			await expect(this.abortNxtbtn.isDisplayed());
-			await this.abortNxtbtn.click();
-		} catch (error) {
-			console.log('No Next btn present Currently');
-		}
-		await utility.wait(utility.very_low);
+		await utility.wait(utility.medium_low);
+		Gen.ButtonClick(this.GenericReasonCodeSelect, utility.medium);
+		await utility.wait(utility.medium_low);
+		Gen.ButtonClick(this.abortNxtbtn, utility.medium);
+		await utility.wait(utility.medium_low);
 		if (this.abortAddNotes.isDisplayed()) {
 			await this.abortAddNotes.sendKeys(notesstring);
 		}
-		await utility.wait(utility.very_low);
-		if (this.abortCapturePhoto.isDisplayed()) {
-			await this.abortCapturePhoto.click();
-		}
-		await utility.wait(utility.very_low);
-		if (this.abortAppointment.isDisplayed()) {
-			await this.abortAppointment.click();
-		}
-		await utility.wait(utility.very_low);
+		Gen.ButtonClick(this.abortCapturePhoto, utility.medium);
+		await utility.wait(utility.medium_low);
+		Gen.ButtonClick(this.abortAppointment, utility.medium);
+		await utility.wait(utility.medium_low);
+		
 	}
 
 	public async noAccessAbortContactMade() {
 		await applist.clickOnContactMadeOtion();
-		await utility.wait(utility.very_low);
-		if (this.appointmentconfirmationNo.isDisplayed()) {
-			await this.appointmentconfirmationNo.click();
-		}
-		await utility.wait(utility.very_low);
-		if (this.appointmentRescheduledNo.isDisplayed()) {
-			await this.appointmentRescheduledNo.click();
-		}
-		await utility.wait(utility.very_low);
-		if (this.abortNoAccessContactMade.isDisplayed()) {
-			await this.abortNoAccessContactMade.click();
-		}
+		//await utility.wait(utility.very_low);
+		//await utility.wait(utility.medium_low);
+		Gen.RadioButtonClick(this.appointmentconfirmationNo, utility.medium);
+		//await utility.wait(utility.medium_low);
+		Gen.RadioButtonClick(this.appointmentRescheduledNo, utility.medium);
+		//await utility.wait(utility.medium_low);
+		await applist.additionalAccessDetailsTextBox.sendKeys('Additional access details comment 123');
+		Gen.ButtonClick(this.abortNoAccessContactMade, utility.medium);
+		
 
 	}
 

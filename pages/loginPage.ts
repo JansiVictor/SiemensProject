@@ -5,8 +5,12 @@ import {
 import {
   Utility
 } from "../support/utility";
+import {
+	GenericPageObject
+} from "../pages/GenericPage"
 import { config } from "../config/config";
 const utility: Utility = new Utility();
+const Gen: GenericPageObject = new GenericPageObject();
 
 export class loginPageObject {
   public usernameTextBox: ElementFinder;
@@ -16,7 +20,7 @@ export class loginPageObject {
   constructor() {
     this.usernameTextBox = element(by.model("username"));
     this.passwordTextBox = element(by.model("password"));
-    this.loginButton = element(by.id("submitbutton"));
+    this.loginButton = element(by.xpath("//div/button[@id='btn']"));
   }
 
   public async setUsernamePassword(username: string, password: string) {
@@ -28,7 +32,8 @@ export class loginPageObject {
   }
 
   public async clickLogin() {
-    await this.loginButton.click();
+    //await this.loginButton.click();
+    Gen.ButtonClick(this.loginButton,utility.medium);
   }
 
   /***

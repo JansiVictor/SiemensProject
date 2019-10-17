@@ -14,7 +14,11 @@ const expect = chai.expect;
 import {
 	Utility
 } from "../support/utility";
+import {
+	GenericPageObject
+} from "../pages/GenericPage"
 const utility: Utility = new Utility();
+const Gen: GenericPageObject = new GenericPageObject();
 export class AppointmentListPageObject {
 
 	
@@ -229,16 +233,16 @@ export class AppointmentListPageObject {
 	public async clickOnCallForwardBtn() {
 		//customerContactNumberText
 		// await expect(await this.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
-		await expect(this.callForwardText.isPresent());
+		//await expect(this.callForwardText.isPresent());
 		//browser.executeScript('arguments[0].scrollIntoView()', this.callForwardText.getWebElement());
 	
 		//browser.executeScript("arguments[0].click();", this.callForwardText.getWebElement());
-		
-		this.callForwardText.click();
-		await utility.wait(utility.very_low);
-		this.callForwardText.click();
+		Gen.ButtonClick(this.callForwardText, utility.medium);
+		//this.callForwardText.click();
+		//await utility.wait(utility.very_low);
+		//this.callForwardText.click();
 		//customerContactNumberText
-		await utility.wait(utility.very_low);
+		//await utility.wait(utility.very_low);
 		//await expect(await this.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
 
 
@@ -279,8 +283,9 @@ export class AppointmentListPageObject {
 	//ContactMadeText
 	public async clickOnContactMadeOtion() {
 		await expect(await this.contactMadeText.getText()).equal("Contact made?");
-		await expect(this.contactMadeYes.isPresent());
-		this.contactMadeYes.click();
+		//await expect(this.contactMadeYes.isPresent());
+		Gen.ButtonClick(this.contactMadeYes, utility.medium);
+		//this.contactMadeYes.click();
 	}
 
 	public async isdepartForApptDialogueBoxDisplayed(){
@@ -288,8 +293,9 @@ export class AppointmentListPageObject {
     }
 
     public async clickOnDepartOkBtn() {
-        await expect(this.departOkBtn.isDisplayed());
-        this.departOkBtn.click();
+        //await expect(this.departOkBtn.isDisplayed());
+		//this.departOkBtn.click();
+		Gen.ButtonClick(this.departOkBtn, utility.medium);
 	}
 	
 	public async verifyDepartForAppointmentWindow() {
@@ -298,10 +304,10 @@ export class AppointmentListPageObject {
 		expect(this.departAppointment.isPresent());
 	}
 	public async clickDepartBtn() {
-		await utility.wait(utility.very_low);
-		await expect(this.departBtn.isDisplayed());
-		await this.departBtn.click();
-		await utility.wait(utility.very_low);
+		//await utility.wait(utility.very_low);
+		//await expect(this.departBtn.isDisplayed());
+		Gen.ButtonClick(this.departOkBtn, utility.medium);
+		//await utility.wait(utility.very_low);
 	}
 	public async customercontactnumberavailable() {
 
@@ -310,9 +316,10 @@ export class AppointmentListPageObject {
 	}
 
 	public async appointmentConfirmationYes() {
-		await utility.wait(utility.Avg_low);
-		await expect(await this.appointmentConfirmation.getText()).equal("Appointment Confirm?");
-		this.appointmentconfirmationYes.click();
+		//await utility.wait(utility.Avg_low);
+		//await expect(await this.appointmentConfirmation.getText()).equal("Appointment Confirm?");
+		//this.appointmentconfirmationYes.click();
+		Gen.ButtonClick(this.appointmentConfirmationYes, utility.medium);
 	}
 
 	public async mpanDetails() {
@@ -336,31 +343,35 @@ export class AppointmentListPageObject {
 	}
 
 	public async fillContactDetails() {
-		this.appointmentconfirmationYes.click();
+		//this.appointmentconfirmationYes.click();
+		Gen.ButtonClick(this.appointmentconfirmationYes, utility.Avg_low);
 		await expect(this.additionalAccessDetails.isPresent()).toBe(true);
 
 	}
 
 	public async additionalDetails() {
-		await utility.wait(utility.very_low);
+		//await utility.wait(utility.very_low);
 		await this.additionalAccessDetailsTextBox.clear();
+		//Gen.SendItems(this.additionalAccessDetailsTextBox, utility.medium,'Additional access details comment 123');
 		await this.additionalAccessDetailsTextBox.sendKeys('Additional access details comment 123');
 	}
 
 
 	public async mprnOKbtn() {
-		await utility.wait(utility.very_low);
-		await expect(this.mprnOK.isPresent());
-		await this.mprnOK.click();
-		await utility.wait(utility.medium);
+		//await utility.wait(utility.very_low);
+		//await expect(this.mprnOK.isPresent());
+		//await this.mprnOK.click();
+		Gen.ButtonClick(this.mprnOK, utility.medium);
+		//await utility.wait(utility.medium);
 
 		await expect(this.arriveBtn.isPresent());
 	}
 
 	public async clickArriveBtn() {
-		await expect(this.arriveBtn.isPresent());
-		this.arriveBtn.click();
-		await utility.wait(utility.medium);
+		//await expect(this.arriveBtn.isPresent());
+		//this.arriveBtn.click();
+		Gen.ButtonClick(this.arriveBtn, utility.medium);
+		//await utility.wait(utility.medium);
 		await expect(this.arrivalTime.isPresent());
 	}
 

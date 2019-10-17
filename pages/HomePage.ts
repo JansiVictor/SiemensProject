@@ -10,10 +10,14 @@ import {
 JobCompletionPageObject
 } from "../pages/JobCompletionPage";
 import {
+	GenericPageObject
+} from "../pages/GenericPage"
+import {
 Utility
 } from "../support/utility";
 const utility: Utility = new Utility();
 const job: JobCompletionPageObject = new JobCompletionPageObject();
+const Gen: GenericPageObject = new GenericPageObject();
 const expect = chai.expect;
 
 
@@ -795,7 +799,7 @@ public async clickOnTheSelectLink(workorderselectlink,xpathparam) {
 			selectMe.isDisplayed()
 
 		) {
-			selectMe.click();
+			Gen.SelectLinkClick(selectMe);
 
 		};
 
