@@ -8,7 +8,8 @@ import {
     by,
     ElementFinder,
     ElementArrayFinder,
-    ExpectedConditions
+    ExpectedConditions,
+    protractor
 } from "protractor";
 const {
     Given,
@@ -42,7 +43,7 @@ export class GenericPageObject {
 
     public async ButtonClick(byname, wait) {
         try {
-            await utility.wait(wait);
+            
             if (await byname.isDisplayed()) {
                 await browser.executeScript('arguments[0].scrollIntoView();', byname.getWebElement());
                 await browser.executeScript("arguments[0].click();", byname.getWebElement());
@@ -57,7 +58,7 @@ export class GenericPageObject {
     public async SendKeysJS(byname, wait, notestring) {
 
         try {
-            await utility.wait(wait);
+            
             if (await byname.isDisplayed()) {
                 await browser.executeScript("arguments[0].click();", byname.getWebElement());
                 await browser.executeScript("arguments[0].value='" + notestring + "';", byname);
@@ -72,10 +73,11 @@ export class GenericPageObject {
     public async SendKeys(byname, wait, notestring) {
 
         try {
-            await utility.wait(wait);
+       
             if (await byname.isDisplayed()) {
                 byname.sendKeys(notestring);
             }
+            byname.sendKeys(protractor.Key.TAB);
         }
         catch (e) {
             console.log('Sendkeys not successful for ' + byname);
@@ -85,7 +87,7 @@ export class GenericPageObject {
 
     public async RadioButtonClick(byname, wait) {
         try {
-            await utility.wait(wait);
+    
             if (await byname.isDisplayed()) {
                 await browser.executeScript('arguments[0].scrollIntoView();', byname.getWebElement());
                 await browser.executeScript("arguments[0].click();", byname.getWebElement());
@@ -98,16 +100,27 @@ export class GenericPageObject {
 
     public async DropDownOptionClick(byname, wait, value) {
         try {
-            await utility.wait(wait);
             if (await byname.isDisplayed()) {
                 var select = byname;
                 await select.$('[value="' + value + '"]').click();
             }
+            byname.sendKeys(protractor.Key.ESCAPE);
         }
         catch (e) {
             console.log('Button click not successful for ' + byname);
         }
     }
 
-
+    public async DropDownOptionbyLabel(byname, wait, value) {
+        try {
+            if (await byname.isDisplayed()) {
+                var select = byname;
+                await select.$('[label="' + value + '"]').click();
+            }
+            byname.sendKeys(protractor.Key.ESCAPE);
+        }
+        catch (e) {
+            console.log('Button click not successful for ' + byname);
+        }
+    }
 }

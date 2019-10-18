@@ -652,7 +652,7 @@ Then('I should see ExchTwTwo New Regulator section',async function () {
    When('I fill the ExchTwTwo New Regulator fields with values',async function () {
     await utility.wait(utility.very_low);
     await inst.HasGasRegulatorReplacedY.click();
-    await inst.fillfornewregulator();
+    await inst.fillfornewregulator(2);
     
    });
 
@@ -842,7 +842,7 @@ Given('ExchTwTwo the NEW REGULATOR section', async function () {
 });
 When('ExchTwTwo I fill the fields and values for new regulator section', async function () {
     await inst.HasGasRegulatorReplacedY.click();
-    await inst.fillNewRegulatorGas();
+    await inst.fillNewRegulatorGas(2);
 });
 Then('ExchTwTwo I should see GAS INITIAL METER READING section', async function () {
     await riskassessGAS.gasInitialMeterTxtDisplay();

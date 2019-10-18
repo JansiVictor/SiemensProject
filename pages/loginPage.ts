@@ -6,7 +6,7 @@ import {
   Utility
 } from "../support/utility";
 import {
-	GenericPageObject
+  GenericPageObject
 } from "../pages/GenericPage"
 import { config } from "../config/config";
 const utility: Utility = new Utility();
@@ -33,7 +33,7 @@ export class loginPageObject {
 
   public async clickLogin() {
     //await this.loginButton.click();
-    Gen.ButtonClick(this.loginButton,utility.medium);
+    Gen.ButtonClick(this.loginButton, utility.medium);
   }
 
   /***

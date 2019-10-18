@@ -519,7 +519,7 @@ Given('the ExTwOne New Regulator section', async function () {
 });
 
 When('I fill the ExTwOne New Regulator fields with values', async function () {
-  await riskassessGAS.fillMeterRegulatorDetailsGAS();
+  await riskassessGAS.fillMeterRegulatorDetailsGAS(2);
 });
 
 

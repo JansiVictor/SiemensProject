@@ -339,7 +339,7 @@ Given('the ExchngNineteen Appointment List window', async function () {
 
 
    When('I fill the ExchngNineteen New Regulator fields with values',async function () {
-    await riskassessGAS.fillMeterRegulatorDetailsGAS();
+    await riskassessGAS.fillMeterRegulatorDetailsGAS(2);
    });
 
    Then('I should see ExchngNineteen install CommsHub section',async function () {

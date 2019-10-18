@@ -402,7 +402,7 @@ Given('the New Regulator section for INST16GAS', async function () {
 });
 
 When('I fill the New Regulator fields with values for INST16GAS', async function () {
-  await riskassessGAS.fillMeterRegulatorDetailsGASINST16();
+  await riskassessGAS.fillMeterRegulatorDetailsGASINST16(2);
    
 });
 

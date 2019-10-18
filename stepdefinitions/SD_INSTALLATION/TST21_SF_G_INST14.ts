@@ -342,7 +342,7 @@ Given('the INSTFrtn Appointment List window', async function () {
 
 
    When('I fill the INSTFrtn New Regulator fields with values',async function () {
-    await riskassessGAS.fillMeterRegulatorDetailsGAS();
+    await riskassessGAS.fillMeterRegulatorDetailsGAS(2);
    });
 
    Then('I should see INSTFrtn install CommsHub section',async function () {

@@ -600,7 +600,7 @@ Given('the New Regulator section', async function () {
 });
 
 When('I fill the New Regulator fields with values', async function () {
-  await riskassessGAS.fillMeterRegulatorDetailsGAS();
+  await riskassessGAS.fillMeterRegulatorDetailsGAS(2);
 });
 
 
