@@ -10,9 +10,11 @@ const expect = chai.expect;
 import {
 	Utility
 } from "../support/utility";
+import {
+	GenericPageObject
+} from "../pages/GenericPage"
 const utility: Utility = new Utility();
 const gen: GenericPageObject = new GenericPageObject();
-import { GenericPageObject } from "./GenericPage";
 
 export class GASPageObject {
 

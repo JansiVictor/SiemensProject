@@ -5,11 +5,6 @@ import {
 	ElementFinder,
 	ElementArrayFinder
 } from "protractor";
-const {
-	Given,
-	When,
-	Then
-} = require("cucumber");
 
 import { Utility } from "../support/utility";
 import { GenericPageObject } from "./GenericPage";
