@@ -23,6 +23,7 @@ import {
 import {
 	JobCompletionPageObject
 } from "../../pages/JobCompletionPage";
+import { RiskAssessmentPageObject } from "../../pages/RiskAssessmentPage";
 import {
 	RemovePageObject
 } from "../../pages/RemovePage";
@@ -53,6 +54,7 @@ const riskassess: ElectricPageObject = new ElectricPageObject();
 const riskassessGAS: GASPageObject = new GASPageObject();
 const exchnge21Complete: JobCompletionPageObject = new JobCompletionPageObject();
 const remove: RemovePageObject = new RemovePageObject();
+const risk: RiskAssessmentPageObject = new RiskAssessmentPageObject();
 
 Given('the RmveSix Login Page', async function () {
 	await browser.get(config.baseUrl);
@@ -228,8 +230,9 @@ Then('I should see the RmveSix RISK ASSESSMENT - GAS section', async function ()
 });
 
 Given('the RmveSix INFO window with the text', async function () {
+	///***IE Changes -21/10/19 */
 	//await riskassess.infoOKButton.isDisplayed();
-	await riskassess.infoOKButton.click();
+	await risk.INFOOKClick();
 
 	//await riskassess.performanceRiskNextBtn.click();
 
@@ -269,9 +272,10 @@ Then('I should see RmveSix CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section', 
 Given('the RmveSix CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section', async function () {
 	await riskassess.electInstallationSection();
 });
-
+///***IE Changes -21/10/19 */
 When('I click on RmveSix CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {
-	await riskassess.capturephotoMeterInstall.click();
+	//await riskassess.capturephotoMeterInstall.click();
+	await risk.fillelecfullmeterInst();
 });
 
 Then('I should see RmveSix INITIAL POLARITY CHECK - MARTINDALE TEST section', async function () {
@@ -336,9 +340,12 @@ Given('the RmveSix CURRENT METER DETAILS', async function () {
 });
 
 When('I fill the RmveSix CURRENT METER DETAILS field with the value', async function () {
-	if (await remove.existingelecmeterdtls.isDisplayed()) {
-		await remove.existingelecmeterdtls.click();
-	}
+	///***IE Changes -21/10/19 */
+
+	await remove.Tst22fillcurrentElecmeter();
+	// if (await remove.existingelecmeterdtls.isDisplayed()) {
+	// 	await remove.existingelecmeterdtls.click();
+	// }
 });
 
 Then('I should see RmveSix CURRENT COMMS HUB DETAILS section', async function () {

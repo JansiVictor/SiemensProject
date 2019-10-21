@@ -5,8 +5,8 @@ export class Utility{
     //**Uncomment for IE run
 
     public high = 80000;
-    public medium = 15000;
-    public medium_low = 5000;
+    public medium = 5000;
+    public medium_low = 4000;
     public low = 3000;
     public Avg_low = 2000;
     public very_low = 1000;

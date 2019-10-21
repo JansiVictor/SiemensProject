@@ -43,11 +43,11 @@ export const config: Config = {
     specs: [
     // ********************* PHASE A END TO END SCENARIOS**********************************
 
-        "../../features/PHASE-A/EXCHANGE/*.feature",
-    //    "../../features/PHASE-A/FAULTY_SMETS2/*.feature",
+    //    "../../features/PHASE-A/EXCHANGE/*.feature",
+    //    "../../features/PHASE-A/FAULTY_SMETS2/TST002*.feature",
     //    "../../features/PHASE-A/FAULTY_TRAD/*.feature",
     //    "../../features/PHASE-A/INSTALLATION/*.feature",
-    //    "../../features/PHASE-A/REMOVE/*.feature",
+        "../../features/PHASE-A/REMOVE/*.feature",
 
     // ********************* PHASE B ABORT SCENARIOS**********************************
 
@@ -99,7 +99,7 @@ export const config: Config = {
     onPrepare: () => {
         browser.ignoreSynchronization = true;
         browser.manage().window().maximize();
-        
+
         
     },
 

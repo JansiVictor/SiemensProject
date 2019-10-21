@@ -43,7 +43,6 @@ export class GenericPageObject {
 
     public async ButtonClick(byname, wait) {
         try {
-            
             if (await byname.isDisplayed()) {
                 await browser.executeScript('arguments[0].scrollIntoView();', byname.getWebElement());
                 await browser.executeScript("arguments[0].click();", byname.getWebElement());
@@ -75,9 +74,9 @@ export class GenericPageObject {
         try {
        
             if (await byname.isDisplayed()) {
-                byname.sendKeys(notestring);
+               await byname.sendKeys(notestring);
             }
-            byname.sendKeys(protractor.Key.TAB);
+           await byname.sendKeys(protractor.Key.TAB);
         }
         catch (e) {
             console.log('Sendkeys not successful for ' + byname);
@@ -104,7 +103,7 @@ export class GenericPageObject {
                 var select = byname;
                 await select.$('[value="' + value + '"]').click();
             }
-            byname.sendKeys(protractor.Key.ESCAPE);
+            await byname.sendKeys(protractor.Key.ESCAPE);
         }
         catch (e) {
             console.log('Button click not successful for ' + byname);
@@ -117,7 +116,7 @@ export class GenericPageObject {
                 var select = byname;
                 await select.$('[label="' + value + '"]').click();
             }
-            byname.sendKeys(protractor.Key.ESCAPE);
+           await byname.sendKeys(protractor.Key.ESCAPE);
         }
         catch (e) {
             console.log('Button click not successful for ' + byname);

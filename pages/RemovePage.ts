@@ -1335,9 +1335,9 @@ export class RemovePageObject {
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionClick(this.statusofAssetSelect, utility.medium, '1');
 		await utility.wait(utility.medium);
-		if (await this.removedmeterReading.isDisplayed()) {
-			Gen.SendKeys(this.removemeterText, utility.medium, '12345');
-		}
+		///***IE Changes 21/10/19*/
+		Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
+		await utility.wait(utility.medium);
 	}
 
 	//#region Gas Meter Removal for Remove Gas
@@ -1626,7 +1626,11 @@ export class RemovePageObject {
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionClick(this.statusofElecAssetSelect, utility.medium, '1');
 		await utility.wait(utility.medium);
-		Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
+		//***IE Changes 21/10/19 */
+		//Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
+		//await utility.wait(utility.medium);
+		//Gen.ButtonClick(this.unabletoReadGasYes, utility.medium);
+		//await utility.wait(utility.medium);
 		/****Resolving Conflicts */
 		// await this.removemeterText.click();
 		// await this.unabletoReadGasYes.click();
@@ -1641,6 +1645,7 @@ export class RemovePageObject {
 		Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.unabletoReadGasYes, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	public async fillRemovePPMID() {
@@ -1877,9 +1882,11 @@ export class RemovePageObject {
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.Tst22removedmeterReading, utility.medium, '12345');
 		await utility.wait(utility.medium);
-		await expect(this.Tst22RemoveMeterEnNxt.isDisplayed());
+		//***IE Changes 21/10/19 */
+		//await expect(this.Tst22RemoveMeterEnNxt.isDisplayed());
+		//await utility.wait(utility.medium);
+		Gen.ButtonClick(this.unabletoReadGasYes, utility.medium);
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.Tst22RemoveMeterEnNxt, utility.medium);
 	}
 
 	//TST28 -RMVE7 Changes
