@@ -169,8 +169,9 @@ Then('I should see INFO window for FLTY18TRAD', async function () {
 When('I fill Need to work Yes for FLTY18TRAD', async function () {
   if (riskassess.NeedtoWorkYES.isDisplayed()) {
     var element = riskassess.NeedtoWorkYES;
+    await utility.wait(utility.medium);
     browser.executeScript("arguments[0].click()", element);
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
   }
 });
 

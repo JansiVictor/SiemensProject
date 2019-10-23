@@ -85,25 +85,21 @@ export class AbortPageObject {
 	public airlineRefInput: ElementFinder;
 	public updateDNOY: ElementFinder;
 	public dnoInput: ElementFinder;
-	public workCanbeCompletedN:ElementFinder;
-	public addNotes:ElementFinder;
-	public elecAbortBtn:ElementFinder;
-	public reasonforAbort:ElementFinder;
-	public abortElecNxtBtn:ElementFinder;
-	public AbortElecNotes:ElementFinder;
-	public stayOnSiteN:ElementFinder;
-	public submitRisk:ElementFinder;
-//################## Risk Assess Gas ##############
-	public capturemeterPressureMed:ElementFinder;
-	public medPressureNo:ElementFinder;
-	public abortGas:ElementFinder;
+	public workCanbeCompletedN: ElementFinder;
+	public addNotes: ElementFinder;
+	public elecAbortBtn: ElementFinder;
+	public reasonforAbort: ElementFinder;
+	public abortElecNxtBtn: ElementFinder;
+	public AbortElecNotes: ElementFinder;
+	public stayOnSiteN: ElementFinder;
+	public submitRisk: ElementFinder;
+	//################## Risk Assess Gas ##############
+	public capturemeterPressureMed: ElementFinder;
+	public medPressureNo: ElementFinder;
+	public abortGas: ElementFinder;
 	public gasabortAppointment: ElementFinder;
 	public abortbtnfail: ElementFinder;
 	public gasabortApp: ElementFinder;
-
-    
-
-
 
 	public AssetaddedtowallNewReg: ElementFinder;
 	public nextSecnewRegulator: ElementFinder;
@@ -150,8 +146,8 @@ export class AbortPageObject {
 	public polNxtBtn: ElementFinder;
 	public polNxtBtn_1: ElementFinder;
 	public commsHubConnectedNo_1: ElementFinder;
-	//
-	// I&L Commisioning elements
+	
+	// *****************************I&L Commisioning elements**************************/
 	public nonserealizedAssetDD: ElementFinder;
 	public nonserealizedAssetInput: ElementFinder;
 	public dccmsgRequired: ElementFinder;
@@ -213,7 +209,7 @@ export class AbortPageObject {
 	public gasbuttonSubmit: ElementFinder;
 	public gasNMEXbuttonSubmit: ElementFinder;
 	public newregulatorReplaced: ElementFinder;
-	//
+	
 	//####Abrt for I&L Job completion page####################
 
 	public PPMIDOfferedNo: ElementFinder;
@@ -225,7 +221,6 @@ export class AbortPageObject {
 	public fullWanAllmeterNo: ElementFinder;
 	public fullconfigElecApplyNo: ElementFinder;
 	public AbortElecMeter: ElementFinder;
-
 
 	//###############Reason Popup Elemenst##########
 	public AbortNoAccessReasonCodes: ElementFinder;
@@ -239,7 +234,7 @@ export class AbortPageObject {
 	public esmeJoinedNo: ElementFinder;
 	public devicebindnext: ElementFinder;
 
-	// I & L Remove Page Elements
+	//******************* */ I & L Remove Page Elements***********************/
 	public RemoveElecAssetrplacedorremoved: ElementFinder;
 	public RemoveElecAssetrplacedorremoved1: ElementFinder;
 	public statusofElecAssetSelect: ElementFinder;
@@ -251,16 +246,14 @@ export class AbortPageObject {
 	public removedgasmeterreading: ElementFinder;
 	public captureMeterReadingSend2: ElementFinder;
 	public captureFinalMeterInstall1: ElementFinder;
-	//
-
-	// I & L Install Page Elements
+	
+	//******************** */ I & L Install Page Elements
 	public installKitUsedYes1: ElementFinder;
 	public nonSerialisedAsssetsDD1: ElementFinder;
 	public assetInput1: ElementFinder;
 	public installKitNxtBtn1: ElementFinder;
-	//
-
-	// I & L FLTY Elements
+	
+	//************************* */ I & L FLTY Elements
 	public commshubconnectedtoSupply: ElementFinder;
 	public commshubconnectedtoSupplyY: ElementFinder;
 	public commshubconnectedtoSWan: ElementFinder;
@@ -268,13 +261,11 @@ export class AbortPageObject {
 	public commshubconnectedtoAsset: ElementFinder;
 	public commshubconnectedtoAssetY: ElementFinder;
 
-	// I & L Fill Gas Safety 
+	//****************************** */ I & L Fill Gas Safety 
 	public earthBondingYEs: ElementFinder;
 	public landLordPropertyNo: ElementFinder;
 	public allAppliTestedBtn: ElementFinder;
 	public submitGas: ElementFinder;
-	//
-
 	public ContactGTY: ElementFinder;
 	public NationalGridSend: ElementFinder;
 	public HandSAirline: ElementFinder;
@@ -301,7 +292,7 @@ export class AbortPageObject {
 	public hubconnectdtoWAN: ElementFinder;
 	public PostinstallNext: ElementFinder;
 	public selectMeterType: ElementFinder;
-	//
+	
 	//########################## CGP added for Pre gas test#############
 	public abortBtn: ElementFinder;
 	public abortApntButton: ElementFinder;
@@ -330,29 +321,29 @@ export class AbortPageObject {
 	constructor() {
 		//Abort Elements Appointment List########
 		this.appointmentRescheduledNo = element(by.xpath('//*[@id="rb_app_re_n"]/span'));
-		this.abortNoAccessContactMade = element(by.id('btn_call_fwd_abort'));
+		this.abortNoAccessContactMade = element(by.xpath('//*[@id = "btn_call_fwd_abort"]'));
 		this.notConvinientRadioBtn = element(by.xpath('//label/div[@id="abdradio1"]'));
-		this.abortNxtbtn = element(by.id('btnCallNext'));
-		this.abortAddNotes = element(by.id('txt_addNotAbort'));
-		this.abortCapturePhoto = element(by.id('cameraBtn1'));
+		this.abortNxtbtn = element(by.xpath('//*[@id = "btnCallNext"]'));
+		this.abortAddNotes = element(by.xpath('//*[@id = "txt_addNotAbort"]'));
+		this.abortCapturePhoto = element(by.xpath('//*[@id = "cameraBtn1"]'));
 		this.abortAppointment = element(by.xpath('//button[text()="ABORT APPOINTMENT"]'));
 		this.reScanPopUpOK = element(by.xpath('//button[text()="OK"]'));
 		this.appointmentconfirmationNo = element(by.xpath('//*[@id="rb_app_conf_n"]/span'));
 		//###########ABORT Door Step#############
-		this.accessToSiteN = element(by.id('rb_access_n'));
-		this.captureNoAcess = element(by.id('btn_NoAccCusPre'));
-		this.suspendJobYes = element(by.id('rb_SuspJob_y'));
-		this.suspendJobNo = element(by.id('rb_SuspJob_n'));
-		this.AddNotesSuspend = element(by.model('wo.doorstep.suspendJobNotes'));
-		this.suspendJobBtn = element(by.id('btn_drstp_suspend'));
-		this.reScheduleAppointNo = element(by.id('rb_ReschAppRq_n'));
-		this.abortNoAcessBtn = element(by.id('btn_drstp_abort'));
+		this.accessToSiteN = element(by.xpath('//*[@id = "rb_access_n"]'));
+		this.captureNoAcess = element(by.xpath('//*[@id = "btn_NoAccCusPre"]'));
+		this.suspendJobYes = element(by.xpath('//*[@id = "rb_SuspJob_y"]'));
+		this.suspendJobNo = element(by.xpath('//*[@id = "rb_SuspJob_n"]'));
+		this.AddNotesSuspend = element(by.model('wo.doorstep.suspendJobNotes"]'));
+		this.suspendJobBtn = element(by.xpath('//*[@id = "btn_drstp_suspend"]'));
+		this.reScheduleAppointNo = element(by.xpath('//*[@id = "rb_ReschAppRq_n"]'));
+		this.abortNoAcessBtn = element(by.xpath('//*[@id = "btn_drstp_abort"]'));
 		//#############END#############
 
 		//#################Risk Assessment Page#############
 		this.OKtoProceedEGPOutcomeN = element(by.xpath('//label[@id="rb_OKProce_n"]'));
 		this.riskAssessAbort = element(by.xpath('//button[text()="Abort"]'));
-		this.unabletoOffGasOption = element(by.id('abdradio11'));
+		this.unabletoOffGasOption = element(by.xpath('//*[@id = "abdradio11"]'));
 
 
 		// ####################################
@@ -368,7 +359,7 @@ export class AbortPageObject {
 
 
 		this.ContactGTY = element(by.xpath('//*[@id="gtp1"]/following-sibling::span[@class="outer"]'));
-		this.NationalGridSend = element(by.id('input1'));
+		this.NationalGridSend = element(by.xpath('//*[@id = "input1"]'));
 		//this.NationalGridSend2 = element(by.xpath('(//*[@id="input1"])[2]'));
 		this.HandSAirline = element(by.xpath('//*[@id="gtp3"]/following-sibling::span[@class="outer"]'));
 		this.Airlineref1 = element(by.xpath('(//*[@id="input2"])[1]'));
@@ -376,7 +367,7 @@ export class AbortPageObject {
 		this.GTresolveIssueY = element(by.xpath('//*[@id="gtp9"]/following-sibling::span[@class="outer"]'));
 		this.TightnessIssueY = element(by.xpath('//*[@id="gtp11"]/following-sibling::span[@class="outer"]'));
 		this.cappedgascooker = element(by.xpath('(//*[@id="work[$index]"]/following-sibling::span[@class="outer"])[2]'));
-		this.addnlnote = element(by.id('text1'));
+		this.addnlnote = element(by.xpath('//*[@id = "text1"]'));
 		this.ReplacedGasMeterY = element(by.xpath('//*[@id="gtp13"]/following-sibling::span[@class="outer"]'));
 		this.ReplacedGasregulatorY = element(by.xpath('//*[@id="gtp15"]/following-sibling::span[@class="outer"]'));
 		this.TightnessperformedY = element(by.xpath('//*[@id="gtp17"]/following-sibling::span[@class="outer"]'));
@@ -386,21 +377,19 @@ export class AbortPageObject {
 		this.dropinpressureselect = element(by.xpath('(//select[@id="select1"])[1]'));
 		this.selectMeterType = element(by.xpath('(//select[@id="select2"])[1]'));
 		this.GasTightnessPassed = element(by.xpath('//*[@id="gtp21"]/following-sibling::span[@class="outer"]'));
-		this.TestWitness = element(by.id('input3'));
-		this.standingPressure1 = element(by.id('gaspoststandingpressure'));
+		this.TestWitness = element(by.xpath('//*[@id = "input3"]'));
+		this.standingPressure1 = element(by.xpath('//*[@id = "gaspoststandingpressure"]'));
 		this.cappostinstallationpressure = element(by.xpath('(//*[@id="btn_CapStPr"]/button)[1]'));
-		this.workingPressure = element(by.id('gaspostworkingpressure'));
+		this.workingPressure = element(by.xpath('//*[@id = "gaspostworkingpressure"]'));
 		this.captureworkingPressure = element(by.xpath('(//*[@id="btn_CapStPr"]/button)[2]'));
 		this.captureFinalMeterInstall = element(by.xpath('(//*[@id="btn2"])[1]'));
 		this.MsgreqDCC = element(by.xpath('//*[@id="comms2MessageReqtrue"]/following-sibling::span[@class="outer"]'));
 		this.hubconnectdtoWAN = element(by.xpath('//*[@id="Cradionm2"]/following-sibling::span[@class="outer"]'));
 		this.PostinstallNext = element(by.xpath('//*[@id="btnNextPol"]'));
-		//
-
+		
 		//##################Reason Popup#####################
+		
 		this.AbortNoAccessReasonCodes = element(by.xpath('//*[text()="Abort: No Access Reason Codes"]'));
-
-		//######################################
 
 		// #################################### Risk Assess Elec##########
 
@@ -425,7 +414,7 @@ export class AbortPageObject {
 		this.abortGas = element(by.xpath('//*[@id="btn2"]'));
 		this.gasabortAppointment = element(by.xpath('//*[@id="btnCall1"]'));
 		this.abortbtnfail = element(by.xpath('//*[@id="btn_Gas_fail"]'));
-		this.gasabortApp = element(by.xpath('//*[@id="btnCallabr2"]'))
+		this.gasabortApp = element(by.xpath('//*[@id="btnCallabr2"]'));
 
 		this.selectValidAssettoInst1 = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[4]'));
 		this.selectValidAssettoInst2 = element(by.xpath('(//select[@ng-model="scp.selectedAsset"])[1]'));
@@ -433,7 +422,7 @@ export class AbortPageObject {
 		this.nextSecnewRegulator = element(by.xpath('//*[@id="newRegulator_nextButton"]'));
 		//################ PRE GAS Abort########
 
-		this.preGASinstallN = element(by.id('rb_PreGasTigTCarOut_n'));
+		this.preGASinstallN = element(by.xpath('//*[@id = "rb_PreGasTigTCarOut_n"]'));
 		this.abortGASMeterBtn = element(by.xpath('//button[text()="ABORT  METER"]'));
 		// I&L Post Gas Installation 
 		this.reportedToHSYEsGas = element(by.xpath('//input[@id="gtp3"]/following-sibling::span[@class="outer"]'));
@@ -443,7 +432,7 @@ export class AbortPageObject {
 		this.contactGTYEs = element(by.xpath('//input[@id="gtp1"]/following-sibling::span[@class="outer"]'));
 		this.GAStightnessTestYes = element(by.xpath('//input[@id="gtp11"]/following-sibling::span[@class="outer"]'));
 		this.GasTightnessTestPerformedYes = element(by.xpath('//input[@id="gtp17"]/following-sibling::span[@class="outer"]'));
-		this.nationalGTRefInput = element(by.id('input1'));
+		this.nationalGTRefInput = element(by.xpath('//*[@id = "input1"]'));
 		this.additionalWork1 = element(by.xpath('(//input[@id="work[$index]"]/following-sibling::span[@class="outer"])[1]'));
 		this.additionalWork2 = element(by.xpath('(//input[@id="work[$index]"]/following-sibling::span[@class="outer"])[2]'));
 		this.additionalWork3 = element(by.xpath('(//input[@id="work[$index]"]/following-sibling::span[@class="outer"])[3]'));
@@ -454,16 +443,16 @@ export class AbortPageObject {
 		this.replacedGasMeterYes = element(by.xpath('//input[@id="gtp13"]/following-sibling::span[@class="outer"]'));
 		this.replacedGasRegulatorYes = element(by.xpath('//input[@id="gtp15"]/following-sibling::span[@class="outer"]'));
 		this.GasTightnessYes = element(by.xpath('//input[@id="gtp17"]/following-sibling::span[@class="outer"]'));
-		this.capturePostInstallationGas = element(by.id('btn_CapPoTi_test'));
+		this.capturePostInstallationGas = element(by.xpath('//*[@id = "btn_CapPoTi_test"]'));
 		this.DIPGASYes = element(by.xpath('//input[@id="gtp19"]/following-sibling::span[@class="outer"]'));
-		this.dipSelectDD = element(by.id('select1'));
-		this.meterTypeGASDD = element(by.id('select2'));
+		this.dipSelectDD = element(by.xpath('//*[@id = "select1"]'));
+		this.meterTypeGASDD = element(by.xpath('//*[@id = "select2"]'));
 		this.tightnessPassedYes = element(by.xpath('//input[@id="gtp21"]/following-sibling::span[@class="outer"]'));
 		this.AdditionalWorktoPassYesGAS = element(by.xpath('//input[@id="gtp11"]/following-sibling::span[@class="outer"]'));
 		this.witnessName = element(by.xpath('//form/input[@id="input3"]'));
-		this.standingPressure = element(by.id('gaspoststandingpressure'));
-		this.dipCaptureBtn = element(by.id('btn_CapStPr'));
-		this.workingpressure = element(by.id('gaspostworkingpressure'));
+		this.standingPressure = element(by.xpath('//*[@id = "gaspoststandingpressure"]'));
+		this.dipCaptureBtn =element(by.xpath('//*[@id = "btn_CapStPr"]'));
+		this.workingpressure = element(by.xpath('//*[@id = "gaspostworkingpressure"]'));
 		this.wpCapture = element(by.xpath('(//div[@id="btn_CapStPr"])[2]'));
 		this.finalMeterCapture = element(by.xpath('//button[@id="btn2"]'));
 		this.gasbuttonSubmit = element(by.xpath('(//*[@id="btn1"])[2]'));
@@ -484,51 +473,51 @@ export class AbortPageObject {
 		this.RemoveGasAssetrplacedorremoved = element(by.xpath('//*[@id="removeGasMeter_assetRemovedReplaced_y"]/span'));
 		this.removedgasmeterreading = element(by.xpath('(//*[@id="input0"])[2]'));
 		this.AssetaddedtowallNewReg = element(by.xpath('//*[text()="OK"]'));
-		//
-
+		
 		// I & L Gas safety elements
 		this.earthBondingYEs = element(by.xpath('//input[@id="radioraa1a"]/following-sibling::span[@class="outer"]'));
-		this.landLordPropertyNo = element(by.id('radioraa4'));this.allAppliTestedBtn = element(by.id('btn_AllApp_tested'));
-		this.submitGas = element(by.id('btn_Subm_gas'));
-		//
+		this.landLordPropertyNo = element(by.xpath('//*[@id = "radioraa4"]'));
+		this.allAppliTestedBtn = element(by.xpath('//*[@id = "btn_AllApp_tested"]'));	
+		this.submitGas = element(by.xpath('//*[@id = "btn_Subm_gas"]'));
+		
 		// I & L Install page elements
-		this.assetInput1 = element(by.id('gasassetinput0'));
-		this.installKitNxtBtn1 = element(by.id('gasInstallPhoto_nextBtn'));
-		this.nonSerialisedAsssetsDD1 = element(by.id('gasassetselect0'));
+		this.assetInput1 = element(by.xpath('//*[@id = "gasassetinput0"]'));
+		this.installKitNxtBtn1 = element(by.xpath('//*[@id = "gasInstallPhoto_nextBtn"]'));
+		this.nonSerialisedAsssetsDD1 = element(by.xpath('//*[@id = "asassetselect0"]'));
 		this.installKitUsedYes1 = element(by.xpath('//*[@id="gasInstallPhoto_installKit_y"]'));
-		//
+		
 		// I&L Commisioning elements
-		this.nonserealizedAssetDD = element(by.id('Cselect4'));
-		this.nonserealizedAssetInput = element(by.id('Cbar3'));
+		this.nonserealizedAssetDD = element(by.xpath('//*[@id = "Cselect4"]'));
+		this.nonserealizedAssetInput = element(by.xpath('//*[@id = "Cbar3"]'));
 		this.commissioningNxtBtn_FLTY = element(by.xpath('//*[@id="CbtnNextComm"]'));
 		this.dccmsgRequired = element(by.xpath('//input[@id="comms2MessageReqtrue"]/following-sibling::span[@class="outer"]'));
-		this.commsHubConnectedNo = element(by.id('Cradionm2'));
+		this.commsHubConnectedNo = element(by.xpath('//*[@id = "Cradionm2"]'));
 		this.commHubConnected_FLTY = element(by.xpath('//*[@id="Cradionm2"]/span'));
 		this.commsHubConnectedNo_1 = element(by.xpath('//input[@id="Cradionm2"]/following-sibling::span[@class="outer"]'));
-		this.commissioningNxtBtn = element(by.id('CbtnNextComm'));
-		this.replacecommsNextButton = element(by.id('replacechnowan_nextButton'));
-		this.replacecommsNextButton_1 = element(by.id('replacechnowan2_nextButton'));
+		this.commissioningNxtBtn = element(by.xpath('//*[@id = "CbtnNextComm"]'));
+		this.replacecommsNextButton = element(by.xpath('//*[@id = "replacechnowan_nextButton"]'));
+		this.replacecommsNextButton_1 = element(by.xpath('//*[@id = "replacechnowan2_nextButton"]'));
 		this.replacecommshubNowan = element(by.xpath('(//div/h4[text()="Replace Comms Hub No WAN"])'));
 		this.infoOKButton = element(by.xpath('//div/button[@class="confirm"]'));
 		this.commshubReplacedyes = element(by.xpath('//*[@id="replacechnowan_ICHreplacedRadioTrue"]/span'));
-		this.commshubReplacedyes_1 = element(by.id('replacechnowan2_ICHreplacedRadioTrue'));
-		this.commshubToInstall_1 = element(by.id('replacechnowan2_assetList'));
-		this.CHFID_1 = element(by.id('replacechnowan2_chfId'));
-		this.commshubLocation_1 = element(by.id('replacechnowan2_chubLocationSelect'));
-		this.aerialInstalled_1 = element(by.id('replacechnowan2_aerialInstalled_y'));
-		this.commshubConnectionMethod_1 = element(by.id('replacechnowan2_connectionMethod'));
+		this.commshubReplacedyes_1 = element(by.xpath('//*[@id = "replacechnowan2_ICHreplacedRadioTrue"]'));
+		this.commshubToInstall_1 = element(by.xpath('//*[@id = "replacechnowan2_assetList"]'));
+		this.CHFID_1 = element(by.xpath('//*[@id = "replacechnowan2_chfId"]'));
+		this.commshubLocation_1 = element(by.xpath('//*[@id = "replacechnowan2_chubLocationSelect"]'));
+		this.aerialInstalled_1 = element(by.xpath('//*[@id = "replacechnowan2_aerialInstalled_y"]'));
+		this.commshubConnectionMethod_1 = element(by.xpath('//*[@id = "replacechnowan2_connectionMethod'));
 		this.cradleSerialNo_1 = element(by.xpath('//*[@id="replacechnowan2_cradleSerialNumber"]'));
-		this.replacecommsCapturePhoto_1 = element(by.id('replacechnowan2_photoButton'));
+		this.replacecommsCapturePhoto_1 = element(by.xpath('//*[@id = "replacechnowan2_photoButton"]'));
 		this.replacecommshubNowan_1 = element(by.xpath('//*[@id="replacechnowan2_chnowanconnectedfalse"]/span'));
-		this.replacecommsPremiseType_1 = element(by.id('replacechnowan2_PremTypeDropdownRepNoWan'));
+		this.replacecommsPremiseType_1 = element(by.xpath('//*[@id = "replacechnowan2_PremTypeDropdownRepNoWan"]'));
 		this.replacecommsPremiseTypeOption = element(by.xpath('//select[@id="replacechnowan_PremTypeDropdownRepNoWan"]/option[2]'));
 		this.metalObstructionYes_1 = element(by.xpath('//*[@id="replacechnowan2_metalObsTrue"]/span'));
 		this.sharedObstructionNo_1 = element(by.xpath('//*[@id="replacechnowan2_sharedObsFalse"]/span'));
 		this.connectivityObstructionNo_1 = element(by.xpath('//*[@id="replacechnowan2_connectObsFalse"]/span'));
 		this.confirmInstallAndLeaveYes_1 = element(by.xpath('//*[@id="replacechnowan2_CanLeave1RTrue"]/span'));
 		this.smartNoLitLeftOnsiteTxt = element(by.xpath('//h4[contains(text(),"Smart Literature Not Left on Site")]'));
-		this.commshubToInstall = element(by.id('replacechnowan_assetList'));
-		this.CHFID = element(by.id('replacechnowan_chfId'));
+		this.commshubToInstall = element(by.xpath('//*[@id = "replacechnowan_assetList"]'));
+		this.CHFID = element(by.xpath('//*[@id = "replacechnowan_chfId"]'));
 		this.commshubPopup = element(by.xpath('//div/button[text()="OK"]'));
 		this.selectinstallAssetOption = element(by.xpath('(//select[@id="replacechnowan_assetList"]/option)[4]'));
 		this.selectinstallAssetOption_1 = element(by.xpath('(//select[@id="replacechnowan2_assetList"]/option)[4]'));
@@ -536,12 +525,12 @@ export class AbortPageObject {
 		this.dummydiv2 = element(by.xpath('(//div/h4[text()="Scan Barcode Using Device Hardware Button"])[3]'));
 		this.dummydiv = element(by.xpath('(//div/h4[text()="Scan Barcode Using Device Hardware Button"])[4]'));
 		this.dummydiv3 = element(by.xpath('(//div/h4[text()="Scan Barcode Using Device Hardware Button"])[1]'));
-		this.commshubLocation = element(by.id('replacechnowan_chubLocationSelect'));
-		this.aerialInstalled = element(by.id('replacechnowan_aerialInstalled_y'));
-		this.commshubConnectionMethod = element(by.id('replacechnowan_connectionMethod'));
-		this.replacecommsCapturePhoto = element(by.id('replacechnowan_photoButton'));
+		this.commshubLocation = element(by.xpath('//*[@id = "replacechnowan_chubLocationSelect"]'));
+		this.aerialInstalled = element(by.xpath('//*[@id = "replacechnowan_aerialInstalled_y"]'));
+		this.commshubConnectionMethod = element(by.xpath('//*[@id = "replacechnowan_connectionMethod"]'));
+		this.replacecommsCapturePhoto = element(by.xpath('//*[@id = "replacechnowan_photoButton"]'));
 		this.replacecommshubNowan = element(by.xpath('//*[@id="replacechnowan_chnowanconnectedfalse"]/span'));
-		this.replacecommsPremiseType = element(by.id('replacechnowan_PremTypeDropdownRepNoWan'));
+		this.replacecommsPremiseType = element(by.xpath('//*[@id = "replacechnowan_PremTypeDropdownRepNoWan"]'));
 		this.replacecommsPremiseTypeOption = element(by.xpath('//select[@id="replacechnowan_PremTypeDropdownRepNoWan"]/option[2]'));
 		this.metalObstructionYes = element(by.xpath('//*[@id="replacechnowan_metalObsTrue"]/span'));
 		this.sharedObstructionNo = element(by.xpath('//*[@id="replacechnowan_sharedObsFalse"]/span'));
@@ -551,48 +540,46 @@ export class AbortPageObject {
 		this.elecMeterSubmit = element(by.xpath('//*[@id="btn_Submit_elec"]'));
 		this.elecInstallSubmit = element(by.xpath('(//*[@id="btn1"])[1]'));
 		this.gasMeterSubmit = element(by.xpath('//*[@id="btn_Subm_gas"]'));
-		this.cradleSerialNo = element(by.xpath('//*[@id="replacechnowan_cradleSerialNumber"]'));
-
-		//
+		this.cradleSerialNo = element(by.xpath('//*[@id="replacechnowan_cradleSerialNumber"]'));		
 
 		//############## I&L Abort Job completion page ##############
-		this.PPMIDOfferedNo = element(by.id('ihdscan2_ihdPpmidOfferedfalse'));
-		this.PPMIDAddNotes = element(by.id('ihdscan2_textIhdPpmidNotOffered'));
-		this.PPMIDOfferedNo = element(by.id('ihdscan2_ihdPpmidOfferedfalse'));
+		this.PPMIDOfferedNo = element(by.xpath('//*[@id = "ihdscan2_ihdPpmidOfferedfalse"]'));
+		this.PPMIDAddNotes = element(by.xpath('//*[@id = "ihdscan2_textIhdPpmidNotOffered"]'));
+		this.PPMIDOfferedNo = element(by.xpath('//*[@id = "ihdscan2_ihdPpmidOfferedfalse"]'));
 
-		this.gasAndElecMeterN = element(by.id('rb_GasElecMPairSuc_n'));
-		this.fullHanDeviceNo = element(by.id('rb_FulHANEst_n'));
+		this.gasAndElecMeterN = element(by.xpath('//*[@id = "rb_GasElecMPairSuc_n"]'));
+		this.fullHanDeviceNo = element(by.xpath('//*[@id = "rb_FulHANEst_n"]'));
 		this.fullWanAllmeterNo = element(by.xpath('//*[@id="rb_FulWANEst_n"]/span[@class="outer"]'));
 		this.fullconfigElecApplyNo = element(by.xpath('//*[@id="rb_FullCFigE_n"]/label/span[@class="outer"]'));
 
-		this.PPMIDAddNotes_1 = element(by.id('newihdppmid_textIhdPpmidNotOffered'));
+		this.PPMIDAddNotes_1 = element(by.xpath('//*[@id = "newihdppmid_textIhdPpmidNotOffered"]'));
 		this.PPMIDOfferedNo_1 = element(by.xpath('//*[@id="newihdppmid_ihdPpmidOfferedfalse"]/span'));
-		this.gasAndElecMeterN = element(by.id('rb_GasElecMPairSuc_n'));
-		this.fullHanDeviceNo = element(by.id('rb_FulHANEst_n'));
-		
-		this.ppmidNXTBtn = element(by.id('ihdscan2_nextButton'));
-		this.ppmidNXTBtn_1 = element(by.id('newihdppmid_nextButton'));
-		this.devicebindingNextSection = element(by.id('dbc2_trad_btnNextEff'));
-		this.configureallmetersNextSection = element(by.id('btnNextEff'));
+		this.gasAndElecMeterN = element(by.xpath('//*[@id = "rb_GasElecMPairSuc_n"]'));
+		this.fullHanDeviceNo = element(by.xpath('//*[@id = "rb_FulHANEst_n"]'));
+
+		this.ppmidNXTBtn = element(by.xpath('//*[@id = "ihdscan2_nextButton"]'));
+		this.ppmidNXTBtn_1 = element(by.xpath('//*[@id = "newihdppmid_nextButton"]'));
+		this.devicebindingNextSection = element(by.xpath('//*[@id = "dbc2_trad_btnNextEff"]'));
+		this.configureallmetersNextSection = element(by.xpath('//*[@id = "btnNextEff"]'));
 		this.smartLitLeftNo = element(by.xpath('//*[@id="radiose4"]/span[@class="outer"]'));
 		this.additionalInfo = element(by.xpath('//*[@id="smicopAddInfoCheckboxNo"]/span[@class="outer"]'));
 		this.demoEquipment = element(by.xpath('//*[@id="radiose8"]/span[@class="outer"]'));
-		this.gsmeJoinedYes = element(by.id('dbc2_gsme_joined_y'));
-		this.esmeJoinedNo = element(by.id('dbc2_esme_joined_n'));
+		this.gsmeJoinedYes = element(by.xpath('//*[@id = "dbc2_gsme_joined_y"]'));
+		this.esmeJoinedNo = element(by.xpath('//*[@id = "dbc2_esme_joined_n"]'));
 		this.devicebindnext = element(by.xpath('//*[@id="dbc2_btnNextEff"]'));
 
 		//##################Reason Popup#####################
 		this.AbortNoAccessReasonCodes = element(by.xpath('//*[text()="Abort: No Access Reason Codes"]'));
 
 		// ########################CGP added For PreGas Test################
-		this.abortBtn = element(by.xpath('//button[@id="btn2"]'));
-		this.abortApntButton = element(by.id("btnCallabr2"));
-		this.abortPreGas = element(by.id("btn_Gas_fail"));
+		this.abortBtn = element(by.xpath('//button[@id="btn2"]'));		
+		this.abortApntButton = element(by.xpath('//*[@id="btnCallabr2"]'));		
+		this.abortPreGas = element(by.xpath('//*[@id="btn_Gas_fail"]'));
 
 		this.AbortGasMeterReasonCodes = element(by.xpath('//*[text()="Abort: Gas Meter Reason Codes"]'));
 		this.RescanAssetPopUp = element(by.xpath('//button[@class="confirm"]'));
-		this.FullWANYes = element(by.id('rb_FulWANEst_y'));
-		this.FullCOnfigAppliedElecYes = element(by.id('rb_FullCFigE_y'));
+		this.FullWANYes = element(by.xpath('//*[@id = "rb_FulWANEst_y"]'));
+		this.FullCOnfigAppliedElecYes = element(by.xpath('//*[@id = "rb_FullCFigE_y"]'));
 		this.fullConfigAppliedGasYes = element(by.xpath('(//input[@id="rcfg5"]/following-sibling::span[@class="cr"])[1]'));
 
 		this.fullConfigAppliedPPMIDYes = element(by.xpath('(//input[@id="rcfg5"]/following-sibling::span[@class="cr"])[2]'));
@@ -600,16 +587,17 @@ export class AbortPageObject {
 		this.PPMIDNxtBtn = element(by.xpath('//div/button[@id="btnNextEff"]'));
 		this.checkDetails = element(by.xpath('//button[@class="confirm"]'));
 		this.fullConfigAppliedPPMIDYesAbort = element(by.xpath('(//input[@id="rcfg5"])'));
-		this.nextButtonWAN = element(by.id('btnNextEff'));
+		this.nextButtonWAN = element(by.xpath('//*[@id = "btnNextEff"]'));
 		this.btnnext1 = element(by.xpath('(//*[@id="btnNextComm"])[1]'));
 		this.Tst22removedmeterReading = element(by.xpath('//input[@id="input0"]'));
 		this.Tst22removemeterText = element(by.xpath('(//div[text()="Removed Meter Reading(s):"])[2]'));
 		this.Tst22RemoveMeterEnNxt = element(by.xpath('(//div[@class = "checkLabel"])[5]'));
 		this.Tst22RemoveNxtEnable = element(by.css('.ng-scope > .ng-scope:nth-child(5) .checkLabel'));
-		this.randomClickEX23 = element(by.id('rb_UnReadMet_y'));
+		this.randomClickEX23 = element(by.xpath('//*[@id = "rb_UnReadMet_y"]'));
 	}
 
-	public VerifyAbortReasonCodePopup() {
+	public async VerifyAbortReasonCodePopup() {
+		await utility.wait(utility.medium);
 		if (this.AbortNoAccessReasonCodes.isDisplayed) {
 			this.AbortNoAccessReasonCodes.getText().then(async function (abortreason) {
 				console.log("find Appointment Page Text  " + abortreason);
@@ -620,203 +608,149 @@ export class AbortPageObject {
 	//Abort reason popup options - generic function ################
 	public async selectreasonOptionAndAbort(xpathparam, notesstring) {
 		this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
-		await utility.wait(utility.medium_low);
-		Gen.ButtonClick(this.GenericReasonCodeSelect, utility.medium);
-		await utility.wait(utility.medium_low);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.GenericReasonCodeSelect, utility.medium);
+		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.abortNxtbtn, utility.medium);
-		await utility.wait(utility.medium_low);
-		if (this.abortAddNotes.isDisplayed()) {
-			await this.abortAddNotes.sendKeys(notesstring);
-		}
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.abortAddNotes, utility.medium, notesstring);
+		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.abortCapturePhoto, utility.medium);
-		await utility.wait(utility.medium_low);
+		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.abortAppointment, utility.medium);
-		await utility.wait(utility.medium_low);
-		
+		await utility.wait(utility.medium);
+
 	}
 
 	public async noAccessAbortContactMade() {
+
 		await applist.clickOnContactMadeOtion();
-		//await utility.wait(utility.very_low);
-		//await utility.wait(utility.medium_low);
+		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.appointmentconfirmationNo, utility.medium);
-		//await utility.wait(utility.medium_low);
+		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.appointmentRescheduledNo, utility.medium);
-		//await utility.wait(utility.medium_low);
+		await utility.wait(utility.medium);		
 		await applist.additionalAccessDetailsTextBox.sendKeys('Additional access details comment 123');
+		//Gen.SendKeys(applist.additionalAccessDetailsTextBox, utility.medium, 'Additional access details comment 123');
+		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.abortNoAccessContactMade, utility.medium);
-		
 
 	}
 
 	//Abort Options ################
 	public async notConvinientOptionAndAbort() {
-		await utility.wait(utility.very_low);
-		if (this.notConvinientRadioBtn.isDisplayed()) {
-			await this.notConvinientRadioBtn.click();
-		}
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.notConvinientRadioBtn, utility.medium);
+
 		try {
-			await expect(this.abortNxtbtn.isDisplayed());
-			await this.abortNxtbtn.click();
+			//await expect(this.abortNxtbtn.isDisplayed());
+			await utility.wait(utility.medium);
+			Gen.ButtonClick(this.abortNxtbtn, utility.medium);
+
 		} catch (error) {
 			console.log('No Next btn present Currently');
 		}
-		await utility.wait(utility.very_low);
-		if (this.abortAddNotes.isDisplayed()) {
-			await this.abortAddNotes.sendKeys('Not able to Call the customer');
-		}
-		await utility.wait(utility.very_low);
-		if (this.abortCapturePhoto.isDisplayed()) {
-			await this.abortCapturePhoto.click();
-		}
-		await utility.wait(utility.very_low);
-		if (this.abortAppointment.isDisplayed()) {
-			await this.abortAppointment.click();
-		}
-		await utility.wait(utility.very_low);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.abortAddNotes, utility.medium, 'Not able to Call the customer');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortCapturePhoto, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortAppointment, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	// Unable to turn off Gas option ###################
 	public async unableToOffGasOptionAndAbort() {
-		await utility.wait(utility.very_low);
-		if (this.unabletoOffGasOption.isDisplayed()) {
-			await this.unabletoOffGasOption.click();
-		}
+
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.unabletoOffGasOption, utility.medium);
+		await utility.wait(utility.medium);
 		try {
-			if (this.abortNxtbtn.isDisplayed()) {
-				await this.abortNxtbtn.click();
-			}
+			await utility.wait(utility.medium);
+			Gen.ButtonClick(this.abortNxtbtn, utility.medium);
 		} catch (error) {
 			console.log('No Next btn present Currently');
 		}
-		await utility.wait(utility.very_low);
-
-		if (this.abortAddNotes.isDisplayed()) {
-			await this.abortAddNotes.sendKeys('Leave Gass Off');
-		}
-		await utility.wait(utility.very_low);
-		if (this.abortCapturePhoto.isDisplayed()) {
-			await this.abortCapturePhoto.click();
-		}
-		await utility.wait(utility.very_low);
-		if (this.abortAppointment.isDisplayed()) {
-			await this.abortAppointment.click();
-		}
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.abortAddNotes, utility.medium, 'Leave Gass Off');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortCapturePhoto, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortAppointment, utility.medium);
 		await utility.wait(utility.very_low);
 	}
 
 	// No Meter Onsite Option##########
 	public async elecRiskOptionAndAbortElecMeter(xpathparam, notesstring) {
+		
 		this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
 		await utility.wait(utility.very_low);
 		if (await this.reasonforAbort.isDisplayed() && await this.reasonforAbort.isSelected()) {
 		}
-		await utility.wait(utility.very_low);
-		if (this.abortElecNxtBtn.isDisplayed()) {
-			await this.abortElecNxtBtn.click();
-		}
-		await utility.wait(utility.very_low);
-		if (this.abortAddNotes.isDisplayed()) {
-			await this.abortAddNotes.sendKeys(notesstring);
-			await utility.wait(utility.very_low);
-		}
-		if (this.abortCapturePhoto.isDisplayed()) {
-			await this.abortCapturePhoto.click();
-		}
-		await utility.wait(utility.very_low);
-		if (this.AbortElecMeter.isDisplayed()) {
-			await this.AbortElecMeter.click();
-		}
-		await utility.wait(utility.very_low);
-
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortElecNxtBtn, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.abortAddNotes, utility.medium, notesstring);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortCapturePhoto, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.AbortElecMeter, utility.medium);
+		await utility.wait(utility.medium);
 	}
-
 
 	public async elecRiskOptionAndAbortAppointment(xpathparam, notesstring) {
+		
 		this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
 		await utility.wait(utility.very_low);
 		if (await this.reasonforAbort.isDisplayed() && await this.reasonforAbort.isSelected()) {
 		}
-		await utility.wait(utility.very_low);
-		if (this.abortElecNxtBtn.isDisplayed()) {
-			await this.abortElecNxtBtn.click();
-		}
-		await utility.wait(utility.very_low);
-		if (this.abortAddNotes.isDisplayed()) {
-			await this.abortAddNotes.sendKeys(notesstring);
-			await utility.wait(utility.very_low);
-		}
-		if (this.abortCapturePhoto.isDisplayed()) {
-			await this.abortCapturePhoto.click();
-		}
-		await utility.wait(utility.very_low);
-		if (this.abortAppointment.isDisplayed()) {
-			await this.abortAppointment.click();
-		}
-		await utility.wait(utility.very_low);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortElecNxtBtn, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.abortAddNotes, utility.medium, notesstring);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortCapturePhoto, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortAppointment, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
-
-
 	// Abort Rescan Pop up ###################
 	public async reScanInfoPopup() {
-
-		if (this.reScanPopUpOK.isDisplayed()) {
-			await this.reScanPopUpOK.click();
-		}
-		await utility.wait(utility.very_low);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.reScanPopUpOK, utility.medium);
 	}
 
 	public async suspendJobonTheDoorStepDetails() {
-		await utility.wait(utility.low);
-		var select = door.selectInputField;
-		select.$('[value="C94"]').click();
 
-		if (this.accessToSiteN.isDisplayed()) {
-			await utility.wait(utility.medium_low);
-			await this.accessToSiteN.click();
-		}
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(door.selectInputField, utility.medium, "C94");
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.accessToSiteN, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(door.customerOnSiteY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.captureNoAcess, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.suspendJobYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.AddNotesSuspend, utility.medium, 'Come Back Later');
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.suspendJobBtn, utility.medium);
 
-		if (door.customerOnSiteY.isDisplayed()) {
-			await utility.wait(utility.medium_low);
-			await door.customerOnSiteY.click();
-		}
-
-		if (this.captureNoAcess.isDisplayed()) {
-			await utility.wait(utility.very_low);
-			await this.captureNoAcess.click();
-		}
-
-		if (this.suspendJobYes.isDisplayed()) {
-			await utility.wait(utility.very_low);
-			await this.suspendJobYes.click();
-		}
-		if (this.AddNotesSuspend.isDisplayed()) {
-			await utility.wait(utility.very_low);
-			await this.AddNotesSuspend.sendKeys('Come Back Later');
-		}
-		if (this.suspendJobBtn.isDisplayed()) {
-			await utility.wait(utility.very_low);
-			await this.suspendJobBtn.click();
-		}
 	}
-
 
 	//Abort Job after Suspend #################  
 	public async abortJoboAfterSuspend() {
-		await utility.wait(utility.very_low);
-		if (this.suspendJobNo.isDisplayed()) {
-			await utility.wait(utility.very_low);
-			await this.suspendJobNo.click();
-		}
-		if (this.reScheduleAppointNo.isDisplayed()) {
-			await utility.wait(utility.very_low);
-			await this.reScheduleAppointNo.click();
-		}
-		if (this.abortNoAcessBtn.isDisplayed()) {
-			await utility.wait(utility.very_low);
-			await this.abortNoAcessBtn.click();
-		}
+
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.suspendJobNo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.reScheduleAppointNo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortNoAcessBtn, utility.medium);
+		await utility.wait(utility.medium);
+
 	}
 	//updates
 	/***
@@ -825,66 +759,47 @@ export class AbortPageObject {
 	***/
 	public async abortJoboAfterInitialRisk() {
 
-		if (risk.canYouSmellText.isDisplayed()) {
-			await risk.canYouSmellYES.click();
+
+		await utility.wait(utility.medium);
+		if (risk.canYouSmellText.isDisplayed()){
+			Gen.RadioButtonClick(risk.canYouSmellYES, utility.medium);
 		}
-		if (risk.turnedOffGasYES.isDisplayed()) {
-			await risk.turnedOffGasYES.click();
-		}
-		if (risk.callEGPYES.isDisplayed()) {
-			await risk.callEGPYES.click();
-		}
-		if (risk.inputEGPRef.isDisplayed()) {
-			await utility.wait(utility.Avg_low);
-			await risk.inputEGPRef.clear();
-			await risk.inputEGPRef.sendKeys('123456');
-		}
-		if (risk.reportToHS.isDisplayed()) {
-			await utility.wait(utility.Avg_low);
-			await risk.reportToHS.click();
-		}
-		if (risk.airLineRefInput.isDisplayed()) {
-			await utility.wait(utility.Avg_low);
-			await risk.airLineRefInput.clear();
-			await risk.airLineRefInput.sendKeys('5678910');
-		}
-		if (this.OKtoProceedEGPOutcomeN.isDisplayed()) {
-			await utility.wait(utility.Avg_low);
-			await this.OKtoProceedEGPOutcomeN.click();
-			await utility.wait(utility.medium_low);
-		}
-		if (this.riskAssessAbort.isDisplayed()) {
-			await utility.wait(utility.very_low);
-			await this.riskAssessAbort.click();
-			await utility.wait(utility.Avg_low);
-		}
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(risk.turnedOffGasYES, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(risk.callEGPYES, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(risk.inputEGPRef, utility.medium, '123456');
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(risk.reportToHS, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(risk.airLineRefInput, utility.medium, '5678910');
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.OKtoProceedEGPOutcomeN, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.riskAssessAbort, utility.medium);
 
 	}
+
 	public async selectreasonOptionAndAbortGas(xpathparam, notesstring) {
 		this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
-		await utility.wait(utility.very_low);
-		if (this.GenericReasonCodeSelect.isDisplayed()) {
-			await this.GenericReasonCodeSelect.click();
-		}
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.GenericReasonCodeSelect, utility.medium);
+
 		try {
-			await expect(this.abortNxtbtn.isDisplayed());
-			await this.abortNxtbtn.click();
-		} catch (error) {
+			await utility.wait(utility.medium);
+			Gen.ButtonClick(this.abortNxtbtn, utility.medium);
+		}
+		catch (error) {
 			console.log('No Next btn present Currently');
 		}
-		await utility.wait(utility.very_low);
-		if (this.abortAddNotes.isDisplayed()) {
-			await this.abortAddNotes.sendKeys(notesstring);
-		}
-		await utility.wait(utility.very_low);
-		if (this.abortCapturePhoto.isDisplayed()) {
-			await this.abortCapturePhoto.click();
-		}
-		await utility.wait(utility.very_low);
-		if (this.gasabortAppointment.isDisplayed()) {
-			await this.gasabortAppointment.click();
-		}
-		await utility.wait(utility.very_low);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.abortAddNotes, utility.medium, notesstring);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortCapturePhoto, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.gasabortAppointment, utility.medium);
+
 	}
 
 	/***
@@ -892,54 +807,34 @@ export class AbortPageObject {
 	 * @description Fill Gas Safety check section
 	 ***/
 	public async fillGasSafety_InstallLeave() {
-		if (this.earthBondingYEs.isDisplayed()) {
-			await this.earthBondingYEs.click();
-		}
+
 		await utility.wait(utility.medium);
-		if (this.landLordPropertyNo.isDisplayed()) {
-			await this.landLordPropertyNo.click();
-		}
+		Gen.ButtonClick(this.earthBondingYEs, utility.medium);
 		await utility.wait(utility.medium);
-		// if (this.gasAddressinput.isDisplayed()) {
-		//     await this.landLordPropertyYes.sendKeys('UB22GT');
-		// }
-		if (this.allAppliTestedBtn.isDisplayed()) {
-			await this.allAppliTestedBtn.click();
-		}
-		await utility.wait(utility.very_low);
-		if (this.submitGas.isDisplayed()) {
-			await this.submitGas.click();
-		}
+		Gen.ButtonClick(this.landLordPropertyNo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.allAppliTestedBtn, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.submitGas, utility.medium);
 
 	}
 
 	//TST135
 	public async TST135fillConfigAllmeter() {
-		await utility.wait(utility.medium_low);
-		if (job.FullWANYes.isDisplayed()) {
-			await job.FullWANYes.click();
-		}
-		await utility.wait(utility.very_low);
-		if (job.FullCOnfigAppliedElecYes.isDisplayed()) {
-			await job.FullCOnfigAppliedElecYes.click();
-		}
-		if (job.deviceOK.isDisplayed()) {
-			await job.deviceOK.click();
-		}
-		await utility.wait(utility.low);
-		// if (job.fullConfigAppliedGasYes.isDisplayed()) {
-		// 	await job.fullConfigAppliedGasYes.click();
-		// }
-		if (job.fullEx20ConfigAppliedGasYes.isDisplayed()) {
-			await job.fullEx20ConfigAppliedGasYes.click();
-		}
-		if (job.capturePPMIDBtn.isDisplayed()) {
-			await job.capturePPMIDBtn.click();
-		}
-		await utility.wait(utility.low);
-		if (job.nextButtonWAN.isDisplayed()) {
-			await job.nextButtonWAN.click();
-		}
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.FullWANYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.FullCOnfigAppliedElecYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(job.deviceOK, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(job.fullEx20ConfigAppliedGasYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(job.capturePPMIDBtn, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(job.nextButtonWAN, utility.medium);
+
 	}
 
 	/***
@@ -948,25 +843,20 @@ export class AbortPageObject {
 		 ***/
 
 	public async Tst35fillElecmeterrem() {
-		await utility.wait(utility.low);
-		if (await remove.RemoveElecAssetrplacedorremoved.isDisplayed()) {
-			await remove.RemoveElecAssetrplacedorremoved.click();
-		}
-		await utility.wait(utility.low);
-		if (await remove.statusofElecAssetSelect.isDisplayed()) {
-			var select = remove.statusofElecAssetSelect;
-			await select.$('[value="0"]').click();
-		}
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(remove.RemoveElecAssetrplacedorremoved, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(remove.statusofElecAssetSelect, utility.medium, "0");
 	}
 
 	public async ElectricInitmeterReading() {
-		await utility.wait(utility.very_low);
-		if (await inst.captureMeterReadingSend.isDisplayed()) {
-			await inst.captureMeterReadingSend.clear();
-			await inst.captureMeterReadingSend.sendKeys("12345");
-		}
+
 		await utility.wait(utility.medium);
-		await expect(inst.CaptureMeterReadingenableok.isPresent());
+		Gen.SendKeys(inst.captureMeterReadingSend, utility.medium, '12345');
+
+		await utility.wait(utility.medium);
+		await expect(inst.CaptureMeterReadingenableok.isDisplayed());
 		if (inst.CaptureMeterReadingenableok.isDisplayed()) {
 			var element = inst.CaptureMeterReadingenableok;
 			browser.executeScript("arguments[0].click()", element);
@@ -975,16 +865,14 @@ export class AbortPageObject {
 	}
 
 	public async TST77DetermineFaulty() {
-		await utility.wait(utility.low);
-		if (await remove.commshubconnectedtoAssetN.isDisplayed()) {
-			await remove.commshubconnectedtoAssetN.click();
-		}
-		if (await remove.carryoutWorkNo.isDisplayed()) {
-			await remove.carryoutWorkNo.click();
-		}
-		if (await remove.commshubNextbtn.isDisplayed()) {
-			await remove.commshubNextbtn.click();
-		}
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(remove.commshubconnectedtoAssetN, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(remove.carryoutWorkNo, utility.medium);		
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(remove.commshubNextbtn, utility.medium);
+
 	}
 
 
@@ -994,39 +882,28 @@ export class AbortPageObject {
 	 ***/
 
 	public async fillRiskAssesmentElecFields() {
-		if (await risk.performRiskText.isDisplayed()) {
-			await risk.performRiskYES.click();
-		}
-		if (await risk.selectRiskReasonDD.isDisplayed()) {
-			var select = risk.selectRiskReasonDD;
-			select.$('[value="6"]').click();
-			await utility.wait(utility.very_low);
-		}
-		if (await this.AbortElecNotes.isDisplayed()) {
-			await this.AbortElecNotes.sendKeys('A10 : DB Earthing issues at existing installations which present an immediate risk to consumer/MO');
-		}
-		if (await this.capturePhotoAbortElec.isDisplayed()) {
-			await this.capturePhotoAbortElec.click();
-		}
-		if (await this.updatedHnSY.isDisplayed()) {
-			await this.updatedHnSY.click();
-		}
-		if (await this.airlineRefInput.isDisplayed()) {
-			await this.airlineRefInput.sendKeys('1');
-		}
-		if (await this.updateDNOY.isDisplayed()) {
-			await this.updateDNOY.click();
-		}
-		if (await this.dnoInput.isDisplayed()) {
-			await this.dnoInput.sendKeys('2');
-		}
-		if (await this.workCanbeCompletedN.isDisplayed()) {
-			await this.workCanbeCompletedN.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.elecAbortBtn.isDisplayed()) {
-			await this.elecAbortBtn.click();
-		}
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(risk.performRiskYES, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(risk.selectRiskReasonDD, utility.medium, "6");
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.AbortElecNotes, utility.medium, 'A10 : DB Earthing issues at existing installations which present an immediate risk to consumer/MO');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.capturePhotoAbortElec, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.updatedHnSY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.airlineRefInput, utility.medium, '1');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.updateDNOY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.dnoInput, utility.medium, '2');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.workCanbeCompletedN, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.elecAbortBtn, utility.medium);
+
 	}
 
 	/***
@@ -1035,16 +912,12 @@ export class AbortPageObject {
 	 ***/
 
 	public async fillRiskAssesmentGasFields() {
-		await utility.wait(utility.very_low);
-		if (await this.capturemeterPressureMed.isDisplayed()) {
-			await this.capturemeterPressureMed.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.medPressureNo.isDisplayed()) {
-			await this.medPressureNo.click();
-		}
-		
-		await utility.wait(utility.very_low);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.capturemeterPressureMed, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.medPressureNo, utility.medium);
+
 	}
 
 	/***
@@ -1052,17 +925,16 @@ export class AbortPageObject {
 	 * @description ABORT Fill Risk Gas page details
 	 ***/
 	public async AbortGas() {
-		await utility.wait(utility.very_low);
-		if (await this.abortGas.isDisplayed()) {
-			await this.abortGas.click();
-		}
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortGas, utility.medium);
 	}
 
 	public async AbortGas_Btnfail() {
-		await utility.wait(utility.very_low);
-		if (await this.abortbtnfail.isDisplayed()) {
-			await this.abortbtnfail.click();
-		}
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortbtnfail, utility.medium);
+
 	}
 
 	/***
@@ -1071,39 +943,35 @@ export class AbortPageObject {
 	 ***/
 	public async selectreasonOptionAndAbortforgas(xpathparam, notesstring) {
 		this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
-		await utility.wait(utility.very_low);
-		if (this.GenericReasonCodeSelect.isDisplayed()) {
-			await this.GenericReasonCodeSelect.click();
-		}
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.GenericReasonCodeSelect, utility.medium);
+
 		try {
-			await expect(this.abortNxtbtn.isDisplayed());
-			await this.abortNxtbtn.click();
-		} catch (error) {
+
+			await utility.wait(utility.medium);
+			Gen.ButtonClick(this.abortNxtbtn, utility.medium);
+		}
+		catch (error) {
 			console.log('No Next btn present Currently');
 		}
-		await utility.wait(utility.very_low);
-		if (this.abortAddNotes.isDisplayed()) {
-			await this.abortAddNotes.sendKeys(notesstring);
-		}
-		await utility.wait(utility.very_low);
-		if (this.abortCapturePhoto.isDisplayed()) {
-			await this.abortCapturePhoto.click();
-		}
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.abortAddNotes, utility.medium, notesstring);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortCapturePhoto, utility.medium);
+
 	}
 	public async GasabortApp() {
-		await utility.wait(utility.very_low);
-		if (this.gasabortApp.isDisplayed()) {
-			await this.gasabortApp.click();
-		}
-		await utility.wait(utility.very_low);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.gasabortApp, utility.medium);
+
 	}
 
 	public async AbortGasbtncall() {
-		await utility.wait(utility.very_low);
-		if (this.gasabortAppointment.isDisplayed()) {
-			await this.gasabortAppointment.click();
-		}
-		await utility.wait(utility.very_low);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.gasabortAppointment, utility.medium);
+
 	}
 	/***
 	 * @Author Aparna Das
@@ -1111,13 +979,12 @@ export class AbortPageObject {
 	 ***/
 
 	public async fillPreGasAbort() {
-		if (await this.preGASinstallN.isDisplayed()) {
-			await this.preGASinstallN.click();
-		}
-		if (await this.abortGas.isDisplayed()) {
-			await this.abortGas.click();
-		}
-		await utility.wait(utility.very_low);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.preGASinstallN, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortGas, utility.medium);
+
 	}
 
 	/***
@@ -1127,555 +994,308 @@ export class AbortPageObject {
 	 ***/
 
 	public async fillPPMIDSection() {
-		if (this.PPMIDOfferedNo.isDisplayed()) {
-			await this.PPMIDOfferedNo.click();
-		}
 
-		if (this.PPMIDAddNotes.isDisplayed()) {
-			await utility.wait(utility.very_low);
-			await this.PPMIDAddNotes.sendKeys('Come Back Later');
-		}
-		if (this.ppmidNXTBtn.isDisplayed()) {
-			await this.ppmidNXTBtn.click();
-		}
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.PPMIDOfferedNo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.PPMIDAddNotes, utility.medium, 'Come Back Later');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.ppmidNXTBtn, utility.medium);
 
 	}
 
 	public async fillPPMIDSection_EXCH22() {
-		if (this.PPMIDOfferedNo_1.isDisplayed()) {
-			await this.PPMIDOfferedNo_1.click();
-		}
 
-		if (this.PPMIDAddNotes_1.isDisplayed()) {
-			await utility.wait(utility.very_low);
-			await this.PPMIDAddNotes_1.sendKeys('Come Back Later');
-		}
-		if (this.ppmidNXTBtn_1.isDisplayed()) {
-			await this.ppmidNXTBtn_1.click();
-		}
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.PPMIDOfferedNo_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.PPMIDAddNotes_1, utility.medium, 'Come Back Later');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.ppmidNXTBtn_1, utility.medium);
 
 	}
 
 	public async fillDeviceBindingSection() {
-		if (this.gasAndElecMeterN.isDisplayed()) {
-			await this.gasAndElecMeterN.click();
-		}
 
-		if (this.fullHanDeviceNo.isDisplayed()) {
-			await utility.wait(utility.very_low);
-			await this.fullHanDeviceNo.click();
-		}
-		if (this.devicebindingNextSection.isDisplayed()) {
-			await this.devicebindingNextSection.click()
-		}
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.gasAndElecMeterN, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.fullHanDeviceNo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.devicebindingNextSection, utility.medium);
 
 	}
 
 	public async fillDeviceBindingSection_Installremove() {
-		if (this.gsmeJoinedYes.isDisplayed()) {
-			await this.gsmeJoinedYes.click();
-		}
 
-		await utility.wait(utility.low);
-		if (this.devicebindnext.isDisplayed()) {
-			await this.devicebindnext.click()
-		}
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.gsmeJoinedYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.devicebindnext, utility.medium);
 
 	}
 
 
 	public async fillElecmeterremEX23() {
 
-		await utility.wait(utility.low);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.RemoveElecAssetrplacedorremoved, utility.medium);
 
-		if (await this.RemoveElecAssetrplacedorremoved.isDisplayed()) {
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionbyLabel(this.statusofElecAssetSelect, utility.medium, '"No Fault Found"')
 
-			await this.RemoveElecAssetrplacedorremoved.click();
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
 
-		}
-
-		await utility.wait(utility.low);
-
-		if (await this.statusofElecAssetSelect.isDisplayed()) {
-
-			var select = this.statusofElecAssetSelect;
-
-			await select.$('[label="No Fault Found"]').click();
-
-		}
-
-		await utility.wait(utility.very_low);
-
-		if (await this.removedmeterReading.isDisplayed()) {
-
-			await this.removedmeterReading.clear();
-
-			await this.removedmeterReading.sendKeys('12345');
-
-			await utility.wait(utility.medium_low);
-
-			await this.randomClick2.click();
-			console.log("Random Click EX23");
-
-		}
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.randomClick2, utility.medium);
+		console.log("Random Click EX23");
 
 	}
 
 	//Post Installation for Abort ######################
 
 	public async filltheforPostinstAbort() {
-		await utility.wait(utility.Avg_low);
-		if (await inst.ContactGTY.isDisplayed()) {
-			await inst.ContactGTY.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await inst.NationalGridSend.isDisplayed()) {
-			await inst.NationalGridSend.clear();
-			await inst.NationalGridSend.sendKeys("1");
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.HandSAirline.isDisplayed()) {
-			await inst.HandSAirline.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await inst.Airlineref1.isDisplayed()) {
-			await inst.Airlineref1.clear();
-			await inst.Airlineref1.sendKeys("2");
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.GTAttendenceOnsiteY.isDisplayed()) {
-			await inst.GTAttendenceOnsiteY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.GTresolveIssueY.isDisplayed()) {
-			await inst.GTresolveIssueY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.TightnessIssueY.isDisplayed()) {
-			await inst.TightnessIssueY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.cappedgascooker.isDisplayed()) {
-			await inst.cappedgascooker.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await inst.addnlnote.isDisplayed()) {
-			await inst.addnlnote.clear();
-			await inst.addnlnote.sendKeys("Gas Notes");
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.ReplacedGasMeterY.isDisplayed()) {
-			await inst.ReplacedGasMeterY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.ReplacedGasregulatorY.isDisplayed()) {
-			await inst.ReplacedGasregulatorY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.TightnessperformedY.isDisplayed()) {
-			await inst.TightnessperformedY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.cappostinstallation.isDisplayed()) {
-			await inst.cappostinstallation.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.Dropinpressure.isDisplayed()) {
-			await inst.Dropinpressure.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await inst.dropinpressureselect.isDisplayed()) {
-			var select = inst.dropinpressureselect;
-			select.$('[value="2"]').click();
-		}
-		await utility.wait(utility.very_low);
-		if (await inst.selectMeterType.isDisplayed()) {
-			var select = inst.selectMeterType;
-			select.$('[value="2"]').click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.GasTightnessPassed.isDisplayed()) {
-			await inst.GasTightnessPassed.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await inst.TestWitness.isDisplayed()) {
-			await inst.TestWitness.clear();
-			await inst.TestWitness.sendKeys("Ellie Taylor");
-		}
-		await utility.wait(utility.very_low);
-		if (await inst.standingPressure.isDisplayed()) {
-			await inst.standingPressure.clear();
-			await inst.standingPressure.sendKeys("1.1");
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.cappostinstallationpressure.isDisplayed()) {
-			await inst.cappostinstallationpressure.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await inst.workingPressure.isDisplayed()) {
-			await inst.workingPressure.clear();
-			await inst.workingPressure.sendKeys("1.5");
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.captureworkingPressure.isDisplayed()) {
-			await inst.captureworkingPressure.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.captureFinalMeterInstall.isDisplayed()) {
-			await inst.captureFinalMeterInstall.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.MsgreqDCC.isDisplayed()) {
-			await inst.MsgreqDCC.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.PostinstallNext.isDisplayed()) {
-			await inst.PostinstallNext.click();
-		}
+
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.ContactGTY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(inst.NationalGridSend, utility.medium, '1');
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.HandSAirline, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(inst.Airlineref1, utility.medium, '2');
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.GTAttendenceOnsiteY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.GTresolveIssueY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.TightnessIssueY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.cappedgascooker, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(inst.addnlnote, utility.medium, "Gas Notes");
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.ReplacedGasMeterY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.ReplacedGasregulatorY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.TightnessperformedY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.cappostinstallation, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.Dropinpressure, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(inst.dropinpressureselect, utility.medium, "2");
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(inst.selectMeterType, utility.medium, "2");
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.GasTightnessPassed, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(inst.TestWitness, utility.medium, "Ellie Taylor");
+		await utility.wait(utility.medium);
+		Gen.SendKeys(inst.standingPressure, utility.medium, "1.1");
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.cappostinstallationpressure, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(inst.workingPressure, utility.medium, "1.5");
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.captureworkingPressure, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.captureFinalMeterInstall, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.MsgreqDCC, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.PostinstallNext, utility.medium);
+
 	}
 
 
 	public async fillElecmeterremEX24() {
 
-		await utility.wait(utility.low);
-
-		if (await this.RemoveElecAssetrplacedorremoved.isDisplayed()) {
-
-			await this.RemoveElecAssetrplacedorremoved.click();
-
-		}
-
-		await utility.wait(utility.low);
-
-		if (await this.statusofElecAssetSelect.isDisplayed()) {
-
-			var select = this.statusofElecAssetSelect;
-
-			await select.$('[label="No Fault Found"]').click();
-
-		}
-
-		await utility.wait(utility.very_low);
-
-		if (await this.removedgasmeterreading.isDisplayed()) {
-
-			await this.removedgasmeterreading.clear();
-
-			await this.removedgasmeterreading.sendKeys('12345');
-
-			await utility.wait(utility.medium_low);
-
-			await this.randomClick2.click();
-			console.log("Random Click EX24");
-
-		}
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.RemoveElecAssetrplacedorremoved, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionbyLabel(this.statusofElecAssetSelect, utility.medium, "No Fault Found");
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.removedgasmeterreading, utility.medium, '12345');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.randomClick2, utility.medium);
+		console.log("Random Click EX24");
 
 	}
 
 	public async fillGasmeterremEX24() {
 
-		await utility.wait(utility.low);
-
-		if (await this.RemoveGasAssetrplacedorremoved.isDisplayed()) {
-
-			await this.RemoveGasAssetrplacedorremoved.click();
-
-		}
-
-		await utility.wait(utility.low);
-
-		if (await this.statusofAssetSelect.isDisplayed()) {
-
-			var select = this.statusofAssetSelect;
-
-			await select.$('[label="No Fault Found"]').click();
-
-		}
-
-		await utility.wait(utility.very_low);
-
-		if (await this.removedmeterReading.isDisplayed()) {
-
-			await this.removedmeterReading.clear();
-
-			await this.removedmeterReading.sendKeys('12345');
-
-			await utility.wait(utility.medium_low);
-
-			await this.randomClick.click();
-			console.log("Random Click EX24");
-
-		}
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.RemoveGasAssetrplacedorremoved, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionbyLabel(this.statusofElecAssetSelect, utility.medium, "No Fault Found");
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.randomClick, utility.medium);
+		console.log("Random Click EX24");
 
 	}
 
-	public async newregulatorsection_EXCH24() {
-		{
-			await utility.wait(utility.very_low);
-			if (await this.newregulatorReplaced.isDisplayed()) {
-				await this.newregulatorReplaced.click();
-			}
-			await utility.wait(utility.very_low);
-			if (await this.selectValidAssettoInst1.isDisplayed()) {
-				var select = this.selectValidAssettoInst1;
-				select.$('[value="MA6NC181323805"]').click();
-			}
-			await utility.wait(utility.very_low);
-			if (await this.gasmeterserialSendreg.isDisplayed()) {
-				await this.gasmeterserialSendreg.clear();
-				await this.gasmeterserialSendreg.sendKeys("MA6NC181323805");
-			}
-			await utility.wait(utility.very_low);
-			if (await this.dummydiv1.isDisplayed()) {
-				await this.dummydiv1.click();
-			}
-			await utility.wait(utility.very_low);
-			if (await this.AssetaddedtowallNewReg.isDisplayed()) {
-				await this.AssetaddedtowallNewReg.click();
-			}
-			await utility.wait(utility.very_low);
-			if (await this.nextSecnewRegulator.isDisplayed()) {
-				await this.nextSecnewRegulator.click();
-			}
-		}
+	public async newregulatorsection_EXCH24(index: number) {
 
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.newregulatorReplaced, utility.medium);
+
+		await this.selectValidAssettoInst1.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
+		await expect(await this.gasmeterserialSendreg.isDisplayed());
+		var options = this.selectValidAssettoInst1.getAttribute('value');
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.dummydiv1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.nextSecnewRegulator, utility.medium);
 
 	}
 
-	public async newregulatorsection_FLTYTRAD() {
-		{
-			await utility.wait(utility.very_low);
-			if (await this.newregulatorReplaced.isDisplayed()) {
-				await this.newregulatorReplaced.click();
-			}
-			await utility.wait(utility.very_low);
-			if (await this.selectValidAssettoInst2.isDisplayed()) {
-				var select = this.selectValidAssettoInst2;
-				select.$('[value="MA6NC181323805"]').click();
-			}
-			await utility.wait(utility.very_low);
-			if (await this.gasmeterserialSendreg.isDisplayed()) {
-				await this.gasmeterserialSendreg.clear();
-				await this.gasmeterserialSendreg.sendKeys("MA6NC181323805");
-			}
-			await utility.wait(utility.very_low);
-			if (await this.dummydiv3.isDisplayed()) {
-				await this.dummydiv3.click();
-			}
-			await utility.wait(utility.very_low);
-			if (await this.AssetaddedtowallNewReg.isDisplayed()) {
-				await this.AssetaddedtowallNewReg.click();
-			}
-			await utility.wait(utility.very_low);
-			if (await this.nextSecnewRegulator.isDisplayed()) {
-				await this.nextSecnewRegulator.click();
-			}
-		}
+	public async newregulatorsection_FLTYTRAD(index: number) {
 
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.newregulatorReplaced, utility.medium);
+		await this.selectValidAssettoInst2.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
+		await expect(await this.gasmeterserialSendreg.isDisplayed());
+		var options = this.selectValidAssettoInst2.getAttribute('value');
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.dummydiv3, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.nextSecnewRegulator, utility.medium);
 
 	}
 
 	public async fillGasInstallKitDetails_InstallLeave() {
 
-		await this.installKitUsedYes1.click();
-		await utility.wait(utility.low);
-
-		if (await this.nonSerialisedAsssetsDD1.isDisplayed()) {
-			var select3 = this.nonSerialisedAsssetsDD1;
-			select3.$('[value="1"]').click();
-		}
-
-		await utility.wait(utility.low);
-		await this.assetInput1.sendKeys('1');
-		await utility.wait(utility.medium_low);
-		//browser.executeScript('arguments[0].scrollIntoView()', this.commsHubConnectedYes.getWebElement());
-		await this.commsHubConnectedNo_1.click();
-		await utility.wait(utility.medium_low);
-		await this.installKitNxtBtn1.click();
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.installKitUsedYes1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.nonSerialisedAsssetsDD1, utility.medium, "1");
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.assetInput1, utility.medium, '1');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commsHubConnectedNo_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.installKitNxtBtn1, utility.medium);
 	}
 
 	public async fillthefieldsforperformpost_InstallAndLeave() {
-		await utility.wait(utility.Avg_low);
-		if (await this.ContactGTY.isDisplayed()) {
-			await this.ContactGTY.click();
-		}
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortAppointment, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.Airlineref1, utility.medium, "2");
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.HandSAirline, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.Airlineref1, utility.medium, "2");
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.GTAttendenceOnsiteY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.GTresolveIssueY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.TightnessIssueY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.cappedgascooker, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.addnlnote, utility.medium, "Gas Notes");
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.ReplacedGasMeterY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.ReplacedGasregulatorY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.TightnessperformedY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.cappostinstallation, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.Dropinpressure, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.dropinpressureselect, utility.medium, '2');
 		await utility.wait(utility.very_low);
-		if (await this.NationalGridSend.isDisplayed()) {
-			await this.NationalGridSend.clear();
-			await this.NationalGridSend.sendKeys("1");
-		}
-		await utility.wait(utility.Avg_low);
-		if (await this.HandSAirline.isDisplayed()) {
-			await this.HandSAirline.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.Airlineref1.isDisplayed()) {
-			await this.Airlineref1.clear();
-			await this.Airlineref1.sendKeys("2");
-		}
-		await utility.wait(utility.Avg_low);
-		if (await this.GTAttendenceOnsiteY.isDisplayed()) {
-			await this.GTAttendenceOnsiteY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await this.GTresolveIssueY.isDisplayed()) {
-			await this.GTresolveIssueY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await this.TightnessIssueY.isDisplayed()) {
-			await this.TightnessIssueY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await this.cappedgascooker.isDisplayed()) {
-			await this.cappedgascooker.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.addnlnote.isDisplayed()) {
-			await this.addnlnote.clear();
-			await this.addnlnote.sendKeys("Gas Notes");
-		}
-		await utility.wait(utility.Avg_low);
-		if (await this.ReplacedGasMeterY.isDisplayed()) {
-			await this.ReplacedGasMeterY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await this.ReplacedGasregulatorY.isDisplayed()) {
-			await this.ReplacedGasregulatorY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await this.TightnessperformedY.isDisplayed()) {
-			await this.TightnessperformedY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await this.cappostinstallation.isDisplayed()) {
-			await this.cappostinstallation.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await this.Dropinpressure.isDisplayed()) {
-			await this.Dropinpressure.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.dropinpressureselect.isDisplayed()) {
-			var select = this.dropinpressureselect;
-			select.$('[value="2"]').click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.selectMeterType.isDisplayed()) {
-			var select = this.selectMeterType;
-			select.$('[value="2"]').click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await this.GasTightnessPassed.isDisplayed()) {
-			await this.GasTightnessPassed.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.TestWitness.isDisplayed()) {
-			await this.TestWitness.clear();
-			await this.TestWitness.sendKeys("Ellie Taylor");
-		}
-		await utility.wait(utility.very_low);
-		if (await this.standingPressure1.isDisplayed()) {
-			await this.standingPressure1.clear();
-			await this.standingPressure1.sendKeys("1.1");
-		}
-		await utility.wait(utility.Avg_low);
-		if (await this.cappostinstallationpressure.isDisplayed()) {
-			await this.cappostinstallationpressure.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.workingPressure.isDisplayed()) {
-			await this.workingPressure.clear();
-			await this.workingPressure.sendKeys("1.5");
-		}
-		await utility.wait(utility.Avg_low);
-		if (await this.captureworkingPressure.isDisplayed()) {
-			await this.captureworkingPressure.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await this.captureFinalMeterInstall.isDisplayed()) {
-			await this.captureFinalMeterInstall.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await this.MsgreqDCC.isDisplayed()) {
-			await this.MsgreqDCC.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await this.hubconnectdtoWAN.isDisplayed()) {
-			await this.hubconnectdtoWAN.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await this.PostinstallNext.isDisplayed()) {
-			await this.PostinstallNext.click();
-		}
+		Gen.DropDownOptionClick(this.selectMeterType, utility.medium, '2');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.GasTightnessPassed, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.TestWitness, utility.medium, "Ellie Taylor");
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.standingPressure1, utility.medium, '1.1');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.cappostinstallationpressure, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.workingPressure, utility.medium, '1.5');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.captureworkingPressure, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.captureFinalMeterInstall, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.MsgreqDCC, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.hubconnectdtoWAN, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.PostinstallNext, utility.medium);
+
 	}
 
 	public async fillElecmeterrem_FLTY() {
-		await utility.wait(utility.low);
-		if (await this.RemoveElecAssetrplacedorremoved1.isDisplayed()) {
-			await this.RemoveElecAssetrplacedorremoved1.click();
-		}
-		await utility.wait(utility.low);
-		if (await this.statusofElecAssetSelect.isDisplayed()) {
-			var select = this.statusofElecAssetSelect;
-			await select.$('[value="1"]').click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.removedmeterReading.isDisplayed()) {
-			await this.removedmeterReading.clear();
-			await this.removedmeterReading.sendKeys('12345');
 
-		}
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.RemoveElecAssetrplacedorremoved1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.statusofElecAssetSelect, utility.medium, "1");
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
+
+
 	}
 
 	public async fillDeviceBindingSection_InstallEXCH23() {
-		if (this.esmeJoinedNo.isDisplayed()) {
-			await this.esmeJoinedNo.click();
-		}
 
-		await utility.wait(utility.low);
-		if (this.devicebindnext.isDisplayed()) {
-			await this.devicebindnext.click()
-		}
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.esmeJoinedNo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.devicebindnext, utility.medium);
 
 	}
 
 	public async fillDeviceBindingSection_EXCH19() {
-		if (this.fullHanDeviceNo.isDisplayed()) {
-			await utility.wait(utility.very_low);
-			await this.fullHanDeviceNo.click();
-		}
-		if (this.devicebindingNextSection.isDisplayed()) {
-			await this.devicebindingNextSection.click()
-		}
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.fullHanDeviceNo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.devicebindingNextSection, utility.medium);
 
 	}
 
 	public async fillSmartLiteratureEducationSection() {
+
 		await utility.wait(utility.medium);
-		if (this.smartLitLeftNo.isDisplayed()) {
-			await this.smartLitLeftNo.click();
-		}
-		await utility.wait(utility.medium_low);
-		if (this.additionalInfo.isDisplayed()) {
-			await this.additionalInfo.click();
-		}
-		await utility.wait(utility.medium_low);
-		if (this.demoEquipment.isDisplayed()) {
-			await this.demoEquipment.click();
-		}
-		await utility.wait(utility.medium_low);
+		Gen.ButtonClick(this.smartLitLeftNo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.additionalInfo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.demoEquipment, utility.medium);
+
 	}
 
 	public async fillConfigAllMetersSection_EXCH19() {
-		await utility.wait(utility.medium_low);
-		if (this.fullWanAllmeterNo.isDisplayed()) {
-			await this.fullWanAllmeterNo.click();
-		}
-		await utility.wait(utility.medium_low);
-		if (this.configureallmetersNextSection.isDisplayed()) {
-			await this.configureallmetersNextSection.click();
-			await utility.wait(utility.medium_low);
-		}
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.fullWanAllmeterNo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.configureallmetersNextSection, utility.medium);
 
 	}
 
@@ -1692,25 +1312,13 @@ export class AbortPageObject {
 	}
 
 	public async fillConfigAllMetersSection() {
+
 		await utility.wait(utility.medium);
-		if (this.fullWanAllmeterNo.isDisplayed()) {
-			await this.fullWanAllmeterNo.click();
-		}
+		Gen.ButtonClick(this.fullWanAllmeterNo, utility.medium);
 		await utility.wait(utility.medium);
-		if (this.fullconfigElecApplyNo.isDisplayed()) {
-			await utility.wait(utility.very_low);
-			await this.fullconfigElecApplyNo.click();
-		}
+		Gen.ButtonClick(this.fullconfigElecApplyNo, utility.medium);
 		await utility.wait(utility.medium);
-		// if (this.fullconfigElecApplyNo.isDisplayed()) {
-		// 	await this.fullconfigElecApplyNo.click();
-		// 	await utility.wait(utility.very_low);
-		// }
-		await utility.wait(utility.medium_low);
-		if (this.configureallmetersNextSection.isDisplayed()) {
-			await this.configureallmetersNextSection.click();
-			await utility.wait(utility.very_low);
-		}
+		Gen.ButtonClick(this.configureallmetersNextSection, utility.medium);
 
 	}
 
@@ -1720,6 +1328,7 @@ export class AbortPageObject {
 	 ***/
 
 	public async verifyReplaceCommshubNoWANSection() {
+		await utility.wait(utility.medium);
 		this.replacecommshubNowan.getText().then(function (replacecomms) {
 			console.log("find replacecommshubsection Text  " + replacecomms);
 		});
@@ -1730,47 +1339,92 @@ export class AbortPageObject {
 	 * @description Fill Gas Post Installation Gas Tightness Test section Install And Leave
 	 ***/
 	public async fillPostInstallationGasDetailsInstallLeave() {
-		await utility.wait(utility.very_low);
-		await this.contactGTYEs.click();
-		await this.nationalGTRefInput.sendKeys('12345');
-		await this.reportedToHSYEsGas.click();
-		await this.inputAirLineRefGAS.sendKeys('12345');
-		await this.gtAttendanceOnSiteYes.click();
-		await this.gtResolveIssueGas.click();
-		await this.AdditionalWorktoPassYesGAS.click();
-		await this.additionalWork1.click();
-		await this.additionalWork2.click();
-		await this.additionalWork3.click();
-		await this.additionalWork4.click();
-		await this.additionalWork5.click();
-		await this.additionalWork6.click();
-		//await this.additionalSmartNote.click();
-		await this.replacedGasMeterYes.click();
-		await this.replacedGasRegulatorYes.click();
-		await this.GasTightnessTestPerformedYes.click();
-		await this.capturePostInstallationGas.click();
-		await this.DIPGASYes.click();
-		if (await this.dipSelectDD.isDisplayed()) {
-			var select3 = this.dipSelectDD;
-			select3.$('[value="1"]').click();
-		}
-		if (await this.meterTypeGASDD.isDisplayed()) {
-			var select3 = this.meterTypeGASDD;
-			select3.$('[value="1"]').click();
-		}
-		await utility.wait(utility.low);
-		await this.tightnessPassedYes.click();
-		await this.witnessName.sendKeys('Dennis');
-		await this.standingPressure.sendKeys('1');
-		await this.dipCaptureBtn.click();
-		await this.workingpressure.sendKeys('1');
-		await this.wpCapture.click();
-		await this.finalMeterCapture.click();
-		await this.commsHubConnectedNo_1.click();
+
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.contactGTYEs, utility.medium);
+
+		Gen.SendKeys(this.nationalGTRefInput, utility.medium, '12345');
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.reportedToHSYEsGas, utility.medium);
+		await utility.wait(utility.medium);
+
+		Gen.SendKeys(this.inputAirLineRefGAS, utility.medium, '12345');
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.gtAttendanceOnSiteYes, utility.medium);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.gtResolveIssueGas, utility.medium);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.AdditionalWorktoPassYesGAS, utility.medium);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.additionalWork1, utility.medium);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.additionalWork2, utility.medium);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.additionalWork3, utility.medium);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.additionalWork4, utility.medium);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.additionalWork5, utility.medium);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.additionalWork6, utility.medium);
+
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacedGasMeterYes, utility.medium);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacedGasRegulatorYes, utility.medium);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.GasTightnessTestPerformedYes, utility.medium);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.capturePostInstallationGas, utility.medium);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.DIPGASYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.dipSelectDD, utility.medium, "1");
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.meterTypeGASDD, utility.medium, "1");
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.tightnessPassedYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.witnessName, utility.medium, 'Dennis');
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.standingPressure, utility.medium, '1');
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.dipCaptureBtn, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.workingpressure, utility.medium, '1');
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.wpCapture, utility.medium);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.finalMeterCapture, utility.medium);
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commsHubConnectedNo_1, utility.medium);
 		await utility.wait(utility.Avg_low);
 		//changed to polGasNxtBtn nt working chk polNxtBtn element
 		browser.executeScript('arguments[0].scrollIntoView()', this.polNxtBtn.getWebElement());
-		await this.polNxtBtn.click();
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.polNxtBtn, utility.medium);
 	}
 
 	/***
@@ -1778,818 +1432,524 @@ export class AbortPageObject {
 	 * @description Fill Gas Post Installation Gas Tightness Test section Install And Leave
 	 ***/
 	public async fillPostInstallationGasDetails_EXCH22() {
-		await utility.wait(utility.very_low);
-		await this.contactGTYEs.click();
-		await this.nationalGTRefInput.sendKeys('12345');
-		await this.reportedToHSYEsGas.click();
-		await this.inputAirLineRefGAS.sendKeys('12345');
-		await this.gtAttendanceOnSiteYes.click();
-		await this.gtResolveIssueGas.click();
-		await this.AdditionalWorktoPassYesGAS.click();
-		await this.additionalWork1.click();
-		await this.additionalWork2.click();
-		await this.additionalWork3.click();
-		await this.additionalWork4.click();
-		await this.additionalWork5.click();
-		await this.additionalWork6.click();
-		//await this.additionalSmartNote.click();
-		await this.replacedGasMeterYes.click();
-		await this.replacedGasRegulatorYes.click();
-		await this.GasTightnessTestPerformedYes.click();
-		await this.capturePostInstallationGas.click();
-		await this.DIPGASYes.click();
-		if (await this.dipSelectDD.isDisplayed()) {
-			var select3 = this.dipSelectDD;
-			select3.$('[value="1"]').click();
-		}
-		if (await this.meterTypeGASDD.isDisplayed()) {
-			var select3 = this.meterTypeGASDD;
-			select3.$('[value="1"]').click();
-		}
-		await utility.wait(utility.low);
-		await this.tightnessPassedYes.click();
-		await this.witnessName.sendKeys('Dennis');
-		await this.standingPressure.sendKeys('1');
-		await this.dipCaptureBtn.click();
-		await this.workingpressure.sendKeys('1');
-		await this.wpCapture.click();
-		await this.finalMeterCapture.click();
-		await this.commsHubConnectedNo_1.click();
+
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.contactGTYEs, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.nationalGTRefInput, utility.medium, '12345');
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.reportedToHSYEsGas, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.inputAirLineRefGAS, utility.medium, '12345');
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.gtAttendanceOnSiteYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.gtResolveIssueGas, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.AdditionalWorktoPassYesGAS, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.additionalWork1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.additionalWork2, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.additionalWork3, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.additionalWork4, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.additionalWork5, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.additionalWork6, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.replacedGasMeterYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.replacedGasRegulatorYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.GasTightnessTestPerformedYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.capturePostInstallationGas, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.DIPGASYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.dipSelectDD, utility.medium, "1");
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.meterTypeGASDD, utility.medium, "1");
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.tightnessPassedYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.witnessName, utility.medium, 'Dennis');
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.standingPressure, utility.medium, '1');
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.dipCaptureBtn, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.workingpressure, utility.medium, '1');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.wpCapture, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.finalMeterCapture, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commsHubConnectedNo_1, utility.medium);
 		await utility.wait(utility.Avg_low);
-		//changed to polGasNxtBtn nt working chk polNxtBtn element
 		browser.executeScript('arguments[0].scrollIntoView()', this.polNxtBtn_1.getWebElement());
-		await this.polNxtBtn_1.click();
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.polNxtBtn_1, utility.medium);
 	}
 
 	public async clickGasInstallSubmitButton() {
-		if (await this.gasbuttonSubmit.isDisplayed()) {
-			await utility.wait(utility.low);
-			// click the dropdown
-			this.gasbuttonSubmit.click()
-		}
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.gasbuttonSubmit, utility.medium);
+
 	}
 
 	public async clickNMEXInstallSubmitButton() {
-		if (await this.gasNMEXbuttonSubmit.isDisplayed()) {
-			await utility.wait(utility.low);
-			// click the dropdown
-			this.gasNMEXbuttonSubmit.click()
-		}
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.gasNMEXbuttonSubmit, utility.medium);
+
 	}
 	public async clickElecSubmitButton() {
-		if (await this.elecMeterSubmit.isDisplayed()) {
-			await utility.wait(utility.low);
-			// click the dropdown
-			this.elecMeterSubmit.click()
-		}
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.elecMeterSubmit, utility.medium);
+
 	}
 
 	public async clickElecInstallSubmitButton() {
-		if (await this.elecInstallSubmit.isDisplayed()) {
-			await utility.wait(utility.low);
-			// click the dropdown
-			this.elecInstallSubmit.click()
-		}
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.elecInstallSubmit, utility.medium);
+
 	}
 
 	public async clickGasSubmitButton() {
-		if (await this.gasMeterSubmit.isDisplayed()) {
-			await utility.wait(utility.low);
-			// click the dropdown
-			this.gasMeterSubmit.click()
-		}
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.gasMeterSubmit, utility.medium);
+
 	}
 
 
 
 	public async fillReplaceCommshubdetails(index: number) {
 
-		if (await this.commshubReplacedyes.isDisplayed()) {
-			await utility.wait(utility.low);
-			// click the dropdown
-			this.commshubReplacedyes.click()
-			browser.sleep(1000)
-			//index = index ;
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await utility.wait(utility.low);
-			await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.low);
-			await this.commshubPopup.click();
 
-			await expect(await this.CHFID.isPresent());
-			var options = this.selectinstallAssetOption.getAttribute('value');
-			console.log(options);
-			await utility.wait(utility.medium_low);
-			await this.CHFID.clear();
-			await utility.wait(utility.very_low);
-			await this.CHFID.sendKeys(options);
-			await utility.wait(utility.low);
-			await this.dummydiv.click();
-			await utility.wait(utility.medium_low);
-			await this.commshubPopup.click();
-			await utility.wait(utility.low);
+		Gen.ButtonClick(this.commshubReplacedyes, utility.medium);
+		browser.sleep(1000)
+		console.log("Selecting element based index : " + index)
+		await utility.wait(utility.medium);
+		await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		await expect(await this.CHFID.isDisplayed());
+		var options = this.selectinstallAssetOption.getAttribute('value');
+		console.log(options);
+		await utility.wait(utility.medium);		
+		Gen.SendKeys(this.CHFID, utility.medium, options);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.dummydiv, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.commshubLocation, utility.medium, "B");
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.aerialInstalled, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.commshubConnectionMethod, utility.medium, "0");
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.cradleSerialNo, utility.medium, '12345');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommsCapturePhoto, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommshubNowan, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.replacecommsPremiseType, utility.medium, "2");
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.metalObstructionYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.sharedObstructionNo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.connectivityObstructionNo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.confirmInstallAndLeaveYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.assetsUnaffectedYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommsNextButton, utility.medium);
 
-			if (await this.commshubLocation.isDisplayed()) {
-				var select = this.commshubLocation;
-				select.$('[value="A"]').click();
-			}
-			await utility.wait(utility.low);
-
-			if (await this.aerialInstalled.isDisplayed()) {
-				await this.aerialInstalled.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.commshubConnectionMethod.isDisplayed()) {
-				var select = this.commshubConnectionMethod;
-				select.$('[value="0"]').click();
-			}
-			await utility.wait(utility.low);
-			await utility.wait(utility.medium_low);
-			await this.cradleSerialNo.clear();
-			await utility.wait(utility.very_low);
-			await this.cradleSerialNo.sendKeys('12345');
-			await utility.wait(utility.low);
-
-			if (await this.replacecommsCapturePhoto.isDisplayed()) {
-				await this.replacecommsCapturePhoto.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.replacecommshubNowan.isDisplayed()) {
-				await this.replacecommshubNowan.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.replacecommsPremiseType.isDisplayed()) {
-				var select = this.replacecommsPremiseType;
-				select.$('[value="2"]').click();
-				await utility.wait(utility.low);
-			}
-			if (await this.metalObstructionYes.isDisplayed()) {
-				await this.metalObstructionYes.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.sharedObstructionNo.isDisplayed()) {
-				await this.sharedObstructionNo.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.connectivityObstructionNo.isDisplayed()) {
-				await this.connectivityObstructionNo.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.confirmInstallAndLeaveYes.isDisplayed()) {
-				await this.confirmInstallAndLeaveYes.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.assetsUnaffectedYes.isDisplayed()) {
-				await this.assetsUnaffectedYes.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.replacecommsNextButton.isDisplayed()) {
-				await this.replacecommsNextButton.click();
-				await utility.wait(utility.very_low);
-			}
-		}
 	}
 
 	public async fill16commsdtls_InstallAndLeave() {
-		await utility.wait(utility.low);
-		if (await this.commshubconnectedtoSupply.isDisplayed()) {
-			await this.commshubconnectedtoSupplyY.click();
-		}
-		await utility.wait(utility.low);
-		if (await this.commshubconnectedtoSWan.isDisplayed()) {
-			await this.commshubconnectedtoWanY.click();
-		}
-		await utility.wait(utility.low);
-		if (await this.commshubconnectedtoAssetY.isDisplayed()) {
-			await this.commshubconnectedtoAssetY.click();
-		}
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubconnectedtoSupply, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubconnectedtoSWan, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubconnectedtoAssetY, utility.medium);
+
 	}
 
 
 
 	public async fillReplaceCommshubdetails_EXCH23(index: number) {
 
-		if (await this.commshubReplacedyes.isDisplayed()) {
-			await utility.wait(utility.low);
-			// click the dropdown
-			this.commshubReplacedyes.click()
-			browser.sleep(1000)
-			//index = index ;
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await utility.wait(utility.low);
-			await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.low);
-			await this.commshubPopup.click();
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubReplacedyes, utility.medium);
+		browser.sleep(1000)
+		console.log("Selecting element based index : " + index)
+		await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		await expect(await this.CHFID.isDisplayed());
+		var options = this.selectinstallAssetOption.getAttribute('value');
+		console.log(options);
+		await utility.wait(utility.medium_low);
+		await this.CHFID.clear();
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.CHFID, utility.medium, options);
+		await utility.wait(utility.low);
 
-			await expect(await this.CHFID.isPresent());
-			var options = this.selectinstallAssetOption.getAttribute('value');
-			console.log(options);
-			await utility.wait(utility.medium_low);
-			await this.CHFID.clear();
-			await utility.wait(utility.very_low);
-			await this.CHFID.sendKeys(options);
-			await utility.wait(utility.low);
-			await this.dummydiv2.click();
-			await utility.wait(utility.medium_low);
-			await this.commshubPopup.click();
-			await utility.wait(utility.low);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.dummydiv2, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.commshubLocation, utility.medium, "A");
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.aerialInstalled, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.commshubConnectionMethod, utility.medium, "0");
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.cradleSerialNo, utility.medium, '12345');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommsCapturePhoto, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommshubNowan, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.replacecommsPremiseType, utility.medium, "2");
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.metalObstructionYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.sharedObstructionNo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.connectivityObstructionNo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.confirmInstallAndLeaveYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.assetsUnaffectedYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommsNextButton, utility.medium);
 
-			if (await this.commshubLocation.isDisplayed()) {
-				var select = this.commshubLocation;
-				select.$('[value="A"]').click();
-			}
-			await utility.wait(utility.low);
-
-			if (await this.aerialInstalled.isDisplayed()) {
-				await this.aerialInstalled.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.commshubConnectionMethod.isDisplayed()) {
-				var select = this.commshubConnectionMethod;
-				select.$('[value="0"]').click();
-			}
-			await utility.wait(utility.low);
-			await utility.wait(utility.medium_low);
-			await this.cradleSerialNo.clear();
-			await utility.wait(utility.very_low);
-			await this.cradleSerialNo.sendKeys('12345');
-			await utility.wait(utility.low);
-
-			if (await this.replacecommsCapturePhoto.isDisplayed()) {
-				await this.replacecommsCapturePhoto.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.replacecommshubNowan.isDisplayed()) {
-				await this.replacecommshubNowan.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.replacecommsPremiseType.isDisplayed()) {
-				var select = this.replacecommsPremiseType;
-				select.$('[value="2"]').click();
-				await utility.wait(utility.low);
-			}
-			if (await this.metalObstructionYes.isDisplayed()) {
-				await this.metalObstructionYes.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.sharedObstructionNo.isDisplayed()) {
-				await this.sharedObstructionNo.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.connectivityObstructionNo.isDisplayed()) {
-				await this.connectivityObstructionNo.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.confirmInstallAndLeaveYes.isDisplayed()) {
-				await this.confirmInstallAndLeaveYes.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.assetsUnaffectedYes.isDisplayed()) {
-				await this.assetsUnaffectedYes.click();
-				await utility.wait(utility.very_low);
-			}
-
-			if (await this.replacecommsNextButton.isDisplayed()) {
-				await this.replacecommsNextButton.click();
-				await utility.wait(utility.very_low);
-			}
-		}
 	}
+
 
 
 	public async fillReplaceCommshubdetails_ENMEX(index: number) {
 
-		if (await this.commshubReplacedyes.isDisplayed()) {
-			await utility.wait(utility.low);
-			// click the dropdown
-			this.commshubReplacedyes.click()
-			browser.sleep(1000)
-			//index = index ;
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await utility.wait(utility.low);
-			await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.low);
-			await this.commshubPopup.click();
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubReplacedyes, utility.medium);
+		browser.sleep(1000)
+		console.log("Selecting element based index : " + index)
+		await utility.wait(utility.medium);
+		await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		await expect(await this.CHFID.isDisplayed());
+		var options = this.selectinstallAssetOption.getAttribute('value');
+		console.log(options);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.CHFID, utility.medium, options);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.dummydiv3, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.commshubLocation, utility.medium, "A");
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.aerialInstalled, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.commshubConnectionMethod, utility.medium, "0");
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.cradleSerialNo, utility.medium, '12345');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommsCapturePhoto, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommshubNowan, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.replacecommsPremiseType, utility.medium, "2");
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.metalObstructionYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.sharedObstructionNo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.connectivityObstructionNo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.confirmInstallAndLeaveYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.assetsUnaffectedYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.replacecommsNextButton, utility.medium);
 
-			await expect(await this.CHFID.isPresent());
-			var options = this.selectinstallAssetOption.getAttribute('value');
-			console.log(options);
-			await utility.wait(utility.medium_low);
-			await this.CHFID.clear();
-			await utility.wait(utility.very_low);
-			await this.CHFID.sendKeys(options);
-			await utility.wait(utility.low);
-			await this.dummydiv3.click();
-			await utility.wait(utility.medium_low);
-			await this.commshubPopup.click();
-			await utility.wait(utility.low);
 
-			if (await this.commshubLocation.isDisplayed()) {
-				var select = this.commshubLocation;
-				select.$('[value="A"]').click();
-			}
-			await utility.wait(utility.low);
-
-			if (await this.aerialInstalled.isDisplayed()) {
-				await this.aerialInstalled.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.commshubConnectionMethod.isDisplayed()) {
-				var select = this.commshubConnectionMethod;
-				select.$('[value="0"]').click();
-			}
-			await utility.wait(utility.low);
-			await utility.wait(utility.medium_low);
-			await this.cradleSerialNo.clear();
-			await utility.wait(utility.very_low);
-			await this.cradleSerialNo.sendKeys('12345');
-			await utility.wait(utility.low);
-
-			if (await this.replacecommsCapturePhoto.isDisplayed()) {
-				await this.replacecommsCapturePhoto.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.replacecommshubNowan.isDisplayed()) {
-				await this.replacecommshubNowan.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.replacecommsPremiseType.isDisplayed()) {
-				var select = this.replacecommsPremiseType;
-				select.$('[value="2"]').click();
-				await utility.wait(utility.low);
-			}
-			if (await this.metalObstructionYes.isDisplayed()) {
-				await this.metalObstructionYes.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.sharedObstructionNo.isDisplayed()) {
-				await this.sharedObstructionNo.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.connectivityObstructionNo.isDisplayed()) {
-				await this.connectivityObstructionNo.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.confirmInstallAndLeaveYes.isDisplayed()) {
-				await this.confirmInstallAndLeaveYes.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.assetsUnaffectedYes.isDisplayed()) {
-				await this.assetsUnaffectedYes.click();
-				await utility.wait(utility.very_low);
-			}
-
-			if (await this.replacecommsNextButton.isDisplayed()) {
-				await this.replacecommsNextButton.click();
-				await utility.wait(utility.very_low);
-			}
-		}
 	}
 
 	public async fillReplaceCommshubdetails_EXCH19(index: number) {
 
-		if (await this.commshubReplacedyes_1.isDisplayed()) {
-			await utility.wait(utility.low);
-			// click the dropdown
-			this.commshubReplacedyes_1.click()
-			browser.sleep(1000)
-			//index = index ;
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await utility.wait(utility.low);
-			await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.low);
-			await this.commshubPopup.click();
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubReplacedyes_1, utility.medium);
+		browser.sleep(1000)
+		console.log("Selecting element based index : " + index)
+		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		await expect(await this.CHFID_1.isDisplayed());
+		var options = this.selectinstallAssetOption_1.getAttribute('value');
+		console.log(options);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.CHFID_1, utility.medium, options);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.dummydiv1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.commshubLocation_1, utility.medium, "A");
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.aerialInstalled_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.commshubConnectionMethod_1, utility.medium, "1");
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.cradleSerialNo_1, utility.medium, '12345');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommsCapturePhoto_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommshubNowan_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.replacecommsPremiseType_1, utility.medium, "2");
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.metalObstructionYes_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.sharedObstructionNo_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.connectivityObstructionNo_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.confirmInstallAndLeaveYes_1, utility.medium);;
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommsNextButton_1, utility.medium);
 
-			await expect(await this.CHFID_1.isPresent());
-			var options = this.selectinstallAssetOption_1.getAttribute('value');
-			console.log(options);
-			await utility.wait(utility.medium_low);
-			await this.CHFID_1.clear();
-			await utility.wait(utility.very_low);
-			await this.CHFID_1.sendKeys(options);
-			await utility.wait(utility.low);
-			await this.dummydiv1.click();
-			await utility.wait(utility.medium_low);
-			await this.commshubPopup.click();
-			await utility.wait(utility.low);
 
-			if (await this.commshubLocation_1.isDisplayed()) {
-				var select = this.commshubLocation_1;
-				select.$('[value="A"]').click();
-			}
-			await utility.wait(utility.low);
 
-			if (await this.aerialInstalled_1.isDisplayed()) {
-				await this.aerialInstalled_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.commshubConnectionMethod_1.isDisplayed()) {
-				var select = this.commshubConnectionMethod_1;
-				select.$('[value="1"]').click();
-			}
-			await utility.wait(utility.low);
-			await utility.wait(utility.medium_low);
-			await this.cradleSerialNo_1.clear();
-			await utility.wait(utility.very_low);
-			await this.cradleSerialNo_1.sendKeys('12345');
-			await utility.wait(utility.low);
-
-			if (await this.replacecommsCapturePhoto_1.isDisplayed()) {
-				await this.replacecommsCapturePhoto_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.replacecommshubNowan_1.isDisplayed()) {
-				await this.replacecommshubNowan_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.replacecommsPremiseType_1.isDisplayed()) {
-				var select = this.replacecommsPremiseType_1;
-				select.$('[value="2"]').click();
-				await utility.wait(utility.low);
-			}
-			if (await this.metalObstructionYes_1.isDisplayed()) {
-				await this.metalObstructionYes_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.sharedObstructionNo_1.isDisplayed()) {
-				await this.sharedObstructionNo_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.connectivityObstructionNo_1.isDisplayed()) {
-				await this.connectivityObstructionNo_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.confirmInstallAndLeaveYes_1.isDisplayed()) {
-				await this.confirmInstallAndLeaveYes_1.click();
-				await utility.wait(utility.very_low);
-			}
-
-			if (await this.replacecommsNextButton_1.isDisplayed()) {
-				await this.replacecommsNextButton_1.click();
-				await utility.wait(utility.very_low);
-			}
-		}
 	}
 
 	public async fillReplaceCommshubdetails_GNMEX(index: number) {
 
-		if (await this.commshubReplacedyes_1.isDisplayed()) {
-			await utility.wait(utility.low);
-			// click the dropdown
-			this.commshubReplacedyes_1.click()
-			browser.sleep(1000)
-			//index = index ;
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await utility.wait(utility.low);
-			await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.low);
-			await this.commshubPopup.click();
 
-			await expect(await this.CHFID_1.isPresent());
-			var options = this.selectinstallAssetOption_1.getAttribute('value');
-			console.log(options);
-			await utility.wait(utility.medium_low);
-			await this.CHFID_1.clear();
-			await utility.wait(utility.very_low);
-			await this.CHFID_1.sendKeys(options);
-			await utility.wait(utility.low);
-			await this.dummydiv3.click();
-			await utility.wait(utility.medium_low);
-			await this.commshubPopup.click();
-			await utility.wait(utility.low);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubReplacedyes_1, utility.medium);
+		browser.sleep(1000)
+		console.log("Selecting element based index : " + index)
+		await utility.wait(utility.medium);
+		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		await utility.wait(utility.medium);
+		await expect(await this.CHFID_1.isDisplayed());
+		var options = this.selectinstallAssetOption_1.getAttribute('value');
+		console.log(options);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.CHFID_1, utility.medium, options);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.dummydiv3, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.commshubLocation_1, utility.medium, "A");
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.aerialInstalled_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.commshubConnectionMethod_1, utility.medium, '1');
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.cradleSerialNo_1, utility.medium, '12345');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommsCapturePhoto_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommshubNowan_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.replacecommsPremiseType_1, utility.medium, "2");
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.metalObstructionYes_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.sharedObstructionNo_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.connectivityObstructionNo_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.confirmInstallAndLeaveYes_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommsNextButton_1, utility.medium);
 
-			if (await this.commshubLocation_1.isDisplayed()) {
-				var select = this.commshubLocation_1;
-				select.$('[value="A"]').click();
-			}
-			await utility.wait(utility.low);
 
-			if (await this.aerialInstalled_1.isDisplayed()) {
-				await this.aerialInstalled_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.commshubConnectionMethod_1.isDisplayed()) {
-				var select = this.commshubConnectionMethod_1;
-				select.$('[value="1"]').click();
-			}
-			await utility.wait(utility.low);
-			await utility.wait(utility.medium_low);
-			await this.cradleSerialNo_1.clear();
-			await utility.wait(utility.very_low);
-			await this.cradleSerialNo_1.sendKeys('12345');
-			await utility.wait(utility.low);
-
-			if (await this.replacecommsCapturePhoto_1.isDisplayed()) {
-				await this.replacecommsCapturePhoto_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.replacecommshubNowan_1.isDisplayed()) {
-				await this.replacecommshubNowan_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.replacecommsPremiseType_1.isDisplayed()) {
-				var select = this.replacecommsPremiseType_1;
-				select.$('[value="2"]').click();
-				await utility.wait(utility.low);
-			}
-			if (await this.metalObstructionYes_1.isDisplayed()) {
-				await this.metalObstructionYes_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.sharedObstructionNo_1.isDisplayed()) {
-				await this.sharedObstructionNo_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.connectivityObstructionNo_1.isDisplayed()) {
-				await this.connectivityObstructionNo_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.confirmInstallAndLeaveYes_1.isDisplayed()) {
-				await this.confirmInstallAndLeaveYes_1.click();
-				await utility.wait(utility.very_low);
-			}
-
-			if (await this.replacecommsNextButton_1.isDisplayed()) {
-				await this.replacecommsNextButton_1.click();
-				await utility.wait(utility.very_low);
-			}
-		}
 	}
 
 	public async fillReplaceCommshubdetails_EXCH22(index: number) {
 
-		if (await this.commshubReplacedyes_1.isDisplayed()) {
-			await utility.wait(utility.low);
-			// click the dropdown
-			this.commshubReplacedyes_1.click()
-			browser.sleep(1000)
-			//index = index ;
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await utility.wait(utility.low);
-			await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.low);
-			await this.commshubPopup.click();
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubReplacedyes_1, utility.medium);
+		browser.sleep(1000)
+		console.log("Selecting element based index : " + index)
+		await utility.wait(utility.medium);
+		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		await expect(await this.CHFID_1.isDisplayed());
+		var options = this.selectinstallAssetOption_1.getAttribute('value');
+		console.log(options);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.CHFID_1, utility.medium, options);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.dummydiv, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.commshubLocation_1, utility.medium, 'A');
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.aerialInstalled_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.commshubConnectionMethod_1, utility.medium, '1');
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.cradleSerialNo_1, utility.medium, '12345');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommsCapturePhoto_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.replacecommshubNowan_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.replacecommsPremiseType_1, utility.medium, '2');
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.metalObstructionYes_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.sharedObstructionNo_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.connectivityObstructionNo_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.confirmInstallAndLeaveYes_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommsNextButton_1, utility.medium);
 
-			await expect(await this.CHFID_1.isPresent());
-			var options = this.selectinstallAssetOption_1.getAttribute('value');
-			console.log(options);
-			await utility.wait(utility.medium_low);
-			await this.CHFID_1.clear();
-			await utility.wait(utility.very_low);
-			await this.CHFID_1.sendKeys(options);
-			await utility.wait(utility.low);
-			await this.dummydiv.click();
-			await utility.wait(utility.medium_low);
-			await this.commshubPopup.click();
-			await utility.wait(utility.low);
-
-			if (await this.commshubLocation_1.isDisplayed()) {
-				var select = this.commshubLocation_1;
-				select.$('[value="A"]').click();
-			}
-			await utility.wait(utility.low);
-
-			if (await this.aerialInstalled_1.isDisplayed()) {
-				await this.aerialInstalled_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.commshubConnectionMethod_1.isDisplayed()) {
-				var select = this.commshubConnectionMethod_1;
-				select.$('[value="1"]').click();
-			}
-			await utility.wait(utility.low);
-			await utility.wait(utility.medium_low);
-			await this.cradleSerialNo_1.clear();
-			await utility.wait(utility.very_low);
-			await this.cradleSerialNo_1.sendKeys('12345');
-			await utility.wait(utility.low);
-
-			if (await this.replacecommsCapturePhoto_1.isDisplayed()) {
-				await this.replacecommsCapturePhoto_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.replacecommshubNowan_1.isDisplayed()) {
-				await this.replacecommshubNowan_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.replacecommsPremiseType_1.isDisplayed()) {
-				var select = this.replacecommsPremiseType_1;
-				select.$('[value="2"]').click();
-				await utility.wait(utility.low);
-			}
-			if (await this.metalObstructionYes_1.isDisplayed()) {
-				await this.metalObstructionYes_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.sharedObstructionNo_1.isDisplayed()) {
-				await this.sharedObstructionNo_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.connectivityObstructionNo_1.isDisplayed()) {
-				await this.connectivityObstructionNo_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.confirmInstallAndLeaveYes_1.isDisplayed()) {
-				await this.confirmInstallAndLeaveYes_1.click();
-				await utility.wait(utility.very_low);
-			}
-
-			if (await this.replacecommsNextButton_1.isDisplayed()) {
-				await this.replacecommsNextButton_1.click();
-				await utility.wait(utility.very_low);
-			}
-		}
 	}
 
 	public async fillReplaceCommshubdetails_FLTY20(index: number) {
 
-		if (await this.commshubReplacedyes_1.isDisplayed()) {
-			await utility.wait(utility.low);
-			// click the dropdown
-			this.commshubReplacedyes_1.click()
-			browser.sleep(1000)
-			//index = index ;
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await utility.wait(utility.low);
-			await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.low);
-			await this.commshubPopup.click();
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubReplacedyes_1, utility.medium);
+		browser.sleep(1000)
+		//index = index ;
+		console.log("Selecting element based index : " + index)
+		// select the option
+		await utility.wait(utility.low);
+		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.low);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		await expect(await this.CHFID_1.isDisplayed());
+		var options = this.selectinstallAssetOption_1.getAttribute('value');
+		console.log(options);
+		await this.CHFID_1.clear();
+		Gen.SendKeys(this.CHFID_1, utility.medium, options);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.dummydiv, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.commshubLocation_1, utility.medium, 'A');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.aerialInstalled_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.commshubConnectionMethod_1, utility.medium, "0");
+		await utility.wait(utility.medium);
+		await this.cradleSerialNo_1.clear();
+		Gen.SendKeys(this.cradleSerialNo_1, utility.medium, '12345');
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.replacecommsCapturePhoto_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.replacecommshubNowan_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.replacecommsPremiseType_1, utility.medium, "2");
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.metalObstructionYes_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.sharedObstructionNo_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.connectivityObstructionNo_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.confirmInstallAndLeaveYes_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.replacecommsNextButton_1, utility.medium);
+		await utility.wait(utility.medium);
 
-			await expect(await this.CHFID_1.isPresent());
-			var options = this.selectinstallAssetOption_1.getAttribute('value');
-			console.log(options);
-			await utility.wait(utility.medium_low);
-			await this.CHFID_1.clear();
-			await utility.wait(utility.very_low);
-			await this.CHFID_1.sendKeys(options);
-			await utility.wait(utility.low);
-			await this.dummydiv.click();
-			await utility.wait(utility.medium_low);
-			await this.commshubPopup.click();
-			await utility.wait(utility.low);
 
-			if (await this.commshubLocation_1.isDisplayed()) {
-				var select = this.commshubLocation_1;
-				select.$('[value="A"]').click();
-			}
-			await utility.wait(utility.low);
-
-			if (await this.aerialInstalled_1.isDisplayed()) {
-				await this.aerialInstalled_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.commshubConnectionMethod_1.isDisplayed()) {
-				var select = this.commshubConnectionMethod_1;
-				select.$('[value="0"]').click();
-			}
-			await utility.wait(utility.low);
-			await utility.wait(utility.medium_low);
-			await this.cradleSerialNo_1.clear();
-			await utility.wait(utility.very_low);
-			await this.cradleSerialNo_1.sendKeys('12345');
-			await utility.wait(utility.low);
-
-			if (await this.replacecommsCapturePhoto_1.isDisplayed()) {
-				await this.replacecommsCapturePhoto_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.replacecommshubNowan_1.isDisplayed()) {
-				await this.replacecommshubNowan_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.replacecommsPremiseType_1.isDisplayed()) {
-				var select = this.replacecommsPremiseType_1;
-				select.$('[value="2"]').click();
-				await utility.wait(utility.low);
-			}
-			if (await this.metalObstructionYes_1.isDisplayed()) {
-				await this.metalObstructionYes_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.sharedObstructionNo_1.isDisplayed()) {
-				await this.sharedObstructionNo_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.connectivityObstructionNo_1.isDisplayed()) {
-				await this.connectivityObstructionNo_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.confirmInstallAndLeaveYes_1.isDisplayed()) {
-				await this.confirmInstallAndLeaveYes_1.click();
-				await utility.wait(utility.very_low);
-			}
-
-			if (await this.replacecommsNextButton_1.isDisplayed()) {
-				await this.replacecommsNextButton_1.click();
-				await utility.wait(utility.very_low);
-			}
-		}
 	}
 
 	public async fillReplaceCommshubdetails_FLTYTRAD(index: number) {
 
-		if (await this.commshubReplacedyes_1.isDisplayed()) {
-			await utility.wait(utility.low);
-			// click the dropdown
-			this.commshubReplacedyes_1.click()
-			browser.sleep(1000)
-			//index = index ;
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await utility.wait(utility.low);
-			await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.low);
-			await this.commshubPopup.click();
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.commshubReplacedyes_1, utility.medium);
+		browser.sleep(1000)
+		//index = index ;
+		console.log("Selecting element based index : " + index)
+		// select the option
+		await utility.wait(utility.low);
+		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.low);
 
-			await expect(await this.CHFID_1.isPresent());
-			var options = this.selectinstallAssetOption_1.getAttribute('value');
-			console.log(options);
-			await utility.wait(utility.medium_low);
-			await this.CHFID_1.clear();
-			await utility.wait(utility.very_low);
-			await this.CHFID_1.sendKeys(options);
-			await utility.wait(utility.low);
-			await this.dummydiv2.click();
-			await utility.wait(utility.medium_low);
-			await this.commshubPopup.click();
-			await utility.wait(utility.low);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.commshubPopup, utility.medium);
+		await expect(await this.CHFID_1.isDisplayed());
+		var options = this.selectinstallAssetOption_1.getAttribute('value');
+		console.log(options);		
+		await utility.wait(utility.medium);		
+		Gen.SendKeys(this.CHFID_1, utility.medium, options);
+		await utility.wait(utility.low);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.dummydiv2, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortAppointment, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.commshubLocation_1, utility.medium, "A");
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.aerialInstalled_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.commshubConnectionMethod_1, utility.medium, "0");
+		await utility.wait(utility.medium);
+		await this.cradleSerialNo_1.clear();
+		Gen.SendKeys(this.cradleSerialNo_1, utility.medium, '12345');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommsCapturePhoto_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.replacecommshubNowan_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.replacecommsPremiseType_1, utility.medium, "2");
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.metalObstructionYes_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.sharedObstructionNo_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.connectivityObstructionNo_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.confirmInstallAndLeaveYes_1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.replacecommsNextButton_1, utility.medium);
+		await utility.wait(utility.medium);
 
-			if (await this.commshubLocation_1.isDisplayed()) {
-				var select = this.commshubLocation_1;
-				select.$('[value="A"]').click();
-			}
-			await utility.wait(utility.low);
-
-			if (await this.aerialInstalled_1.isDisplayed()) {
-				await this.aerialInstalled_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.commshubConnectionMethod_1.isDisplayed()) {
-				var select = this.commshubConnectionMethod_1;
-				select.$('[value="0"]').click();
-			}
-			await utility.wait(utility.low);
-			await utility.wait(utility.medium_low);
-			await this.cradleSerialNo_1.clear();
-			await utility.wait(utility.very_low);
-			await this.cradleSerialNo_1.sendKeys('12345');
-			await utility.wait(utility.low);
-
-			if (await this.replacecommsCapturePhoto_1.isDisplayed()) {
-				await this.replacecommsCapturePhoto_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.replacecommshubNowan_1.isDisplayed()) {
-				await this.replacecommshubNowan_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.replacecommsPremiseType_1.isDisplayed()) {
-				var select = this.replacecommsPremiseType_1;
-				select.$('[value="2"]').click();
-				await utility.wait(utility.low);
-			}
-			if (await this.metalObstructionYes_1.isDisplayed()) {
-				await this.metalObstructionYes_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.sharedObstructionNo_1.isDisplayed()) {
-				await this.sharedObstructionNo_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.connectivityObstructionNo_1.isDisplayed()) {
-				await this.connectivityObstructionNo_1.click();
-				await utility.wait(utility.very_low);
-			}
-			if (await this.confirmInstallAndLeaveYes_1.isDisplayed()) {
-				await this.confirmInstallAndLeaveYes_1.click();
-				await utility.wait(utility.very_low);
-			}
-
-			if (await this.replacecommsNextButton_1.isDisplayed()) {
-				await this.replacecommsNextButton_1.click();
-				await utility.wait(utility.very_low);
-			}
-		}
 	}
 	//###########################CGP ADDED FOR PRE GAS ABORT#####################
 
 	public async fillPreGasAbortTST136() {
 
-		if (await this.preGASinstallN.isDisplayed()) {
-			await this.preGASinstallN.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.abortPreGas.isDisplayed()) {
-			await this.abortPreGas.click();
-		}
-		await utility.wait(utility.very_low);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.preGASinstallN, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortPreGas, utility.medium);
 
 	}
 
@@ -2602,234 +1962,147 @@ export class AbortPageObject {
 	}
 
 	public async selectreasonOptionAndAbortPreGas(xpathparam, notesstring, buttonText) {
+
 		this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
-		await utility.wait(utility.low);
-		if (this.GenericReasonCodeSelect.isDisplayed()) {
-			await this.GenericReasonCodeSelect.click();
-		}
-		await utility.wait(utility.very_low);
-		if (this.abortAddNotes.isDisplayed()) {
-			await this.abortAddNotes.sendKeys(notesstring);
-
-		}
-		await utility.wait(utility.very_low);
-		if (this.abortCapturePhoto.isDisplayed()) {
-			await this.abortCapturePhoto.click();
-		}
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.GenericReasonCodeSelect, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.abortAddNotes, utility.medium, notesstring);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortCapturePhoto, utility.medium);
 		this.buttonTextVal = element(by.xpath('//button[@id ="' + buttonText + '"]'));
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.buttonTextVal, utility.medium);
 
-		await utility.wait(utility.very_low);
-		if (this.buttonTextVal.isDisplayed()) {
-			await this.buttonTextVal.click();
-		}
-		await utility.wait(utility.very_low);
 	}
 
 	public async reScanAssetPopupclick() {
 
-		if (await this.RescanAssetPopUp.isDisplayed()) {
-			await this.RescanAssetPopUp.click();
-		}
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.RescanAssetPopUp, utility.medium);
+
 	}
 
 	public async fillConfigAllmeterAbort() {
+
 		await utility.wait(utility.medium);
-		if (this.FullWANYes.isDisplayed()) {
-			await this.FullWANYes.click();
-		}
-		if (this.FullCOnfigAppliedElecYes.isDisplayed()) {
-			await this.FullCOnfigAppliedElecYes.click();
-		}
-		await utility.wait(utility.low);
-		if (this.checkDetails.isDisplayed()) {
-			await this.checkDetails.click();
-		}
-		await utility.wait(utility.low);
-		if (this.fullConfigAppliedPPMIDYesAbort.isDisplayed()) {
-			await this.fullConfigAppliedPPMIDYesAbort.click();
-		}
-		if (this.capturePPMIDBtn.isDisplayed()) {
-			await this.capturePPMIDBtn.click();
-		}
-		await utility.wait(utility.low);
-		if (this.nextButtonWAN.isDisplayed()) {
-			await this.nextButtonWAN.click();
-		}
+		Gen.RadioButtonClick(this.FullWANYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.FullCOnfigAppliedElecYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.FullWANYes, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.checkDetails, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.fullConfigAppliedPPMIDYesAbort, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.capturePPMIDBtn, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.nextButtonWAN, utility.medium);
+
 	}
 
 	public async fillPreGasAbortTST35() {
-		if (await this.preGASinstallN.isDisplayed()) {
-			await this.preGASinstallN.click();
-		}
+
 		await utility.wait(utility.medium);
-		if (await this.abortBtn.isDisplayed()) {
-			console.log('Abort Button');
-			await this.abortBtn.click();
-			console.log('Abort Button Clicked');
-
-		}
-		await utility.wait(utility.very_low);
-
+		Gen.RadioButtonClick(this.preGASinstallN, utility.medium);
+		await utility.wait(utility.medium);
+		console.log('Abort Button');
+		Gen.ButtonClick(this.abortBtn, utility.medium);
+		console.log('Abort Button Clicked');
+		await utility.wait(utility.medium);
 	}
 
 	public async Tst22fillElecmeterrem() {
-		await utility.wait(utility.low);
-		if (await this.RemoveElecAssetrplacedorremoved.isDisplayed()) {
-			await this.RemoveElecAssetrplacedorremoved.click();
-		}
-		await utility.wait(utility.low);
-		if (await this.statusofElecAssetSelect.isDisplayed()) {
-			var select = this.statusofElecAssetSelect;
-			await select.$('[label = "No Fault Found"]').click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.Tst22removedmeterReading.isDisplayed()) {
-			await this.Tst22removedmeterReading.clear();
-			await this.Tst22removedmeterReading.sendKeys('12345');
 
-		}
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.RemoveElecAssetrplacedorremoved, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionbyLabel(this.statusofElecAssetSelect, utility.medium, "No Fault Found");
+		await utility.wait(utility.medium_low);
+		Gen.SendKeys(this.Tst22removedmeterReading, utility.medium, '12345');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.statusofElecAssetSelect, utility.medium);
+		console.log("clicked");
 
-		await utility.wait(utility.low);
-
-		if (await this.statusofElecAssetSelect.isDisplayed()) {
-			await this.statusofElecAssetSelect.click();
-			console.log("clicked");
-		}
-		await utility.wait(utility.very_low);
 	}
 
 	public async fillCommissioningDetails_InstallLeave() {
-		if (await this.nonserealizedAssetDD.isDisplayed()) {
-			await utility.wait(utility.low);
-			var select = this.nonserealizedAssetDD;
-			select.$('[value="1"]').click();
-		}
-		await expect(await this.nonserealizedAssetInput.isPresent());
-		await this.nonserealizedAssetInput.sendKeys('1');
-		await this.commsHubConnectedNo.click();
-		await utility.wait(utility.very_low);
 
-		await this.commissioningNxtBtn.click();
-		await utility.wait(utility.very_low);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(this.nonserealizedAssetDD, utility.medium, "1");
+		await expect(await this.nonserealizedAssetInput.isDisplayed());
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.nonserealizedAssetInput, utility.medium, '1');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commsHubConnectedNo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commissioningNxtBtn, utility.medium);
+
 	}
 
 	public async fillCommissioningDetails_FLTYInstallLeave() {
-		if (await this.dccmsgRequired.isDisplayed()) {
-			await utility.wait(utility.low);
-			await this.dccmsgRequired.click();
-		}
-		await this.commHubConnected_FLTY.click();
-		await utility.wait(utility.very_low);
 
-		await this.commissioningNxtBtn_FLTY.click();
-		await utility.wait(utility.very_low);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.dccmsgRequired, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(this.commHubConnected_FLTY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.commissioningNxtBtn_FLTY, utility.medium);
+
 	}
 
 
 	public async fillperformpostinstAbortNonS2() {
-		await utility.wait(utility.Avg_low);
-		if (await inst.ContactGTY.isDisplayed()) {
-			await inst.ContactGTY.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await inst.NationalGridSend.isDisplayed()) {
-			await inst.NationalGridSend.clear();
-			await inst.NationalGridSend.sendKeys("1");
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.HandSAirline.isDisplayed()) {
-			await inst.HandSAirline.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await inst.Airlineref1.isDisplayed()) {
-			await inst.Airlineref1.clear();
-			await inst.Airlineref1.sendKeys("2");
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.GTAttendenceOnsiteY.isDisplayed()) {
-			await inst.GTAttendenceOnsiteY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.GTresolveIssueY.isDisplayed()) {
-			await inst.GTresolveIssueY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.TightnessIssueY.isDisplayed()) {
-			await inst.TightnessIssueY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.cappedgascooker.isDisplayed()) {
-			await inst.cappedgascooker.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await inst.addnlnote.isDisplayed()) {
-			await inst.addnlnote.clear();
-			await inst.addnlnote.sendKeys("Gas Notes");
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.ReplacedGasMeterY.isDisplayed()) {
-			await inst.ReplacedGasMeterY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.ReplacedGasregulatorY.isDisplayed()) {
-			await inst.ReplacedGasregulatorY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.TightnessperformedY.isDisplayed()) {
-			await inst.TightnessperformedY.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.cappostinstallation.isDisplayed()) {
-			await inst.cappostinstallation.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.Dropinpressure.isDisplayed()) {
-			await inst.Dropinpressure.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await inst.dropinpressureselect.isDisplayed()) {
-			var select = inst.dropinpressureselect;
-			select.$('[value="2"]').click();
-		}
-		await utility.wait(utility.very_low);
-		if (await inst.selectMeterType.isDisplayed()) {
-			var select = inst.selectMeterType;
-			select.$('[value="2"]').click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.GasTightnessPassed.isDisplayed()) {
-			await inst.GasTightnessPassed.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await inst.TestWitness.isDisplayed()) {
-			await inst.TestWitness.clear();
-			await inst.TestWitness.sendKeys("Ellie Taylor");
-		}
-		await utility.wait(utility.very_low);
-		if (await inst.standingPressure.isDisplayed()) {
-			await inst.standingPressure.clear();
-			await inst.standingPressure.sendKeys("1.1");
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.cappostinstallationpressure.isDisplayed()) {
-			await inst.cappostinstallationpressure.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await inst.workingPressure.isDisplayed()) {
-			await inst.workingPressure.clear();
-			await inst.workingPressure.sendKeys("1.5");
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.captureworkingPressure.isDisplayed()) {
-			await inst.captureworkingPressure.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.captureFinalMeterInstall.isDisplayed()) {
-			await inst.captureFinalMeterInstall.click();
-		}
-		await utility.wait(utility.Avg_low);
-		if (await inst.PostinstallNext.isDisplayed()) {
-			await inst.PostinstallNext.click();
-		}
+
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.ContactGTY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(inst.NationalGridSend, utility.medium, "1");
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.HandSAirline, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(inst.Airlineref1, utility.medium, "2");
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.GTAttendenceOnsiteY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.GTresolveIssueY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.TightnessIssueY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.cappedgascooker, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(inst.addnlnote, utility.medium, "Gas Notes");
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.ReplacedGasMeterY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.ReplacedGasregulatorY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.TightnessperformedY, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.cappostinstallation, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RadioButtonClick(inst.Dropinpressure, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(inst.dropinpressureselect, utility.medium, "2");
+		await utility.wait(utility.medium);
+		Gen.DropDownOptionClick(inst.selectMeterType, utility.medium, "2");
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(inst.GasTightnessPassed, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(inst.TestWitness, utility.medium, "Ellie Taylor");
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.abortAddNotes, utility.medium, "1.1");
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(inst.cappostinstallationpressure, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeys(inst.workingPressure, utility.medium, "1.5");
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(inst.captureworkingPressure, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(inst.captureFinalMeterInstall, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(inst.PostinstallNext, utility.medium);
 	}
+
 }

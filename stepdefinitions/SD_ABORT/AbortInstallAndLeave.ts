@@ -201,14 +201,14 @@ When('I fill the InstallAndLeave Remove meter values for EXCH23', async function
 
   When('I fill the InstallAndLeave New Regulator values', async function () {
 
-	await installleave.newregulatorsection_EXCH24();
+	await installleave.newregulatorsection_EXCH24(2);
 	
   });
 
 
   When('I fill the FLTY InstallAndLeave New Regulator values', async function () {
 
-	await installleave.newregulatorsection_FLTYTRAD();
+	await installleave.newregulatorsection_FLTYTRAD(2);
 	
   });
 
