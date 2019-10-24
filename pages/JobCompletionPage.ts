@@ -1109,26 +1109,37 @@ public async FinalSubmission1(){
 		});
 	}
 	public async fillfield55duelenergyeff() {
-		await utility.wait(utility.very_low);
-		if (await this.energyeffinfoProvided.isDisplayed()) {
-			await this.energyeffinfoProvided.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.EngeffDocLeft.isDisplayed()) {
-			await this.EngeffDocLeft.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.IsCustomerhappy.isDisplayed()) {
-			await this.IsCustomerhappy.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.additionaleneinfoReq.isDisplayed()) {
-			await this.additionaleneinfoReq.click();
-		}
-		await utility.wait(utility.very_low);
-		if (await this.EnergyeffNext.isDisplayed()) {
-			await this.EnergyeffNext.click();
-		}
+		await utility.wait(utility.medium);
+		await browser.executeScript('arguments[0].scrollIntoView();', this.energyeffinfoProvided.getWebElement());
+		await browser.executeScript("arguments[0].click();", this.energyeffinfoProvided.getWebElement());
+		await utility.wait(utility.medium);
+		await browser.executeScript('arguments[0].scrollIntoView();', this.IsCustomerhappy.getWebElement());
+		await browser.executeScript("arguments[0].click();", this.IsCustomerhappy.getWebElement());
+		await utility.wait(utility.medium);
+		await browser.executeScript('arguments[0].scrollIntoView();', this.additionaleneinfoReq.getWebElement());
+		await browser.executeScript("arguments[0].click();", this.additionaleneinfoReq.getWebElement());
+		await utility.wait(utility.medium);
+		await browser.executeScript('arguments[0].scrollIntoView();', this.EnergyeffNext.getWebElement());
+        await browser.executeScript("arguments[0].click();", this.EnergyeffNext.getWebElement());
+		// if (await this.energyeffinfoProvided.isDisplayed()) {
+		// 	await this.energyeffinfoProvided.click();
+		// }
+		// await utility.wait(utility.very_low);
+		// if (await this.EngeffDocLeft.isDisplayed()) {
+		// 	await this.EngeffDocLeft.click();
+		// }
+		// await utility.wait(utility.very_low);
+		// if (await this.IsCustomerhappy.isDisplayed()) {
+		// 	await this.IsCustomerhappy.click();
+		// }
+		// await utility.wait(utility.very_low);
+		// if (await this.additionaleneinfoReq.isDisplayed()) {
+		// 	await this.additionaleneinfoReq.click();
+		// }
+		// await utility.wait(utility.very_low);
+		// if (await this.EnergyeffNext.isDisplayed()) {
+		// 	await this.EnergyeffNext.click();
+		// }
 	}
 	public async smartEducation() {
 		await utility.wait(utility.very_low);

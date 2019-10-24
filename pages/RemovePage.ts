@@ -1906,22 +1906,33 @@ public async fillElectricAssetRemovalSection(){
    
     //TST12_FLTY GAS
     public async Tst12fill16commsdtls() {
-        await utility.wait(utility.low);
-        if (await this.commshubconnectedtoSupply.isDisplayed()) {
-            await this.commshubconnectedtoSupplyY.click();
-        }
-        await utility.wait(utility.low);
-        if (await this.commshubconnectedtoSWan.isDisplayed()) {
-            await this.commshubconnectedtoWanY.click();
-        }
-        await utility.wait(utility.low);
-        if (await this.commshubconnectedtoAssetN.isDisplayed()) {
-            await this.commshubconnectedtoAssetN.click();
-        }
-        await utility.wait(utility.low);
-        if (await this.carryoutWorkontheMeterY.isDisplayed()) {
-            await this.carryoutWorkontheMeterY.click();
-        }
+		await utility.wait(utility.medium);
+		await browser.executeScript('arguments[0].scrollIntoView();', this.commshubconnectedtoSupplyY.getWebElement());
+        await browser.executeScript("arguments[0].click();", this.commshubconnectedtoSupplyY.getWebElement());
+		await utility.wait(utility.medium);
+		await browser.executeScript('arguments[0].scrollIntoView();', this.commshubconnectedtoWanY.getWebElement());
+		await browser.executeScript("arguments[0].click();", this.commshubconnectedtoWanY.getWebElement());
+		await utility.wait(utility.medium);
+		await browser.executeScript('arguments[0].scrollIntoView();', this.commshubconnectedtoAssetN.getWebElement());
+		await browser.executeScript("arguments[0].click();", this.commshubconnectedtoAssetN.getWebElement());
+		await utility.wait(utility.medium);
+		await browser.executeScript('arguments[0].scrollIntoView();', this.carryoutWorkontheMeterY.getWebElement());
+        await browser.executeScript("arguments[0].click();", this.carryoutWorkontheMeterY.getWebElement());
+		// if (await this.commshubconnectedtoSupply.isDisplayed()) {
+        //     await this.commshubconnectedtoSupplyY.click();
+        // }
+        // await utility.wait(utility.low);
+        // if (await this.commshubconnectedtoSWan.isDisplayed()) {
+        //     await this.commshubconnectedtoWanY.click();
+        // }
+        // await utility.wait(utility.low);
+        // if (await this.commshubconnectedtoAssetN.isDisplayed()) {
+        //     await this.commshubconnectedtoAssetN.click();
+        // }
+        // await utility.wait(utility.low);
+        // if (await this.carryoutWorkontheMeterY.isDisplayed()) {
+        //     await this.carryoutWorkontheMeterY.click();
+        // }
     }
     //Submit to continue with Install
     public async NexttoInstall() {

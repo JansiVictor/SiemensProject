@@ -42,5 +42,6 @@ export class loginPageObject {
     await utility.wait(utility.very_low);
     await this.clickLogin();
     await utility.wait(utility.medium);
+    await utility.wait(utility.medium);
   }
 }

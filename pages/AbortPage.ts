@@ -618,7 +618,9 @@ export class AbortPageObject {
 		this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
 		await utility.wait(utility.very_low);
 		if (this.GenericReasonCodeSelect.isDisplayed()) {
-			await this.GenericReasonCodeSelect.click();
+			//await this.GenericReasonCodeSelect.click();
+			await browser.executeScript('arguments[0].scrollIntoView();', this.GenericReasonCodeSelect.getWebElement());
+			await browser.executeScript("arguments[0].click();", this.GenericReasonCodeSelect.getWebElement());
 		}
 		try {
 			await expect(this.abortNxtbtn.isDisplayed());
@@ -873,7 +875,9 @@ export class AbortPageObject {
 		this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
 		await utility.wait(utility.very_low);
 		if (this.GenericReasonCodeSelect.isDisplayed()) {
-			await this.GenericReasonCodeSelect.click();
+			//await this.GenericReasonCodeSelect.click();
+			await browser.executeScript('arguments[0].scrollIntoView();', this.GenericReasonCodeSelect.getWebElement());
+			await browser.executeScript("arguments[0].click();", this.GenericReasonCodeSelect.getWebElement());
 		}
 		try {
 			await expect(this.abortNxtbtn.isDisplayed());
@@ -1082,7 +1086,9 @@ export class AbortPageObject {
 		this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));
 		await utility.wait(utility.very_low);
 		if (this.GenericReasonCodeSelect.isDisplayed()) {
-			await this.GenericReasonCodeSelect.click();
+			//await this.GenericReasonCodeSelect.click();
+			await browser.executeScript('arguments[0].scrollIntoView();', this.GenericReasonCodeSelect.getWebElement());
+			await browser.executeScript("arguments[0].click();", this.GenericReasonCodeSelect.getWebElement());
 		}
 		try {
 			await expect(this.abortNxtbtn.isDisplayed());
@@ -1264,9 +1270,11 @@ export class AbortPageObject {
 			await inst.TightnessIssueY.click();
 		}
 		await utility.wait(utility.Avg_low);
-		if (await inst.cappedgascooker.isDisplayed()) {
-			await inst.cappedgascooker.click();
-		}
+		await browser.executeScript('arguments[0].scrollIntoView();', this.cappedgascooker.getWebElement());
+        await browser.executeScript("arguments[0].click();", this.cappedgascooker.getWebElement());
+		// if (await inst.cappedgascooker.isDisplayed()) {
+		// 	await inst.cappedgascooker.click();
+		// }
 		await utility.wait(utility.very_low);
 		if (await inst.addnlnote.isDisplayed()) {
 			await inst.addnlnote.clear();
@@ -1535,9 +1543,11 @@ export class AbortPageObject {
 			await this.TightnessIssueY.click();
 		}
 		await utility.wait(utility.Avg_low);
-		if (await this.cappedgascooker.isDisplayed()) {
-			await this.cappedgascooker.click();
-		}
+		await browser.executeScript('arguments[0].scrollIntoView();', this.cappedgascooker.getWebElement());
+        await browser.executeScript("arguments[0].click();", this.cappedgascooker.getWebElement());
+		// if (await this.cappedgascooker.isDisplayed()) {
+		// 	await this.cappedgascooker.click();
+		// }
 		await utility.wait(utility.very_low);
 		if (await this.addnlnote.isDisplayed()) {
 			await this.addnlnote.clear();
@@ -1961,18 +1971,26 @@ export class AbortPageObject {
 	}
 
 	public async fill16commsdtls_InstallAndLeave() {
-		await utility.wait(utility.low);
-		if (await this.commshubconnectedtoSupply.isDisplayed()) {
-			await this.commshubconnectedtoSupplyY.click();
-		}
-		await utility.wait(utility.low);
-		if (await this.commshubconnectedtoSWan.isDisplayed()) {
-			await this.commshubconnectedtoWanY.click();
-		}
-		await utility.wait(utility.low);
-		if (await this.commshubconnectedtoAssetY.isDisplayed()) {
-			await this.commshubconnectedtoAssetY.click();
-		}
+		await utility.wait(utility.medium);
+		await browser.executeScript('arguments[0].scrollIntoView();', this.commshubconnectedtoSupplyY.getWebElement());
+		await browser.executeScript("arguments[0].click();", this.commshubconnectedtoSupplyY.getWebElement());
+		await utility.wait(utility.medium);
+		await browser.executeScript('arguments[0].scrollIntoView();', this.commshubconnectedtoWanY.getWebElement());
+		await browser.executeScript("arguments[0].click();", this.commshubconnectedtoWanY.getWebElement());
+		await utility.wait(utility.medium);
+		await browser.executeScript('arguments[0].scrollIntoView();', this.commshubconnectedtoAssetY.getWebElement());
+        await browser.executeScript("arguments[0].click();", this.commshubconnectedtoAssetY.getWebElement());
+		// if (await this.commshubconnectedtoSupply.isDisplayed()) {
+		// 	await this.commshubconnectedtoSupplyY.click();
+		// }
+		// await utility.wait(utility.low);
+		// if (await this.commshubconnectedtoSWan.isDisplayed()) {
+		// 	await this.commshubconnectedtoWanY.click();
+		// }
+		// await utility.wait(utility.low);
+		// if (await this.commshubconnectedtoAssetY.isDisplayed()) {
+		// 	await this.commshubconnectedtoAssetY.click();
+		// }
 	}
 
 
