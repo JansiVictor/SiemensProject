@@ -41,9 +41,10 @@ export const config: Config = {
     frameworkPath: require.resolve("protractor-cucumber-framework"),
 
     specs: [
+    
     // ********************* PHASE A END TO END SCENARIOS**********************************
 
-        "../../features/PHASE-A/EXCHANGE/*.feature",
+    //    "../../features/PHASE-A/EXCHANGE/*.feature",
     //    "../../features/PHASE-A/FAULTY_SMETS2/*.feature",
     //    "../../features/PHASE-A/FAULTY_TRAD/*.feature",
     //    "../../features/PHASE-A/INSTALLATION/*.feature",
@@ -51,44 +52,45 @@ export const config: Config = {
 
     // ********************* PHASE B ABORT SCENARIOS**********************************
 
-         "../../features/Abort/AbortGasRisk/EXCHANGE/*.feature",
-    //     "../../features/Abort/AbortGasRisk/FAULTY_SMETS2/*.feature",
-    //     "../../features/Abort/AbortGasRisk/FAULTY_TRAD/*.feature",
-    //     "../../features/Abort/AbortGasRisk/INSTALLATION/*.feature",
-    //     "../../features/Abort/AbortGasRisk/REMOVE/*.feature",
+        "../../features/Abort/AbortContactMade/EXCHANGE/TST*.feature",
+        "../../features/Abort/AbortContactMade/FAULTY_SMETS2/TST*.feature",
+        "../../features/Abort/AbortContactMade/FAULTY_TRAD/TST*.feature",
+        "../../features/Abort/AbortContactMade/INSTALLATION/TST*.feature",
+        "../../features/Abort/AbortContactMade/REMOVE/TST*.feature",
 
-    //     "../../features/Abort/AbortInitialRisk/EXCHANGE/*.feature",
-    //     "../../features/Abort/AbortInitialRisk/FAULTY_SMETS2/*.feature",
-    //     "../../features/Abort/AbortInitialRisk/FAULTY_TRAD/*.feature",
-    //     "../../features/Abort/AbortInitialRisk/INSTALLATION/*.feature",
-    //     "../../features/Abort/AbortInitialRisk/REMOVE/*.feature",
+        "../../features/Abort/AbortNoAccessSuspend/EXCHANGE/TST*.feature",
+        "../../features/Abort/AbortNoAccessSuspend/FAULTY_SMETS2/TST*.feature",
+        "../../features/Abort/AbortNoAccessSuspend/FAULTY_TRAD/TST*.feature",
+        "../../features/Abort/AbortNoAccessSuspend/INSTALLATION/TST*.feature",
+        "../../features/Abort/AbortNoAccessSuspend/REMOVE/TST*.feature",
 
-    //     "../../features/Abort/AbortContactMade/EXCHANGE/*.feature",
-    //     "../../features/Abort/AbortContactMade/FAULTY_SMETS2/*.feature",
-    //     "../../features/Abort/AbortContactMade/FAULTY_TRAD/*.feature",
-    //     "../../features/Abort/AbortContactMade/INSTALLATION/*.feature",
-    //     "../../features/Abort/AbortContactMade/REMOVE/*.feature",
+        "../../features/Abort/AbortInitialRisk/EXCHANGE/TST*.feature",
+        "../../features/Abort/AbortInitialRisk/FAULTY_SMETS2/TST*.feature",
+        "../../features/Abort/AbortInitialRisk/FAULTY_TRAD/TST*.feature",
+        "../../features/Abort/AbortInitialRisk/INSTALLATION/TST*.feature",
+        "../../features/Abort/AbortInitialRisk/REMOVE/TST*.feature",
 
-    //     "../../features/Abort/AbortNoAccessSuspend/EXCHANGE/*.feature",
-    //     "../../features/Abort/AbortNoAccessSuspend/FAULTY_SMETS2/*.feature",
-    //     "../../features/Abort/AbortNoAccessSuspend/FAULTY_TRAD/*.feature",
-    //     "../../features/Abort/AbortNoAccessSuspend/INSTALLATION/*.feature",
-    //     "../../features/Abort/AbortNoAccessSuspend/REMOVE/*.feature",
+        "../../features/Abort/AbortGasRisk/EXCHANGE/TST*.feature",
+        "../../features/Abort/AbortGasRisk/FAULTY_SMETS2/TST*.feature",
+        "../../features/Abort/AbortGasRisk/FAULTY_TRAD/TST*.feature",
+        "../../features/Abort/AbortGasRisk/INSTALLATION/TST*.feature",
+        "../../features/Abort/AbortGasRisk/REMOVE/TST*.feature",
 
-    //     "../../features/Abort/AbortElecRisk/EXCHANGE/*.feature",
-    //     "../../features/Abort/AbortElecRisk/FAULTY_SMETS2/*.feature",
-    //     "../../features/Abort/AbortElecRisk/FAULTY_TRAD/*.feature",
-    //     "../../features/Abort/AbortElecRisk/INSTALLATION/*.feature",
-    //     "../../features/Abort/AbortElecRisk/REMOVE/*.feature",
+        "../../features/Abort/AbortElecRisk/EXCHANGE/TST*.feature",
+        "../../features/Abort/AbortElecRisk/FAULTY_SMETS2/TST*.feature",
+        "../../features/Abort/AbortElecRisk/FAULTY_TRAD/TST*.feature",
+        "../../features/Abort/AbortElecRisk/INSTALLATION/TST*.feature",
+        "../../features/Abort/AbortElecRisk/REMOVE/TST*.feature",
 
-    //    "../../features/Abort/AbortInstallAndLeave/EXCHANGE/*.feature",
-    //    "../../features/Abort/AbortInstallAndLeave/FAULTY_SMETS2/*.feature",
-    //    "../../features/Abort/AbortInstallAndLeave/FAULTY_TRAD/*.feature",
-    //    "../../features/Abort/AbortInstallAndLeave/INSTALLATION/*.feature",
+         "../../features/Abort/AbortPreGasTest/EXCHANGE/TST*.feature",
+         "../../features/Abort/AbortPreGasTest/FAULTY_SMETS2/TST*.feature",
+         "../../features/Abort/AbortPreGasTest/FAULTY_TRAD/TST*.feature",
 
-    //      "../../features/Abort/AbortPreGasTest/EXCHANGE/*.feature",
-    //      "../../features/Abort/AbortPreGasTest/FAULTY_SMETS2/*.feature",
-    //      "../../features/Abort/AbortPreGasTest/FAULTY_TRAD/*.feature"
+       "../../features/Abort/AbortInstallAndLeave/EXCHANGE/TST*.feature",
+       "../../features/Abort/AbortInstallAndLeave/FAULTY_SMETS2/TST*.feature",
+       "../../features/Abort/AbortInstallAndLeave/FAULTY_TRAD/TST*.feature",
+       "../../features/Abort/AbortInstallAndLeave/INSTALLATION/TST*.feature",
+
     
     ],
 
