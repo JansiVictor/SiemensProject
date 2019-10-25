@@ -228,7 +228,9 @@ import {
     
     Given('the RmveGas INFO window with the text',async function () {
    // await riskassess.infoOKButton.isDisplayed();
-    await riskassess.infoOKButton.click();
+    //await riskassess.infoOKButton.click();
+    ///***IE Changes -21/10/19 */
+	  await riskassess.INFOOKClick();
     
     //await riskassess.performanceRiskNextBtn.click();
     
@@ -541,8 +543,10 @@ import {
     Then('I should see RmveGas Request Sent Successfully text msg XCHUB', async function () {
      // await inst.reqsentMsg();
       //await inst.clickonremsuccess();
-      await utility.wait(utility.low);
-      await inst.remvSuccessful.click();
+      ///***IE Changes -21/10/19 */
+      //await utility.wait(utility.low);
+      //await inst.remvSuccessful.click();
+      await inst.clickonremsuccess();
     });
     Given('the RmveGas CONFIRM COMMS HUB REMOVAL section', async function () {
       await remove.ConfirmHubRmv();

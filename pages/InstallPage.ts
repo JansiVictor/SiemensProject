@@ -7,7 +7,8 @@ import {
 	by,
 	ElementFinder,
 	ElementArrayFinder,
-	browser
+	browser,
+	protractor
 } from "protractor";
 const chai = require("chai");
 const expect = chai.expect;
@@ -355,6 +356,8 @@ export class InstallPageObject {
 	public selectValidAssettoInst1Lst: ElementFinder;
 	public selectValidAssettoInstTRADLst: ElementFinder;
 	public Tst15selectValidAssettoInstLst: ElementFinder;
+	public brandicon: ElementFinder;
+	public menu: ElementFinder;
 
 	constructor() {
 		//CGP added for MASter 22/09
@@ -719,10 +722,13 @@ export class InstallPageObject {
 
 		//#region IE Implementation
 
-		this.selectValidAssettoInstLst = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[2])/option)[2]'));
-		this.selectValidAssettoInst1Lst = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[3])/option)[2]'));
-		this.selectValidAssettoInstTRADLst= element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[2])/option)[2]'));
-		this.Tst15selectValidAssettoInstLst = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[1])/option)[2]'));
+		this.selectValidAssettoInstLst = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[2])/option[@selected="selected"])[1]'));
+		this.selectValidAssettoInst1Lst = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[3])/option[@selected="selected"])[1]'));
+		this.selectValidAssettoInstTRADLst= element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[2])/option[@selected="selected"])[1]'));
+		this.Tst15selectValidAssettoInstLst = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[1])/option[@selected="selected"])[1]'));
+
+		this.brandicon = element(by.className("brand-icon"));
+		this.menu = element(by.xpath('//*[@id="app"]/assettab/div/nav/label'));
 
 		//#endregion
 	}
@@ -990,8 +996,6 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.HasGasRegulatorReplacedY, utility.medium);
 		await utility.wait(utility.medium);
-
-		if (await this.Tst15selectValidAssettoInst.isDisplayed()) {
 			await utility.wait(utility.medium);
 			generic.ButtonClick(this.Tst15selectValidAssettoInst, utility.medium);
 			await utility.wait(utility.medium);
@@ -1001,10 +1005,10 @@ export class InstallPageObject {
 			await this.Tst15selectValidAssettoInst.element(by.css("option:nth-child(" + index + ")")).click();
 			await utility.wait(utility.medium);
 			await expect(await this.gasmeterserialSendreg.isDisplayed());
+			await utility.wait(utility.medium);
 			var options = this.Tst15selectValidAssettoInstLst.getAttribute('value');
 			generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
 			await utility.wait(utility.medium);
-		}
 
 		generic.ButtonClick(this.validAssetTxt, utility.medium);
 		await utility.wait(utility.medium);
@@ -1102,7 +1106,8 @@ export class InstallPageObject {
 			await utility.wait(utility.medium);
 		}
 		await utility.wait(utility.medium);
-		generic.ButtonClick(this.selectValid, utility.medium);
+		await this.selectValid.element(by.css("option:nth-child(" + index + ")")).click();
+		//generic.ButtonClick(this.selectValid, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.assetSuccessAdded, utility.medium);
 		await utility.wait(utility.medium);
@@ -1139,7 +1144,6 @@ export class InstallPageObject {
 	 */
 	public async fillNewRegulatorGas(index: number) {
 		await utility.wait(utility.medium);
-		if (await this.selectValidAssettoInst1.isDisplayed()) {
 			await utility.wait(utility.medium);
 			generic.ButtonClick(this.selectValidAssettoInst1, utility.medium);
 			await utility.wait(utility.medium);
@@ -1149,10 +1153,11 @@ export class InstallPageObject {
 			await this.selectValidAssettoInst1.element(by.css("option:nth-child(" + index + ")")).click();
 			await utility.wait(utility.medium);
 			await expect(await this.gasmeterserialSendreg.isDisplayed());
+			await utility.wait(utility.medium);
 			var options = this.selectValidAssettoInst1Lst.getAttribute('value');
 			generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
 			await utility.wait(utility.medium);
-		}
+
 		generic.ButtonClick(this.RegularclickenableOK, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
@@ -1217,7 +1222,6 @@ export class InstallPageObject {
 		generic.ButtonClick(this.HasGasRegulatorReplacedY, utility.medium);
 		await utility.wait(utility.medium);
 
-		if (await this.selectValidAssettoInst.isDisplayed()) {
 			await utility.wait(utility.medium);
 			generic.ButtonClick(this.selectValidAssettoInst, utility.medium);
 			await utility.wait(utility.medium);
@@ -1227,10 +1231,11 @@ export class InstallPageObject {
 			await this.selectValidAssettoInst.element(by.css("option:nth-child(" + index + ")")).click();
 			await utility.wait(utility.medium);
 			await expect(await this.gasmeterserialSendreg.isDisplayed());
+			await utility.wait(utility.medium);
 			var options = this.selectValidAssettoInstLst.getAttribute('value');
 			generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
 			await utility.wait(utility.medium);
-		}
+
 		generic.ButtonClick(this.RegularclickenableOK, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
@@ -1264,7 +1269,8 @@ export class InstallPageObject {
 			generic.SendKeys(this.gasmeterserialSend, utility.medium, options);
 			await utility.wait(utility.medium);
 		}
-		generic.ButtonClick(this.Gas_Meter_Txt, utility.medium);
+	//	generic.ButtonClick(this.Gas_Meter_Txt, utility.medium);
+		await this.selectValidnewgas.element(by.css("option:nth-child(" + index + ")")).click();
 		await utility.wait(utility.medium);
 
 		generic.ButtonClick(this.AssetaddedtoWallnewgas, utility.medium);
@@ -1690,7 +1696,8 @@ export class InstallPageObject {
 			await utility.wait(utility.medium);
 		}
 		await utility.wait(utility.medium);
-		generic.ButtonClick(this.EUIdeviceIDenableOK, utility.medium);
+		await this.elecNewmeterselect.element(by.css("option:nth-child(" + index + ")")).click();
+		//generic.ButtonClick(this.EUIdeviceIDenableOK, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.clkokEUIdev, utility.medium);
 		await utility.wait(utility.medium);
@@ -1706,7 +1713,7 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.DropDownOptionClick(this.meterLocCode, utility.medium, 'I');
 		await utility.wait(utility.medium);
-		generic.DropDownOptionClick(this.certYearMonth, utility.medium, '16/12');
+		generic.SendKeys(this.certYearMonth, utility.medium, '16/12');
 		await utility.wait(utility.medium);
 	}
 
@@ -1741,7 +1748,7 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.AllPortsSealed, utility.medium);
 		await utility.wait(utility.medium);
-		generic.ButtonClick(this.SiemenscableMarkersInsTxt, utility.medium);
+		generic.ButtonClick(this.SiemenscableMarkersIns, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.VisualInspectionCompleted, utility.medium);
 		await utility.wait(utility.medium);
@@ -2025,7 +2032,6 @@ export class InstallPageObject {
 	public async fillfornewregulator(index: number) {
 		await utility.wait(utility.medium);
 
-		if (await this.selectValidAssettoInst.isDisplayed()) {
 			await utility.wait(utility.medium);
 			generic.ButtonClick(this.selectValidAssettoInst, utility.medium);
 			await utility.wait(utility.medium);
@@ -2035,10 +2041,11 @@ export class InstallPageObject {
 			await this.selectValidAssettoInst.element(by.css("option:nth-child(" + index + ")")).click();
 			await utility.wait(utility.medium);
 			await expect(await this.gasmeterserialSendreg.isDisplayed());
+			await utility.wait(utility.medium);
 			var options = this.selectValidAssettoInstLst.getAttribute('value');
 			generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
 			await utility.wait(utility.medium);
-		}
+
 		browser.executeScript('arguments[0].scrollIntoView()', this.validAssetTxt.getWebElement());
 		generic.ButtonClick(this.validAssetTxt, utility.medium);
 		await utility.wait(utility.medium);
@@ -2052,7 +2059,6 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.HasGasRegulatorReplacedY, utility.medium);
 		await utility.wait(utility.medium);
-		if (await this.selectValidAssettoInst1.isDisplayed()) {
 			await utility.wait(utility.medium);
 			generic.ButtonClick(this.selectValidAssettoInst1, utility.medium);
 			await utility.wait(utility.medium);
@@ -2062,11 +2068,12 @@ export class InstallPageObject {
 			await this.selectValidAssettoInst1.element(by.css("option:nth-child(" + index + ")")).click();
 			await utility.wait(utility.medium);
 			await expect(await this.gasmeterserialSendreg.isDisplayed());
+			await utility.wait(utility.medium);
 			var options = this.selectValidAssettoInst1Lst.getAttribute('value');
 			generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
 			await utility.wait(utility.medium);
-		}
-		generic.ButtonClick(this.RegularclickenableOK, utility.medium);
+		//generic.ButtonClick(this.RegularclickenableOK, utility.medium);
+		await this.selectValidAssettoInst1.element(by.css("option:nth-child(" + index + ")")).click();
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
 		await utility.wait(utility.medium);
@@ -2175,7 +2182,6 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.HasGasRegulatorReplacedY, utility.medium);
 		await utility.wait(utility.medium);
-		if (await this.selectValidAssettoInstTRAD.isDisplayed()) {
 			await utility.wait(utility.medium);
 			generic.ButtonClick(this.selectValidAssettoInstTRAD, utility.medium);
 			await utility.wait(utility.medium);
@@ -2185,10 +2191,11 @@ export class InstallPageObject {
 			await this.selectValidAssettoInstTRAD.element(by.css("option:nth-child(" + index + ")")).click();
 			await utility.wait(utility.medium);
 			await expect(await this.gasmeterserialSendregTRAD.isDisplayed());
+			await utility.wait(utility.medium);
 			var options = this.selectValidAssettoInstTRADLst.getAttribute('value');
 			generic.SendKeys(this.gasmeterserialSendregTRAD, utility.medium, options);
 			await utility.wait(utility.medium);
-		}
+
 		generic.ButtonClick(this.randomClickRegulator, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
@@ -2220,7 +2227,8 @@ export class InstallPageObject {
 			await utility.wait(utility.medium);
 		}
 		await utility.wait(utility.medium);
-		generic.ButtonClick(this.EUIenableOK1, utility.medium);
+		await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
+		//generic.ButtonClick(this.EUIenableOK1, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.AssetsuccessOKclk, utility.medium);
 		await utility.wait(utility.medium);
@@ -2258,7 +2266,6 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.AllPortsSealed, utility.medium);
 		await utility.wait(utility.medium);
-		await utility.wait(utility.medium);
 		generic.ButtonClick(this.SiemenscableMarkersIns, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.VisualInspectionCompleted, utility.medium);
@@ -2284,7 +2291,7 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.AllPortsSealed, utility.medium);
 		await utility.wait(utility.medium);
-		generic.ButtonClick(this.SiemenscableMarkersInsTxt, utility.medium);
+		generic.ButtonClick(this.SiemenscableMarkersIns, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.VisualInspectionCompleted, utility.medium);
 		await utility.wait(utility.medium);
