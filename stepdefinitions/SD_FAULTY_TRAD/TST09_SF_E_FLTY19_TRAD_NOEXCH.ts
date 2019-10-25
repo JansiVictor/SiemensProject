@@ -80,7 +80,7 @@ import {
     
     
     When('I click on FLTYTTradNoExchange select button', async function () {
-      await home.clickCorrectSelectLink('SF_E_FLTY19TradNoExchange');
+      await home.clickCorrectSelectLink('SFEFLTY19');
     //await home.clickFLTY19TradNoExSelectLink();
     //await home.clickOnTheContinueLink();
     await utility.wait(utility.medium_low);

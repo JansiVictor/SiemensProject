@@ -4,6 +4,7 @@ import { browser } from "protractor";
 import { config } from "../config/config";
 import { loginPageObject } from "../pages/loginPage";
 import { Utility } from "./utility";
+import * as moment from 'moment';
 const login: loginPageObject = new loginPageObject();
 const utility: Utility = new Utility();
 
@@ -17,7 +18,8 @@ BeforeAll({timeout: 1000 * 1000}, async () => {
 
 Before({ tags: '@LoginScenario' }, async function(scenario) {
     console.log('Name:', scenario.Name);
-    await login.performLogin();    
+    await login.performLogin();   
+    await this.attach(moment().format('dddd, MMMM Do YYYY, h:mm:ss a')); 
 });
 
 After(async function(scenario) {

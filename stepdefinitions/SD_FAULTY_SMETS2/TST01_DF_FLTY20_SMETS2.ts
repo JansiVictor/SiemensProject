@@ -513,7 +513,7 @@ Given('FTwenty the REMOVE GAS METER section', async function () {
     await remove.RmvGasmeterSec();
 });
 When('FTwenty I fill the field23 with the value23', async function () {
-    await remove.fill23GasmeterRemoval();
+    await remove.Tst13fill23GasmeterRemoval();
 });
 Then('FTwenty I click on NEXT button in removing gas meter', async function () {
     await remove.clickonnxtBtnofgasmeterRemoval();

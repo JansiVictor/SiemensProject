@@ -46,6 +46,7 @@ Feature: TST101_AbortElecRisk_SFEFLTY19SMETS2NOEXCH
     Scenario: Going through FLTYTTradNoExchange "INITIAL RISK ASSESSMENT"
         Given the FLTYTTradNoExchange INITIAL RISK ASSESSMENT section
         When I fill the FLTYTTradNoExchange initialRisk field with the values
+        Then TST22 click infook
 
     Scenario: Going through FLTYTTradNoExchange "RISK ASSESSMENT - ELEC" section
         Given the FLTYTTradNoExchange RISK ASSESSMENT - ELEC section
