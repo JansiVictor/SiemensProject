@@ -53,7 +53,7 @@ Given('the Appointment List window for INST16', async function () {
   await home.verifyAppointmentListPage();
 });
 When('I click on select button for INST16', async function () {
-  await utility.wait(utility.Avg_low);
+  await utility.wait(utility.medium);
   await home.clickCorrectSelectLink('DFINST16');
   await utility.wait(utility.medium_low);
 });

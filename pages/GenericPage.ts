@@ -50,7 +50,7 @@ export class GenericPageObject {
             }
         }
         catch (e) {
-            console.log('Button click not successful for ' + byname);
+            console.log('Button click not successful for ' + e);
         }
 
     }
@@ -65,7 +65,7 @@ export class GenericPageObject {
             }
         }
         catch (e) {
-            console.log('SendKeysJS not successful for ' + byname);
+            console.log('SendKeysJS not successful for ' + e);
         }
 
     }
@@ -80,7 +80,7 @@ export class GenericPageObject {
             byname.sendKeys(protractor.Key.TAB);
         }
         catch (e) {
-            console.log('Sendkeys not successful for ' + byname);
+            console.log('Sendkeys not successful for ' + e);
         }
 
     }
@@ -94,7 +94,7 @@ export class GenericPageObject {
             }
         }
         catch (e) {
-            console.log('Button click not successful for ' + byname);
+            console.log('Button click not successful for ' + e);
         }
     }
 
@@ -107,7 +107,7 @@ export class GenericPageObject {
             byname.sendKeys(protractor.Key.ESCAPE);
         }
         catch (e) {
-            console.log('Button click not successful for ' + byname);
+            console.log('Button click not successful for ' + e);
         }
     }
 
@@ -120,7 +120,7 @@ export class GenericPageObject {
             byname.sendKeys(protractor.Key.ESCAPE);
         }
         catch (e) {
-            console.log('Button click not successful for ' + byname);
+            console.log('Button click not successful for ' + e);
         }
     }
 }

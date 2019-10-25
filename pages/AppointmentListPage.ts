@@ -235,13 +235,16 @@ export class AppointmentListPageObject {
 	public async mprnOKbtn() {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.mprnOK, utility.medium);
+		await utility.wait(utility.medium);
 		await expect(this.arriveBtn.isDisplayed());
+		await utility.wait(utility.medium);
 	}
 
 	public async clickArriveBtn() {
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.arriveBtn, utility.medium_low);
+		Gen.ButtonClick(this.arriveBtn, utility.medium);
 		await expect(this.arrivalTime.isDisplayed());
+		await utility.wait(utility.medium);
 	}
 
 }

@@ -457,12 +457,12 @@ Given('the INSTFrtn Appointment List window', async function () {
 
 
    Then('I should see INSTFrtn SMETS XIPMD section', async function () {
-    await exchnge21Complete.XIPMDSectiondispaly();
+    await exchnge21Complete.PPMIDCommisioningText.isDisplayed();
    });
 
 
    Given('the INSTFrtn SMETS XIPMD section', async function () {
-    await exchnge21Complete.XIPMDSectiondispaly();
+    await exchnge21Complete.PPMIDCommisioningText.isDisplayed();
    });
 
 

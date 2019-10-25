@@ -12,6 +12,9 @@ import {
 	AppointmentListPageObject
 } from "../../pages/AppointmentListPage";
 import {
+	RiskAssessmentPageObject
+} from "../../pages/RiskAssessmentPage";
+import {
 	DoorStepPageObject
 } from "../../pages/DoorStepPage";
 import {
@@ -45,6 +48,7 @@ const applist: AppointmentListPageObject = new AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: ElectricPageObject = new ElectricPageObject();
 const riskassessGAS: GASPageObject = new GASPageObject();
+const risk: RiskAssessmentPageObject = new RiskAssessmentPageObject();
 const df17smartcreditComplete: JobCompletionPageObject = new JobCompletionPageObject();
 
 
@@ -274,12 +278,13 @@ Given('the DF17SmartCredit CAPTURE INITIAL PHOTO OF GAS INSTALLATION section', a
 });
 
 When('I click on DF17SmartCredit CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {
-	await riskassess.capturephotoMeterInstall.click();
-	await utility.wait(utility.medium_low);
+	await risk.elecfullmeterInst();
+	await utility.wait(utility.medium);
 });
 
 When('I click on DF17SmartCredit CAPTURE PHOTO OF CURRENT FULL GAS METER INSTALLATION button', async function () {
-	await riskassessGAS.capturephotoMeterInstall.click();
+	await risk.gasfullmeterInst();
+	await utility.wait(utility.medium);
 });
 
 Then('I should see DF17SmartCredit INITIAL POLARITY CHECK - MARTINDALE TEST section', async function () {

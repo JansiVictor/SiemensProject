@@ -263,7 +263,8 @@ Given('the ExTwOne CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section', async fu
 });
 
 When('I click on ExTwOne CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {
-	await riskassess.capturephotoMeterInstall.click();
+	await risk.elecfullmeterInst();
+    await utility.wait(utility.medium);
 });
 
 Then('I should see ExTwOne INITIAL POLARITY CHECK - MARTINDALE TEST section', async function () {
@@ -415,6 +416,7 @@ Given('Initial Meter Reading of ExTwOne new meter depending on the number of Reg
 
 When('I fill the ExTwOne Initial Meter Reading of new meter details fields with values', async function () {
 	await riskassess.fillInitialElecMeterReading();
+	await utility.wait(utility.medium);
 });
 
 Then('I should see ExTwOne Commission Bind the Comms hub to the WAN section', async function () {
@@ -490,8 +492,7 @@ When('I fill the ExTwOne Suitability for Smart Meter Installation fields with th
 
 Then('I should see ExTwOne Capture Photo of GAS Installation section', async function () {
 	await riskassessGAS.captureInitialPhotoTxt();
-	await riskassessGAS.captureInitialPhotogasbtn.click();
-	await utility.wait(utility.very_low);
+	await utility.wait(utility.medium);
 });
 
 Given('the ExTwOne Pre Installation Gas Tightness section', async function () {
@@ -532,7 +533,7 @@ Given('the Gas ExTwOne Initial Meter Reading section', async function () {
 });
 
 When('I fill the ExTwOne Gas Initial Meter Reading details fields with values', async function () {
-  await riskassessGAS.fillGasInitialMeterREading();
+  await riskassessGAS.fillGasInitialMeterREadingEXCH21();
 });
 
 
@@ -607,11 +608,11 @@ When('I fill the ExTwOne SMETS PPMID section fields with values',async function 
 
 
 Then('I should see ExTwOne SMETS XIPMD section', async function () {
-  await exchnge21Complete.XIPMDSectiondispaly();
+  await exchnge21Complete.PPMIDCommisioningText.isDisplayed();
 });
 
 Given('the ExTwOne SMETS XIPMD section', async function () {
-  await exchnge21Complete.XIPMDSectiondispaly();
+  await exchnge21Complete.PPMIDCommisioningText.isDisplayed();
 });
 
 

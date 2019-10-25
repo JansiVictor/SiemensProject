@@ -286,8 +286,8 @@ Given('the SFENMEX16 CAPTURE INITIAL PHOTO OF GAS INSTALLATION section', async f
 });
 
 When('I click on SFENMEX16 CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {
-	await riskassess.capturephotoMeterInstall.click();
-	await utility.wait(utility.medium_low);
+	await riskassess1.elecfullmeterInst();
+	await utility.wait(utility.medium);
 });
 
 When('I click on SFENMEX16 CAPTURE PHOTO OF CURRENT FULL GAS METER INSTALLATION button', async function () {

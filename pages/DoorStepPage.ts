@@ -39,7 +39,9 @@ export class DoorStepPageObject {
 
 	public async clickOnSiteButton() {
 	//	await utility.wait(utility.medium_low);
+		await utility.wait(utility.medium);
 		gen.RadioButtonClick(this.onSiteBtn, utility.medium)
+		await utility.wait(utility.medium);
 		await expect(this.initialRiskAssesment.isDisplayed());
 	}
 
@@ -54,16 +56,18 @@ export class DoorStepPageObject {
 	}
 
 	public async fillTheDoorStepDetails() {
+		await utility.wait(utility.medium);
 		gen.DropDownOptionClick(this.selectInputField,utility.medium,'C94');
-
+		await utility.wait(utility.medium);
 		if (this.accessToSiteY.isDisplayed()) {
 			await utility.wait(utility.medium_low);
 			gen.RadioButtonClick(this.accessToSiteY, utility.medium_low)
 		}
-
+		await utility.wait(utility.medium);
 		if (this.customerOnSiteY.isDisplayed()) {
-			await utility.wait(utility.medium_low);
+			await utility.wait(utility.medium);
 			gen.RadioButtonClick(this.customerOnSiteY, utility.medium_low)
+			await utility.wait(utility.medium);
 		}
 	}
 

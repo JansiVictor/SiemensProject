@@ -792,6 +792,7 @@ public async clickOnTheSelectLink(workorderselectlink,xpathparam) {
 		var selectMe = element(
 			by.xpath('((//span[starts-with(@id,"' + xpathparam + '")]))' + '[' + [size] + ']')
 		);
+		utility.wait(utility.medium);
 		selectMe.getText().then(function (selectMeText) {
 			console.log("find select Me link text  " + selectMeText);
 		});

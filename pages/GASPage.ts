@@ -53,6 +53,7 @@ export class GASPageObject {
 	public reportedToHSYEs: ElementFinder;
 	public inputAirLineRef: ElementFinder;
 	public waitForGTYes: ElementFinder;
+	public waitForGTYES1: ElementFinder;
 	public GTResolveIssue: ElementFinder;
 	public currentMeterDetailsTxt: ElementFinder;
 	public newRegulatorTxt: ElementFinder;
@@ -173,7 +174,6 @@ export class GASPageObject {
 	public contactGTYES: ElementFinder;
 	public reportedIncidentYES: ElementFinder;
 	public airLineRefNo: ElementFinder;
-	public waitForGTYES: ElementFinder;
 	public gtResolveIssueYES: ElementFinder;
 	public polNxtBtnGasMeter: ElementFinder;
 	public polGasNxtBtn: ElementFinder
@@ -194,7 +194,7 @@ export class GASPageObject {
 		this.currentMeterDetailsText = element(by.xpath('//div/h4[text()="Current Meter Details - Gas"]'));
 		this.updateValuesBtn = element(by.xpath('//*[@id="gasCurrentMeter_updateValues"]'));
 		this.unableToReadMeterYes = element(by.xpath('(//input[@id="rb_UnReadMet_y"]/following-sibling::span[@class="outer"])[2]'));
-		this.unableToReadMeterYes_SFENMEX15 = element(by.xpath('(//input[@id="rb_UnReadMet_y"]/following-sibling::span[@class="outer"])[1]'));
+		this.unableToReadMeterYes_SFENMEX15 = element(by.xpath('(//*[@id="rb_UnReadMet_y"]/following-sibling::span[@class="outer"])[1]'));
 		this.existingElecMeterYes = element(by.xpath('//*[@id="gasCurrentMeter_detailsCorrect_y"]'));
 		this.existingElecMeterNo = element(by.xpath('//*[@id="gasCurrentMeter_detailsCorrect_n"]'));
 		this.currentMeterNxtbtn = element(by.xpath('//*[@id="btnNextComm"]'));
@@ -239,7 +239,7 @@ export class GASPageObject {
 		this.captureInitialPhotogasbtn = element(by.xpath('//*[@id="btn_Init_Photo"]'));
 		this.preInstalationGASTxt = element(by.xpath('//div/h4[text()="Pre Installation Gas Tightness Test"]'));
 		this.gasTightnessYes = element(by.xpath('//*[@id="rb_PreGasTigTCarOut_y"]'));
-		this.captureGTTPhotobtn = element(by.xpath('//*[@id="btn_CapPho_GTT"]'));
+		this.captureGTTPhotobtn = element(by.xpath('(//*[@id="btn1"])[2]'));
 		this.dropInPressreYes = element(by.xpath('//*[@id="rb_WasDropPress_y"]'));
 		this.DIPGasDD = element(by.xpath('//*[@id="cbx_DipPress_sel"]'));
 		this.meterTypeDD = element(by.xpath('//*[@id="cbx_MetreType_sel"]'));
@@ -253,8 +253,8 @@ export class GASPageObject {
 		this.gtResolveIssueGas = element(by.xpath('//input[@id="gtp9"]/following-sibling::span[@class="outer"]'));
 		this.reportedToHSYEs = element(by.xpath('//*[@id="rb_RepAirLine_y"]'));
 		this.inputAirLineRef = element(by.xpath('//*[@id="hsjobref"]'));
-		this.waitForGTYes = element(by.xpath('//*[@id="rb_GTAttSite_y"]'));
-		this.GTResolveIssue = element(by.xpath('//*[@id="rb_GTResIss_y"]'));
+		this.waitForGTYes = element(by.xpath('//*[@id="rb_GTAttSite_y"]/span'));
+		this.GTResolveIssue = element(by.xpath('//*[@id="rb_GTResIss_y"]/span'));
 		this.currentMeterDetailsTxt = element(by.xpath('//*[@id="Title_CurrMe_Det"]'));
 		this.newRegulatorTxt = element(by.xpath('//*[@id="TITLE_RegNew"]'));
 		this.regulatorReplacedYes = element(by.xpath('//input[@id="regulator_replacedtrue"]/following-sibling::span[@class="outer"]'));
@@ -276,7 +276,7 @@ export class GASPageObject {
 		this.capturemeterReadingInput = element(by.xpath('//*[@id="reg0"]'));
 		this.randomEUDevice = element(by.xpath('//div[text()="EUI Device ID:"]'));
 		this.inputelecSerialNum = element(by.xpath('//*[@id="btn_RegSNum1"]'));
-		this.capturreMeterReadingTxt = element(by.xpath('//div[text()="Capture Meter Reading - Register (null):"]'));
+		this.capturreMeterReadingTxt = element(by.xpath('//*[@id="regLabel0"]'));
 		this.installKitTxt = element(by.xpath('//div/h4[text()="Install Kit"]'));
 		this.installKitUsedYes = element(by.xpath('//input[@id="inp1"]/following-sibling::span[@class="outer"]'));
 		this.installKitUsedYes1 = element(by.xpath('//*[@id="gasInstallPhoto_installKit_y"]'));
@@ -306,7 +306,7 @@ export class GASPageObject {
 		this.replacedGasMeterYes = element(by.xpath('//input[@id="gtp13"]/following-sibling::span[@class="outer"]'));
 		this.replacedGasRegulatorYes = element(by.xpath('//input[@id="gtp15"]/following-sibling::span[@class="outer"]'));
 		this.GasTightnessYes = element(by.xpath('//input[@id="gtp17"]/following-sibling::span[@class="outer"]'));
-		this.capturePostInstallationGas = element(by.xpath('//*[@id="btn_CapPoTi_test"]'));
+		this.capturePostInstallationGas = element(by.xpath('//*[@id="btn_CapPoTi_test"]/button'));
 		this.DIPGASYes = element(by.xpath('//input[@id="gtp19"]/following-sibling::span[@class="outer"]'));
 		this.dipSelectDD = element(by.xpath('//*[@id="select1"]'));
 		this.meterTypeGASDD = element(by.xpath('//*[@id="select2"]'));
@@ -314,14 +314,14 @@ export class GASPageObject {
 		this.AdditionalWorktoPassYesGAS = element(by.xpath('//input[@id="gtp11"]/following-sibling::span[@class="outer"]'));
 		this.witnessName = element(by.xpath('//form/input[@id="input3"]'));
 		this.standingPressure = element(by.xpath('//*[@id="gaspoststandingpressure"]'));
-		this.dipCaptureBtn = element(by.xpath('//*[@id="btn_CapStPr"]'));
+		this.dipCaptureBtn = element(by.xpath('//*[@id="btn_CapStPr"]/button'));
 		this.workingpressure = element(by.xpath('//*[@id="gaspostworkingpressure"]'));
-		this.wpCapture = element(by.xpath('(//div[@id="btn_CapStPr"])[2]'));
-		this.finalMeterCapture = element(by.xpath('//button[@id="btn2"]'));
+		this.wpCapture = element(by.xpath('(//*[@id="btn_CapStPr"]/button)[2]'));
+		this.finalMeterCapture = element(by.xpath('//*[@id="btn2"]'));
 		/***************Reverting to CGP changes */
 		//Pol Element withoutIndex added
 		this.polGasNxtBtn = element(by.xpath('(//div/button[@id="btnNextPol"])'));
-		this.polNxtBtn = element(by.xpath('(//div/button[@id="btnNextPol"])[2]'));
+		this.polNxtBtn = element(by.xpath('(//*[@id="btnNextPol"])[2]'));
 		/************************* End of change**************8 */
 		this.polNxtBtnGasMeter = element(by.xpath('(//div/button[@id="btnNextPol"])[2]'));
 		this.gicomSendMessage = element(by.xpath('//*[@id="gicom_sendMessageButton"]'));
@@ -333,7 +333,7 @@ export class GASPageObject {
 		this.gasAddressinput = element(by.xpath('(//input[@id="input1"])[2]'));
 		this.allAppliTestedBtn = element(by.xpath('//*[@id="btn_AllApp_tested"]'));
 		this.submitGas = element(by.xpath('//*[@id="btn_Subm_gas"]'));
-		this.gtAttendanceOnSiteYes = element(by.xpath('//input[@id="gtp5"]/following-sibling::span[@class="outer"]'));
+		this.gtAttendanceOnSiteYes = element(by.xpath('//*[@id="rb_GTAttSite_y"]/input/following-sibling::span[@class="outer"]'));
 		this.currentCommsHubText = element(by.xpath('//*[@id="Title_currentCommsHub"]'));
 		this.smets2CommshubOnsiteYes = element(by.xpath('//input[@id="gascchubOnSitetrue"]/following-sibling::span[@class="outer"]'));
 		this.smets2CommshubOnsiteNo = element(by.xpath('//input[@id="gascchubOnSitefalse"]/following-sibling::span[@class="outer"]'));
@@ -365,7 +365,7 @@ export class GASPageObject {
 		this.reportedIncidentYES = element(by.xpath('//input[@id="gtp3"]/following-sibling::span[@class="outer"]'));
 		this.inputGTRef = element(by.xpath('//*[@id="gt_issue"]'));
 		this.airLineRefNo = element(by.xpath('//*[@id="input2"]'));
-		this.waitForGTYES = element(by.xpath('//input[@id="gtp5"]/following-sibling::span[@class="outer"]'));
+		this.waitForGTYES1 = element(by.xpath('//input[@id="gtp5"]/following-sibling::span[@class="outer"]'));
 		this.gtResolveIssueYES = element(by.xpath('//input[@id="gtp9"]/following-sibling::span[@class="outer"]'));
 		this.GAStightnessTestYes = element(by.xpath('//input[@id="gtp11"]/following-sibling::span[@class="outer"]'));
 		this.replacedGasMeterYes = element(by.xpath('//input[@id="gtp13"]/following-sibling::span[@class="outer"]'));
@@ -375,9 +375,9 @@ export class GASPageObject {
 
 		//#region IE Update
 
-		this.selectAssettoNewRegGasLst = element(by.xpath('((//select[@ng-model="scp.selectedAsset"])/option)[2]'));
-		this.selectassettoNewwRegGasDDLst = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[2])/option)[2]'));
-		this.selectValidAssetDDLst = element(by.xpath('((//select[@ng-model="scp.selectedAsset"])/option)[2]'));
+		this.selectAssettoNewRegGasLst = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[1])/option[@selected="selected"])'));
+		this.selectassettoNewwRegGasDDLst = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[1])/option[@selected="selected"])'));
+		this.selectValidAssetDDLst = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[1])/option[@selected="selected"])'));
 		
 		//#endregion
 	}
@@ -394,7 +394,7 @@ export class GASPageObject {
 
 	public async verifySFENMEX15CurrentMeterDetails() {
 		await utility.wait(utility.medium);
-		await expect(this.currentMeterDetailsText.isDisplayed());
+		
 		await utility.wait(utility.medium);
 		await this.currentMeterDetailsText.getText().then(function (currentMeterDetails) {
 			console.log("find currentMeterDetails Text  " + currentMeterDetails);
@@ -402,7 +402,7 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.updateValuesBtn, utility.medium);
 		await utility.wait(utility.medium);
-		await expect(this.existingElecMeterNo.isDisplayed());
+		
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.existingElecMeterNo, utility.medium);
 		//await expect(this.existingElecMeterYes.isPresent());
@@ -414,7 +414,7 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.currentMeterDetailsHeader, utility.medium);
-		await expect(this.existingElecMeterYes.isDisplayed());
+		
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.existingElecMeterYes, utility.medium);
 
@@ -431,7 +431,7 @@ export class GASPageObject {
 
 	public async meterCutOutnextSection() {
 		await utility.wait(utility.medium);
-		await expect(this.clickSubmit.isDisplayed());
+		
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.clickSubmit, utility.medium);
 		await utility.wait(utility.medium);
@@ -450,7 +450,6 @@ export class GASPageObject {
 
 	public async verifyDF17CurrentMeterDetails() {
 		await utility.wait(utility.medium);
-		await expect(this.currentMeterDetailsText.isDisplayed());
 		await this.currentMeterDetailsText.getText().then(function (currentMeterDetails) {
 			utility.wait(utility.medium);
 			console.log("find currentMeterDetails Text  " + currentMeterDetails);
@@ -459,8 +458,7 @@ export class GASPageObject {
 		gen.ButtonClick(this.updateValuesBtn, utility.medium);
 
 		await utility.wait(utility.medium);
-		await expect(this.existingElecMeterNo.isDisplayed());
-
+		
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.existingElecMeterNo, utility.medium);
 
@@ -474,7 +472,7 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.currentMeterDetailsHeader, utility.medium);
 
-		await expect(this.existingElecMeterYes.isDisplayed());
+		
 
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.existingElecMeterYes, utility.medium);
@@ -512,7 +510,7 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.captureEvidenceGas, utility.medium);
 
-		await expect(await this.additionalGASNote.isDisplayed());
+		
 
 		await utility.wait(utility.medium);
 		gen.SendKeys(this.additionalGASNote, utility.medium, 'Fault checked');
@@ -634,8 +632,6 @@ export class GASPageObject {
 		gen.ButtonClick(this.CustSmellGasYes, utility.medium);
 		await utility.wait(utility.medium);
 
-		await expect(await this.additionalTxtPreInstallGas.isDisplayed());
-
 		await utility.wait(utility.medium);
 		gen.SendKeys(this.additionalTxtPreInstallGas, utility.medium, 'Reference Text');
 
@@ -644,8 +640,6 @@ export class GASPageObject {
 
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.reportToGTYes, utility.medium);
-
-		await expect(await this.inputGTRef.isDisplayed());
 
 		await utility.wait(utility.medium);
 		gen.SendKeys(this.inputGTRef, utility.medium, '12345');
@@ -657,7 +651,7 @@ export class GASPageObject {
 		gen.SendKeys(this.inputAirLineRef, utility.medium, '567890');
 
 		await utility.wait(utility.medium);
-		gen.ButtonClick(this.waitForGTYES, utility.medium);
+		gen.ButtonClick(this.waitForGTYes, utility.medium);
 
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.GTResolveIssue, utility.medium);
@@ -707,7 +701,7 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.regulatorReplacedYes, utility.medium);
 
-		if (await this.selectAssettoNewRegGas.isDisplayed()) {
+		
 			await utility.wait(utility.medium);
 			gen.ButtonClick(this.selectAssettoNewRegGas, utility.medium);
 			await utility.wait(utility.medium);
@@ -716,17 +710,17 @@ export class GASPageObject {
 			// select the option
 			await this.selectAssettoNewRegGas.element(by.css("option:nth-child(" + index + ")")).click();
 			await utility.wait(utility.medium);
-			await expect(await this.inputelecSerialNum.isDisplayed());
+			
+			await utility.wait(utility.medium);
 			var options = this.selectAssettoNewRegGasLst.getAttribute('value');
 			gen.SendKeys(this.inputelecSerialNum, utility.medium, options);
 			await utility.wait(utility.medium);
-		}
 
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.regulatorTxt, utility.medium);
-
+		
 		await utility.wait(utility.medium);
-		gen.ButtonClick(this.commshubPopup, utility.medium);
+		gen.ButtonClick(this.infoOKButton, utility.medium);
 
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.newRegulatorNxtBtn, utility.medium);
@@ -738,7 +732,7 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.regulatorReplacedYes, utility.medium);
 
-		if (await this.selectassettoNewwRegGasDD.isDisplayed()) {
+		
 			await utility.wait(utility.medium);
 			gen.ButtonClick(this.selectassettoNewwRegGasDD, utility.medium);
 			await utility.wait(utility.medium);
@@ -747,11 +741,11 @@ export class GASPageObject {
 			// select the option
 			await this.selectassettoNewwRegGasDD.element(by.css("option:nth-child(" + index + ")")).click();
 			await utility.wait(utility.medium);
-			await expect(await this.inputelecSerialNum.isDisplayed());
+			
 			var options = this.selectassettoNewwRegGasDDLst.getAttribute('value');
 			gen.SendKeys(this.inputelecSerialNum, utility.medium, options);
 			await utility.wait(utility.medium);
-		}
+		
 
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.regulatorTxt, utility.medium);
@@ -789,7 +783,6 @@ export class GASPageObject {
 	public async fillNewMeterDetailsGAS(index: number) {
 		await utility.wait(utility.medium);
 
-		if (await this.newMeterDD.isDisplayed()) {
 			await utility.wait(utility.low);
 			// click the dropdown
 			await utility.wait(utility.medium);
@@ -803,16 +796,16 @@ export class GASPageObject {
 			await utility.wait(utility.medium);
 			//await this.commshubPopup.click();
 
-			await expect(await this.inputMeterSerialNum.isDisplayed());
+			
 			var options = this.selectNewMeterGasOptn.getAttribute('value');
 			await utility.wait(utility.medium);
 			gen.SendKeys(this.inputMeterSerialNum, utility.medium, options);
 
 			await utility.wait(utility.medium);
-			gen.ButtonClick(this.randomEUDevice, utility.medium);
+			await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
 
 			await utility.wait(utility.medium);
-			gen.ButtonClick(this.commshubPopup, utility.medium);
+			gen.ButtonClick(this.infoOKButton, utility.medium);
 
 			await utility.wait(utility.medium);
 			gen.DropDownOptionClick(this.MeterTypeDD, utility.medium, '0');
@@ -821,7 +814,6 @@ export class GASPageObject {
 			gen.DropDownOptionClick(this.meterLocDD, utility.medium, '02');
 
 			await utility.wait(utility.medium);
-		}
 	}
 
 	/***
@@ -839,18 +831,39 @@ export class GASPageObject {
 		}
 	}
 
+
+
 	public async fillGasInitialMeterREading() {
 		await utility.wait(utility.medium);
-		await expect(await this.capturemeterReadingInput.isDisplayed());
+		
 		// await this.capturemeterReadingInput.clear();
 		await utility.wait(utility.medium);
 		gen.SendKeys(this.capturemeterReadingInput, utility.medium, '12345');
 
 		await utility.wait(utility.medium);
-		gen.ButtonClick(this.capturreMeterReadingTxt, utility.medium);
+		gen.ButtonClick(this.unableToReadMeterYes_SFENMEX15, utility.medium);
 
 		await utility.wait(utility.medium);
 		//await this.OKpopupBtn.click();
+	}
+
+	public async fillGasInitialMeterREadingEXCH21() {
+		await utility.wait(utility.medium);
+		
+		// await this.capturemeterReadingInput.clear();
+		await utility.wait(utility.medium);
+		//gen.SendKeysJS(this.capturemeterReadingInput, utility.medium, '12345');
+	
+		
+		await browser.executeScript("arguments[0].click();", this.capturemeterReadingInput.getWebElement());
+        await browser.executeScript("arguments[0].value='12345';", this.capturemeterReadingInput);
+		//await browser.executeScript("arguments[0].focus();", tis.capturreMeterReadingTxt.getWebElement());
+		await utility.wait(utility.medium);
+		if(browser.actions().mouseMove(this.capturreMeterReadingTxt, {x: 0, y: 0}).click().perform())
+			console.log('mouse click successful');
+		else
+			console.log('Not')
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -1069,7 +1082,7 @@ export class GASPageObject {
 		gen.DropDownOptionClick(this.dipSelectDD, utility.medium, '1');
 
 		await utility.wait(utility.medium);
-		gen.SendKeys(this.meterTypeGASDD, utility.medium, '1');
+		gen.DropDownOptionClick(this.meterTypeGASDD, utility.medium, '1');
 
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.tightnessPassedYes, utility.medium);
@@ -1212,7 +1225,7 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.gicomSendMessage, utility.medium);
 
-		await utility.wait(utility.medium);
+		await utility.wait(utility.high);
 		gen.ButtonClick(this.successfulBtn, utility.medium);
 
 		await utility.wait(utility.medium);
@@ -1286,7 +1299,6 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.installCommsHubYes, utility.medium);
 
-		if (await this.commHubDD.isDisplayed()) {
 			// click the dropdown
 			await utility.wait(utility.medium);
 			gen.ButtonClick(this.commHubDD, utility.medium);
@@ -1297,12 +1309,12 @@ export class GASPageObject {
 			await this.commHubDD.element(by.css("option:nth-child(" + index + ")")).click()
 			await utility.wait(utility.medium);
 			gen.ButtonClick(this.commshubPopup, utility.medium);
-			await expect(await this.inputinstallCommshub.isDisplayed());
+			
 			var options = this.selectinstallAssetOption.getAttribute('value');
 			await utility.wait(utility.medium);
 			gen.SendKeys(this.inputinstallCommshub, utility.medium, options);
 			await utility.wait(utility.medium);
-			gen.ButtonClick(this.randomClick, utility.medium);
+			await this.commHubDD.element(by.css("option:nth-child(" + index + ")")).click()
 			await utility.wait(utility.medium);
 			gen.ButtonClick(this.infoOKButton, utility.medium);
 
@@ -1314,10 +1326,8 @@ export class GASPageObject {
 			await utility.wait(utility.medium);
 			gen.DropDownOptionClick(this.commHubConnectionDD, utility.medium, '2');
 
-			await expect(await this.inputcradleSerialNo.isDisplayed());
-			var options = this.selectinstallAssetOption.getAttribute('value');
 			await utility.wait(utility.medium);
-			gen.SendKeys(this.inputcradleSerialNo, utility.medium, options);
+			gen.SendKeys(this.inputcradleSerialNo, utility.medium, '12345');
 
 			await utility.wait(utility.medium);
 			gen.ButtonClick(this.captureCommsHub, utility.medium);
@@ -1326,7 +1336,6 @@ export class GASPageObject {
 			gen.ButtonClick(this.commHubLocNxtBtn, utility.medium);
 
 			await utility.wait(utility.medium);
-		}
 	}
 
 	/***
@@ -1351,23 +1360,24 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.regulatorReplacedYes, utility.medium);
 
-		if (await this.selectValidAssetDD.isDisplayed()) {
 			await utility.wait(utility.medium);
-			gen.ButtonClick(this.selectValidAssetDD, utility.medium);
+			gen.ButtonClick(this.selectAssettoNewRegGas, utility.medium);
 			await utility.wait(utility.medium);
 			browser.sleep(1000);
+			await utility.wait(utility.medium);
 			console.log("Selecting element based index : " + index);
 			// select the option
-			await this.selectValidAssetDD.element(by.css("option:nth-child(" + index + ")")).click();
+			await this.selectAssettoNewRegGas.element(by.css("option:nth-child(" + index + ")")).click();
 			await utility.wait(utility.medium);
-			await expect(await this.regulatorSerialNoinput.isDisplayed());
+			
+			await utility.wait(utility.medium);
 			var options = this.selectValidAssetDDLst.getAttribute('value');
 			gen.SendKeys(this.regulatorSerialNoinput, utility.medium, options);
 			await utility.wait(utility.medium);
-		}
 
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.regulatorTxt, utility.medium);
+		//await this.selectValidAssetDD.element(by.css("option:nth-child(" + index + ")")).click();
 
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.commshubPopup, utility.medium);
@@ -1379,11 +1389,11 @@ export class GASPageObject {
 
 
 	public async fillNewMeterDetailsGASInst16(index: number) {
-		if (await this.newMeterDD.isDisplayed()) {
+		
 			await utility.wait(utility.low);
 			// click the dropdown
 			await utility.wait(utility.medium);
-			gen.ButtonClick(this.newMeterDD, utility.medium);
+			//gen.ButtonClick(this.newMeterDD, utility.medium);
 
 			browser.sleep(1000)
 			//index = index ;
@@ -1392,7 +1402,7 @@ export class GASPageObject {
 			await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
 			await utility.wait(utility.medium);
 			//await this.commshubPopup.click();        
-			await expect(await this.inputMeterSerialNum.isDisplayed());
+			
 			var options = this.selectNewMeterGasOptnIn16.getAttribute('value');
 			await utility.wait(utility.medium);
 
@@ -1400,10 +1410,10 @@ export class GASPageObject {
 			gen.SendKeys(this.inputMeterSerialNum, utility.medium, options);
 
 			await utility.wait(utility.medium);
-			gen.ButtonClick(this.randomEUDevice, utility.medium);
+			await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
 
 			await utility.wait(utility.medium);
-			gen.ButtonClick(this.commshubPopup, utility.medium);
+			gen.ButtonClick(this.infoOKButton, utility.medium);
 
 			await utility.wait(utility.medium);
 			gen.DropDownOptionClick(this.MeterTypeDD, utility.medium, '0');
@@ -1411,7 +1421,7 @@ export class GASPageObject {
 			await utility.wait(utility.medium);
 			gen.DropDownOptionClick(this.meterLocDD, utility.medium, '02');
 			await utility.wait(utility.medium);
-		}
+		
 	}
 
 
@@ -1430,7 +1440,7 @@ export class GASPageObject {
 		gen.SendKeys(this.airLineRefNo, utility.medium, '2');
 
 		await utility.wait(utility.medium);
-		gen.ButtonClick(this.waitForGTYES, utility.medium);
+		gen.ButtonClick(this.waitForGTYES1, utility.medium);
 
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.gtResolveIssueYES, utility.medium);
@@ -1466,6 +1476,7 @@ export class GASPageObject {
 		gen.ButtonClick(this.capturePostInstallationGas, utility.medium);
 
 		await utility.wait(utility.medium);
+		await browser.executeScript('arguments[0].scrollIntoView();', this.DIPGASYes.getWebElement());
 		gen.ButtonClick(this.DIPGASYes, utility.medium);
 
 		await utility.wait(utility.medium);
@@ -1518,7 +1529,7 @@ export class GASPageObject {
 
 	public async populateRiskAssessmentForGasWithoutPhotoEvidence() {
 		await utility.wait(utility.medium);
-		await expect(this.meterPressureLow.isDisplayed());
+		
 
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.meterPressureLow, utility.medium);
@@ -1535,11 +1546,11 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.workAreaSafetyYes, utility.medium);
 
-		await expect(this.captureEvidence.isDisplayed());
+		
 		await utility.wait(utility.medium);
 		gen.SendKeys(this.additionalGASNote, utility.medium, 'Fault Checked');
 
-		await expect(await this.safeToContinueYEs.isDisplayed());
+		
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.safeToContinueYEs, utility.medium);
 		await utility.wait(utility.medium);
@@ -1560,8 +1571,7 @@ export class GASPageObject {
 		 ***/
 
 	public async fillNewMeterDetailsWomanufact(index: number) {
-		if (await this.newMeterDD.isDisplayed()) {
-			await utility.wait(utility.low);
+			
 			// click the dropdown
 			await utility.wait(utility.medium);
 			gen.ButtonClick(this.newMeterDD, utility.medium);
@@ -1574,16 +1584,16 @@ export class GASPageObject {
 			await utility.wait(utility.medium);
 			//await this.commshubPopup.click();
 
-			await expect(await this.inputMeterSerialNum.isDisplayed());
+			
 			var options = this.selectNewMeterGasOptn.getAttribute('value');
 			await utility.wait(utility.medium);
 			gen.SendKeys(this.inputMeterSerialNum, utility.medium, options);
 
 			await utility.wait(utility.medium);
-			gen.ButtonClick(this.randomEUDevice, utility.medium);
+			await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
 
 			await utility.wait(utility.medium);
-			gen.ButtonClick(this.commshubPopup, utility.medium);
+			gen.ButtonClick(this.infoOKButton, utility.medium);
 
 			await utility.wait(utility.medium);
 			gen.DropDownOptionClick(this.MeterTypeDD, utility.medium, '0');
@@ -1592,7 +1602,6 @@ export class GASPageObject {
 			gen.DropDownOptionClick(this.meterLocDD, utility.medium, '02');
 
 			await utility.wait(utility.medium);
-		}
 	}
 
 }

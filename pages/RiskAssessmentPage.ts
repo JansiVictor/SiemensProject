@@ -439,9 +439,10 @@ export class RiskAssessmentPageObject {
 
     public async gasfullmeterInst() {
         await utility.wait(utility.medium);
-        Gen.ButtonClick(this.CaptureInitialGasInstTab, utility.low);
-        await utility.wait(utility.medium);
+        //Gen.ButtonClick(this.CaptureInitialGasInstTab, utility.low);
+        //await utility.wait(utility.medium);
         Gen.ButtonClick(this.capfullmeterInst, utility.low);
+        await utility.wait(utility.medium);
     }
 
     public async verifyInitialPolarityCheck() {
@@ -587,5 +588,6 @@ export class RiskAssessmentPageObject {
     public async NeedtoWork() {
         await utility.wait(utility.medium);
         Gen.ButtonClick(this.NeedtoWorkY, utility.medium);
+        await utility.wait(utility.medium);
     }
 }

@@ -285,12 +285,13 @@ Given('the SFENMEX15 CAPTURE INITIAL PHOTO OF GAS INSTALLATION section', async f
 });
 
 When('I click on SFENMEX15 CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {
-	await riskassess.capturephotoMeterInstall.click();
-	await utility.wait(utility.medium_low);
+	await riskassess1.elecfullmeterInst();
+	await utility.wait(utility.medium);
 });
 
 When('I click on SFENMEX15 CAPTURE PHOTO OF CURRENT FULL GAS METER INSTALLATION button', async function () {
-	await riskassessGAS.capturephotoMeterInstall.click();
+	await riskassess1.gasfullmeterInst();
+	await utility.wait(utility.medium);
 });
 
 Then('I should see SFENMEX15 INITIAL POLARITY CHECK - MARTINDALE TEST section', async function () {

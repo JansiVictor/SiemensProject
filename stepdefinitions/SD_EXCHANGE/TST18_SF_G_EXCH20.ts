@@ -21,6 +21,9 @@ import {
 	GASPageObject
 } from "../../pages/GASPage";
 import {
+  RiskAssessmentPageObject
+} from "../../pages/RiskAssessmentPage";
+import {
 	JobCompletionPageObject
 } from "../../pages/JobCompletionPage";
 import {
@@ -45,6 +48,7 @@ const applist: AppointmentListPageObject = new AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: ElectricPageObject = new ElectricPageObject();
 const riskassessGAS: GASPageObject = new GASPageObject();
+const risk: RiskAssessmentPageObject = new RiskAssessmentPageObject();
 const exchnge21Complete: JobCompletionPageObject = new JobCompletionPageObject();
 
 Given('the ExTwnty Login Page', async function () {
@@ -282,7 +286,8 @@ Given('the ExchangeTwnty Appointment List window', async function () {
   });
 
   When('I click on ExchangeTwnty CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {            // Write code here that turns the phrase above into concrete actions
-    await riskassess.capturephotoMeterInstall.click();
+    await risk.elecfullmeterInst();
+    await utility.wait(utility.medium);
   });
 
   Then('I should see ExchangeTwnty INITIAL POLARITY CHECK - MARTINDALE TEST section', async function () {

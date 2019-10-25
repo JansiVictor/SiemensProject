@@ -333,11 +333,8 @@ export class JobCompletionPageObject {
 	public async sendPPMIDmessageSection() {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.sendMsgPPMID, utility.medium);
-
-		if (this.ppmidCommSuccess.isDisplayed()) {
-			await utility.wait(utility.medium);
+		await utility.wait(utility.high);
 			Gen.ButtonClick(this.ppmidCommSuccess, utility.medium);
-		}
 	}
 
 	public async fillConfigAllmeter_INST15() {
@@ -355,6 +352,7 @@ export class JobCompletionPageObject {
 		Gen.ButtonClick(this.capturePPMIDBtn, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.PPMIDNxtBtn, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 
@@ -371,7 +369,7 @@ export class JobCompletionPageObject {
 		Gen.RadioButtonClick(this.AdditionalEEInfoReqYes, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.EENxtBtn, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	public async installSubmit() {
@@ -439,7 +437,6 @@ export class JobCompletionPageObject {
 		Gen.RadioButtonClick(this.PPMIDAccepted, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionClick(this.PPMIDLOCDD, utility.medium, 'B');
-		if (await this.PPMIDToInstall.isDisplayed()) {
 			await utility.wait(utility.medium);
 			Gen.ButtonClick(this.PPMIDToInstall, utility.medium);
 			browser.sleep(1000);
@@ -451,11 +448,10 @@ export class JobCompletionPageObject {
 			await utility.wait(utility.medium);
 			Gen.SendKeys(this.inputPPMIDSerialNum, utility.medium, options);
 			await utility.wait(utility.medium);
-			Gen.RadioButtonClick(this.dummydiv1, utility.medium);
+			Gen.ButtonClick(this.ppmidNXTBtn, utility.medium);
 			await utility.wait(utility.medium);
 			Gen.ButtonClick(this.infoOKButton, utility.medium);
-
-		}
+			await utility.wait(utility.medium);
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.ppmidAdditionalNote, utility.medium, 'Additonal Notes');
 		await utility.wait(utility.medium);
@@ -477,7 +473,7 @@ export class JobCompletionPageObject {
 		Gen.DropDownOptionClick(this.PPMIDLOCDD, utility.medium, 'B');
 
 
-		if (await this.PPMIDToInstall.isDisplayed()) {
+		
 			await utility.wait(utility.medium);
 			Gen.ButtonClick(this.PPMIDToInstall, utility.medium);
 			browser.sleep(1000);
@@ -493,12 +489,12 @@ export class JobCompletionPageObject {
 			Gen.SendKeys(this.inputPPMIDSerialNum, utility.medium, options);
 
 			await utility.wait(utility.medium);
-			Gen.ButtonClick(this.EEUIDText, utility.medium);
+			await this.PPMIDToInstall.element(by.css("option:nth-child(" + index + ")")).click()
 
 			await utility.wait(utility.medium);
 			Gen.ButtonClick(this.infoOKButton, utility.medium);
 
-		}
+		
 
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.ppmidAdditionalNote, utility.medium, 'Additonal Notes');
@@ -527,7 +523,6 @@ export class JobCompletionPageObject {
 		await utility.wait(utility.medium);
 
 		await utility.wait(utility.medium);
-		if (await this.PPMIDToInstall1.isDisplayed()) {
 			await utility.wait(utility.medium);
 
 			Gen.ButtonClick(this.PPMIDToInstall1, utility.medium);
@@ -547,10 +542,10 @@ export class JobCompletionPageObject {
 			await utility.wait(utility.medium);
 			Gen.ButtonClick(this.infoOKButton1, utility.medium);
 			await utility.wait(utility.medium);
-		}
 		Gen.SendKeys(this.inputPPMIDSerialNum1, utility.medium, 'Additonal Notes');
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.ppmidNXTBtn1, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 
@@ -572,6 +567,8 @@ export class JobCompletionPageObject {
 	 ***/
 	public async fillXIPMDSection() {
 		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.sendMsgPPMID, utility.medium);
+		await utility.wait(utility.high);
 		Gen.ButtonClick(this.ppmidCommSuccess, utility.medium);
 
 	}
@@ -805,7 +802,7 @@ export class JobCompletionPageObject {
 		Gen.RadioButtonClick(this.AdditionalEEInfoReqYes, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.EENxtBtn, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -813,7 +810,9 @@ export class JobCompletionPageObject {
 	 * @description Smart Education Section display
 	 ***/
 	public async smartEducationDisplay() {
+		await utility.wait(utility.medium);
 		if (this.smartEducationText.isDisplayed()) {
+			await utility.wait(utility.medium);
 			await this.smartEducationText.getText().then(function (smartEducation) {
 				console.log("find smartEducation Text  " + smartEducation);
 			});
@@ -833,6 +832,7 @@ export class JobCompletionPageObject {
 		await utility.wait(utility.medium);
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.DemoOfEquipmentYes, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -874,7 +874,7 @@ export class JobCompletionPageObject {
 			});
 		}
 		await utility.wait(utility.medium);
-		Gen.DropDownOptionClick(this.signedbyCustorRepDD, utility.medium, "Customer");
+		Gen.DropDownOptionClick(this.signedbyCustorRepDD, utility.medium, "Neither");
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.signaturepadCanvas, utility.medium);
 		await utility.wait(utility.medium);
@@ -898,9 +898,9 @@ export class JobCompletionPageObject {
 			});
 		}
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.eSign, utility.medium);
+		Gen.SendKeys(this.eSign, utility.medium, '-');
 		await utility.wait(utility.medium);
-		Gen.DropDownOptionClick(this.signedbyCustorRepDD, utility.medium, "Customer");
+		Gen.DropDownOptionClick(this.signedbyCustorRepDD, utility.medium, "Neither");
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.custRefusedToSignNo, utility.medium);
 		await utility.wait(utility.medium);
@@ -983,6 +983,7 @@ export class JobCompletionPageObject {
 		Gen.RadioButtonClick(this.custaddnlhelpinfo, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.IsCDemoofequipmentcomp, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 	public async smartLitLeftOnsite() {
@@ -1009,6 +1010,7 @@ export class JobCompletionPageObject {
 		browser.sleep(1000);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.signpad, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 	public async fillfield57Capturecust() {
@@ -1112,8 +1114,9 @@ export class JobCompletionPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.PPMIDSendMessageButton, utility.medium);
 		console.log("find PPMID comm SendMsg Text Button clicked  ");
-		await utility.wait(utility.medium);
+		await utility.wait(utility.high);
 		Gen.ButtonClick(this.PPMIDComSuccessButton, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	public async fillDeviceBindingSectionInst16() {
@@ -1126,6 +1129,7 @@ export class JobCompletionPageObject {
 		Gen.RadioButtonClick(this.FUlHANYes, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.deviceBindingNextSecButton, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 

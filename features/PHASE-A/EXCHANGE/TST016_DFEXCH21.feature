@@ -47,10 +47,6 @@ Feature: TST016_DFEXCH21
         Scenario: Going through ExTwOne "INITIAL RISK ASSESSMENT"
                 Given the ExTwOne INITIAL RISK ASSESSMENT section
                 When I fill the ExTwOne initialRisk field with the values
-                Then I should see ExTwOne INFO window
-
-               
-                Given the ExTwOne INFO window with the text
         
         Scenario: Going through ExTwOne "RISK ASSESSMENT - ELEC" section
                 Given the ExTwOne RISK ASSESSMENT - ELEC section

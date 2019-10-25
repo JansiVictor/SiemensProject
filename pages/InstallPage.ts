@@ -142,6 +142,7 @@ export class InstallPageObject {
 	public InstallPPMIDCaption: ElementFinder;
 	public PPMIDoffered: ElementFinder;
 	public PPMIDaccepted: ElementFinder;
+	public PPMIDaccepted1: ElementFinder;
 	public PPMIDLocsel: ElementFinder;
 	public PPMIDtoInstallsel: ElementFinder;
 	public SerialNoText: ElementFinder;
@@ -503,7 +504,7 @@ export class InstallPageObject {
 		this.nextSecnewRegulator = element(by.xpath('//*[@id="newRegulator_nextButton"]'));
 		this.GasInitialmeterReading = element(by.xpath('//div/h4[text()="Gas Initial Meter Reading"]'));
 		this.captureMeterReadingSend = element(by.xpath('//*[@id="reg0"]'));
-		this.CaptureMeterReadingenableok = element(by.xpath('//*[contains(text(),"Capture Meter Reading - Register (null)")]'));
+		this.CaptureMeterReadingenableok = element(by.xpath('//*[@id="rb_UnReadMet_y"]/following-sibling::span[@class="outer"]'));
 		this.nextSecnewgasMeter = element(by.xpath('//*[@id="gasNewMeter_nextButton"]'));
 		//Intall Kit
 		this.InstKitCaption = element(by.xpath('//div/h4[text()="Install Kit"]'));
@@ -614,8 +615,8 @@ export class InstallPageObject {
 		this.SiemenscableMarkersInsTxt = element(by.xpath('(//*[contains(text(),"Approved Siemens Cable Markers Installed Correctly?")])'));
 		this.SiemenscableMarkersIns = element(by.xpath('//*[@id="rb_SieCMark_y"]/span[@class="outer"]'));
 		this.VisualInspectionCompleted = element(by.xpath('//*[@id="rb_VisInsCom_y"]/span[@class="outer"]'));
-		this.cableMarkerSelect = element(by.xpath('//select[@id="cbx_CabMark_Sel"]'));
-		this.EarthTypeSelect = element(by.xpath('//select[@id="cbx_EarType_Sel"]'));
+		this.cableMarkerSelect = element(by.xpath('//*[@id="cbx_CabMark_Sel"]'));
+		this.EarthTypeSelect = element(by.xpath('//*[@id="cbx_EarType_Sel"]'));
 		this.ReplacementMeterBoardY = element(by.xpath('//*[@id="rb_ReMetBoard_y"]/span[@class="outer"]'));
 		this.MeterTailsChangedN = element(by.xpath('//*[@id="rb_MetTailChg_n"]/span[@class="outer"]'));
 		this.ReplacementmainFuseY = element(by.xpath('//*[@id="rb_ReMainFuse_y"]/span[@class="outer"]'));
@@ -701,7 +702,7 @@ export class InstallPageObject {
 
 		//CGP INSTALL16
 		this.PPMIDOfferedYes = element(by.xpath('//*[@id="ihdscan2_ihdPpmidOfferedtrue"]'));
-		this.PPMIDAccepted = element(by.xpath('//*[@id="ihdscan2_ihdOrPPMIDAccepted_a"]'));
+		this.PPMIDaccepted1 = element(by.xpath('//*[@id="ihdscan2_ihdOrPPMIDAccepted_a"]'));
 		this.PPMIDLOCDD = element(by.xpath('//*[@id="ihdscan2_assetLocationSelect"]'));
 		this.PPMIDToInstall = element(by.xpath('//*[@id="ihdscan2_assetSelect"]'));
 		this.inputPPMIDSerialNum = element(by.xpath('//*[@id="ihdscan2_assetSerialNumber"]'));
@@ -1767,6 +1768,7 @@ export class InstallPageObject {
 	public async ElecInitialMeterReading() {
 		await utility.wait(utility.medium);
 		await this.ElecInitMeterReadingCap.getText().then(function (ElecInitMeterReadingCapTxt) {
+			utility.wait(utility.medium);
 			console.log("Elec Initial Meter Reading" + ElecInitMeterReadingCapTxt);
 		});
 	}
@@ -2256,7 +2258,8 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.AllPortsSealed, utility.medium);
 		await utility.wait(utility.medium);
-		generic.ButtonClick(this.SiemenscableMarkersInsTxt, utility.medium);
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.SiemenscableMarkersIns, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.VisualInspectionCompleted, utility.medium);
 		await utility.wait(utility.medium);
@@ -2379,11 +2382,10 @@ export class InstallPageObject {
 	public async fillPPMIDSectionInst16(index: number) {
 		generic.ButtonClick(this.PPMIDOfferedYes, utility.medium);
 		await utility.wait(utility.medium);
-		generic.ButtonClick(this.PPMIDaccepted, utility.medium);
+		generic.ButtonClick(this.PPMIDaccepted1, utility.medium);
 		await utility.wait(utility.medium);
 		generic.DropDownOptionClick(this.PPMIDLOCDD, utility.medium, 'A');
 		await utility.wait(utility.medium);
-		if (await this.PPMIDToInstall.isDisplayed()) {
 			await utility.wait(utility.medium);
 			// click the dropdown
 			generic.ButtonClick(this.PPMIDToInstall, utility.medium);
@@ -2398,11 +2400,10 @@ export class InstallPageObject {
 			var options = this.PPMIDinstallDDList.getAttribute('value');
 			generic.SendKeys(this.inputPPMIDSerialNum, utility.medium, options);
 			await utility.wait(utility.medium);
-			generic.ButtonClick(this.randomEUDevicePPMID, utility.medium);
+			generic.ButtonClick(this.ppmidNXTBtn, utility.medium);
 			await utility.wait(utility.medium);
 			generic.ButtonClick(this.infoOKButton, utility.medium);
 			await utility.wait(utility.medium);
-		}
 		generic.SendKeys(this.ppmidAdditionalNote, utility.medium, 'Aditional Notes CGP');
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.ppmidNXTBtn, utility.medium);

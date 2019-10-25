@@ -255,7 +255,6 @@ Given('the ExchngNineteen Appointment List window', async function () {
 
   Then('I should see ExchngNineteen Capture Photo of GAS Installation section', async function () {
     await riskassessGAS.captureInitialPhotoTxt();
-	await riskassessGAS.captureInitialPhotogasbtn.click();
 	await utility.wait(utility.very_low);
   });
 
@@ -379,7 +378,7 @@ Given('the ExchngNineteen Appointment List window', async function () {
 
 
    When('I fill the ExchngNineteen Gas Initial Meter Reading details fields with values',async function () {
-    await riskassessGAS.fillGasInitialMeterREading();
+    await riskassessGAS.fillGasInitialMeterREadingEXCH21();
    });
 
 
