@@ -6,7 +6,7 @@ Feature: TST101_AbortElecRisk_SFEFLTY19SMETS2NOEXCH
     @LoginScenario
     Scenario: Select the Latest FLTYTTradNoExchange workOrder
         Given the FLTYTTradNoExchange Appointment List window
-        When I click on FLTYTTradNoExchange select button
+        When I click on fltynineteen select button
         Then I should see FLTYTTradNoExchange Work Order window
 
     Scenario: Going through FLTYTTradNoExchange Call Forward

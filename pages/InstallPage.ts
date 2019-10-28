@@ -1395,7 +1395,7 @@ export class InstallPageObject {
 		generic.SendKeys(this.dropinpressureselect, utility.medium, '2');
 		await utility.wait(utility.medium);
 
-		generic.SendKeys(this.selectMeterType, utility.medium, '2');
+		generic.DropDownOptionClick(this.selectMeterType, utility.medium, '2');
 		await utility.wait(utility.medium);
 
 		generic.ButtonClick(this.GasTightnessPassed, utility.medium);
@@ -1407,7 +1407,7 @@ export class InstallPageObject {
 		generic.SendKeys(this.standingPressure, utility.medium, '1.1');
 		await utility.wait(utility.medium);
 
-		generic.ButtonClick(this.cappostinstallation, utility.medium);
+		generic.ButtonClick(this.cappostinstallationpressure, utility.medium);
 		await utility.wait(utility.medium);
 
 		generic.SendKeys(this.workingPressure, utility.medium, '1.5');

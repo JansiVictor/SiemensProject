@@ -792,9 +792,7 @@ export class RemovePageObject {
 ***/
 	public async fillElectricAssetRemovalSection() {
 		await utility.wait(utility.medium);
-		if (this.removedAssetStatustext.isDisplayed()) {
-			Gen.ButtonClick(this.removedAssetStatusOffcircuit, utility.medium);
-		}
+			Gen.DropDownOptionClick(this.elecAssetRemoval, utility.medium, '1');
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.confirmedAssetRemovalY, utility.medium);
 		await utility.wait(utility.medium);
@@ -850,7 +848,7 @@ export class RemovePageObject {
 		}
 		await utility.wait(utility.medium);
 		if (await this.assetReposition.isDisplayed()) {
-			Gen.ButtonClick(this.assetRepositionY, utility.medium);
+			Gen.DropDownOptionClick(this.equipmentRepositionRequired, utility.medium, 'Yes-Customer Agreed');
 		}
 		await utility.wait(utility.medium);
 		if (await this.smets2offered.isDisplayed()) {
@@ -992,6 +990,7 @@ export class RemovePageObject {
 	public async filleleccommsdtls() {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.confirmelecmeterOnsupply, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	//#endregion
@@ -1347,8 +1346,8 @@ export class RemovePageObject {
 		Gen.DropDownOptionClick(this.statusofAssetSelect, utility.medium, '1');
 		await utility.wait(utility.medium);
 		///***IE Changes 21/10/19*/
-		Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
-		await utility.wait(utility.medium);
+		//Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
+		//await utility.wait(utility.medium);
 	}
 
 	//#region Gas Meter Removal for Remove Gas
@@ -2222,6 +2221,7 @@ export class RemovePageObject {
 	public async clickonElecsubmitfor() {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.ConfirmElecCommsHubSubmit, utility.medium);
+		await utility.wait(utility.medium);
 	}
 	public async clickonElecsubmitforRemoval() {
 		await utility.wait(utility.medium);

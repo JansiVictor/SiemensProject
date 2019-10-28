@@ -5,6 +5,7 @@ import { AppointmentListPageObject } from "../../pages/AppointmentListPage";
 import { DoorStepPageObject } from "../../pages/DoorStepPage";
 import { RiskAssessmentPageObject } from "../../pages/RiskAssessmentPage";
 import { RemovePageObject } from "../../pages/RemovePage";
+import { ElectricPageObject } from "../../pages/ElectricPage";
 import { JobCompletionPageObject } from "../../pages/JobCompletionPage";
 import { config } from "../../config/config";
 import { Utility } from "../../support/utility";
@@ -24,6 +25,7 @@ const riskassess: RiskAssessmentPageObject = new RiskAssessmentPageObject();
 const remove: RemovePageObject = new RemovePageObject();
 const inst: InstallPageObject = new InstallPageObject();
 const job: JobCompletionPageObject = new JobCompletionPageObject();
+const riskassesselec: ElectricPageObject = new ElectricPageObject();
 
 Given('TST15 the Login Page', async function () {
     await browser.get(config.baseUrl);
@@ -171,11 +173,7 @@ Given('TST15 the INITIAL RISK ASSESSMENT section', async function () {
 
 When('TST15 I fill the initialRisk field with the values', async function () {
     await riskassess.inputInitialRiskAssessmentDetails();
-    if (riskassess.NeedtoWorkYES.isDisplayed()) {
-        var element = riskassess.NeedtoWorkYES;
-        browser.executeScript("arguments[0].click()", element);
-        await utility.wait(utility.medium_low);
-    }
+    await riskassesselec.verifyinfookandneedtoperform();
 });
 
 Then('TST15 I should see RISK ASSESSMENT ELEC section', async function () {

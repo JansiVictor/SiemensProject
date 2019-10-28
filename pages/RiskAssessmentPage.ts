@@ -309,6 +309,7 @@ export class RiskAssessmentPageObject {
         Gen.SendKeys(this.airLineRefInput, utility.medium, '5678910');
         await utility.wait(utility.medium);
         Gen.RadioButtonClick(this.OKtoProceedEGPOutcome, utility.medium);
+        await utility.wait(utility.medium);
     }
 
     public async infoTextPopUp() {

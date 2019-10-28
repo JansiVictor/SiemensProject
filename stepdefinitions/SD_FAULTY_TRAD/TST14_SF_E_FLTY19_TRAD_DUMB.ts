@@ -311,8 +311,7 @@ Given('the SFEFLTY19TRAD CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section', as
 });
 
 When('I click on SFEFLTY19TRAD CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {
-	await riskassess.capturephotoMeterInstall.click();
-	await utility.wait(utility.medium_low);
+	await riskassess1.elecfullmeterInst();
 });
 
 Then('I should see SFEFLTY19TRAD INITIAL POLARITY CHECK - MARTINDALE TEST section', async function () {

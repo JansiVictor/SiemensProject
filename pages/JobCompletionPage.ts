@@ -908,6 +908,7 @@ export class JobCompletionPageObject {
 		Gen.ButtonClick(this.jobCompleteBtn, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.infoOKButton, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 
@@ -923,8 +924,7 @@ export class JobCompletionPageObject {
 			});
 		}
 		await utility.wait(utility.medium);
-		Gen.SendKeys(this.eSign, utility.medium, '-');
-		await utility.wait(utility.medium);
+		
 		Gen.DropDownOptionClick(this.signedbyCustorRepDD, utility.medium, "Neither");
 		await utility.wait(utility.medium);
 		await utility.wait(utility.medium);
@@ -932,8 +932,6 @@ export class JobCompletionPageObject {
 			console.log('mouse click successful');
 		else
 			console.log('Not')
-		await utility.wait(utility.medium);
-		this.signaturepadCanvas.click();
 		await utility.wait(utility.medium);
 		await utility.wait(utility.medium);
 		Gen.SendKeysJS(this.signaturepadCanvas,utility.medium, '.');

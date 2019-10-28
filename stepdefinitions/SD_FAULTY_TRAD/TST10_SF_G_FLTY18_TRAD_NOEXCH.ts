@@ -302,12 +302,13 @@ Given('the SFGFLTY18TRAD CAPTURE INITIAL PHOTO OF GAS INSTALLATION section', asy
 });
 
 When('I click on SFGFLTY18TRAD CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {
-	await riskassess.capturephotoMeterInstall.click();
+	await riskassess1.elecfullmeterInst();
 	await utility.wait(utility.medium_low);
 });
 
 When('I click on SFGFLTY18TRAD CAPTURE PHOTO OF CURRENT FULL GAS METER INSTALLATION button', async function () {
-	await riskassessGAS.capturephotoMeterInstall.click();
+	await riskassess1.gasfullmeterInst();
+
 });
 
 Then('I should see SFGFLTY18TRAD INITIAL POLARITY CHECK - MARTINDALE TEST section', async function () {
@@ -554,8 +555,6 @@ When('I fill the Suitability for Smart Meter Installation fields with the values
 
 Then('I should see SFGFLTY18TRAD Capture Photo of GAS Installation section', async function () {
 	await riskassessGAS.captureInitialPhotoTxt();
-	await riskassessGAS.captureInitialPhotogasbtn.click();
-	await utility.wait(utility.very_low);
 });
 
 Given('the Pre Installation Gas Tightness section', async function () {

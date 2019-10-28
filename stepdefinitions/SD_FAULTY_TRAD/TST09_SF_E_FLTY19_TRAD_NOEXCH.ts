@@ -80,7 +80,7 @@ import {
     
     
     When('I click on FLTYTTradNoExchange select button', async function () {
-      await home.clickCorrectSelectLink('SFEFLTY19');
+      await home.clickCorrectSelectLink('SFEFLTY19TRAD');
     //await home.clickFLTY19TradNoExSelectLink();
     //await home.clickOnTheContinueLink();
     await utility.wait(utility.medium_low);
@@ -267,7 +267,7 @@ import {
     });
     
     Given('the FLTYTTradNoExchange Click CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section', async function () {
-    await riskassessPage.capturephotoMeterInstall.click();
+    await riskassessPage.elecfullmeterInst();
     });
     
     
@@ -344,7 +344,7 @@ import {
       });
     
       Then('FLTYTTradNoExchange I should see  Remove Submit section', async function () {
-        await remove.ConfirmElecCommsHubSubmit.click();
+        await remove.clickonElecsubmitfor();
     });
 
     /**********"Energy Efficiency Information" */
