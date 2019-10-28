@@ -41,12 +41,13 @@ export class loginPageObject {
 	 * @description Generic Login Function
 	 ***/
   public async performLogin() {
-    await browser.get(config.baseUrl);
     await utility.wait(utility.medium_low);
+    await browser.get(config.baseUrl);
+    await utility.wait(utility.medium);
     await this.setUsernamePassword(config.USERNAME, config.PASSWORD);
     await utility.wait(utility.very_low);
+    await utility.wait(20000);
     await this.clickLogin();
-    await utility.wait(utility.medium);
-    await utility.wait(utility.medium);
+    await utility.wait(20000);
   }
 }

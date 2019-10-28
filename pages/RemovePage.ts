@@ -822,6 +822,12 @@ export class RemovePageObject {
 		Gen.ButtonClick(this.smet2ihdppidN, utility.medium);
 	}
 
+	public async clicksubmitok() {
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.submitRemovebtn, utility.medium);
+		await utility.wait(utility.medium);
+	}
+
 	public async clickonremsuccess() {
 		await utility.wait(utility.medium);
 		if (await this.remvSuccessful.isDisplayed()) {
@@ -1166,6 +1172,7 @@ export class RemovePageObject {
 		}
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.reportedinctoGTY, utility.medium);
+		await utility.wait(utility.medium);
 		Gen.SendKeys(this.jobRef, utility.medium, '1');
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.reportedinctoHSY, utility.medium);
@@ -1177,6 +1184,7 @@ export class RemovePageObject {
 		Gen.ButtonClick(this.gtresolveY, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.btnnext, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	public async removeihdPpmid() {
@@ -1196,11 +1204,13 @@ export class RemovePageObject {
 	public async fill20rmvihdppmidtls() {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.AssettobeRemoved, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	public async ihdpowerOnOK() {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.rmvihdppmidpopupOK, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	public async fill21rmvihdppmidtls() {
@@ -1211,6 +1221,7 @@ export class RemovePageObject {
 	public async rmvihdppmidnxtbtn() {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.rmvihdppmidNxtBtn, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	public async sendmsgihdppmid() {
@@ -1865,6 +1876,7 @@ export class RemovePageObject {
 	public async Tst22fillcurrentmeterdtlGassec() {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.existgasmeterDtlY, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	public async Tst22fillcurrentElecmeter() {
@@ -2089,7 +2101,8 @@ export class RemovePageObject {
 	// CGP added for EX23
 	public async fill21rmvihdppmidtlsEX23() {
 		await utility.wait(utility.medium);
-		Gen.DropDownOptionClick(this.rmvihdppmidstatusofAssetSel, utility.medium, 'No Fault Found');
+		Gen.DropDownOptionClick(this.rmvihdppmidstatusofAssetSel, utility.medium, '1');
+		await utility.wait(utility.medium);
 	}
 
 
@@ -2132,13 +2145,13 @@ export class RemovePageObject {
 		Gen.ButtonClick(this.RemoveElecAssetrplacedorremoved, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionbyLabel(this.statusofElecAssetSelect, utility.medium, 'No Fault Found');
-		if (await this.removedmeterReading.isDisplayed()) {
 			await utility.wait(utility.medium);
 			Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
 			await utility.wait(utility.medium);
 			Gen.ButtonClick(this.statusofElecAssetSelect, utility.medium);
 			console.log("Random Click EX23");
-		}
+			await utility.wait(utility.medium);
+		
 	}
 
 	public async clickonnxtBtnofElecmeterRemovalEX23() {
@@ -2253,9 +2266,11 @@ export class RemovePageObject {
 		Gen.SendKeys(this.nonserealizedAssetInput, utility.medium, '1');
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.msgToDCCY, utility.medium);
+		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commsHubConnectedYes, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commissioningNxtBtn, utility.medium);
+		await utility.wait(utility.medium);
 	}
 	//CGP added
 	public async fillCommissioningDetailsEX23() {

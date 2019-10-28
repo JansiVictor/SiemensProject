@@ -4,7 +4,7 @@
 </p>
 
 <p align="center">
-   <i><strong>This project automates the SMETS2 workflows using protractor-cucumber-typescript framework.
+   <i><strong>This project automates the SMETS2 and TRAD workflows using protractor-cucumber-typescript framework.
 </strong></i>
 <p>
 
@@ -23,15 +23,15 @@
 
 #### Pre-requisites
 1.Install NodeJS
-https://nodejs.org/en/download/
+    https://nodejs.org/en/download/
 
-2.Chrome browser installed.
+2.Install Chrome browser.
 
 3.Text Editor(Optional) installed-->Sublime/Visual Studio Code/Brackets.
 
 4.Install Java
 
-#### Setup Scripts
+#### Setup Environment
 * Clone the repository into a folder
 * Go inside the folder and run following command from terminal/command prompt
 ```
@@ -39,17 +39,38 @@ npm install
 ```
 * All the dependencies from package.json and ambient typings would be installed in node_modules folder.
 
-#### Run Scripts
+#### Setup Scripts
 
 * First step is to fire up the selenium server which could be done in many ways,  **webdriver-manager** proves very handy for this.The below command should download the **chrome & gecko driver** binaries locally for you!
 ```
-npm run webdriver-update
+npm install webdriver-manager
+```
+ * To get the latest update of the webdriver-manager, please run the below command
+```
+webdriver-manager update
 ``` 
 * Then you should start your selenium server!
 ```
-npm run webdriver-start
+webdriver-manager start
 ```
 
+#### Setup Scripts on IE
+```
+For Internet Explorer runs:
+1. Run webdriver-manager update --ie on command prompt 
+2. Copy the IE driver version available within drivers folder in the project directory on to the following path 
+C:\Users\Owner\AppData\Roaming\npm\node_modules\protractor\node_modules\webdriver-manager\selenium
+3. Change security Settings on IE browser - 
+    Settings->Security->Internet - Check 'Enable Protected Mode'
+    Settings->Security->Local intranet - Check 'Enable Protected Mode'
+    Settings->Security->Trusted sites - Check 'Enable Protected Mode'
+    Settings->Security->Restricted sites - Check 'Enable Protected Mode' 
+4. Change General settings on IE browser -
+    Settings->General->Internet - Check 'Delete browsing history on exit'
+5. Run webdriver-manager start
+```
+
+#### Install Dependencies
 * Run the below commands to install dependencies used within the project 
 ```
 npm install protractor-multiple-cucumber-html-reporter-plugin
@@ -66,6 +87,9 @@ npm install xmlhttprequest
 ```
 npm run build
 ```
+
+#### Configuration specifications 
+* Specify the user id to be used for the test execution on the config file. Ensure the SOAPUSER is specified in accordance with the user account.
 
 * Uncomment the required Spec on the config file based on the batch of testcases to be run.
 ```
@@ -108,14 +132,18 @@ npm run build
     //      "../../features/Abort/AbortPreGasTest/EXCHANGE/*.feature",
     //      "../../features/Abort/AbortPreGasTest/FAULTY_SMETS2/*.feature",
     //      "../../features/Abort/AbortPreGasTest/FAULTY_TRAD/*.feature"
-    
 ```
 
-* Now just run the test command which launches the Chrome Browser and runs the scripts.
+#### Run Scripts 
+
+### Ensure all existing jobs on the portal are flushed out for the user account before the bulk execution starts.
+
+* Run the test command which launches the Chrome Browser and runs the scripts.
 ```
 npm run test
 ```
 ![result](https://raw.githubusercontent.com/igniteram/protractor-cucumber-typescript/master/images/protractor-cucumber-typescript-result.gif)
+
 
 #### Writing Features
 ```
@@ -169,6 +197,14 @@ After(async function(scenario) {
     }
 });
 ```
+Includes implementation that records the time for each workflow login
+```
+await this.attach(moment().format('dddd, MMMM Do YYYY, HH:MM:SS a'));
+FORMAT - Day, Month Date Year, HH:MM:SS AM/PM
+
+```
+
+
 #### CucumberOpts Tags
 Following configuration shows to call specific tags from feature files
 ```

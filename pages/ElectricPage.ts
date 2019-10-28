@@ -343,6 +343,21 @@ export class ElectricPageObject {
 	}
 
 	/***
+	 * @description Verify info button and Need to perform yes
+	 ***/
+
+	public async verifyinfookandneedtoperform() {
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.infoOKButton, utility.medium);
+	//await riskassess.performanceRiskNextBtn.click();
+	await utility.wait(utility.medium);
+		var element = this.NeedtoWorkYES;
+		browser.executeScript("arguments[0].click()", element);
+		await utility.wait(utility.medium);
+	}
+	
+
+	/***
 	 * @Author Aparna Das
 	 * @description Verify Initial Risk Assessment page is displayed
 	 ***/
@@ -1049,11 +1064,10 @@ export class ElectricPageObject {
 
 		//if new WO not req, if existing WO required nxtbtn
 		await utility.wait(utility.medium);
-		//gen.ButtonClick(this.initialElctext, utility.medium);
+		gen.RandomMouseClick(this.captureMeterReadingInput, 250, 34);
 		await utility.wait(utility.medium);
-
-		
 	}
+
 	//CGP added for ex23
 
 	public async fillInitialElecMeterReadingEX23() {
@@ -1062,9 +1076,12 @@ export class ElectricPageObject {
 		await utility.wait(utility.medium);
 		gen.SendKeys(this.captureMeterReadingInput, utility.medium, '12345');
 
+		// await utility.wait(utility.medium);
+		// gen.ButtonClick(this.initialElctext, utility.medium);
+		// console.log("Clicked");
 		await utility.wait(utility.medium);
-		gen.ButtonClick(this.initialElctext, utility.medium);
-		console.log("Clicked");
+		gen.RandomMouseClick(this.captureMeterReadingInput, 250, 34);
+		await utility.wait(utility.medium);
 
 		//Below can be used if random click doesnt work
 

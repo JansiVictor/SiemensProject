@@ -28,6 +28,9 @@ import {
 	JobCompletionPageObject
 } from "../../pages/JobCompletionPage";
 import {
+	RiskAssessmentPageObject
+} from "../../pages/RiskAssessmentPage";
+import {
 	config
 } from "../../config/config";
 import {
@@ -48,6 +51,7 @@ const home: HomePageObject = new HomePageObject();
 const applist: AppointmentListPageObject = new AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: ElectricPageObject = new ElectricPageObject();
+const risk: RiskAssessmentPageObject = new RiskAssessmentPageObject();
 const riskassessGAS: GASPageObject = new GASPageObject();
 const job: JobCompletionPageObject = new JobCompletionPageObject();
 const remove: RemovePageObject = new RemovePageObject();
@@ -229,17 +233,7 @@ Then('I should see ExchTwTwo INFO window', async function () {
 
 Given('the ExchTwTwo INFO window with the text', async function () {
 	//await riskassess.infoOKButton.isDisplayed();
-	await riskassess.infoOKButton.click();
-
-	//await riskassess.performanceRiskNextBtn.click();
-
-
-	await utility.wait(utility.medium);
-	if (riskassess.NeedtoWorkYES.isDisplayed()) {
-		var element = riskassess.NeedtoWorkYES;
-		browser.executeScript("arguments[0].click()", element);
-		await utility.wait(utility.medium_low);
-	}
+	riskassess.verifyinfookandneedtoperform();
 });
 
 
@@ -275,13 +269,13 @@ Then('the ExchTwTwo CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section', async f
 
 When('I click on ExchTwTwo CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {
 
-	await riskassess.capturephotoMeterInstall.click();
+	await risk.elecfullmeterInst();
 
 });
 
 Given('I should see ExchTwTwo Capture Photo of GAS Installation section', async function () {
     
-	await riskassessGAS.cptureinitialPhotogas.click();
+	await risk.gasfullmeterInst();
 
 });
 
@@ -364,7 +358,7 @@ When('I fill the ExchTwTwo METER AND CUT OUT fields with the values', async func
 });
 
 When('I click on ExchTwTwo SUBMIT button', async function () {
-	await riskassess.meterCutOutSubmitButton.click();
+	await riskassess.meterCutOutRemoveSubmitButton();
 });
 
 Then('ExchTwTwo I should see PRE INSTALLATION GAS TIGHTNESS TEST section', async function () {
@@ -430,7 +424,7 @@ Given('ExchTwTwo the CURRENT METER DETAILS - GAS section', async function () {
     await remove.currentmeterGasPageContent();
 });
 When('ExchTwTwo I fill the field with the value', async function () {
-    await remove.existgasmeterDtlY.click();
+    await remove.Tst22fillcurrentmeterdtlGassec();
 });
 
 /******Remove IHD / PPMID */
@@ -560,11 +554,11 @@ Given('ExchTwTwo the CONFIRM GAS ASSET REMOVAL section', async function () {
 });
 When('ExchTwTwo I fill the field24 with the value24', async function () {
     await remove.fill24GasAssetRemoval();
-    await remove.removePPMIDOK.click();
+    await remove.clickonokGasAssetRemoval();
 });
 Then('ExchTwTwo I click on Submit Btn', async function () {
     await utility.wait(utility.very_low);
-    await remove.submitRemovebtn.click();
+    await remove.clicksubmitok();
 });
 
 /********** "Install Page"**** */
@@ -651,7 +645,7 @@ Then('I should see ExchTwTwo New Regulator section',async function () {
 
    When('I fill the ExchTwTwo New Regulator fields with values',async function () {
     await utility.wait(utility.very_low);
-    await inst.HasGasRegulatorReplacedY.click();
+    await inst.checkregulatoryes();
     await inst.fillfornewregulator(2);
     
    });
@@ -841,7 +835,7 @@ Given('ExchTwTwo the NEW REGULATOR section', async function () {
     }
 });
 When('ExchTwTwo I fill the fields and values for new regulator section', async function () {
-    await inst.HasGasRegulatorReplacedY.click();
+    await inst.checkregulatoryes();
     await inst.fillNewRegulatorGas(2);
 });
 Then('ExchTwTwo I should see GAS INITIAL METER READING section', async function () {
@@ -853,7 +847,7 @@ Given('ExchTwTwo the GAS INITIAL METER READING section', async function () {
     await riskassessGAS.gasInitialMeterTxtDisplay();
 });
 When('ExchTwTwo I fill the fields with values Gas initial meter reading', async function () {
-    await riskassessGAS.fillGasInitialMeterREading();
+    await inst.fillthefieldsforinitmeterReading();
 });
 Then('ExchTwTwo I should see INSTALL KIT section', async function () {
     await riskassessGAS.gasInstallKitTxtDisplay();

@@ -453,12 +453,12 @@ Given('the ExchngNineteen Appointment List window', async function () {
 
 
    Then('I should see ExchngNineteen SMETS XIPMD section', async function () {
-    await exchnge21Complete.XIPMDSectiondispaly();
+    await exchnge21Complete.PPMIDCommisioningText.isDisplayed();
    });
 
 
    Given('the ExchngNineteen SMETS XIPMD section', async function () {
-    await exchnge21Complete.XIPMDSectiondispaly();
+    await exchnge21Complete.PPMIDCommisioningText.isDisplayed();
    });
 
 

@@ -221,7 +221,8 @@ Given('the TST22 CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section', async func
     await riskassessElec.electInstallationSection();
 });
 When('I click on TST22 CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {
-    await riskassessElec.capturephotoMeterInstall.click();
+    await riskassess.elecfullmeterInst();
+    await utility.wait(utility.medium);
 });
 Then('I should see TST22 RISK ASSESSMENT - GAS section', async function () {
     await riskassessGAS.riskAssessmentGASDisplayed();
@@ -310,7 +311,7 @@ When('I fill the TST22 METER AND CUT OUT fields with the values', async function
     await riskassess.fillthePolarityCheckMeterOut();
 });
 When('I click on TST22 SUBMIT button', async function () {
-    await riskassessElec.meterCutOutSubmitButton.click();
+    await riskassessElec.meterCutOutRemoveSubmitButton();
 });
 Then('TST22 I should see PRE INSTALLATION GAS TIGHTNESS TEST section', async function () {
     await remove.preinstgasTighttest();
@@ -687,7 +688,7 @@ Given('TST22 the ELEC INITIAL METER READING section', async function () {
     await inst.ElecInitialMeterReading();
 });
 When('TST22 I fill the FldName36 with the Value36', async function () {
-    await inst.fillthefieldsforinitmeterReading();
+    await riskassessElec.fillInitialElecMeterReading();
 });
 Then('TST22 I should see POST INSTALLATION CHECKS section', async function () {
     await inst.PostInstallationChks();

@@ -122,4 +122,18 @@ export class GenericPageObject {
             console.log('Button click not successful for ' + e);
         }
     }
+
+    public async RandomMouseClick(byname, xcor, ycor) {
+        try {
+        
+		if(browser.actions().mouseMove(byname, {x: xcor, y: ycor}).click().perform())
+			console.log('mouse click successful');
+		else
+			console.log('Not')
+		await utility.wait(utility.medium);
+        } catch (error) {
+            console.log('Button click not successful for ' + error);
+        }
+        
+    }
 }

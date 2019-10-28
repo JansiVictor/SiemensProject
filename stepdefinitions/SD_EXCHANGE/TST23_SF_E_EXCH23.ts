@@ -237,7 +237,7 @@ Given('the CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section for EXCH23', async
 });
 When('I click on CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button for EXCH23', async function () {
 
-  await riskassess.capturephotoMeterInstall.click();
+  await riskassess.elecfullmeterInst();
 
 });
 

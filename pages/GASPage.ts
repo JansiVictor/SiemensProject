@@ -851,18 +851,11 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		
 		// await this.capturemeterReadingInput.clear();
+		//await utility.wait(utility.medium);
+		gen.SendKeys(this.capturemeterReadingInput, utility.medium, '12345');
 		await utility.wait(utility.medium);
-		//gen.SendKeysJS(this.capturemeterReadingInput, utility.medium, '12345');
-	
-		
-		await browser.executeScript("arguments[0].click();", this.capturemeterReadingInput.getWebElement());
-        await browser.executeScript("arguments[0].value='12345';", this.capturemeterReadingInput);
-		//await browser.executeScript("arguments[0].focus();", tis.capturreMeterReadingTxt.getWebElement());
 		await utility.wait(utility.medium);
-		if(browser.actions().mouseMove(this.capturreMeterReadingTxt, {x: 0, y: 0}).click().perform())
-			console.log('mouse click successful');
-		else
-			console.log('Not')
+		gen.RandomMouseClick(this.capturemeterReadingInput, 250, 34);
 		await utility.wait(utility.medium);
 	}
 
@@ -1306,10 +1299,11 @@ export class GASPageObject {
 			//index = index ;
 			console.log("Selecting element based index : " + index)
 			// select the option
+			await utility.wait(utility.medium);
 			await this.commHubDD.element(by.css("option:nth-child(" + index + ")")).click()
 			await utility.wait(utility.medium);
 			gen.ButtonClick(this.commshubPopup, utility.medium);
-			
+			await utility.wait(utility.medium);
 			var options = this.selectinstallAssetOption.getAttribute('value');
 			await utility.wait(utility.medium);
 			gen.SendKeys(this.inputinstallCommshub, utility.medium, options);

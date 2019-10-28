@@ -8,10 +8,6 @@ import {
 
 import { Utility } from "../support/utility";
 import { GenericPageObject } from "./GenericPage";
-import { watchFile } from "fs";
-import {
-	Alert
-} from 'selenium-webdriver';
 
 const chai = require("chai");
 const expect = chai.expect;
@@ -335,6 +331,7 @@ export class JobCompletionPageObject {
 		Gen.ButtonClick(this.sendMsgPPMID, utility.medium);
 		await utility.wait(utility.high);
 			Gen.ButtonClick(this.ppmidCommSuccess, utility.medium);
+			await utility.wait(utility.medium);
 	}
 
 	public async fillConfigAllmeter_INST15() {
@@ -376,7 +373,7 @@ export class JobCompletionPageObject {
 
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.installsubmission, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	public async fillDeviceBindingSection_INST15() {
@@ -387,7 +384,7 @@ export class JobCompletionPageObject {
 		Gen.RadioButtonClick(this.FUlHANYes, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.devicebindingNext, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 
@@ -401,7 +398,7 @@ export class JobCompletionPageObject {
 		Gen.RadioButtonClick(this.custaddnlhelpinfoN, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.IsCDemoofequipmentcompN, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -409,7 +406,9 @@ export class JobCompletionPageObject {
 	 * @description PPMID section text display
 	 ***/
 	public async PPMIDSectiondispaly() {
+		await utility.wait(utility.medium);
 		if (this.installPPMIDText.isDisplayed()) {
+			await utility.wait(utility.medium);
 			await this.installPPMIDText.getText().then(function (installPPMID) {
 				console.log("find installPPMID Text  " + installPPMID);
 			});
@@ -421,7 +420,9 @@ export class JobCompletionPageObject {
 	 * @description PPMID section text display
 	 ***/
 	public async PPMIDSectiondispalyDF17() {
+		await utility.wait(utility.medium);
 		if (this.installPPMIDText1.isDisplayed()) {
+			await utility.wait(utility.medium);
 			await this.installPPMIDText1.getText().then(function (installPPMID) {
 				console.log("find installPPMID Text  " + installPPMID);
 			});
@@ -443,7 +444,6 @@ export class JobCompletionPageObject {
 			console.log("Selecting element based index : " + index)
 			await this.PPMIDToInstall.element(by.css("option:nth-child(" + index + ")")).click()
 			await utility.wait(utility.medium);
-			await expect(await this.inputPPMIDSerialNum.isDisplayed());
 			var options = this.PPMIDinstallDDListINST15.getAttribute('value');
 			await utility.wait(utility.medium);
 			Gen.SendKeys(this.inputPPMIDSerialNum, utility.medium, options);
@@ -456,7 +456,7 @@ export class JobCompletionPageObject {
 		Gen.SendKeys(this.ppmidAdditionalNote, utility.medium, 'Additonal Notes');
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.ppmidNXTBtn, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -482,7 +482,7 @@ export class JobCompletionPageObject {
 			// select the option
 			await this.PPMIDToInstall.element(by.css("option:nth-child(" + index + ")")).click()
 
-			await expect(await this.inputPPMIDSerialNum.isDisplayed());
+			
 			await utility.wait(utility.medium);
 			var options = this.PPMIDinstallDDList.getAttribute('value');
 			await utility.wait(utility.medium);
@@ -532,7 +532,7 @@ export class JobCompletionPageObject {
 
 			await this.PPMIDToInstall1.element(by.css("option:nth-child(" + index + ")")).click()
 			await utility.wait(utility.medium);
-			await expect(await this.inputPPMIDSerialNum1.isDisplayed());
+			
 			await utility.wait(utility.medium);
 			var options = this.PPMIDinstallDDList1.getAttribute('value');
 			await utility.wait(utility.medium);
@@ -554,7 +554,9 @@ export class JobCompletionPageObject {
 	 * @description XIPMD section / ppmidComm Success text display
 	 ***/
 	public async XIPMDSectiondispaly() {
+		await utility.wait(utility.medium);
 		if (this.ppmidCommSuccess.isDisplayed()) {
+			await utility.wait(utility.medium);
 			await this.ppmidCommSuccess.getText().then(function (ppmidComm) {
 				console.log("find ppmidCommSuccess Text  " + ppmidComm);
 			});
@@ -570,6 +572,7 @@ export class JobCompletionPageObject {
 		Gen.ButtonClick(this.sendMsgPPMID, utility.medium);
 		await utility.wait(utility.high);
 		Gen.ButtonClick(this.ppmidCommSuccess, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 
@@ -578,7 +581,9 @@ export class JobCompletionPageObject {
 	 * @description DeviceBinding Section display
 	 ***/
 	public async DeviceBindingSectiondispaly() {
+		await utility.wait(utility.medium);
 		if (this.diviceBindingTxt.isDisplayed()) {
+			await utility.wait(utility.medium);
 			await this.diviceBindingTxt.getText().then(function (diviceBinding) {
 				console.log("find diviceBinding Text  " + diviceBinding);
 			});
@@ -599,7 +604,7 @@ export class JobCompletionPageObject {
 		Gen.ButtonClick(this.capturePhotoAsset, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.nextButtonEff, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 	/***
 	 * @Author Aparna Das
@@ -663,6 +668,7 @@ export class JobCompletionPageObject {
 		Gen.ButtonClick(this.capturePhotoAsset, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.nextButtonEff, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 
@@ -701,7 +707,9 @@ export class JobCompletionPageObject {
 	 * @description config All meter Section display
 	 ***/
 	public async configAllmeterDisplay() {
+		await utility.wait(utility.medium);
 		if (this.configAllMeterText.isDisplayed()) {
+			await utility.wait(utility.medium);
 			await this.configAllMeterText.getText().then(function (configAllMeter) {
 				console.log("find configAllMeter Text  " + configAllMeter);
 			});
@@ -723,7 +731,7 @@ export class JobCompletionPageObject {
 		Gen.RadioButtonClick(this.fullConfigAppliedGasYes, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.PPMIDNxtBtn, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -742,6 +750,7 @@ export class JobCompletionPageObject {
 		Gen.ButtonClick(this.capturePPMIDBtn, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.PPMIDNxtBtn, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 
@@ -750,7 +759,9 @@ export class JobCompletionPageObject {
 	 * @description Smart Literature section text display
 	 ***/
 	public async SmartLiteraturedispaly() {
+		await utility.wait(utility.medium);
 		if (this.smartLitLeftOnsiteTxt.isDisplayed()) {
+			await utility.wait(utility.medium);
 			await this.smartLitLeftOnsiteTxt.getText().then(function (SmartLiterature) {
 				console.log("find installPPMID Text  " + SmartLiterature);
 			});
@@ -771,7 +782,7 @@ export class JobCompletionPageObject {
 		Gen.RadioButtonClick(this.infoOKButton, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.PPMIDNxtBtn, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -779,7 +790,9 @@ export class JobCompletionPageObject {
 	 * @description Emmergency Efficiency Info Section display
 	 ***/
 	public async EEInfoDisplay() {
+		await utility.wait(utility.medium);
 		if (this.EEInfoDiplay.isDisplayed()) {
+			await utility.wait(utility.medium);
 			await this.EEInfoDiplay.getText().then(function (EEInfo) {
 				console.log("find EEInfo Text  " + EEInfo);
 			});
@@ -840,7 +853,9 @@ export class JobCompletionPageObject {
 	 * @description Summary Section display
 	 ***/
 	public async summaryDisplay() {
+		await utility.wait(utility.medium);
 		if (this.SummaryTxt.isDisplayed()) {
+			await utility.wait(utility.medium);
 			await this.SummaryTxt.getText().then(function (Summary) {
 				console.log("find Summary Text  " + Summary);
 			});
@@ -852,6 +867,7 @@ export class JobCompletionPageObject {
 	 * @description Fill and Print Summary Content
 	 ***/
 	public async fillAndPrintSummaryContent() {
+		await utility.wait(utility.medium);
 		if (this.SummaryPageContent.isDisplayed()) {
 			await this.SummaryPageContent.getText().then(function (SummaryContent) {
 				console.log("Print SummaryContent  " + SummaryContent);
@@ -868,6 +884,7 @@ export class JobCompletionPageObject {
  * @description Submit the job
 ***/
 	public async FinalSubmission1() {
+		await utility.wait(utility.medium);
 		if (this.captureCustSignTxt.isDisplayed()) {
 			await this.captureCustSignTxt.getText().then(function (captureCustSign) {
 				console.log("Print captureCustSign Txt  " + captureCustSign);
@@ -876,7 +893,15 @@ export class JobCompletionPageObject {
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionClick(this.signedbyCustorRepDD, utility.medium, "Neither");
 		await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		this.signaturepadCanvas.click();
+
 		Gen.RadioButtonClick(this.signaturepadCanvas, utility.medium);
+		await utility.wait(utility.medium);
+		if(browser.actions().mouseMove(this.signaturepadCanvas, {x: 0, y: 0}).click().perform())
+			console.log('mouse click successful');
+		else
+			console.log('Not')
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.custRefusedToSignNo, utility.medium);
 		await utility.wait(utility.medium);
@@ -902,13 +927,20 @@ export class JobCompletionPageObject {
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionClick(this.signedbyCustorRepDD, utility.medium, "Neither");
 		await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		if(browser.actions().mouseMove(this.signaturepadCanvas, {x: 0, y: 0}).click().perform())
+			console.log('mouse click successful');
+		else
+			console.log('Not')
+		await utility.wait(utility.medium);
+		this.signaturepadCanvas.click();
+		await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		Gen.SendKeysJS(this.signaturepadCanvas,utility.medium, '.');
+		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.custRefusedToSignNo, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.custSignText, utility.medium);
-		await utility.wait(utility.medium);
-		Gen.RadioButtonClick(this.custRefusedToSignNo, utility.medium);
-		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.custSignText, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.jobCompleteBtn, utility.medium);
 		await utility.wait(utility.medium);
@@ -1011,11 +1043,16 @@ export class JobCompletionPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.signpad, utility.medium);
 		await utility.wait(utility.medium);
+		if(browser.actions().mouseMove(this.signaturepadCanvas, {x: 0, y: 0}).click().perform())
+			console.log('mouse click successful');
+		else
+			console.log('Not')
+		await utility.wait(utility.medium);
 
 	}
 	public async fillfield57Capturecust() {
 		await utility.wait(utility.medium);
-		Gen.DropDownOptionClick(this.signedbycustorRep, utility.medium, 'Customer');
+		Gen.DropDownOptionClick(this.signedbyCustorRepDD, utility.medium, 'Neither');
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.custrefusedtoSign, utility.medium);
 		await utility.wait(utility.medium);

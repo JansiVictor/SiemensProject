@@ -767,6 +767,12 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 	}
 
+	public async checkregulatoryes() {
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.HasGasRegulatorReplacedY, utility.medium);
+		await utility.wait(utility.medium);
+	}
+
 	public async fillinitmeterReadingGAS() {
 		await utility.wait(utility.medium);
 		if (await this.captureMeterReadingSend.isDisplayed()) {
@@ -785,7 +791,6 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.DropDownOptionClick(this.PPMIDLocsel, utility.medium, 'A');
 		await utility.wait(utility.medium);
-		if (await this.PPMIDtoInstallsel.isDisplayed()) {
 			generic.ButtonClick(this.PPMIDtoInstallsel, utility.medium);
 			await utility.wait(utility.medium);
 			browser.sleep(1000);
@@ -796,9 +801,9 @@ export class InstallPageObject {
 			await expect(await this.SerialNoText.isDisplayed());
 			var options = this.PPMIDtoInstallselList.getAttribute('value');
 			generic.SendKeys(this.SerialNoText, utility.medium, options);
-		}
+		
 		await utility.wait(utility.medium);
-		generic.ButtonClick(this.selectppmidtext, utility.medium);
+		await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.AssetsuccessOKclk, utility.medium);
 		await utility.wait(utility.medium);
@@ -829,7 +834,8 @@ export class InstallPageObject {
 			await utility.wait(utility.medium);
 		}
 		await utility.wait(utility.medium);
-		generic.ButtonClick(this.chfIDokenable, utility.medium);
+		await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
+			
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.assetSuccessAdded, utility.medium);
 		await utility.wait(utility.medium);
@@ -873,7 +879,7 @@ export class InstallPageObject {
 
 	public async fillGasMeterDetails(index: number) {
 		await utility.wait(utility.medium);
-		if (await this.selectValidnewgas.isDisplayed()) {
+		
 			generic.ButtonClick(this.selectValidnewgas, utility.medium);
 			await utility.wait(utility.medium);
 			browser.sleep(1000);
@@ -884,11 +890,12 @@ export class InstallPageObject {
 			var options = this.gasmeterSerealList.getAttribute('value');
 			generic.SendKeys(this.gasmeterSereal, utility.medium, options);
 			await utility.wait(utility.medium);
-			generic.ButtonClick(this.euDivText, utility.medium);
+			await this.selectValidnewgas.element(by.css("option:nth-child(" + index + ")")).click();
+			
 			await utility.wait(utility.medium);
 			generic.ButtonClick(this.commshubWarning, utility.medium);
 			await utility.wait(utility.medium);
-		}
+		
 		await utility.wait(utility.medium);
 		generic.DropDownOptionClick(this.GasnewMeterSelect, utility.medium, '0');
 		await utility.wait(utility.medium);
@@ -1010,8 +1017,9 @@ export class InstallPageObject {
 			generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
 			await utility.wait(utility.medium);
 
-		generic.ButtonClick(this.validAssetTxt, utility.medium);
-		await utility.wait(utility.medium);
+			await utility.wait(utility.medium);
+			generic.RandomMouseClick(this.gasmeterserialSendreg, 350, 34);
+			await utility.wait(utility.medium);
 
 		generic.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
 		await utility.wait(utility.medium);
@@ -1152,14 +1160,14 @@ export class InstallPageObject {
 			// select the option
 			await this.selectValidAssettoInst1.element(by.css("option:nth-child(" + index + ")")).click();
 			await utility.wait(utility.medium);
-			await expect(await this.gasmeterserialSendreg.isDisplayed());
-			await utility.wait(utility.medium);
+			
 			var options = this.selectValidAssettoInst1Lst.getAttribute('value');
 			generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
 			await utility.wait(utility.medium);
 
-		generic.ButtonClick(this.RegularclickenableOK, utility.medium);
-		await utility.wait(utility.medium);
+			await utility.wait(utility.medium);
+			generic.RandomMouseClick(this.gasmeterserialSendreg, 350, 34);
+			await utility.wait(utility.medium);
 		generic.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.nextSecnewRegulator, utility.medium);
@@ -1230,14 +1238,15 @@ export class InstallPageObject {
 			// select the option
 			await this.selectValidAssettoInst.element(by.css("option:nth-child(" + index + ")")).click();
 			await utility.wait(utility.medium);
-			await expect(await this.gasmeterserialSendreg.isDisplayed());
-			await utility.wait(utility.medium);
+			
+			
 			var options = this.selectValidAssettoInstLst.getAttribute('value');
 			generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
 			await utility.wait(utility.medium);
 
-		generic.ButtonClick(this.RegularclickenableOK, utility.medium);
-		await utility.wait(utility.medium);
+			await utility.wait(utility.medium);
+			generic.RandomMouseClick(this.gasmeterserialSendreg, 350, 34);
+			await utility.wait(utility.medium);
 		generic.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.nextSecnewRegulator, utility.medium);
@@ -1301,6 +1310,10 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.CaptureMeterReadingenableok, utility.medium);
 		await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+			generic.RandomMouseClick(this.captureMeterReadingSend, 250, 34);
+			await utility.wait(utility.medium);
 	}
 	/**
 	 * @Author Jansi Victor
@@ -1316,13 +1329,13 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.InstallkitUsedY, utility.medium);
 		await utility.wait(utility.medium);
-		generic.SendKeys(this.NonserializedassetSel, utility.medium, '1');
+		generic.DropDownOptionClick(this.NonserializedassetSel, utility.medium, '1');
 		await utility.wait(utility.medium);
 		generic.SendKeys(this.T1Aerialinput, utility.medium, '1');
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.Addanotherset, utility.medium);
 		await utility.wait(utility.medium);
-		generic.SendKeys(this.NonserializedassetSel2, utility.medium, '2');
+		generic.DropDownOptionClick(this.NonserializedassetSel2, utility.medium, '2');
 		await utility.wait(utility.medium);
 		generic.SendKeys(this.T1Aerialinput1, utility.medium, '2');
 		await utility.wait(utility.medium);
@@ -1919,7 +1932,11 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.SendKeys(this.captureMeterReadingSend2, utility.medium, '12345');
 		await utility.wait(utility.medium);
-		generic.ButtonClick(this.CaptureMeterReadingenableok1, utility.medium);
+		// generic.ButtonClick(this.CaptureMeterReadingenableok1, utility.medium);
+		// await utility.wait(utility.medium);
+		// await utility.wait(utility.medium);
+		generic.RandomMouseClick(this.captureMeterReadingSend2, 180, 34);
+		await utility.wait(utility.medium);
 		await utility.wait(utility.medium);
 	}
 
@@ -2040,14 +2057,15 @@ export class InstallPageObject {
 			// select the option
 			await this.selectValidAssettoInst.element(by.css("option:nth-child(" + index + ")")).click();
 			await utility.wait(utility.medium);
-			await expect(await this.gasmeterserialSendreg.isDisplayed());
+			
 			await utility.wait(utility.medium);
 			var options = this.selectValidAssettoInstLst.getAttribute('value');
 			generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
 			await utility.wait(utility.medium);
 
-		browser.executeScript('arguments[0].scrollIntoView()', this.validAssetTxt.getWebElement());
-		generic.ButtonClick(this.validAssetTxt, utility.medium);
+			await utility.wait(utility.medium);
+			generic.RandomMouseClick(this.gasmeterserialSendreg, 350, 34);
+			await utility.wait(utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
 		await utility.wait(utility.medium);
@@ -2066,15 +2084,14 @@ export class InstallPageObject {
 			console.log("Selecting element based index : " + index);
 			// select the option
 			await this.selectValidAssettoInst1.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			await expect(await this.gasmeterserialSendreg.isDisplayed());
+			
 			await utility.wait(utility.medium);
 			var options = this.selectValidAssettoInst1Lst.getAttribute('value');
 			generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
 			await utility.wait(utility.medium);
-		//generic.ButtonClick(this.RegularclickenableOK, utility.medium);
-		await this.selectValidAssettoInst1.element(by.css("option:nth-child(" + index + ")")).click();
-		await utility.wait(utility.medium);
+			await utility.wait(utility.medium);
+			generic.RandomMouseClick(this.gasmeterserialSendreg, 350, 34);
+			await utility.wait(utility.medium);
 		generic.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.nextSecnewRegulator, utility.medium);
@@ -2153,7 +2170,6 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.DropDownOptionClick(this.PPMIDLocsel, utility.medium, 'A');
 		await utility.wait(utility.medium);
-		if (await this.PPMIDtoInstallsel.isDisplayed()) {
 			await utility.wait(utility.medium);
 			generic.ButtonClick(this.PPMIDtoInstallsel, utility.medium);
 			await utility.wait(utility.medium);
@@ -2166,11 +2182,11 @@ export class InstallPageObject {
 			var options = this.PPMIDtoInstallselList.getAttribute('value');
 			generic.SendKeys(this.SerialNoText, utility.medium, options);
 			await utility.wait(utility.medium);
-		}
+		
 		await utility.wait(utility.medium);
-		generic.ButtonClick(this.EUIenableOKTRAD1, utility.medium);
+		await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
 		await utility.wait(utility.medium);
-		generic.ButtonClick(this.AssetsuccessOKclk, utility.medium);
+		generic.ButtonClick(this.AssetsuccessOKclkTRAD, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.InstallPPMIDNextSection, utility.medium);
 		await utility.wait(utility.medium);
@@ -2190,14 +2206,14 @@ export class InstallPageObject {
 			// select the option
 			await this.selectValidAssettoInstTRAD.element(by.css("option:nth-child(" + index + ")")).click();
 			await utility.wait(utility.medium);
-			await expect(await this.gasmeterserialSendregTRAD.isDisplayed());
-			await utility.wait(utility.medium);
+			
 			var options = this.selectValidAssettoInstTRADLst.getAttribute('value');
 			generic.SendKeys(this.gasmeterserialSendregTRAD, utility.medium, options);
 			await utility.wait(utility.medium);
 
-		generic.ButtonClick(this.randomClickRegulator, utility.medium);
-		await utility.wait(utility.medium);
+			await utility.wait(utility.medium);
+			generic.RandomMouseClick(this.gasmeterserialSendregTRAD, 350, 34);
+			await utility.wait(utility.medium);
 		generic.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.nextSecnewRegulator, utility.medium);
