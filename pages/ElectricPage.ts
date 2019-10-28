@@ -350,9 +350,8 @@ export class ElectricPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.infoOKButton, utility.medium);
 	//await riskassess.performanceRiskNextBtn.click();
-	await utility.wait(utility.medium);
-		var element = this.NeedtoWorkYES;
-		browser.executeScript("arguments[0].click()", element);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.NeedtoWorkYES, utility.medium);
 		await utility.wait(utility.medium);
 	}
 	
