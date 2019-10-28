@@ -86,7 +86,6 @@ Given('the Appointment List window For SFEFLTY19', async function () {
 });
 
 When('I click on select button For SFEFLTY19', async function () {
-	//await applist.continueLinkforEx21.click();
 	await home.clickCorrectSelectLink('SFEFLTY19');
 	await utility.wait(utility.medium_low);
 });
@@ -199,9 +198,6 @@ When('I click on ARRIVE button For SFEFLTY19', async function () {
 });
 
 Then('I should see Arrival Time details For SFEFLTY19', async function () {
-	//comment these 2 lines when continue link is not displayed
-	// await utility.wait(utility.medium_low);
-	// await applist.continueLink.click();
 	await utility.wait(utility.medium_low);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
@@ -273,8 +269,7 @@ Given('the SFEFLTY19 CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section', async 
 });
 
 When('I click on SFEFLTY19 CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {
-	await riskassess.capturephotoMeterInstall.click();
-	await utility.wait(utility.medium_low);
+	await riskassess1.elecfullmeterInst();
 });
 
 Then('I should see SFEFLTY19 INITIAL POLARITY CHECK - MARTINDALE TEST section', async function () {

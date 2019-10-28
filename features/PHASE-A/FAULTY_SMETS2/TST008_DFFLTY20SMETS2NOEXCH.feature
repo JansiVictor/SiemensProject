@@ -33,7 +33,7 @@ Feature: TST008_DFFLTY20SMETS2NOEXCH
                 And I should see FLTYTwntyNoExchange DOORSTEP PROTOCOL tab activated
 
         Scenario: Set FLTYTwntyNoExchange job to Arrived status
-                //Given the FLTYTwntyNoExchange "WorkOrder" page
+                Given the FLTYTwntyNoExchange "WorkOrder" page
                 When I click on FLTYTwntyNoExchange ARRIVE button
                 Then I should see FLTYTwntyNoExchange Arrival Time details
                 And I should see FLTYTwntyNoExchange  BE AWARE OF ANY DANGER! section

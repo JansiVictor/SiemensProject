@@ -1416,7 +1416,7 @@ export class InstallPageObject {
 		generic.ButtonClick(this.captureworkingPressure, utility.medium);
 		await utility.wait(utility.medium);
 
-		generic.ButtonClick(this.captureFinalMeterInstall1, utility.medium);
+		generic.ButtonClick(this.captureFinalMeterInstall, utility.medium);
 		await utility.wait(utility.medium);
 
 		generic.ButtonClick(this.mesgreqtoDCCY, utility.medium);
@@ -2449,6 +2449,12 @@ export class InstallPageObject {
 		});
 	}
 
+	public async submitinstall(){
+        await utility.wait(utility.medium); 
+        generic.ButtonClick(this.submitInstall,utility.medium);
+        await utility.wait(utility.medium);
+	}
+	
 	public async FillPostGAsInstallDetailsFLTY20NoEx() {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.didYouHaveToContactGTTrueRadioOption, utility.medium);

@@ -117,7 +117,7 @@ Then('I should see the FLTYTwntyNoExchange CUSTOMER CONTACT NUMBER', async funct
  });
 
 Then('I should see FLTYTwntyNoExchange Contact made field', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
 	await expect(applist.contactMadeYes.isPresent());
 });
@@ -127,7 +127,6 @@ Given('the FLTYTwntyNoExchange {string} page', async function (string) {
 });
 
 When('I fill the FLTYTwntyNoExchange fields with the value', async function () {
-	// await applist.clickOnCallForwardBtn();
 	await applist.clickOnContactMadeOtion();
 	await applist.appointmentConfirmationYes();
 	await applist.additionalDetails();
@@ -171,7 +170,7 @@ When('I should see FLTYTwntyNoExchange ARRIVE button', async function () {
 });
 
 When('I should see FLTYTwntyNoExchange DOORSTEP PROTOCOL tab activated', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});
@@ -182,10 +181,7 @@ When('I click on FLTYTwntyNoExchange ARRIVE button', async function () {
 });
 
 Then('I should see FLTYTwntyNoExchange Arrival Time details', async function () {
-	//comment these 2 lines when continue link is not displayed
-	// await utility.wait(utility.medium_low);
-	// await applist.continueLink.click();
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
 	});
@@ -223,23 +219,8 @@ When('I fill the FLTYTwntyNoExchange initialRisk field with the values', async f
 	await riskassess.inputInitialRiskAssessmentDetails();
 });
 
-// Then('I should see the FLTYTwntyNoExchange see INFO window', function () {
-
-//   });
-
 Given('the FLTYTwntyNoExchange INFO window with the text', async function () {
-	//await riskassess.infoOKButton.isDisplayed();
-	await riskassess.infoOKButton.click();
-
-	//await riskassess.performanceRiskNextBtn.click();
-
-
-	await utility.wait(utility.medium);
-	if (riskassess.NeedtoWorkYES.isDisplayed()) {
-		var element = riskassess.NeedtoWorkYES;
-		browser.executeScript("arguments[0].click()", element);
-		await utility.wait(utility.medium_low);
-	}
+	await riskassess.verifyinfookandneedtoperform();
 });
 
 Then('I should see FLTYTwntyNoExchange RISK ASSESSMENT ELEC section', async function () {
@@ -275,18 +256,12 @@ When('I fill the FLTYTwntyNoExchange RISK ASSESSMENT fields with the values', as
 	await riskassessGAS.fillRiskAssessGas();
 });
 
-// Then('I click on FLTYTwntyNoExchange CAPTURE PHOTOGRAPHIC EVIDENCE button', async function () {
-// await riskassessPage.capturegasbtn();
-// });
-// Then('I fill the FLTYTwntyNoExchange CAPTURE PHOTOGRAPHIC EVIDENCE fields with the values', async function () {
-// await riskassessPage.fillthedtl06();
-// });
 Then('I should see FLTYTwntyNoExchange CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section', async function () {
 	await riskassess.electInstallationSection();
 });
 
 Given('the FLTYTwntyNoExchange Click CAPTURE INITIAL PHOTO OF ELEC INSTALLATION section', async function () {
-	await riskassessPage.capturephotoMeterInstall.click();
+	await riskassessPage.elecfullmeterInst();
 });
 
 Then('I should see FLTYTwntyNoExchange CAPTURE INITIAL PHOTO OF GAS INSTALLATION section', async function () {
@@ -294,13 +269,8 @@ Then('I should see FLTYTwntyNoExchange CAPTURE INITIAL PHOTO OF GAS INSTALLATION
 });
 
 Then('the FLTYTwntyNoExchange Click CAPTURE INITIAL PHOTO OF GAS INSTALLATION section', async function () {
-	await riskassessPage.capfullmeterInst.click();
+	await riskassessPage.gasfullmeterInst();
 });
-
-
-// When('I click on FLTYTwntyNoExchange CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {
-// await riskassess.capturephotoMeterInstall.click();
-// });
 
 Then('I should see FLTYTwntyNoExchange INITIAL POLARITY CHECK - MARTINDALE TEST section', async function () {
 	await riskassess.verifyInitialPolarityCheck();
@@ -338,10 +308,6 @@ When('I fill the FLTYTwntyNoExchange METER AND CUT OUT fields with the values', 
 When('I click on FLTYTwntyNoExchange SUBMIT button', async function () {
 	await riskassess.meterCutOutRemoveSubmitButton();
 });
-
-// When('I should see FLTYTwntyNoExchange fltynineteen REMOVE IHDPPMID section',async function () {
-// await remove.removeihdPpmid();
-// });
 
 Given('the FLTYTwntyNoExchange CURRENT IHD-PPMID DETAILS section', async function () {
 	await remove.currentihdppmiddetailtext();
@@ -404,10 +370,13 @@ Given('FLTYTwntyNoExchange the PRE INSTALLATION GAS TIGHTNESS TEST section', asy
 	await remove.preinstgasTighttest();
 });
 When('FLTYTwntyNoExchange I fill the PRE INSTALLATION GAS TIGHTNESS TEST fields with the values', async function () {
-	await riskassessGAS.preInstallationGasT();
+	await remove.fill17preInstdtls();
+	await remove.capturepressureMB();
+	await remove.fill18preInstdtls();
+	await remove.fillPreInstdtls();
 });
 Then('I should see FLTYTwntyNoExchange Submit Button', async function () {
-	await remove.submitRemovebtn.click();
+	await remove.clicksubmitok();
 });
 
 /**********"ADDITIONAL ELECTRICITY TESTS & CHECKS" */
@@ -448,9 +417,7 @@ When('FLTYTwntyNoExchange I fill the COMMISSIONING FldNames with the Values', as
 Then('FLTYTwntyNoExchange I click on ADD ANOTHER ASSET button', async function () {
 	await inst.DueladdanotherSet();
 });
-// Then('FLTYTwntyNoExchange I fill the FldName40 with the Value40', async function () {
-//     await inst.fill40Commisioning();
-// });
+
 Then('FLTYTwntyNoExchange I clk commisioning on NEXT button', async function () {
 	await inst.CommisioningClickNext();
 });
@@ -488,7 +455,7 @@ When('FLTYTwntyNoExchange I fill the Gas Appliance Safety Checks section fields 
 	await inst.fillthefieldsforgasApplicancesafety();
 });
 Then('FLTYTwntyNoExchange I should see Submit Install Button', async function () {
-	await inst.submitInstall.click();
+	await inst.submitinstall();
 });
 
 /**********"Device Binding & Commisioning" */
@@ -511,10 +478,6 @@ Given('FLTYTwntyNoExchange the ENERGY EFFICIENCY INFORMATION section', async fun
 When('FLTYTwntyNoExchange I fill the ENERGY EFFICIENCY fieldss and click next', async function () {
 	await job.fillfield55duelenergyeff();
 });
-//   Then('FLTYTwntyNoExchange I should see SMART EDUCATION section', async function () {
-//     await job.smartEducation();
-//   });
-
 
 /**********"Capture Customer Signature" */
 Given('FLTYTwntyNoExchange the CAPTURE CUSTOMER SIGNATURE section', async function () {

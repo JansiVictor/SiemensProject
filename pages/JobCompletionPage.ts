@@ -1057,6 +1057,7 @@ export class JobCompletionPageObject {
 		Gen.ButtonClick(this.jobCompletesub, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.deviceOK, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 
