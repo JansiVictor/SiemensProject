@@ -1347,8 +1347,8 @@ export class RemovePageObject {
 		Gen.DropDownOptionClick(this.statusofAssetSelect, utility.medium, '1');
 		await utility.wait(utility.medium);
 		///***IE Changes 21/10/19*/
-		Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
-		await utility.wait(utility.medium);
+		//Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
+		//await utility.wait(utility.medium);
 	}
 
 	//#region Gas Meter Removal for Remove Gas

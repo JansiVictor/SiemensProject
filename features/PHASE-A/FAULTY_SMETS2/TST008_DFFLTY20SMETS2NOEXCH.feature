@@ -33,7 +33,7 @@ Feature: TST008_DFFLTY20SMETS2NOEXCH
                 And I should see FLTYTwntyNoExchange DOORSTEP PROTOCOL tab activated
 
         Scenario: Set FLTYTwntyNoExchange job to Arrived status
-                //Given the FLTYTwntyNoExchange "WorkOrder" page
+                Given the FLTYTwntyNoExchange "WorkOrder" page
                 When I click on FLTYTwntyNoExchange ARRIVE button
                 Then I should see FLTYTwntyNoExchange Arrival Time details
                 And I should see FLTYTwntyNoExchange  BE AWARE OF ANY DANGER! section
@@ -48,7 +48,6 @@ Feature: TST008_DFFLTY20SMETS2NOEXCH
         Scenario: Going through FLTYTwntyNoExchange "INITIAL RISK ASSESSMENT"
                 Given the FLTYTwntyNoExchange INITIAL RISK ASSESSMENT section
                 When I fill the FLTYTwntyNoExchange initialRisk field with the values
-
 
         Scenario: Going through FLTYTwntyNoExchange "INFO" window
                 Given the FLTYTwntyNoExchange INFO window with the text
@@ -131,7 +130,6 @@ Feature: TST008_DFFLTY20SMETS2NOEXCH
                 Given FLTYTwntyNoExchange the Gas Install Kit gas section
                 When FLTYTwntyNoExchange I fill the Gas Install Kit gas section fields with values
                 Then FLTYTwntyNoExchange I should see Perform Post Installation GAS Checks sec
-
 
         Scenario: Going through "Post Installation GAS" GAS Tightness Test section
                 Given FLTYTwntyNoExchange the Post Installation GAS Tightness Test sec
