@@ -1692,7 +1692,9 @@ export class RemovePageObject {
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.meterReadingduel, utility.medium, '12345');
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.meterReadingduelen, utility.medium);
+		//Gen.ButtonClick(this.meterReadingduelen, utility.medium);
+		Gen.RandomMouseClick(this.meterReadingduel, 250, 34);
+		await utility.wait(utility.medium);
 		/****Resolve Conflicts */
 		//  await utility.wait(utility.medium);
 		//		await this.rmvihdppmidNxtBtn.click();
@@ -1704,7 +1706,9 @@ export class RemovePageObject {
 		Gen.ButtonClick(this.existingelecmeterdtls, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.meterReadingduel, utility.medium, '12345');
-		Gen.ButtonClick(this.meterReadingduelen, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.RandomMouseClick(this.meterReadingduel, 250, 34);
+		await utility.wait(utility.medium);
 	}
 
 	//TST12_FLTY GAS
@@ -1750,7 +1754,9 @@ export class RemovePageObject {
 			Gen.SendKeys(this.meterReadingLabel, utility.medium, '1234');
 		}
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.meterReading, utility.medium);
+		await utility.wait(utility.medium);
+			Gen.RandomMouseClick(this.meterReadingLabel, 250, 34);
+			await utility.wait(utility.medium);
 	}
 
 	public async Tst13fill15commsdtls() {

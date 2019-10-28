@@ -1264,7 +1264,7 @@ export class InstallPageObject {
 	}
 
 	public async fillthefieldsfornewgasmeterdtls(index: number) {
-		if (await this.selectValidnewgas.isDisplayed()) {
+		
 			await utility.wait(utility.medium);
 			generic.ButtonClick(this.selectValidnewgas, utility.medium);
 			await utility.wait(utility.medium);
@@ -1277,8 +1277,7 @@ export class InstallPageObject {
 			var options = this.selectValidnewgasList.getAttribute('value');
 			generic.SendKeys(this.gasmeterserialSend, utility.medium, options);
 			await utility.wait(utility.medium);
-		}
-	//	generic.ButtonClick(this.Gas_Meter_Txt, utility.medium);
+		
 		await this.selectValidnewgas.element(by.css("option:nth-child(" + index + ")")).click();
 		await utility.wait(utility.medium);
 

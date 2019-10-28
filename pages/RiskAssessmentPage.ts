@@ -321,6 +321,7 @@ export class RiskAssessmentPageObject {
     public async verifyriskElecText() {
         await utility.wait(utility.medium);
         if (this.riskelecText.isDisplayed()) {
+            await utility.wait(utility.medium);
             await this.riskelecText.getText().then(function (riskelec) {
                 console.log("find riskelec Text  " + riskelec);
             });
