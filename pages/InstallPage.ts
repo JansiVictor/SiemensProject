@@ -1309,8 +1309,6 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.CaptureMeterReadingenableok, utility.medium);
 		await utility.wait(utility.medium);
-		await utility.wait(utility.medium);
-		await utility.wait(utility.medium);
 			generic.RandomMouseClick(this.captureMeterReadingSend, 250, 34);
 			await utility.wait(utility.medium);
 	}
