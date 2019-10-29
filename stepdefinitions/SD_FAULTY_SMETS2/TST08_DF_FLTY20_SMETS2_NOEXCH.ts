@@ -455,7 +455,7 @@ When('FLTYTwntyNoExchange I fill the Gas Appliance Safety Checks section fields 
 	await inst.fillthefieldsforgasApplicancesafety();
 });
 Then('FLTYTwntyNoExchange I should see Submit Install Button', async function () {
-	await inst.submitinstall();
+	await inst.clicksubmitinstall();
 });
 
 /**********"Device Binding & Commisioning" */
