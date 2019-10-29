@@ -2449,7 +2449,7 @@ export class InstallPageObject {
 		});
 	}
 
-	public async submitinstall() {
+	public async clicksubmitinstall() {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.submitInstall, utility.medium);
 		await utility.wait(utility.medium);
