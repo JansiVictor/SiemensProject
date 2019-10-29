@@ -189,13 +189,7 @@ Then('I should see INFO window for FLTY19 Trad', async function () {
 /***INFO window with the text */
 
 Given('the INFO window with the text for FLTY19 Trad', async function () {
-  await riskassess.infoOKButton.click();
-  await utility.wait(utility.medium);
-  if (riskassess.NeedtoWorkYES.isDisplayed()) {
-    var element = riskassess.NeedtoWorkYES;
-    browser.executeScript("arguments[0].click()", element);
-    await utility.wait(utility.medium_low);
-  }
+  await riskassessTRAD.verifyinfookandneedtoperform();
 });
 
 

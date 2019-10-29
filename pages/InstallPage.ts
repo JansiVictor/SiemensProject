@@ -724,7 +724,7 @@ export class InstallPageObject {
 
 		this.selectValidAssettoInstLst = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[2])/option[@selected="selected"])[1]'));
 		this.selectValidAssettoInst1Lst = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[3])/option[@selected="selected"])[1]'));
-		this.selectValidAssettoInstTRADLst= element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[2])/option[@selected="selected"])[1]'));
+		this.selectValidAssettoInstTRADLst = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[2])/option[@selected="selected"])[1]'));
 		this.Tst15selectValidAssettoInstLst = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[1])/option[@selected="selected"])[1]'));
 
 		this.brandicon = element(by.className("brand-icon"));
@@ -735,26 +735,26 @@ export class InstallPageObject {
 
 	public async fillElecNewMeterDetails(index: number) {
 		await utility.wait(utility.medium);
-		if (await this.elecNewmeterselect.isDisplayed()) {
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.elecNewmeterselect, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			await utility.wait(utility.medium);
-			await this.elecNewmeterselect.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			await expect(await this.elecNewmeterserial.isDisplayed());
-			await utility.wait(utility.medium);
-			var options = this.elecNewmeterserialList.getAttribute('value');
-			await utility.wait(utility.medium);
-			generic.SendKeys(this.elecNewmeterserial, utility.medium, options);
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.dummydiv, utility.medium);
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.infoOkButton, utility.medium);
-			await utility.wait(utility.medium);
-		}
+
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.elecNewmeterselect, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		await utility.wait(utility.medium);
+		await this.elecNewmeterselect.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
+
+		await utility.wait(utility.medium);
+		var options = this.elecNewmeterserialList.getAttribute('value');
+		await utility.wait(utility.medium);
+		generic.SendKeys(this.elecNewmeterserial, utility.medium, options);
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.dummydiv, utility.medium);
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.infoOkButton, utility.medium);
+		await utility.wait(utility.medium);
+
 	}
 
 	public async fillElecnewmeterManufacturerdetails() {
@@ -791,17 +791,17 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.DropDownOptionClick(this.PPMIDLocsel, utility.medium, 'A');
 		await utility.wait(utility.medium);
-			generic.ButtonClick(this.PPMIDtoInstallsel, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			// select the option
-			await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			await expect(await this.SerialNoText.isDisplayed());
-			var options = this.PPMIDtoInstallselList.getAttribute('value');
-			generic.SendKeys(this.SerialNoText, utility.medium, options);
-		
+		generic.ButtonClick(this.PPMIDtoInstallsel, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		// select the option
+		await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
+
+		var options = this.PPMIDtoInstallselList.getAttribute('value');
+		generic.SendKeys(this.SerialNoText, utility.medium, options);
+
 		await utility.wait(utility.medium);
 		await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
 		await utility.wait(utility.medium);
@@ -818,24 +818,24 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.selectValid, utility.medium);
 		await utility.wait(utility.medium);
-		
-			await utility.wait(utility.Avg_low);
-			generic.ButtonClick(this.selectValid, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			await this.selectValid.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.commshubWarning, utility.medium);
-			await utility.wait(utility.medium);
-			await expect(await this.CHFIDText.isDisplayed());
-			var options = this.CHFIDTextList.getAttribute('value');
-			generic.SendKeys(this.CHFIDText, utility.medium, options);
-			await utility.wait(utility.medium);
-		
+
+		await utility.wait(utility.Avg_low);
+		generic.ButtonClick(this.selectValid, utility.medium);
 		await utility.wait(utility.medium);
-		await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
-			
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		await this.selectValid.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.commshubWarning, utility.medium);
+		await utility.wait(utility.medium);
+
+		var options = this.CHFIDTextList.getAttribute('value');
+		generic.SendKeys(this.CHFIDText, utility.medium, options);
+		await utility.wait(utility.medium);
+
+		await utility.wait(utility.medium);
+		await this.selectValid.element(by.css("option:nth-child(" + index + ")")).click();
+
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.assetSuccessAdded, utility.medium);
 		await utility.wait(utility.medium);
@@ -879,23 +879,23 @@ export class InstallPageObject {
 
 	public async fillGasMeterDetails(index: number) {
 		await utility.wait(utility.medium);
-		
-			generic.ButtonClick(this.selectValidnewgas, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			await this.selectValidnewgas.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			await expect(await this.gasmeterSereal.isDisplayed());
-			var options = this.gasmeterSerealList.getAttribute('value');
-			generic.SendKeys(this.gasmeterSereal, utility.medium, options);
-			await utility.wait(utility.medium);
-			await this.selectValidnewgas.element(by.css("option:nth-child(" + index + ")")).click();
-			
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.commshubWarning, utility.medium);
-			await utility.wait(utility.medium);
-		
+
+		generic.ButtonClick(this.selectValidnewgas, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		await this.selectValidnewgas.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
+
+		var options = this.gasmeterSerealList.getAttribute('value');
+		generic.SendKeys(this.gasmeterSereal, utility.medium, options);
+		await utility.wait(utility.medium);
+		await this.selectValidnewgas.element(by.css("option:nth-child(" + index + ")")).click();
+
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.commshubWarning, utility.medium);
+		await utility.wait(utility.medium);
+
 		await utility.wait(utility.medium);
 		generic.DropDownOptionClick(this.GasnewMeterSelect, utility.medium, '0');
 		await utility.wait(utility.medium);
@@ -1003,23 +1003,23 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.HasGasRegulatorReplacedY, utility.medium);
 		await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.Tst15selectValidAssettoInst, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			// select the option
-			await this.Tst15selectValidAssettoInst.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			await expect(await this.gasmeterserialSendreg.isDisplayed());
-			await utility.wait(utility.medium);
-			var options = this.Tst15selectValidAssettoInstLst.getAttribute('value');
-			generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.Tst15selectValidAssettoInst, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		// select the option
+		await this.Tst15selectValidAssettoInst.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
 
-			await utility.wait(utility.medium);
-			generic.RandomMouseClick(this.gasmeterserialSendreg, 350, 34);
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		var options = this.Tst15selectValidAssettoInstLst.getAttribute('value');
+		generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
+		await utility.wait(utility.medium);
+
+		await utility.wait(utility.medium);
+		generic.RandomMouseClick(this.gasmeterserialSendreg, 350, 34);
+		await utility.wait(utility.medium);
 
 		generic.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
 		await utility.wait(utility.medium);
@@ -1098,21 +1098,21 @@ export class InstallPageObject {
 		generic.ButtonClick(this.commshubReqY, utility.medium);
 		await utility.wait(utility.medium);
 
-		
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.selectValid, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			await this.selectValid.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.commshubWarning, utility.medium);
-			await utility.wait(utility.medium);
-			await expect(await this.CHFIDText.isDisplayed());
-			var options = this.CHFIDTextList.getAttribute('value');
-			generic.SendKeys(this.CHFIDText, utility.medium, options);
-			await utility.wait(utility.medium);
-		
+
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.selectValid, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		await this.selectValid.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.commshubWarning, utility.medium);
+		await utility.wait(utility.medium);
+
+		var options = this.CHFIDTextList.getAttribute('value');
+		generic.SendKeys(this.CHFIDText, utility.medium, options);
+		await utility.wait(utility.medium);
+
 		await utility.wait(utility.medium);
 		await this.selectValid.element(by.css("option:nth-child(" + index + ")")).click();
 		//generic.ButtonClick(this.selectValid, utility.medium);
@@ -1152,22 +1152,22 @@ export class InstallPageObject {
 	 */
 	public async fillNewRegulatorGas(index: number) {
 		await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.selectValidAssettoInst1, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			// select the option
-			await this.selectValidAssettoInst1.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			
-			var options = this.selectValidAssettoInst1Lst.getAttribute('value');
-			generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.selectValidAssettoInst1, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		// select the option
+		await this.selectValidAssettoInst1.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
 
-			await utility.wait(utility.medium);
-			generic.RandomMouseClick(this.gasmeterserialSendreg, 350, 34);
-			await utility.wait(utility.medium);
+		var options = this.selectValidAssettoInst1Lst.getAttribute('value');
+		generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
+		await utility.wait(utility.medium);
+
+		await utility.wait(utility.medium);
+		generic.RandomMouseClick(this.gasmeterserialSendreg, 350, 34);
+		await utility.wait(utility.medium);
 		generic.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.nextSecnewRegulator, utility.medium);
@@ -1230,23 +1230,23 @@ export class InstallPageObject {
 		generic.ButtonClick(this.HasGasRegulatorReplacedY, utility.medium);
 		await utility.wait(utility.medium);
 
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.selectValidAssettoInst, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			// select the option
-			await this.selectValidAssettoInst.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			
-			
-			var options = this.selectValidAssettoInstLst.getAttribute('value');
-			generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.selectValidAssettoInst, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		// select the option
+		await this.selectValidAssettoInst.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
 
-			await utility.wait(utility.medium);
-			generic.RandomMouseClick(this.gasmeterserialSendreg, 350, 34);
-			await utility.wait(utility.medium);
+
+		var options = this.selectValidAssettoInstLst.getAttribute('value');
+		generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
+		await utility.wait(utility.medium);
+
+		await utility.wait(utility.medium);
+		generic.RandomMouseClick(this.gasmeterserialSendreg, 350, 34);
+		await utility.wait(utility.medium);
 		generic.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.nextSecnewRegulator, utility.medium);
@@ -1264,20 +1264,20 @@ export class InstallPageObject {
 	}
 
 	public async fillthefieldsfornewgasmeterdtls(index: number) {
-		
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.selectValidnewgas, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			// select the option
-			await this.selectValidnewgas.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			await expect(await this.gasmeterserialSend.isDisplayed());
-			var options = this.selectValidnewgasList.getAttribute('value');
-			generic.SendKeys(this.gasmeterserialSend, utility.medium, options);
-			await utility.wait(utility.medium);
-		
+
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.selectValidnewgas, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		// select the option
+		await this.selectValidnewgas.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
+
+		var options = this.selectValidnewgasList.getAttribute('value');
+		generic.SendKeys(this.gasmeterserialSend, utility.medium, options);
+		await utility.wait(utility.medium);
+
 		await this.selectValidnewgas.element(by.css("option:nth-child(" + index + ")")).click();
 		await utility.wait(utility.medium);
 
@@ -1309,8 +1309,8 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.CaptureMeterReadingenableok, utility.medium);
 		await utility.wait(utility.medium);
-			generic.RandomMouseClick(this.captureMeterReadingSend, 250, 34);
-			await utility.wait(utility.medium);
+		generic.RandomMouseClick(this.captureMeterReadingSend, 250, 34);
+		await utility.wait(utility.medium);
 	}
 	/**
 	 * @Author Jansi Victor
@@ -1563,19 +1563,19 @@ export class InstallPageObject {
 		generic.SendKeys(this.PPMIDLocsel, utility.medium, 'A');
 		await utility.wait(utility.medium);
 
-		if (await this.PPMIDtoInstallsel.isDisplayed()) {
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.PPMIDtoInstallsel, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			await expect(await this.SerialNoText.isDisplayed());
-			var options = this.PPMIDtoInstallselList.getAttribute('value');
-			generic.SendKeys(this.SerialNoText, utility.medium, options);
-			await utility.wait(utility.medium);
-		}
+
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.PPMIDtoInstallsel, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
+
+		var options = this.PPMIDtoInstallselList.getAttribute('value');
+		generic.SendKeys(this.SerialNoText, utility.medium, options);
+		await utility.wait(utility.medium);
+
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.EUIenableOK, utility.medium);
 		await utility.wait(utility.medium);
@@ -1650,21 +1650,21 @@ export class InstallPageObject {
 		generic.ButtonClick(this.commshubReqY, utility.medium);
 		await utility.wait(utility.medium);
 
-		if (await this.selectValid.isDisplayed()) {
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.selectValid, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			await this.selectValid.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.commshubWarning, utility.medium);
-			await utility.wait(utility.medium);
-			await expect(await this.CHFIDText.isDisplayed());
-			var options = this.CHFIDTextList.getAttribute('value');
-			generic.SendKeys(this.CHFIDText, utility.medium, options);
-			await utility.wait(utility.medium);
-		}
+
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.selectValid, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		await this.selectValid.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.commshubWarning, utility.medium);
+		await utility.wait(utility.medium);
+
+		var options = this.CHFIDTextList.getAttribute('value');
+		generic.SendKeys(this.CHFIDText, utility.medium, options);
+		await utility.wait(utility.medium);
+
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.chfIDokenable, utility.medium);
 		await utility.wait(utility.medium);
@@ -1692,26 +1692,26 @@ export class InstallPageObject {
 	}
 
 	public async fillDuelNewMeterDetails(index: number) {
-		if (await this.elecNewmeterselect.isDisplayed()) {
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.elecNewmeterselect, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			await this.elecNewmeterselect.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			await expect(await this.elecNewmeterserial.isDisplayed());
-			var options = this.elecNewmeterserialList.getAttribute('value');
-			generic.SendKeys(this.elecNewmeterserial, utility.medium, options);
-			await utility.wait(utility.medium);
-		}
+
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.elecNewmeterselect, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		await this.elecNewmeterselect.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
+
+		var options = this.elecNewmeterserialList.getAttribute('value');
+		generic.SendKeys(this.elecNewmeterserial, utility.medium, options);
+		await utility.wait(utility.medium);
+
 		await utility.wait(utility.medium);
 		await this.elecNewmeterselect.element(by.css("option:nth-child(" + index + ")")).click();
 		//generic.ButtonClick(this.EUIdeviceIDenableOK, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.clkokEUIdev, utility.medium);
 		await utility.wait(utility.medium);
-		await expect(this.Manufacturerletter.isDisplayed());
+
 	}
 
 	public async DuelManufacturerdetails() {
@@ -2046,23 +2046,23 @@ export class InstallPageObject {
 	public async fillfornewregulator(index: number) {
 		await utility.wait(utility.medium);
 
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.selectValidAssettoInst, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			// select the option
-			await this.selectValidAssettoInst.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			
-			await utility.wait(utility.medium);
-			var options = this.selectValidAssettoInstLst.getAttribute('value');
-			generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.selectValidAssettoInst, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		// select the option
+		await this.selectValidAssettoInst.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
 
-			await utility.wait(utility.medium);
-			generic.RandomMouseClick(this.gasmeterserialSendreg, 350, 34);
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		var options = this.selectValidAssettoInstLst.getAttribute('value');
+		generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
+		await utility.wait(utility.medium);
+
+		await utility.wait(utility.medium);
+		generic.RandomMouseClick(this.gasmeterserialSendreg, 350, 34);
+		await utility.wait(utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
 		await utility.wait(utility.medium);
@@ -2074,21 +2074,21 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.HasGasRegulatorReplacedY, utility.medium);
 		await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.selectValidAssettoInst1, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			// select the option
-			await this.selectValidAssettoInst1.element(by.css("option:nth-child(" + index + ")")).click();
-			
-			await utility.wait(utility.medium);
-			var options = this.selectValidAssettoInst1Lst.getAttribute('value');
-			generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
-			await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-			generic.RandomMouseClick(this.gasmeterserialSendreg, 350, 34);
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.selectValidAssettoInst1, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		// select the option
+		await this.selectValidAssettoInst1.element(by.css("option:nth-child(" + index + ")")).click();
+
+		await utility.wait(utility.medium);
+		var options = this.selectValidAssettoInst1Lst.getAttribute('value');
+		generic.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
+		await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		generic.RandomMouseClick(this.gasmeterserialSendreg, 350, 34);
+		await utility.wait(utility.medium);
 		generic.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.nextSecnewRegulator, utility.medium);
@@ -2167,19 +2167,19 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.DropDownOptionClick(this.PPMIDLocsel, utility.medium, 'A');
 		await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.PPMIDtoInstallsel, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			// select the option
-			await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			await expect(await this.SerialNoText.isDisplayed());
-			var options = this.PPMIDtoInstallselList.getAttribute('value');
-			generic.SendKeys(this.SerialNoText, utility.medium, options);
-			await utility.wait(utility.medium);
-		
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.PPMIDtoInstallsel, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		// select the option
+		await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
+
+		var options = this.PPMIDtoInstallselList.getAttribute('value');
+		generic.SendKeys(this.SerialNoText, utility.medium, options);
+		await utility.wait(utility.medium);
+
 		await utility.wait(utility.medium);
 		await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
 		await utility.wait(utility.medium);
@@ -2195,22 +2195,22 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.HasGasRegulatorReplacedY, utility.medium);
 		await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.selectValidAssettoInstTRAD, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			// select the option
-			await this.selectValidAssettoInstTRAD.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			
-			var options = this.selectValidAssettoInstTRADLst.getAttribute('value');
-			generic.SendKeys(this.gasmeterserialSendregTRAD, utility.medium, options);
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.selectValidAssettoInstTRAD, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		// select the option
+		await this.selectValidAssettoInstTRAD.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
 
-			await utility.wait(utility.medium);
-			generic.RandomMouseClick(this.gasmeterserialSendregTRAD, 350, 34);
-			await utility.wait(utility.medium);
+		var options = this.selectValidAssettoInstTRADLst.getAttribute('value');
+		generic.SendKeys(this.gasmeterserialSendregTRAD, utility.medium, options);
+		await utility.wait(utility.medium);
+
+		await utility.wait(utility.medium);
+		generic.RandomMouseClick(this.gasmeterserialSendregTRAD, 350, 34);
+		await utility.wait(utility.medium);
 		generic.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.nextSecnewRegulator, utility.medium);
@@ -2225,20 +2225,20 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.DropDownOptionClick(this.PPMIDLocsel, utility.medium, 'A');
 		await utility.wait(utility.medium);
-		if (await this.PPMIDtoInstallsel.isDisplayed()) {
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.PPMIDtoInstallsel, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			// select the option
-			await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			await expect(await this.SerialNoText.isDisplayed());
-			var options = this.PPMIDtoInstallselList.getAttribute('value');
-			generic.SendKeys(this.SerialNoText, utility.medium, options);
-			await utility.wait(utility.medium);
-		}
+
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.PPMIDtoInstallsel, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		// select the option
+		await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
+
+		var options = this.PPMIDtoInstallselList.getAttribute('value');
+		generic.SendKeys(this.SerialNoText, utility.medium, options);
+		await utility.wait(utility.medium);
+
 		await utility.wait(utility.medium);
 		await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
 		//generic.ButtonClick(this.EUIenableOK1, utility.medium);
@@ -2406,24 +2406,24 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.DropDownOptionClick(this.PPMIDLOCDD, utility.medium, 'A');
 		await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-			// click the dropdown
-			generic.ButtonClick(this.PPMIDToInstall, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(5000)
-			//index = index ;
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await this.PPMIDToInstall.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.medium);
-			await expect(await this.inputPPMIDSerialNum.isDisplayed());
-			var options = this.PPMIDinstallDDList.getAttribute('value');
-			generic.SendKeys(this.inputPPMIDSerialNum, utility.medium, options);
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.ppmidNXTBtn, utility.medium);
-			await utility.wait(utility.medium);
-			generic.ButtonClick(this.infoOKButton, utility.medium);
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		// click the dropdown
+		generic.ButtonClick(this.PPMIDToInstall, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(5000)
+		//index = index ;
+		console.log("Selecting element based index : " + index)
+		// select the option
+		await this.PPMIDToInstall.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+
+		var options = this.PPMIDinstallDDList.getAttribute('value');
+		generic.SendKeys(this.inputPPMIDSerialNum, utility.medium, options);
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.ppmidNXTBtn, utility.medium);
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.infoOKButton, utility.medium);
+		await utility.wait(utility.medium);
 		generic.SendKeys(this.ppmidAdditionalNote, utility.medium, 'Aditional Notes CGP');
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.ppmidNXTBtn, utility.medium);
@@ -2449,12 +2449,12 @@ export class InstallPageObject {
 		});
 	}
 
-	public async submitinstall(){
-        await utility.wait(utility.medium); 
-        generic.ButtonClick(this.submitInstall,utility.medium);
-        await utility.wait(utility.medium);
+	public async submitinstall() {
+		await utility.wait(utility.medium);
+		generic.ButtonClick(this.submitInstall, utility.medium);
+		await utility.wait(utility.medium);
 	}
-	
+
 	public async FillPostGAsInstallDetailsFLTY20NoEx() {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.didYouHaveToContactGTTrueRadioOption, utility.medium);
