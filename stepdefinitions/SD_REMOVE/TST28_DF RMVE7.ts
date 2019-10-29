@@ -435,7 +435,9 @@ Given('TST28 the REMOVE GAS METER section', async function () {
 });
 When('TST28 I fill the field23 with the value23', async function () {
     await remove.fill23GasmeterRemoval();
+    await remove.fillremovemeterreading();
 });
+
 Then('Tst28 select Additional work needed', async function () {
     await remove.Tst28AdditionalWork();
 });
