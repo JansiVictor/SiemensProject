@@ -600,6 +600,18 @@ export class AbortPageObject {
 		}
 	}
 
+	public async ClickAbortButton() {
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.abortBtn, utility.medium);
+		await utility.wait(utility.medium);
+	}
+
+	public async ClickElecSubmitButton() {
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.submitRisk, utility.medium);
+		await utility.wait(utility.medium);
+	}
+
 	//Abort reason popup options - generic function ################
 	public async selectreasonOptionAndAbort(xpathparam, notesstring) {
 		this.GenericReasonCodeSelect = element(by.xpath('//label/div[@id="' + xpathparam + '"]'));

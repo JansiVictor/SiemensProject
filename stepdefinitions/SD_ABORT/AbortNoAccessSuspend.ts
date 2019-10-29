@@ -1,20 +1,12 @@
 import {
-	browser,
-	protractor
-} from "protractor";
-import {
 	AbortPageObject
 } from "../../pages/AbortPage";
 import {
 	HomePageObject
 } from "../../pages/HomePage";
 import {
-	config
-} from "../../config/config";
-import {
 	Utility
 } from "../../support/utility";
-import { homedir } from "os";
 const {
 	Given,
 	When,

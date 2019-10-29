@@ -1,5 +1,4 @@
 import {Given, Then, When} from "cucumber";
-import {browser} from "protractor";
 import { AbortPageObject } from "../../pages/AbortPage";
 import { Utility } from "../../support/utility";
 import { HomePageObject } from "../../pages/HomePage";

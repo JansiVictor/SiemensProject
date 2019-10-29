@@ -1,16 +1,10 @@
 import {
-	browser,
-	protractor
-} from "protractor";
-import {
 	AbortPageObject
 } from "../../pages/AbortPage";
 import {
 	HomePageObject
 } from "../../pages/HomePage";
-import {
-	config
-} from "../../config/config";
+
 import {
 	Utility
 } from "../../support/utility";
@@ -20,7 +14,6 @@ import { InstallPageObject
 } from "../../pages/InstallPage";
 import { RemovePageObject 
 } from "../../pages/RemovePage";
-import { homedir } from "os";
 const {
 	Given,
 	When,
@@ -43,7 +36,7 @@ When('I fill the RISK ASSESSMENT - Abort ELEC fields with the values', async fun
 });
 
 Then('I should see AbortElec SMETS Install SUBMIT', async function (workorder) {
-	await inst.submitInstall.click();
+	await inst.submitinstall();
 	await utility.wait(utility.low);
 });
 
@@ -52,11 +45,7 @@ Then('FTwentyAbort I click on CAPTURE PHOTOGRAPHIC EVIDENCE button', async funct
 });
 
 When('FTwentyAbort I click on CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION button', async function () {
-    await utility.wait(utility.medium_low);
-	if (await riskassess.capfullmeterInst.isDisplayed()) {
-		await riskassess.capfullmeterInst.click();
-	}
-	await utility.wait(utility.very_low);
+    riskassess.gasfullmeterInst();
 });
 
 When('I fill the Abort Post Installation GAS sec fields with values for FLTY18TRAD', async function () {
@@ -66,12 +55,7 @@ When('I fill the Abort Post Installation GAS sec fields with values for FLTY18TR
 
   When('I fill the Abort fields with values Gas initial meter reading', async function () {
 	await utility.wait(utility.very_low);
-	if (await rmv.meterReadingLabel.isDisplayed()) {
-		await rmv.meterReadingLabel.clear();
-		await rmv.meterReadingLabel.sendKeys("12345");
-		await utility.wait(utility.very_low);
-		await rmv.meterReadingTRAD.click();
-	}
+	await rmv.fillabortgasinitialmeter();
 	});
 
 	When('TSTAbort I fill the Post Installation GAS sec fields with values', async function () {
@@ -79,11 +63,11 @@ When('I fill the Abort Post Installation GAS sec fields with values for FLTY18TR
 	});
 
 	Then('FTwentyAbort I click on SUBMIT button', async function () {
-		await abortElecRisk.submitRisk.click();
+		await abortElecRisk.ClickElecSubmitButton();
 	});
 	
 	Then('FTwentyAbort I click on GAS Asset remval SUBMIT button', async function () {
-		await abortElecRisk.submitRisk.click();
+		await abortElecRisk.ClickElecSubmitButton();
 	});
 	
 Then('I should see the AbortReasonCodespopup', async function (workorder) {

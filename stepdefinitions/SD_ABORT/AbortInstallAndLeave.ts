@@ -1,8 +1,4 @@
 import {
-	browser,
-	protractor
-} from "protractor";
-import {
 	AbortPageObject
 } from "../../pages/AbortPage";
 import {
@@ -15,12 +11,8 @@ import {
 	GASPageObject
 } from "../../pages/GASPage";
 import {
-	config
-} from "../../config/config";
-import {
 	Utility
 } from "../../support/utility";
-import { homedir } from "os";
 import { JobCompletionPageObject } from "../../pages/JobCompletionPage";
 const {
 	Given,

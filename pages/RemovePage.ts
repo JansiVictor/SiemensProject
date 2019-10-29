@@ -787,6 +787,13 @@ export class RemovePageObject {
 		await utility.wait(utility.medium);
 	}
 
+	public async fillabortgasinitialmeter()  {
+		Gen.SendKeys(this.meterReadingLabel, utility.medium, '12345');
+		await utility.wait(utility.medium);
+		Gen.RandomMouseClick(this.meterReadingLabel, 250, 34);
+		await utility.wait(utility.medium);
+	}
+
 	/***
  * @Author Supriya Harikumar
  * @description Fill Current PPMID section / ppmidComm 

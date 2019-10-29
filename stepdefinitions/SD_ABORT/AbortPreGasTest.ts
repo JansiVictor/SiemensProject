@@ -84,7 +84,7 @@ When('Abort Button for Double abort', async function () {
 });
 When('I click on the Abort Button', async function () {	
 	await utility.wait(utility.medium);
-	await abortnoaccesssuspend.abortBtn.click();
+	await abortnoaccesssuspend.ClickAbortButton();
 	console.log("Double Abort Clicked");
 	
 });

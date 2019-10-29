@@ -1,9 +1,6 @@
-import { browser, protractor, element, by } from "protractor";
 import { loginPageObject } from "../../pages/loginPage";
 import { HomePageObject } from "../../pages/HomePage";
 import { AppointmentListPageObject } from "../../pages/AppointmentListPage";
-
-import { config } from "../../config/config";
 import { Utility } from "../../support/utility";
 import { AbortPageObject } from "../../pages/AbortPage";
 

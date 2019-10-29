@@ -1450,7 +1450,7 @@ export class InstallPageObject {
 		await expect(this.awaitingresponse.isDisplayed());
 	}
 	public async waitforthebuttoDisappear() {
-		await utility.wait(utility.medium);
+		await utility.wait(utility.high);
 	}
 	public async commisioningsuccess() {
 		await utility.wait(utility.medium);

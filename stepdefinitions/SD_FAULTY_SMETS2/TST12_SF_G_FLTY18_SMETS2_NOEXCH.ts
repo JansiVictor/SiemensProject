@@ -205,9 +205,7 @@ Then('TST12 I click on CAPTURE PHOTOGRAPHIC EVIDENCE button', async function () 
 Then('TST12 I fill the field06 with the value06', async function () {
     await riskassess.fillthedtl06();
 });
-// Then('I click on CAPTURE PHOTO OF CURRENT FULL METER INSTALLATION btn', async function () {
-//   await riskassess.capturefullmeterInst();
-// });
+
 Then('TST12 I should see CAPTURE INITIAL PHOTO OF GAS INSTALLATION section', async function () {
     await riskassess.gasInstSec();
 });
