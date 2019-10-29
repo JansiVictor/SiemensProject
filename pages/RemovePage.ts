@@ -1391,6 +1391,12 @@ export class RemovePageObject {
 		//await utility.wait(utility.medium);
 	}
 
+	public async fillremovemeterreading() {
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
+		await utility.wait(utility.medium);
+	}
+
 	//#region Gas Meter Removal for Remove Gas
 
 	public async GasmeterRemovalforRemoveGas() {
