@@ -818,7 +818,7 @@ export class InstallPageObject {
 		await utility.wait(utility.medium);
 		generic.ButtonClick(this.selectValid, utility.medium);
 		await utility.wait(utility.medium);
-		if (await this.selectValid.isDisplayed()) {
+		
 			await utility.wait(utility.Avg_low);
 			generic.ButtonClick(this.selectValid, utility.medium);
 			await utility.wait(utility.medium);
@@ -832,7 +832,7 @@ export class InstallPageObject {
 			var options = this.CHFIDTextList.getAttribute('value');
 			generic.SendKeys(this.CHFIDText, utility.medium, options);
 			await utility.wait(utility.medium);
-		}
+		
 		await utility.wait(utility.medium);
 		await this.PPMIDtoInstallsel.element(by.css("option:nth-child(" + index + ")")).click();
 			
@@ -1098,7 +1098,7 @@ export class InstallPageObject {
 		generic.ButtonClick(this.commshubReqY, utility.medium);
 		await utility.wait(utility.medium);
 
-		if (await this.selectValid.isDisplayed()) {
+		
 			await utility.wait(utility.medium);
 			generic.ButtonClick(this.selectValid, utility.medium);
 			await utility.wait(utility.medium);
@@ -1112,7 +1112,7 @@ export class InstallPageObject {
 			var options = this.CHFIDTextList.getAttribute('value');
 			generic.SendKeys(this.CHFIDText, utility.medium, options);
 			await utility.wait(utility.medium);
-		}
+		
 		await utility.wait(utility.medium);
 		await this.selectValid.element(by.css("option:nth-child(" + index + ")")).click();
 		//generic.ButtonClick(this.selectValid, utility.medium);

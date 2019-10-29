@@ -446,6 +446,7 @@ export class ElectricPageObject {
 	public async capturePhotoBtnDisplayed() {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.cameraBtn, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -456,6 +457,7 @@ export class ElectricPageObject {
 	public async clickNextSectionBtn() {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.nextSectionBtn, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -502,7 +504,7 @@ export class ElectricPageObject {
 		gen.ButtonClick(this.socketSafetyBtnYES, utility.medium);
 		await utility.wait(utility.medium);
 		gen.DropDownOptionClick(this.socketSetLocDD, utility.medium, '9');
-		await utility.wait(utility.very_low);
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -535,6 +537,7 @@ export class ElectricPageObject {
 	public async verifyMeterAndCutOut() {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.MeterAndCutOutText, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -609,7 +612,7 @@ export class ElectricPageObject {
 		gen.ButtonClick(this.polarityCheckCutOutYES, utility.medium);
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.polarityCheckAtMeter, utility.medium);
-		await utility.wait(utility.very_low);
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -650,6 +653,7 @@ export class ElectricPageObject {
 		//not req, if new WO required
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.currentMeterNxtbtn, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -716,6 +720,7 @@ export class ElectricPageObject {
 	public async fillthePolarityCheckMeterOut_INST15() {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.polarityCheckCutOutYES1, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	public async fillCommsHubDetails_INST15(index: number) {
@@ -1082,17 +1087,6 @@ export class ElectricPageObject {
 		gen.RandomMouseClick(this.captureMeterReadingInput, 250, 34);
 		await utility.wait(utility.medium);
 
-		//Below can be used if random click doesnt work
-
-		// if (await this.unableToReadMeterYes.isDisplayed()) {
-		//     await this.unableToReadMeterYes.click();
-		// }    
-		// await utility.wait(utility.very_low);	 
-
-		// if (await this.meterReadingNxtBtn.isDisplayed()) {
-		//     await this.meterReadingNxtBtn.click();
-		// }   
-		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -1180,6 +1174,7 @@ export class ElectricPageObject {
 		gen.DropDownOptionClick(this.polChkDD, utility.medium, 'true');
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.confirmSocketPass, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	/***

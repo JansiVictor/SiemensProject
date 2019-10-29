@@ -5,6 +5,7 @@ import { AppointmentListPageObject } from "../../pages/AppointmentListPage";
 import { DoorStepPageObject } from "../../pages/DoorStepPage";
 import { RiskAssessmentPageObject } from "../../pages/RiskAssessmentPage";
 import { RemovePageObject } from "../../pages/RemovePage";
+import { ElectricPageObject } from "../../pages/ElectricPage";
 import { JobCompletionPageObject } from "../../pages/JobCompletionPage";
 import { config } from "../../config/config";
 import { Utility } from "../../support/utility";
@@ -22,6 +23,7 @@ const applist: AppointmentListPageObject = new AppointmentListPageObject();
 const doorstep: DoorStepPageObject = new DoorStepPageObject();
 const riskassess: RiskAssessmentPageObject = new RiskAssessmentPageObject();
 const remove: RemovePageObject = new RemovePageObject();
+const riskelec: ElectricPageObject = new ElectricPageObject();
 const inst: InstallPageObject = new InstallPageObject();
 const job: JobCompletionPageObject = new JobCompletionPageObject();
 
@@ -163,14 +165,8 @@ Given('TST12 the INFO window with the text', async function () {
 });
 
 When('TST12 click OK in Popup', async function () {
-    await riskassess.INFOOKClick();
-    //await riskassess.NeedtoWork();
-    await utility.wait(utility.medium);
-  if (riskassess.NeedtoWorkYES.isDisplayed()) {
-    var element = riskassess.NeedtoWorkYES;
-    browser.executeScript("arguments[0].click()", element);
-    await utility.wait(utility.medium_low);
-  }
+    await riskelec.verifyinfookandneedtoperform();
+
 });
 
 Then('TST12 I should see RISK ASSESSMENT ELEC section', async function () {
