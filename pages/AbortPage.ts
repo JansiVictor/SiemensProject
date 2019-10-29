@@ -594,6 +594,7 @@ export class AbortPageObject {
 	public async VerifyAbortReasonCodePopup() {
 		await utility.wait(utility.medium);
 		if (this.AbortNoAccessReasonCodes.isDisplayed) {
+			await utility.wait(utility.medium);
 			this.AbortNoAccessReasonCodes.getText().then(async function (abortreason) {
 				console.log("find Appointment Page Text  " + abortreason);
 			});
@@ -641,14 +642,14 @@ export class AbortPageObject {
 		//Gen.SendKeys(applist.additionalAccessDetailsTextBox, utility.medium, 'Additional access details comment 123');
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.abortNoAccessContactMade, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	//Abort Options ################
 	public async notConvinientOptionAndAbort() {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.notConvinientRadioBtn, utility.medium);
-
+		await utility.wait(utility.medium);
 		try {
 			//await expect(this.abortNxtbtn.isDisplayed());
 			await utility.wait(utility.medium);
@@ -726,6 +727,7 @@ export class AbortPageObject {
 	public async reScanInfoPopup() {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.reScanPopUpOK, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	public async suspendJobonTheDoorStepDetails() {
@@ -744,7 +746,7 @@ export class AbortPageObject {
 		Gen.SendKeys(this.AddNotesSuspend, utility.medium, 'Come Back Later');
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.suspendJobBtn, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	//Abort Job after Suspend #################  
@@ -785,7 +787,7 @@ export class AbortPageObject {
 		Gen.RadioButtonClick(this.OKtoProceedEGPOutcomeN, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.riskAssessAbort, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	public async selectreasonOptionAndAbortGas(xpathparam, notesstring) {
@@ -806,7 +808,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.abortCapturePhoto, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.gasabortAppointment, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -823,7 +825,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.allAppliTestedBtn, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.submitGas, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	//TST135
@@ -841,7 +843,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(job.capturePPMIDBtn, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(job.nextButtonWAN, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -855,6 +857,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(remove.RemoveElecAssetrplacedorremoved, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionClick(remove.statusofElecAssetSelect, utility.medium, "0");
+		await utility.wait(utility.medium);
 	}
 
 	public async ElectricInitmeterReading() {
@@ -879,6 +882,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(remove.carryoutWorkNo, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(remove.commshubNextbtn, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 
@@ -910,7 +914,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.workCanbeCompletedN, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.elecAbortBtn, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -924,7 +928,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.capturemeterPressureMed, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.medPressureNo, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -935,13 +939,14 @@ export class AbortPageObject {
 
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.abortGas, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	public async AbortGas_Btnfail() {
 
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.abortbtnfail, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -965,20 +970,20 @@ export class AbortPageObject {
 		Gen.SendKeys(this.abortAddNotes, utility.medium, notesstring);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.abortCapturePhoto, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 	public async GasabortApp() {
 
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.gasabortApp, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	public async AbortGasbtncall() {
 
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.gasabortAppointment, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 	/***
 	 * @Author Aparna Das
@@ -991,7 +996,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.preGASinstallN, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.abortGas, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -1008,7 +1013,7 @@ export class AbortPageObject {
 		Gen.SendKeys(this.PPMIDAddNotes, utility.medium, 'Come Back Later');
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.ppmidNXTBtn, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	public async fillPPMIDSection_EXCH22() {
@@ -1030,7 +1035,7 @@ export class AbortPageObject {
 		Gen.RadioButtonClick(this.fullHanDeviceNo, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.devicebindingNextSection, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	public async fillDeviceBindingSection_Installremove() {
@@ -1039,7 +1044,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.gsmeJoinedYes, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.devicebindnext, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 
@@ -1057,7 +1062,7 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.randomClick2, utility.medium);
 		console.log("Random Click EX23");
-
+		await utility.wait(utility.medium);
 	}
 
 	//Post Installation for Abort ######################
@@ -1114,7 +1119,7 @@ export class AbortPageObject {
 		Gen.RadioButtonClick(inst.MsgreqDCC, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(inst.PostinstallNext, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 
@@ -1129,7 +1134,7 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.randomClick2, utility.medium);
 		console.log("Random Click EX24");
-
+		await utility.wait(utility.medium);
 	}
 
 	public async fillGasmeterremEX24() {
@@ -1143,7 +1148,7 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.randomClick, utility.medium);
 		console.log("Random Click EX24");
-
+await utility.wait(utility.medium);
 	}
 
 	public async newregulatorsection_EXCH24(index: number) {
@@ -1163,7 +1168,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.nextSecnewRegulator, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	public async newregulatorsection_FLTYTRAD(index: number) {
@@ -1182,7 +1187,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.nextSecnewRegulator, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	public async fillGasInstallKitDetails_InstallLeave() {
@@ -1197,6 +1202,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.commsHubConnectedNo_1, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.installKitNxtBtn1, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	public async fillthefieldsforperformpost_InstallAndLeave() {
@@ -1253,7 +1259,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.hubconnectdtoWAN, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.PostinstallNext, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	public async fillElecmeterrem_FLTY() {
@@ -1264,7 +1270,7 @@ export class AbortPageObject {
 		Gen.DropDownOptionClick(this.statusofElecAssetSelect, utility.medium, "1");
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
-
+		await utility.wait(utility.medium);
 
 	}
 
@@ -1274,7 +1280,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.esmeJoinedNo, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.devicebindnext, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	public async fillDeviceBindingSection_EXCH19() {
@@ -1283,7 +1289,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.fullHanDeviceNo, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.devicebindingNextSection, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	public async fillSmartLiteratureEducationSection() {
@@ -1294,7 +1300,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.additionalInfo, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.demoEquipment, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	public async fillConfigAllMetersSection_EXCH19() {
@@ -1303,7 +1309,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.fullWanAllmeterNo, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.configureallmetersNextSection, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -1312,6 +1318,7 @@ export class AbortPageObject {
 	 ***/
 	public async SmartNoLiteraturedispaly() {
 		if (this.smartNoLitLeftOnsiteTxt.isDisplayed()) {
+			await utility.wait(utility.medium);
 			await this.smartNoLitLeftOnsiteTxt.getText().then(function (SmartLiterature) {
 				console.log("find smartNoLit Text  " + SmartLiterature);
 			});
@@ -1326,7 +1333,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.fullconfigElecApplyNo, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.configureallmetersNextSection, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -1432,6 +1439,7 @@ export class AbortPageObject {
 
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.polNxtBtn, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -1500,12 +1508,14 @@ export class AbortPageObject {
 		browser.executeScript('arguments[0].scrollIntoView()', this.polNxtBtn_1.getWebElement());
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.polNxtBtn_1, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	public async clickGasInstallSubmitButton() {
 
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.gasbuttonSubmit, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 
@@ -1513,12 +1523,14 @@ export class AbortPageObject {
 
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.gasNMEXbuttonSubmit, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 	public async clickElecSubmitButton() {
 
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.elecMeterSubmit, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 
@@ -1526,6 +1538,7 @@ export class AbortPageObject {
 
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.elecInstallSubmit, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 
@@ -1533,6 +1546,7 @@ export class AbortPageObject {
 
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.gasMeterSubmit, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 
@@ -1540,7 +1554,7 @@ export class AbortPageObject {
 
 	public async fillReplaceCommshubdetails(index: number) {
 
-
+		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubReplacedyes, utility.medium);
 		browser.sleep(1000)
 		console.log("Selecting element based index : " + index)
@@ -1583,6 +1597,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.assetsUnaffectedYes, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.replacecommsNextButton, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 
@@ -1594,6 +1609,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.commshubconnectedtoSWan, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubconnectedtoAssetY, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 
@@ -1647,7 +1663,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.assetsUnaffectedYes, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.replacecommsNextButton, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	public async fillReplaceCommshubdetails_ENMEX(index: number) {
@@ -1695,6 +1711,7 @@ export class AbortPageObject {
 		Gen.RadioButtonClick(this.assetsUnaffectedYes, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.replacecommsNextButton, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	public async fillReplaceCommshubdetails_EXCH19(index: number) {
@@ -1739,6 +1756,7 @@ export class AbortPageObject {
 		Gen.RadioButtonClick(this.confirmInstallAndLeaveYes_1, utility.medium);;
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.replacecommsNextButton_1, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	public async fillReplaceCommshubdetails_GNMEX(index: number) {
@@ -1786,6 +1804,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.confirmInstallAndLeaveYes_1, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.replacecommsNextButton_1, utility.medium);
+		await utility.wait(utility.medium);
 
 
 	}
@@ -1833,6 +1852,7 @@ export class AbortPageObject {
 		Gen.RadioButtonClick(this.confirmInstallAndLeaveYes_1, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.replacecommsNextButton_1, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 
@@ -1950,11 +1970,14 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.preGASinstallN, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.abortPreGas, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 
 	public VerifyPreGasAbortReasonCodePopup() {
+		 utility.wait(utility.medium);
 		if (this.AbortGasMeterReasonCodes.isDisplayed) {
+			 utility.wait(utility.medium);
 			this.AbortGasMeterReasonCodes.getText().then(async function (abortgasreason) {
 				console.log("Abort Reason Code Pop up Header" + abortgasreason);
 			});
@@ -1973,13 +1996,14 @@ export class AbortPageObject {
 		this.buttonTextVal = element(by.xpath('//button[@id ="' + buttonText + '"]'));
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.buttonTextVal, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	public async reScanAssetPopupclick() {
 
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.RescanAssetPopUp, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 
@@ -1999,6 +2023,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.capturePPMIDBtn, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.nextButtonWAN, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 
@@ -2024,6 +2049,7 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.statusofElecAssetSelect, utility.medium);
 		console.log("clicked");
+		await utility.wait(utility.medium);
 
 	}
 
@@ -2038,7 +2064,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.commsHubConnectedNo, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commissioningNxtBtn, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 	public async fillCommissioningDetails_FLTYInstallLeave() {
@@ -2049,7 +2075,7 @@ export class AbortPageObject {
 		Gen.RadioButtonClick(this.commHubConnected_FLTY, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commissioningNxtBtn_FLTY, utility.medium);
-
+		await utility.wait(utility.medium);
 	}
 
 
@@ -2092,7 +2118,7 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.SendKeys(inst.TestWitness, utility.medium, "Ellie Taylor");
 		await utility.wait(utility.medium);
-		Gen.SendKeys(this.abortAddNotes, utility.medium, "1.1");
+		Gen.SendKeys(this.standingPressure, utility.medium, "1.1");
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(inst.cappostinstallationpressure, utility.medium);
 		await utility.wait(utility.medium);
@@ -2103,6 +2129,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(inst.captureFinalMeterInstall, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(inst.PostinstallNext, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 }
