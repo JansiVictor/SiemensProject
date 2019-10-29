@@ -1137,12 +1137,13 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.RemoveGasAssetrplacedorremoved, utility.medium);
 		await utility.wait(utility.medium);
-		Gen.DropDownOptionbyLabel(this.statusofElecAssetSelect, utility.medium, "No Fault Found");
+		Gen.DropDownOptionbyLabel(this.statusofAssetSelect, utility.medium, "No Fault Found");
 		await utility.wait(utility.medium);
-		//Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
-		//await utility.wait(utility.medium);
+		Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
+		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.randomClick, utility.medium);
 		console.log("Random Click EX24");
+		await utility.wait(utility.medium);
 
 	}
 
