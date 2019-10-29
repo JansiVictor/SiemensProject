@@ -53,12 +53,13 @@ webdriver-manager update
 ```
 webdriver-manager start
 ```
+* Ensure Chrome is set to 100% ZOOM LEVEL by default.
 
 #### Setup Scripts on IE
 ```
 For Internet Explorer runs:
 1. Run webdriver-manager update --ie on command prompt 
-2. Copy the IE driver version available within drivers folder in the project directory on to the following path 
+2. Copy the IE driver version available within \drivers folder in the project directory on to the following path 
 C:\Users\Owner\AppData\Roaming\npm\node_modules\protractor\node_modules\webdriver-manager\selenium
 3. Change security Settings on IE browser - 
     Settings->Security->Internet - Check 'Enable Protected Mode'
@@ -67,7 +68,11 @@ C:\Users\Owner\AppData\Roaming\npm\node_modules\protractor\node_modules\webdrive
     Settings->Security->Restricted sites - Check 'Enable Protected Mode' 
 4. Change General settings on IE browser -
     Settings->General->Internet - Check 'Delete browsing history on exit'
-5. Run webdriver-manager start
+5. Ensure Internet Explorer is set to 100% ZOOM LEVEL by default.
+6. Run webdriver-manager start
+
+Incase of Machine Restart:
+    Repeat steps 1-6 specified above, before test execution.
 ```
 
 #### Install Dependencies
