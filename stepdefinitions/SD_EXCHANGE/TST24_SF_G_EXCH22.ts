@@ -233,7 +233,7 @@ Then('I should see ExchTwTwo INFO window', async function () {
 
 Given('the ExchTwTwo INFO window with the text', async function () {
 	//await riskassess.infoOKButton.isDisplayed();
-	riskassess.verifyinfookandneedtoperform();
+	await riskassess.verifyinfookandneedtoperform();
 });
 
 
