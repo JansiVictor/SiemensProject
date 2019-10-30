@@ -46,10 +46,6 @@ Feature: TST149_AbortElecRisk_SFEEXCH20
     Scenario: Going through ExchangeTwnty "INITIAL RISK ASSESSMENT"
         Given the ExchangeTwnty INITIAL RISK ASSESSMENT section
         When I fill the ExchangeTwnty initialRisk field with the values
-        Then I should see ExchangeTwnty INFO window
-
-    Scenario: Going through ExchangeTwnty "INFO" window
-        Given the ExchangeTwnty INFO window with the text
         Then I should see ExchangeTwnty RISK ASSESSMENT ELEC section
 
     Scenario: Going through ExchangeTwnty "RISK ASSESSMENT - ELEC" section

@@ -866,7 +866,7 @@ export class AbortPageObject {
 		Gen.SendKeys(inst.captureMeterReadingSend, utility.medium, '12345');
 
 		await utility.wait(utility.medium);
-		await expect(inst.CaptureMeterReadingenableok.isDisplayed());
+		
 		if (inst.CaptureMeterReadingenableok.isDisplayed()) {
 			var element = inst.CaptureMeterReadingenableok;
 			browser.executeScript("arguments[0].click()", element);
@@ -1159,7 +1159,7 @@ export class AbortPageObject {
 
 		await this.selectValidAssettoInst1.element(by.css("option:nth-child(" + index + ")")).click();
 		await utility.wait(utility.medium);
-		await expect(await this.gasmeterserialSendreg.isDisplayed());
+		
 		var options = this.selectValidAssettoInst1.getAttribute('value');
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
@@ -1178,7 +1178,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.newregulatorReplaced, utility.medium);
 		await this.selectValidAssettoInst2.element(by.css("option:nth-child(" + index + ")")).click();
 		await utility.wait(utility.medium);
-		await expect(await this.gasmeterserialSendreg.isDisplayed());
+		
 		var options = this.selectValidAssettoInst2.getAttribute('value');
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
@@ -1563,15 +1563,15 @@ export class AbortPageObject {
 		await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
-		await expect(await this.CHFID.isDisplayed());
+		
 		var options = this.selectinstallAssetOption.getAttribute('value');
 		console.log(options);
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.CHFID, utility.medium, options);
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.dummydiv, utility.medium);
+		await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		Gen.ButtonClick(this.infoOKButton, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionClick(this.commshubLocation, utility.medium, "B");
 		await utility.wait(utility.medium);
@@ -1625,7 +1625,6 @@ export class AbortPageObject {
 		await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
-		await expect(await this.CHFID.isDisplayed());
 		var options = this.selectinstallAssetOption.getAttribute('value');
 		console.log(options);
 		await utility.wait(utility.medium_low);
@@ -1677,7 +1676,7 @@ export class AbortPageObject {
 		await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
-		await expect(await this.CHFID.isDisplayed());
+		
 		var options = this.selectinstallAssetOption.getAttribute('value');
 		console.log(options);
 		await utility.wait(utility.medium);
@@ -1724,7 +1723,7 @@ export class AbortPageObject {
 		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
-		await expect(await this.CHFID_1.isDisplayed());
+		
 		var options = this.selectinstallAssetOption_1.getAttribute('value');
 		console.log(options);
 		await utility.wait(utility.medium);
@@ -1772,7 +1771,7 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
 		await utility.wait(utility.medium);
-		await expect(await this.CHFID_1.isDisplayed());
+		
 		var options = this.selectinstallAssetOption_1.getAttribute('value');
 		console.log(options);
 		await utility.wait(utility.medium);
@@ -1820,7 +1819,7 @@ export class AbortPageObject {
 		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
-		await expect(await this.CHFID_1.isDisplayed());
+		
 		var options = this.selectinstallAssetOption_1.getAttribute('value');
 		console.log(options);
 		await utility.wait(utility.medium);
@@ -1870,7 +1869,7 @@ export class AbortPageObject {
 		await utility.wait(utility.low);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
-		await expect(await this.CHFID_1.isDisplayed());
+		
 		var options = this.selectinstallAssetOption_1.getAttribute('value');
 		console.log(options);
 		await this.CHFID_1.clear();
@@ -1923,7 +1922,7 @@ export class AbortPageObject {
 
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.commshubPopup, utility.medium);
-		await expect(await this.CHFID_1.isDisplayed());
+		
 		var options = this.selectinstallAssetOption_1.getAttribute('value');
 		console.log(options);
 		await utility.wait(utility.medium);
@@ -2058,7 +2057,7 @@ export class AbortPageObject {
 
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionClick(this.nonserealizedAssetDD, utility.medium, "1");
-		await expect(await this.nonserealizedAssetInput.isDisplayed());
+		
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.nonserealizedAssetInput, utility.medium, '1');
 		await utility.wait(utility.medium);

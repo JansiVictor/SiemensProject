@@ -357,7 +357,9 @@ When('I click on SFENMEX16 SUBMIT button', async function () {
 });
 
 Then('I should see SFENMEX16 CURRENT METER DETAILS section', async function () {
+	await utility.wait(utility.medium);
 	await riskassess.currentMeterDetailsText.isDisplayed();
+	await utility.wait(utility.medium);
 });
 
 Given('the Check the SFENMEX16 current meter detailssection', async function () {
@@ -550,9 +552,9 @@ When('I fill the Pre Installation Gas Tightness fields with the values', async f
 	await riskassessGAS.preInstallationGasT();
 });
 
-Then('I should see SFENMEX16 Current Meter Details section', async function () {
-	await riskassessGAS.currentMeterDetailsTxtDisplay();
-});
+// Then('I should see SFENMEX16 Current Meter Details section', async function () {
+// 	await riskassessGAS.currentMeterDetailsTxtDisplay();
+// });
 
 Then('I should see SFENMEX16 CURRENT GAS METER DETAILS section', async function () {
 	await riskassessGAS.currentGASMeterDetailsTxtDisplay();
@@ -759,5 +761,6 @@ Then('I should click SFENMEX16 Submit button to complete the job section',async 
 
 Then('I should finally submit SFENMEX16 job',async function () {
 	await SFENMEX16Complete.FinalSubmission1();
+	await utility.wait(utility.medium);
  
 });
