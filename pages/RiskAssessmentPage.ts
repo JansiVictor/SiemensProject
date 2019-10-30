@@ -347,16 +347,19 @@ export class RiskAssessmentPageObject {
         }
         await utility.wait(utility.medium);
         Gen.SendKeys(this.riskAssessmentinput, utility.medium, 'Risk assessment notes');
+        await utility.wait(utility.medium);
     }
 
     public async capturePhotoBtnDisplayed() {
         await utility.wait(utility.medium);
         Gen.ButtonClick(this.cameraElecBtn, utility.medium_low);
+        await utility.wait(utility.medium);
     }
 
     public async clickNextSectionBtn() {
         await utility.wait(utility.medium);
         Gen.ButtonClick(this.nextSectionBtn, utility.medium);
+        await utility.wait(utility.medium);
     }
 
     public async verifyriskGasText() {
@@ -395,11 +398,15 @@ export class RiskAssessmentPageObject {
             await utility.wait(utility.medium);
             Gen.RadioButtonClick(this.meterPressureLow, utility.Avg_low);
         }
+        await utility.wait(utility.medium);
     }
+
     public async capturegasbtn() {
         await utility.wait(utility.medium);
         Gen.RadioButtonClick(this.cameraGasBtn, utility.medium);
+        await utility.wait(utility.medium);
     }
+
     public async fillthedtl06() {
         await utility.wait(utility.medium);
         if (await this.gasriskAdditionalText.isDisplayed()) {
@@ -410,6 +417,7 @@ export class RiskAssessmentPageObject {
             await utility.wait(utility.medium);
             Gen.RadioButtonClick(this.safetoContPass, utility.medium);
         }
+        await utility.wait(utility.medium);
     }
 
     // CGP for FLTY20TRAD
@@ -421,12 +429,13 @@ export class RiskAssessmentPageObject {
                 console.log("Find capture initial photo of elec installation  " + capinitialElecInst);
             });
         }
-        await utility.wait(utility.medium_low);
+        await utility.wait(utility.medium);
     }
 
     public async elecfullmeterInst() {
         await utility.wait(utility.medium);
         Gen.ButtonClick(this.capturephotoMeterInstall, utility.low);
+        await utility.wait(utility.medium);
     }
 
     public async gasInstSec() {
@@ -466,11 +475,13 @@ export class RiskAssessmentPageObject {
         Gen.RadioButtonClick(this.socketSafetyBtnYES, utility.medium);
         await utility.wait(utility.medium);
         Gen.DropDownOptionClick(this.socketSetLocDD, utility.medium, '9');
+        await utility.wait(utility.medium);
     }
 
     public async verifyCapturepreInstallation() {
         await utility.wait(utility.medium);
         Gen.ButtonClick(this.capturePreinsatllation, utility.medium);
+        await utility.wait(utility.medium);
     }
 
     public async verifyanySocketFoundNO() {
@@ -479,6 +490,7 @@ export class RiskAssessmentPageObject {
         try {
             await utility.wait(utility.medium);
             Gen.ButtonClick(this.polarityMarindaleNxt, utility.medium);
+            await utility.wait(utility.medium);
         } catch (error) {
             console.log("Polarity marindale next section is not available at this moment");
         }
@@ -527,6 +539,7 @@ export class RiskAssessmentPageObject {
         Gen.RadioButtonClick(this.reportedRiskDNO, utility.medium);
         await utility.wait(utility.medium);
         Gen.SendKeys(this.DNOrefNum, utility.medium, '1111111');
+        await utility.wait(utility.medium);
     }
 
     //Added By CGP for Faulty20 TRAD
@@ -534,22 +547,27 @@ export class RiskAssessmentPageObject {
     public async polarityMeterCutoutSubmit() {
         await utility.wait(utility.medium);
         Gen.ButtonClick(this.meterCutOutSubmitBtn, utility.medium);
+        await utility.wait(utility.medium);
     }
 
     public async polarityMeterCutoutSubmitTRAD() {
         await utility.wait(utility.medium);
         Gen.ButtonClick(this.meterCutOutSubmit1, utility.medium);
+        await utility.wait(utility.medium);
     }
 
     public async polarityMeterCutoutSubmitFLTY18TRAD() {
         await utility.wait(utility.medium);
         Gen.ButtonClick(this.clickSubmit_SFENMEX15, utility.low);
+        await utility.wait(utility.medium);
     }
+
     public async meterCutOutnextSection() {
         await utility.wait(utility.medium);
         Gen.ButtonClick(this.meterCutOutNxtBtn, utility.medium);
         await utility.wait(utility.medium);
         Gen.ButtonClick(this.nextbtntoRemove, utility.medium);
+        await utility.wait(utility.medium);
     }
 
     //***************************************************************************************** *//
@@ -561,25 +579,31 @@ export class RiskAssessmentPageObject {
     public async fillelecfullmeterInst() {
         await utility.wait(utility.medium);
         Gen.ButtonClick(this.capturephotoMeterInstall, utility.medium);
+        await utility.wait(utility.medium);
     }
     public async meterCutOutnextSectionfrmElec() {
         await utility.wait(utility.medium);
         Gen.ButtonClick(this.nextbtntoRemfromElec, utility.medium);
         console.log("Clicked on Submit from Elec");
+        await utility.wait(utility.medium);
     }
+
     public async INFOOK() {
         await utility.wait(utility.medium);
         await expect(this.infoOkbutn.isPresent());
+        await utility.wait(utility.medium);
     }
 
     public async INFOOKClick() {
         await utility.wait(utility.medium);
         Gen.ButtonClick(this.infoOkbutn, utility.medium);
+        await utility.wait(utility.medium);
     }
 
     public async ElecInstSec() {
         await utility.wait(utility.medium);
         if (await this.captureInitialPhotoE.isDisplayed()) {
+            await utility.wait(utility.medium);
             await this.captureInitialPhotoE.getText().then(function (captureInitialPhotoETxt) {
                 console.log("Find capture initial photo of Elec installation  " + captureInitialPhotoETxt);
             });
