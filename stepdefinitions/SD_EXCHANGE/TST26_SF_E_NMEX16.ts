@@ -552,10 +552,6 @@ When('I fill the Pre Installation Gas Tightness fields with the values', async f
 	await riskassessGAS.preInstallationGasT();
 });
 
-// Then('I should see SFENMEX16 Current Meter Details section', async function () {
-// 	await riskassessGAS.currentMeterDetailsTxtDisplay();
-// });
-
 Then('I should see SFENMEX16 CURRENT GAS METER DETAILS section', async function () {
 	await riskassessGAS.currentGASMeterDetailsTxtDisplay();
 });

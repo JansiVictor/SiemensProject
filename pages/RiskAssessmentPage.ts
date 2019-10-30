@@ -349,7 +349,6 @@ export class RiskAssessmentPageObject {
         await utility.wait(utility.medium);
         Gen.SendKeys(this.riskAssessmentinput, utility.medium, 'Risk assessment notes');
         await utility.wait(utility.medium);
-        
     }
 
     public async capturePhotoBtnDisplayed() {
@@ -420,6 +419,7 @@ export class RiskAssessmentPageObject {
             Gen.RadioButtonClick(this.safetoContPass, utility.medium);
             await utility.wait(utility.medium);
         }
+        await utility.wait(utility.medium);
     }
 
     // CGP for FLTY20TRAD
@@ -587,6 +587,7 @@ export class RiskAssessmentPageObject {
         await utility.wait(utility.medium);
         Gen.ButtonClick(this.nextbtntoRemfromElec, utility.medium);
         console.log("Clicked on Submit from Elec");
+        await utility.wait(utility.medium);
     }
 
     public async INFOOK() {
@@ -604,6 +605,7 @@ export class RiskAssessmentPageObject {
     public async ElecInstSec() {
         await utility.wait(utility.medium);
         if (await this.captureInitialPhotoE.isDisplayed()) {
+            await utility.wait(utility.medium);
             await this.captureInitialPhotoE.getText().then(function (captureInitialPhotoETxt) {
                 console.log("Find capture initial photo of Elec installation  " + captureInitialPhotoETxt);
             });
