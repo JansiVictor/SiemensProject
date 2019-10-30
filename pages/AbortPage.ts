@@ -864,14 +864,9 @@ export class AbortPageObject {
 
 		await utility.wait(utility.medium);
 		Gen.SendKeys(inst.captureMeterReadingSend, utility.medium, '12345');
-
 		await utility.wait(utility.medium);
-		
-		if (inst.CaptureMeterReadingenableok.isDisplayed()) {
-			var element = inst.CaptureMeterReadingenableok;
-			browser.executeScript("arguments[0].click()", element);
-			await utility.wait(utility.medium_low);
-		}
+		Gen.RandomMouseClick(inst.captureMeterReadingSend, 250, 34);
+		await utility.wait(utility.medium);
 	}
 
 	public async TST77DetermineFaulty() {
@@ -1634,9 +1629,9 @@ export class AbortPageObject {
 		await utility.wait(utility.low);
 
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.dummydiv2, utility.medium);
+		await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		Gen.ButtonClick(this.infoOKButton, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionClick(this.commshubLocation, utility.medium, "A");
 		await utility.wait(utility.medium);
@@ -1682,9 +1677,9 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.CHFID, utility.medium, options);
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.dummydiv3, utility.medium);
+		await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		Gen.ButtonClick(this.infoOKButton, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionClick(this.commshubLocation, utility.medium, "A");
 		await utility.wait(utility.medium);
@@ -1729,9 +1724,9 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.CHFID_1, utility.medium, options);
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.dummydiv1, utility.medium);
+		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		Gen.ButtonClick(this.infoOKButton, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionClick(this.commshubLocation_1, utility.medium, "A");
 		await utility.wait(utility.medium);
@@ -1777,9 +1772,9 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.CHFID_1, utility.medium, options);
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.dummydiv3, utility.medium);
+		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		Gen.ButtonClick(this.infoOKButton, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionClick(this.commshubLocation_1, utility.medium, "A");
 		await utility.wait(utility.medium);
@@ -1825,9 +1820,9 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.CHFID_1, utility.medium, options);
 		await utility.wait(utility.medium);
-		Gen.RadioButtonClick(this.dummydiv, utility.medium);
+		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		Gen.ButtonClick(this.infoOKButton, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionClick(this.commshubLocation_1, utility.medium, 'A');
 		await utility.wait(utility.medium);
@@ -1875,9 +1870,9 @@ export class AbortPageObject {
 		await this.CHFID_1.clear();
 		Gen.SendKeys(this.CHFID_1, utility.medium, options);
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.dummydiv, utility.medium);
+		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		Gen.ButtonClick(this.infoOKButton, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionClick(this.commshubLocation_1, utility.medium, 'A');
 		await utility.wait(utility.medium);
@@ -1929,9 +1924,9 @@ export class AbortPageObject {
 		Gen.SendKeys(this.CHFID_1, utility.medium, options);
 		await utility.wait(utility.low);
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.dummydiv2, utility.medium);
+		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.commshubPopup, utility.medium);
+		Gen.ButtonClick(this.infoOKButton, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.abortAppointment, utility.medium);
 		await utility.wait(utility.medium);
