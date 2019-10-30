@@ -35,7 +35,7 @@ When('I fill the RISK ASSESSMENT - Abort ELEC fields with the values', async fun
 	await utility.wait(utility.medium);
 });
 
-Then('I should see AbortElec SMETS Install SUBMIT', async function (workorder) {
+Then('I should see AbortElec SMETS Install SUBMIT', async function () {
 	await inst.clicksubmitinstall();
 	await utility.wait(utility.low);
 });
