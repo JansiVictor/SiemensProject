@@ -68,8 +68,11 @@ C:\Users\Owner\AppData\Roaming\npm\node_modules\protractor\node_modules\webdrive
     Settings->Security->Restricted sites - Check 'Enable Protected Mode' 
 4. Change General settings on IE browser -
     Settings->General->Internet - Check 'Delete browsing history on exit'
-5. Ensure Internet Explorer is set to 100% ZOOM LEVEL by default.
-6. Run webdriver-manager start
+5. Change Privacy settings on IE browser - 
+    Settings->Privacy - Check Turn on Pop-up blocker
+                        Settings - Check High-Block all pop-ups option 
+6. Ensure Internet Explorer is set to 100% ZOOM LEVEL by default.
+7. Run webdriver-manager start
 
 Incase of Machine Restart:
     Repeat steps 1-6 specified above, before test execution.

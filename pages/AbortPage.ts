@@ -310,6 +310,7 @@ export class AbortPageObject {
 	public Tst22RemoveMeterEnNxt: ElementFinder;
 	public Tst22RemoveNxtEnable: ElementFinder;
 	public randomClickEX23: ElementFinder;
+	public nextbtntoRemfromElec: ElementFinder;
 
 
 
@@ -455,6 +456,7 @@ export class AbortPageObject {
 		this.polNxtBtn = element(by.xpath('(//div/button[@id="btnNextPol"])[2]'));
 		this.polNxtBtn_1 = element(by.xpath('(//div/button[@id="btnNextPol"])[1]'));
 		//
+		this.nextbtntoRemfromElec = element(by.xpath('(//*[@id="btn1"])[2]'));
 		this.submitRisk = element(by.xpath('//button[text()="SUBMIT"]'));
 
 		//I & L Remove Page Elements
@@ -609,7 +611,7 @@ export class AbortPageObject {
 
 	public async ClickElecSubmitButton() {
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.submitRisk, utility.medium);
+		Gen.ButtonClick(this.nextbtntoRemfromElec, utility.medium);
 		await utility.wait(utility.medium);
 	}
 
@@ -1265,8 +1267,8 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionClick(this.statusofElecAssetSelect, utility.medium, "1");
 		await utility.wait(utility.medium);
-		Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
-		await utility.wait(utility.medium);
+		//Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
+		//await utility.wait(utility.medium);
 
 	}
 
@@ -1560,7 +1562,6 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
 		
 		var options = this.selectinstallAssetOption.getAttribute('value');
-		console.log(options);
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.CHFID, utility.medium, options);
 		await utility.wait(utility.medium);
@@ -1600,9 +1601,9 @@ export class AbortPageObject {
 	public async fill16commsdtls_InstallAndLeave() {
 
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.commshubconnectedtoSupply, utility.medium);
+		Gen.ButtonClick(this.commshubconnectedtoSupplyY, utility.medium);
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.commshubconnectedtoSWan, utility.medium);
+		Gen.ButtonClick(this.commshubconnectedtoWanY, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubconnectedtoAssetY, utility.medium);
 		await utility.wait(utility.medium);
