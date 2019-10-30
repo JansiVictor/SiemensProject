@@ -1,4 +1,4 @@
-Feature:TST072 _AbortPreGasTest_SFGFLTY18TRAD
+Feature:TST072_AbortPreGasTest_SFGFLTY18TRAD
 
     Scenario: Post SFGFLTY18TRAD SOAP Request
         Given I post workorder using "xmlrequest/SFGFLTY18TRAD.XML"
