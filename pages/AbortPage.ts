@@ -1153,7 +1153,9 @@ export class AbortPageObject {
 
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.newregulatorReplaced, utility.medium);
-
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.selectValidAssettoInst1, utility.medium);
+		await utility.wait(utility.medium);
 		await this.selectValidAssettoInst1.element(by.css("option:nth-child(" + index + ")")).click();
 		await utility.wait(utility.medium);
 
@@ -1173,6 +1175,9 @@ export class AbortPageObject {
 
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.newregulatorReplaced, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.selectValidAssettoInst2, utility.medium);
+		await utility.wait(utility.medium);
 		await this.selectValidAssettoInst2.element(by.css("option:nth-child(" + index + ")")).click();
 		await utility.wait(utility.medium);
 
