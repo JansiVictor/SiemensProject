@@ -61,12 +61,12 @@ const inst: InstallPageObject = new InstallPageObject();
 
 Given('the ExchTwTwo Login Page', async function () {
 	await browser.get(config.baseUrl);
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 });
 
 When('I pass ExchTwTwo {string} and {string}', async function (username, password) {
 	await login.setUsernamePassword(username, password);
-	await utility.wait(utility.very_low);
+	await utility.wait(utility.medium);
 });
 
 Then('I click ExchTwTwo Login button', async function () {
@@ -90,7 +90,7 @@ Given('the ExchTwTwo Appointment List window', async function () {
 
 When('I click on ExchTwTwo select button', async function () {
 	await home.clickCorrectSelectLink('SFExchange22');
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 });
 
 Then('I should see ExchTwTwo Work Order window', async function () {
@@ -114,13 +114,13 @@ Then('I should see page ExchTwTwo contect display', async function () {
 });
 
 Then('I should see the ExchTwTwo CUSTOMER CONTACT NUMBER', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await expect(await applist.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
 
 });
 
 Then('I should see ExchTwTwo Contact made field', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
 	await expect(applist.contactMadeYes.isPresent());
 });
@@ -165,14 +165,14 @@ When('I click on ExchTwTwo MPRNOK button', async function () {
 });
 
 Then('I should see ExchTwTwo ARRIVE button', async function () {
-	await utility.wait(utility.Avg_low);
+	await utility.wait(utility.medium);
 	await applist.arriveBtn.getText().then(function (arriveBtnText) {
 		console.log("find Arrive Btn Text  " + arriveBtnText);
 	});
 });
 
 Then('I should see ExchTwTwo DOORSTEP PROTOCOL tab activated', async function () {
-	await utility.wait(utility.low);
+	await utility.wait(utility.medium);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});
@@ -185,9 +185,9 @@ When('I click on ExchTwTwo ARRIVE button', async function () {
 
 Then('I should see ExchTwTwo Arrival Time details', async function () {
 	//comment these 2 lines when continue link is not displayed
-	// await utility.wait(utility.medium_low);
+	// await utility.wait(utility.medium);
 	// await applist.continueLink.click();
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
 	});
@@ -557,7 +557,7 @@ When('ExchTwTwo I fill the field24 with the value24', async function () {
     await remove.clickonokGasAssetRemoval();
 });
 Then('ExchTwTwo I click on Submit Btn', async function () {
-    await utility.wait(utility.very_low);
+    await utility.wait(utility.medium);
     await remove.clicksubmitok();
 });
 
@@ -625,6 +625,7 @@ When('ExchTwTwo I fill the fields and values for New GAS meter details', async f
 });
 Then('I should see ExchTwTwo New Regulator section',async function () {
     if (riskassessGAS.regulatorText.isDisplayed()) {
+        await utility.wait(utility.medium);
         await riskassessGAS.regulatorText.getText().then(function (regulator) {
             console.log("find regulator Text  " + regulator);
         });
@@ -635,7 +636,7 @@ Then('I should see ExchTwTwo New Regulator section',async function () {
 /***** NEW REGULATOR */
 
    Given('the ExchTwTwo New Regulator section', async function () {
-    await utility.wait(utility.low);
+    await utility.wait(utility.medium);
     if (inst.newRegulatorHeader.isDisplayed()) {
         await inst.newRegulatorHeader.getText().then(function (regulator) {
             console.log("find regulator Text  " + regulator);
@@ -807,6 +808,7 @@ When('ExchTwTwo I click on Commissioning Successful button', async function () {
 });
 Then('ExchTwTwo I should see NEW GAS METER DETAILS section', async function () {
     if (this.newRegulatorTxt.isDisplayed()) {
+        await utility.wait(utility.medium);
         await this.newRegulatorTxt.getText().then(function (regulator) {
             console.log("find regulator Text  " + regulator);
         });
@@ -819,6 +821,7 @@ Then('ExchTwTwo I should see NEW GAS METER DETAILS section', async function () {
   });
   Then('ExchTwTwo I should see NEW REGULATOR section', async function () {
     if (this.newRegulatorTxt.isDisplayed()) {
+        await utility.wait(utility.medium);
         await this.newRegulatorTxt.getText().then(function (regulator) {
             console.log("find regulator Text  " + regulator);
         });
@@ -829,6 +832,7 @@ Then('ExchTwTwo I should see NEW GAS METER DETAILS section', async function () {
 
 Given('ExchTwTwo the NEW REGULATOR section', async function () {
     if (this.newRegulatorTxt.isDisplayed()) {
+        await utility.wait(utility.medium);
         await this.newRegulatorTxt.getText().then(function (regulator) {
             console.log("find regulator Text  " + regulator);
         });

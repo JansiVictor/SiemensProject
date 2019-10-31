@@ -457,7 +457,7 @@ export class AbortPageObject {
 		this.polNxtBtn_1 = element(by.xpath('(//div/button[@id="btnNextPol"])[1]'));
 		//
 		this.nextbtntoRemfromElec = element(by.xpath('(//*[@id="btn1"])[2]'));
-		this.submitRisk = element(by.xpath('//button[text()="SUBMIT"]'));
+		this.submitRisk = element(by.xpath('//div[text()="REMOVE"]'));
 
 		//I & L Remove Page Elements
 		this.statusofElecAssetSelect = element(by.xpath('//select[@id="cbx_StaAss_sel"]'));
@@ -1622,7 +1622,7 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
 		var options = this.selectinstallAssetOption.getAttribute('value');
-		console.log(options);
+	
 		await utility.wait(utility.medium_low);
 		await this.CHFID.clear();
 		await utility.wait(utility.medium);
@@ -1674,7 +1674,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
 		
 		var options = this.selectinstallAssetOption.getAttribute('value');
-		console.log(options);
+	
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.CHFID, utility.medium, options);
 		await utility.wait(utility.medium);
@@ -1721,7 +1721,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
 		
 		var options = this.selectinstallAssetOption_1.getAttribute('value');
-		console.log(options);
+
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.CHFID_1, utility.medium, options);
 		await utility.wait(utility.medium);
@@ -1769,7 +1769,7 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		
 		var options = this.selectinstallAssetOption_1.getAttribute('value');
-		console.log(options);
+		
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.CHFID_1, utility.medium, options);
 		await utility.wait(utility.medium);
@@ -1817,7 +1817,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
 		
 		var options = this.selectinstallAssetOption_1.getAttribute('value');
-		console.log(options);
+	
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.CHFID_1, utility.medium, options);
 		await utility.wait(utility.medium);
@@ -1867,7 +1867,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
 		
 		var options = this.selectinstallAssetOption_1.getAttribute('value');
-		console.log(options);
+	
 		await this.CHFID_1.clear();
 		Gen.SendKeys(this.CHFID_1, utility.medium, options);
 		await utility.wait(utility.medium);
@@ -1920,7 +1920,7 @@ export class AbortPageObject {
 		Gen.RadioButtonClick(this.commshubPopup, utility.medium);
 		
 		var options = this.selectinstallAssetOption_1.getAttribute('value');
-		console.log(options);
+	
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.CHFID_1, utility.medium, options);
 		await utility.wait(utility.low);

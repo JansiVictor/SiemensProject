@@ -78,7 +78,7 @@ Then('TST28 I should see the CUSTOMER CONTACT NUMBER', async function () {
 });
 
 Then('TST28 I should see Contact made field', async function () {
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
     await expect(await applist.contactMadeText.getText()).equal("Contact made?");
     await expect(applist.contactMadeYes.isPresent());
 });
@@ -121,7 +121,7 @@ Then('TST28 I should see ARRIVE button', async function () {
 });
 
 Then('TST28 I should see DOORSTEP PROTOCOL tab activated', async function () {
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
     await applist.doorStepPROText.getText().then(function (doorStepPROText) {
         console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
     });

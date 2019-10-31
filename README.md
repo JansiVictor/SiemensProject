@@ -142,6 +142,28 @@ npm run build
     //      "../../features/Abort/AbortPreGasTest/FAULTY_SMETS2/*.feature",
     //      "../../features/Abort/AbortPreGasTest/FAULTY_TRAD/*.feature"
 ```
+* Ensure the correct wait periods are uncommented on the utility.ts file for Chrome and IE execution
+```
+    //**IE utility run
+    //**Uncomment for IE run
+
+    public high = 80000;
+    public medium = 5000;
+    public medium_low = 4000;
+    public low = 3000;
+    public Avg_low = 2000;
+    public very_low = 1000;
+
+    //**Chrome utility run
+    //**Uncomment for Chrome run
+
+    // public high = 80000;
+    // public medium = 5000;
+    // public medium_low = 4000;
+    // public low = 3000;
+    // public Avg_low = 2000;
+    // public very_low = 1000;
+```
 
 #### Run Scripts 
 

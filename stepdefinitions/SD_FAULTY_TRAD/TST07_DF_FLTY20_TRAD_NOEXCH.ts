@@ -77,7 +77,7 @@ Then('FltytwTadNoEx I should see the CUSTOMER CONTACT NUMBER', async function ()
 });
 
 Then('FltytwTadNoEx I should see Contact made field', async function () {
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
     await expect(await appointmentListForm.contactMadeText.getText()).equal("Contact made?");
     await expect(appointmentListForm.contactMadeYes.isPresent());
 });
@@ -120,7 +120,7 @@ Then('FltytwTadNoEx I should see ARRIVE button', async function () {
 });
 
 Then('FltytwTadNoEx I should see DOORSTEP PROTOCOL tab activated', async function () {
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
     await appointmentListForm.doorStepPROText.getText().then(function (doorStepPROText) {
         console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
     });
@@ -131,7 +131,7 @@ When('FltytwTadNoEx I click on ARRIVE button', async function () {
 });
 
 Then('FltytwTadNoEx I should see Arrival Time details', async function () {
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
     await appointmentListForm.arrivalTime.getText().then(function (arrivalTimeText) {
         console.log("find Arrival Time Text  " + arrivalTimeText);
     });

@@ -73,6 +73,7 @@ Then('I click RmveSix Login button', async function () {
 });
 
 Then('I should see the RmveSix Appointment List', async function () {
+	await utility.wait(utility.medium);
 	await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
 });
 
@@ -112,13 +113,13 @@ Then('I should see RmveSix page contect display', async function () {
 
 
 Then('I should see the RmveSix CUSTOMER CONTACT NUMBER', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await expect(await applist.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
 
 });
 
 Then('I should see RmveSix Contact made field', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
 	await expect(applist.contactMadeYes.isPresent());
 });
@@ -173,7 +174,7 @@ When('I should see RmveSix ARRIVE button', async function () {
 });
 
 When('I should see RmveSix DOORSTEP PROTOCOL tab activated', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});
@@ -187,7 +188,7 @@ Then('I should see RmveSix Arrival Time details', async function () {
 	//comment these 2 lines when continue link is not displayed
 	// await utility.wait(utility.medium_low);
 	// await applist.continueLink.click();
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
 	});

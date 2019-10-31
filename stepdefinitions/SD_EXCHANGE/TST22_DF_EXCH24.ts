@@ -61,11 +61,11 @@ const inst: InstallPageObject = new InstallPageObject();
 /***LOGIN PAGE */
 Given('the TST22 Login Page', async function () {
     await browser.get(config.baseUrl);
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
 });
 When('I pass TST22 {string} and {string}', async function (username, password) {
     await login.setUsernamePassword(username, password);
-    await utility.wait(utility.very_low);
+    await utility.wait(utility.medium);
 });
 Then('I click TST22 Login button', async function () {
     await login.clickLogin();
@@ -79,7 +79,7 @@ Given('the TST22 Appointment List window', async function () {
 });
 When('I click on TST22 select button', async function () {
     await home.clickCorrectSelectLink('DFExchange24');
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
 });
 Then('I should see TST22 Work Order window', async function () {
     await applist.verifyWorkOrderWindowText();
@@ -102,7 +102,7 @@ Then('I should see the TST22 CUSTOMER CONTACT NUMBER', async function () {
     await applist.customercontactnumberavailable();
 });
 Then('I should see TST22 Contact made field', async function () {
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
     await expect(await applist.contactMadeText.getText()).equal("Contact made?");
     await expect(applist.contactMadeYes.isPresent());
 });
@@ -131,13 +131,13 @@ When('I click on TST22 MPRNOK button', async function () {
     await applist.mprnOKbtn();
 });
 Then('I should see TST22 ARRIVE button', async function () {
-    await utility.wait(utility.Avg_low);
+    await utility.wait(utility.medium);
     await applist.arriveBtn.getText().then(function (arriveBtnText) {
         console.log("find Arrive Btn Text  " + arriveBtnText);
     });
 });
 Then('I should see TST22 DOORSTEP PROTOCOL tab activated', async function () {
-    await utility.wait(utility.low);
+    await utility.wait(utility.medium);
     await applist.doorStepPROText.getText().then(function (doorStepPROText) {
         console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
     });
@@ -151,7 +151,7 @@ When('I click on TST22 ARRIVE button', async function () {
     await applist.clickArriveBtn();
 });
 Then('I should see TST22 Arrival Time details', async function () {
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
     await applist.arrivalTime.getText().then(function (arrivalTimeText) {
         console.log("find Arrival Time Text  " + arrivalTimeText);
     });

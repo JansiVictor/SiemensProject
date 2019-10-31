@@ -77,7 +77,7 @@ Then('I click Login button For SFEFLTY19', async function () {
 });
 
 Then('I should see the Appointment List For SFEFLTY19', async function () {
-	//await utility.wait(utility.medium);
+	await utility.wait(utility.medium);
 	await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
 });
 
@@ -111,13 +111,13 @@ Then('I should see page contect display For SFEFLTY19', async function () {
 });
 
 Then('I should see the CUSTOMER CONTACT NUMBER For SFEFLTY19', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await expect(await applist.custcontnumberTxt.getText()).equal("CUSTOMER CONTACT NUMBER:");
 
 });
 
 Then('I should see Contact made field For SFEFLTY19', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
 	await expect(applist.contactMadeYes.isPresent());
 });
@@ -186,7 +186,7 @@ Then('I should see ARRIVE button For SFEFLTY19', async function () {
 });
 
 Then('I should see DOORSTEP PROTOCOL tab activated For SFEFLTY19', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});
@@ -198,7 +198,7 @@ When('I click on ARRIVE button For SFEFLTY19', async function () {
 });
 
 Then('I should see Arrival Time details For SFEFLTY19', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
 	});

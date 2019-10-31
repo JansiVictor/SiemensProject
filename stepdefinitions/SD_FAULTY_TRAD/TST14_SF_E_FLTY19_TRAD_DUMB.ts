@@ -75,6 +75,7 @@ Then('I click Login button For SFEFLTY19TRAD', async function () {
 });
 
 Then('I should see the Appointment List For SFEFLTY19TRAD', async function () {
+	await utility.wait(utility.medium);
 	await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
 });
 
@@ -109,13 +110,13 @@ Then('I should see page contect display For SFEFLTY19TRAD', async function () {
 });
 
 Then('I should see the CUSTOMER CONTACT NUMBER For SFEFLTY19TRAD', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await expect(await applist.custcontnumberTxt.getText()).equal("CUSTOMER CONTACT NUMBER:");
 
 });
 
 Then('I should see Contact made field For SFEFLTY19TRAD', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
 	await expect(applist.contactMadeYes.isPresent());
 });
@@ -210,7 +211,7 @@ Then('I should see ARRIVE button For SFEFLTY19TRAD', async function () {
 });
 
 Then('I should see DOORSTEP PROTOCOL tab activated For SFEFLTY19TRAD', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});

@@ -54,7 +54,7 @@ Given('the ExchngNineteen Login Page', async function () {
 
 When('I pass ExchngNineteen {string} and {string}', async function (username, password) {
 	await login.setUsernamePassword(username, password);
-	await utility.wait(utility.very_low);
+	await utility.wait(utility.medium);
 });
 
 Then('I click ExchngNineteen Login button', async function () {
@@ -71,7 +71,7 @@ Given('the ExchngNineteen Appointment List window', async function () {
     await home.clickCorrectSelectLink('Exchange19');
     //await home.clickOnTheExchange19SelectLink();
 	//await home.clickOnTheContinueLink();
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
   });
 
   Then('I should see ExchngNineteen Work Order window', async function () {
@@ -99,14 +99,14 @@ Given('the ExchngNineteen Appointment List window', async function () {
 
 
   Then('I should see the ExchngNineteen CUSTOMER CONTACT NUMBER', async function () {
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
 	await expect(await applist.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
     await expect(applist.customerContactNumberText.isPresent());
   });
 
 
   Then('I should see ExchngNineteen Contact made field',async function () {
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
 	await expect(applist.contactMadeYes.isPresent());
   });
@@ -158,14 +158,14 @@ Given('the ExchngNineteen Appointment List window', async function () {
 
 
   When('I should see ExchngNineteen ARRIVE button',async function () {
-    await utility.wait(utility.low);
+    await utility.wait(utility.medium);
 	await applist.arriveBtn.getText().then(function (arriveBtnText) {
 		console.log("find Arrive Btn Text  " + arriveBtnText);
 	});
   });
 
   When('I should see ExchngNineteen DOORSTEP PROTOCOL tab activated',async function () {
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});
@@ -182,7 +182,7 @@ Given('the ExchngNineteen Appointment List window', async function () {
 
 
   Then('I should see ExchngNineteen Arrival Time details',async function () {
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
 	});
@@ -255,7 +255,7 @@ Given('the ExchngNineteen Appointment List window', async function () {
 
   Then('I should see ExchngNineteen Capture Photo of GAS Installation section', async function () {
     await riskassessGAS.captureInitialPhotoTxt();
-	await utility.wait(utility.very_low);
+	await utility.wait(utility.medium);
   });
 
 

@@ -55,12 +55,12 @@ const df17smartcreditComplete: JobCompletionPageObject = new JobCompletionPageOb
 
 Given('the Login Page For DF17SmartCredit', async function () {
 	await browser.get(config.baseUrl);
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 });
 
 When('I pass {string} and {string} For DF17SmartCredit', async function (username, password) {
 	await login.setUsernamePassword(username, password);
-	await utility.wait(utility.very_low);
+	await utility.wait(utility.medium);
 });
 
 Then('I click Login button For DF17SmartCredit', async function () {
@@ -69,7 +69,7 @@ Then('I click Login button For DF17SmartCredit', async function () {
 });
 
 Then('I should see the Appointment List For DF17SmartCredit', async function () {
-	//await utility.wait(utility.medium);
+	await utility.wait(utility.medium);
 	await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
 });
 
@@ -80,7 +80,7 @@ Given('the Appointment List window For DF17SmartCredit', async function () {
 When('I click on select button For DF17SmartCredit', async function () {
 	//await applist.continueLinkforEx21.click();
 	await home.clickCorrectSelectLink('DF17SmartCredit');
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 });
 
 Then('I should see Work Order window For DF17SmartCredit', async function () {
@@ -104,13 +104,13 @@ Then('I should see page contect display For DF17SmartCredit', async function () 
 });
 
 Then('I should see the CUSTOMER CONTACT NUMBER For DF17SmartCredit', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await expect(await applist.custcontnumberTxt.getText()).equal("CUSTOMER CONTACT NUMBER:");
 
 });
 
 Then('I should see Contact made field For DF17SmartCredit', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
 	await expect(applist.contactMadeYes.isPresent());
 });
@@ -162,7 +162,7 @@ Then('I should see ARRIVE button For DF17SmartCredit', async function () {
 });
 
 Then('I should see DOORSTEP PROTOCOL tab activated For DF17SmartCredit', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});
@@ -175,9 +175,9 @@ When('I click on ARRIVE button For DF17SmartCredit', async function () {
 
 Then('I should see Arrival Time details For DF17SmartCredit', async function () {
 	//comment these 2 lines when continue link is not displayed
-	// await utility.wait(utility.medium_low);
+	// await utility.wait(utility.medium);
 	// await applist.continueLink.click();
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
 	});
@@ -232,7 +232,7 @@ Given('the DF17SmartCredit INFO window with the text', async function () {
 	if (riskassess.NeedtoWorkYES.isDisplayed()) {
 		var element = riskassess.NeedtoWorkYES;
 		browser.executeScript("arguments[0].click()", element);
-		await utility.wait(utility.medium_low);
+		await utility.wait(utility.medium);
 	}
 });
 
@@ -528,7 +528,7 @@ When('I fill the Suitability for Smart Meter Installation fields with the values
 Then('I should see DF17SmartCredit Capture Photo of GAS Installation section', async function () {
 	await riskassessGAS.captureInitialPhotoTxt();
 	await riskassessGAS.captureInitialPhotogasbtn.click();
-	await utility.wait(utility.very_low);
+	await utility.wait(utility.medium);
 });
 
 Given('the Pre Installation Gas Tightness section', async function () {

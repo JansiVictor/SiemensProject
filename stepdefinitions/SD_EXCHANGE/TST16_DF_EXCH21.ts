@@ -67,6 +67,7 @@ Then('I click ExTwOne Login button', async function () {
 });
 
 Then('I should see the ExTwOne Appointment List', async function () {
+	await utility.wait(utility.medium);
 	await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
 });
 
@@ -102,13 +103,13 @@ Then('I should see ExTwOne page contect display', async function () {
 });
 
 Then('I should see the ExTwOne CUSTOMER CONTACT NUMBER', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await expect(await applist.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
 
 });
 
 Then('I should see ExTwOne Contact made field', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
 	await expect(applist.contactMadeYes.isPresent());
 });
@@ -160,7 +161,7 @@ Then('I should see ExTwOne ARRIVE button', async function () {
 });
 
 Then('I should see ExTwOne DOORSTEP PROTOCOL tab activated', async function () {
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});
@@ -173,9 +174,9 @@ When('I click on ExTwOne ARRIVE button', async function () {
 
 Then('I should see ExTwOne Arrival Time details', async function () {
 	//comment these 2 lines when continue link is not displayed
-	// await utility.wait(utility.medium_low);
+	// await utility.wait(utility.medium);
 	// await applist.continueLink.click();
-	await utility.wait(utility.medium_low);
+	await utility.wait(utility.medium);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
 	});
@@ -227,7 +228,7 @@ Given('the ExTwOne INFO window with the text', async function () {
 	if (riskassess.NeedtoWorkYES.isDisplayed()) {
 		var element = riskassess.NeedtoWorkYES;
 		browser.executeScript("arguments[0].click()", element);
-		await utility.wait(utility.medium_low);
+		await utility.wait(utility.medium);
 	}
 });
 

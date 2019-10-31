@@ -43,6 +43,7 @@ Then('I click Login button for FLTY20TRAD', async function () {
 });
 
 Then('I should see the Appointment List for FLTY20TRAD', async function () {
+  await utility.wait(utility.medium);
   await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
 });
 
@@ -81,7 +82,7 @@ Then('I should see the CUSTOMER CONTACT NUMBER for FLTY20TRAD', async function (
  });
 
 Then('I should see Contact made field for FLTY20TRAD', async function () {
-  await utility.wait(utility.medium_low);
+  await utility.wait(utility.medium);
   await expect(await applist.contactMadeText.getText()).equal("Contact made?");
   await expect(applist.contactMadeYes.isPresent());
 });
@@ -124,7 +125,7 @@ Then('I should see ARRIVE button for FLTY20TRAD', async function () {
 });
 
 Then('I should see DOORSTEP PROTOCOL tab activated for FLTY20TRAD', async function () {
-  await utility.wait(utility.medium_low);
+  await utility.wait(utility.medium);
   await applist.doorStepPROText.getText().then(function (doorStepPROText) {
     console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
   });
@@ -138,7 +139,7 @@ Then('I should see Arrival Time details for FLTY20TRAD', async function () {
   //comment these 2 lines when continue link is not displayed
   // await utility.wait(utility.medium_low);
   //await applist.continueLink.click();
-  await utility.wait(utility.medium_low);
+  await utility.wait(utility.medium);
   await applist.arrivalTime.getText().then(function (arrivalTimeText) {
     console.log("find Arrival Time Text  " + arrivalTimeText);
   });

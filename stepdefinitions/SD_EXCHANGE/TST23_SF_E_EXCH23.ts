@@ -33,11 +33,11 @@ const remove1: RemovePageObject = new RemovePageObject();
 
 Given('the Login Page for EXCH23', async function () {
   await browser.get(config.baseUrl);
-  await utility.wait(utility.medium_low);
+  await utility.wait(utility.medium);
 });
 When('I pass {string} and {string} for EXCH23', async function (username, password) {
   await login.setUsernamePassword(username, password);
-  await utility.wait(utility.very_low);
+  await utility.wait(utility.medium);
 });
 Then('I click Login button for EXCH23', async function () {
   await login.clickLogin();
@@ -45,6 +45,7 @@ Then('I click Login button for EXCH23', async function () {
 });
 
 Then('I should see the Appointment List for EXCH23', async function () {
+  await utility.wait(utility.medium);
   await expect(await home.appointmentListLabel.getText()).equal("Appointments List");
 });
 
@@ -57,7 +58,7 @@ When('I click on select button for EXCH23', async function () {
 
   await utility.wait(utility.Avg_low);
   await home.clickCorrectSelectLink('SFElecEXCH23');
-  await utility.wait(utility.medium_low);
+  await utility.wait(utility.medium);
 
 });
 
@@ -84,12 +85,12 @@ Then('I should see page contect display for EXCH23', async function () {
 });
 
 Then('I should see the CUSTOMER CONTACT NUMBER for EXCH23', async function () {
-  await utility.wait(utility.medium_low);
+  await utility.wait(utility.medium);
   await expect(await applist.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
 });
 
 Then('I should see Contact made field for EXCH23', async function () {
-  await utility.wait(utility.medium_low);
+  await utility.wait(utility.medium);
   await expect(await applist.contactMadeText.getText()).equal("Contact made?");
   await expect(applist.contactMadeYes.isPresent());
 
@@ -145,7 +146,7 @@ Then('I should see ARRIVE button for EXCH23', async function () {
 });
 
 Then('I should see DOORSTEP PROTOCOL tab activated for EXCH23', async function () {
-  await utility.wait(utility.medium_low);
+  await utility.wait(utility.medium);
   await applist.doorStepPROText.getText().then(function (doorStepPROText) {
     console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
   });
@@ -160,11 +161,11 @@ Then('I should see Arrival Time details for EXCH23', async function () {
 
   //comment these 2 lines when continue link is not displayed
 
-  // await utility.wait(utility.medium_low);
+  // await utility.wait(utility.medium);
 
   // await applist.continueLink.click();
 
-  await utility.wait(utility.medium_low);
+  await utility.wait(utility.medium);
   await applist.arrivalTime.getText().then(function (arrivalTimeText) {
     console.log("find Arrival Time Text  " + arrivalTimeText);
 
@@ -690,7 +691,7 @@ await riskassessElec.fillInitialElecMeterReadingEX23();
 
 Then('I should see Post Installation Check Section for EXCH23', async function () {
 
-  await utility.wait(utility.medium_low);
+  await utility.wait(utility.medium);
 await riskassessElec.postInstallationCheckDisplayed();
 });
 

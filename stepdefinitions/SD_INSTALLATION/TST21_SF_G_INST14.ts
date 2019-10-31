@@ -97,14 +97,14 @@ Given('the INSTFrtn Appointment List window', async function () {
 
 
   Then('I should see the INSTFrtn CUSTOMER CONTACT NUMBER', async function () {
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
 	await expect(await applist.customerContactNumberText.getText()).equal("CUSTOMER CONTACT NUMBER:");
     await expect(applist.customerContactNumberText.isPresent());
   });
 
 
   Then('I should see INSTFrtn Contact made field',async function () {
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
 	await expect(await applist.contactMadeText.getText()).equal("Contact made?");
 	await expect(applist.contactMadeYes.isPresent());
   });
@@ -163,7 +163,7 @@ Given('the INSTFrtn Appointment List window', async function () {
   });
 
   When('I should see INSTFrtn DOORSTEP PROTOCOL tab activated',async function () {
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
 	await applist.doorStepPROText.getText().then(function (doorStepPROText) {
 		console.log("find DoorStep PROTOCOLText  " + doorStepPROText);
 	});
@@ -180,7 +180,7 @@ Given('the INSTFrtn Appointment List window', async function () {
 
 
   Then('I should see INSTFrtn Arrival Time details',async function () {
-    await utility.wait(utility.medium_low);
+    await utility.wait(utility.medium);
 	await applist.arrivalTime.getText().then(function (arrivalTimeText) {
 		console.log("find Arrival Time Text  " + arrivalTimeText);
 	});
