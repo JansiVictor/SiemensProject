@@ -378,7 +378,7 @@ export class GASPageObject {
 		this.selectAssettoNewRegGasLst = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[1])/option[@selected="selected"])'));
 		this.selectassettoNewwRegGasDDLst = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[1])/option[@selected="selected"])'));
 		this.selectValidAssetDDLst = element(by.xpath('(((//select[@ng-model="scp.selectedAsset"])[1])/option[@selected="selected"])'));
-		
+
 		//#endregion
 	}
 
@@ -394,7 +394,7 @@ export class GASPageObject {
 
 	public async verifySFENMEX15CurrentMeterDetails() {
 		await utility.wait(utility.medium);
-		
+
 		await utility.wait(utility.medium);
 		await this.currentMeterDetailsText.getText().then(function (currentMeterDetails) {
 			console.log("find currentMeterDetails Text  " + currentMeterDetails);
@@ -402,7 +402,7 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.updateValuesBtn, utility.medium);
 		await utility.wait(utility.medium);
-		
+
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.existingElecMeterNo, utility.medium);
 		//await expect(this.existingElecMeterYes.isPresent());
@@ -414,7 +414,7 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.currentMeterDetailsHeader, utility.medium);
-		
+
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.existingElecMeterYes, utility.medium);
 
@@ -431,7 +431,7 @@ export class GASPageObject {
 
 	public async meterCutOutnextSection() {
 		await utility.wait(utility.medium);
-		
+
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.clickSubmit, utility.medium);
 		await utility.wait(utility.medium);
@@ -458,7 +458,7 @@ export class GASPageObject {
 		gen.ButtonClick(this.updateValuesBtn, utility.medium);
 
 		await utility.wait(utility.medium);
-		
+
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.existingElecMeterNo, utility.medium);
 
@@ -472,7 +472,7 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.currentMeterDetailsHeader, utility.medium);
 
-		
+
 
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.existingElecMeterYes, utility.medium);
@@ -510,7 +510,7 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.captureEvidenceGas, utility.medium);
 
-		
+
 
 		await utility.wait(utility.medium);
 		gen.SendKeys(this.additionalGASNote, utility.medium, 'Fault checked');
@@ -701,24 +701,24 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.regulatorReplacedYes, utility.medium);
 
-		
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.selectAssettoNewRegGas, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			// select the option
-			await this.selectAssettoNewRegGas.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			
-			await utility.wait(utility.medium);
-			var options = this.selectAssettoNewRegGasLst.getAttribute('value');
-			gen.SendKeys(this.inputelecSerialNum, utility.medium, options);
-			await utility.wait(utility.medium);
+
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.selectAssettoNewRegGas, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		// select the option
+		await this.selectAssettoNewRegGas.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
+
+		await utility.wait(utility.medium);
+		var options = this.selectAssettoNewRegGasLst.getAttribute('value');
+		gen.SendKeys(this.inputelecSerialNum, utility.medium, options);
+		await utility.wait(utility.medium);
 
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.regulatorTxt, utility.medium);
-		
+
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.infoOKButton, utility.medium);
 
@@ -732,20 +732,20 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.regulatorReplacedYes, utility.medium);
 
-		
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.selectassettoNewwRegGasDD, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index);
-			// select the option
-			await this.selectassettoNewwRegGasDD.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			
-			var options = this.selectassettoNewwRegGasDDLst.getAttribute('value');
-			gen.SendKeys(this.inputelecSerialNum, utility.medium, options);
-			await utility.wait(utility.medium);
-		
+
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.selectassettoNewwRegGasDD, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index);
+		// select the option
+		await this.selectassettoNewwRegGasDD.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
+
+		var options = this.selectassettoNewwRegGasDDLst.getAttribute('value');
+		gen.SendKeys(this.inputelecSerialNum, utility.medium, options);
+		await utility.wait(utility.medium);
+
 
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.regulatorTxt, utility.medium);
@@ -783,37 +783,37 @@ export class GASPageObject {
 	public async fillNewMeterDetailsGAS(index: number) {
 		await utility.wait(utility.medium);
 
-			await utility.wait(utility.low);
-			// click the dropdown
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.newMeterDD, utility.medium);
+		await utility.wait(utility.low);
+		// click the dropdown
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.newMeterDD, utility.medium);
 
-			browser.sleep(1000)
-			//index = index ;
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.medium);
-			//await this.commshubPopup.click();
+		browser.sleep(1000)
+		//index = index ;
+		console.log("Selecting element based index : " + index)
+		// select the option
+		await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		//await this.commshubPopup.click();
 
-			
-			var options = this.selectNewMeterGasOptn.getAttribute('value');
-			await utility.wait(utility.medium);
-			gen.SendKeys(this.inputMeterSerialNum, utility.medium, options);
 
-			await utility.wait(utility.medium);
-			await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
+		var options = this.selectNewMeterGasOptn.getAttribute('value');
+		await utility.wait(utility.medium);
+		gen.SendKeys(this.inputMeterSerialNum, utility.medium, options);
 
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.infoOKButton, utility.medium);
+		await utility.wait(utility.medium);
+		await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
 
-			await utility.wait(utility.medium);
-			gen.DropDownOptionClick(this.MeterTypeDD, utility.medium, '0');
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.infoOKButton, utility.medium);
 
-			await utility.wait(utility.medium);
-			gen.DropDownOptionClick(this.meterLocDD, utility.medium, '02');
+		await utility.wait(utility.medium);
+		gen.DropDownOptionClick(this.MeterTypeDD, utility.medium, '0');
 
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		gen.DropDownOptionClick(this.meterLocDD, utility.medium, '02');
+
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -835,7 +835,7 @@ export class GASPageObject {
 
 	public async fillGasInitialMeterREading() {
 		await utility.wait(utility.medium);
-		
+
 		// await this.capturemeterReadingInput.clear();
 		await utility.wait(utility.medium);
 		gen.SendKeys(this.capturemeterReadingInput, utility.medium, '12345');
@@ -849,7 +849,7 @@ export class GASPageObject {
 
 	public async fillGasInitialMeterREadingEXCH21() {
 		await utility.wait(utility.medium);
-		
+
 		// await this.capturemeterReadingInput.clear();
 		//await utility.wait(utility.medium);
 		gen.SendKeys(this.capturemeterReadingInput, utility.medium, '12345');
@@ -1292,44 +1292,44 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.installCommsHubYes, utility.medium);
 
-			// click the dropdown
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.commHubDD, utility.medium);
-			browser.sleep(1000)
-			//index = index ;
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await utility.wait(utility.medium);
-			await this.commHubDD.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.commshubPopup, utility.medium);
-			await utility.wait(utility.medium);
-			var options = this.selectinstallAssetOption.getAttribute('value');
-			await utility.wait(utility.medium);
-			gen.SendKeys(this.inputinstallCommshub, utility.medium, options);
-			await utility.wait(utility.medium);
-			await this.commHubDD.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.infoOKButton, utility.medium);
+		// click the dropdown
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.commHubDD, utility.medium);
+		browser.sleep(1000)
+		//index = index ;
+		console.log("Selecting element based index : " + index)
+		// select the option
+		await utility.wait(utility.medium);
+		await this.commHubDD.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.commshubPopup, utility.medium);
+		await utility.wait(utility.medium);
+		var options = this.selectinstallAssetOption.getAttribute('value');
+		await utility.wait(utility.medium);
+		gen.SendKeys(this.inputinstallCommshub, utility.medium, options);
+		await utility.wait(utility.medium);
+		await this.commHubDD.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.infoOKButton, utility.medium);
 
-			await utility.wait(utility.medium);
-			gen.DropDownOptionClick(this.commHubLocDD, utility.medium, 'A');
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.arealInstalledYes, utility.medium);
+		await utility.wait(utility.medium);
+		gen.DropDownOptionClick(this.commHubLocDD, utility.medium, 'A');
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.arealInstalledYes, utility.medium);
 
-			await utility.wait(utility.medium);
-			gen.DropDownOptionClick(this.commHubConnectionDD, utility.medium, '2');
+		await utility.wait(utility.medium);
+		gen.DropDownOptionClick(this.commHubConnectionDD, utility.medium, '2');
 
-			await utility.wait(utility.medium);
-			gen.SendKeys(this.inputcradleSerialNo, utility.medium, '12345');
+		await utility.wait(utility.medium);
+		gen.SendKeys(this.inputcradleSerialNo, utility.medium, '12345');
 
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.captureCommsHub, utility.medium);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.captureCommsHub, utility.medium);
 
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.commHubLocNxtBtn, utility.medium);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.commHubLocNxtBtn, utility.medium);
 
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -1354,20 +1354,20 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.regulatorReplacedYes, utility.medium);
 
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.selectAssettoNewRegGas, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			await utility.wait(utility.medium);
-			console.log("Selecting element based index : " + index);
-			// select the option
-			await this.selectAssettoNewRegGas.element(by.css("option:nth-child(" + index + ")")).click();
-			await utility.wait(utility.medium);
-			
-			await utility.wait(utility.medium);
-			var options = this.selectValidAssetDDLst.getAttribute('value');
-			gen.SendKeys(this.regulatorSerialNoinput, utility.medium, options);
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.selectAssettoNewRegGas, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		await utility.wait(utility.medium);
+		console.log("Selecting element based index : " + index);
+		// select the option
+		await this.selectAssettoNewRegGas.element(by.css("option:nth-child(" + index + ")")).click();
+		await utility.wait(utility.medium);
+
+		await utility.wait(utility.medium);
+		var options = this.selectValidAssetDDLst.getAttribute('value');
+		gen.SendKeys(this.regulatorSerialNoinput, utility.medium, options);
+		await utility.wait(utility.medium);
 
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.regulatorTxt, utility.medium);
@@ -1383,39 +1383,39 @@ export class GASPageObject {
 
 
 	public async fillNewMeterDetailsGASInst16(index: number) {
-		
-			await utility.wait(utility.low);
-			// click the dropdown
-			await utility.wait(utility.medium);
-			//gen.ButtonClick(this.newMeterDD, utility.medium);
 
-			browser.sleep(1000)
-			//index = index ;
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.medium);
-			//await this.commshubPopup.click();        
-			
-			var options = this.selectNewMeterGasOptnIn16.getAttribute('value');
-			await utility.wait(utility.medium);
+		await utility.wait(utility.low);
+		// click the dropdown
+		await utility.wait(utility.medium);
+		//gen.ButtonClick(this.newMeterDD, utility.medium);
 
-			await utility.wait(utility.medium);
-			gen.SendKeys(this.inputMeterSerialNum, utility.medium, options);
+		browser.sleep(1000)
+		//index = index ;
+		console.log("Selecting element based index : " + index)
+		// select the option
+		await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		//await this.commshubPopup.click();        
 
-			await utility.wait(utility.medium);
-			await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
+		var options = this.selectNewMeterGasOptnIn16.getAttribute('value');
+		await utility.wait(utility.medium);
 
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.infoOKButton, utility.medium);
+		await utility.wait(utility.medium);
+		gen.SendKeys(this.inputMeterSerialNum, utility.medium, options);
 
-			await utility.wait(utility.medium);
-			gen.DropDownOptionClick(this.MeterTypeDD, utility.medium, '0');
+		await utility.wait(utility.medium);
+		await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
 
-			await utility.wait(utility.medium);
-			gen.DropDownOptionClick(this.meterLocDD, utility.medium, '02');
-			await utility.wait(utility.medium);
-		
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.infoOKButton, utility.medium);
+
+		await utility.wait(utility.medium);
+		gen.DropDownOptionClick(this.MeterTypeDD, utility.medium, '0');
+
+		await utility.wait(utility.medium);
+		gen.DropDownOptionClick(this.meterLocDD, utility.medium, '02');
+		await utility.wait(utility.medium);
+
 	}
 
 
@@ -1523,7 +1523,7 @@ export class GASPageObject {
 
 	public async populateRiskAssessmentForGasWithoutPhotoEvidence() {
 		await utility.wait(utility.medium);
-		
+
 
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.meterPressureLow, utility.medium);
@@ -1540,11 +1540,11 @@ export class GASPageObject {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.workAreaSafetyYes, utility.medium);
 
-		
+
 		await utility.wait(utility.medium);
 		gen.SendKeys(this.additionalGASNote, utility.medium, 'Fault Checked');
 
-		
+
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.safeToContinueYEs, utility.medium);
 		await utility.wait(utility.medium);
@@ -1565,37 +1565,37 @@ export class GASPageObject {
 		 ***/
 
 	public async fillNewMeterDetailsWomanufact(index: number) {
-			
-			// click the dropdown
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.newMeterDD, utility.medium);
 
-			browser.sleep(1000)
-			//index = index ;
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.medium);
-			//await this.commshubPopup.click();
+		// click the dropdown
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.newMeterDD, utility.medium);
 
-			
-			var options = this.selectNewMeterGasOptn.getAttribute('value');
-			await utility.wait(utility.medium);
-			gen.SendKeys(this.inputMeterSerialNum, utility.medium, options);
+		browser.sleep(1000)
+		//index = index ;
+		console.log("Selecting element based index : " + index)
+		// select the option
+		await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		//await this.commshubPopup.click();
 
-			await utility.wait(utility.medium);
-			await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
 
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.infoOKButton, utility.medium);
+		var options = this.selectNewMeterGasOptn.getAttribute('value');
+		await utility.wait(utility.medium);
+		gen.SendKeys(this.inputMeterSerialNum, utility.medium, options);
 
-			await utility.wait(utility.medium);
-			gen.DropDownOptionClick(this.MeterTypeDD, utility.medium, '0');
+		await utility.wait(utility.medium);
+		await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
 
-			await utility.wait(utility.medium);
-			gen.DropDownOptionClick(this.meterLocDD, utility.medium, '02');
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.infoOKButton, utility.medium);
 
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		gen.DropDownOptionClick(this.MeterTypeDD, utility.medium, '0');
+
+		await utility.wait(utility.medium);
+		gen.DropDownOptionClick(this.meterLocDD, utility.medium, '02');
+
+		await utility.wait(utility.medium);
 	}
 
 }

@@ -1156,7 +1156,7 @@ export class AbortPageObject {
 
 		await this.selectValidAssettoInst1.element(by.css("option:nth-child(" + index + ")")).click();
 		await utility.wait(utility.medium);
-		
+
 		var options = this.selectValidAssettoInst1.getAttribute('value');
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
@@ -1175,7 +1175,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.newregulatorReplaced, utility.medium);
 		await this.selectValidAssettoInst2.element(by.css("option:nth-child(" + index + ")")).click();
 		await utility.wait(utility.medium);
-		
+
 		var options = this.selectValidAssettoInst2.getAttribute('value');
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
@@ -1560,7 +1560,7 @@ export class AbortPageObject {
 		await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
-		
+
 		var options = this.selectinstallAssetOption.getAttribute('value');
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.CHFID, utility.medium, options);
@@ -1622,7 +1622,7 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
 		var options = this.selectinstallAssetOption.getAttribute('value');
-	
+
 		await utility.wait(utility.medium_low);
 		await this.CHFID.clear();
 		await utility.wait(utility.medium);
@@ -1672,9 +1672,9 @@ export class AbortPageObject {
 		await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
-		
+
 		var options = this.selectinstallAssetOption.getAttribute('value');
-	
+
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.CHFID, utility.medium, options);
 		await utility.wait(utility.medium);
@@ -1719,7 +1719,7 @@ export class AbortPageObject {
 		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
-		
+
 		var options = this.selectinstallAssetOption_1.getAttribute('value');
 
 		await utility.wait(utility.medium);
@@ -1767,9 +1767,9 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
 		await utility.wait(utility.medium);
-		
+
 		var options = this.selectinstallAssetOption_1.getAttribute('value');
-		
+
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.CHFID_1, utility.medium, options);
 		await utility.wait(utility.medium);
@@ -1815,9 +1815,9 @@ export class AbortPageObject {
 		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
-		
+
 		var options = this.selectinstallAssetOption_1.getAttribute('value');
-	
+
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.CHFID_1, utility.medium, options);
 		await utility.wait(utility.medium);
@@ -1865,9 +1865,9 @@ export class AbortPageObject {
 		await utility.wait(utility.low);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubPopup, utility.medium);
-		
+
 		var options = this.selectinstallAssetOption_1.getAttribute('value');
-	
+
 		await this.CHFID_1.clear();
 		Gen.SendKeys(this.CHFID_1, utility.medium, options);
 		await utility.wait(utility.medium);
@@ -1918,9 +1918,9 @@ export class AbortPageObject {
 
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.commshubPopup, utility.medium);
-		
+
 		var options = this.selectinstallAssetOption_1.getAttribute('value');
-	
+
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.CHFID_1, utility.medium, options);
 		await utility.wait(utility.low);
@@ -1971,9 +1971,9 @@ export class AbortPageObject {
 	}
 
 	public VerifyPreGasAbortReasonCodePopup() {
-		 utility.wait(utility.medium);
+		utility.wait(utility.medium);
 		if (this.AbortGasMeterReasonCodes.isDisplayed) {
-			 utility.wait(utility.medium);
+			utility.wait(utility.medium);
 			this.AbortGasMeterReasonCodes.getText().then(async function (abortgasreason) {
 				console.log("Abort Reason Code Pop up Header" + abortgasreason);
 			});
@@ -2053,7 +2053,7 @@ export class AbortPageObject {
 
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionClick(this.nonserealizedAssetDD, utility.medium, "1");
-		
+
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.nonserealizedAssetInput, utility.medium, '1');
 		await utility.wait(utility.medium);

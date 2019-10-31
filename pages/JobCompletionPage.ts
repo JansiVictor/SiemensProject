@@ -330,8 +330,8 @@ export class JobCompletionPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.sendMsgPPMID, utility.medium);
 		await utility.wait(utility.high);
-			Gen.ButtonClick(this.ppmidCommSuccess, utility.medium);
-			await utility.wait(utility.medium);
+		Gen.ButtonClick(this.ppmidCommSuccess, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	public async fillConfigAllmeter_INST15() {
@@ -438,20 +438,20 @@ export class JobCompletionPageObject {
 		Gen.RadioButtonClick(this.PPMIDAccepted, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionClick(this.PPMIDLOCDD, utility.medium, 'B');
-			await utility.wait(utility.medium);
-			Gen.ButtonClick(this.PPMIDToInstall, utility.medium);
-			browser.sleep(1000);
-			console.log("Selecting element based index : " + index)
-			await this.PPMIDToInstall.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.medium);
-			var options = this.PPMIDinstallDDListINST15.getAttribute('value');
-			await utility.wait(utility.medium);
-			Gen.SendKeys(this.inputPPMIDSerialNum, utility.medium, options);
-			await utility.wait(utility.medium);
-			Gen.ButtonClick(this.ppmidNXTBtn, utility.medium);
-			await utility.wait(utility.medium);
-			Gen.ButtonClick(this.infoOKButton, utility.medium);
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.PPMIDToInstall, utility.medium);
+		browser.sleep(1000);
+		console.log("Selecting element based index : " + index)
+		await this.PPMIDToInstall.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		var options = this.PPMIDinstallDDListINST15.getAttribute('value');
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.inputPPMIDSerialNum, utility.medium, options);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.ppmidNXTBtn, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.infoOKButton, utility.medium);
+		await utility.wait(utility.medium);
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.ppmidAdditionalNote, utility.medium, 'Additonal Notes');
 		await utility.wait(utility.medium);
@@ -473,28 +473,28 @@ export class JobCompletionPageObject {
 		Gen.DropDownOptionClick(this.PPMIDLOCDD, utility.medium, 'B');
 
 
-		
-			await utility.wait(utility.medium);
-			Gen.ButtonClick(this.PPMIDToInstall, utility.medium);
-			browser.sleep(1000);
-			//index = index ;
-			console.log("Selecting element based index : " + index);
-			// select the option
-			await this.PPMIDToInstall.element(by.css("option:nth-child(" + index + ")")).click()
 
-			
-			await utility.wait(utility.medium);
-			var options = this.PPMIDinstallDDList.getAttribute('value');
-			await utility.wait(utility.medium);
-			Gen.SendKeys(this.inputPPMIDSerialNum, utility.medium, options);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.PPMIDToInstall, utility.medium);
+		browser.sleep(1000);
+		//index = index ;
+		console.log("Selecting element based index : " + index);
+		// select the option
+		await this.PPMIDToInstall.element(by.css("option:nth-child(" + index + ")")).click()
 
-			await utility.wait(utility.medium);
-			await this.PPMIDToInstall.element(by.css("option:nth-child(" + index + ")")).click()
 
-			await utility.wait(utility.medium);
-			Gen.ButtonClick(this.infoOKButton, utility.medium);
+		await utility.wait(utility.medium);
+		var options = this.PPMIDinstallDDList.getAttribute('value');
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.inputPPMIDSerialNum, utility.medium, options);
 
-		
+		await utility.wait(utility.medium);
+		await this.PPMIDToInstall.element(by.css("option:nth-child(" + index + ")")).click()
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.infoOKButton, utility.medium);
+
+
 
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.ppmidAdditionalNote, utility.medium, 'Additonal Notes');
@@ -523,25 +523,25 @@ export class JobCompletionPageObject {
 		await utility.wait(utility.medium);
 
 		await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
 
-			Gen.ButtonClick(this.PPMIDToInstall1, utility.medium);
-			browser.sleep(1000)
+		Gen.ButtonClick(this.PPMIDToInstall1, utility.medium);
+		browser.sleep(1000)
 
-			console.log("Selecting element based index : " + index)
+		console.log("Selecting element based index : " + index)
 
-			await this.PPMIDToInstall1.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.medium);
-			
-			await utility.wait(utility.medium);
-			var options = this.PPMIDinstallDDList1.getAttribute('value');
-			await utility.wait(utility.medium);
-			Gen.SendKeys(this.inputPPMIDSerialNum1, utility.medium, options);
-			await utility.wait(utility.medium);
-			Gen.ButtonClick(this.ppmidNXTBtn1, utility.medium);
-			await utility.wait(utility.medium);
-			Gen.ButtonClick(this.infoOKButton1, utility.medium);
-			await utility.wait(utility.medium);
+		await this.PPMIDToInstall1.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+
+		await utility.wait(utility.medium);
+		var options = this.PPMIDinstallDDList1.getAttribute('value');
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.inputPPMIDSerialNum1, utility.medium, options);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.ppmidNXTBtn1, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.infoOKButton1, utility.medium);
+		await utility.wait(utility.medium);
 		Gen.SendKeys(this.inputPPMIDSerialNum1, utility.medium, 'Additonal Notes');
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.ppmidNXTBtn1, utility.medium);
@@ -898,7 +898,7 @@ export class JobCompletionPageObject {
 
 		Gen.RadioButtonClick(this.signaturepadCanvas, utility.medium);
 		await utility.wait(utility.medium);
-		if(browser.actions().mouseMove(this.signaturepadCanvas, {x: 0, y: 0}).click().perform())
+		if (browser.actions().mouseMove(this.signaturepadCanvas, { x: 0, y: 0 }).click().perform())
 			console.log('mouse click successful');
 		else
 			console.log('Not')
@@ -924,17 +924,17 @@ export class JobCompletionPageObject {
 			});
 		}
 		await utility.wait(utility.medium);
-		
+
 		Gen.DropDownOptionClick(this.signedbyCustorRepDD, utility.medium, "Neither");
 		await utility.wait(utility.medium);
 		await utility.wait(utility.medium);
-		if(browser.actions().mouseMove(this.signaturepadCanvas, {x: 0, y: 0}).click().perform())
+		if (browser.actions().mouseMove(this.signaturepadCanvas, { x: 0, y: 0 }).click().perform())
 			console.log('mouse click successful');
 		else
 			console.log('Not')
 		await utility.wait(utility.medium);
 		await utility.wait(utility.medium);
-		Gen.SendKeysJS(this.signaturepadCanvas,utility.medium, '.');
+		Gen.SendKeysJS(this.signaturepadCanvas, utility.medium, '.');
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.custRefusedToSignNo, utility.medium);
 		await utility.wait(utility.medium);
@@ -1041,7 +1041,7 @@ export class JobCompletionPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.signpad, utility.medium);
 		await utility.wait(utility.medium);
-		if(browser.actions().mouseMove(this.signaturepadCanvas, {x: 0, y: 0}).click().perform())
+		if (browser.actions().mouseMove(this.signaturepadCanvas, { x: 0, y: 0 }).click().perform())
 			console.log('mouse click successful');
 		else
 			console.log('Not')

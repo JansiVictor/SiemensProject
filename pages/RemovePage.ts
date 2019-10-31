@@ -787,7 +787,7 @@ export class RemovePageObject {
 		await utility.wait(utility.medium);
 	}
 
-	public async fillabortgasinitialmeter()  {
+	public async fillabortgasinitialmeter() {
 		Gen.SendKeys(this.meterReadingLabel, utility.medium, '12345');
 		await utility.wait(utility.medium);
 		Gen.RandomMouseClick(this.meterReadingLabel, 250, 34);
@@ -800,7 +800,7 @@ export class RemovePageObject {
 ***/
 	public async fillElectricAssetRemovalSection() {
 		await utility.wait(utility.medium);
-			Gen.DropDownOptionClick(this.elecAssetRemoval, utility.medium, '1');
+		Gen.DropDownOptionClick(this.elecAssetRemoval, utility.medium, '1');
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.confirmedAssetRemovalY, utility.medium);
 		await utility.wait(utility.medium);
@@ -1164,7 +1164,7 @@ export class RemovePageObject {
 		Gen.ButtonClick(this.smellGasY, utility.medium);
 		await utility.wait(utility.medium);
 	}
-	
+
 	public async gastightnessfieldfailed() {
 		await utility.wait(utility.medium);
 		if (await this.gastightnesstestCompleted.isDisplayed()) {
@@ -1412,7 +1412,7 @@ export class RemovePageObject {
 		Gen.ButtonClick(this.carryanyAdditionalWorkNo, utility.medium);
 		await utility.wait(utility.medium);
 	}
-	
+
 	public async clickonnxtBtnofgasmeterRemoval() {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.GMremovalNxtBtn, utility.medium);
@@ -1822,8 +1822,8 @@ export class RemovePageObject {
 		}
 		await utility.wait(utility.medium);
 		await utility.wait(utility.medium);
-			Gen.RandomMouseClick(this.meterReadingLabel, 250, 34);
-			await utility.wait(utility.medium);
+		Gen.RandomMouseClick(this.meterReadingLabel, 250, 34);
+		await utility.wait(utility.medium);
 	}
 
 	public async Tst13fill15commsdtls() {
@@ -2240,13 +2240,13 @@ export class RemovePageObject {
 		Gen.ButtonClick(this.RemoveElecAssetrplacedorremoved, utility.medium);
 		await utility.wait(utility.medium);
 		Gen.DropDownOptionbyLabel(this.statusofElecAssetSelect, utility.medium, 'No Fault Found');
-			await utility.wait(utility.medium);
-			Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
-			await utility.wait(utility.medium);
-			Gen.ButtonClick(this.statusofElecAssetSelect, utility.medium);
-			console.log("Random Click EX23");
-			await utility.wait(utility.medium);
-		
+		await utility.wait(utility.medium);
+		Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.statusofElecAssetSelect, utility.medium);
+		console.log("Random Click EX23");
+		await utility.wait(utility.medium);
+
 	}
 
 	public async clickonnxtBtnofElecmeterRemovalEX23() {

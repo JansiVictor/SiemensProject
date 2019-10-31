@@ -134,7 +134,7 @@ export class AppointmentListPageObject {
 
 	public verifyWorkOrderWindowText() {
 		if (this.AppointmentText.isDisplayed) {
-			 utility.wait(utility.medium);
+			utility.wait(utility.medium);
 			this.AppointmentText.getText().then(async function (appointment) {
 				console.log("find Appointment Page Text  " + appointment);
 			});
@@ -181,7 +181,7 @@ export class AppointmentListPageObject {
 	}
 
 	public async verifyDepartForAppointmentWindow() {
-		await utility.wait(utility.medium_low);
+		await utility.wait(utility.medium);
 		await expect(await this.departAppointment.getText()).equal("Depart for Appointment?");
 		expect(this.departAppointment.isDisplayed());
 	}

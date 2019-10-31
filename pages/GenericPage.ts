@@ -57,7 +57,7 @@ export class GenericPageObject {
     public async SendKeysJS(byname, wait, notestring) {
 
         try {
-            
+
             if (await byname.isDisplayed()) {
                 await browser.executeScript("arguments[0].click();", byname.getWebElement());
                 await browser.executeScript("arguments[0].value='" + notestring + "';", byname);
@@ -72,11 +72,11 @@ export class GenericPageObject {
     public async SendKeys(byname, wait, notestring) {
 
         try {
-       
+
             if (await byname.isDisplayed()) {
-               await byname.sendKeys(notestring);
+                await byname.sendKeys(notestring);
             }
-           await byname.sendKeys(protractor.Key.TAB);
+            await byname.sendKeys(protractor.Key.TAB);
         }
         catch (e) {
             console.log('Sendkeys not successful for ' + e);
@@ -86,7 +86,7 @@ export class GenericPageObject {
 
     public async RadioButtonClick(byname, wait) {
         try {
-    
+
             if (await byname.isDisplayed()) {
                 await browser.executeScript('arguments[0].scrollIntoView();', byname.getWebElement());
                 await browser.executeScript("arguments[0].click();", byname.getWebElement());
@@ -116,7 +116,7 @@ export class GenericPageObject {
                 var select = byname;
                 await select.$('[label="' + value + '"]').click();
             }
-           await byname.sendKeys(protractor.Key.ESCAPE);
+            await byname.sendKeys(protractor.Key.ESCAPE);
         }
         catch (e) {
             console.log('Button click not successful for ' + e);
@@ -125,15 +125,15 @@ export class GenericPageObject {
 
     public async RandomMouseClick(byname, xcor, ycor) {
         try {
-        
-		if(browser.actions().mouseMove(byname, {x: xcor, y: ycor}).click().perform())
-			console.log('mouse click successful');
-		else
-			console.log('Not')
-		await utility.wait(utility.medium);
+
+            if (browser.actions().mouseMove(byname, { x: xcor, y: ycor }).click().perform())
+                console.log('mouse click successful');
+            else
+                console.log('Not')
+            await utility.wait(utility.medium);
         } catch (error) {
             console.log('Button click not successful for ' + error);
         }
-        
+
     }
 }

@@ -349,12 +349,12 @@ export class ElectricPageObject {
 	public async verifyinfookandneedtoperform() {
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.infoOKButton, utility.medium);
-	//await riskassess.performanceRiskNextBtn.click();
+		//await riskassess.performanceRiskNextBtn.click();
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.NeedtoWorkYES, utility.medium);
 		await utility.wait(utility.medium);
 	}
-	
+
 
 	/***
 	 * @Author Aparna Das
@@ -375,8 +375,8 @@ export class ElectricPageObject {
 	 ***/
 	public async inputInitialRiskAssessmentDetails() {
 		await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.canYouSmellYES, utility.medium);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.canYouSmellYES, utility.medium);
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.turnedOffGasYES, utility.medium);
 		await utility.wait(utility.medium);
@@ -725,38 +725,38 @@ export class ElectricPageObject {
 
 	public async fillCommsHubDetails_INST15(index: number) {
 		await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-			// click the dropdown
-			gen.ButtonClick(this.commHubDD, utility.medium);
-			browser.sleep(1000)
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await this.commHubDD.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.commshubPopup, utility.medium);
-			await utility.wait(utility.medium);
-			
-			var options = this.selectinstallAssetOption.getAttribute('value');
-			console.log(options);
-			await utility.wait(utility.medium);
-			await this.chfIDInput.clear();
-			await utility.wait(utility.medium);
-			gen.SendKeys(this.chfIDInput, utility.medium, options);
-			await utility.wait(utility.medium);
-			await this.commHubDD.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.commshubPopup, utility.medium);
-			await utility.wait(utility.medium);
-			gen.DropDownOptionClick(this.commHubLocDD, utility.medium, 'A');
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.arealInstalledYes, utility.medium);
-			await utility.wait(utility.medium);
-			gen.DropDownOptionClick(this.commHubConnectionDD, utility.medium, '2');
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.captureCommsHub, utility.medium);
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.commHubLocNxtBtn, utility.medium);
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		// click the dropdown
+		gen.ButtonClick(this.commHubDD, utility.medium);
+		browser.sleep(1000)
+		console.log("Selecting element based index : " + index)
+		// select the option
+		await this.commHubDD.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.commshubPopup, utility.medium);
+		await utility.wait(utility.medium);
+
+		var options = this.selectinstallAssetOption.getAttribute('value');
+		console.log(options);
+		await utility.wait(utility.medium);
+		await this.chfIDInput.clear();
+		await utility.wait(utility.medium);
+		gen.SendKeys(this.chfIDInput, utility.medium, options);
+		await utility.wait(utility.medium);
+		await this.commHubDD.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.commshubPopup, utility.medium);
+		await utility.wait(utility.medium);
+		gen.DropDownOptionClick(this.commHubLocDD, utility.medium, 'A');
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.arealInstalledYes, utility.medium);
+		await utility.wait(utility.medium);
+		gen.DropDownOptionClick(this.commHubConnectionDD, utility.medium, '2');
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.captureCommsHub, utility.medium);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.commHubLocNxtBtn, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	public async fillInitialElecMeterReading_INST15() {
@@ -788,30 +788,30 @@ export class ElectricPageObject {
 
 	public async fillNewMeterDetails(index: number) {
 		await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.newMeterDD, utility.medium);
-			browser.sleep(1000)
-			//index = index ;
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.medium);
-			var options = this.selectinstallMeterOption.getAttribute('value');
-			await utility.wait(utility.medium);
-			gen.SendKeys(this.inputelecSerialNum, utility.medium, options);
-			await utility.wait(utility.medium);
-			await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.infoOKButton, utility.medium);
-			await utility.wait(utility.medium);
-			gen.DropDownOptionClick(this.MeterTypeDD, utility.medium, '0');
-			await utility.wait(utility.medium);
-			gen.DropDownOptionClick(this.meterLocDD, utility.medium, 'D');
-			await utility.wait(utility.medium);
-			gen.SendKeys(this.inputDate, utility.medium, '90/01');
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.newMeterNxtBtn, utility.medium);
-			await utility.wait(utility.low);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.newMeterDD, utility.medium);
+		browser.sleep(1000)
+		//index = index ;
+		console.log("Selecting element based index : " + index)
+		// select the option
+		await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		var options = this.selectinstallMeterOption.getAttribute('value');
+		await utility.wait(utility.medium);
+		gen.SendKeys(this.inputelecSerialNum, utility.medium, options);
+		await utility.wait(utility.medium);
+		await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.infoOKButton, utility.medium);
+		await utility.wait(utility.medium);
+		gen.DropDownOptionClick(this.MeterTypeDD, utility.medium, '0');
+		await utility.wait(utility.medium);
+		gen.DropDownOptionClick(this.meterLocDD, utility.medium, 'D');
+		await utility.wait(utility.medium);
+		gen.SendKeys(this.inputDate, utility.medium, '90/01');
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.newMeterNxtBtn, utility.medium);
+		await utility.wait(utility.low);
 
 	}
 	/***
@@ -868,37 +868,37 @@ export class ElectricPageObject {
 
 	public async fillCommsHubDetails(index: number) {
 		await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.commHubDD, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000)
-			//index = index ;
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await this.commHubDD.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.commshubPopup, utility.medium);
-			await utility.wait(utility.medium);
-			var options = this.selectinstallAssetOption.getAttribute('value');
-			await this.chfIDInput.clear();
-			await utility.wait(utility.medium);
-			gen.SendKeys(this.chfIDInput, utility.medium, options);
-			await utility.wait(utility.medium);
-			// IE random click fix
-			await this.commHubDD.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.infoOKButton, utility.medium);
-			await utility.wait(utility.medium);
-			gen.DropDownOptionClick(this.commHubLocDD, utility.medium, 'A');
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.arealInstalledYes, utility.medium);
-			await utility.wait(utility.medium);
-			gen.DropDownOptionClick(this.commHubConnectionDD, utility.medium, '2');
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.captureCommsHub, utility.medium);
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.commHubLocNxtBtn, utility.medium);
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.commHubDD, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000)
+		//index = index ;
+		console.log("Selecting element based index : " + index)
+		// select the option
+		await this.commHubDD.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.commshubPopup, utility.medium);
+		await utility.wait(utility.medium);
+		var options = this.selectinstallAssetOption.getAttribute('value');
+		await this.chfIDInput.clear();
+		await utility.wait(utility.medium);
+		gen.SendKeys(this.chfIDInput, utility.medium, options);
+		await utility.wait(utility.medium);
+		// IE random click fix
+		await this.commHubDD.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.infoOKButton, utility.medium);
+		await utility.wait(utility.medium);
+		gen.DropDownOptionClick(this.commHubLocDD, utility.medium, 'A');
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.arealInstalledYes, utility.medium);
+		await utility.wait(utility.medium);
+		gen.DropDownOptionClick(this.commHubConnectionDD, utility.medium, '2');
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.captureCommsHub, utility.medium);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.commHubLocNxtBtn, utility.medium);
+		await utility.wait(utility.medium);
 	}
 
 	/***
@@ -923,26 +923,26 @@ export class ElectricPageObject {
 
 	public async fillCommsHubDetails_DF17SmartCredit() {
 		await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-				await utility.wait(utility.medium);
-				gen.ButtonClick(this.updateValuesBtn, utility.medium);
-			await utility.wait(utility.medium);
-			browser.sleep(1000);
-			gen.DropDownOptionClick(this.commHubLocDD1, utility.medium, 'A');
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.arealInstalledYes1, utility.medium);
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.commHubConnectionDD_n1, utility.medium);
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.currentMeterDetailsHeader, utility.medium);
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.commHubConnectionDD1, utility.medium);
-			await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.captureCommsHub1, utility.medium);
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.commHubLocNxtBtn1, utility.medium);
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.updateValuesBtn, utility.medium);
+		await utility.wait(utility.medium);
+		browser.sleep(1000);
+		gen.DropDownOptionClick(this.commHubLocDD1, utility.medium, 'A');
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.arealInstalledYes1, utility.medium);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.commHubConnectionDD_n1, utility.medium);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.currentMeterDetailsHeader, utility.medium);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.commHubConnectionDD1, utility.medium);
+		await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.captureCommsHub1, utility.medium);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.commHubLocNxtBtn1, utility.medium);
+		await utility.wait(utility.medium);
 	}
 	/***
 	 * @Author Aparna Das
@@ -963,9 +963,9 @@ export class ElectricPageObject {
 	 ***/
 
 	public async fillCurrentMeterDetails() {
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.existingElecMeterYes, utility.medium);
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.existingElecMeterYes, utility.medium);
+		await utility.wait(utility.medium);
 	}
 	/***
 	 * @Author Aparna Das
@@ -1031,15 +1031,15 @@ export class ElectricPageObject {
 
 	public async fillNewMeterDetailsTRAD(index: number) {
 		await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-			await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.medium);
 		await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-			await this.inputelecSerialNum.clear();
-			var options = this.selectinstallMeterOption.getAttribute('value');
-			await utility.wait(utility.medium);
-			gen.SendKeys(this.inputelecSerialNum, utility.medium, options);
+		await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		await this.inputelecSerialNum.clear();
+		var options = this.selectinstallMeterOption.getAttribute('value');
+		await utility.wait(utility.medium);
+		gen.SendKeys(this.inputelecSerialNum, utility.medium, options);
 
 		await utility.wait(utility.medium);
 		// IE random click fix
@@ -1149,7 +1149,7 @@ export class ElectricPageObject {
 		gen.DropDownOptionClick(this.polChkDD, utility.medium, 'true');
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.confirmSocketPass, utility.medium);
-		
+
 		await utility.wait(utility.medium);
 		gen.SendKeys(this.witnessName, utility.medium, 'John');
 		await utility.wait(utility.medium);
@@ -1258,8 +1258,8 @@ export class ElectricPageObject {
 
 	public async inputInitialRiskAssessmentDetails_SFENMEX15() {
 		await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.canYouSmellYES, utility.medium);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.canYouSmellYES, utility.medium);
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.turnedOffGasYES, utility.medium);
 		await utility.wait(utility.medium);
@@ -1279,8 +1279,8 @@ export class ElectricPageObject {
 
 	public async inputInitialRiskAssessmentDetails_SFEFLTY19() {
 		await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.canYouSmellYES, utility.medium);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.canYouSmellYES, utility.medium);
 		await utility.wait(utility.medium);
 		gen.ButtonClick(this.turnedOffGasYES, utility.medium);
 		await utility.wait(utility.medium);
@@ -1353,32 +1353,32 @@ export class ElectricPageObject {
 	public async fillNewMeterDetails_INST15(index: number) {
 		await utility.wait(utility.medium);
 		// await utility.wait(utility.medium);
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.newMeterDD, utility.medium);
-			browser.sleep(1000)
-			//index = index ;
-			console.log("Selecting element based index : " + index)
-			// select the option
-			await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.medium);
-			//await this.commshubPopup.click();
-			var options = this.selectinstallMeterOption.getAttribute('value');
-			await utility.wait(utility.medium);
-			gen.SendKeys(this.inputelecSerialNum, utility.medium, options);
-			await utility.wait(utility.medium);
-			await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.infoOKButton, utility.medium);
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.newMeterDD, utility.medium);
+		browser.sleep(1000)
+		//index = index ;
+		console.log("Selecting element based index : " + index)
+		// select the option
+		await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		//await this.commshubPopup.click();
+		var options = this.selectinstallMeterOption.getAttribute('value');
+		await utility.wait(utility.medium);
+		gen.SendKeys(this.inputelecSerialNum, utility.medium, options);
+		await utility.wait(utility.medium);
+		await this.newMeterDD.element(by.css("option:nth-child(" + index + ")")).click()
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.infoOKButton, utility.medium);
 
-			await utility.wait(utility.medium);
-			gen.DropDownOptionClick(this.MeterTypeDD, utility.medium, '0');
-			await utility.wait(utility.medium);
-			gen.DropDownOptionClick(this.meterLocDD, utility.medium, 'D');
-			await utility.wait(utility.medium);
-			gen.SendKeys(this.inputDate, utility.medium, '90/01');
-			await utility.wait(utility.medium);
-			gen.ButtonClick(this.newMeterNxtBtn, utility.medium);
-			await utility.wait(utility.medium);
+		await utility.wait(utility.medium);
+		gen.DropDownOptionClick(this.MeterTypeDD, utility.medium, '0');
+		await utility.wait(utility.medium);
+		gen.DropDownOptionClick(this.meterLocDD, utility.medium, 'D');
+		await utility.wait(utility.medium);
+		gen.SendKeys(this.inputDate, utility.medium, '90/01');
+		await utility.wait(utility.medium);
+		gen.ButtonClick(this.newMeterNxtBtn, utility.medium);
+		await utility.wait(utility.medium);
 
 	}
 
