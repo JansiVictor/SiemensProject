@@ -439,7 +439,7 @@ export class AbortPageObject {
 		this.replacedGasMeterYes = element(by.xpath('//input[@id="gtp13"]/following-sibling::span[@class="outer"]'));
 		this.replacedGasRegulatorYes = element(by.xpath('//input[@id="gtp15"]/following-sibling::span[@class="outer"]'));
 		this.GasTightnessYes = element(by.xpath('//input[@id="gtp17"]/following-sibling::span[@class="outer"]'));
-		this.capturePostInstallationGas = element(by.xpath('//*[@id = "btn_CapPoTi_test"]'));
+		this.capturePostInstallationGas = element(by.xpath('//*[@id = "btn_CapPoTi_test"]/button'));
 		this.DIPGASYes = element(by.xpath('//input[@id="gtp19"]/following-sibling::span[@class="outer"]'));
 		this.dipSelectDD = element(by.xpath('//*[@id = "select1"]'));
 		this.meterTypeGASDD = element(by.xpath('//*[@id = "select2"]'));
@@ -447,9 +447,9 @@ export class AbortPageObject {
 		this.AdditionalWorktoPassYesGAS = element(by.xpath('//input[@id="gtp11"]/following-sibling::span[@class="outer"]'));
 		this.witnessName = element(by.xpath('//form/input[@id="input3"]'));
 		this.standingPressure = element(by.xpath('//*[@id = "gaspoststandingpressure"]'));
-		this.dipCaptureBtn = element(by.xpath('//*[@id = "btn_CapStPr"]'));
+		this.dipCaptureBtn = element(by.xpath('//*[@id = "btn_CapStPr"]/button'));
 		this.workingpressure = element(by.xpath('//*[@id = "gaspostworkingpressure"]'));
-		this.wpCapture = element(by.xpath('(//div[@id="btn_CapStPr"])[2]'));
+		this.wpCapture = element(by.xpath('(//div[@id="btn_CapStPr"])[2]/button'));
 		this.finalMeterCapture = element(by.xpath('//button[@id="btn2"]'));
 		this.gasbuttonSubmit = element(by.xpath('(//*[@id="btn1"])[2]'));
 		this.gasNMEXbuttonSubmit = element(by.xpath('//*[@id="btn1"]'));
@@ -502,7 +502,7 @@ export class AbortPageObject {
 		this.CHFID_1 = element(by.xpath('//*[@id = "replacechnowan2_chfId"]'));
 		this.commshubLocation_1 = element(by.xpath('//*[@id = "replacechnowan2_chubLocationSelect"]'));
 		this.aerialInstalled_1 = element(by.xpath('//*[@id = "replacechnowan2_aerialInstalled_y"]'));
-		this.commshubConnectionMethod_1 = element(by.xpath('//*[@id = "replacechnowan2_connectionMethod'));
+		this.commshubConnectionMethod_1 = element(by.xpath('//*[@id = "replacechnowan2_connectionMethod"]'));
 		this.cradleSerialNo_1 = element(by.xpath('//*[@id="replacechnowan2_cradleSerialNumber"]'));
 		this.replacecommsCapturePhoto_1 = element(by.xpath('//*[@id = "replacechnowan2_photoButton"]'));
 		this.replacecommshubNowan_1 = element(by.xpath('//*[@id="replacechnowan2_chnowanconnectedfalse"]/span'));
@@ -611,7 +611,7 @@ export class AbortPageObject {
 
 	public async ClickElecSubmitButton() {
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.nextbtntoRemfromElec, utility.medium);
+		Gen.ButtonClick(this.submitRisk, utility.medium);
 		await utility.wait(utility.medium);
 	}
 
@@ -1051,7 +1051,7 @@ export class AbortPageObject {
 		Gen.ButtonClick(this.RemoveElecAssetrplacedorremoved, utility.medium);
 
 		await utility.wait(utility.medium);
-		Gen.DropDownOptionbyLabel(this.statusofElecAssetSelect, utility.medium, '"No Fault Found"')
+		Gen.DropDownOptionbyLabel(this.statusofElecAssetSelect, utility.medium, "No Fault Found");
 
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.removedmeterReading, utility.medium, '12345');
@@ -1161,7 +1161,7 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.dummydiv1, utility.medium);
+		Gen.RandomMouseClick(this.gasmeterserialSendreg, 350, 34);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
 		await utility.wait(utility.medium);
@@ -1180,7 +1180,7 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.SendKeys(this.gasmeterserialSendreg, utility.medium, options);
 		await utility.wait(utility.medium);
-		Gen.ButtonClick(this.dummydiv3, utility.medium);
+		Gen.RandomMouseClick(this.gasmeterserialSendreg, 350, 34);
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.AssetaddedtowallNewReg, utility.medium);
 		await utility.wait(utility.medium);
