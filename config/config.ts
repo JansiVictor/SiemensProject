@@ -42,11 +42,11 @@ export const config: Config = {
     specs: [
         // ********************* PHASE A END TO END SCENARIOS**********************************
 
-                // "../../features/PHASE-A/EXCHANGE/*.feature",
-                // "../../features/PHASE-A/FAULTY_SMETS2/*.feature",
-                // "../../features/PHASE-A/FAULTY_TRAD/*.feature",
-                // "../../features/PHASE-A/INSTALLATION/*.feature",
-                // "../../features/PHASE-A/REMOVE/*.feature",
+                "../../features/PHASE-A/EXCHANGE/*.feature",
+                "../../features/PHASE-A/FAULTY_SMETS2/*.feature",
+                "../../features/PHASE-A/FAULTY_TRAD/*.feature",
+                "../../features/PHASE-A/INSTALLATION/*.feature",
+                "../../features/PHASE-A/REMOVE/*.feature",
 
         // ********************* PHASE B ABORT SCENARIOS**********************************
 
@@ -80,11 +80,8 @@ export const config: Config = {
         //     "../../features/Abort/AbortElecRisk/INSTALLATION/*.feature",
         //     "../../features/Abort/AbortElecRisk/REMOVE/*.feature",
 
-           //  "../../features/Abort/AbortInstallAndLeave/EXCHANGE/TST173*.feature",
-            //  "../../features/Abort/AbortInstallAndLeave/EXCHANGE/TST178*.feature",
-            //  "../../features/Abort/AbortInstallAndLeave/EXCHANGE/TST185*.feature",
-            //  "../../features/Abort/AbortInstallAndLeave/EXCHANGE/TST191*.feature",
-             "../../features/Abort/AbortInstallAndLeave/FAULTY_SMETS2/TST217*.feature",
+        //     "../../features/Abort/AbortInstallAndLeave/EXCHANGE/*.feature",
+        //     "../../features/Abort/AbortInstallAndLeave/FAULTY_SMETS2/*.feature",
         //     "../../features/Abort/AbortInstallAndLeave/FAULTY_TRAD/*.feature",
         //     "../../features/Abort/AbortInstallAndLeave/INSTALLATION/*.feature",
 
