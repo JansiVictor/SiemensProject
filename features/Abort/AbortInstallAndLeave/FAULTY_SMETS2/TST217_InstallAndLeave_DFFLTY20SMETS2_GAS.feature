@@ -260,7 +260,7 @@ Feature: TST217_InstallAndLeave_DFFLTY20SMETS2_GAS
 
     Scenario: Going through "Gas Appliance Safety Checks" GAS section
         Given FTwenty the Gas Appliance Safety Checks sec
-        When FTwenty I fill the Gas Appliance Safety Checks section fields with values and Sub
+        When I fill the InstallLeave Gas Appliance Safety Checks section to PPMID
         Then TST03 I should see SMETS PPMID sec
 
     Scenario: Going through "INSTALL PPMID" section

@@ -830,6 +830,17 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 	}
 
+	public async fillGasSafety_toPPMID_InstallLeave() {
+
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.earthBondingYEs, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.landLordPropertyNo, utility.medium);
+		await utility.wait(utility.medium);
+		Gen.ButtonClick(this.allAppliTestedBtn, utility.medium);
+		await utility.wait(utility.medium);
+	}
+
 	//TST135
 	public async TST135fillConfigAllmeter() {
 

@@ -47,6 +47,9 @@ When('I fill the InstallLeave Gas Appliance Safety Checks section', async functi
 	await installleave.fillGasSafety_InstallLeave();
 });
 
+When('I fill the InstallLeave Gas Appliance Safety Checks section to PPMID', async function (){
+	await installleave.fillGasSafety_toPPMID_InstallLeave();
+});
 
 When('I fill the InstallLeave Replace CommshubNoWan details fields with values', async function (){
 	await installleave.fillReplaceCommshubdetails(4);

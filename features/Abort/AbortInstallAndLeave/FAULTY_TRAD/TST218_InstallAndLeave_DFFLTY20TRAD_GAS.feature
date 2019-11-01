@@ -180,7 +180,7 @@ Feature: TST218_InstallAndLeave_DFFLTY20TRAD_GAS
 
 	Scenario: Going through "Gas Appliance Safety Checks" GAS section for FLTY20TRAD
 		Given Gas Appliance Safety Checks sec for FLTY20TRAD
-		When I fill the Gas Appliance Safety Checks section fields with values and Sub for FLTY20TRAD
+		When I fill the InstallLeave Gas Appliance Safety Checks section to PPMID
 		Then I click the Gas Install Submit Button
 		And I should see DEVICE BINDING and COMMISSIONING sec for FLTY20TRAD
 
