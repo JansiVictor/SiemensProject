@@ -60,20 +60,18 @@ webdriver-manager start
 For Internet Explorer runs:
 1. Open Windows command prompt 
 2. Run webdriver-manager update --ie
-3. Copy the IE driver version available within \drivers folder in the project directory on to the following path 
-C:\Users\Owner\AppData\Roaming\npm\node_modules\protractor\node_modules\webdriver-manager\selenium
-4. Change security Settings on IE browser - 
+3. Change security Settings on IE browser - 
     Settings->Security->Internet - Check 'Enable Protected Mode'
     Settings->Security->Local intranet - Check 'Enable Protected Mode'
     Settings->Security->Trusted sites - Check 'Enable Protected Mode'
     Settings->Security->Restricted sites - Check 'Enable Protected Mode' 
-5. Change General settings on IE browser -
+4. Change General settings on IE browser -
     Settings->General->Internet - Check 'Delete browsing history on exit'
-6. Change Privacy settings on IE browser - 
+5. Change Privacy settings on IE browser - 
     Settings->Privacy - Check Turn on Pop-up blocker
                         Settings - Check High-Block all pop-ups option 
-7. Ensure Internet Explorer is set to 100% ZOOM LEVEL by default.
-8. Run webdriver-manager start
+6. Ensure Internet Explorer is set to 100% ZOOM LEVEL by default.
+7. Run webdriver-manager start
 
 Incase of Machine Restart:
     Repeat steps 1-6 specified above, before test execution.
