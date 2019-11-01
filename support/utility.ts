@@ -15,8 +15,8 @@ export class Utility{
     //**Uncomment for Chrome run
 
     // public high = 80000;
-    // public medium = 5000;
-    // public medium_low = 4000;
+    // public medium = 3500;
+    // public medium_low = 3200;
     // public low = 3000;
     // public Avg_low = 2000;
     // public very_low = 1000;
