@@ -37,7 +37,7 @@ export class GenericPageObject {
             await browser.executeScript("arguments[0].click();", byname.getWebElement());
         }
         catch (e) {
-            console.log('Select link click not successful for ' + byname);
+            console.log('Select link click not successful for ' + e);
         }
     }
 
