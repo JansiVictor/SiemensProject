@@ -98,6 +98,28 @@ npm run build
 #### Configuration specifications 
 * Specify the user id to be used for the test execution on the config file. Ensure the SOAPUSER is specified in accordance with the user account.
 
+* Set the browserName and name attributes within the capabilities to Chrome or IE based on requirement
+
+```
+capabilities: {
+        browserName: 'internet explorer',   // Change here for chrome execution
+        shardTestFiles: true,
+        maxInstances: 1,
+        metadata: {
+            browser: {
+                name: 'internet explorer',  // Change here for chrome execution
+                version: '76'
+            },
+
+            device: 'Automation PC',
+            platform: {
+                name: 'Windows',
+                version: '10.12.6'
+            }
+        }
+    }
+```
+
 * Uncomment the required Spec on the config file based on the batch of testcases to be run.
 ```
   ********************* PHASE A END TO END SCENARIOS**********************************
