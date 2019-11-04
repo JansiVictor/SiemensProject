@@ -1571,6 +1571,8 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubReplacedyes, utility.medium);
 		browser.sleep(1000)
+		Gen.ButtonClick(this.commshubToInstall, utility.medium);
+		await utility.wait(utility.medium);
 		console.log("Selecting element based index : " + index)
 		await utility.wait(utility.medium);
 		await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
@@ -1633,6 +1635,8 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubReplacedyes, utility.medium);
 		browser.sleep(1000)
+		Gen.ButtonClick(this.commshubToInstall, utility.medium);
+		await utility.wait(utility.medium);
 		console.log("Selecting element based index : " + index)
 		await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
@@ -1683,6 +1687,8 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubReplacedyes, utility.medium);
 		browser.sleep(1000)
+		Gen.ButtonClick(this.commshubToInstall, utility.medium);
+		await utility.wait(utility.medium);
 		console.log("Selecting element based index : " + index)
 		await utility.wait(utility.medium);
 		await this.commshubToInstall.element(by.css("option:nth-child(" + index + ")")).click()
@@ -1731,6 +1737,8 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubReplacedyes_1, utility.medium);
 		browser.sleep(1000)
+		Gen.ButtonClick(this.commshubToInstall_1, utility.medium);
+		await utility.wait(utility.medium);
 		console.log("Selecting element based index : " + index)
 		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
 		await utility.wait(utility.medium);
@@ -1777,6 +1785,8 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubReplacedyes_1, utility.medium);
 		browser.sleep(1000)
+		Gen.ButtonClick(this.commshubToInstall_1, utility.medium);
+		await utility.wait(utility.medium);
 		console.log("Selecting element based index : " + index)
 		await utility.wait(utility.medium);
 		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
@@ -1826,6 +1836,8 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubReplacedyes_1, utility.medium);
 		browser.sleep(1000)
+		Gen.ButtonClick(this.commshubToInstall_1, utility.medium);
+		await utility.wait(utility.medium);
 		console.log("Selecting element based index : " + index)
 		await utility.wait(utility.medium);
 		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
@@ -1873,6 +1885,8 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.ButtonClick(this.commshubReplacedyes_1, utility.medium);
 		browser.sleep(1000)
+		Gen.ButtonClick(this.commshubToInstall_1, utility.medium);
+		await utility.wait(utility.medium);
 		//index = index ;
 		console.log("Selecting element based index : " + index)
 		// select the option
@@ -1925,12 +1939,13 @@ export class AbortPageObject {
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.commshubReplacedyes_1, utility.medium);
 		browser.sleep(1000)
+		Gen.ButtonClick(this.commshubToInstall_1, utility.medium);
+		await utility.wait(utility.medium);
 		//index = index ;
 		console.log("Selecting element based index : " + index)
 		// select the option
-		await utility.wait(utility.low);
-		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click()
-		await utility.wait(utility.low);
+		await utility.wait(utility.medium);
+		await this.commshubToInstall_1.element(by.css("option:nth-child(" + index + ")")).click();
 
 		await utility.wait(utility.medium);
 		Gen.RadioButtonClick(this.commshubPopup, utility.medium);
