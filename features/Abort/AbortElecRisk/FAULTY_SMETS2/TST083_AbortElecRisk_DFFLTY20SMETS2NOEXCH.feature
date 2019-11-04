@@ -149,7 +149,6 @@ Feature: TST083_AbortElecRisk_DFFLTY20SMETS2NOEXCH
         Given FLTYTwntyNoExchange the CAPTURE CUSTOMER SIGNATURE section
         When FLTYTwntyNoExchange I write signature in Customer Signature
         And FLTYTwntyNoExchange I fill the CAPTURE CUSTOMER SIGNATURE fields and Job Complete
-        Then FLTYTwntyNoExchange see Job Completed screen
 
     Scenario: Going through deleting the work order after use
         When I delete workorder after use
