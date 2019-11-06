@@ -183,7 +183,7 @@ export class AppointmentListPageObject {
 	public async verifyDepartForAppointmentWindow() {
 		await utility.wait(utility.medium);
 		await expect(await this.departAppointment.getText()).equal("Depart for Appointment?");
-		expect(this.departAppointment.isDisplayed());
+		await expect(this.departAppointment.isDisplayed());
 	}
 	public async clickDepartBtn() {
 		await utility.wait(utility.medium);
