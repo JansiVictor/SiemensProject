@@ -13,7 +13,7 @@ setDefaultTimeout(600 * 1000);
 
 BeforeAll({timeout: 1000 * 1000}, async () => {
     //await browser.get(config.baseUrl);
-    browser.sleep(5000);
+    await browser.sleep(5000);
 });
 
 Before({ tags: '@LoginScenario' }, async function(scenario) {
